@@ -3479,7 +3479,7 @@ const apis = [
         list: []
       },
       {
-        name: 'reloadRowExpand(row)',
+        name: 'reloadExpandContent(row)',
         desc: '用于懒加载展开行，重新加载展开行的内容',
         version: '3.4.0',
         type: 'Promise<any>',
@@ -3489,7 +3489,7 @@ const apis = [
       },
       {
         name: 'reloadRowExpand(row)',
-        desc: '即将废弃，请使用 reloadRowExpand',
+        desc: '即将废弃，请使用 reloadExpandContent',
         disabled: true,
         version: '',
         type: 'Promise<any>',

@@ -14,6 +14,27 @@
         <vxe-button icon="fa fa-eye" title="查看" circle></vxe-button>
         <vxe-button icon="fa fa-gear" title="设置" circle></vxe-button>
       </template>
+
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #nickname_edit="{ row }">
+        <vxe-input v-model="row.nickname"></vxe-input>
+      </template>
+      <template #sex_default="{ row }">
+        <span>{{ formatSex(row.sex) }}</span>
+      </template>
+      <template #sex_edit="{ row }">
+        <vxe-select v-model="row.sex" type="text" transfer>
+          <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+        </vxe-select>
+      </template>
+      <template #role_edit="{ row }">
+        <vxe-input v-model="row.role"></vxe-input>
+      </template>
+      <template #describe_edit="{ row }">
+        <vxe-input v-model="row.describe"></vxe-input>
+      </template>
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -55,15 +76,19 @@ export default {
         columns: [
           { type: 'seq', width: 60 },
           { type: 'checkbox', width: 50 },
-          { field: 'name', title: 'Name', editRender: { name: 'input' } },
-          { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-          { field: 'sex', title: 'Sex', editRender: { name: '$select', options: [] } },
-          { field: 'role', title: 'Role', editRender: { name: 'input' } },
-          { field: 'describe', title: 'Describe', showOverflow: true, editRender: { name: 'input' } },
+          { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+          { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+          { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
+          { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+          { field: 'describe', title: 'Describe', showOverflow: true, editRender: {}, slots: { edit: 'describe_edit' } },
           { title: '操作', width: 200, slots: { default: 'operate' } }
         ],
         data: []
       },
+      sexList1: [
+        { value: '1', label: '男' },
+        { value: '0', label: '女' }
+      ],
       demoCodes: [
         `
         <vxe-grid ref="xGrid" v-bind="gridOptions" @page-change="handlePageChange">
@@ -77,6 +102,27 @@ export default {
             <vxe-button icon="fa fa-trash" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
             <vxe-button icon="fa fa-eye" title="查看" circle></vxe-button>
             <vxe-button icon="fa fa-gear" title="设置" circle></vxe-button>
+          </template>
+
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name"></vxe-input>
+          </template>
+          <template #nickname_edit="{ row }">
+            <vxe-input v-model="row.nickname"></vxe-input>
+          </template>
+          <template #sex_default="{ row }">
+            <span>{{ formatSex(row.sex) }}</span>
+          </template>
+          <template #sex_edit="{ row }">
+            <vxe-select v-model="row.sex" type="text" transfer>
+              <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+            </vxe-select>
+          </template>
+          <template #role_edit="{ row }">
+            <vxe-input v-model="row.role"></vxe-input>
+          </template>
+          <template #describe_edit="{ row }">
+            <vxe-input v-model="row.describe"></vxe-input>
           </template>
         </vxe-grid>
         `,
@@ -110,29 +156,23 @@ export default {
                 columns: [
                   { type: 'seq', width: 60 },
                   { type: 'checkbox', width: 50 },
-                  { field: 'name', title: 'Name', editRender: { name: 'input' } },
-                  { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-                  { field: 'sex', title: 'Sex', editRender: { name: '$select', options: [] } },
-                  { field: 'role', title: 'Role', editRender: { name: 'input' } },
-                  { field: 'describe', title: 'Describe', showOverflow: true, editRender: { name: 'input' } },
+                  { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+                  { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+                  { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
+                  { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+                  { field: 'describe', title: 'Describe', showOverflow: true, editRender: {}, slots: { edit: 'describe_edit' } },
                   { title: '操作', width: 200, slots: { default: 'operate' } }
                 ],
                 data: []
+              },
+              sexList1: [
+                { value: '1', label: '男' },
+                { value: '0', label: '女' }
+              ]
               }
             }
           },
           created () {
-            setTimeout(() => {
-              const $grid = this.$refs.xGrid
-              // 异步更新下拉选项
-              if ($grid) {
-                const column = $grid.getColumnByField('sex')
-                column.editRender.options = [
-                  { value: '1', label: '男' },
-                  { value: '0', label: '女' }
-                ]
-              }
-            }, 300)
             this.findList()
           },
           methods: {
@@ -154,6 +194,15 @@ export default {
                   { id: 10010, name: 'Test10', nickname: 'T10', role: 'Develop', sex: '0', age: 34, address: 'Shanghai' }
                 ]
               }, 300)
+            },
+            formatSex (value) {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
             },
             searchEvent () {
               this.gridOptions.pagerConfig.currentPage = 1
@@ -192,17 +241,6 @@ export default {
     }
   },
   created () {
-    setTimeout(() => {
-      const $grid = this.$refs.xGrid
-      // 异步更新下拉选项
-      if ($grid) {
-        const column = $grid.getColumnByField('sex')
-        column.editRender.options = [
-          { value: '1', label: '男' },
-          { value: '0', label: '女' }
-        ]
-      }
-    }, 300)
     this.findList()
   },
   methods: {
@@ -224,6 +262,15 @@ export default {
           { id: 10010, name: 'Test10', nickname: 'T10', role: 'Develop', sex: '0', age: 34, address: 'Shanghai' }
         ]
       }, 300)
+    },
+    formatSex (value) {
+      if (value === '1') {
+        return '男'
+      }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
     },
     searchEvent () {
       this.gridOptions.pagerConfig.currentPage = 1

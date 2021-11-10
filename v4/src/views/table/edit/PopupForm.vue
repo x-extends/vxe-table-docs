@@ -32,7 +32,76 @@
 
     <vxe-modal v-model="demo1.showEdit" :title="demo1.selectRow ? '编辑&保存' : '新增&保存'" width="800" min-width="600" min-height="300" :loading="demo1.submitLoading" resize destroy-on-close>
       <template #default>
-        <vxe-form :data="demo1.formData" :items="demo1.formItems" :rules="demo1.formRules" title-align="right" title-width="100" @submit="submitEvent"></vxe-form>
+        <vxe-form :data="demo1.formData" :rules="demo1.formRules" title-align="right" title-width="100" @submit="submitEvent">
+          <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{icon: 'fa fa-address-card-o'}"></vxe-form-item>
+          <vxe-form-item field="name" title="Name" :span="12" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item field="nickname" title="Nickname" :span="12" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item field="role" title="Role" :span="12" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-input v-model="data.name" placeholder="请输入角色"></vxe-input>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item field="sex" title="Sex" :span="12" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-select v-model="data.sex" transfer>
+                <vxe-option v-for="item in demo1.sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item field="age" title="Age" :span="12" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-input v-model="data.age" type="number" placeholder="请输入年龄"></vxe-input>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item field="flag1" title="是否单身" :span="12" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-radio-group v-model="data.flag1">
+                <vxe-radio label="Y" content="是"></vxe-radio>
+                <vxe-radio label="N" content="否"></vxe-radio>
+              </vxe-radio-group>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item field="checkedList" title="可选信息" :visible-method="visibleMethod" :span="24" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-checkbox-group v-model="data.checkedList">
+                <vxe-checkbox label="1" content="运动、跑步"></vxe-checkbox>
+                <vxe-checkbox label="2" content="听音乐"></vxe-checkbox>
+                <vxe-checkbox label="3" content="爬山"></vxe-checkbox>
+                <vxe-checkbox label="4" content="吃美食"></vxe-checkbox>
+              </vxe-checkbox-group>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item title="Other information" title-align="left" :title-width="200" :span="24" :title-prefix="{message: '请填写必填项', icon: 'fa fa-info-circle'}"></vxe-form-item>
+          <vxe-form-item field="num" title="Number" :span="12" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-input v-model="data.num" type="number" placeholder="请输入数值"></vxe-input>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item field="date3" title="Date" :span="12" :item-render="{}">
+            <template #default="{ data }">
+              <vxe-input v-model="data.date3" type="date" placeholder="请选择日期" transfer></vxe-input>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item field="address" title="Date" :span="24" :item-render="{}" :title-suffix="{message: '提示信息！！', icon: 'fa fa-question-circle'}">
+            <template #default="{ data }">
+              <vxe-textarea v-model="data.address" :autosize="{minRows: 2, maxRows: 4}"></vxe-textarea>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item align="center" title-align="left" :span="24">
+            <template #default>
+              <vxe-button type="submit">提交</vxe-button>
+              <vxe-button type="reset">重置</vxe-button>
+            </template>
+          </vxe-form-item>
+        </vxe-form>
       </template>
     </vxe-modal>
 
@@ -47,7 +116,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import { VXETable, VxeTableInstance, VxeColumnPropTypes, VxeFormPropTypes, VxeTableEvents } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeColumnPropTypes, VxeFormPropTypes, VxeFormItemPropTypes, VxeTableEvents } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -83,30 +152,7 @@ export default defineComponent({
         sex: [
           { required: true, message: '请选择性别' }
         ]
-      } as VxeFormPropTypes.Rules,
-      formItems: [
-        { title: 'Basic information', span: 24, titleAlign: 'left', titleWidth: 200, titlePrefix: { icon: 'fa fa-address-card-o' } },
-        { field: 'name', title: 'Name', span: 12, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-        { field: 'nickname', title: 'Nickname', span: 12, itemRender: { name: '$input', props: { placeholder: '请输入昵称' } } },
-        { field: 'role', title: 'Role', span: 12, itemRender: { name: '$input', props: { placeholder: '请输入角色' } } },
-        { field: 'sex', title: 'Sex', span: 12, itemRender: { name: '$select', options: [] } },
-        { field: 'age', title: 'Age', span: 12, itemRender: { name: '$input', props: { type: 'number', placeholder: '请输入年龄' } } },
-        { field: 'flag1', title: '是否单身', span: 12, itemRender: { name: '$radio', options: [{ label: '是', value: 'Y' }, { label: '否', value: 'N' }] } },
-        {
-          field: 'checkedList',
-          title: '可选信息',
-          span: 24,
-          visibleMethod ({ data }) {
-            return data.flag1 === 'Y'
-          },
-          itemRender: { name: '$checkbox', options: [{ label: '跑步', value: '1' }, { label: '听音乐', value: '2' }, { label: '游泳', value: '3' }, { label: '吃美食', value: '4' }] }
-        },
-        { title: 'Other information', span: 24, titleAlign: 'left', titleWidth: 200, titlePrefix: { message: '请填写必填项', icon: 'fa fa-info-circle' } },
-        { field: 'num', title: 'Number', span: 12, itemRender: { name: '$input', props: { type: 'number', placeholder: '请输入数值' } } },
-        { field: 'date3', title: 'Date', span: 12, itemRender: { name: '$input', props: { type: 'date', placeholder: '请选择日期' } } },
-        { field: 'address', title: 'Address', span: 24, titleSuffix: { message: '提示信息！！', icon: 'fa fa-question-circle' }, itemRender: { name: '$textarea', props: { autosize: { minRows: 2, maxRows: 4 }, placeholder: '请输入地址' } } },
-        { align: 'center', span: 24, titleAlign: 'left', itemRender: { name: '$buttons', children: [{ props: { type: 'submit', content: '提交', status: 'primary' } }, { props: { type: 'reset', content: '重置' } }] } }
-      ] as VxeFormPropTypes.Items
+      } as VxeFormPropTypes.Rules
     })
 
     const xTable = ref({} as VxeTableInstance)
@@ -114,6 +160,10 @@ export default defineComponent({
     const formatterSex: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
       const item = demo1.sexList.find(item => item.value === cellValue)
       return item ? item.label : ''
+    }
+
+    const visibleMethod: VxeFormItemPropTypes.VisibleMethod = ({ data }) => {
+      return data.flag1 === 'Y'
     }
 
     const insertEvent = () => {
@@ -187,10 +237,6 @@ export default defineComponent({
         { id: 10004, name: 'Test6', nickname: 'T6', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 28, address: 'BeiJing', date12: '', date13: '2020-09-04' },
         { id: 10004, name: 'Test7', nickname: 'T7', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 30, address: 'BeiJing', date12: '', date13: '2020-04-10' }
       ]
-      const sexItem = demo1.formItems[4]
-      if (sexItem.itemRender) {
-        sexItem.itemRender.options = demo1.sexList
-      }
       demo1.tableData = list
     }, 100)
 
@@ -198,6 +244,7 @@ export default defineComponent({
       demo1,
       xTable,
       formatterSex,
+      visibleMethod,
       cellDBLClickEvent,
       insertEvent,
       editEvent,
@@ -235,13 +282,82 @@ export default defineComponent({
 
         <vxe-modal v-model="demo1.showEdit" :title="demo1.selectRow ? '编辑&保存' : '新增&保存'" width="800" min-width="600" min-height="300" :loading="demo1.submitLoading" resize destroy-on-close>
           <template #default>
-            <vxe-form :data="demo1.formData" :items="demo1.formItems" :rules="demo1.formRules" title-align="right" title-width="100" @submit="submitEvent"></vxe-form>
+            <vxe-form :data="demo1.formData" :rules="demo1.formRules" title-align="right" title-width="100" @submit="submitEvent">
+              <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{icon: 'fa fa-address-card-o'}"></vxe-form-item>
+              <vxe-form-item field="name" title="Name" :span="12" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item field="nickname" title="Nickname" :span="12" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item field="role" title="Role" :span="12" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-input v-model="data.name" placeholder="请输入角色"></vxe-input>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item field="sex" title="Sex" :span="12" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-select v-model="data.sex" transfer>
+                    <vxe-option v-for="item in demo1.sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+                  </vxe-select>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item field="age" title="Age" :span="12" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-input v-model="data.age" type="number" placeholder="请输入年龄"></vxe-input>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item field="flag1" title="是否单身" :span="12" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-radio-group v-model="data.flag1">
+                    <vxe-radio label="Y" content="是"></vxe-radio>
+                    <vxe-radio label="N" content="否"></vxe-radio>
+                  </vxe-radio-group>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item field="checkedList" title="可选信息" :visible-method="visibleMethod" :span="24" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-checkbox-group v-model="data.checkedList">
+                    <vxe-checkbox label="1" content="运动、跑步"></vxe-checkbox>
+                    <vxe-checkbox label="2" content="听音乐"></vxe-checkbox>
+                    <vxe-checkbox label="3" content="爬山"></vxe-checkbox>
+                    <vxe-checkbox label="4" content="吃美食"></vxe-checkbox>
+                  </vxe-checkbox-group>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item title="Other information" title-align="left" :title-width="200" :span="24" :title-prefix="{message: '请填写必填项', icon: 'fa fa-info-circle'}"></vxe-form-item>
+              <vxe-form-item field="num" title="Number" :span="12" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-input v-model="data.num" type="number" placeholder="请输入数值"></vxe-input>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item field="date3" title="Date" :span="12" :item-render="{}">
+                <template #default="{ data }">
+                  <vxe-input v-model="data.date3" type="date" placeholder="请选择日期" transfer></vxe-input>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item field="address" title="Date" :span="24" :item-render="{}" :title-suffix="{message: '提示信息！！', icon: 'fa fa-question-circle'}">
+                <template #default="{ data }">
+                  <vxe-textarea v-model="data.address" :autosize="{minRows: 2, maxRows: 4}"></vxe-textarea>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item align="center" title-align="left" :span="24">
+                <template #default>
+                  <vxe-button type="submit">提交</vxe-button>
+                  <vxe-button type="reset">重置</vxe-button>
+                </template>
+              </vxe-form-item>
+            </vxe-form>
           </template>
         </vxe-modal>
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
-        import { VXETable, VxeTableInstance, VxeColumnPropTypes, VxeFormPropTypes, VxeTableEvents } from 'vxe-table'
+        import { VXETable, VxeTableInstance, VxeColumnPropTypes, VxeFormPropTypes, VxeFormItemPropTypes, VxeTableEvents } from 'vxe-table'
 
         export default defineComponent({
           setup () {
@@ -277,30 +393,7 @@ export default defineComponent({
                 sex: [
                   { required: true, message: '请选择性别' }
                 ]
-              } as VxeFormPropTypes.Rules,
-              formItems: [
-                { title: 'Basic information', span: 24, titleAlign: 'left', titleWidth: 200, titlePrefix: { icon: 'fa fa-address-card-o' } },
-                { field: 'name', title: 'Name', span: 12, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-                { field: 'nickname', title: 'Nickname', span: 12, itemRender: { name: '$input', props: { placeholder: '请输入昵称' } } },
-                { field: 'role', title: 'Role', span: 12, itemRender: { name: '$input', props: { placeholder: '请输入角色' } } },
-                { field: 'sex', title: 'Sex', span: 12, itemRender: { name: '$select', options: [] } },
-                { field: 'age', title: 'Age', span: 12, itemRender: { name: '$input', props: { type: 'number', placeholder: '请输入年龄' } } },
-                { field: 'flag1', title: '是否单身', span: 12, itemRender: { name: '$radio', options: [{ label: '是', value: 'Y' }, { label: '否', value: 'N' }] } },
-                {
-                  field: 'checkedList',
-                  title: '可选信息',
-                  span: 24,
-                  visibleMethod ({ data }) {
-                    return data.flag1 === 'Y'
-                  },
-                  itemRender: { name: '$checkbox', options: [{ label: '运动、跑步', value: '1' }, { label: '听音乐', value: '2' }, { label: '泡妞', value: '3' }, { label: '吃美食', value: '4' }] }
-                },
-                { title: 'Other information', span: 24, titleAlign: 'left', titleWidth: 200, titlePrefix: { message: '请填写必填项', icon: 'fa fa-info-circle' } },
-                { field: 'num', title: 'Number', span: 12, itemRender: { name: '$input', props: { type: 'number', placeholder: '请输入数值' } } },
-                { field: 'date3', title: 'Date', span: 12, itemRender: { name: '$input', props: { type: 'date', placeholder: '请选择日期' } } },
-                { field: 'address', title: 'Address', span: 24, titleSuffix: { message: '提示信息！！', icon: 'fa fa-question-circle' }, itemRender: { name: '$textarea', props: { autosize: { minRows: 2, maxRows: 4 }, placeholder: '请输入地址' } } },
-                { align: 'center', span: 24, titleAlign: 'left', itemRender: { name: '$buttons', children: [{ props: { type: 'submit', content: '提交', status: 'primary' } }, { props: { type: 'reset', content: '重置' } }] } }
-              ] as VxeFormPropTypes.Items
+              } as VxeFormPropTypes.Rules
             })
 
             const xTable = ref({} as VxeTableInstance)
@@ -308,6 +401,10 @@ export default defineComponent({
             const formatterSex: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
               const item = demo1.sexList.find(item => item.value === cellValue)
               return item ? item.label : ''
+            }
+
+            const visibleMethod: VxeFormItemPropTypes.VisibleMethod = ({ data }) => {
+              return data.flag1 === 'Y'
             }
 
             const insertEvent = () => {
@@ -378,17 +475,13 @@ export default defineComponent({
                 { id: 10003, name: 'Test3', nickname: 'T3', role: 'Test', sex: '0', sex2: ['1'], num1: 200, age: 32, address: 'Shanghai', date12: '2020-09-10', date13: '' },
                 { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04' }
               ]
-              const sexItem = demo1.formItems[4]
-              if (sexItem.itemRender) {
-                sexItem.itemRender.options = demo1.sexList
-              }
-              demo1.tableData = list
             }, 50)
 
             return {
               demo1,
               xTable,
               formatterSex,
+              visibleMethod,
               cellDBLClickEvent,
               insertEvent,
               editEvent,

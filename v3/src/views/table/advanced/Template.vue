@@ -55,7 +55,7 @@
           <a href="https://github.com/x-extends/vxe-table" target="_black">我是超链接：{{ row.name }}</a>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="app.body.label.sex" :filters="[{data: ''}]" :filter-method="filterSexMethod">
+      <vxe-column field="role" title="Role">
         <template #header>
           <span style="color: red;">自定义头部</span>
         </template>
@@ -67,10 +67,8 @@
             <input class="my-filter" type="type" v-model="option.data" :key="index" @input="changeFilterEvent($event, option, $panel)">
           </template>
         </template>
-        <template #default="{ row }">
-          <span>{{ row.sex }} </span>
-          <vxe-button type="text">编辑</vxe-button>
-          <vxe-button type="text">删除</vxe-button>
+        <template #default>
+          <vxe-button type="text">自定义按钮</vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="time" title="Time">
@@ -89,17 +87,12 @@
           </template>
         </template>
       </vxe-column>
-      <vxe-column field="address" title="Address" show-overflow>
-        <template #default="{ row, rowIndex }">
-          <template v-if="rowIndex === 1">
-            <vxe-select v-model="row.flag1" transfer>
-              <vxe-option value="Y" label="是"></vxe-option>
-              <vxe-option value="N" label="否"></vxe-option>
-            </vxe-select>
-          </template>
-          <template v-else>
-            <a href="https://github.com/x-extends/vxe-table">{{ row.name }}</a>
-          </template>
+      <vxe-column field="sex" title="Sex" show-overflow>
+        <template #default="{ row }">
+          <vxe-select v-model="row.sex" transfer>
+            <vxe-option value="Man" label="Man"></vxe-option>
+            <vxe-option value="Women" label="Women"></vxe-option>
+          </vxe-select>
         </template>
       </vxe-column>
       <vxe-column field="html1" title="Html片段" width="200" show-overflow>
@@ -241,7 +234,7 @@ export default {
               <a href="https://github.com/x-extends/vxe-table" target="_black">我是超链接：{{ row.name }}</a>
             </template>
           </vxe-column>
-          <vxe-column field="sex" title="app.body.label.sex" :filters="[{data: ''}]" :filter-method="filterSexMethod">
+          <vxe-column field="role" title="Role">
             <template #header>
               <span style="color: red;">自定义头部</span>
             </template>
@@ -253,10 +246,8 @@ export default {
                 <input class="my-filter" type="type" v-model="option.data" :key="index" @input="changeFilterEvent($event, option, $panel)">
               </template>
             </template>
-            <template #default="{ row }">
-              <span>{{ row.sex }} </span>
-              <vxe-button type="text">编辑</vxe-button>
-              <vxe-button type="text">删除</vxe-button>
+            <template #default>
+              <vxe-button type="text">自定义按钮</vxe-button>
             </template>
           </vxe-column>
           <vxe-column field="time" title="Time">
@@ -275,17 +266,12 @@ export default {
               </template>
             </template>
           </vxe-column>
-          <vxe-column field="address" title="Address" show-overflow>
-            <template #default="{ row, rowIndex }">
-              <template v-if="rowIndex === 1">
-                <vxe-select v-model="row.flag1" transfer>
-                  <vxe-option value="Y" label="是"></vxe-option>
-                  <vxe-option value="N" label="否"></vxe-option>
-                </vxe-select>
-              </template>
-              <template v-else>
-                <a href="https://github.com/x-extends/vxe-table">{{ row.name }}</a>
-              </template>
+          <vxe-column field="sex" title="Sex" show-overflow>
+            <template #default="{ row }">
+              <vxe-select v-model="row.sex" transfer>
+                <vxe-option value="Man" label="Man"></vxe-option>
+                <vxe-option value="Women" label="Women"></vxe-option>
+              </vxe-select>
             </template>
           </vxe-column>
           <vxe-column field="html1" title="Html片段" width="200" show-overflow>
@@ -374,9 +360,6 @@ export default {
             formatDate (value) {
               return XEUtils.toDateString(value, 'yyyy-MM-dd HH:mm:ss.S')
             },
-            filterSexMethod ({ option, row }) {
-              return row.sex === option.data
-            },
             changeFilterEvent (evnt, option, $panel) {
               $panel.changeOption(evnt, !!option.data, option)
             },
@@ -458,9 +441,6 @@ export default {
   methods: {
     formatDate (value) {
       return XEUtils.toDateString(value, 'yyyy-MM-dd HH:mm:ss.S')
-    },
-    filterSexMethod ({ option, row }) {
-      return row.sex === option.data
     },
     changeFilterEvent (evnt, option, $panel) {
       $panel.changeOption(evnt, !!option.data, option)

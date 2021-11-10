@@ -10,11 +10,26 @@
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="分组1">
-        <vxe-column field="name" title="Name" :edit-render="{name: 'input', autoselect: true}"></vxe-column>
-        <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', optionGroups: sexGriupList}"></vxe-column>
+        <vxe-column field="name" title="Name" :edit-render="{autofocus: '.my-input', autoselect: true}">
+          <template #edit="{ row }">
+            <input v-model="row.name" type="text" class="my-input">
+          </template>
+        </vxe-column>
+        <vxe-column field="sex" title="Sex" :edit-render="{}">
+          <template #default="{ row }">
+            <span>{{ formatGroupSex(row.sex) }}</span>
+          </template>
+          <template #edit="{ row }">
+          <vxe-select v-model="row.sex" type="text" :optionGroups="sexGriupList" transfer></vxe-select>
+        </template>
+        </vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="分组1">
-        <vxe-column field="date13" title="Date" :edit-render="{name: '$input', props: {type: 'date'}, autoselect: true}"></vxe-column>
+        <vxe-column field="date13" title="Date" :edit-render="{autofocus: '.my-input', autoselect: true}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.date13" type="date" class="my-input"></vxe-input>
+          </template>
+        </vxe-column>
       </vxe-colgroup>
     </vxe-table>
 
@@ -71,11 +86,26 @@ export default {
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-colgroup title="分组1">
-            <vxe-column field="name" title="Name" :edit-render="{name: 'input', autoselect: true}"></vxe-column>
-            <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', optionGroups: sexGriupList}"></vxe-column>
+            <vxe-column field="name" title="Name" :edit-render="{autofocus: '.my-input', autoselect: true}">
+              <template #edit="{ row }">
+                <input v-model="row.name" type="text" class="my-input">
+              </template>
+            </vxe-column>
+            <vxe-column field="sex" title="Sex" :edit-render="{}">
+              <template #edit="{ row }">
+              <vxe-select v-model="row.sex" type="text" :optionGroups="sexGriupList" transfer></vxe-select>
+            </template>
+            </vxe-column>
           </vxe-colgroup>
           <vxe-colgroup title="分组1">
-            <vxe-column field="date13" title="Date" :edit-render="{name: '$input', props: {type: 'date'}, autoselect: true}"></vxe-column>
+            <vxe-column field="date13" title="Date" :edit-render="{autofocus: '.my-input', autoselect: true}">
+              <template #default="{ row }">
+                <span>{{ formatGroupSex(row.sex2) }}</span>
+              </template>
+              <template #edit="{ row }">
+                <vxe-input v-model="row.date13" type="date" class="my-input"></vxe-input>
+              </template>
+            </vxe-column>
           </vxe-colgroup>
         </vxe-table>
         `,
@@ -114,10 +144,38 @@ export default {
                 }
               ]
             }
+          },
+          methods: {
+            formatGroupSex (value) {
+              let label = ''
+              this.sexGriupList.find(group => {
+                group.options.find(item => {
+                  if (item.value === value) {
+                    label = item.label
+                    return true
+                  }
+                })
+              })
+              return label
+            }
           }
         }
         `
       ]
+    }
+  },
+  methods: {
+    formatGroupSex (value) {
+      let label = ''
+      this.sexGriupList.find(group => {
+        group.options.find(item => {
+          if (item.value === value) {
+            label = item.label
+            return true
+          }
+        })
+      })
+      return label
     }
   }
 }

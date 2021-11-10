@@ -103,7 +103,7 @@
 
 <script lang="tsx">
 import { defineComponent, reactive, ref } from 'vue'
-import { VXETable, VxeTableInstance, VxeTablePropTypes, VxeTableDefines } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -328,7 +328,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
-        import { VXETable, VxeTableInstance, VxeTablePropTypes, VxeTableDefines } from 'vxe-table'
+        import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
         export default defineComponent({
           setup () {

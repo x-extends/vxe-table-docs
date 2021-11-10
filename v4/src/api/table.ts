@@ -3506,8 +3506,8 @@ const apis = [
         list: []
       },
       {
-        name: 'reloadRowExpand(row)',
-        desc: '用于懒加载展开行，重新加载展开行的内容',
+        name: 'reloadExpandContent(row)',
+        desc: '即将废弃，请使用 reloadRowExpand',
         version: '',
         type: 'Promise<any>',
         enum: '',

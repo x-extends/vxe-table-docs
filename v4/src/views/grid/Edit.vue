@@ -14,6 +14,27 @@
         <vxe-button icon="fa fa-eye" title="查看" circle></vxe-button>
         <vxe-button icon="fa fa-gear" title="设置" circle></vxe-button>
       </template>
+
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #nickname_edit="{ row }">
+        <vxe-input v-model="row.nickname"></vxe-input>
+      </template>
+      <template #sex_default="{ row }">
+        <span>{{ formatSex(row.sex) }}</span>
+      </template>
+      <template #sex_edit="{ row }">
+        <vxe-select v-model="row.sex" type="text" transfer>
+          <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+        </vxe-select>
+      </template>
+      <template #role_edit="{ row }">
+        <vxe-input v-model="row.role"></vxe-input>
+      </template>
+      <template #describe_edit="{ row }">
+        <vxe-input v-model="row.describe"></vxe-input>
+      </template>
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -55,15 +76,20 @@ export default defineComponent({
       columns: [
         { type: 'seq', width: 60 },
         { type: 'checkbox', width: 50 },
-        { field: 'name', title: 'Name', editRender: { name: 'input' } },
-        { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-        { field: 'sex', title: 'Sex', editRender: { name: '$select', options: [] } },
-        { field: 'role', title: 'Role', editRender: { name: 'input' } },
-        { field: 'describe', title: 'Describe', showOverflow: true, editRender: { name: 'input' } },
+        { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+        { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+        { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
+        { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+        { field: 'describe', title: 'Describe', showOverflow: true, editRender: {}, slots: { edit: 'describe_edit' } },
         { title: '操作', width: 200, slots: { default: 'operate' } }
       ],
       data: []
     })
+
+    const sexList1 = ref([
+      { value: '1', label: '男' },
+      { value: '0', label: '女' }
+    ])
 
     const findList = () => {
       gridOptions.loading = true
@@ -97,6 +123,16 @@ export default defineComponent({
       }
     }
 
+    const formatSex = (value: any) => {
+      if (value === '1') {
+        return '男'
+      }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
+    }
+
     const editRowEvent = (row: any) => {
       const $grid = xGrid.value
       if ($grid) {
@@ -127,25 +163,13 @@ export default defineComponent({
       }
     }
 
-    setTimeout(() => {
-      const $grid = xGrid.value
-      // 异步更新下拉选项
-      if ($grid) {
-        const column = $grid.getColumnByField('sex')
-        if (column && column.editRender) {
-          column.editRender.options = [
-            { value: '1', label: '男' },
-            { value: '0', label: '女' }
-          ]
-        }
-      }
-    }, 300)
-
     findList()
 
     return {
       xGrid,
+      sexList1,
       gridOptions,
+      formatSex,
       gridEvents,
       editRowEvent,
       saveRowEvent,
@@ -163,6 +187,27 @@ export default defineComponent({
             <vxe-button icon="fa fa-trash" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
             <vxe-button icon="fa fa-eye" title="查看" circle></vxe-button>
             <vxe-button icon="fa fa-gear" title="设置" circle></vxe-button>
+          </template>
+
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name"></vxe-input>
+          </template>
+          <template #nickname_edit="{ row }">
+            <vxe-input v-model="row.nickname"></vxe-input>
+          </template>
+          <template #sex_default="{ row }">
+            <span>{{ formatSex(row.sex) }}</span>
+          </template>
+          <template #sex_edit="{ row }">
+            <vxe-select v-model="row.sex" type="text" transfer>
+              <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+            </vxe-select>
+          </template>
+          <template #role_edit="{ row }">
+            <vxe-input v-model="row.role"></vxe-input>
+          </template>
+          <template #describe_edit="{ row }">
+            <vxe-input v-model="row.describe"></vxe-input>
           </template>
         </vxe-grid>
         `,
@@ -196,15 +241,20 @@ export default defineComponent({
               columns: [
                 { type: 'seq', width: 60 },
                 { type: 'checkbox', width: 50 },
-                { field: 'name', title: 'Name', editRender: { name: 'input' } },
-                { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-                { field: 'sex', title: 'Sex', editRender: { name: '$select', options: [] } },
-                { field: 'role', title: 'Role', editRender: { name: 'input' } },
-                { field: 'describe', title: 'Describe', showOverflow: true, editRender: { name: 'input' } },
+                { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+                { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+                { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
+                { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+                { field: 'describe', title: 'Describe', showOverflow: true, editRender: {}, slots: { edit: 'describe_edit' } },
                 { title: '操作', width: 200, slots: { default: 'operate' } }
               ],
               data: []
             })
+
+            const sexList1 = ref([
+              { value: '1', label: '男' },
+              { value: '0', label: '女' }
+            ])
 
             const findList = () => {
               gridOptions.loading = true
@@ -238,6 +288,16 @@ export default defineComponent({
               }
             }
 
+            const formatSex = (value: any) => {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
+            }
+
             const editRowEvent = (row: any) => {
               const $grid = xGrid.value
               if ($grid) {
@@ -268,25 +328,13 @@ export default defineComponent({
               }
             }
 
-            setTimeout(() => {
-              const $grid = xGrid.value
-              // 异步更新下拉选项
-              if ($grid) {
-                const column = $grid.getColumnByField('sex')
-                if (column && column.editRender) {
-                  column.editRender.options = [
-                    { value: '1', label: '男' },
-                    { value: '0', label: '女' }
-                  ]
-                }
-              }
-            }, 300)
-
             findList()
 
             return {
               xGrid,
+              sexList1,
               gridOptions,
+              formatSex,
               gridEvents,
               editRowEvent,
               saveRowEvent,
