@@ -14,9 +14,21 @@
       :footer-method="footerMethod"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="书名" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="amount" title="单价" :edit-render="{name: '$input', props: {type: 'number'}}"></vxe-column>
-      <vxe-column field="number" title="数量" :edit-render="{name: '$input', props: {type: 'number'}}"></vxe-column>
+      <vxe-column field="name" title="书名" :edit-render="{name: 'input'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="amount" title="单价" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.amount" type="number"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="num1" title="数量" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.num1" type="number"></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-column title="总价">
         <template #default="{ row }">
           <span>{{ countAmount(row) }} 元</span>
@@ -38,10 +50,10 @@ export default {
   data () {
     return {
       tableData: [
-        { name: 'test abc', amount: 80, number: 5 },
-        { name: 'JavaScript 权威指南', amount: 40, number: 3 },
-        { name: 'Vue 入门到精通', amount: 90, number: 9 },
-        { name: '深入现代 JavaScript 应用开发', amount: 60, number: 1 }
+        { name: 'test abc', amount: 80, num1: 5 },
+        { name: 'JavaScript 权威指南', amount: 40, num1: 3 },
+        { name: 'Vue 入门到精通', amount: 90, num1: 9 },
+        { name: '深入现代 JavaScript 应用开发', amount: 60, num1: 1 }
       ],
       demoCodes: [
         `
@@ -54,9 +66,21 @@ export default {
           :footer-method="footerMethod"
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="书名" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="amount" title="单价" :edit-render="{name: '$input', props: {type: 'number'}}"></vxe-column>
-          <vxe-column field="number" title="数量" :edit-render="{name: '$input', props: {type: 'number'}}"></vxe-column>
+          <vxe-column field="name" title="书名" :edit-render="{name: 'input'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="amount" title="单价" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.amount" type="number"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="num1" title="数量" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.num1" type="number"></vxe-input>
+            </template>
+          </vxe-column>
           <vxe-column title="总价">
             <template #default="{ row }">
               <span>{{ countAmount(row) }} 元</span>
@@ -85,7 +109,7 @@ export default {
               return count
             },
             countAmount (row) {
-              return row.amount * row.number
+              return row.amount * row.num1
             },
             countAllAmount (data) {
               let count = 0
@@ -101,7 +125,7 @@ export default {
                     return '合计'
                   }
                   if (columnIndex === 3) {
-                    return \`\${this.sumNum(data, 'number')} 本\`
+                    return \`\${this.sumNum(data, 'num1')} 本\`
                   } else if (columnIndex === 4) {
                     return \`共 \${this.countAllAmount(data)} 元\`
                   }
@@ -124,7 +148,7 @@ export default {
       return count
     },
     countAmount (row) {
-      return row.amount * row.number
+      return row.amount * row.num1
     },
     countAllAmount (data) {
       let count = 0
@@ -140,7 +164,7 @@ export default {
             return '合计'
           }
           if (columnIndex === 3) {
-            return `${this.sumNum(data, 'number')} 本`
+            return `${this.sumNum(data, 'num1')} 本`
           } else if (columnIndex === 4) {
             return `共 ${this.countAllAmount(data)} 元`
           }

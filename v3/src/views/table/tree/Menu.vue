@@ -8,17 +8,33 @@
       resizable
       show-overflow
       keep-source
-      ref="xTree"
+      ref="xTable"
       :tree-config="treeConfig"
       :menu-config="{header: {options: headerMenus}, body: {options: bodyMenus}, visibleMethod}"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       :data="tableData"
       @menu-click="contextMenuClickEvent">
       <vxe-column type="checkbox" width="120" tree-node></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="size" title="Size" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.size" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="type" title="Type" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.type" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <pre>
@@ -91,17 +107,33 @@ export default {
           resizable
           show-overflow
           keep-source
-          ref="xTree"
+          ref="xTable"
           :tree-config="treeConfig"
           :menu-config="{header: {options: headerMenus}, body: {options: bodyMenus}, visibleMethod}"
           :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
           :data="tableData"
           @menu-click="contextMenuClickEvent">
           <vxe-column type="checkbox" width="120" tree-node></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="size" title="Size" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.size" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="type" title="Type" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.type" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -149,14 +181,14 @@ export default {
           },
           methods: {
             visibleMethod  ({ row, type }) {
-              let xTree = this.$refs.xTree
+              let xTable = this.$refs.xTable
               let treeConfig = this.treeConfig
               if (type === 'body') {
                 this.bodyMenus.forEach(list => {
                   list.forEach(item => {
                     if (['expand', 'contract'].includes(item.code)) {
                       if (row[treeConfig.children] && row[treeConfig.children].length) {
-                        let isExpand = xTree.isTreeExpandByRow(row)
+                        let isExpand = xTable.isTreeExpandByRow(row)
                         item.disabled = ['expand'].includes(item.code) ? isExpand : !isExpand
                       } else {
                         item.disabled = true
@@ -168,16 +200,16 @@ export default {
               return true
             },
             contextMenuClickEvent ({ menu, row, column }) {
-              let xTree = this.$refs.xTree
+              let xTable = this.$refs.xTable
               switch (menu.code) {
                 case 'hideColumn':
-                  xTree.hideColumn(column)
+                  xTable.hideColumn(column)
                   break
                 case 'showAllColumn':
-                  xTree.resetColumn()
+                  xTable.resetColumn()
                   break
                 case 'expandOrFold':
-                  xTree.toggleTreeExpand(row)
+                  xTable.toggleTreeExpand(row)
                   break
               }
             }
@@ -189,14 +221,14 @@ export default {
   },
   methods: {
     visibleMethod  ({ row, type }) {
-      const xTree = this.$refs.xTree
+      const xTable = this.$refs.xTable
       const treeConfig = this.treeConfig
       if (type === 'body') {
         this.bodyMenus.forEach(list => {
           list.forEach(item => {
             if (['expand', 'contract'].includes(item.code)) {
               if (row[treeConfig.children] && row[treeConfig.children].length) {
-                const isExpand = xTree.isTreeExpandByRow(row)
+                const isExpand = xTable.isTreeExpandByRow(row)
                 item.disabled = ['expand'].includes(item.code) ? isExpand : !isExpand
               } else {
                 item.disabled = true
@@ -208,19 +240,19 @@ export default {
       return true
     },
     contextMenuClickEvent ({ menu, row, column }) {
-      const xTree = this.$refs.xTree
+      const xTable = this.$refs.xTable
       switch (menu.code) {
         case 'hideColumn':
-          xTree.hideColumn(column)
+          xTable.hideColumn(column)
           break
         case 'showAllColumn':
-          xTree.resetColumn()
+          xTable.resetColumn()
           break
         case 'expand':
-          xTree.setTreeExpand(row, true)
+          xTable.setTreeExpand(row, true)
           break
         case 'contract':
-          xTree.setTreeExpand(row, false)
+          xTable.setTreeExpand(row, false)
           break
       }
     }

@@ -2,7 +2,20 @@
   <div>
     <p class="tip">树表格、工具栏</p>
 
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #size_edit="{ row }">
+        <vxe-input v-model="row.size"></vxe-input>
+      </template>
+      <template #createtime_edit="{ row }">
+        <vxe-input v-model="row.createTime" type="date" labelFormat="yyyy-MM-dd HH:mm:ss" transfer></vxe-input>
+      </template>
+      <template #updatetime_edit="{ row }">
+        <vxe-input v-model="row.updateTime" type="date" labelFormat="yyyy-MM-dd HH:mm:ss" transfer></vxe-input>
+      </template>
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -31,9 +44,9 @@ export default {
         exportConfig: {},
         toolbarConfig: {
           buttons: [
-            { code: 'reload', name: 'app.body.button.refresh' },
-            { code: 'mark_cancel', name: 'app.body.button.markCancel' },
-            { code: 'save', name: 'app.body.button.save' }
+            { code: 'reload', name: 'Refresh' },
+            { code: 'mark_cancel', name: 'MarkCancel' },
+            { code: 'save', name: 'Save' }
           ],
           export: true,
           zoom: true,
@@ -95,15 +108,28 @@ export default {
         },
         columns: [
           { type: 'checkbox', title: '全选', width: 120 },
-          { field: 'name', title: '名称', width: 220, treeNode: true, editRender: { name: 'input' } },
-          { field: 'size', title: '大小', editRender: { name: 'input' } },
-          { field: 'createTime', title: 'app.body.label.createTime', editRender: { name: '$input', props: { type: 'date', labelFormat: 'yyyy-MM-dd HH:mm:ss' } } },
-          { field: 'updateTime', title: 'app.body.label.updateTime', editRender: { name: '$input', props: { type: 'date', labelFormat: 'yyyy-MM-dd HH:mm:ss' } } }
+          { field: 'name', title: '名称', width: 220, treeNode: true, editRender: {}, slots: { edit: 'name_edit' } },
+          { field: 'size', title: '大小', editRender: {}, slots: { edit: 'size_edit' } },
+          { field: 'createTime', title: 'CreateTime', editRender: {}, slots: { edit: 'createtime_edit' } },
+          { field: 'updateTime', title: 'UpdateTime', editRender: {}, slots: { edit: 'updatetime_edit' } }
         ]
       },
       demoCodes: [
         `
-        <vxe-grid v-bind="gridOptions"></vxe-grid>
+        <vxe-grid v-bind="gridOptions">
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name"></vxe-input>
+          </template>
+          <template #size_edit="{ row }">
+            <vxe-input v-model="row.size"></vxe-input>
+          </template>
+          <template #createtime_edit="{ row }">
+            <vxe-input v-model="row.createTime" type="date" labelFormat="yyyy-MM-dd HH:mm:ss" transfer></vxe-input>
+          </template>
+          <template #updatetime_edit="{ row }">
+            <vxe-input v-model="row.updateTime" type="date" labelFormat="yyyy-MM-dd HH:mm:ss" transfer></vxe-input>
+          </template>
+        </vxe-grid>
         `,
         `
         export default {
@@ -123,9 +149,9 @@ export default {
                 exportConfig: {},
                 toolbarConfig: {
                   buttons: [
-                    { code: 'reload', name: 'app.body.button.refresh' },
-                    { code: 'mark_cancel', name: 'app.body.button.markCancel' },
-                    { code: 'save', name: 'app.body.button.save' }
+                    { code: 'reload', name: 'Refresh' },
+                    { code: 'mark_cancel', name: 'MarkCancel' },
+                    { code: 'save', name: 'Save' }
                   ],
                   export: true,
                   zoom: true,
@@ -187,10 +213,10 @@ export default {
                 },
                 columns: [
                   { type: 'checkbox', title: '全选', width: 120 },
-                  { field: 'name', title: '名称', width: 220, treeNode: true, editRender: { name: 'input' } },
-                  { field: 'size', title: '大小', editRender: { name: 'input' } },
-                  { field: 'createTime', title: 'app.body.label.createTime', editRender: { name: '$input', props: { type: 'date', labelFormat: 'yyyy-MM-dd HH:mm:ss' } } },
-                  { field: 'updateTime', title: 'app.body.label.updateTime', editRender: { name: '$input', props: { type: 'date', labelFormat: 'yyyy-MM-dd HH:mm:ss' } } }
+                  { field: 'name', title: '名称', width: 220, treeNode: true, editRender: {}, slots: { edit: 'name_edit' } },
+                  { field: 'size', title: '大小', editRender: {}, slots: { edit: 'size_edit' } },
+                  { field: 'createTime', title: 'CreateTime', editRender: {}, slots: { edit: 'createtime_edit' } },
+                  { field: 'updateTime', title: 'UpdateTime', editRender: {}, slots: { edit: 'updatetime_edit' } }
                 ]
               }
             }

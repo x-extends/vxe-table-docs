@@ -18,10 +18,36 @@
       :edit-config="{trigger: 'click', mode: 'row'}"
       @edit-actived="editActivedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="attr3" title="Project type" :edit-render="{name: '$select', options: ptypeList, props: {clearable: true}, events: {change: ptypeChangeEvent}}"></vxe-column>
-      <vxe-column field="attr4" title="Project name" :formatter="formatPanmeLabel" :edit-render="{name: '$select', options: pnameList, props: {clearable: true}}"></vxe-column>
-      <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="attr3" title="Project type" :edit-render="{}">
+        <template #default="{ row }">
+          <span>{{ formatProjectType(row.attr3) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.attr3" clearable transfer @change="ptypeChangeEvent({ row })">
+            <vxe-option v-for="item in ptypeList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="attr4" title="Project name" :edit-render="{}">
+        <template #default="{ row }">
+          <span>{{ formatPanmeLabel(row.attr4, row) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.attr4" clearable transfer>
+            <vxe-option v-for="item in pnameList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -45,18 +71,9 @@ export default {
         { id: 10002, name: 'Test2', nickname: 'T2', role: 'Designer', attr3: '', attr4: '', age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20' }
       ],
       ptypeList: [
-        {
-          label: '项目1',
-          value: '1'
-        },
-        {
-          label: '项目2',
-          value: '2'
-        },
-        {
-          label: '项目3',
-          value: '3'
-        }
+        { label: '项目1', value: '1' },
+        { label: '项目2', value: '2' },
+        { label: '项目3', value: '3' }
       ],
       pnameList: [],
       cachePnameList: [],
@@ -78,10 +95,36 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row'}"
           @edit-actived="editActivedEvent">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="attr3" title="Project type" :edit-render="{name: '$select', options: ptypeList, props: {clearable: true}, events: {change: ptypeChangeEvent}}"></vxe-column>
-          <vxe-column field="attr4" title="Project name" :formatter="formatPanmeLabel" :edit-render="{name: '$select', options: pnameList, props: {clearable: true}}"></vxe-column>
-          <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="attr3" title="Project type" :edit-render="{}">
+            <template #default="{ row }">
+              <span>{{ formatProjectType(row.attr3) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.attr3" clearable transfer @change="ptypeChangeEvent({ row })">
+                <vxe-option v-for="item in ptypeList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="attr4" title="Project name" :edit-render="{}">
+            <template #default="{ row }">
+              <span>{{ formatPanmeLabel(row.attr4, row) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.attr4" clearable transfer>
+                <vxe-option v-for="item in pnameList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -95,31 +138,26 @@ export default {
                 { id: 10002, name: 'Test2', nickname: 'T2', role: 'Designer', attr3: '', attr4: '', age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20' }
               ],
               ptypeList: [
-                {
-                  label: '项目1',
-                  value: '1'
-                },
-                {
-                  label: '项目2',
-                  value: '2'
-                },
-                {
-                  label: '项目3',
-                  value: '3'
-                }
+                { label: '项目1', value: '1' },
+                { label: '项目2', value: '2' },
+                { label: '项目3', value: '3' }
               ],
               pnameList: [],
               cachePnameList: []
             }
           },
           methods: {
+            formatProjectType (value) {
+              const item = this.ptypeList.find(item => item.value === value)
+              return item ? item.label : value
+            },
             insertEvent () {
               const $table = this.$refs.xTable
               const record = {}
               $table.insert(record)
             },
             // 格式化显示名称
-            formatPanmeLabel ({ cellValue, row }) {
+            formatPanmeLabel (cellValue, row) {
               let ptype = row.attr3
               let ptypeItem = this.cachePnameList.find(item => item.ptype === ptype)
               if (ptypeItem && ptypeItem.pnameList) {
@@ -166,13 +204,17 @@ export default {
     }
   },
   methods: {
+    formatProjectType (value) {
+      const item = this.ptypeList.find(item => item.value === value)
+      return item ? item.label : value
+    },
     insertEvent () {
       const $table = this.$refs.xTable
       const record = {}
       $table.insert(record)
     },
     // 格式化显示名称
-    formatPanmeLabel ({ cellValue, row }) {
+    formatPanmeLabel (cellValue, row) {
       const ptype = row.attr3
       const ptypeItem = this.cachePnameList.find(item => item.ptype === ptype)
       if (ptypeItem && ptypeItem.pnameList) {

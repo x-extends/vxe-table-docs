@@ -9,16 +9,30 @@
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input', events: {input: nameChangeEvent}}"></vxe-column>
-      <vxe-column field="role" title="Role" :edit-render="{name: '$input', events: {input: roleChangeEvent}}"></vxe-column>
-      <vxe-column
-        field="nickname"
-        title="Nickname"
-        :filters="[{ data: '' }]"
-        :filter-render="{name: 'input', attrs: {placeholder: '按回车确认筛选'}, events: {keyup: enterFilterEvent}}"
-        :edit-render="{name: 'input', events: {focus: roleFocusEvent}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row, column }">
+          <vxe-input v-model="row.name" type="text" @change="nameChangeEvent({ column })"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="role" title="Role" :edit-render="{}">
+        <template #edit="{ row, column }">
+          <vxe-input v-model="row.role" type="text" @change="roleChangeEvent({ column })"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="nickname" title="Nickname" :filters="[{ data: '' }]" :filter-render="{}" :edit-render="{}">
+        <template #filter="{ column, $panel }">
+          <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="enterFilterEvent({ column, $panel })">
+        </template>
+        <template #edit="{ row, column }">
+          <vxe-input v-model="row.nickname" type="text" @focus="roleFocusEvent({ column })"></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList, events: {change: sexChangeEvent}}"></vxe-column>
-      <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}, events: {change: dateChangeEvent}}"></vxe-column>
+      <vxe-column field="date12" title="Date" :edit-render="{}">
+        <template #edit="{ row, column }">
+          <vxe-input v-model="row.date12" type="date" transfer @change="dateChangeEvent({ column })"></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -55,16 +69,30 @@ export default {
           :data="tableData"
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input', events: {input: nameChangeEvent}}"></vxe-column>
-          <vxe-column field="role" title="Role" :edit-render="{name: '$input', events: {input: roleChangeEvent}}"></vxe-column>
-          <vxe-column
-            field="nickname"
-            title="Nickname"
-            :filters="[{ data: '' }]"
-            :filter-render="{name: 'input', attrs: {placeholder: '按回车确认筛选'}, events: {keyup: enterFilterEvent}}"
-            :edit-render="{name: 'input', events: {focus: roleFocusEvent}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row, column }">
+              <vxe-input v-model="row.name" type="text" @change="nameChangeEvent({ column })"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="role" title="Role" :edit-render="{}">
+            <template #edit="{ row, column }">
+              <vxe-input v-model="row.role" type="text" @change="roleChangeEvent({ column })"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="nickname" title="Nickname" :filters="[{ data: '' }]" :filter-render="{}" :edit-render="{}">
+            <template #filter="{ column, $panel }">
+              <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="enterFilterEvent({ column, $panel })">
+            </template>
+            <template #edit="{ row, column }">
+              <vxe-input v-model="row.nickname" type="text" @focus="roleFocusEvent({ column })"></vxe-input>
+            </template>
+          </vxe-column>
           <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList, events: {change: sexChangeEvent}}"></vxe-column>
-          <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}, events: {change: dateChangeEvent}}"></vxe-column>
+          <vxe-column field="date12" title="Date" :edit-render="{}">
+            <template #edit="{ row, column }">
+              <vxe-input v-model="row.date12" type="date" transfer @change="dateChangeEvent({ column })"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -86,11 +114,9 @@ export default {
             }
           },
           methods: {
-            enterFilterEvent ({ $panel, column }, event) {
-              if (event.keyCode === 13) {
-                console.log('筛选回车事件')
-                $panel.confirmFilter()
-              }
+            enterFilterEvent ({ column, $panel }) {
+              console.log(\`\${column.title} 筛选回车事件\`)
+              $panel.confirmFilter()
             },
             nameChangeEvent ({ column }) {
               console.log(\`\${column.title} 触发 input 事件\`)
@@ -114,11 +140,9 @@ export default {
     }
   },
   methods: {
-    enterFilterEvent ({ $panel }, event) {
-      if (event.keyCode === 13) {
-        console.log('筛选回车事件')
-        $panel.confirmFilter()
-      }
+    enterFilterEvent ({ column, $panel }) {
+      console.log(`${column.title} 筛选回车事件`)
+      $panel.confirmFilter()
     },
     nameChangeEvent ({ column }) {
       console.log(`${column.title} 触发 input 事件`)

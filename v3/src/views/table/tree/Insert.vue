@@ -20,10 +20,26 @@
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       :data="tableData">
       <vxe-column type="checkbox" width="120" tree-node></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="size" title="Size" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.size" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="type" title="Type" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.type" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -86,10 +102,26 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
           :data="tableData">
           <vxe-column type="checkbox" width="120" tree-node></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="size" title="Size" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.size" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="type" title="Type" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.type" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `

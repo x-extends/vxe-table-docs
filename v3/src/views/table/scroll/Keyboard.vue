@@ -59,9 +59,21 @@
       :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
-      <vxe-column field="name" title="Name" sortable width="200" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="age" title="Age" width="200" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" width="200" :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" sortable width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.name" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="age" title="Age" width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.age" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.sex" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-column field="rate" title="Rate" width="200"></vxe-column>
       <vxe-column field="region" title="Region" width="200"></vxe-column>
       <vxe-column field="time" title="Time" width="200"></vxe-column>
@@ -173,9 +185,21 @@ export default {
           :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>
-          <vxe-column field="name" title="Name" sortable width="200" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="age" title="Age" width="200" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="sex" title="Sex" width="200" :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="name" title="Name" sortable width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.name" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.age" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.sex" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+            </template>
+          </vxe-column>
           <vxe-column field="rate" title="Rate" width="200"></vxe-column>
           <vxe-column field="region" title="Region" width="200"></vxe-column>
           <vxe-column field="time" title="Time" width="200"></vxe-column>

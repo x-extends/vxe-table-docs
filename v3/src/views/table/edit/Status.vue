@@ -42,7 +42,7 @@
           <input type="text" v-model="scope.row.address" @input="$refs.xTable.updateStatus(scope)"/>
         </template>
       </vxe-column>
-      <vxe-column field="date3" title="Date" formatter="formatDate">
+      <vxe-column field="date3" title="Date" formatter="formatDate" :edit-render="{}">
         <template #edit="scope">
           <input type="date" v-model="scope.row.date3" @input="$refs.xTable.updateStatus(scope)"/>
         </template>
@@ -116,7 +116,7 @@ export default {
               <input type="text" v-model="scope.row.address" @input="$refs.xTable.updateStatus(scope)"/>
             </template>
           </vxe-column>
-          <vxe-column field="date3" title="Date" formatter="formatDate">
+          <vxe-column field="date3" title="Date" formatter="formatDate" :edit-render="{}">
             <template #edit="scope">
               <input type="date" v-model="scope.row.date3" @input="$refs.xTable.updateStatus(scope)"/>
             </template>

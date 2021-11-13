@@ -21,7 +21,7 @@
       :tree-config="{transform: true}"
       :data="tableData1"
       @toggle-tree-expand="toggleExpandChangeEvent">
-      <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
+      <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>
       <vxe-column field="date" title="Date"></vxe-column>
@@ -63,7 +63,7 @@
       :data="tableData3"
       :tree-config="{transform: true, expandAll: true}">
       <vxe-column type="seq" width="180" title="序号" tree-node></vxe-column>
-      <vxe-column field="name" title="app.body.label.name"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
       <vxe-colgroup title="基本信息">
         <vxe-column field="size" title="Size"></vxe-column>
         <vxe-column field="type" title="Type"></vxe-column>
@@ -211,7 +211,7 @@ export default {
           row-id="id"
           :tree-config="{transform: true, expandRowKeys: defaultExpandKeys}"
           :data="tableData2">
-          <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
+          <vxe-column field="name" title="Name" tree-node></vxe-column>
           <vxe-column field="size" title="Size"></vxe-column>
           <vxe-column field="type" title="Type"></vxe-column>
           <vxe-column field="date" title="Date"></vxe-column>
@@ -254,7 +254,7 @@ export default {
           :data="tableData3"
           :tree-config="{transform: true, expandAll: true}">
           <vxe-column type="seq" width="180" title="序号" tree-node></vxe-column>
-          <vxe-column field="name" title="app.body.label.name"></vxe-column>
+          <vxe-column field="name" title="Name"></vxe-column>
           <vxe-colgroup title="基本信息">
             <vxe-column field="size" title="Size"></vxe-column>
             <vxe-column field="type" title="Type"></vxe-column>

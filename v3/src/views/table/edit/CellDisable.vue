@@ -12,9 +12,26 @@
       :edit-config="{trigger: 'click', mode: 'cell', activeMethod: activeCellMethod}"
       @edit-disabled="editDisabledEvent">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" class="myinput"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{}">
+        <template #default="{ row }">
+          <span>{{ formatSex(row.sex) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.sex" transfer>
+            <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="week" placeholder="请选择日期" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -33,10 +50,27 @@
       :edit-config="{trigger: 'click', mode: 'cell'}"
       @edit-actived="editActivedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input', attrs: {disabled: nameDisabled}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
+        <template #edit="{ row }">
+          <input v-model="row.name" class="myinput" :disabled="nameDisabled" />
+        </template>
+      </vxe-column>
       <vxe-colgroup title="分组">
-        <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', props: {disabled: sexDisabled}, options: sexList}"></vxe-column>
-        <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date', disabled: dateDisabled}}"></vxe-column>
+        <vxe-column field="sex" title="Sex" :edit-render="{}">
+          <template #default="{ row }">
+            <span>{{ formatSex(row.sex) }}</span>
+          </template>
+          <template #edit="{ row }">
+            <vxe-select v-model="row.sex" transfer :disabled="sexDisabled">
+              <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+            </vxe-select>
+          </template>
+        </vxe-column>
+        <vxe-column field="date" title="Date" :edit-render="{}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.date" type="week" placeholder="请选择日期" :disabled="dateDisabled" transfer></vxe-input>
+          </template>
+        </vxe-column>
       </vxe-colgroup>
     </vxe-table>
 
@@ -80,9 +114,26 @@ export default {
           :edit-config="{trigger: 'click', mode: 'cell', activeMethod: activeCellMethod}"
           @edit-disabled="editDisabledEvent">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" class="myinput"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{}">
+            <template #default="{ row }">
+              <span>{{ formatSex(row.sex) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.sex" transfer>
+                <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="week" placeholder="请选择日期" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -107,6 +158,15 @@ export default {
             }
           },
           methods: {
+            formatSex (value) {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
+            },
             activeCellMethod ({ column, columnIndex }) {
               if (columnIndex === 1) {
                 return false
@@ -127,10 +187,27 @@ export default {
           :edit-config="{trigger: 'click', mode: 'cell'}"
           @edit-actived="editActivedEvent">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input', attrs: {disabled: nameDisabled}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
+            <template #edit="{ row }">
+              <input v-model="row.name" class="myinput" :disabled="nameDisabled" />
+            </template>
+          </vxe-column>
           <vxe-colgroup title="分组">
-            <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', props: {disabled: sexDisabled}, options: sexList}"></vxe-column>
-            <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date', disabled: dateDisabled}}"></vxe-column>
+            <vxe-column field="sex" title="Sex" :edit-render="{}">
+              <template #default="{ row }">
+                <span>{{ formatSex(row.sex) }}</span>
+              </template>
+              <template #edit="{ row }">
+                <vxe-select v-model="row.sex" transfer :disabled="sexDisabled">
+                  <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+                </vxe-select>
+              </template>
+            </vxe-column>
+            <vxe-column field="date" title="Date" :edit-render="{}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.date" type="week" placeholder="请选择日期" :disabled="dateDisabled" transfer></vxe-input>
+              </template>
+            </vxe-column>
           </vxe-colgroup>
         </vxe-table>
         `,
@@ -159,6 +236,15 @@ export default {
             }
           },
           methods: {
+            formatSex (value) {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
+            },
             editActivedEvent ({ rowIndex, row }) {
               this.nameDisabled = rowIndex === 1
               this.sexDisabled = row.sex === '1'
@@ -171,6 +257,15 @@ export default {
     }
   },
   methods: {
+    formatSex (value) {
+      if (value === '1') {
+        return '男'
+      }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
+    },
     activeCellMethod ({ columnIndex }) {
       if (columnIndex === 1) {
         return false

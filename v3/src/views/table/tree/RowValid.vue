@@ -19,17 +19,33 @@
       resizable
       show-overflow
       keep-source
-      ref="xTree"
+      ref="xTable"
       :edit-rules="validRules"
       :tree-config="treeConfig"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       :checkbox-config="{labelField: 'id'}"
       :data="tableData">
       <vxe-column type="checkbox" title="ID" tree-node></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.name" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="size" title="Size" :edit-render="{}">
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.size" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="type" title="Type" :edit-render="{}">
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.type" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.date" type="date" transfer @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -94,17 +110,33 @@ export default {
           resizable
           show-overflow
           keep-source
-          ref="xTree"
+          ref="xTable"
           :edit-rules="validRules"
           :tree-config="treeConfig"
           :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
           :checkbox-config="{labelField: 'id'}"
           :data="tableData">
           <vxe-column type="checkbox" title="ID" tree-node></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.name" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="size" title="Size" :edit-render="{}">
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.size" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="type" title="Type" :edit-render="{}">
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.type" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.date" type="date" transfer @change="$refs.xTable.updateStatus(scope)"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -148,7 +180,7 @@ export default {
           },
           methods: {
             async validEvent () {
-              const $table = this.$refs.xTree
+              const $table = this.$refs.xTable
               const errMap = await $table.validate().catch(errMap => errMap)
               if (errMap) {
                 this.$XModal.message({ status: 'error', message: '校验不通过！' })
@@ -157,7 +189,7 @@ export default {
               }
             },
             async fullValidEvent () {
-              const errMap = await this.$refs.xTree.fullValidate()
+              const errMap = await this.$refs.xTable.fullValidate()
               if (errMap) {
                 const msgList = []
                 Object.values(errMap).forEach(errList => {
@@ -191,7 +223,7 @@ export default {
               }
             },
             async selectValidEvent () {
-              const $table = this.$refs.xTree
+              const $table = this.$refs.xTable
               const selectRecords = $table.getCheckboxRecords()
               if (selectRecords.length > 0) {
                 const errMap = await $table.validate(selectRecords).catch(errMap => errMap)
@@ -205,11 +237,11 @@ export default {
               }
             },
             getSelectEvent () {
-              let selectRecords = this.$refs.xTree.getCheckboxRecords()
+              let selectRecords = this.$refs.xTable.getCheckboxRecords()
               this.$XModal.alert(selectRecords.length)
             },
             getUpdateEvent () {
-              let updateRecords = this.$refs.xTree.getUpdateRecords()
+              let updateRecords = this.$refs.xTable.getUpdateRecords()
               this.$XModal.alert(updateRecords.length)
             }
           }
@@ -220,7 +252,7 @@ export default {
   },
   methods: {
     async validEvent () {
-      const $table = this.$refs.xTree
+      const $table = this.$refs.xTable
       const errMap = await $table.validate().catch(errMap => errMap)
       if (errMap) {
         this.$XModal.message({ status: 'error', message: '校验不通过！' })
@@ -229,7 +261,7 @@ export default {
       }
     },
     async fullValidEvent () {
-      const errMap = await this.$refs.xTree.fullValidate()
+      const errMap = await this.$refs.xTable.fullValidate()
       if (errMap) {
         const msgList = []
         Object.values(errMap).forEach(errList => {
@@ -263,7 +295,7 @@ export default {
       }
     },
     async selectValidEvent () {
-      const $table = this.$refs.xTree
+      const $table = this.$refs.xTable
       const selectRecords = $table.getCheckboxRecords()
       if (selectRecords.length > 0) {
         const errMap = await $table.validate(selectRecords).catch(errMap => errMap)
@@ -277,11 +309,11 @@ export default {
       }
     },
     getSelectEvent () {
-      const selectRecords = this.$refs.xTree.getCheckboxRecords()
+      const selectRecords = this.$refs.xTable.getCheckboxRecords()
       this.$XModal.alert(selectRecords.length)
     },
     getUpdateEvent () {
-      const updateRecords = this.$refs.xTree.getUpdateRecords()
+      const updateRecords = this.$refs.xTable.getUpdateRecords()
       this.$XModal.alert(updateRecords.length)
     }
   }

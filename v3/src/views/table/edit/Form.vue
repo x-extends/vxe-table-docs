@@ -31,11 +31,36 @@
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input', attrs: {type: 'text'}}"></vxe-column>
-      <vxe-column field="role" title="Role" :edit-render="{name: 'input', attrs: {type: 'text'}}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList}"></vxe-column>
-      <vxe-column field="age" title="Age" :edit-render="{name: '$input', props: {type: 'number'}}"></vxe-column>
-      <vxe-column field="date13" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="role" title="Role" :edit-render="{name: 'input', attrs: {type: 'text'}}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.role" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{}">
+        <template #default="{ row }">
+          <span>{{ formatSex(row.sex) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.sex" transfer>
+            <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="age" title="Age" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.age" type="number"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date13" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date13" type="date" placeholder="请选择日期" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -92,11 +117,36 @@ export default {
           :data="tableData"
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input', attrs: {type: 'text'}}"></vxe-column>
-          <vxe-column field="role" title="Role" :edit-render="{name: 'input', attrs: {type: 'text'}}"></vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: '$input', props: {type: 'number'}}"></vxe-column>
-          <vxe-column field="date13" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="role" title="Role" :edit-render="{name: 'input', attrs: {type: 'text'}}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.role" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{}">
+            <template #default="{ row }">
+              <span>{{ formatSex(row.sex) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.sex" transfer>
+                <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="number"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date13" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date13" type="date" placeholder="请选择日期" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -119,6 +169,15 @@ export default {
             this.findList()
           },
           methods: {
+            formatSex (value) {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
+            },
             findList () {
               this.loading = true
               setTimeout(() => {
@@ -145,6 +204,15 @@ export default {
     this.findList()
   },
   methods: {
+    formatSex (value) {
+      if (value === '1') {
+        return '男'
+      }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
+    },
     findList () {
       this.loading = true
       setTimeout(() => {

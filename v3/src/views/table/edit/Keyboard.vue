@@ -28,9 +28,9 @@
       :edit-config="{trigger: 'dblclick', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
+      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.name" type="text"></vxe-input>
+          <input v-model="row.name" type="text" class="myinput" />
         </template>
       </vxe-column>
       <vxe-column field="role" title="Role" :edit-render="{autofocus: '.vxe-input--inner'}">
@@ -144,9 +144,9 @@ export default {
           :edit-config="{trigger: 'dblclick', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column type="checkbox" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
+          <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
             <template #edit="{ row }">
-              <vxe-input v-model="row.name" type="text"></vxe-input>
+              <input v-model="row.name" type="text" class="myinput" />
             </template>
           </vxe-column>
           <vxe-column field="role" title="Role" :edit-render="{autofocus: '.vxe-input--inner'}">

@@ -40,9 +40,21 @@
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
-      <vxe-column field="name" title="Name" sortable width="200" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="age" title="Age" width="200" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" width="200" :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" sortable width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="age" title="Age" width="200" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.age" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" width="200" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.sex" type="text"></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-column field="rate" title="Rate" width="200"></vxe-column>
       <vxe-column field="region" title="Region" width="200"></vxe-column>
       <vxe-column field="time" title="Time" width="200"></vxe-column>
@@ -114,9 +126,21 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>
-          <vxe-column field="name" title="Name" sortable width="200" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="age" title="Age" width="200" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="sex" title="Sex" width="200" :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="name" title="Name" sortable width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" width="200" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" width="200" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.sex" type="text"></vxe-input>
+            </template>
+          </vxe-column>
           <vxe-column field="rate" title="Rate" width="200"></vxe-column>
           <vxe-column field="region" title="Region" width="200"></vxe-column>
           <vxe-column field="time" title="Time" width="200"></vxe-column>

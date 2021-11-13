@@ -6,26 +6,42 @@
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="$refs.xTree.toggleTreeExpand(tableData[0], true)">切换第一个</vxe-button>
-        <vxe-button @click="$refs.xTree.setTreeExpand(tableData[2], true)">展开第三个</vxe-button>
-        <vxe-button @click="$refs.xTree.setAllTreeExpand(true)">展开所有</vxe-button>
-        <vxe-button @click="$refs.xTree.clearTreeExpand()">关闭所有</vxe-button>
+        <vxe-button @click="$refs.xTable.toggleTreeExpand(tableData[0], true)">切换第一个</vxe-button>
+        <vxe-button @click="$refs.xTable.setTreeExpand(tableData[2], true)">展开第三个</vxe-button>
+        <vxe-button @click="$refs.xTable.setAllTreeExpand(true)">展开所有</vxe-button>
+        <vxe-button @click="$refs.xTable.clearTreeExpand()">关闭所有</vxe-button>
       </template>
     </vxe-toolbar>
 
     <vxe-table
       resizable
       show-overflow
-      ref="xTree"
+      ref="xTable"
       :tree-config="{transform: true}"
       :edit-config="{trigger: 'click', mode: 'row'}"
       :checkbox-config="{labelField: 'id'}"
       :data="demo1.tableData">
       <vxe-column type="checkbox" title="ID" tree-node></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="size" title="Size" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.size" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="type" title="Type" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.type" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -70,26 +86,41 @@ export default defineComponent({
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button @click="$refs.xTree.toggleTreeExpand(tableData[0], true)">切换第一个</vxe-button>
-            <vxe-button @click="$refs.xTree.setTreeExpand(tableData[2], true)">展开第三个</vxe-button>
-            <vxe-button @click="$refs.xTree.setAllTreeExpand(true)">展开所有</vxe-button>
-            <vxe-button @click="$refs.xTree.clearTreeExpand()">关闭所有</vxe-button>
+            <vxe-button @click="$refs.xTable.toggleTreeExpand(tableData[0], true)">切换第一个</vxe-button>
+            <vxe-button @click="$refs.xTable.setTreeExpand(tableData[2], true)">展开第三个</vxe-button>
+            <vxe-button @click="$refs.xTable.setAllTreeExpand(true)">展开所有</vxe-button>
+            <vxe-button @click="$refs.xTable.clearTreeExpand()">关闭所有</vxe-button>
           </template>
         </vxe-toolbar>
 
         <vxe-table
           resizable
           show-overflow
-          ref="xTree"
+          ref="xTable"
           :tree-config="{transform: true}"
           :edit-config="{trigger: 'click', mode: 'row'}"
           :checkbox-config="{labelField: 'id'}"
           :data="demo1.tableData">
-          <vxe-column type="checkbox" title="ID" tree-node></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="size" title="Size" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.size" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="type" title="Type" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.type" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `

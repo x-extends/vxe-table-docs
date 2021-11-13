@@ -25,9 +25,21 @@
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" tree-node></vxe-column>
-      <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="size" title="Size" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.size" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="type" title="Type" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.type" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-column title="操作" width="500">
         <template #default="{ row }">
           <vxe-button type="text" status="primary" @click="insertRow(row, 'current')">插入节点</vxe-button>
@@ -80,13 +92,26 @@ export default {
           :data="tableData">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column field="name" title="Name" tree-node></vxe-column>
-          <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="size" title="Size" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.size" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="type" title="Type" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.type" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+            </template>
+          </vxe-column>
           <vxe-column title="操作" width="500">
             <template #default="{ row }">
-              <vxe-button type="text" status="primary" @click="insertRow(row)">顶部插入节点</vxe-button>
-              <vxe-button type="text" status="primary" @click="insertRow(row, -1)">尾部插入节点</vxe-button>
+              <vxe-button type="text" status="primary" @click="insertRow(row, 'current')">插入节点</vxe-button>
+              <vxe-button type="text" status="primary" @click="insertRow(row, 'top')">顶部插入节点</vxe-button>
+              <vxe-button type="text" status="primary" @click="insertRow(row, 'bottom')">尾部插入子节点</vxe-button>
               <vxe-button type="text" status="primary" @click="removeRow(row)">删除节点</vxe-button>
             </template>
           </vxe-column>

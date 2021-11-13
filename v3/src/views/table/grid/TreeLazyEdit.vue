@@ -6,6 +6,16 @@
       <template #toolbar_buttons>
         <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
       </template>
+
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name" type="text"></vxe-input>
+      </template>
+      <template #size_edit="{ row }">
+        <vxe-input v-model="row.size" type="text"></vxe-input>
+      </template>
+      <template #type_edit="{ row }">
+        <vxe-input v-model="row.type" type="text"></vxe-input>
+      </template>
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -88,9 +98,9 @@ export default {
         },
         columns: [
           { field: 'id', title: 'ID', treeNode: true },
-          { field: 'name', title: '名称', width: 300, editRender: { name: 'input' } },
-          { field: 'size', title: '大小', width: 100, editRender: { name: 'input' } },
-          { field: 'type', title: '类型', width: 100, editRender: { name: 'input' } },
+          { field: 'name', title: '名称', width: 300, editRender: {}, slots: { edit: 'name_edit' } },
+          { field: 'size', title: '大小', width: 100, editRender: {}, slots: { edit: 'size_edit' } },
+          { field: 'type', title: '类型', width: 100, editRender: {}, slots: { edit: 'type_edit' } },
           { field: 'date', title: '时间', width: 200 }
         ]
       },
@@ -99,6 +109,16 @@ export default {
         <vxe-grid ref="xGrid" v-bind="gridOptions" @menu-click="contextMenuClickEvent">
           <template #toolbar_buttons>
             <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
+          </template>
+
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name" type="text"></vxe-input>
+          </template>
+          <template #size_edit="{ row }">
+            <vxe-input v-model="row.size" type="text"></vxe-input>
+          </template>
+          <template #type_edit="{ row }">
+            <vxe-input v-model="row.type" type="text"></vxe-input>
           </template>
         </vxe-grid>
         `,
@@ -173,9 +193,9 @@ export default {
                 },
                 columns: [
                   { field: 'id', title: 'ID', treeNode: true },
-                  { field: 'name', title: '名称', width: 300, editRender: { name: 'input' } },
-                  { field: 'size', title: '大小', width: 100, editRender: { name: 'input' } },
-                  { field: 'type', title: '类型', width: 100, editRender: { name: 'input' } },
+                  { field: 'name', title: '名称', width: 300, editRender: {}, slots: { edit: 'name_edit' } },
+                  { field: 'size', title: '大小', width: 100, editRender: {}, slots: { edit: 'size_edit' } },
+                  { field: 'type', title: '类型', width: 100, editRender: {}, slots: { edit: 'type_edit' } },
                   { field: 'date', title: '时间', width: 200 }
                 ]
               }

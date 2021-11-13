@@ -31,23 +31,23 @@
       <vxe-column type="checkbox" width="80"></vxe-column>
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" width="400" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.name" type="text"></vxe-input>
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.name" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="age" title="Age" width="200" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.age" type="text"></vxe-input>
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.age" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex" width="200" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.sex" type="text"></vxe-input>
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.sex" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+        <template #edit="scope">
+          <vxe-input v-model="scope.row.date" type="date" transfer @change="$refs.xTable.updateStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
     </vxe-table>
@@ -241,23 +241,23 @@ export default defineComponent({
           <vxe-column type="checkbox" width="80"></vxe-column>
           <vxe-column type="seq" width="80"></vxe-column>
           <vxe-column field="name" title="Name" width="400" :edit-render="{}">
-            <template #edit="{ row }">
-              <vxe-input v-model="row.name" type="text"></vxe-input>
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.name" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
             </template>
           </vxe-column>
           <vxe-column field="age" title="Age" width="200" :edit-render="{}">
-            <template #edit="{ row }">
-              <vxe-input v-model="row.age" type="text"></vxe-input>
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.age" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
             </template>
           </vxe-column>
           <vxe-column field="sex" title="Sex" width="200" :edit-render="{}">
-            <template #edit="{ row }">
-              <vxe-input v-model="row.sex" type="text"></vxe-input>
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.sex" type="text" @change="$refs.xTable.updateStatus(scope)"></vxe-input>
             </template>
           </vxe-column>
           <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{}">
-            <template #edit="{ row }">
-              <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+            <template #edit="scope">
+              <vxe-input v-model="scope.row.date" type="date" transfer @change="$refs.xTable.updateStatus(scope)"></vxe-input>
             </template>
           </vxe-column>
         </vxe-table>
