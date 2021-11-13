@@ -21,9 +21,21 @@
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.sex" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="age" title="Age" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.age" type="text"></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -118,9 +130,21 @@ export default defineComponent({
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.sex" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="text"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `

@@ -2,7 +2,32 @@
   <div>
     <p class="tip">通过 <table-column-api-link prop="events"/> 自定义目标组件的事件<br><span class="red">（注：具体请查看目标组件所支持的事件）</span></p>
 
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #name_edit="{ row, column }">
+        <vxe-input v-model="row.name" @change="nameChangeEvent({ column })"></vxe-input>
+      </template>
+      <template #role_edit="{ row, column }">
+        <vxe-input v-model="row.role" @change="roleChangeEvent({ column })"></vxe-input>
+      </template>
+      <template #age_edit="{ row, column }">
+        <vxe-input v-model="row.age" @focus="ageFocusEvent({ column })"></vxe-input>
+      </template>
+      <template #age_filter="{ column, $panel }">
+        <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="enterFilterEvent({ column, $panel })">
+      </template>
+      <template #sex_default="{ row }">
+        <span>{{ formatSex(row.sex) }}</span>
+      </template>
+      <template #sex_edit="{ row, column }">
+        <vxe-select v-model="row.sex" transfer @change="sexChangeEvent({ column })">
+          <vxe-option value="1" label="男"></vxe-option>
+          <vxe-option value="0" label="女"></vxe-option>
+        </vxe-select>
+      </template>
+      <template #date_edit="{ row, column }">
+        <vxe-input v-model="row.date" type="date" transfer @change="dateChangeEvent({ column })"></vxe-input>
+      </template>
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -27,30 +52,11 @@ export default {
         },
         columns: [
           { type: 'seq', width: 60 },
-          { field: 'name', title: 'Name', editRender: { name: 'input', events: { input: this.nameChangeEvent } } },
-          { field: 'role', title: 'Role', editRender: { name: '$input', events: { input: this.roleChangeEvent } } },
-          {
-            field: 'age',
-            title: 'Age',
-            filters: [{ data: '' }],
-            filterRender: { name: 'input', attrs: { placeholder: '按回车确认筛选' }, events: { keyup: this.enterFilterEvent } },
-            editRender: { name: 'input', events: { focus: this.ageFocusEvent } }
-          },
-          {
-            field: 'sex',
-            title: 'Sex',
-            editRender: {
-              name: '$select',
-              options: [
-                { label: '女', value: '0' },
-                { label: '男', value: '1' }
-              ],
-              events: {
-                change: this.sexChangeEvent
-              }
-            }
-          },
-          { field: 'date', title: 'Date', editRender: { name: '$input', props: { type: 'date' }, events: { change: this.dateChangeEvent } } }
+          { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+          { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+          { field: 'age', title: 'Age', filters: [{ data: '' }], editRender: {}, slots: { filter: 'age_filter', edit: 'age_edit' } },
+          { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
+          { field: 'date', title: 'Date', editRender: {}, slots: { edit: 'date_edit' } }
         ],
         data: [
           { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, date: '2021-03-13' },
@@ -63,7 +69,32 @@ export default {
       },
       demoCodes: [
         `
-        <vxe-grid v-bind="gridOptions"></vxe-grid>
+        <vxe-grid v-bind="gridOptions">
+          <template #name_edit="{ row, column }">
+            <vxe-input v-model="row.name" @change="nameChangeEvent({ column })"></vxe-input>
+          </template>
+          <template #role_edit="{ row, column }">
+            <vxe-input v-model="row.role" @change="roleChangeEvent({ column })"></vxe-input>
+          </template>
+          <template #age_edit="{ row, column }">
+            <vxe-input v-model="row.age" @focus="ageFocusEvent({ column })"></vxe-input>
+          </template>
+          <template #age_filter="{ column, $panel }">
+            <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="enterFilterEvent({ column, $panel })">
+          </template>
+          <template #sex_default="{ row }">
+            <span>{{ formatSex(row.sex) }}</span>
+          </template>
+          <template #sex_edit="{ row, column }">
+            <vxe-select v-model="row.sex" transfer @change="sexChangeEvent({ column })">
+              <vxe-option value="1" label="男"></vxe-option>
+              <vxe-option value="0" label="女"></vxe-option>
+            </vxe-select>
+          </template>
+          <template #date_edit="{ row, column }">
+            <vxe-input v-model="row.date" type="date" transfer @change="dateChangeEvent({ column })"></vxe-input>
+          </template>
+        </vxe-grid>
         `,
         `
         export default {
@@ -79,30 +110,11 @@ export default {
                 },
                 columns: [
                   { type: 'seq', width: 60 },
-                  { field: 'name', title: 'Name', editRender: { name: 'input', events: { input: this.nameChangeEvent } } },
-                  { field: 'role', title: 'Role', editRender: { name: '$input', events: { input: this.roleChangeEvent } } },
-                  {
-                    field: 'age',
-                    title: 'Age',
-                    filters: [{ data: '' }],
-                    filterRender: { name: 'input', attrs: { placeholder: '按回车确认筛选' }, events: { keyup: this.enterFilterEvent } },
-                    editRender: { name: 'input', events: { focus: this.ageFocusEvent } }
-                  },
-                  {
-                    field: 'sex',
-                    title: 'Sex',
-                    editRender: {
-                      name: '$select',
-                      options: [
-                        { label: '女', value: '0' },
-                        { label: '男', value: '1' }
-                      ],
-                      events: {
-                        change: this.sexChangeEvent
-                      }
-                    }
-                  },
-                  { field: 'date', title: 'Date', editRender: { name: '$input', props: { type: 'date' }, events: { change: this.dateChangeEvent } } }
+                  { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+                  { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+                  { field: 'age', title: 'Age', filters: [{ data: '' }], editRender: {}, slots: { filter: 'age_filter', edit: 'age_edit' } },
+                  { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
+                  { field: 'date', title: 'Date', editRender: {}, slots: { edit: 'date_edit' } }
                 ],
                 data: [
                   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, date: '2021-03-13' },
@@ -144,11 +156,18 @@ export default {
     }
   },
   methods: {
-    enterFilterEvent ({ $panel }, event) {
-      if (event.keyCode === 13) {
-        console.log('筛选回车事件')
-        $panel.confirmFilter()
+    formatSex (value) {
+      if (value === '1') {
+        return '男'
       }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
+    },
+    enterFilterEvent ({ $panel }) {
+      console.log('筛选回车事件')
+      $panel.confirmFilter()
     },
     nameChangeEvent ({ column }) {
       console.log(`${column.title} 触发 input 事件`)

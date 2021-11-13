@@ -32,14 +32,34 @@
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="分组1">
-        <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-        <vxe-column field="role" title="Role" :edit-render="{name: '$input'}"></vxe-column>
+        <vxe-column field="name" title="Name" :edit-render="{}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.name" type="text"></vxe-input>
+          </template>
+        </vxe-column>
+        <vxe-column field="role" title="Role" :edit-render="{}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.role" type="text"></vxe-input>
+          </template>
+        </vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="分组2">
         <vxe-colgroup title="分组21">
-          <vxe-column field="sex2" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: '$input', props: {type: 'integer'}}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.sex" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="integer"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
     </vxe-table>
@@ -90,7 +110,7 @@ export default {
         role: [
           { validator: roleValid }
         ],
-        sex2: [
+        sex: [
           { required: true, message: '性别必须填写' },
           { pattern: /^[0,1]{1}$/, message: '格式不正确' }
         ],
@@ -127,14 +147,34 @@ export default {
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-colgroup title="分组1">
-            <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-            <vxe-column field="role" title="Role" :edit-render="{name: '$input'}"></vxe-column>
+            <vxe-column field="name" title="Name" :edit-render="{}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.name" type="text"></vxe-input>
+              </template>
+            </vxe-column>
+            <vxe-column field="role" title="Role" :edit-render="{}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.role" type="text"></vxe-input>
+              </template>
+            </vxe-column>
           </vxe-colgroup>
           <vxe-colgroup title="分组2">
             <vxe-colgroup title="分组21">
-              <vxe-column field="sex2" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
-              <vxe-column field="age" title="Age" :edit-render="{name: '$input', props: {type: 'integer'}}"></vxe-column>
-              <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+              <vxe-column field="sex" title="Sex" :edit-render="{}">
+                <template #edit="{ row }">
+                  <vxe-input v-model="row.sex" type="text"></vxe-input>
+                </template>
+              </vxe-column>
+              <vxe-column field="age" title="Age" :edit-render="{}">
+                <template #edit="{ row }">
+                  <vxe-input v-model="row.age" type="integer"></vxe-input>
+                </template>
+              </vxe-column>
+              <vxe-column field="date" title="Date" :edit-render="{}">
+                <template #edit="{ row }">
+                  <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+                </template>
+              </vxe-column>
             </vxe-colgroup>
           </vxe-colgroup>
         </vxe-table>
@@ -176,7 +216,7 @@ export default {
                 role: [
                   { validator: roleValid }
                 ],
-                sex2: [
+                sex: [
                   { required: true, message: '性别必须填写' },
                   { pattern: /^[0,1]{1}$/, message: '格式不正确' }
                 ],

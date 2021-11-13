@@ -860,12 +860,12 @@ export default {
               locat: {
                 name: 'TableTabs'
               }
-            },
-            {
-              label: 'app.aside.nav.keepAlives',
-              locat: {
-                name: 'TableKeepAliveTable1'
-              }
+            // },
+            // {
+            //   label: 'app.aside.nav.keepAlives',
+            //   locat: {
+            //     name: 'TableKeepAliveTable1'
+            //   }
             }
           ]
         },
@@ -1470,12 +1470,12 @@ export default {
                 name: 'GridTreeEdit'
               }
             },
-            {
-              label: 'app.aside.nav.keepAlives',
-              locat: {
-                name: 'GridKeepAliveGrid1'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.keepAlives',
+            //   locat: {
+            //     name: 'GridKeepAliveGrid1'
+            //   }
+            // },
             {
               label: 'app.aside.nav.fullQuery',
               locat: {
@@ -1624,12 +1624,12 @@ export default {
                 name: 'TableScrollTabs'
               }
             },
-            {
-              label: 'app.aside.nav.keepAlives',
-              locat: {
-                name: 'TableScrollKeepAliveTable1'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.keepAlives',
+            //   locat: {
+            //     name: 'TableScrollKeepAliveTable1'
+            //   }
+            // },
             {
               label: 'app.aside.nav.scrollMode',
               locat: {

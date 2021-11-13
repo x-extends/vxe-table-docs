@@ -29,10 +29,26 @@
       :edit-config="{trigger: 'click', mode: 'row'}">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="统计信息">
-        <vxe-column field="name" title="Name" :edit-render="{name: 'input', immediate: true}"></vxe-column>
-        <vxe-column field="age" title="Age" :edit-render="{name: '$input', immediate: true, props: {type: 'number', min: 1, max: 120}, events: {change: updateFooterEvent}}"></vxe-column>
-        <vxe-column field="num1" title="Num" :edit-render="{name: 'input', immediate: true, events: {input: updateFooterEvent}}"></vxe-column>
-        <vxe-column field="rate" title="Rate" :edit-render="{name: 'input', immediate: true, events: {input: updateFooterEvent}}"></vxe-column>
+        <vxe-column field="name" title="Name" :edit-render="{name: 'input', immediate: true}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.name" type="text"></vxe-input>
+          </template>
+        </vxe-column>
+        <vxe-column field="age" title="Age" :edit-render="{autofocus: '.vxe-input--inner'}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.age" type="text" :min="1" :max="120" @change="updateFooterEvent"></vxe-input>
+          </template>
+        </vxe-column>
+        <vxe-column field="num1" title="Num" :edit-render="{autofocus: '.vxe-input--inner'}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.num1" type="text" @input="updateFooterEvent"></vxe-input>
+          </template>
+        </vxe-column>
+        <vxe-column field="rate" title="Rate" :edit-render="{}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.rate" type="text" @input="updateFooterEvent"></vxe-input>
+          </template>
+        </vxe-column>
       </vxe-colgroup>
     </vxe-table>
 
@@ -84,10 +100,26 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row'}">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-colgroup title="统计信息">
-            <vxe-column field="name" title="Name" :edit-render="{name: 'input', immediate: true}"></vxe-column>
-            <vxe-column field="age" title="Age" :edit-render="{name: '$input', immediate: true, props: {type: 'number', min: 1, max: 120}, events: {change: updateFooterEvent}}"></vxe-column>
-            <vxe-column field="num1" title="Num" :edit-render="{name: 'input', immediate: true, events: {input: updateFooterEvent}}"></vxe-column>
-            <vxe-column field="rate" title="Rate" :edit-render="{name: 'input', immediate: true, events: {input: updateFooterEvent}}"></vxe-column>
+            <vxe-column field="name" title="Name" :edit-render="{name: 'input', immediate: true}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.name" type="text"></vxe-input>
+              </template>
+            </vxe-column>
+            <vxe-column field="age" title="Age" :edit-render="{autofocus: '.vxe-input--inner'}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.age" type="text" :min="1" :max="120" @change="updateFooterEvent"></vxe-input>
+              </template>
+            </vxe-column>
+            <vxe-column field="num1" title="Num" :edit-render="{autofocus: '.vxe-input--inner'}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.num1" type="text" @input="updateFooterEvent"></vxe-input>
+              </template>
+            </vxe-column>
+            <vxe-column field="rate" title="Rate" :edit-render="{}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.rate" type="text" @input="updateFooterEvent"></vxe-input>
+              </template>
+            </vxe-column>
           </vxe-colgroup>
         </vxe-table>
         `,

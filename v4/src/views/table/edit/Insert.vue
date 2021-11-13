@@ -25,13 +25,34 @@
       ref="xTable"
       max-height="400"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'row', icon: 'fa fa-pencil', showStatus: true}">
+      :edit-config="{trigger: 'click', mode: 'cell', icon: 'fa fa-pencil', showStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" sortable :edit-render="{name: 'input', defaultValue: '默认的名字'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList}"></vxe-column>
-      <vxe-column field="age" title="Age" sortable :edit-render="{name: 'input', defaultValue: 18}"></vxe-column>
-      <vxe-column field="date12" title="Date" sortable :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" sortable :edit-render="{autofocus: '.vxe-input--inner', defaultValue: '默认的名字'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{}">
+        <template #default="{ row }">
+          <span>{{ formatSex(row.sex) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.sex" transfer>
+            <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="age" title="Age" sortable :edit-render="{defaultValue: 18}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.age" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date12" title="Date" sortable :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date12" type="date" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -64,6 +85,16 @@ export default defineComponent({
       { label: '女', value: '0' }
     ])
 
+    const formatSex = (value: any) => {
+      if (value === '1') {
+        return '男'
+      }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
+    }
+
     const insertEvent = async (row: any) => {
       const $table = xTable.value
       const record = {
@@ -71,7 +102,7 @@ export default defineComponent({
         date12: '2021-01-01'
       }
       const { row: newRow } = await $table.insertAt(record, row)
-      await $table.setActiveCell(newRow, 'sex')
+      await $table.setActiveCell(newRow, 'name')
     }
 
     const getInsertEvent = () => {
@@ -96,6 +127,7 @@ export default defineComponent({
       xTable,
       tableData,
       sexList,
+      formatSex,
       insertEvent,
       getInsertEvent,
       getSelectionEvent,
@@ -122,13 +154,34 @@ export default defineComponent({
           ref="xTable"
           max-height="400"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'row', icon: 'fa fa-pencil', showStatus: true}">
+          :edit-config="{trigger: 'click', mode: 'cell', icon: 'fa fa-pencil', showStatus: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" sortable :edit-render="{name: 'input', defaultValue: '默认的名字'}"></vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList}"></vxe-column>
-          <vxe-column field="age" title="Age" sortable :edit-render="{name: 'input', defaultValue: 18}"></vxe-column>
-          <vxe-column field="date12" title="Date" sortable :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" sortable :edit-render="{autofocus: '.vxe-input--inner', defaultValue: '默认的名字'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{}">
+            <template #default="{ row }">
+              <span>{{ formatSex(row.sex) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.sex" transfer>
+                <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" sortable :edit-render="{defaultValue: 18}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date12" title="Date" sortable :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date12" type="date" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -152,6 +205,16 @@ export default defineComponent({
               { label: '女', value: '0' }
             ])
 
+            const formatSex = (value: any) => {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
+            }
+
             const insertEvent = async (row: any) => {
               const $table = xTable.value
               const record = {
@@ -159,7 +222,7 @@ export default defineComponent({
                 date12: '2021-01-01'
               }
               const { row: newRow } = await $table.insertAt(record, row)
-              await $table.setActiveCell(newRow, 'sex')
+              await $table.setActiveCell(newRow, 'name')
             }
 
             const getInsertEvent = () => {
@@ -184,6 +247,7 @@ export default defineComponent({
               xTable,
               tableData,
               sexList,
+              formatSex,
               insertEvent,
               getInsertEvent,
               getSelectionEvent,

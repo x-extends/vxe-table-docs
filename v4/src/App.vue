@@ -800,7 +800,7 @@ export default defineComponent({
               locat: {
                 name: 'TableDetails'
               }
-            },
+            }
             // {
             //   label: 'app.aside.nav.popupEdit',
             //   locat: {
@@ -843,12 +843,12 @@ export default defineComponent({
             //     name: 'TableTabs'
             //   }
             // },
-            {
-              label: 'app.aside.nav.keepAlives',
-              locat: {
-                name: 'TableKeepAliveTable1'
-              }
-            }
+            // {
+            //   label: 'app.aside.nav.keepAlives',
+            //   locat: {
+            //     name: 'TableKeepAliveTable1'
+            //   }
+            // }
           ]
         },
         {
@@ -1446,12 +1446,12 @@ export default defineComponent({
             //     name: 'GridTreeLazyEdit'
             //   }
             // },
-            {
-              label: 'app.aside.nav.keepAlives',
-              locat: {
-                name: 'GridKeepAliveGrid1'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.keepAlives',
+            //   locat: {
+            //     name: 'GridKeepAliveGrid1'
+            //   }
+            // },
             // {
             //   label: 'app.aside.nav.crudTreeToolbar',
             //   locat: {
@@ -1606,12 +1606,12 @@ export default defineComponent({
             //     name: 'TableScrollTabs'
             //   }
             // },
-            {
-              label: 'app.aside.nav.keepAlives',
-              locat: {
-                name: 'TableScrollKeepAliveTable1'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.keepAlives',
+            //   locat: {
+            //     name: 'TableScrollKeepAliveTable1'
+            //   }
+            // },
             {
               label: 'app.aside.nav.scrollMode',
               locat: {

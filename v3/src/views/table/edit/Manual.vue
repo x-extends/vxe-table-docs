@@ -26,7 +26,7 @@
           <span>{{ formatSex(row.sex) }}</span>
         </template>
         <template #edit="{ row }">
-          <vxe-select v-model="row.sex" type="text" transfer>
+          <vxe-select v-model="row.sex" transfer>
             <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
           </vxe-select>
         </template>
@@ -36,7 +36,7 @@
           <span>{{ formatMultiSex(row.sex2) }}</span>
         </template>
         <template #edit="{ row }">
-          <vxe-select v-model="row.sex2" type="text" multiple transfer>
+          <vxe-select v-model="row.sex2" multiple transfer>
             <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
           </vxe-select>
         </template>
@@ -129,7 +129,7 @@ export default {
               <span>{{ formatSex(row.sex) }}</span>
             </template>
             <template #edit="{ row }">
-              <vxe-select v-model="row.sex" type="text" transfer>
+              <vxe-select v-model="row.sex" transfer>
                 <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
               </vxe-select>
             </template>
@@ -139,7 +139,7 @@ export default {
               <span>{{ formatMultiSex(row.sex2) }}</span>
             </template>
             <template #edit="{ row }">
-              <vxe-select v-model="row.sex2" type="text" multiple transfer>
+              <vxe-select v-model="row.sex2" multiple transfer>
                 <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
               </vxe-select>
             </template>

@@ -9,13 +9,51 @@
       :data="tableData1"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input', placeholder: '请点击输入...', attrs: {type: 'text'}}"></vxe-column>
-      <vxe-column field="nickname" title="Role" :edit-render="{name: 'input', placeholder: '请输入昵称', attrs: {type: 'text', placeholder: '请输入昵称'}}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: 'select', placeholder: '请选择', options: sexList1}"></vxe-column>
-      <vxe-column field="sex2" title="多选下拉" :edit-render="{name: '$select', placeholder: '请选择', options: sexList1, props: {multiple: true, placeholder: '请选择'}}"></vxe-column>
-      <vxe-column field="num1" title="Amount" :edit-render="{name: '$input', placeholder: '请输入数值', props: {type: 'float', digits: 2, placeholder: '请输入数值'}}"></vxe-column>
-      <vxe-column field="date12" title="Date" :edit-render="{name: '$input', placeholder: '请选择日期', props: {type: 'date', placeholder: '请选择日期'}}"></vxe-column>
-      <vxe-column field="date13" title="Week" :edit-render="{name: '$input', props: {type: 'week', placeholder: '请选择日期'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner', placeholder: '请点击输入...'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="nickname" title="Role" :edit-render="{placeholder: '请输入昵称'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.nickname" type="text" placeholder="请输入昵称"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{placeholder: '请选择'}">
+        <template #default="{ row }">
+          <span>{{ formatSex(row.sex) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.sex" transfer>
+            <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex2" title="多选下拉" :edit-render="{placeholder: '请选择'}">
+        <template #default="{ row }">
+          <span>{{ formatMultiSex(row.sex2) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.sex2" placeholder="请选择" multiple transfer>
+            <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="num1" title="Amount" :edit-render="{placeholder: '请输入数值'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.num1" type="float" :digits="2" placeholder="请输入数值"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date12" title="Date" :edit-render="{placeholder: '请选择日期'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date13" title="Week" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date13" type="week" placeholder="请选择日期" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -50,9 +88,28 @@ export default defineComponent({
       { label: '女', value: '0' }
     ])
 
+    const formatSex = (value: any) => {
+      if (value === '1') {
+        return '男'
+      }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
+    }
+
+    const formatMultiSex = (values: any[]) => {
+      if (values) {
+        return values.map(val => formatSex(val)).join(',')
+      }
+      return ''
+    }
+
     return {
       tableData1,
       sexList1,
+      formatSex,
+      formatMultiSex,
       demoCodes: [
         `
         <vxe-table
@@ -62,13 +119,51 @@ export default defineComponent({
           :data="tableData1"
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input', placeholder: '请点击输入...', attrs: {type: 'text'}}"></vxe-column>
-          <vxe-column field="nickname" title="Role" :edit-render="{name: 'input', placeholder: '请输入昵称', attrs: {type: 'text', placeholder: '请输入昵称'}}"></vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: 'select', placeholder: '请选择', options: sexList1}"></vxe-column>
-          <vxe-column field="sex2" title="多选下拉" :edit-render="{name: '$select', placeholder: '请选择', options: sexList1, props: {multiple: true, placeholder: '请选择'}}"></vxe-column>
-          <vxe-column field="num1" title="Amount" :edit-render="{name: '$input', placeholder: '请输入数值', props: {type: 'float', digits: 2, placeholder: '请输入数值'}}"></vxe-column>
-          <vxe-column field="date12" title="Date" :edit-render="{name: '$input', placeholder: '请选择日期', props: {type: 'date', placeholder: '请选择日期'}}"></vxe-column>
-          <vxe-column field="date13" title="Week" :edit-render="{name: '$input', props: {type: 'week', placeholder: '请选择日期'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner', placeholder: '请点击输入...'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="nickname" title="Role" :edit-render="{placeholder: '请输入昵称'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.nickname" type="text" placeholder="请输入昵称"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{placeholder: '请选择'}">
+            <template #default="{ row }">
+              <span>{{ formatSex(row.sex) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.sex" transfer>
+                <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex2" title="多选下拉" :edit-render="{placeholder: '请选择'}">
+            <template #default="{ row }">
+              <span>{{ formatMultiSex(row.sex2) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.sex2" placeholder="请选择" multiple transfer>
+                <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="num1" title="Amount" :edit-render="{placeholder: '请输入数值'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.num1" type="float" :digits="2" placeholder="请输入数值"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date12" title="Date" :edit-render="{placeholder: '请选择日期'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date13" title="Week" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date13" type="week" placeholder="请选择日期" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -93,9 +188,28 @@ export default defineComponent({
               { label: '女', value: '0' }
             ])
 
+            const formatSex = (value: any) => {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
+            }
+
+            const formatMultiSex = (values: any[]) => {
+              if (values) {
+                return values.map(val => formatSex(val)).join(',')
+              }
+              return ''
+            }
+
             return {
               tableData1,
-              sexList1
+              sexList1,
+              formatSex,
+              formatMultiSex
             }
           }
         })

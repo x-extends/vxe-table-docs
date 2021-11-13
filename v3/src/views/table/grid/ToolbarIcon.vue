@@ -2,7 +2,20 @@
   <div>
     <p class="tip">自定义工具栏按钮图标，例如第三方图标库：font-awesome、inconfont，可以局部替换也可以 <router-link :to="{name: 'StartIcons'}">全部替换</router-link></p>
 
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #nickname_edit="{ row }">
+        <vxe-input v-model="row.nickname"></vxe-input>
+      </template>
+      <template #role_edit="{ row }">
+        <vxe-input v-model="row.role"></vxe-input>
+      </template>
+      <template #address_edit="{ row }">
+        <vxe-input v-model="row.address"></vxe-input>
+      </template>
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -117,15 +130,28 @@ export default {
         columns: [
           { type: 'checkbox', width: 50 },
           { type: 'seq', width: 60 },
-          { field: 'name', title: 'Name', editRender: { name: 'input' } },
-          { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-          { field: 'role', title: 'Role', editRender: { name: 'input' } },
-          { field: 'address', title: 'Address', showOverflow: true, editRender: { name: 'input' } }
+          { field: 'name', title: 'Name', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'name_edit' } },
+          { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+          { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+          { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
         ]
       },
       demoCodes: [
         `
-        <vxe-grid v-bind="gridOptions"></vxe-grid>
+        <vxe-grid v-bind="gridOptions">
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name"></vxe-input>
+          </template>
+          <template #nickname_edit="{ row }">
+            <vxe-input v-model="row.nickname"></vxe-input>
+          </template>
+          <template #role_edit="{ row }">
+            <vxe-input v-model="row.role"></vxe-input>
+          </template>
+          <template #address_edit="{ row }">
+            <vxe-input v-model="row.address"></vxe-input>
+          </template>
+        </vxe-grid>
         `,
         `
         export default {
@@ -231,10 +257,10 @@ export default {
                 columns: [
                   { type: 'checkbox', width: 50 },
                   { type: 'seq', width: 60 },
-                  { field: 'name', title: 'Name', editRender: { name: 'input' } },
-                  { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-                  { field: 'role', title: 'Role', editRender: { name: 'input' } },
-                  { field: 'address', title: 'Address', showOverflow: true, editRender: { name: 'input' } }
+                  { field: 'name', title: 'Name', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'name_edit' } },
+                  { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+                  { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+                  { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
                 ]
               }
             }

@@ -2,7 +2,20 @@
   <div>
     <p class="tip">通过 <table-api-link prop="edit-config"/>.<table-api-link prop="activeMethod"/> 方法来判断单元格是否禁用，禁用后不可编辑</p>
 
-    <vxe-grid v-bind="gridOptions1" @edit-disabled="editDisabledEvent"></vxe-grid>
+    <vxe-grid v-bind="gridOptions1" @edit-disabled="editDisabledEvent">
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #sex_edit="{ row }">
+        <vxe-input v-model="row.sex"></vxe-input>
+      </template>
+      <template #age_edit="{ row }">
+        <vxe-input v-model="row.age"></vxe-input>
+      </template>
+      <template #address_edit="{ row }">
+        <vxe-input v-model="row.address"></vxe-input>
+      </template>
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -13,7 +26,20 @@
 
     <p class="tip">禁用第二行编辑</p>
 
-    <vxe-grid v-bind="gridOptions2"></vxe-grid>
+    <vxe-grid v-bind="gridOptions2" @edit-disabled="editDisabledEvent">
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #sex_edit="{ row }">
+        <vxe-input v-model="row.sex"></vxe-input>
+      </template>
+      <template #age_edit="{ row }">
+        <vxe-input v-model="row.age"></vxe-input>
+      </template>
+      <template #address_edit="{ row }">
+        <vxe-input v-model="row.address"></vxe-input>
+      </template>
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -38,10 +64,10 @@ export default {
         },
         columns: [
           { type: 'seq', width: 50 },
-          { field: 'name', title: 'app.body.label.name', editRender: { name: 'input' } },
-          { field: 'sex', title: 'app.body.label.sex', editRender: { name: 'input' } },
-          { field: 'age', title: 'Age', editRender: { name: 'input' } },
-          { field: 'address', title: 'Address', editRender: { name: 'input' } }
+          { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+          { field: 'sex', title: 'Sex', editRender: {}, slots: { edit: 'sex_edit' } },
+          { field: 'age', title: 'Age', editRender: {}, slots: { edit: 'age_edit' } },
+          { field: 'address', title: 'Address', editRender: {}, slots: { edit: 'address_edit' } }
         ],
         data: [
           { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -61,10 +87,10 @@ export default {
         },
         columns: [
           { type: 'seq', width: 50 },
-          { field: 'name', title: 'app.body.label.name', editRender: { name: 'input' } },
-          { field: 'sex', title: 'app.body.label.sex', editRender: { name: 'input' } },
-          { field: 'age', title: 'Age', editRender: { name: 'input' } },
-          { field: 'address', title: 'Address', editRender: { name: 'input' } }
+          { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+          { field: 'sex', title: 'Sex', editRender: {}, slots: { edit: 'sex_edit' } },
+          { field: 'age', title: 'Age', editRender: {}, slots: { edit: 'age_edit' } },
+          { field: 'address', title: 'Address', editRender: {}, slots: { edit: 'address_edit' } }
         ],
         data: [
           { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -76,7 +102,20 @@ export default {
       },
       demoCodes: [
         `
-        <vxe-grid v-bind="gridOptions1" @edit-disabled="editDisabledEvent"></vxe-grid>
+        <vxe-grid v-bind="gridOptions1" @edit-disabled="editDisabledEvent">
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name"></vxe-input>
+          </template>
+          <template #sex_edit="{ row }">
+            <vxe-input v-model="row.sex"></vxe-input>
+          </template>
+          <template #age_edit="{ row }">
+            <vxe-input v-model="row.age"></vxe-input>
+          </template>
+          <template #address_edit="{ row }">
+            <vxe-input v-model="row.address"></vxe-input>
+          </template>
+        </vxe-grid>
         `,
         `
         export default {
@@ -92,10 +131,10 @@ export default {
                 },
                 columns: [
                   { type: 'seq', width: 50 },
-                  { field: 'name', title: 'app.body.label.name', editRender: { name: 'input' } },
-                  { field: 'sex', title: 'app.body.label.sex', editRender: { name: 'input' } },
-                  { field: 'age', title: 'Age', editRender: { name: 'input' } },
-                  { field: 'address', title: 'Address', editRender: { name: 'input' } }
+                  { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+                  { field: 'sex', title: 'Sex', editRender: {}, slots: { edit: 'sex_edit' } },
+                  { field: 'age', title: 'Age', editRender: {}, slots: { edit: 'age_edit' } },
+                  { field: 'address', title: 'Address', editRender: {}, slots: { edit: 'address_edit' } }
                 ],
                 data: [
                   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -115,13 +154,26 @@ export default {
               return true
             },
             editDisabledEvent ({ row, column }) {
-              alert('禁止编辑')
+              console.log('禁止编辑')
             }
           }
         }
         `,
         `
-        <vxe-grid v-bind="gridOptions2"></vxe-grid>
+        <vxe-grid v-bind="gridOptions2" @edit-disabled="editDisabledEvent">
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name"></vxe-input>
+          </template>
+          <template #sex_edit="{ row }">
+            <vxe-input v-model="row.sex"></vxe-input>
+          </template>
+          <template #age_edit="{ row }">
+            <vxe-input v-model="row.age"></vxe-input>
+          </template>
+          <template #address_edit="{ row }">
+            <vxe-input v-model="row.address"></vxe-input>
+          </template>
+        </vxe-grid>
         `,
         `
         export default {
@@ -137,10 +189,10 @@ export default {
                 },
                 columns: [
                   { type: 'seq', width: 50 },
-                  { field: 'name', title: 'app.body.label.name', editRender: { name: 'input' } },
-                  { field: 'sex', title: 'app.body.label.sex', editRender: { name: 'input' } },
-                  { field: 'age', title: 'Age', editRender: { name: 'input' } },
-                  { field: 'address', title: 'Address', editRender: { name: 'input' } }
+                  { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+                  { field: 'sex', title: 'Sex', editRender: {}, slots: { edit: 'sex_edit' } },
+                  { field: 'age', title: 'Age', editRender: {}, slots: { edit: 'age_edit' } },
+                  { field: 'address', title: 'Address', editRender: {}, slots: { edit: 'address_edit' } }
                 ],
                 data: [
                   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -160,7 +212,7 @@ export default {
               return true
             },
             editDisabledEvent ({ row, column }) {
-              this.$XModal.alert('禁止编辑')
+              console.log('禁止编辑')
             }
           }
         }
@@ -182,7 +234,7 @@ export default {
       return true
     },
     editDisabledEvent () {
-      this.$XModal.alert('禁止编辑')
+      console.log('禁止编辑')
     }
   }
 }

@@ -19,6 +19,18 @@
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       @toolbar-button-click="toolbarButtonClickEvent"
       @toolbar-tool-click="toolbarToolClickEvent">
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #nickname_edit="{ row }">
+        <vxe-input v-model="row.nickname"></vxe-input>
+      </template>
+      <template #role_edit="{ row }">
+        <vxe-input v-model="row.role"></vxe-input>
+      </template>
+      <template #address_edit="{ row }">
+        <vxe-input v-model="row.address"></vxe-input>
+      </template>
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -62,15 +74,15 @@ export default {
       tableColumn: [
         { type: 'checkbox', width: 50 },
         { type: 'seq', width: 60 },
-        { field: 'name', title: 'Name', editRender: { name: 'input' } },
+        { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
         {
           title: '分类',
           children: [
-            { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-            { field: 'role', title: 'Role', editRender: { name: 'input' } }
+            { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
+            { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } }
           ]
         },
-        { field: 'describe', title: 'Describe', showOverflow: true, editRender: { name: 'input' } }
+        { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
       ],
       demoCodes: [
         `
@@ -91,6 +103,18 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
           @toolbar-button-click="toolbarButtonClickEvent"
           @toolbar-tool-click="toolbarToolClickEvent">
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name"></vxe-input>
+          </template>
+          <template #nickname_edit="{ row }">
+            <vxe-input v-model="row.nickname"></vxe-input>
+          </template>
+          <template #role_edit="{ row }">
+            <vxe-input v-model="row.role"></vxe-input>
+          </template>
+          <template #address_edit="{ row }">
+            <vxe-input v-model="row.address"></vxe-input>
+          </template>
         </vxe-grid>
         `,
         `
@@ -126,15 +150,15 @@ export default {
               tableColumn: [
                 { type: 'checkbox', width: 50 },
                 { type: 'seq', width: 60 },
-                { field: 'name', title: 'Name', editRender: { name: 'input' } },
+                { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
                 {
                   title: '分类',
                   children: [
-                    { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-                    { field: 'role', title: 'Role', editRender: { name: 'input' } }
+                    { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
+                    { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } }
                   ]
                 },
-                { field: 'describe', title: 'Describe', showOverflow: true, editRender: { name: 'input' } }
+                { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
               ]
             }
           },

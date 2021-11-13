@@ -25,7 +25,7 @@
         <span>{{ formatSex(row.sex) }}</span>
       </template>
       <template #sex_edit="{ row }">
-        <vxe-select v-model="row.sex" type="text" transfer>
+        <vxe-select v-model="row.sex" transfer>
           <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
         </vxe-select>
       </template>
@@ -76,8 +76,8 @@ export default defineComponent({
       columns: [
         { type: 'seq', width: 60 },
         { type: 'checkbox', width: 50 },
-        { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
-        { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+        { field: 'name', title: 'Name', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'name_edit' } },
+        { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
         { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
         { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
         { field: 'describe', title: 'Describe', showOverflow: true, editRender: {}, slots: { edit: 'describe_edit' } },
@@ -199,7 +199,7 @@ export default defineComponent({
             <span>{{ formatSex(row.sex) }}</span>
           </template>
           <template #sex_edit="{ row }">
-            <vxe-select v-model="row.sex" type="text" transfer>
+            <vxe-select v-model="row.sex" transfer>
               <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
             </vxe-select>
           </template>
@@ -241,8 +241,8 @@ export default defineComponent({
               columns: [
                 { type: 'seq', width: 60 },
                 { type: 'checkbox', width: 50 },
-                { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
-                { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+                { field: 'name', title: 'Name', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'name_edit' } },
+                { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
                 { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
                 { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
                 { field: 'describe', title: 'Describe', showOverflow: true, editRender: {}, slots: { edit: 'describe_edit' } },

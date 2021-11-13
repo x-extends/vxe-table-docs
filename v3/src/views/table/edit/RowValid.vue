@@ -30,10 +30,26 @@
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
       <vxe-column type="checkbox" width="80"></vxe-column>
       <vxe-column type="seq" width="80"></vxe-column>
-      <vxe-column field="name" title="Name" width="400" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="age" title="Age" width="200" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex2" title="Sex" width="200" :edit-render="{name: '$input'}"></vxe-column>
-      <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" width="400" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="age" title="Age" width="200" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.age" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" width="200" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.sex" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -66,7 +82,7 @@ export default {
         name: [
           { validator: nameValid }
         ],
-        sex2: [
+        sex: [
           { required: true, message: '性别必须填写' }
         ],
         age: [
@@ -103,10 +119,26 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
           <vxe-column type="checkbox" width="80"></vxe-column>
           <vxe-column type="seq" width="80"></vxe-column>
-          <vxe-column field="name" title="Name" width="400" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="age" title="Age" width="200" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="sex2" title="Sex" width="200" :edit-render="{name: '$input'}"></vxe-column>
-          <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" width="400" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" width="200" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" width="200" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.sex" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -130,7 +162,7 @@ export default {
                 name: [
                   { validator: nameValid }
                 ],
-                sex2: [
+                sex: [
                   { required: true, message: '性别必须填写' }
                 ],
                 age: [

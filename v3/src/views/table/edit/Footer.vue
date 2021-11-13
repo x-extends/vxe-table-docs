@@ -28,10 +28,26 @@
       :edit-config="{trigger: 'click', mode: 'row'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="age" title="Age" :edit-render="{name: '$input', props: {type: 'number', min: 1, max: 120}}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="address" title="Address" :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="age" title="Age" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.age" type="number" :min="1" :max="120"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="address" title="Address" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.address" type="text"></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -80,10 +96,26 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row'}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: '$input', props: {type: 'number', min: 1, max: 120}}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="address" title="Address" :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="number" :min="1" :max="120"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="address" title="Address" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.address" type="text"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `

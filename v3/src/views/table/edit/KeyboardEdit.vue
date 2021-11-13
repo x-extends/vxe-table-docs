@@ -19,10 +19,26 @@
       :edit-config="{trigger: 'dblclick', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="date12" title="Date" :edit-render="{name: '$input'}"></vxe-column>
-      <vxe-column field="address" title="Address" :edit-render="{name: '$input'}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="role" title="Role" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.role" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="nickname" title="Nickname" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.nickname" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="address" title="Address" :edit-render="{autofocus: '.vxe-input--inner'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.address" type="text"></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -64,10 +80,26 @@ export default {
           :edit-config="{trigger: 'dblclick', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column type="checkbox" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="date12" title="Date" :edit-render="{name: '$input'}"></vxe-column>
-          <vxe-column field="address" title="Address" :edit-render="{name: '$input'}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="role" title="Role" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.role" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="nickname" title="Nickname" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.nickname" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="address" title="Address" :edit-render="{autofocus: '.vxe-input--inner'}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.address" type="text"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `

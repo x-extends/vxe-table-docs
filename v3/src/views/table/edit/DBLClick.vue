@@ -9,7 +9,7 @@
       :data="tableData"
       :edit-config="{trigger: 'dblclick', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{}">
+      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
         <template #edit="{ row }">
           <vxe-input v-model="row.name" type="text"></vxe-input>
         </template>
@@ -24,7 +24,7 @@
           <span>{{ formatSex(row.sex) }}</span>
         </template>
         <template #edit="{ row }">
-          <vxe-select v-model="row.sex" type="text" transfer>
+          <vxe-select v-model="row.sex" transfer>
             <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
           </vxe-select>
         </template>
@@ -34,7 +34,7 @@
           <span>{{ formatMultiSex(row.sex2) }}</span>
         </template>
         <template #edit="{ row }">
-          <vxe-select v-model="row.sex2" type="text" multiple transfer>
+          <vxe-select v-model="row.sex2" multiple transfer>
             <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
           </vxe-select>
         </template>
@@ -93,7 +93,7 @@
             <span>{{ formatSex(row.sex) }}</span>
           </template>
           <template #edit="{ row }">
-            <vxe-select v-model="row.sex" type="text" :options="sexList" transfer></vxe-select>
+            <vxe-select v-model="row.sex" :options="sexList" transfer></vxe-select>
           </template>
         </vxe-column>
       </vxe-colgroup>
@@ -158,7 +158,7 @@ export default {
           :data="tableData"
           :edit-config="{trigger: 'dblclick', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{}">
+          <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
             <template #edit="{ row }">
               <vxe-input v-model="row.name" type="text"></vxe-input>
             </template>
@@ -173,7 +173,7 @@ export default {
               <span>{{ formatSex(row.sex) }}</span>
             </template>
             <template #edit="{ row }">
-              <vxe-select v-model="row.sex" type="text" transfer>
+              <vxe-select v-model="row.sex" transfer>
                 <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
               </vxe-select>
             </template>
@@ -183,7 +183,7 @@ export default {
               <span>{{ formatMultiSex(row.sex2) }}</span>
             </template>
             <template #edit="{ row }">
-              <vxe-select v-model="row.sex2" type="text" multiple transfer>
+              <vxe-select v-model="row.sex2" multiple transfer>
                 <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
               </vxe-select>
             </template>
@@ -274,7 +274,7 @@ export default {
                 <span>{{ formatSex(row.sex) }}</span>
               </template>
               <template #edit="{ row }">
-                <vxe-select v-model="row.sex" type="text" :options="sexList" transfer></vxe-select>
+                <vxe-select v-model="row.sex" :options="sexList" transfer></vxe-select>
               </template>
             </vxe-column>
           </vxe-colgroup>

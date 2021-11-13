@@ -2278,6 +2278,15 @@ const apis = [
             list: []
           },
           {
+            name: 'isEsc',
+            desc: '开启Esc键关闭编辑功能',
+            version: '4.1.7',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
             name: 'isDel',
             desc: '开启删除键功能',
             version: '',

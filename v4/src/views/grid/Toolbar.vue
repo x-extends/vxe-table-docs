@@ -2,7 +2,20 @@
   <div>
     <p class="tip">工具栏：通过 <grid-api-link prop="toolbar-config"/> 属性配置，支持显示/隐藏列、列宽拖动状态的保存功能，可以通过表格的 <table-api-link prop="custom-config"/> 参数开启将列个性化的设置状态保存到本地</p>
 
-    <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+    <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents">
+      <template #name_edit="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #nickname_edit="{ row }">
+        <vxe-input v-model="row.nickname"></vxe-input>
+      </template>
+      <template #role_edit="{ row }">
+        <vxe-input v-model="row.role"></vxe-input>
+      </template>
+      <template #address_edit="{ row }">
+        <vxe-input v-model="row.address"></vxe-input>
+      </template>
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -41,15 +54,15 @@ export default defineComponent({
       columns: [
         { type: 'checkbox', width: 50 },
         { type: 'seq', width: 60 },
-        { field: 'name', title: 'Name', editRender: { name: 'input' } },
+        { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
         {
           title: '分类',
           children: [
-            { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-            { field: 'role', title: 'Role', editRender: { name: 'input' } }
+            { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
+            { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } }
           ]
         },
-        { field: 'address', title: 'Address', showOverflow: true, editRender: { name: 'input' } }
+        { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
       ],
       toolbarConfig: {
         buttons: [
@@ -127,7 +140,20 @@ export default defineComponent({
       gridEvents,
       demoCodes: [
         `
-        <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+        <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents">
+          <template #name_edit="{ row }">
+            <vxe-input v-model="row.name"></vxe-input>
+          </template>
+          <template #nickname_edit="{ row }">
+            <vxe-input v-model="row.nickname"></vxe-input>
+          </template>
+          <template #role_edit="{ row }">
+            <vxe-input v-model="row.role"></vxe-input>
+          </template>
+          <template #address_edit="{ row }">
+            <vxe-input v-model="row.address"></vxe-input>
+          </template>
+        </vxe-grid>
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
@@ -157,15 +183,15 @@ export default defineComponent({
               columns: [
                 { type: 'checkbox', width: 50 },
                 { type: 'seq', width: 60 },
-                { field: 'name', title: 'Name', editRender: { name: 'input' } },
+                { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
                 {
                   title: '分类',
                   children: [
-                    { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-                    { field: 'role', title: 'Role', editRender: { name: 'input' } }
+                    { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
+                    { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } }
                   ]
                 },
-                { field: 'address', title: 'Address', showOverflow: true, editRender: { name: 'input' } }
+                { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
               ],
               toolbarConfig: {
                 buttons: [
