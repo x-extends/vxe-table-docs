@@ -32,7 +32,7 @@
             <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
             <!-- <vxe-option value="3.5" :label="$t('app.body.other.v3d5')" disabled></vxe-option> -->
             <vxe-option value="3" :label="$t('app.body.other.v3')"></vxe-option>
-            <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
+            <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="end-of-life"></vxe-option>
             <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="end-of-life"></vxe-option>
           </vxe-select>
           <!-- <router-link class="donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link> -->
@@ -1672,67 +1672,67 @@ export default {
           value: 'plugin',
           expand: false,
           children: [
-            {
-              label: 'app.aside.nav.elementPlugin',
-              demoUrl: 'https://jsrun.pro/dwbKp/edit',
-              locat: {
-                name: 'TablePluginElementConfig'
-              }
-            },
-            {
-              label: 'app.aside.nav.elementFilterPlugin',
-              demoUrl: 'https://jsrun.pro/BWWKpv',
-              locat: {
-                name: 'TablePluginElementFilter'
-              }
-            },
-            {
-              label: 'app.aside.nav.elementPluginMore',
-              demoUrl: 'https://jsrun.pro/uWWKp/edit',
-              locat: {
-                name: 'TablePluginElementPage'
-              }
-            },
-            {
-              label: 'app.aside.nav.iviewPlugin',
-              demoUrl: 'https://jsrun.pro/HPWKp/edit',
-              locat: {
-                name: 'TablePluginIviewConfig'
-              }
-            },
-            {
-              label: 'app.aside.nav.iviewFilter',
-              demoUrl: 'https://jsrun.pro/nPWKp/edit',
-              locat: {
-                name: 'TablePluginIviewFilter'
-              }
-            },
-            {
-              label: 'app.aside.nav.iviewPluginMore',
-              demoUrl: 'https://jsrun.pro/rPWKp/edit',
-              locat: {
-                name: 'TablePluginIviewPage'
-              }
-            },
-            {
-              label: 'app.aside.nav.antdPlugin',
-              demoUrl: 'https://jsrun.pro/APWKp/edit',
-              locat: {
-                name: 'TablePluginAntdConfig'
-              }
-            },
-            {
-              label: 'app.aside.nav.antdFilter',
-              locat: {
-                name: 'TablePluginAntdFilter'
-              }
-            },
-            {
-              label: 'app.aside.nav.antdPluginMore',
-              locat: {
-                name: 'TablePluginAntdPage'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.elementPlugin',
+            //   demoUrl: 'https://jsrun.pro/dwbKp/edit',
+            //   locat: {
+            //     name: 'TablePluginElementConfig'
+            //   }
+            // },
+            // {
+            //   label: 'app.aside.nav.elementFilterPlugin',
+            //   demoUrl: 'https://jsrun.pro/BWWKpv',
+            //   locat: {
+            //     name: 'TablePluginElementFilter'
+            //   }
+            // },
+            // {
+            //   label: 'app.aside.nav.elementPluginMore',
+            //   demoUrl: 'https://jsrun.pro/uWWKp/edit',
+            //   locat: {
+            //     name: 'TablePluginElementPage'
+            //   }
+            // },
+            // {
+            //   label: 'app.aside.nav.iviewPlugin',
+            //   demoUrl: 'https://jsrun.pro/HPWKp/edit',
+            //   locat: {
+            //     name: 'TablePluginIviewConfig'
+            //   }
+            // },
+            // {
+            //   label: 'app.aside.nav.iviewFilter',
+            //   demoUrl: 'https://jsrun.pro/nPWKp/edit',
+            //   locat: {
+            //     name: 'TablePluginIviewFilter'
+            //   }
+            // },
+            // {
+            //   label: 'app.aside.nav.iviewPluginMore',
+            //   demoUrl: 'https://jsrun.pro/rPWKp/edit',
+            //   locat: {
+            //     name: 'TablePluginIviewPage'
+            //   }
+            // },
+            // {
+            //   label: 'app.aside.nav.antdPlugin',
+            //   demoUrl: 'https://jsrun.pro/APWKp/edit',
+            //   locat: {
+            //     name: 'TablePluginAntdConfig'
+            //   }
+            // },
+            // {
+            //   label: 'app.aside.nav.antdFilter',
+            //   locat: {
+            //     name: 'TablePluginAntdFilter'
+            //   }
+            // },
+            // {
+            //   label: 'app.aside.nav.antdPluginMore',
+            //   locat: {
+            //     name: 'TablePluginAntdPage'
+            //   }
+            // },
             // {
             //   label: 'app.aside.nav.shortcutKeyPlugin',
             //   disabled: true,

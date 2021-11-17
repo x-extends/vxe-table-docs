@@ -134,7 +134,7 @@ export default defineComponent({
         VXETable.modal.message({ content: '数据未改动！', status: 'warning' })
         return
       }
-      const errMap = await $table.validate().catch(errMap => errMap)
+      const errMap = await $table.validate()
       if (errMap) {
         return
       }
@@ -295,7 +295,7 @@ export default defineComponent({
                 VXETable.modal.message({ content: '数据未改动！', status: 'warning' })
                 return
               }
-              const errMap = await $table.validate().catch(errMap => errMap)
+              const errMap = await $table.validate()
               if (errMap) {
                 return
               }

@@ -25,7 +25,7 @@
       <template #buttons>
         <el-button @click="insertEvent">新增</el-button>
         <el-button @click="saveEvent">保存</el-button>
-        <el-button @click="vaildEvent">校验</el-button>
+        <el-button @click="validEvent">校验</el-button>
         <el-dropdown @command="dropdownMenuEvent">
           <el-button>操作<i class="el-icon-arrow-down el-icon--right"></i></el-button>
           <template #dropdown>
@@ -308,9 +308,9 @@ export default defineComponent({
       }
     }
 
-    const vaildEvent = async () => {
+    const validEvent = async () => {
       const $table = xTable.value
-      const errMap = await $table.validate().catch(errMap => errMap)
+      const errMap = await $table.validate()
       if (errMap) {
         ElMessage.error('校验不通过！')
       } else {
@@ -376,7 +376,7 @@ export default defineComponent({
       roleList,
       insertEvent,
       saveEvent,
-      vaildEvent,
+      validEvent,
       remoteStateMethod,
       dropdownMenuEvent,
       editActivedEvent,
@@ -408,7 +408,7 @@ export default defineComponent({
           <template #buttons>
             <el-button @click="insertEvent">新增</el-button>
             <el-button @click="saveEvent">保存</el-button>
-            <el-button @click="vaildEvent">校验</el-button>
+            <el-button @click="validEvent">校验</el-button>
             <el-dropdown @command="dropdownMenuEvent">
               <el-button>操作<i class="el-icon-arrow-down el-icon--right"></i></el-button>
               <template #dropdown>
@@ -682,9 +682,9 @@ export default defineComponent({
               }
             }
 
-            const vaildEvent = async () => {
+            const validEvent = async () => {
               const $table = xTable.value
-              const errMap = await $table.validate().catch(errMap => errMap)
+              const errMap = await $table.validate()
               if (errMap) {
                 ElMessage.error('校验不通过！')
               } else {
@@ -750,7 +750,7 @@ export default defineComponent({
               roleList,
               insertEvent,
               saveEvent,
-              vaildEvent,
+              validEvent,
               remoteStateMethod,
               dropdownMenuEvent,
               editActivedEvent,

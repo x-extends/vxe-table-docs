@@ -84,7 +84,7 @@ export default defineComponent({
       const body = $table.getRecordset()
       const { insertRecords, removeRecords, updateRecords } = body
       if (insertRecords.length || removeRecords.length || updateRecords.length) {
-        const errMap = await $table.validate().catch(errMap => errMap)
+        const errMap = await $table.validate()
         if (errMap) {
           VXETable.modal.message({ status: 'error', content: '校验不通过！' })
         } else {
@@ -198,7 +198,7 @@ export default defineComponent({
               const body = $table.getRecordset()
               const { insertRecords, removeRecords, updateRecords } = body
               if (insertRecords.length || removeRecords.length || updateRecords.length) {
-                const errMap = await $table.validate().catch(errMap => errMap)
+                const errMap = await $table.validate()
                 if (errMap) {
                   VXETable.modal.message({ status: 'error', content: '校验不通过！' })
                 } else {

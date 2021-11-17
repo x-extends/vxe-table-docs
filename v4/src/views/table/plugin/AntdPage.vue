@@ -23,7 +23,7 @@
       <template #buttons>
         <a-button @click="insertEvent">新增</a-button>
         <a-button @click="saveEvent">保存</a-button>
-        <a-button @click="vaildEvent">校验</a-button>
+        <a-button @click="validEvent">校验</a-button>
         <a-dropdown :trigger="['click']">
           <a-button>操作</a-button>
           <template #overlay>
@@ -247,9 +247,9 @@ export default defineComponent({
       }
     }
 
-    const vaildEvent = async () => {
+    const validEvent = async () => {
       const $table = xTable.value
-      const errMap = await $table.validate().catch(errMap => errMap)
+      const errMap = await $table.validate()
       if (errMap) {
         message.error({
           content: '校验不通过！'
@@ -318,7 +318,7 @@ export default defineComponent({
       roleList,
       insertEvent,
       saveEvent,
-      vaildEvent,
+      validEvent,
       dropdownMenuEvent,
       searchEvent,
       handleSizeChange,
@@ -345,7 +345,7 @@ export default defineComponent({
           <template #buttons>
             <a-button @click="insertEvent">新增</a-button>
             <a-button @click="saveEvent">保存</a-button>
-            <a-button @click="vaildEvent">校验</a-button>
+            <a-button @click="validEvent">校验</a-button>
             <a-dropdown :trigger="['click']">
               <a-button>操作</a-button>
               <template #overlay>
@@ -561,9 +561,9 @@ export default defineComponent({
               }
             }
 
-            const vaildEvent = async () => {
+            const validEvent = async () => {
               const $table = xTable.value
-              const errMap = await $table.validate().catch(errMap => errMap)
+              const errMap = await $table.validate()
               if (errMap) {
                 message.error({
                   content: '校验不通过！'
@@ -632,7 +632,7 @@ export default defineComponent({
               roleList,
               insertEvent,
               saveEvent,
-              vaildEvent,
+              validEvent,
               dropdownMenuEvent,
               searchEvent,
               handleSizeChange,

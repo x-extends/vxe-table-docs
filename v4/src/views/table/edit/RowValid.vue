@@ -101,7 +101,7 @@ export default defineComponent({
 
     const validEvent = async () => {
       const $table = xTable.value
-      const errMap = await $table.validate().catch(errMap => errMap)
+      const errMap = await $table.validate()
       if (errMap) {
         VXETable.modal.message({ status: 'error', message: '校验不通过！' })
       } else {
@@ -111,7 +111,7 @@ export default defineComponent({
 
     const fullValidEvent = async () => {
       const $table = xTable.value
-      const errMap = await $table.fullValidate().catch(errMap => errMap)
+      const errMap = await $table.fullValidate()
       if (errMap) {
         const msgList: string[] = []
         Object.values(errMap).forEach((errList: any) => {
@@ -143,7 +143,7 @@ export default defineComponent({
 
     const validAllEvent = async () => {
       const $table = xTable.value
-      const errMap = await $table.validate(true).catch(errMap => errMap)
+      const errMap = await $table.validate(true)
       if (errMap) {
         VXETable.modal.message({ status: 'error', message: '校验不通过！' })
       } else {
@@ -155,7 +155,7 @@ export default defineComponent({
       const $table = xTable.value
       const selectRecords = $table.getCheckboxRecords()
       if (selectRecords.length > 0) {
-        const errMap = await $table.validate(selectRecords).catch(errMap => errMap)
+        const errMap = await $table.validate(selectRecords)
         if (errMap) {
           VXETable.modal.message({ status: 'error', message: '校验不通过！' })
         } else {
@@ -170,7 +170,7 @@ export default defineComponent({
       const $table = xTable.value
       const { row: newRow } = await $table.insert({})
       // 插入一条数据并触发校验
-      const errMap = await $table.validate(newRow).catch(errMap => errMap)
+      const errMap = await $table.validate(newRow)
       if (errMap) {
 
       }
@@ -302,7 +302,7 @@ export default defineComponent({
 
             const validEvent = async () => {
               const $table = xTable.value
-              const errMap = await $table.validate().catch(errMap => errMap)
+              const errMap = await $table.validate()
               if (errMap) {
                 VXETable.modal.message({ status: 'error', message: '校验不通过！' })
               } else {
@@ -312,7 +312,7 @@ export default defineComponent({
 
             const fullValidEvent = async () => {
               const $table = xTable.value
-              const errMap = await $table.fullValidate().catch(errMap => errMap)
+              const errMap = await $table.fullValidate()
               if (errMap) {
                 const msgList: string[] = []
                 Object.values(errMap).forEach((errList: any) => {
@@ -344,7 +344,7 @@ export default defineComponent({
 
             const validAllEvent = async () => {
               const $table = xTable.value
-              const errMap = await $table.validate(true).catch(errMap => errMap)
+              const errMap = await $table.validate(true)
               if (errMap) {
                 VXETable.modal.message({ status: 'error', message: '校验不通过！' })
               } else {
@@ -356,7 +356,7 @@ export default defineComponent({
               const $table = xTable.value
               const selectRecords = $table.getCheckboxRecords()
               if (selectRecords.length > 0) {
-                const errMap = await $table.validate(selectRecords).catch(errMap => errMap)
+                const errMap = await $table.validate(selectRecords)
                 if (errMap) {
                   VXETable.modal.message({ status: 'error', message: '校验不通过！' })
                 } else {
@@ -371,7 +371,7 @@ export default defineComponent({
               const $table = xTable.value
               const { row: newRow } = await $table.insert({})
               // 插入一条数据并触发校验
-              const errMap = await $table.validate(newRow).catch(errMap => errMap)
+              const errMap = await $table.validate(newRow)
               if (errMap) {
 
               }

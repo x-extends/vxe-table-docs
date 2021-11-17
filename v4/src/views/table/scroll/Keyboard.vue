@@ -169,7 +169,7 @@ export default defineComponent({
 
     const validEvent = async () => {
       const $table = xTable.value
-      const errMap = await $table.validate().catch(errMap => errMap)
+      const errMap = await $table.validate()
       if (errMap) {
         VXETable.modal.message({ status: 'error', content: '校验不通过！' })
       } else {
@@ -406,7 +406,7 @@ export default defineComponent({
 
             const validEvent = async () => {
               const $table = xTable.value
-              const errMap = await $table.validate().catch(errMap => errMap)
+              const errMap = await $table.validate()
               if (errMap) {
                 VXETable.modal.message({ status: 'error', content: '校验不通过！' })
               } else {

@@ -25,7 +25,7 @@
       <template v-slot:buttons>
         <el-button @click="insertEvent">新增</el-button>
         <el-button @click="saveEvent">保存</el-button>
-        <el-button @click="vaildEvent">校验</el-button>
+        <el-button @click="validEvent">校验</el-button>
         <el-dropdown @command="dropdownMenuEvent">
           <el-button>
             操作<i class="el-icon-arrow-down el-icon--right"></i>
@@ -176,7 +176,7 @@ export default {
           <template v-slot:buttons>
             <el-button @click="insertEvent">新增</el-button>
             <el-button @click="saveEvent">保存</el-button>
-            <el-button @click="vaildEvent">校验</el-button>
+            <el-button @click="validEvent">校验</el-button>
             <el-dropdown @command="dropdownMenuEvent">
               <el-button>
                 操作<i class="el-icon-arrow-down el-icon--right"></i>
@@ -393,7 +393,7 @@ export default {
                 this.$alert('数据未改动！')
               }
             },
-            vaildEvent () {
+            validEvent () {
               this.$refs.xTable.validate((errMap) => {
                 if (errMap) {
                   this.$XModal.message({ status: 'error', message: '校验不通过！' })
@@ -556,7 +556,7 @@ export default {
         this.$alert('数据未改动！')
       }
     },
-    vaildEvent () {
+    validEvent () {
       this.$refs.xTable.validate((errMap) => {
         if (errMap) {
           this.$XModal.message({ status: 'error', message: '校验不通过！' })

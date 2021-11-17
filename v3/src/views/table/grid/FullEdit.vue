@@ -22,6 +22,7 @@
 <script>
 import XEAjax from 'xe-ajax'
 import XEUtils from 'xe-utils'
+import axios from 'axios'
 
 export default {
   data () {
@@ -97,8 +98,9 @@ export default {
             result: 'result', // 配置响应结果列表字段
             total: 'page.total' // 配置响应结果总页数字段
           },
+          // 只接收Promise，不关心系实现方式
           ajax: {
-            // 接收 Promise 对象
+            // 当点击工具栏查询按钮或者手动提交指令 query或reload 时会被触发
             query: ({ page, sorts, filters, form }) => {
               const queryParams = Object.assign({}, form)
               // 处理排序条件
@@ -111,10 +113,18 @@ export default {
               filters.forEach(({ property, values }) => {
                 queryParams[property] = values.join(',')
               })
-              return XEAjax.get(`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams)
+              return fetch(`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams).then(response => {
+                return response.json()
+              })
             },
-            delete: ({ body }) => XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body),
-            save: ({ body }) => XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+            // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
+            delete: ({ body }) => {
+              return axios.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+            },
+            // 当点击工具栏保存按钮或者手动提交指令 save 时会被触发
+            save: ({ body }) => {
+              return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+            }
           }
         },
         columns: [
@@ -190,7 +200,9 @@ export default {
         <vxe-grid ref='xGrid' v-bind="gridOptions"></vxe-grid>
         `,
         `
+        import XEAjax from 'xe-ajax'
         import XEUtils from 'xe-utils'
+        import axios from 'axios'
         
         export default {
           data () {
@@ -266,8 +278,9 @@ export default {
                     result: 'result', // 配置响应结果列表字段
                     total: 'page.total' // 配置响应结果总页数字段
                   },
+                  // 只接收Promise，不关心系实现方式
                   ajax: {
-                    // 接收 Promise 对象
+                    // 当点击工具栏查询按钮或者手动提交指令 query或reload 时会被触发
                     query: ({ page, sorts, filters, form }) => {
                       const queryParams = Object.assign({}, form)
                       // 处理排序条件
@@ -280,10 +293,18 @@ export default {
                       filters.forEach(({ property, values }) => {
                         queryParams[property] = values.join(',')
                       })
-                      return XEAjax.get(\`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams)
+                      return fetch(\`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams).then(response => {
+                        return response.json()
+                      })
                     },
-                    delete: ({ body }) => XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body),
-                    save: ({ body }) => XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                    // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
+                    delete: ({ body }) => {
+                      return axios.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                    },
+                    // 当点击工具栏保存按钮或者手动提交指令 save 时会被触发
+                    save: ({ body }) => {
+                      return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                    }
                   }
                 },
                 columns: [

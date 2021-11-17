@@ -25,7 +25,7 @@
       <template #buttons>
         <el-button @click="insertEvent">新增</el-button>
         <el-button @click="saveEvent">保存</el-button>
-        <el-button @click="vaildEvent">校验</el-button>
+        <el-button @click="validEvent">校验</el-button>
         <el-dropdown @command="dropdownMenuEvent">
           <el-button>
             操作<i class="el-icon-arrow-down el-icon--right"></i>
@@ -203,7 +203,7 @@ export default {
           <template #buttons>
             <el-button @click="insertEvent">新增</el-button>
             <el-button @click="saveEvent">保存</el-button>
-            <el-button @click="vaildEvent">校验</el-button>
+            <el-button @click="validEvent">校验</el-button>
             <el-dropdown @command="dropdownMenuEvent">
               <el-button>
                 操作<i class="el-icon-arrow-down el-icon--right"></i>
@@ -445,7 +445,7 @@ export default {
                 this.$alert('数据未改动！')
               }
             },
-            async vaildEvent () {
+            async validEvent () {
               const $table = this.$refs.xTable
               const errMap = await $table.validate().catch(errMap => errMap)
               if (errMap) {
@@ -598,7 +598,7 @@ export default {
         this.$alert('数据未改动！')
       }
     },
-    async vaildEvent () {
+    async validEvent () {
       const $table = this.$refs.xTable
       const errMap = await $table.validate().catch(errMap => errMap)
       if (errMap) {

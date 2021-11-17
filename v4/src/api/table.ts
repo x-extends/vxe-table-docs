@@ -4173,6 +4173,15 @@ const apis = [
         list: []
       },
       {
+        name: 'openFilter(fieldOrColumn)',
+        desc: '用于 filters，手动弹出筛选面板',
+        version: '4.1.9',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'fieldOrColumn: string | ColumnInfo',
+        list: []
+      },
+      {
         name: 'setActiveRow(row)',
         desc: '用于 edit-config，激活行编辑并激活第一个单元格',
         version: '',

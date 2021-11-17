@@ -23,7 +23,7 @@
       <template #buttons>
         <a-button @click="insertEvent">新增</a-button>
         <a-button @click="saveEvent">保存</a-button>
-        <a-button @click="vaildEvent">校验</a-button>
+        <a-button @click="validEvent">校验</a-button>
         <a-dropdown :trigger="['click']">
           <a-button>操作<a-icon type="down" /></a-button>
           <a-menu slot="overlay">
@@ -193,7 +193,7 @@ export default {
             <template #buttons>
               <a-button @click="insertEvent">新增</a-button>
               <a-button @click="saveEvent">保存</a-button>
-              <a-button @click="vaildEvent">校验</a-button>
+              <a-button @click="validEvent">校验</a-button>
               <a-dropdown :trigger="['click']">
                 <a-button>操作<a-icon type="down" /></a-button>
                 <a-menu slot="overlay">
@@ -377,7 +377,7 @@ export default {
                 this.$message.warning('数据未改动！')
               }
             },
-            async vaildEvent () {
+            async validEvent () {
               const $table = this.$refs.xTable
               const errMap = await $table.validate().catch(errMap => errMap)
               if (errMap) {
@@ -469,7 +469,7 @@ export default {
         this.$message.warning('数据未改动！')
       }
     },
-    async vaildEvent () {
+    async validEvent () {
       const $table = this.$refs.xTable
       const errMap = await $table.validate().catch(errMap => errMap)
       if (errMap) {
