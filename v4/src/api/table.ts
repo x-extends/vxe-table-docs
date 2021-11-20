@@ -1041,7 +1041,8 @@ const apis = [
         list: [
           {
             name: 'startIndex',
-            desc: '设置序号的起始值',
+            abandoned: true,
+            desc: '设置序号的起始值（不支持树形结构），建议使用 seqMethod',
             version: '',
             type: 'number',
             enum: '',
@@ -3687,10 +3688,19 @@ const apis = [
         list: []
       },
       {
+        name: 'getRowSeq(row)',
+        desc: '根据 row 获取行的序号',
+        version: '4.1.9',
+        type: 'string | number',
+        enum: '',
+        defVal: 'row: Row',
+        list: []
+      },
+      {
         name: 'getRowIndex(row)',
         desc: '根据 row 获取相对于 data 中的索引',
         version: '',
-        type: 'Number',
+        type: 'number',
         enum: '',
         defVal: 'row: Row',
         list: []
@@ -3699,7 +3709,7 @@ const apis = [
         name: 'getVTRowIndex(row)',
         desc: '根据 row 获取相对于当前数据中的索引',
         version: '',
-        type: 'Number',
+        type: 'number',
         enum: '',
         defVal: 'row: Row',
         list: []
@@ -3708,7 +3718,7 @@ const apis = [
         name: 'getVMRowIndex(row)',
         desc: '根据 row 获取渲染中的虚拟索引',
         version: '',
-        type: 'Number',
+        type: 'number',
         enum: '',
         defVal: 'row: Row',
         list: []
@@ -3771,7 +3781,7 @@ const apis = [
         name: 'getColumnIndex(column)',
         desc: '根据 column 获取相对于 columns 中的索引',
         version: '',
-        type: 'Number',
+        type: 'number',
         enum: '',
         defVal: 'column: ColumnConfig',
         list: []
@@ -3780,7 +3790,7 @@ const apis = [
         name: 'getVMColumnIndex(column)',
         desc: '根据 column 获取渲染中的虚拟索引',
         version: '',
-        type: 'Number',
+        type: 'number',
         enum: '',
         defVal: 'column',
         list: []
@@ -3789,7 +3799,7 @@ const apis = [
         name: 'getVTColumnIndex(column)',
         desc: '根据 column 获取相对于当前表格列中的索引（分组表头可能会用到）',
         version: '',
-        type: 'Number',
+        type: 'number',
         enum: '',
         defVal: 'column',
         list: []

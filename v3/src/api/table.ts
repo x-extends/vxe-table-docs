@@ -1041,7 +1041,8 @@ const apis = [
         list: [
           {
             name: 'startIndex',
-            desc: '设置序号的起始值',
+            abandoned: true,
+            desc: '设置序号的起始值（不支持树形结构），建议使用 seqMethod',
             version: '',
             type: 'number',
             enum: '',
@@ -3670,6 +3671,15 @@ const apis = [
         list: []
       },
       {
+        name: 'getRowSeq(row)',
+        desc: '根据 row 获取行的序号',
+        version: '3.4.7',
+        type: 'string | number',
+        enum: '',
+        defVal: 'row: Row',
+        list: []
+      },
+      {
         name: 'getRowIndex(row)',
         desc: '根据 row 获取相对于 data 中的索引',
         version: '',
@@ -4168,7 +4178,7 @@ const apis = [
       {
         name: 'openFilter(fieldOrColumn)',
         desc: '用于 filters，手动弹出筛选面板',
-        version: '3.4.7',
+        version: '4.1.9',
         type: 'Promise<any>',
         enum: '',
         defVal: 'fieldOrColumn: string | ColumnInfo',

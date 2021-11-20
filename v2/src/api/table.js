@@ -979,7 +979,8 @@ const apis = [
         list: [
           {
             name: 'startIndex',
-            desc: '设置序号的起始值',
+            abandoned: true,
+            desc: '设置序号的起始值（不支持树形结构），建议使用 seqMethod',
             version: '',
             type: 'Number',
             enum: '',
