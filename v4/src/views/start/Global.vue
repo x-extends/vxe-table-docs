@@ -72,7 +72,7 @@ export default defineComponent({
           //   menuConfig: {
           //     visibleMethod () {}
           //   },
-          //   rowId: '_XID', // 行数据的唯一主键字段名
+          //   rowId: '_X_ID', // 行数据的唯一主键字段名
           //   editConfig: {
           //     mode: 'cell',
           //     showAsterisk: true

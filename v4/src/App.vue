@@ -166,7 +166,8 @@ export default defineComponent({
               label: 'app.aside.nav.global',
               locat: {
                 name: 'StartGlobal'
-              }
+              },
+              keywords: ['_XID', '_X_ID']
             },
             {
               label: 'app.aside.nav.icons',
@@ -909,7 +910,7 @@ export default defineComponent({
               }
             },
             {
-              label: 'app.aside.nav.treeSearch',
+              label: 'app.aside.nav.filter',
               // demoUrl: 'https://jsrun.pro/CDWKp/edit',
               locat: {
                 name: 'TableTreeFilter'
