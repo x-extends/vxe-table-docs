@@ -18,6 +18,10 @@
       :form-config="demo1.tableForm"
       :proxy-config="demo1.tableProxy"
       :columns="demo1.tableColumn">
+      <template #btns>
+        <vxe-button type="submit" content="查询"></vxe-button>
+        <vxe-button type="reset" content="重置"></vxe-button>
+      </template>
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -64,8 +68,7 @@ export default defineComponent({
         items: [
           { field: 'name', title: '名称', itemRender: { name: 'FormItemInput', props: { clearable: true, placeholder: '请输入名称' } } },
           { field: 'age', title: '年龄', itemRender: { name: 'FormItemInput', props: { type: 'number', clearable: true, placeholder: '请输入年龄' } } },
-          { itemRender: { name: 'input', attrs: { type: 'submit', value: '查询' } } },
-          { itemRender: { name: 'input', attrs: { type: 'reset', value: '重置' } } }
+          { slots: { default: 'btns' } }
         ]
       },
       tableProxy: {
@@ -102,6 +105,10 @@ export default defineComponent({
           :form-config="demo1.tableForm"
           :proxy-config="demo1.tableProxy"
           :columns="demo1.tableColumn">
+          <template #btns>
+            <vxe-button type="submit" content="查询"></vxe-button>
+            <vxe-button type="reset" content="重置"></vxe-button>
+          </template>
         </vxe-grid>
         `,
         `
@@ -138,8 +145,7 @@ export default defineComponent({
                 items: [
                   { field: 'name', title: '名称', itemRender: { name: 'FormItemInput', props: { clearable: true, placeholder: '请输入名称' } } },
                   { field: 'age', title: '年龄', itemRender: { name: 'FormItemInput', props: { type: 'number', clearable: true, placeholder: '请输入年龄' } } },
-                  { itemRender: { name: 'input', attrs: { type: 'submit', value: '查询' } } },
-                  { itemRender: { name: 'input', attrs: { type: 'reset', value: '重置' } } }
+                  { slots: { default: 'btns' } }
                 ]
               },
               tableProxy: {

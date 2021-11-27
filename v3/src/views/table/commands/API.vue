@@ -65,7 +65,7 @@ export default {
           border
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="name" title="Name"></vxe-column>
           <vxe-column field="sex" title="sex"></vxe-column>
           <vxe-column field="age" title="Age"></vxe-column>
         </vxe-table>

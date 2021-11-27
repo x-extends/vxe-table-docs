@@ -14,7 +14,7 @@
       :footer-method="footerMethod"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="书名" :edit-render="{name: 'input'}">
+      <vxe-column field="name" title="书名" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-input v-model="row.name" type="text"></vxe-input>
         </template>
@@ -66,7 +66,7 @@ export default {
           :footer-method="footerMethod"
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="书名" :edit-render="{name: 'input'}">
+          <vxe-column field="name" title="书名" :edit-render="{}">
             <template #edit="{ row }">
               <vxe-input v-model="row.name" type="text"></vxe-input>
             </template>

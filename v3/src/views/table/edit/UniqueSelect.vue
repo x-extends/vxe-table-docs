@@ -18,7 +18,7 @@
       :edit-config="{trigger: 'click', mode: 'row'}"
       @edit-actived="editActivedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}">
+      <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-input v-model="row.name" type="text"></vxe-input>
         </template>
@@ -33,7 +33,7 @@
           </vxe-select>
         </template>
       </vxe-column>
-      <vxe-column field="date13" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}">
+      <vxe-column field="date13" title="Date" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-input v-model="row.date13" type="date" transfer></vxe-input>
         </template>
@@ -83,7 +83,7 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row'}"
           @edit-actived="editActivedEvent">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}">
+          <vxe-column field="name" title="Name" :edit-render="{}">
             <template #edit="{ row }">
               <vxe-input v-model="row.name" type="text"></vxe-input>
             </template>
@@ -98,7 +98,7 @@ export default {
               </vxe-select>
             </template>
           </vxe-column>
-          <vxe-column field="date13" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}">
+          <vxe-column field="date13" title="Date" :edit-render="{}">
             <template #edit="{ row }">
               <vxe-input v-model="row.date13" type="date" transfer></vxe-input>
             </template>

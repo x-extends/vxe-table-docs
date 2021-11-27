@@ -20,9 +20,21 @@
       :edit-rules="demo1.validRules"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column field="role" title="Role" :edit-render="{name: 'input', props: {placeholder: '请输入角色'}}"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input', props: {placeholder: '请输入名称'}}"></vxe-column>
-      <vxe-column field="address" title="Address" :edit-render="{name: 'input', props: {placeholder: '请输入地址'}}"></vxe-column>
+      <vxe-column field="role" title="Role" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.role" type="text" placeholder="请输入角色"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text" placeholder="请输入名称"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="address" title="Address" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.address" type="text" placeholder="请输入地址"></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -143,9 +155,21 @@ export default defineComponent({
           :edit-rules="demo1.validRules"
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="checkbox" width="60"></vxe-column>
-          <vxe-column field="role" title="Role" :edit-render="{name: 'input', props: {placeholder: '请输入角色'}}"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input', props: {placeholder: '请输入名称'}}"></vxe-column>
-          <vxe-column field="address" title="Address" :edit-render="{name: 'input', props: {placeholder: '请输入地址'}}"></vxe-column>
+          <vxe-column field="role" title="Role" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.role" type="text" placeholder="请输入角色"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text" placeholder="请输入名称"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="address" title="Address" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.address" type="text" placeholder="请输入地址"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `

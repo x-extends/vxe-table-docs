@@ -272,10 +272,7 @@ export default defineComponent({
           title: 'Num1',
           showHeaderOverflow: true,
           filters: [{ data: '' }],
-          editRender: {
-            name: 'input',
-            autofocus: '.my-input'
-          },
+          editRender: { autofocus: '.my-input' },
           slots: {
             // 使用插槽模板渲染
             default: 'num1_default',
@@ -609,10 +606,7 @@ export default defineComponent({
                   title: 'Num1',
                   showHeaderOverflow: true,
                   filters: [{ data: '' }],
-                  editRender: {
-                    name: 'input',
-                    autofocus: '.my-input'
-                  },
+                  editRender: { autofocus: '.my-input' },
                   slots: {
                     // 使用插槽模板渲染
                     default: 'num1_default',

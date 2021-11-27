@@ -882,6 +882,12 @@ export default {
                 name: 'TableTreeBasic'
               }
             },
+            // {
+            //   label: 'app.aside.nav.stripe',
+            //   locat: {
+            //     name: 'TableTreeStripe'
+            //   }
+            // },
             {
               label: 'app.aside.nav.treeNormal',
               locat: {
@@ -1670,91 +1676,6 @@ export default {
             }
           ]
         },
-        // {
-        //   label: 'app.aside.nav.virtualTree',
-        //   value: 'virtualTree',
-        //   expand: false,
-        //   children: [
-        //     {
-        //       label: 'app.aside.nav.base',
-        //       locat: {
-        //         name: 'TableVirtualTreeBasic'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.treeNormal',
-        //       locat: {
-        //         name: 'TableVirtualTreeNormal'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.radio',
-        //       locat: {
-        //         name: 'TableVirtualTreeRadio'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.checkbox',
-        //       locat: {
-        //         name: 'TableVirtualTreeCheckbox'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.icon',
-        //       locat: {
-        //         name: 'TableVirtualTreeIcon'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.fixed',
-        //       locat: {
-        //         name: 'TableVirtualTreeFixed'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.fluidHeight',
-        //       locat: {
-        //         name: 'TableVirtualTreeMaxHeight'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.edit',
-        //       locat: {
-        //         name: 'TableVirtualTreeEdit'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.insert',
-        //       locat: {
-        //         name: 'TableVirtualTreeInsert'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.delete',
-        //       locat: {
-        //         name: 'TableVirtualTreeRemove'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.contextMenu',
-        //       locat: {
-        //         name: 'TableVirtualTreeMenu'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.template',
-        //       locat: {
-        //         name: 'TableVirtualTreeTemplate'
-        //       }
-        //     },
-        //     {
-        //       label: 'app.aside.nav.big',
-        //       locat: {
-        //         name: 'TableVirtualTreeBig'
-        //       }
-        //     }
-        //   ]
-        // },
         // {
         //   label: 'app.aside.nav.bad',
         //   value: 'bad',

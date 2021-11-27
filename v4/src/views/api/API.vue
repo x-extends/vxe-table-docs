@@ -9,7 +9,7 @@
       @cell-menu="cellContextMenuEvent"
       @menu-click="contextMenuClickEvent">
       <template #toolbar_buttons>
-        <vxe-input clearable class="search-input" v-model="apiData.filterName" type="search" :placeholder="`vxe-${apiData.apiName} ${$t('app.api.apiSearch')}`" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
+        <vxe-input clearable class="search-input" v-model="apiData.filterName" type="search" :placeholder="`vxe-${apiName} ${$t('app.api.apiSearch')}`" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
       </template>
 
       <template #default_version="{ row }">

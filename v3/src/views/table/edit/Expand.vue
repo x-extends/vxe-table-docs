@@ -33,9 +33,21 @@
           </ul>
         </template>
       </vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="role" title="Role" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.role" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="date"></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -91,9 +103,21 @@ export default {
               </ul>
             </template>
           </vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="role" title="Role" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.role" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date" type="date"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `

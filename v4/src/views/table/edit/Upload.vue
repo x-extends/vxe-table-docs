@@ -20,7 +20,11 @@
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <input type="text" v-model="row.name">
+        </template>
+      </vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="date" title="Date"></vxe-column>
@@ -101,7 +105,11 @@ export default defineComponent({
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <input type="text" v-model="row.name">
+            </template>
+          </vxe-column>
           <vxe-column field="type" title="Type"></vxe-column>
           <vxe-column field="size" title="Size"></vxe-column>
           <vxe-column field="date" title="Date"></vxe-column>

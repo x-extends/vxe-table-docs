@@ -17,15 +17,33 @@
       :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}"
       :edit-config="{trigger: 'dblclick', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" width="300" sortable :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="role" title="Role" width="300" sortable :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" width="300" sortable :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="role" title="Role" width="300" sortable :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.role" type="text"></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-colgroup title="基本信息">
-        <vxe-column field="sex" title="sex" width="180" :edit-render="{name: 'input'}"></vxe-column>
+        <vxe-column field="sex" title="sex" width="180" :edit-render="{}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.sex" type="text"></vxe-input>
+          </template>
+        </vxe-column>
         <vxe-colgroup title="详细详细">
-          <vxe-column field="age" title="Age" width="180" sortable :filters="[{ data: [] }]" :filter-render="{name: 'input'}" :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="age" title="Age" width="180" sortable :filters="[{ data: [] }]" :filter-method="filterAgeMethod" :filter-render="{}" :edit-render="{}">
+            <template #filter="{ $panel, column }">
+              <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)">
+            </template>
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="text"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
-      <vxe-column field="rate" title="Rate" width="180" sortable></vxe-column>
       <vxe-colgroup title="其他信息">
         <vxe-column field="date13" title="Date" width="250"></vxe-column>
       </vxe-colgroup>
@@ -126,15 +144,33 @@ export default {
           :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}"
           :edit-config="{trigger: 'dblclick', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" width="300" sortable :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="role" title="Role" width="300" sortable :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="name" title="Name" width="300" sortable :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="role" title="Role" width="300" sortable :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.role" type="text"></vxe-input>
+            </template>
+          </vxe-column>
           <vxe-colgroup title="基本信息">
-            <vxe-column field="sex" title="sex" width="180" :edit-render="{name: 'input'}"></vxe-column>
+            <vxe-column field="sex" title="sex" width="180" :edit-render="{}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.sex" type="text"></vxe-input>
+              </template>
+            </vxe-column>
             <vxe-colgroup title="详细详细">
-              <vxe-column field="age" title="Age" width="180" sortable :filters="[{ data: [] }]" :filter-render="{name: 'input'}" :edit-render="{name: 'input'}"></vxe-column>
+              <vxe-column field="age" title="Age" width="180" sortable :filters="[{ data: [] }]" :filter-method="filterAgeMethod" :filter-render="{}" :edit-render="{}">
+                <template #filter="{ $panel, column }">
+                  <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)">
+                </template>
+                <template #edit="{ row }">
+                  <vxe-input v-model="row.age" type="text"></vxe-input>
+                </template>
+              </vxe-column>
             </vxe-colgroup>
           </vxe-colgroup>
-          <vxe-column field="rate" title="Rate" width="180" sortable></vxe-column>
           <vxe-colgroup title="其他信息">
             <vxe-column field="date13" title="Date" width="250"></vxe-column>
           </vxe-colgroup>
@@ -234,6 +270,9 @@ export default {
                   return null
                 })
               ]
+            },
+            filterAgeMethod ({ option, row }) {
+              return row.age === Number(option.data)
             }
           }
         }
@@ -261,6 +300,9 @@ export default {
           return null
         })
       ]
+    },
+    filterAgeMethod ({ option, row }) {
+      return row.age === Number(option.data)
     }
   }
 }

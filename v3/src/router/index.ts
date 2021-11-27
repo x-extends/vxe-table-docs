@@ -139,6 +139,7 @@ import GridKeepAliveGrid2 from '../views/table/grid/keepAlives/Grid2.vue'
 import GridKeepAliveGrid3 from '../views/table/grid/keepAlives/Grid3.vue'
 
 import TableTreeBasic from '../views/table/tree/Basic.vue'
+import TableTreeStripe from '../views/table/tree/Stripe.vue'
 import TableTreeNormal from '../views/table/tree/Normal.vue'
 import TableTreeIcon from '../views/table/tree/Icon.vue'
 import TableTreeAccordion from '../views/table/tree/Accordion.vue'
@@ -197,20 +198,6 @@ import TableScrollKeepAlives from '../views/table/scroll/KeepAlives.vue'
 import TableScrollKeepAliveTable1 from '../views/table/scroll/keepAlives/Table1.vue'
 import TableScrollKeepAliveTable2 from '../views/table/scroll/keepAlives/Table2.vue'
 import TableScrollKeepAliveTable3 from '../views/table/scroll/keepAlives/Table3.vue'
-
-import TableVirtualTreeBasic from '../views/table/virtual-tree/Basic.vue'
-import TableVirtualTreeNormal from '../views/table/virtual-tree/Normal.vue'
-import TableVirtualTreeRadio from '../views/table/virtual-tree/Radio.vue'
-import TableVirtualTreeCheckbox from '../views/table/virtual-tree/Checkbox.vue'
-import TableVirtualTreeIcon from '../views/table/virtual-tree/Icon.vue'
-import TableVirtualTreeFixed from '../views/table/virtual-tree/Fixed.vue'
-import TableVirtualTreeMaxHeight from '../views/table/virtual-tree/MaxHeight.vue'
-import TableVirtualTreeEdit from '../views/table/virtual-tree/Edit.vue'
-import TableVirtualTreeInsert from '../views/table/virtual-tree/Insert.vue'
-import TableVirtualTreeRemove from '../views/table/virtual-tree/Remove.vue'
-import TableVirtualTreeMenu from '../views/table/virtual-tree/Menu.vue'
-import TableVirtualTreeTemplate from '../views/table/virtual-tree/Template.vue'
-import TableVirtualTreeBig from '../views/table/virtual-tree/Big.vue'
 
 import TableEditPopupForm from '../views/table/edit/PopupForm.vue'
 import TableEditManual from '../views/table/edit/Manual.vue'
@@ -813,6 +800,11 @@ export default new Router({
       component: TableTreeBasic
     },
     {
+      path: '/table/tree/stripe',
+      name: 'TableTreeStripe',
+      component: TableTreeStripe
+    },
+    {
       path: '/table/tree/normal',
       name: 'TableTreeNormal',
       component: TableTreeNormal
@@ -956,71 +948,6 @@ export default new Router({
       path: '/table/tree/template',
       name: 'TableTreeTemplate',
       component: TableTreeTemplate
-    },
-    {
-      path: '/table/virtualTree/basic',
-      name: 'TableVirtualTreeBasic',
-      component: TableVirtualTreeBasic
-    },
-    {
-      path: '/table/virtualTree/normal',
-      name: 'TableVirtualTreeNormal',
-      component: TableVirtualTreeNormal
-    },
-    {
-      path: '/table/virtualTree/radio',
-      name: 'TableVirtualTreeRadio',
-      component: TableVirtualTreeRadio
-    },
-    {
-      path: '/table/virtualTree/checkbox',
-      name: 'TableVirtualTreeCheckbox',
-      component: TableVirtualTreeCheckbox
-    },
-    {
-      path: '/table/virtualTree/icon',
-      name: 'TableVirtualTreeIcon',
-      component: TableVirtualTreeIcon
-    },
-    {
-      path: '/table/virtualTree/fixed',
-      name: 'TableVirtualTreeFixed',
-      component: TableVirtualTreeFixed
-    },
-    {
-      path: '/table/virtualTree/maxHeight',
-      name: 'TableVirtualTreeMaxHeight',
-      component: TableVirtualTreeMaxHeight
-    },
-    {
-      path: '/table/virtualTree/edit',
-      name: 'TableVirtualTreeEdit',
-      component: TableVirtualTreeEdit
-    },
-    {
-      path: '/table/virtualTree/insert',
-      name: 'TableVirtualTreeInsert',
-      component: TableVirtualTreeInsert
-    },
-    {
-      path: '/table/virtualTree/remove',
-      name: 'TableVirtualTreeRemove',
-      component: TableVirtualTreeRemove
-    },
-    {
-      path: '/table/virtualTree/menu',
-      name: 'TableVirtualTreeMenu',
-      component: TableVirtualTreeMenu
-    },
-    {
-      path: '/table/virtualTree/template',
-      name: 'TableVirtualTreeTemplate',
-      component: TableVirtualTreeTemplate
-    },
-    {
-      path: '/table/virtualTree/big',
-      name: 'TableVirtualTreeBig',
-      component: TableVirtualTreeBig
     },
     {
       path: '/table/grid/basic',

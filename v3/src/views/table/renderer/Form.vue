@@ -18,6 +18,10 @@
       :form-config="tableForm"
       :proxy-config="tableProxy"
       :columns="tableColumn">
+      <template #btns>
+        <vxe-button type="submit" content="查询"></vxe-button>
+        <vxe-button type="reset" content="重置"></vxe-button>
+      </template>
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -45,28 +49,13 @@ export default {
         items: [
           { field: 'name', title: '名称', itemRender: { name: 'FormItemInput', props: { clearable: true, placeholder: '请输入名称' } } },
           { field: 'age', title: '年龄', itemRender: { name: 'FormItemInput', props: { type: 'number', clearable: true, placeholder: '请输入年龄' } } },
-          { itemRender: { name: 'input', attrs: { type: 'submit', value: '查询' } } },
-          { itemRender: { name: 'input', attrs: { type: 'reset', value: '重置' } } }
+          { slots: { default: 'btns' } }
         ]
       },
       tableProxy: {
         form: true,
         ajax: {
-          query: () => {
-            return new Promise(resolve => {
-              const list = [
-                { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
-                { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-                { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-                { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 23, address: 'Shenzhen' },
-                { id: 10005, name: 'Test5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' },
-                { id: 10006, name: 'Test6', role: 'Designer', sex: 'Women', age: 21, address: 'Shenzhen' },
-                { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'Shenzhen' },
-                { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'Shenzhen' }
-              ]
-              resolve(list)
-            })
-          }
+          query: () => this.findList()
         }
       },
       demoCodes: [
@@ -93,6 +82,10 @@ export default {
           :form-config="tableForm"
           :proxy-config="tableProxy"
           :columns="tableColumn">
+          <template #btns>
+            <vxe-button type="submit" content="查询"></vxe-button>
+            <vxe-button type="reset" content="重置"></vxe-button>
+          </template>
         </vxe-grid>
         `,
         `
@@ -110,35 +103,58 @@ export default {
                 items: [
                   { field: 'name', title: '名称', itemRender: { name: 'FormItemInput', props: { clearable: true, placeholder: '请输入名称' } } },
                   { field: 'age', title: '年龄', itemRender: { name: 'FormItemInput', props: { type: 'number', clearable: true, placeholder: '请输入年龄' } } },
-                  { itemRender: { name: 'input', attrs: { type: 'submit', value: '查询' } } },
-                  { itemRender: { name: 'input', attrs: { type: 'reset', value: '重置' } } }
+                  { slots: { default: 'btns' } }
                 ]
               },
               tableProxy: {
                 form: true,
                 ajax: {
-                  query: () => {
-                    return new Promise(resolve => {
-                      const list = [
-                        { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
-                        { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-                        { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-                        { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 23, address: 'Shenzhen' },
-                        { id: 10005, name: 'Test5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' },
-                        { id: 10006, name: 'Test6', role: 'Designer', sex: 'Women', age: 21, address: 'Shenzhen' },
-                        { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'Shenzhen' },
-                        { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'Shenzhen' }
-                      ]
-                      resolve(list)
-                    })
-                  }
+                  query: () => this.findList()
                 }
               }
+            }
+          },
+          methods: {
+            findList () {
+              return new Promise(resolve => {
+                setTimeout(() => {
+                  const rest = [
+                    { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
+                    { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
+                    { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
+                    { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 23, address: 'Shenzhen' },
+                    { id: 10005, name: 'Test5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' },
+                    { id: 10006, name: 'Test6', role: 'Designer', sex: 'Women', age: 21, address: 'Shenzhen' },
+                    { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'Shenzhen' },
+                    { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'Shenzhen' }
+                  ]
+                  resolve(rest)
+                }, 200)
+              })
             }
           }
         }
         `
       ]
+    }
+  },
+  methods: {
+    findList () {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const rest = [
+            { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
+            { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
+            { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
+            { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 23, address: 'Shenzhen' },
+            { id: 10005, name: 'Test5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' },
+            { id: 10006, name: 'Test6', role: 'Designer', sex: 'Women', age: 21, address: 'Shenzhen' },
+            { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'Shenzhen' },
+            { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'Shenzhen' }
+          ]
+          resolve(rest)
+        }, 200)
+      })
     }
   }
 }

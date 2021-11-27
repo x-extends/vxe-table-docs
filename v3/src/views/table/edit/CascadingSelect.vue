@@ -33,10 +33,7 @@
           </vxe-select>
         </template>
       </vxe-column>
-      <vxe-column field="attr4" title="Project name" :edit-render="{}">
-        <template #default="{ row }">
-          <span>{{ formatPanmeLabel(row.attr4, row) }}</span>
-        </template>
+      <vxe-column field="attr4" title="Project name" :formatter="formatPanmeLabel" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-select v-model="row.attr4" clearable transfer>
             <vxe-option v-for="item in pnameList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
@@ -110,10 +107,7 @@ export default {
               </vxe-select>
             </template>
           </vxe-column>
-          <vxe-column field="attr4" title="Project name" :edit-render="{}">
-            <template #default="{ row }">
-              <span>{{ formatPanmeLabel(row.attr4, row) }}</span>
-            </template>
+          <vxe-column field="attr4" title="Project name" :formatter="formatPanmeLabel" :edit-render="{}">
             <template #edit="{ row }">
               <vxe-select v-model="row.attr4" clearable transfer>
                 <vxe-option v-for="item in pnameList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
@@ -157,7 +151,7 @@ export default {
               $table.insert(record)
             },
             // 格式化显示名称
-            formatPanmeLabel (cellValue, row) {
+            formatPanmeLabel ({ cellValue, row }) {
               let ptype = row.attr3
               let ptypeItem = this.cachePnameList.find(item => item.ptype === ptype)
               if (ptypeItem && ptypeItem.pnameList) {
@@ -214,7 +208,7 @@ export default {
       $table.insert(record)
     },
     // 格式化显示名称
-    formatPanmeLabel (cellValue, row) {
+    formatPanmeLabel ({ cellValue, row }) {
       const ptype = row.attr3
       const ptypeItem = this.cachePnameList.find(item => item.ptype === ptype)
       if (ptypeItem && ptypeItem.pnameList) {

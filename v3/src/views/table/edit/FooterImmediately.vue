@@ -29,7 +29,7 @@
       :edit-config="{trigger: 'click', mode: 'row'}">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="统计信息">
-        <vxe-column field="name" title="Name" :edit-render="{name: 'input', immediate: true}">
+        <vxe-column field="name" title="Name" :edit-render="{}">
           <template #edit="{ row }">
             <vxe-input v-model="row.name" type="text"></vxe-input>
           </template>
@@ -100,7 +100,7 @@ export default {
           :edit-config="{trigger: 'click', mode: 'row'}">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-colgroup title="统计信息">
-            <vxe-column field="name" title="Name" :edit-render="{name: 'input', immediate: true}">
+            <vxe-column field="name" title="Name" :edit-render="{}">
               <template #edit="{ row }">
                 <vxe-input v-model="row.name" type="text"></vxe-input>
               </template>

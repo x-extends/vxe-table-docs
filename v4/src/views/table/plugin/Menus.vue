@@ -17,12 +17,31 @@
       :keyboard-config="demo1.tableKeyboardConfig"
       :edit-config="{trigger: 'dblclick', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" width="300" sortable :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="role" title="Role" width="300" sortable :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" width="300" sortable :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="role" title="Role" width="300" sortable :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.role" type="text"></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-colgroup title="基本信息">
-        <vxe-column field="sex" title="sex" width="180" :edit-render="{name: 'input'}"></vxe-column>
+        <vxe-column field="sex" title="sex" width="180" :edit-render="{}">
+          <template #edit="{ row }">
+            <vxe-input v-model="row.sex" type="text"></vxe-input>
+          </template>
+        </vxe-column>
         <vxe-colgroup title="详细详细">
-          <vxe-column field="age" title="Age" width="180" sortable :filters="[{ data: [] }]" :filter-render="{name: 'input'}" :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="age" title="Age" width="180" sortable :filters="[{ data: [] }]" :filter-method="filterAgeMethod" :filter-render="{}" :edit-render="{}">
+            <template #filter="{ $panel, column }">
+              <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)">
+            </template>
+            <template #edit="{ row }">
+              <vxe-input v-model="row.age" type="text"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
       <vxe-column field="rate" title="Rate" width="180" sortable></vxe-column>
@@ -42,7 +61,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import { VxeTablePropTypes } from 'vxe-table'
+import { VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -145,9 +164,14 @@ export default defineComponent({
       ]
     }
 
+    const filterAgeMethod: VxeColumnPropTypes.FilterMethod = ({ option, row }) => {
+      return row.age === Number(option.data)
+    }
+
     return {
       demo1,
       footerMethod,
+      filterAgeMethod,
       demoCodes: [
         `
         <vxe-table
@@ -162,12 +186,31 @@ export default defineComponent({
           :keyboard-config="demo1.tableKeyboardConfig"
           :edit-config="{trigger: 'dblclick', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" width="300" sortable :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="role" title="Role" width="300" sortable :edit-render="{name: 'input'}"></vxe-column>
+          <vxe-column field="name" title="Name" width="300" sortable :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="role" title="Role" width="300" sortable :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.role" type="text"></vxe-input>
+            </template>
+          </vxe-column>
           <vxe-colgroup title="基本信息">
-            <vxe-column field="sex" title="sex" width="180" :edit-render="{name: 'input'}"></vxe-column>
+            <vxe-column field="sex" title="sex" width="180" :edit-render="{}">
+              <template #edit="{ row }">
+                <vxe-input v-model="row.sex" type="text"></vxe-input>
+              </template>
+            </vxe-column>
             <vxe-colgroup title="详细详细">
-              <vxe-column field="age" title="Age" width="180" sortable :filters="[{ data: [] }]" :filter-render="{name: 'input'}" :edit-render="{name: 'input'}"></vxe-column>
+              <vxe-column field="age" title="Age" width="180" sortable :filters="[{ data: [] }]" :filter-method="filterAgeMethod" :filter-render="{}" :edit-render="{}">
+                <template #filter="{ $panel, column }">
+                  <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)">
+                </template>
+                <template #edit="{ row }">
+                  <vxe-input v-model="row.age" type="text"></vxe-input>
+                </template>
+              </vxe-column>
             </vxe-colgroup>
           </vxe-colgroup>
           <vxe-column field="rate" title="Rate" width="180" sortable></vxe-column>
@@ -178,7 +221,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive } from 'vue'
-        import { VxeTablePropTypes } from 'vxe-table'
+        import { VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 
         export default defineComponent({
           setup () {
@@ -281,9 +324,14 @@ export default defineComponent({
               ]
             }
 
+            const filterAgeMethod: VxeColumnPropTypes.FilterMethod = ({ option, row }) => {
+              return row.age === Number(option.data)
+            }
+
             return {
               demo1,
-              footerMethod
+              footerMethod,
+              filterAgeMethod
             }
           }
         })

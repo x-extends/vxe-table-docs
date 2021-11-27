@@ -7,8 +7,17 @@
       <!--将表单放在工具栏中-->
       <template #toolbar_buttons>
         <vxe-form :data="formData" @submit="searchEvent" @reset="resetEvent">
-          <vxe-form-item field="name" :item-render="{name: 'input', attrs: {placeholder: '请输入名称'}}"></vxe-form-item>
-          <vxe-form-item :item-render="{ name: '$buttons', children: [{ props: { type: 'submit', content: 'app.body.label.search', status: 'primary' } }, { props: { type: 'reset', content: 'app.body.label.reset' } }] }"></vxe-form-item>
+          <vxe-form-item field="name">
+            <template>
+              <vxe-input v-model="formData.name" type="text" placeholder="请输入名称"></vxe-input>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item>
+            <template>
+              <vxe-button type="submit" status="primary" content="查询"></vxe-button>
+              <vxe-button type="reset" content="重置"></vxe-button>
+            </template>
+          </vxe-form-item>
         </vxe-form>
       </template>
 
@@ -138,7 +147,7 @@ export default defineComponent({
         { type: 'seq', width: 60, fixed: 'left' },
         { type: 'radio', title: 'ID', width: 120, fixed: 'left' },
         { field: 'name', title: 'Name', minWidth: 160, sortable: true },
-        { field: 'email', title: 'Email', minWidth: 160, editRender: { name: 'input' } },
+        { field: 'email', title: 'Email', minWidth: 160 },
         { field: 'nickname', title: 'Nickname', sortable: true, minWidth: 160 },
         { field: 'age', title: 'Age', visible: false, sortable: true, width: 100 },
         {
@@ -197,9 +206,18 @@ export default defineComponent({
 
           <!--将表单放在工具栏中-->
           <template #toolbar_buttons>
-            <vxe-form :data="formData" @submit="searchEvent" @reset="searchEvent">
-              <vxe-form-item field="name" :item-render="{name: 'input', attrs: {placeholder: '请输入名称'}}"></vxe-form-item>
-              <vxe-form-item :item-render="{ name: '$buttons', children: [{ props: { type: 'submit', content: 'app.body.label.search', status: 'primary' } }, { props: { type: 'reset', content: 'app.body.label.reset' } }] }"></vxe-form-item>
+            <vxe-form :data="formData" @submit="searchEvent" @reset="resetEvent">
+              <vxe-form-item field="name">
+                <template>
+                  <vxe-input v-model="formData.name" type="text" placeholder="请输入名称"></vxe-input>
+                </template>
+              </vxe-form-item>
+              <vxe-form-item>
+                <template>
+                  <vxe-button type="submit" status="primary" content="查询"></vxe-button>
+                  <vxe-button type="reset" content="重置"></vxe-button>
+                </template>
+              </vxe-form-item>
             </vxe-form>
           </template>
 
@@ -315,7 +333,7 @@ export default defineComponent({
                 { type: 'seq', width: 60, fixed: 'left' },
                 { type: 'radio', title: 'ID', width: 120, fixed: 'left' },
                 { field: 'name', title: 'Name', minWidth: 160, sortable: true },
-                { field: 'email', title: 'Email', minWidth: 160, editRender: { name: 'input' } },
+                { field: 'email', title: 'Email', minWidth: 160 },
                 { field: 'nickname', title: 'Nickname', sortable: true, minWidth: 160 },
                 { field: 'age', title: 'Age', visible: false, sortable: true, width: 100 },
                 {

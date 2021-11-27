@@ -27,7 +27,16 @@
           <vxe-input v-model="row.nickname" type="text" @focus="roleFocusEvent({ column })"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList, events: {change: sexChangeEvent}}"></vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{}">
+        <template #default="{ row }">
+          <span>{{ formatSex(row.sex) }}</span>
+        </template>
+        <template #edit="{ row, column }">
+          <vxe-select v-model="row.sex" transfer @change="sexChangeEvent({ column })">
+            <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
       <vxe-column field="date12" title="Date" :edit-render="{}">
         <template #edit="{ row, column }">
           <vxe-input v-model="row.date12" type="date" transfer @change="dateChangeEvent({ column })"></vxe-input>
@@ -87,7 +96,16 @@ export default {
               <vxe-input v-model="row.nickname" type="text" @focus="roleFocusEvent({ column })"></vxe-input>
             </template>
           </vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList, events: {change: sexChangeEvent}}"></vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{}">
+            <template #default="{ row }">
+              <span>{{ formatSex(row.sex) }}</span>
+            </template>
+            <template #edit="{ row, column }">
+              <vxe-select v-model="row.sex" transfer @change="sexChangeEvent({ column })">
+                <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
           <vxe-column field="date12" title="Date" :edit-render="{}">
             <template #edit="{ row, column }">
               <vxe-input v-model="row.date12" type="date" transfer @change="dateChangeEvent({ column })"></vxe-input>
@@ -114,6 +132,15 @@ export default {
             }
           },
           methods: {
+            formatSex (value) {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
+            },
             enterFilterEvent ({ column, $panel }) {
               console.log(\`\${column.title} 筛选回车事件\`)
               $panel.confirmFilter()
@@ -140,6 +167,15 @@ export default {
     }
   },
   methods: {
+    formatSex (value) {
+      if (value === '1') {
+        return '男'
+      }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
+    },
     enterFilterEvent ({ column, $panel }) {
       console.log(`${column.title} 筛选回车事件`)
       $panel.confirmFilter()

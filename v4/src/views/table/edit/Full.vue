@@ -23,11 +23,34 @@
       :edit-rules="demo1.validRules"
       :edit-config="{trigger: 'click', mode: 'row', showUpdateStatus: true, showInsertStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input', attrs: {type: 'text'}}"></vxe-column>
-      <vxe-column field="nickname" title="Nickname" :edit-render="{name: 'input', attrs: {type: 'text', placeholder: '请输入昵称'}}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: demo1.sexList}"></vxe-column>
-      <vxe-column field="amount" title="Amount" :edit-render="{name: '$input', props: {type: 'float', digits: 2}}"></vxe-column>
-      <vxe-column field="updateDate" title="Date" :edit-render="{name: '$input', props: {type: 'date', placeholder: '请选择日期'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="nickname" title="Nickname" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.nickname" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{}">
+        <template #default="{ row }">
+          <span>{{ formatSex(row.sex) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.sex" type="text" :options="demo1.sexList" transfer></vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="amount" title="Amount" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.amount" type="float" :digits="2"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="updateDate" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.updateDate" type="date"></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-column title="操作" width="240">
         <template #default="{ row }">
           <vxe-button status="warning" content="临时删除" @click="removeRowEvent(row)"></vxe-button>
@@ -69,6 +92,16 @@ export default defineComponent({
         { label: '女', value: '0' }
       ]
     })
+
+    const formatSex = (value: any) => {
+      if (value === '1') {
+        return '男'
+      }
+      if (value === '0') {
+        return '女'
+      }
+      return ''
+    }
 
     const loadList = async () => {
       demo1.loading = true
@@ -165,6 +198,7 @@ export default defineComponent({
       demo1,
       xToolbar,
       xTable,
+      formatSex,
       insertEvent,
       removeSelectEvent,
       deleteSelectEvent,
@@ -194,11 +228,34 @@ export default defineComponent({
           :edit-rules="demo1.validRules"
           :edit-config="{trigger: 'click', mode: 'row', showUpdateStatus: true, showInsertStatus: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input', attrs: {type: 'text'}}"></vxe-column>
-          <vxe-column field="nickname" title="Nickname" :edit-render="{name: 'input', attrs: {type: 'text', placeholder: '请输入昵称'}}"></vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: demo1.sexList}"></vxe-column>
-          <vxe-column field="amount" title="Amount" :edit-render="{name: '$input', props: {type: 'float', digits: 2}}"></vxe-column>
-          <vxe-column field="updateDate" title="Date" :edit-render="{name: '$input', props: {type: 'date', placeholder: '请选择日期'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="nickname" title="Nickname" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.nickname" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{}">
+            <template #default="{ row }">
+              <span>{{ formatSex(row.sex) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.sex" type="text" :options="demo1.sexList" transfer></vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="amount" title="Amount" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.amount" type="float" :digits="2"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="updateDate" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.updateDate" type="date"></vxe-input>
+            </template>
+          </vxe-column>
           <vxe-column title="操作" width="240">
             <template #default="{ row }">
               <vxe-button status="warning" content="临时删除" @click="removeRowEvent(row)"></vxe-button>
@@ -230,6 +287,16 @@ export default defineComponent({
                 { label: '女', value: '0' }
               ]
             })
+
+            const formatSex = (value: any) => {
+              if (value === '1') {
+                return '男'
+              }
+              if (value === '0') {
+                return '女'
+              }
+              return ''
+            }
 
             const loadList = async () => {
               demo1.loading = true
@@ -326,6 +393,7 @@ export default defineComponent({
               demo1,
               xToolbar,
               xTable,
+              formatSex,
               insertEvent,
               removeSelectEvent,
               deleteSelectEvent,

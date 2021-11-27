@@ -2,7 +2,22 @@
   <div>
     <p class="tip">表单数据代理，可以通过设置 <grid-api-link prop="form-config"/>={<grid-api-link prop="items"/>} 渲染表单</p>
 
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #name_item="{ data }">
+        <vxe-input v-model="data.name" type="text" placeholder="请输入名称"></vxe-input>
+      </template>
+      <template #sex_item="{ data }">
+        <vxe-select v-model="data.sex" transfer>
+          <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+        </vxe-select>
+      </template>
+      <template #submit_item>
+        <vxe-button type="submit" status="primary" content="查询"></vxe-button>
+      </template>
+      <template #reset_item>
+        <vxe-button type="reset" content="重置"></vxe-button>
+      </template>
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -28,10 +43,10 @@ export default {
         },
         formConfig: {
           items: [
-            { field: 'name', title: '名称', itemRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
-            { field: 'sex', title: '性别', itemRender: { name: '$select', options: [] } },
-            { itemRender: { name: '$button', props: { content: '查询', type: 'submit', status: 'primary' } } },
-            { itemRender: { name: '$button', props: { content: '重置', type: 'reset' } } }
+            { field: 'name', title: '名称', itemRender: {}, slots: { default: 'name_item' } },
+            { field: 'sex', title: '性别', itemRender: {}, slots: { default: 'sex_item' } },
+            { itemRender: {}, slots: { default: 'submit_item' } },
+            { itemRender: {}, slots: { default: 'reset_item' } }
           ]
         },
         toolbarConfig: {
@@ -78,9 +93,28 @@ export default {
           { field: 'describe', title: 'Describe', showOverflow: true }
         ]
       },
+      sexList1: [
+        { value: '1', label: '男' },
+        { value: '0', label: '女' }
+      ],
       demoCodes: [
         `
-        <vxe-grid v-bind="gridOptions"></vxe-grid>
+        <vxe-grid v-bind="gridOptions">
+          <template #name_item="{ data }">
+            <vxe-input v-model="data.name" type="text" placeholder="请输入名称"></vxe-input>
+          </template>
+          <template #sex_item="{ data }">
+            <vxe-select v-model="data.sex" transfer>
+              <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+            </vxe-select>
+          </template>
+          <template #submit_item>
+            <vxe-button type="submit" status="primary" content="查询"></vxe-button>
+          </template>
+          <template #reset_item>
+            <vxe-button type="reset" content="重置"></vxe-button>
+          </template>
+        </vxe-grid>
         `,
         `
         export default {
@@ -97,10 +131,10 @@ export default {
                 },
                 formConfig: {
                   items: [
-                    { field: 'name', title: '名称', itemRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
-                    { field: 'sex', title: '性别', itemRender: { name: '$select', options: [] } },
-                    { itemRender: { name: '$button', props: { content: '查询', type: 'submit', status: 'primary' } } },
-                    { itemRender: { name: '$button', props: { content: '重置', type: 'reset' } } }
+                    { field: 'name', title: '名称', itemRender: {}, slots: { default: 'name_item' } },
+                    { field: 'sex', title: '性别', itemRender: {}, slots: { default: 'sex_item' } },
+                    { itemRender: {}, slots: { default: 'submit_item' } },
+                    { itemRender: {}, slots: { default: 'reset_item' } }
                   ]
                 },
                 toolbarConfig: {
@@ -146,33 +180,17 @@ export default {
                   { field: 'sex', title: 'Sex' },
                   { field: 'describe', title: 'Describe', showOverflow: true }
                 ]
-              }
-            }
-          },
-          created () {
-            const { gridOptions } = this
-            // 异步更新下拉选项
-            setTimeout(() => {
-              gridOptions.formConfig.items[1].itemRender.options = [
+              },
+              sexList1: [
                 { value: '1', label: '男' },
                 { value: '0', label: '女' }
               ]
-            }, 200)
+            }
           }
         }
         `
       ]
     }
-  },
-  created () {
-    const { gridOptions } = this
-    // 异步更新下拉选项
-    setTimeout(() => {
-      gridOptions.formConfig.items[1].itemRender.options = [
-        { value: '1', label: '男' },
-        { value: '0', label: '女' }
-      ]
-    }, 200)
   }
 }
 </script>

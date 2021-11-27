@@ -139,6 +139,7 @@ import GridKeepAliveGrid2 from '../views/grid/keepAlives/Grid2.vue'
 import GridKeepAliveGrid3 from '../views/grid/keepAlives/Grid3.vue'
 
 import TableTreeBasic from '../views/table/tree/Basic.vue'
+import TableTreeStripe from '../views/table/tree/Stripe.vue'
 import TableTreeNormal from '../views/table/tree/Normal.vue'
 import TableTreeIcon from '../views/table/tree/Icon.vue'
 import TableTreeAccordion from '../views/table/tree/Accordion.vue'
@@ -812,6 +813,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/table/tree/basic',
     name: 'TableTreeBasic',
     component: TableTreeBasic
+  },
+  {
+    path: '/table/tree/stripe',
+    name: 'TableTreeStripe',
+    component: TableTreeStripe
   },
   {
     path: '/table/tree/normal',

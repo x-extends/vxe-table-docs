@@ -18,9 +18,26 @@
       :edit-config="{trigger: 'click', mode: 'row'}"
       @edit-actived="editActivedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="role1" title="Role" :edit-render="{name: '$select', options: demo1.roleList, props: {clearable: true}, events: {change: roleChangeEvent}}"></vxe-column>
-      <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="role" title="Role" :edit-render="{}">
+        <template #default="{ row }">
+          <span>{{ formatRole(row.role) }}</span>
+        </template>
+        <template #edit="{ row }">
+          <vxe-select v-model="row.role" clearable transfer @change="roleChangeEvent">
+            <vxe-option v-for="item in demo1.roleList" :key="item.value" :value="item.value" :label="item.label" :disabled="item.disabled"></vxe-option>
+          </vxe-select>
+        </template>
+      </vxe-column>
+      <vxe-column field="date13" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date13" type="date" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -43,10 +60,8 @@ export default defineComponent({
 
     const demo1 = reactive({
       tableData: [
-        { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
-        { id: 10002, name: 'Test2', nickname: 'T2', role: 'Designer', sex: '1', sex2: ['0', '1'], num1: 20, age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20' },
-        { id: 10003, name: 'Test3', nickname: 'T3', role: 'Test', sex: '0', sex2: ['1'], num1: 200, age: 32, address: 'Shanghai', date12: '2020-09-10', date13: '' },
-        { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04' }
+        { id: 10001, name: 'Test1', nickname: 'T1', role: '1', age: 28, address: 'Shenzhen', date12: '', date13: '' },
+        { id: 10002, name: 'Test2', nickname: 'T2', role: '2', age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20' }
       ],
       roleList: [
         { label: '前端', value: '1', disabled: false },
@@ -56,6 +71,11 @@ export default defineComponent({
         { label: '运维', value: '5', disabled: false }
       ]
     })
+
+    const formatRole = (value: any) => {
+      const item = demo1.roleList.find(item => item.value === value)
+      return item ? item.label : value
+    }
 
     const insertEvent = () => {
       const $table = xTable.value
@@ -70,7 +90,7 @@ export default defineComponent({
       demo1.roleList.forEach(item => {
         if (item.value) {
           // 如果当前选项已经被选过，则禁用
-          item.disabled = fullData.some(row => row.role1 === item.value)
+          item.disabled = fullData.some(row => row.role === item.value)
         }
       })
     }
@@ -91,6 +111,7 @@ export default defineComponent({
     return {
       xTable,
       demo1,
+      formatRole,
       insertEvent,
       roleChangeEvent,
       editActivedEvent,
@@ -112,9 +133,26 @@ export default defineComponent({
           :edit-config="{trigger: 'click', mode: 'row'}"
           @edit-actived="editActivedEvent">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="role1" title="Role" :edit-render="{name: '$select', options: demo1.roleList, props: {clearable: true}, events: {change: roleChangeEvent}}"></vxe-column>
-          <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="name" title="Name" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.name" type="text"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="role" title="Role" :edit-render="{}">
+            <template #default="{ row }">
+              <span>{{ formatRole(row.role) }}</span>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.role" clearable transfer @change="roleChangeEvent">
+                <vxe-option v-for="item in demo1.roleList" :key="item.value" :value="item.value" :label="item.label" :disabled="item.disabled"></vxe-option>
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column field="date13" title="Date" :edit-render="{}">
+            <template #edit="{ row }">
+              <vxe-input v-model="row.date13" type="date" transfer></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-table>
         `,
         `
@@ -127,10 +165,8 @@ export default defineComponent({
 
             const demo1 = reactive({
               tableData: [
-                { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
-                { id: 10002, name: 'Test2', nickname: 'T2', role: 'Designer', sex: '1', sex2: ['0', '1'], num1: 20, age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20' },
-                { id: 10003, name: 'Test3', nickname: 'T3', role: 'Test', sex: '0', sex2: ['1'], num1: 200, age: 32, address: 'Shanghai', date12: '2020-09-10', date13: '' },
-                { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04' }
+                { id: 10001, name: 'Test1', nickname: 'T1', role: '1', age: 28, address: 'Shenzhen', date12: '', date13: '' },
+                { id: 10002, name: 'Test2', nickname: 'T2', role: '2', age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20' }
               ],
               roleList: [
                 { label: '前端', value: '1', disabled: false },
@@ -140,6 +176,11 @@ export default defineComponent({
                 { label: '运维', value: '5', disabled: false }
               ]
             })
+
+            const formatRole = (value: any) => {
+              const item = demo1.roleList.find(item => item.value === value)
+              return item ? item.label : value
+            }
 
             const insertEvent = () => {
               const $table = xTable.value
@@ -154,7 +195,7 @@ export default defineComponent({
               demo1.roleList.forEach(item => {
                 if (item.value) {
                   // 如果当前选项已经被选过，则禁用
-                  item.disabled = fullData.some(row => row.role1 === item.value)
+                  item.disabled = fullData.some(row => row.role === item.value)
                 }
               })
             }
@@ -175,6 +216,7 @@ export default defineComponent({
             return {
               xTable,
               demo1,
+              formatRole,
               insertEvent,
               roleChangeEvent,
               editActivedEvent

@@ -864,6 +864,12 @@ export default defineComponent({
                 name: 'TableTreeBasic'
               }
             },
+            // {
+            //   label: 'app.aside.nav.stripe',
+            //   locat: {
+            //     name: 'TableTreeStripe'
+            //   }
+            // },
             {
               label: 'app.aside.nav.treeNormal',
               locat: {

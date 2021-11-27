@@ -2,7 +2,20 @@
   <div>
     <p class="tip">表单，可以通过设置 <grid-api-link prop="form-config"/>={data, items} 渲染表单</p>
 
-    <vxe-grid v-bind="gridOptions" @form-submit="findList"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" @form-submit="findList">
+      <template #name_item="{ data }">
+        <vxe-input v-model="data.name" type="text" placeholder="请输入名称"></vxe-input>
+      </template>
+      <template #sex_item="{ data }">
+        <vxe-select v-model="data.sex" transfer>
+          <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+        </vxe-select>
+      </template>
+      <template #operate_item>
+        <vxe-button type="submit" status="primary" content="查询"></vxe-button>
+        <vxe-button type="reset" content="重置"></vxe-button>
+      </template>
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -30,9 +43,9 @@ export default {
             sex: ''
           },
           items: [
-            { field: 'name', title: 'app.body.label.name', itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-            { field: 'sex', title: '性别', titlePrefix: { message: '帮助信息！！！', icon: 'fa fa-info-circle' }, itemRender: { name: '$select', options: [] } },
-            { itemRender: { name: '$buttons', children: [{ props: { type: 'submit', content: '查询', status: 'primary' } }, { props: { type: 'reset', content: '重置' } }] } }
+            { field: 'name', title: 'Name', slots: { default: 'name_item' } },
+            { field: 'sex', title: '性别', titlePrefix: { message: '帮助信息！！！', icon: 'fa fa-info-circle' }, slots: { default: 'sex_item' } },
+            { slots: { default: 'operate_item' } }
           ]
         },
         toolbarConfig: {
@@ -50,9 +63,26 @@ export default {
         ],
         data: []
       },
+      sexList1: [
+        { value: '1', label: '男' },
+        { value: '0', label: '女' }
+      ],
       demoCodes: [
         `
-        <vxe-grid v-bind="gridOptions" @form-submit="findList"></vxe-grid>
+        <vxe-grid v-bind="gridOptions" @form-submit="findList">
+          <template #name_item="{ data }">
+            <vxe-input v-model="data.name" type="text" placeholder="请输入名称"></vxe-input>
+          </template>
+          <template #sex_item="{ data }">
+            <vxe-select v-model="data.sex" transfer>
+              <vxe-option v-for="item in sexList1" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+            </vxe-select>
+          </template>
+          <template #operate_item>
+            <vxe-button type="submit" status="primary" content="查询"></vxe-button>
+            <vxe-button type="reset" content="重置"></vxe-button>
+          </template>
+        </vxe-grid>
         `,
         `
         export default {
@@ -71,9 +101,9 @@ export default {
                     sex: ''
                   },
                   items: [
-                    { field: 'name', title: 'app.body.label.name', itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-                    { field: 'sex', title: '性别', titlePrefix: { message: '帮助信息！！！', icon: 'fa fa-info-circle' }, itemRender: { name: '$select', options: [] } },
-                    { itemRender: { name: '$buttons', children: [{ props: { type: 'submit', content: '查询', status: 'primary' } }, { props: { type: 'reset', content: '重置' } }] } }
+                    { field: 'name', title: 'Name', slots: { default: 'name_item' } },
+                    { field: 'sex', title: '性别', titlePrefix: { message: '帮助信息！！！', icon: 'fa fa-info-circle' }, slots: { default: 'sex_item' } },
+                    { slots: { default: 'operate_item' } }
                   ]
                 },
                 toolbarConfig: {
@@ -90,19 +120,14 @@ export default {
                   { field: 'address', title: 'Address', showOverflow: true }
                 ],
                 data: []
-              }
-            }
-          },
-          created () {
-            const { gridOptions } = this
-            // 异步更新下拉选项
-            setTimeout(() => {
-              gridOptions.formConfig.items[1].itemRender.options = [
+              },
+              sexList1: [
                 { value: '1', label: '男' },
                 { value: '0', label: '女' }
               ]
-            }, 200)
-
+            }
+          },
+          created () {
             this.findList()
           },
           methods: {
@@ -127,15 +152,6 @@ export default {
     }
   },
   created () {
-    const { gridOptions } = this
-    // 异步更新下拉选项
-    setTimeout(() => {
-      gridOptions.formConfig.items[1].itemRender.options = [
-        { value: '1', label: '男' },
-        { value: '0', label: '女' }
-      ]
-    }, 200)
-
     this.findList()
   },
   methods: {

@@ -2,6 +2,7 @@
   <div>
     <p class="tip">
       表格不支持拖动功能；简单示例： <a class="link" href="https://www.npmjs.com/package/sortablejs" target="_blank">sortablejs</a> 等库实现列移动<br>
+      <a class="link" href="https://www.npmjs.com/package/vxe-table" target="_blank">vxe-table</a> 作为表格组件，可以很容易跟其他优秀的组件库互相集成，以下为简单示例可供参考。<br>
       由于直接操作了 Dom 节点，需要与 Vue 的数据同步，必须设置 <table-api-link prop="column-key"/>，并且自行根据 vue 的规则自行实现数据同步<br>
       <span class="red">（注：该示例仅供参考，具体请自行实现）</span>
     </p>

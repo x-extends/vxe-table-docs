@@ -1,7 +1,8 @@
 <template>
   <div>
     <p class="tip">
-      使用 <a class="link" href="https://www.npmjs.com/package/xlsx" target="_blank">xlsx</a> 实现导入数据<br>
+      使用 <a class="link" href="https://www.npmjs.com/package/xlsx" target="_blank">xlsx</a> 自行实现导入数据<br>
+      <a class="link" href="https://www.npmjs.com/package/vxe-table" target="_blank">vxe-table</a> 作为表格组件，可以很容易跟其他优秀的组件库互相集成，以下为简单示例可供参考。<br>
       <span class="red">（注：该示例仅供参考，具体逻辑请自行实现）</span>
     </p>
 

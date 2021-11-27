@@ -2,6 +2,7 @@
   <div>
     <p class="tip">
       自定义渲染 <a class="link" href="https://www.npmjs.com/package/element-plus" target="_blank">element-plus</a> 组件，自定义渲染需要配合 <table-api-link prop="updateStatus"/> 方法使用，在对应单元格的值发生改变时调用更新状态<br>
+      <a class="link" href="https://www.npmjs.com/package/vxe-table" target="_blank">vxe-table</a> 作为表格组件，可以很容易跟其他优秀的组件库互相集成，以下为简单示例可供参考。<br>
       建议通过使用 <a class="link" href="https://github.com/x-extends/vxe-table-plugin-element" target="_blank">vxe-table-plugin-element</a> 适配插件来解决跨组件渲染的兼容性问题，例如：无法下拉选中...等<br>
       <span class="red">（注：该示例仅供参考，具体逻辑请自行实现）</span>
     </p>
