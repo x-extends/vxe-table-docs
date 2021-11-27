@@ -14,6 +14,7 @@
         <vxe-button @click="$refs.xTable.clearFilter($refs.xTable.getColumnByField('age'))">清除 Age 的筛选条件</vxe-button>
         <vxe-button @click="$refs.xTable.clearFilter()">清除所有的筛选条件</vxe-button>
         <vxe-button @click="$refs.xTable.openFilter('age')">弹出筛选面板</vxe-button>
+        <vxe-button @click="$refs.xTable.clearFilter()">关闭筛选面板</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -185,6 +186,7 @@ export default defineComponent({
             <vxe-button @click="$refs.xTable.clearFilter($refs.xTable.getColumnByField('age'))">清除 Age 的筛选条件</vxe-button>
             <vxe-button @click="$refs.xTable.clearFilter()">清除所有的筛选条件</vxe-button>
             <vxe-button @click="$refs.xTable.openFilter('age')">弹出筛选面板</vxe-button>
+            <vxe-button @click="$refs.xTable.clearFilter()">关闭筛选面板</vxe-button>
           </template>
         </vxe-toolbar>
 
