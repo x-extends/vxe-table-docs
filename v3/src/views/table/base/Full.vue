@@ -6,9 +6,9 @@
       border
       stripe
       resizable
-      highlight-hover-row
       height="400"
       :loading="loading"
+      :row-config="{isHover: true}"
       :checkbox-config="{labelField: 'id', highlight: true, range: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -49,9 +49,9 @@ export default {
           border
           stripe
           resizable
-          highlight-hover-row
           height="400"
           :loading="loading"
+          :row-config="{isHover: true}"
           :checkbox-config="{labelField: 'id', highlight: true, range: true}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>

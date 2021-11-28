@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="tip">使用 <table-api-link prop="highlight-current-row"/> 显示高亮行，当前行是唯一的；用户操作点击选项时会触发事件 <table-api-link prop="current-change"/></p>
+    <p class="tip">使用 <table-api-link prop="row-config"/>.<table-api-link prop="isCurrent"/> 显示高亮行，当前行是唯一的；用户操作点击选项时会触发事件 <table-api-link prop="current-change"/></p>
 
     <vxe-toolbar>
       <template #buttons>
@@ -12,11 +12,10 @@
 
     <vxe-table
       border
-      highlight-hover-row
-      highlight-current-row
       ref="xTable"
       height="300"
       :data="tableData"
+      :row-config="{isCurrent: true, isHover: true}"
       @current-change="currentChangeEvent">
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -55,10 +54,9 @@ export default {
 
         <vxe-table
           border
-          highlight-hover-row
-          highlight-current-row
           ref="xTable"
           height="300"
+          :row-config="{isCurrent: true, isHover: true}"
           :data="tableData"
           @current-change="currentChangeEvent">
           <vxe-column field="name" title="Name"></vxe-column>

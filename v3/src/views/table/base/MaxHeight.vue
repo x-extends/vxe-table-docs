@@ -4,8 +4,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       max-height="200"
+      :row-config="{isHover: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -25,8 +25,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       max-height="200"
+      :row-config="{isHover: true}"
       :data="tableData2">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -47,8 +47,8 @@
     <div style="height: 400px;">
       <vxe-table
         border
-        highlight-hover-row
         max-height="100%"
+        :row-config="{isHover: true}"
         :data="tableData">
         <vxe-column type="seq" width="60"></vxe-column>
         <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -83,8 +83,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
           max-height="200"
+          :row-config="{isHover: true}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -108,8 +108,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
           max-height="200"
+          :row-config="{isHover: true}"
           :data="tableData2">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -134,8 +134,8 @@ export default {
         <div style="height: 400px;">
           <vxe-table
             border
-            highlight-hover-row
             max-height="100%"
+            :row-config="{isHover: true}"
             :data="tableData">
             <vxe-column type="seq" width="60"></vxe-column>
             <vxe-column field="name" title="Name" sortable></vxe-column>

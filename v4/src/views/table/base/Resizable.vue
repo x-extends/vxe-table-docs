@@ -3,7 +3,7 @@
     <p class="tip">通过设置 <table-api-link prop="resizable"/> 属性启用列宽拖动功能</p>
 
     <vxe-table
-      resizable
+      :column-config="{resizable: true}"
       :data="tableData1">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -24,8 +24,8 @@
 
     <vxe-table
       border
-      resizable
-      highlight-hover-row
+      :column-config="{resizable: true}"
+      :row-config="{isHover: true}"
       :data="tableData2">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
@@ -46,7 +46,7 @@
 
     <vxe-table
       border
-      resizable
+      :column-config="{resizable: true}"
       :data="tableData3">
       <vxe-column type="seq" width="60" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="100" fixed="left"></vxe-column>
@@ -71,7 +71,7 @@
 
     <vxe-table
       border
-      resizable
+      :column-config="{resizable: true}"
       :data="tableData4">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" width="200"></vxe-column>
@@ -97,8 +97,8 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
+      :column-config="{resizable: true}"
       :data="tableData5">
       <vxe-column type="seq" width="60" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="100" fixed="left"></vxe-column>
@@ -124,7 +124,7 @@
 
     <vxe-table
       border
-      resizable
+      :column-config="{resizable: true}"
       :data="tableData6">
       <vxe-colgroup title="基本信息">
         <vxe-column type="seq" width="60"></vxe-column>
@@ -152,7 +152,7 @@
 
     <vxe-table
       border
-      resizable
+      :column-config="{resizable: true}"
       :data="tableData7">
       <vxe-colgroup title="基本信息" fixed="left">
         <vxe-column type="seq" width="60" fixed="left"></vxe-column>
@@ -239,7 +239,7 @@ export default defineComponent({
       demoCodes: [
         `
         <vxe-table
-          resizable
+          :column-config="{resizable: true}"
           :data="tableData1">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>
@@ -269,8 +269,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
-          highlight-hover-row
+          :column-config="{resizable: true}"
+          :row-config="{isHover: true}"
           :data="tableData2">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" width="300"></vxe-column>
@@ -300,7 +300,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
+          :column-config="{resizable: true}"
           :data="tableData3">
           <vxe-column type="seq" width="60" fixed="left"></vxe-column>
           <vxe-column field="name" title="Name" width="100" fixed="left"></vxe-column>
@@ -334,7 +334,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
+          :column-config="{resizable: true}"
           :data="tableData4">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" width="200"></vxe-column>
@@ -369,8 +369,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
+          :column-config="{resizable: true}"
           :data="tableData5">
           <vxe-column type="seq" width="60" fixed="left"></vxe-column>
           <vxe-column field="name" title="Name" width="100" fixed="left"></vxe-column>
@@ -405,7 +405,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
+          :column-config="{resizable: true}"
           :data="tableData6">
           <vxe-colgroup title="基本信息">
             <vxe-column type="seq" width="60"></vxe-column>
@@ -442,7 +442,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
+          :column-config="{resizable: true}"
           :data="tableData7">
           <vxe-colgroup title="基本信息" fixed="left">
             <vxe-column type="seq" width="60" fixed="left"></vxe-column>

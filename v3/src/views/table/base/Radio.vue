@@ -117,8 +117,8 @@
 
     <vxe-table
       border
-      highlight-current-row
       height="300"
+      :row-config="{isCurrent: true}"
       :radio-config="{labelField: 'name'}"
       :data="tableData">
       <vxe-column type="radio" title="还可以这样" width="120"></vxe-column>
@@ -139,9 +139,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
-      highlight-current-row
       height="300"
+      :row-config="{isCurrent: true, isHover: true}"
       :radio-config="{labelField: 'name', trigger: 'row'}"
       :data="tableData">
       <vxe-column type="radio" title="还可以这样" width="120"></vxe-column>
@@ -356,8 +355,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-current-row
           height="300"
+          :row-config="{isCurrent: true}"
           :radio-config="{labelField: 'name'}"
           :data="tableData">
           <vxe-column type="radio" title="还可以这样" width="120"></vxe-column>
@@ -388,9 +387,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
-          highlight-current-row
           height="300"
+          :row-config="{isCurrent: true, isHover: true}"
           :radio-config="{labelField: 'name', trigger: 'row'}"
           :data="tableData">
           <vxe-column type="radio" title="还可以这样" width="120"></vxe-column>

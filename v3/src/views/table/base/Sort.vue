@@ -18,9 +18,9 @@
 
     <vxe-table
       border
-      highlight-hover-row
       ref="xTable"
       height="300"
+      :row-config="{isHover: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -42,8 +42,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="300"
+      :row-config="{isHover: true}"
       :data="tableData2">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :sort-by="sortNameMethod2" sortable>
@@ -67,8 +67,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="300"
+      :row-config="{isHover: true}"
       :data="tableData3"
       :sort-config="{sortMethod: customSortMethod}">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -89,8 +89,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="300"
+      :row-config="{isHover: true}"
       :sort-config="{multiple: true}"
       :data="tableData4"
       @sort-change="sortChangeEvent3">
@@ -111,9 +111,9 @@
 
     <vxe-table
       border
-      highlight-hover-row
-      highlight-hover-column
       height="300"
+      :column-config="{isHover: true}"
+      :row-config="{isHover: true}"
       :data="tableData"
       :sort-config="{trigger: 'cell', defaultSort: {field: 'age', order: 'desc'}, orders: ['desc', 'asc', null]}"
       @sort-change="sortChangeEvent4">
@@ -227,9 +227,9 @@ export default {
 
         <vxe-table
           border
-          highlight-hover-row
           ref="xTable"
           height="300"
+          :row-config="{isHover: true}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -261,8 +261,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
           height="300"
+          :row-config="{isHover: true}"
           :data="tableData2">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :sort-by="sortNameMethod2" sortable>
@@ -319,8 +319,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
           height="300"
+          :row-config="{isHover: true}"
           :data="tableData3"
           :sort-config="{sortMethod: customSortMethod}">
           <vxe-column type="seq" width="60"></vxe-column>
@@ -400,8 +400,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
           height="300"
+          :row-config="{isHover: true}"
           :sort-config="{multiple: true}"
           :data="tableData4"
           @sort-change="sortChangeEvent3">
@@ -449,9 +449,9 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
-          highlight-hover-column
           height="300"
+          :column-config="{isHover: true}"
+          :row-config="{isHover: true}"
           :data="tableData"
           :sort-config="{trigger: 'cell', defaultSort: {field: 'age', order: 'desc'}, orders: ['desc', 'asc', null]}"
           @sort-change="sortChangeEvent4">

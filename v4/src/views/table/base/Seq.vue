@@ -24,8 +24,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="300"
+      :row-config="{isHover: true}"
       :seq-config="{startIndex: 100}"
       :data="tableData2">
       <vxe-column type="seq" title="序号" width="60"></vxe-column>
@@ -46,8 +46,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="300"
+      :row-config="{isHover: true}"
       :seq-config="tableSeq3"
       :data="tableData3">
       <vxe-column type="seq" title="序号" width="80"></vxe-column>
@@ -153,8 +153,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-row
           height="300"
+          :row-config="{isHover: true}"
           :seq-config="{startIndex: 100}"
           :data="tableData2">
           <vxe-column type="seq" title="序号" width="60"></vxe-column>
@@ -188,8 +188,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-row
           height="300"
+          :row-config="{isHover: true}"
           :seq-config="tableSeq3"
           :data="tableData3">
           <vxe-column type="seq" title="序号" width="80"></vxe-column>

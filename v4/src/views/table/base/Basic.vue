@@ -35,7 +35,7 @@
       border
       show-header-overflow
       show-overflow
-      highlight-hover-row
+      :row-config="{isHover: true}"
       :data="tableData2">
       <vxe-column type="seq" title="序号" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -123,7 +123,7 @@ export default defineComponent({
           border
           show-header-overflow
           show-overflow
-          highlight-hover-row
+          :row-config="{isHover: true}"
           :data="tableData2">
           <vxe-column type="seq" title="序号" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>

@@ -25,8 +25,7 @@
 
     <vxe-table
       stripe
-      highlight-current-row
-      highlight-hover-row
+      :row-config="{isCurrent: true, isHover: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -97,8 +96,7 @@ export default defineComponent({
         `
         <vxe-table
           stripe
-          highlight-current-row
-          highlight-hover-row
+          :row-config="{isCurrent: true, isHover: true}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>

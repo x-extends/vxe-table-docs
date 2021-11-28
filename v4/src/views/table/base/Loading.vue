@@ -4,8 +4,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="300"
+      :row-config="{isHover: true}"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -25,9 +25,9 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="300"
       :loading="demo2.loading"
+      :row-config="{isHover: true}"
       :data="demo2.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>

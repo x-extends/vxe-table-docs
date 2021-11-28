@@ -9,7 +9,7 @@
 
     <vxe-table
       show-footer
-      highlight-hover-row
+      :row-config="{isHover: true}"
       :footer-method="footerMethod"
       :data="tableData1">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -40,8 +40,8 @@
       border
       show-footer
       show-header-overflow
-      highlight-hover-row
       height="500"
+      :row-config="{isHover: true}"
       :footer-method="footerMethod"
       :data="tableData2"
       :tooltip-config="{contentMethod: showTooltipMethod, enterable: true}">
@@ -99,7 +99,7 @@ export default {
         `
         <vxe-table
           show-footer
-          highlight-hover-row
+          :row-config="{isHover: true}"
           :footer-method="footerMethod"
           :data="tableData1">
           <vxe-column type="seq" width="60"></vxe-column>
@@ -153,8 +153,8 @@ export default {
           border
           show-footer
           show-header-overflow
-          highlight-hover-row
           height="500"
+          :row-config="{isHover: true}"
           :footer-method="footerMethod"
           :data="tableData2"
           :tooltip-config="{contentMethod: showTooltipMethod, enterable: true}">

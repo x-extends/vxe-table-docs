@@ -12,10 +12,9 @@
 
     <vxe-table
       border
-      highlight-hover-row
-      highlight-current-row
       ref="xTable"
       height="300"
+      :row-config="{isCurrent: true, isHover: true}"
       :data="demo1.tableData"
       @current-change="currentChangeEvent">
       <vxe-column field="name" title="Name"></vxe-column>
@@ -76,10 +75,9 @@ export default defineComponent({
 
         <vxe-table
           border
-          highlight-hover-row
-          highlight-current-row
           ref="xTable"
           height="300"
+          :row-config="{isCurrent: true, isHover: true}"
           :data="demo1.tableData"
           @current-change="currentChangeEvent">
           <vxe-column field="name" title="Name"></vxe-column>

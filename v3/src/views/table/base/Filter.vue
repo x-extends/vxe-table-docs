@@ -12,8 +12,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       ref="xTable1"
+      :row-config="{isHover: true}"
       :data="tableData"
       @filter-visible="filterVisibleEvent"
       @filter-change="filterChangeEvent">
@@ -39,7 +39,7 @@
 
     <vxe-table
       border
-      highlight-hover-row
+      :row-config="{isHover: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="基本信息">
@@ -83,8 +83,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
           ref="xTable1"
+          :row-config="{isHover: true}"
           :data="tableData"
           @filter-visible="filterVisibleEvent"
           @filter-change="filterChangeEvent">
@@ -147,7 +147,7 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
+          :row-config="{isHover: true}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-colgroup title="基本信息">

@@ -4,9 +4,9 @@
 
     <vxe-table
       border
-      resizable
       height="300"
-      highlight-hover-row
+      :column-config="{resizable: true}"
+      :row-config="{isHover: true}"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
@@ -43,8 +43,8 @@
       border
       ref="xTable2"
       height="300"
-      highlight-hover-row
       show-overflow
+      :row-config="{isHover: true}"
       :data="demo2.tableData">
       <vxe-column type="seq" width="60" :fixed="demo2.colFixeds.col0"></vxe-column>
       <vxe-column field="name" title="Name" width="300" :fixed="demo2.colFixeds.col1"></vxe-column>
@@ -223,9 +223,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           height="300"
-          highlight-hover-row
+          :column-config="{resizable: true}"
+          :row-config="{isHover: true}"
           :data="demo1.tableData">
           <vxe-column type="seq" width="60" fixed="left"></vxe-column>
           <vxe-column field="name" title="Name" width="300"></vxe-column>
@@ -290,8 +290,8 @@ export default defineComponent({
           border
           ref="xTable2"
           height="300"
-          highlight-hover-row
           show-overflow
+          :row-config="{isHover: true}"
           :data="demo2.tableData">
           <vxe-column type="seq" width="60" :fixed="demo2.colFixeds.col0"></vxe-column>
           <vxe-column field="name" title="Name" width="300" :fixed="demo2.colFixeds.col1"></vxe-column>

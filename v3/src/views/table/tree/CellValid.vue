@@ -58,8 +58,6 @@
 </template>
 
 <script>
-import XEUtils from 'xe-utils'
-
 export default {
   data () {
     return {
@@ -138,8 +136,6 @@ export default {
         </vxe-table>
         `,
         `
-        import XEUtils from 'xe-utils'
-        
         export default {
           data () {
             return {
@@ -191,10 +187,8 @@ export default {
                 Object.values(errMap).forEach(errList => {
                   errList.forEach(params => {
                     const { row, column, rules } = params
-                    const matchObj = XEUtils.findTree(this.tableData, item => item === row, this.treeConfig)
-                    const seq = matchObj.path.filter(item => item !== this.treeConfig.children).map(item => Number(item) + 1).join('.')
                     rules.forEach(rule => {
-                      msgList.push(\`第 \${seq} 行 \${column.title} 校验错误：\${rule.message}\`)
+                      msgList.push(\`\${row.name} -> \${column.title} 校验错误：\${rule.message}\`)
                     })
                   })
                 })
@@ -263,10 +257,8 @@ export default {
         Object.values(errMap).forEach(errList => {
           errList.forEach(params => {
             const { row, column, rules } = params
-            const matchObj = XEUtils.findTree(this.tableData, item => item === row, this.treeConfig)
-            const seq = matchObj.path.filter(item => item !== this.treeConfig.children).map(item => Number(item) + 1).join('.')
             rules.forEach(rule => {
-              msgList.push(`第 ${seq} 行 ${column.title} 校验错误：${rule.message}`)
+              msgList.push(`${row.name} -> ${column.title} 校验错误：${rule.message}`)
             })
           })
         })

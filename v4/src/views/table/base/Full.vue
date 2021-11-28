@@ -5,10 +5,10 @@
     <vxe-table
       border
       stripe
-      resizable
-      highlight-hover-row
       height="400"
       :loading="demo1.loading"
+      :column-config="{resizable: true}"
+      :row-config="{isHover: true}"
       :checkbox-config="{labelField: 'id', highlight: true, range: true}"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -101,10 +101,10 @@ export default defineComponent({
         <vxe-table
           border
           stripe
-          resizable
-          highlight-hover-row
           height="400"
           :loading="demo1.loading"
+          :column-config="{resizable: true}"
+          :row-config="{isHover: true}"
           :checkbox-config="{labelField: 'id', highlight: true, range: true}"
           :data="demo1.tableData">
           <vxe-column type="seq" width="60"></vxe-column>

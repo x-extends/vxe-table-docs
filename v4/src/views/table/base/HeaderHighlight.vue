@@ -4,8 +4,7 @@
 
     <vxe-table
       border
-      highlight-hover-column
-      highlight-current-column
+      :column-config="{isCurrent: true, isHover: true}"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -25,10 +24,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
-      highlight-current-row
-      highlight-hover-column
-      highlight-current-column
+      :column-config="{isCurrent: true, isHover: true}"
+      :row-config="{isCurrent: true, isHover: true}"
       :data="demo2.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -84,8 +81,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-column
-          highlight-current-column
+          :column-config="{isCurrent: true, isHover: true}"
           :data="demo1.tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>
@@ -121,10 +117,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-row
-          highlight-current-row
-          highlight-hover-column
-          highlight-current-column
+          :column-config="{isCurrent: true, isHover: true}"
+          :row-config="{isCurrent: true, isHover: true}"
           :data="demo2.tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>

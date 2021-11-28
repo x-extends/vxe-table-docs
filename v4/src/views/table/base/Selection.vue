@@ -96,9 +96,9 @@
 
     <vxe-table
       border
-      highlight-hover-row
       class="checkbox-table"
       ref="xTable4"
+      :row-config="{isHover: true}"
       :data="demo4.tableData"
       :checkbox-config="{checkField: 'checked', trigger: 'row'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
@@ -122,8 +122,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       row-id="id"
+      :row-config="{isHover: true}"
       :data="demo5.tableData"
       :checkbox-config="{checkRowKeys: demo5.defaultSelecteRows5, highlight: true}"
       :radio-config="{labelField: 'name'}">
@@ -152,8 +152,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       ref="xTable6"
+      :row-config="{isHover: true}"
       :data="tableData6"
       :checkbox-config="{checkStrictly: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
@@ -174,7 +174,7 @@
 
     <vxe-table
       border
-      highlight-hover-row
+      :row-config="{isHover: true}"
       :data="tableData7"
       :radio-config="{labelField: 'name'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
@@ -195,10 +195,9 @@
 
     <vxe-table
       border
-      resizable
-      highlight-hover-row
-      highlight-current-row
       height="300"
+      :column-config="{resizable: true}"
+      :row-config="{isCurrent: true, isHover: true}"
       :data="tableData8"
       :radio-config="{labelField: 'role'}"
       :checkbox-config="{labelField: 'name', highlight: true, range: true}">
@@ -523,9 +522,9 @@ export default defineComponent({
 
         <vxe-table
           border
-          highlight-hover-row
           class="checkbox-table"
           ref="xTable4"
+          :row-config="{isHover: true}"
           :data="demo4.tableData"
           :checkbox-config="{checkField: 'checked', trigger: 'row'}">
           <vxe-column type="checkbox" width="60"></vxe-column>
@@ -559,8 +558,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-row
           row-id="id"
+          :row-config="{isHover: true}"
           :data="demo5.tableData"
           :checkbox-config="{checkRowKeys: demo5.defaultSelecteRows5, highlight: true}"
           :radio-config="{labelField: 'name'}">
@@ -603,8 +602,8 @@ export default defineComponent({
 
         <vxe-table
           border
-          highlight-hover-row
           ref="xTable6"
+          :row-config="{isHover: true}"
           :data="tableData6"
           :checkbox-config="{checkStrictly: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
@@ -636,7 +635,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-row
+          :row-config="{isHover: true}"
           :data="tableData7"
           :radio-config="{labelField: 'name'}">
           <vxe-column type="checkbox" width="60"></vxe-column>
@@ -668,10 +667,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
-          highlight-hover-row
-          highlight-current-row
           height="300"
+          :column-config="{resizable: true}"
+          :row-config="{isCurrent: true, isHover: true}"
           :data="tableData8"
           :radio-config="{labelField: 'role'}"
           :checkbox-config="{labelField: 'name', highlight: true, range: true}">
