@@ -21,7 +21,7 @@
       <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
     </pre>
 
-    <p class="tip">使用 <table-api-link prop="highlight-hover-row"/> 属性启用 hover 行高亮</p>
+    <p class="tip">使用 <table-api-link prop="row-config"/>.<table-api-link prop="isHover"/> 属性启用 hover 行高亮</p>
 
     <vxe-table
       stripe

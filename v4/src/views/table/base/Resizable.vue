@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="tip">通过设置 <table-api-link prop="resizable"/> 属性启用列宽拖动功能</p>
+    <p class="tip">通过设置 <table-api-link prop="column-config"/>.<table-api-link prop="resizable"/> 属性启用列宽拖动功能</p>
 
     <vxe-table
       :column-config="{resizable: true}"

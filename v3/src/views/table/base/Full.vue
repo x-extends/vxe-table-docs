@@ -5,9 +5,9 @@
     <vxe-table
       border
       stripe
-      resizable
       height="400"
       :loading="loading"
+      :column-config="{resizable: true}"
       :row-config="{isHover: true}"
       :checkbox-config="{labelField: 'id', highlight: true, range: true}"
       :data="tableData">
@@ -48,9 +48,9 @@ export default {
         <vxe-table
           border
           stripe
-          resizable
           height="400"
           :loading="loading"
+          :column-config="{resizable: true}"
           :row-config="{isHover: true}"
           :checkbox-config="{labelField: 'id', highlight: true, range: true}"
           :data="tableData">

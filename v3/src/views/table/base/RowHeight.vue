@@ -4,9 +4,9 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       height="500"
+      :column-config="{resizable: true}"
       :row-config="{height: 120}"
       :data="tableData">
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
@@ -54,9 +54,9 @@ export default {
         `
         <vxe-table
           border
-          resizable
           show-overflow
           height="500"
+          :column-config="{resizable: true}"
           :row-config="{height: 120}"
           :data="tableData">
           <vxe-column type="seq" title="序号" width="100"></vxe-column>

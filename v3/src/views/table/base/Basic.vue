@@ -29,13 +29,13 @@
       <pre-code class="javascript">{{ demoCodes[1] }}</pre-code>
     </pre>
 
-    <p class="tip">使用 <table-api-link prop="highlight-hover-row"/> 属性启用 hover 行高亮</p>
+    <p class="tip">使用 <table-api-link prop="row-config"/>.<table-api-link prop="isHover"/> 属性启用 hover 行高亮</p>
 
     <vxe-table
       border
       show-header-overflow
       show-overflow
-      highlight-hover-row
+      :row-config="{isHover: true}"
       :align="allAlign"
       :data="tableData">
       <vxe-column type="seq" title="序号" width="60"></vxe-column>
@@ -104,8 +104,8 @@ export default {
           border
           show-header-overflow
           show-overflow
-          highlight-hover-row
           :align="allAlign"
+          :row-config="{isHover: true}"
           :data="tableData">
           <vxe-column type="seq" title="序号" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>

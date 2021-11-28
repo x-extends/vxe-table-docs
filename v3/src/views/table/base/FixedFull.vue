@@ -4,8 +4,8 @@
 
     <vxe-table
       border
-      resizable
       height="300"
+      :column-config="{resizable: true}"
       :row-config="{isHover: true}"
       :data="tableData">
       <vxe-column type="seq" width="60" fixed="left"></vxe-column>
@@ -137,8 +137,8 @@ export default {
         `
         <vxe-table
           border
-          resizable
           height="300"
+          :column-config="{resizable: true}"
           :row-config="{isHover: true}"
           :data="tableData">
           <vxe-column type="seq" width="60" fixed="left"></vxe-column>
