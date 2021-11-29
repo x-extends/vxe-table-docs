@@ -949,7 +949,7 @@ const apis = [
           {
             name: 'resizable',
             desc: '每一列是否启用列宽调整',
-            version: '',
+            version: '4.1.0',
             type: 'boolean',
             enum: 'false',
             defVal: '',
