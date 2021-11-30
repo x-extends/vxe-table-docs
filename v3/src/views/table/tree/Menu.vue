@@ -182,12 +182,11 @@ export default {
           methods: {
             visibleMethod  ({ row, type }) {
               let xTable = this.$refs.xTable
-              let treeConfig = this.treeConfig
               if (type === 'body') {
                 this.bodyMenus.forEach(list => {
                   list.forEach(item => {
                     if (['expand', 'contract'].includes(item.code)) {
-                      if (row[treeConfig.children] && row[treeConfig.children].length) {
+                      if (row.hasChild) {
                         let isExpand = xTable.isTreeExpandByRow(row)
                         item.disabled = ['expand'].includes(item.code) ? isExpand : !isExpand
                       } else {
@@ -222,12 +221,11 @@ export default {
   methods: {
     visibleMethod  ({ row, type }) {
       const xTable = this.$refs.xTable
-      const treeConfig = this.treeConfig
       if (type === 'body') {
         this.bodyMenus.forEach(list => {
           list.forEach(item => {
             if (['expand', 'contract'].includes(item.code)) {
-              if (row[treeConfig.children] && row[treeConfig.children].length) {
+              if (row.hasChild) {
                 const isExpand = xTable.isTreeExpandByRow(row)
                 item.disabled = ['expand'].includes(item.code) ? isExpand : !isExpand
               } else {
