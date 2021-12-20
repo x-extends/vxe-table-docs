@@ -9,15 +9,15 @@
     <vxe-toolbar>
       <template #buttons>
         <vxe-button @click="getTreeExpansionEvent">获取已展开</vxe-button>
-        <vxe-button @click="$refs.xTree.setAllTreeExpand(true)">展开所有</vxe-button>
-        <vxe-button @click="$refs.xTree.clearTreeExpand()">关闭所有</vxe-button>
+        <vxe-button @click="$refs.xTable.setAllTreeExpand(true)">展开所有</vxe-button>
+        <vxe-button @click="$refs.xTable.clearTreeExpand()">关闭所有</vxe-button>
       </template>
     </vxe-toolbar>
 
     <vxe-table
       resizable
       border="inner"
-      ref="xTree"
+      ref="xTable"
       :tree-config="{transform: true}"
       :data="tableData1"
       @toggle-tree-expand="toggleExpandChangeEvent">
@@ -150,15 +150,15 @@ export default {
         <vxe-toolbar>
           <template #buttons>
             <vxe-button @click="getTreeExpansionEvent">获取已展开</vxe-button>
-            <vxe-button @click="$refs.xTree.setAllTreeExpand(true)">展开所有</vxe-button>
-            <vxe-button @click="$refs.xTree.clearTreeExpand()">关闭所有</vxe-button>
+            <vxe-button @click="$refs.xTable.setAllTreeExpand(true)">展开所有</vxe-button>
+            <vxe-button @click="$refs.xTable.clearTreeExpand()">关闭所有</vxe-button>
           </template>
         </vxe-toolbar>
 
         <vxe-table
           resizable
           border="inner"
-          ref="xTree"
+          ref="xTable"
           :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
           :data="tableData1"
           @toggle-tree-expand="toggleExpandChangeEvent">
@@ -196,10 +196,12 @@ export default {
           },
           methods: {
             toggleExpandChangeEvent ({ row, expanded }) {
-              console.log('节点展开事件' + expanded)
+              const $table = this.$refs.xTable
+              console.log('节点展开事件', expanded, '获取父节点：', $table.getParentRow(row))
             },
             getTreeExpansionEvent () {
-              let treeExpandRecords = this.$refs.xTree.getTreeExpandRecords()
+              const $table = this.$refs.xTable
+              const treeExpandRecords = $table.getTreeExpandRecords()
               this.$XModal.alert(treeExpandRecords.length)
             }
           }
@@ -294,11 +296,13 @@ export default {
     }
   },
   methods: {
-    toggleExpandChangeEvent ({ expanded }) {
-      console.log('节点展开事件' + expanded)
+    toggleExpandChangeEvent ({ row, expanded }) {
+      const $table = this.$refs.xTable
+      console.log('节点展开事件', expanded, '获取父节点：', $table.getParentRow(row))
     },
     getTreeExpansionEvent () {
-      const treeExpandRecords = this.$refs.xTree.getTreeExpandRecords()
+      const $table = this.$refs.xTable
+      const treeExpandRecords = $table.getTreeExpandRecords()
       this.$XModal.alert(treeExpandRecords.length)
     }
   }

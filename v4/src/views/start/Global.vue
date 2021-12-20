@@ -36,6 +36,7 @@ export default defineComponent({
           //   border: false,
           //   round: false,
           //   emptyText: '暂无数据',
+          //   rowId: '_X_ID', // 行数据的唯一主键字段名
           //   radioConfig: {
           //     trigger: 'default'
           //   },
@@ -60,10 +61,13 @@ export default defineComponent({
           //     showIcon: true
           //   },
           //   treeConfig: {
-          //     children: 'children',
-          //     hasChild: 'hasChild',
-          //     indent: 20,
-          //     showIcon: true
+          //     rowField: 'id',
+          //      parentField: 'parentId',
+          //      children: 'children',
+          //      hasChild: 'hasChild',
+          //      mapChildren: '_X_CHILD',
+          //      indent: 20,
+          //      showIcon: true
           //   },
           //   tooltipConfig: {
           //     theme: 'dark',
@@ -72,7 +76,6 @@ export default defineComponent({
           //   menuConfig: {
           //     visibleMethod () {}
           //   },
-          //   rowId: '_X_ID', // 行数据的唯一主键字段名
           //   editConfig: {
           //     mode: 'cell',
           //     showAsterisk: true

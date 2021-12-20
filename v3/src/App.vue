@@ -178,7 +178,7 @@ export default {
               locat: {
                 name: 'StartGlobal'
               },
-              keywords: ['_XID', '_X_ID']
+              keywords: ['_XID', '_X_ID', '_X_CHILD']
             },
             {
               label: 'app.aside.nav.icons',

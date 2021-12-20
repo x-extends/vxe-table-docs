@@ -27,6 +27,14 @@
     </p>
 
     <p>
+      <vxe-radio-group v-model="demo1.value8" :strict="false">
+        <vxe-radio label="1" content="支持取消1"></vxe-radio>
+        <vxe-radio label="2" content="支持取消2"></vxe-radio>
+        <vxe-radio label="3" content="支持取消3"></vxe-radio>
+      </vxe-radio-group>
+    </p>
+
+    <p>
       <vxe-radio-group v-model="demo1.value4">
         <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
         <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
@@ -37,12 +45,12 @@
         <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
         <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
       </vxe-radio-group>
-      <vxe-radio-group v-model="demo1.value6" size="small">
+      <vxe-radio-group v-model="demo1.value6" size="small" :strict="false">
         <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
         <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
         <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
       </vxe-radio-group>
-      <vxe-radio-group v-model="demo1.value7" size="mini">
+      <vxe-radio-group v-model="demo1.value7" size="mini" :strict="false">
         <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
         <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
         <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
@@ -82,7 +90,8 @@ export default defineComponent({
       value4: null,
       value5: null,
       value6: '1',
-      value7: '1'
+      value7: '1',
+      value8: ''
     })
     return {
       demo1,
@@ -112,6 +121,14 @@ export default defineComponent({
         </p>
 
         <p>
+          <vxe-radio-group v-model="demo1.value8" :strict="false">
+            <vxe-radio label="1" content="支持取消1"></vxe-radio>
+            <vxe-radio label="2" content="支持取消2"></vxe-radio>
+            <vxe-radio label="3" content="支持取消3"></vxe-radio>
+          </vxe-radio-group>
+        </p>
+
+        <p>
           <vxe-radio-group v-model="demo1.value4">
             <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
             <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
@@ -122,12 +139,12 @@ export default defineComponent({
             <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
             <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
           </vxe-radio-group>
-          <vxe-radio-group v-model="demo1.value6" size="small">
+          <vxe-radio-group v-model="demo1.value6" size="small" :strict="false">
             <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
             <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
             <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
           </vxe-radio-group>
-          <vxe-radio-group v-model="demo1.value7" size="mini">
+          <vxe-radio-group v-model="demo1.value7" size="mini" :strict="false">
             <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
             <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
             <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
@@ -146,7 +163,8 @@ export default defineComponent({
               value4: null,
               value5: null,
               value6: '1',
-              value7: '1'
+              value7: '1',
+              value8: ''
             })
             return {
               demo1

@@ -27,7 +27,7 @@
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2",
-    "vxe-table": "^4.1.16",
+    "vxe-table": "^4.1.17",
     "vxe-table-plugin-antd": "^3.0.5",
     "vxe-table-plugin-element": "^3.0.5",
     "vxe-table-plugin-export-pdf": "^3.0.2",
@@ -37,7 +37,7 @@
     "vxe-table-plugin-shortcut-key": "^3.0.2",
     "xe-ajax": "^4.0.5",
     "xe-clipboard": "^1.10.2",
-    "xe-utils": "^3.4.3",
+    "xe-utils": "^3.5.1",
     "xlsx": "^0.17.3"
   },
   "devDependencies": {

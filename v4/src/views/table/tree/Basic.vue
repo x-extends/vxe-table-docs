@@ -137,8 +137,9 @@ export default defineComponent({
     })
 
     const toggleExpandChangeEvent = (params: any) => {
-      const { expanded } = params
-      console.log('节点展开事件' + expanded)
+      const $table = xTree.value
+      const { row, expanded } = params
+      console.log('节点展开事件', expanded, '获取父节点：', $table.getParentRow(row))
     }
 
     const getTreeExpansionEvent = () => {
@@ -233,8 +234,9 @@ export default defineComponent({
             })
 
             const toggleExpandChangeEvent = (params: any) => {
-              const { expanded } = params
-              console.log('节点展开事件' + expanded)
+              const $table = xTree.value
+              const { row, expanded } = params
+              console.log('节点展开事件', expanded, '获取父节点：', $table.getParentRow(row))
             }
 
             const getTreeExpansionEvent = () => {
@@ -242,7 +244,6 @@ export default defineComponent({
               const treeExpandRecords = $table.getTreeExpandRecords()
               VXETable.modal.alert(XEUtils.toValueString(treeExpandRecords.length))
             }
-
             return {
               xTree,
               demo1,

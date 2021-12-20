@@ -42,6 +42,15 @@ const apis = [
         enum: '',
         defVal: '',
         list: []
+      },
+      {
+        name: 'strict',
+        desc: '严格模式，选中后不能取消',
+        version: '3.4.12',
+        type: 'boolean',
+        enum: '',
+        defVal: 'true',
+        list: []
       }
     ]
   },

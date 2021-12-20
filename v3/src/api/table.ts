@@ -3420,7 +3420,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, targetRows, targetCols, $event}',
+        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, $event}',
         list: []
       },
       {
@@ -3430,6 +3430,24 @@ const apis = [
         type: '',
         enum: '',
         defVal: '{ rows, cols, targetRows, targetCols, $event}',
+        list: []
+      },
+      {
+        name: 'cell-area-arrows-start',
+        desc: '只对 mouse-config.area 配置时有效，通过 Shift 键向指定方向移动选取区域开始时会触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ rows, cols, targetRows, targetCols, isLeft, isUp, isRight, isDown, $event}',
+        list: []
+      },
+      {
+        name: 'cell-area-arrows-start',
+        desc: '只对 mouse-config.area 配置时有效，通过 Shift 键向指定方向移动选取区域结束时会触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ rows, cols, targetRows, targetCols, isLeft, isUp, isRight, isDown, $event}',
         list: []
       }
     ]
@@ -3704,6 +3722,15 @@ const apis = [
         type: 'Number',
         enum: '',
         defVal: 'row: Row',
+        list: []
+      },
+      {
+        name: 'getParentRow(rowOrRowid)',
+        desc: '只对 tree-config 有效，获取行的父级',
+        version: '3.4.12',
+        type: 'any',
+        enum: '',
+        defVal: 'rowOrRowid: string | Row',
         list: []
       },
       {

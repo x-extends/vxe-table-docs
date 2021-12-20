@@ -53,6 +53,15 @@ const apis = [
         list: []
       },
       {
+        name: 'strict',
+        desc: '严格模式，选中后不能取消',
+        version: '4.1.17',
+        type: 'boolean',
+        enum: '',
+        defVal: 'true',
+        list: []
+      },
+      {
         name: 'name',
         descKey: 'app.api.radio.desc.name',
         version: '',
