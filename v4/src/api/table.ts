@@ -1981,7 +1981,7 @@ const apis = [
             name: 'beforeCopyMethod',
             desc: '自定义单元格复制取值之前的方法，可以通过返回 false 阻止复制行为',
             version: 'pro',
-            type: '({ isCut, targetAreas }) => boolean',
+            type: '({ isCut, activeArea, targetAreas }) => boolean',
             enum: '',
             defVal: '',
             list: []
@@ -2008,7 +2008,7 @@ const apis = [
             name: 'beforeCutMethod',
             desc: '自定义单元格剪贴值清除之前的方法，可以通过返回 false 阻止清除行为',
             version: 'pro',
-            type: '({ cutAreas, currentAreas }) => boolean',
+            type: '({ cutAreas, activeArea, currentAreas }) => boolean',
             enum: '',
             defVal: '',
             list: []
@@ -2035,7 +2035,7 @@ const apis = [
             name: 'beforePasteMethod',
             desc: '自定义单元格粘贴赋值之前的方法，可以通过返回 false 阻止复制行为',
             version: 'pro',
-            type: '({ isCut, cutAreas, currentAreas, targetAreas, cellValues, pasteCells }) => boolean',
+            type: '({ isCut, activeArea, cutAreas, currentAreas, targetAreas, cellValues, pasteCells }) => boolean',
             enum: '',
             defVal: '',
             list: []
