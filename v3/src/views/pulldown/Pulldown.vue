@@ -4,7 +4,7 @@
     <p class="tip">下拉容器，可以非常简单的基于下拉容器去实现各种下拉组件。查看 <router-link class="link" :to="{name: 'VXEAPI', params: {name: 'pulldown'}}">API</router-link></p>
 
     <p>
-      <vxe-pulldown ref="xDown1">
+      <vxe-pulldown v-model="visible1">
         <template #default>
           <vxe-input v-model="value1" placeholder="可搜索的下拉框" @focus="focusEvent1" @keyup="keyupEvent1"></vxe-input>
         </template>
@@ -88,6 +88,7 @@
 export default {
   data () {
     return {
+      visible1: false,
       value1: '',
       list1: [],
       value2: '',
@@ -123,7 +124,7 @@ export default {
       demoCodes: [
         `
         <p>
-          <vxe-pulldown ref="xDown1">
+          <vxe-pulldown v-model="visible1">
             <template #default>
               <vxe-input v-model="value1" placeholder="可搜索的下拉框" @focus="focusEvent1" @keyup="keyupEvent1"></vxe-input>
             </template>
@@ -197,6 +198,7 @@ export default {
         export default {
           data () {
             return {
+              visible1: false,
               value1: '',
               list1: [],
               value2: '',
@@ -248,7 +250,7 @@ export default {
           },
           methods: {
             focusEvent1 () {
-              this.$refs.xDown1.showPanel()
+              this.visible1 = true
             },
             keyupEvent1 () {
               const { value1 } = this
@@ -256,9 +258,8 @@ export default {
             },
             selectEvent1 (item) {
               this.value1 = item.label
-              this.$refs.xDown1.hidePanel().then(() => {
-                this.list1 = this.data1
-              })
+              this.visible1 = false
+              this.list1 = this.data1
             },
             focusEvent2 () {
               this.$refs.xDown2.showPanel()
@@ -356,7 +357,7 @@ export default {
   },
   methods: {
     focusEvent1 () {
-      this.$refs.xDown1.showPanel()
+      this.visible1 = true
     },
     keyupEvent1 () {
       const { value1 } = this
@@ -364,9 +365,8 @@ export default {
     },
     selectEvent1 (item) {
       this.value1 = item.label
-      this.$refs.xDown1.hidePanel().then(() => {
-        this.list1 = this.data1
-      })
+      this.visible1 = false
+      this.list1 = this.data1
     },
     focusEvent2 () {
       this.$refs.xDown2.showPanel()

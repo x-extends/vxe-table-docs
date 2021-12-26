@@ -780,6 +780,7 @@ export default {
       },
       pulldown: {
         desc: {
+          value: 'v-model 绑定值',
           data: '列表数据',
           size: '尺寸',
           disabled: '是否禁用',

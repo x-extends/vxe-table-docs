@@ -8,6 +8,15 @@ const apis = [
     defVal: '',
     list: [
       {
+        name: 'modelValue',
+        descKey: 'app.api.pulldown.desc.value',
+        version: '',
+        type: 'boolean',
+        enum: '',
+        defVal: '3.4.13',
+        list: []
+      },
+      {
         name: 'size',
         descKey: 'app.api.pulldown.desc.size',
         version: '',

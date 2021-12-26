@@ -782,6 +782,7 @@ export default {
       },
       pulldown: {
         desc: {
+          value: 'v-model Binding value',
           data: 'List data',
           size: 'Size',
           disabled: 'Disable',
