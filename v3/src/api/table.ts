@@ -3276,7 +3276,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ type, scrollTop, scrollLeft, bodyWidth, bodyHeight, isX, isY, $event }',
+        defVal: '{ type, scrollTop, scrollLeft, scrollHeight, scrollWidth, bodyWidth, bodyHeight, isX, isY, $event }',
         list: []
       },
       {

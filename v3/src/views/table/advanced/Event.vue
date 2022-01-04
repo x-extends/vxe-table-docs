@@ -120,8 +120,20 @@ export default {
             cellContextMenuEvent ({ row }) {
               console.log(\`右键行 \${row.name}\`)
             },
-            scrollEvent ({ scrollTop, scrollLeft }) {
-              console.log(\`滚动事件scrollTop=\${scrollTop} scrollLeft=\${scrollLeft}\`)
+            scrollEvent ({ scrollTop, scrollLeft, scrollWidth, scrollHeight, bodyWidth, bodyHeight }) {
+              let xStatus = ''
+              if (scrollLeft <= 0) {
+                xStatus = '左侧'
+              } else if (scrollLeft + bodyWidth >= scrollWidth) {
+                xStatus = '右侧'
+              }
+              let yStatus = ''
+              if (scrollTop <= 0) {
+                yStatus = '顶部'
+              } else if (scrollTop + bodyHeight >= scrollHeight) {
+                yStatus = '底部'
+              }
+              console.log(\`滚动事件：scrollTop=\${scrollTop} scrollLeft=\${scrollLeft} 横向状态：\${xStatus} 纵向状态：\${yStatus}\`)
             }
           }
         }
@@ -154,8 +166,20 @@ export default {
     cellContextMenuEvent ({ row }) {
       console.log(`右键行 ${row.name}`)
     },
-    scrollEvent ({ scrollTop, scrollLeft }) {
-      console.log(`滚动事件scrollTop=${scrollTop} scrollLeft=${scrollLeft}`)
+    scrollEvent ({ scrollTop, scrollLeft, scrollWidth, scrollHeight, bodyWidth, bodyHeight }) {
+      let xStatus = ''
+      if (scrollLeft <= 0) {
+        xStatus = '左侧'
+      } else if (scrollLeft + bodyWidth >= scrollWidth) {
+        xStatus = '右侧'
+      }
+      let yStatus = ''
+      if (scrollTop <= 0) {
+        yStatus = '顶部'
+      } else if (scrollTop + bodyHeight >= scrollHeight) {
+        yStatus = '底部'
+      }
+      console.log(`滚动事件：scrollTop=${scrollTop} scrollLeft=${scrollLeft} 横向状态：${xStatus} 纵向状态：${yStatus}`)
     }
   }
 }
