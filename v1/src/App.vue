@@ -2365,16 +2365,16 @@ export default {
     vChangeEvent () {
       switch (this.version) {
         case '1':
-          location.href = '/vxe-table/v1/'
+          location.href = `${process.env.VUE_APP_MAIN_URL}v1/`
           break
         case '2':
-          location.href = '/vxe-table/v2/'
+          location.href = `${process.env.VUE_APP_MAIN_URL}v2/`
           break
         case '3':
-          location.href = '/vxe-table/v3/'
+          location.href = `${process.env.VUE_APP_MAIN_URL}v3/`
           break
         case '4':
-          location.href = '/vxe-table/v4/'
+          location.href = `${process.env.VUE_APP_MAIN_URL}v4/`
           break
       }
     }
