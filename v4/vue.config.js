@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'production') {
   publicPath = `/vxe-table/v${version}/`
   if (process.env.npm_lifecycle_event === 'build:main') {
     publicPath = `/v${version}/`
-    process.env.VUE_APP_CDN_URL = `/v${version}/`
+    process.env.VUE_APP_CDN_URL = '/'
     process.env.VUE_APP_MAIN_URL = '/'
   }
 }
