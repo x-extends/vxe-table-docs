@@ -2,8 +2,8 @@
   <div id="app" @click="clickEvent">
     <header class="page-header">
       <div class="left">
-        <a href="/vxe-table/">
-          <img src="/vxe-table/logo.png" width="18">
+        <a :href="baseUrl">
+          <img :src="`${baseUrl}logo.png`" width="18">
           <span class="title">vxe-table</span>
         </a>
         <a href='https://gitee.com/xuliangzhan_admin/vxe-table/stargazers'>
@@ -37,7 +37,7 @@
           </vxe-select>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="apiLoading && showPlugin">
-            <a v-if="disabledPlugin" class="link support" href="/vxe-table/plugins" target="_blank">💡插件</a>
+            <a v-if="disabledPlugin" class="link support" :href="pluginUrl" target="_blank">💡插件</a>
             <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">插件</a>
           </template>
         </div>
@@ -132,7 +132,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import XEUtils from 'xe-utils'
 import XEAjax from 'xe-ajax'
 
@@ -2200,6 +2200,10 @@ export default {
     }
   },
   computed: {
+    ...mapState([
+      'baseUrl',
+      'pluginUrl'
+    ]),
     demoLink () {
       const { $route, apiList } = this
       for (let gIndex = 0; gIndex < apiList.length; gIndex++) {
@@ -2429,16 +2433,16 @@ export default {
     vChangeEvent () {
       switch (this.version) {
         case '1':
-          location.href = `${process.env.VUE_APP_MAIN_URL}v1/`
+          location.href = `${this.baseUrl}v1/`
           break
         case '2':
-          location.href = `${process.env.VUE_APP_MAIN_URL}v2/`
+          location.href = `${this.baseUrl}v2/`
           break
         case '3':
-          location.href = `${process.env.VUE_APP_MAIN_URL}v3/`
+          location.href = `${this.baseUrl}v3/`
           break
         case '4':
-          location.href = `${process.env.VUE_APP_MAIN_URL}v4/`
+          location.href = `${this.baseUrl}v4/`
           break
       }
     }

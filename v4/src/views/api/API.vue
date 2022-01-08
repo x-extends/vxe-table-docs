@@ -14,7 +14,7 @@
 
       <template #default_version="{ row }">
         <template v-if="row.version === 'pro'">
-          <a class="link pro" href="https://xuliangzhan_admin.gitee.io/vxe-table/plugins/#/pro" target="_blank">pro</a>
+          <a class="link pro" :href="pluginUrl" target="_blank">pro</a>
         </template>
         <template v-else-if="row.disabled">
           <span class="disabled">已废弃</span>
@@ -37,6 +37,7 @@
 <script lang="ts">
 import { computed, defineComponent, nextTick, reactive, watch, ref } from 'vue'
 import { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
+import { useStore } from 'vuex'
 import i18n from '@/i18n'
 import router from '@/router'
 import XEUtils from 'xe-utils'
@@ -125,6 +126,10 @@ import pulldownAPI from '../../api/pulldown'
 export default defineComponent({
   setup () {
     const q = (router.currentRoute.value.query.q || router.currentRoute.value.query.filterName) as string
+
+    const store = useStore()
+    const pluginUrl = computed(() => store.state.pluginUrl)
+
     const apiData = reactive({
       filterName: q ? decodeURIComponent(q) : '',
       defaultExpandRows: [] as string[],
@@ -488,6 +493,8 @@ export default defineComponent({
 
     return {
       xGrid,
+      pluginUrl,
+
       apiData,
       apiName,
       gridOptions,

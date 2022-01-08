@@ -14,7 +14,7 @@
 
       <template #default_version="{ row }">
         <template v-if="row.version === 'pro'">
-          <a class="link pro" href="https://xuliangzhan_admin.gitee.io/vxe-table/plugins/#/pro" target="_blank">pro</a>
+          <a class="link pro" :href="pluginUrl" target="_blank">pro</a>
         </template>
         <template v-else-if="row.disabled">
           <span class="disabled">已废弃</span>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import XEUtils from 'xe-utils'
 import pack from '../../../package.json'
 import XEClipboard from 'xe-clipboard'
@@ -112,6 +113,7 @@ import pulldownAPI from '../../api/pulldown'
 export default {
   data () {
     return {
+      pluginUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
       filterName: (this.$route.query.q || this.$route.query.filterName) ? decodeURIComponent(this.$route.query.q || this.$route.query.filterName) : '',
       defaultExpandRows: [],
       tableData: [],
@@ -234,6 +236,10 @@ export default {
     }
   },
   computed: {
+    ...mapState([
+      'baseUrl',
+      'pluginUrl'
+    ]),
     apiName () {
       return this.$route.params.name
     }

@@ -2,8 +2,8 @@
   <div id="app" @click="clickEvent">
     <header class="page-header">
       <div class="left">
-        <a href="/vxe-table/">
-          <img src="/vxe-table/logo.png" width="18">
+        <a :href="baseUrl">
+          <img :src="`${baseUrl}logo.png`" width="18">
           <span class="title">vxe-table</span>
         </a>
         <a href='https://gitee.com/xuliangzhan_admin/vxe-table/stargazers'>
@@ -100,12 +100,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import XEUtils from 'xe-utils'
 import XEAjax from 'xe-ajax'
 
 export default {
   data () {
     return {
+      pluginUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
       showLeft: true,
       selected: null,
       filterName: '',
@@ -2161,6 +2163,10 @@ export default {
     }
   },
   computed: {
+    ...mapState([
+      'baseUrl',
+      'pluginUrl'
+    ]),
     demoLink () {
       const { $route, apiList } = this
       for (let gIndex = 0; gIndex < apiList.length; gIndex++) {
@@ -2365,16 +2371,16 @@ export default {
     vChangeEvent () {
       switch (this.version) {
         case '1':
-          location.href = `${process.env.VUE_APP_MAIN_URL}v1/`
+          location.href = `${this.baseUrl}v1/`
           break
         case '2':
-          location.href = `${process.env.VUE_APP_MAIN_URL}v2/`
+          location.href = `${this.baseUrl}v2/`
           break
         case '3':
-          location.href = `${process.env.VUE_APP_MAIN_URL}v3/`
+          location.href = `${this.baseUrl}v3/`
           break
         case '4':
-          location.href = `${process.env.VUE_APP_MAIN_URL}v4/`
+          location.href = `${this.baseUrl}v4/`
           break
       }
     }
