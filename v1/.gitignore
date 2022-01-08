@@ -1,5 +1,6 @@
 .DS_Store
 .history
+docs
 node_modules
 /dist
 /public/v1
