@@ -1,5 +1,15 @@
+const version = 3
+let publicPath = '/'
+if (process.env.NODE_ENV === 'production') {
+  publicPath = `/vxe-table/v${version}/`
+  if (process.env.npm_lifecycle_event === 'build:main') {
+    publicPath = `/v${version}/`
+    process.env.VUE_APP_CDN_URL = `/v${version}/`
+  }
+}
+
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/vxe-table/v3' : '/',
+  publicPath,
   outputDir: '../v4/public/v3',
   assetsDir: 'static',
   productionSourceMap: false,
