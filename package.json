@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:v1": "cd v1 && npm install && npm run build",
-    "build:v2": "cd v2 && npm install && npm run build",
-    "build:v3": "cd v3 && npm install && npm run build",
-    "build:v4": "cd v4 && npm install && npm run build",
+    "build:v1": "cd v1 && npm run build",
+    "build:v2": "cd v2 && npm run build",
+    "build:v3": "cd v3 && npm run build",
+    "build:v4": "cd v4 && npm run build",
+    "update:v1": "cd v1 && npm install",
+    "update:v2": "cd v2 && npm install",
+    "update:v3": "cd v3 && npm install",
+    "update:v4": "cd v4 && npm install",
     "build": "npm run build:v1 && npm run build:v2 && npm run build:v3 && npm run build:v4 && gulp build_docs",
-    "deploy": "npm run build"
+    "deploy": "npm run update:v1 && npm run update:v2 && npm run update:v3 && npm run update:v4 && npm run build"
   },
   "devDependencies": {
     "del": "6.0.0",
