@@ -1,15 +1,6 @@
-const fs = require('fs')
 const gulp = require('gulp')
 const del = require('del')
-const babel = require('gulp-babel')
-const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
-const replace = require('gulp-replace')
-const clean = require('gulp-clean')
-const sass = require('gulp-sass')
-const cleanCSS = require('gulp-clean-css')
-const prefixer = require('gulp-autoprefixer')
-const ts = require('gulp-typescript')
 
 gulp.task('move_docs_static', () => {
   return gulp.src([
