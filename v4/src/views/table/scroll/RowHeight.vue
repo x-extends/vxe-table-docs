@@ -14,7 +14,7 @@
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
       <vxe-column title="图片" width="140" align="center">
         <template #default>
-          <img src="/vxe-table/static/other/img1.gif" style="width: 100px;">
+          <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 100px;">
         </template>
       </vxe-column>
       <vxe-column title="基本信息">
@@ -97,7 +97,7 @@ export default defineComponent({
           <vxe-column type="seq" title="序号" width="100"></vxe-column>
           <vxe-column title="图片" width="140" align="center">
             <template #default>
-              <img src="/vxe-table/static/other/img1.gif" style="width: 100px;">
+              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 100px;">
             </template>
           </vxe-column>
           <vxe-column title="基本信息">

@@ -31,7 +31,7 @@
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
       <template #empty>
         <span style="color: red;">
-          <img src="/vxe-table/static/other/img2.gif">
+          <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">
           <p>没有更多数据了！</p>
         </span>
       </template>
@@ -59,7 +59,7 @@
       <vxe-column field="address" title="Address" width="300" show-overflow></vxe-column>
       <template #empty>
         <span style="color: red;">
-          <img src="/vxe-table/static/other/img1.gif">
+          <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">
           <p>不用再看了，没有更多数据了！</p>
         </span>
       </template>
@@ -143,7 +143,7 @@ export default defineComponent({
           <vxe-column field="address" title="Address" show-overflow></vxe-column>
           <template #empty>
             <span style="color: red;">
-              <img src="/vxe-table/static/other/img2.gif">
+              <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">
               <p>没有更多数据了！</p>
             </span>
           </template>
@@ -185,7 +185,7 @@ export default defineComponent({
           <vxe-column field="address" title="Address" width="300" show-overflow></vxe-column>
           <template #empty>
             <span style="color: red;">
-              <img src="/vxe-table/static/other/img1.gif">
+              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">
               <p>不用再看了，没有更多数据了！</p>
             </span>
           </template>

@@ -19,7 +19,7 @@
       <vxe-column field="address" title="Address" type="html"></vxe-column>
       <template #empty>
         <span style="color: red;">
-          <img src="/vxe-table/static/other/img2.gif">
+          <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">
           <p>没有更多数据了！</p>
         </span>
       </template>
@@ -53,7 +53,7 @@
       <vxe-column field="date" title="Date" type="html"></vxe-column>
       <template #empty>
         <span style="color: red;">
-          <img src="/vxe-table/static/other/img1.gif">
+          <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">
           <p>搜索不到数据，可能输入的关键字姿势不对！</p>
         </span>
       </template>
@@ -138,7 +138,7 @@ export default {
           <vxe-column field="address" title="Address" type="html"></vxe-column>
           <template #empty>
             <span style="color: red;">
-              <img src="/vxe-table/static/other/img2.gif">
+              <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">
               <p>没有更多数据了！</p>
             </span>
           </template>
@@ -215,7 +215,7 @@ export default {
           <vxe-column field="date" title="Date" type="html"></vxe-column>
           <template #empty>
             <span style="color: red;">
-              <img src="/vxe-table/static/other/img1.gif">
+              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">
               <p>搜索不到数据，可能输入的关键字姿势不对！</p>
             </span>
           </template>

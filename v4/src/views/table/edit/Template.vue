@@ -103,9 +103,9 @@
         </span>
       </template>
       <template #right>
-        <img src="/vxe-table/static/other/img1.gif" height="34">
-        <img src="/vxe-table/static/other/img1.gif" height="34">
-        <img src="/vxe-table/static/other/img1.gif" height="34">
+        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
       </template>
     </vxe-pager>
 
@@ -293,9 +293,9 @@ export default defineComponent({
             </span>
           </template>
           <template #right>
-            <img src="/vxe-table/static/other/img1.gif" height="34">
-            <img src="/vxe-table/static/other/img1.gif" height="34">
-            <img src="/vxe-table/static/other/img1.gif" height="34">
+            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
           </template>
         </vxe-pager>
         `,

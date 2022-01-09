@@ -67,9 +67,9 @@ export default {
   data () {
     return {
       tableData1: [
-        { name: 'Test2', age: 28, sex: '男', role: '后端', content: '<img height="40" src="/vxe-table/static/other/img1.gif">' },
+        { name: 'Test2', age: 28, sex: '男', role: '后端', content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' },
         { name: 'Test4', age: 26, sex: '男', role: '前端', content: '<a href="https://github.com/x-extends/vxe-table">我是链接</a>' },
-        { name: 'Test3', age: 20, sex: '女', role: '程序员鼓励师', content: '<img height="40" src="/vxe-table/static/other/img2.gif">' },
+        { name: 'Test3', age: 20, sex: '女', role: '程序员鼓励师', content: '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">' },
         { name: 'Test1', age: 22, sex: '女', role: '设计师', content: '<div><span style="color: red">我是 Htmp 片段</span></div>' }
       ],
       tableData2: [
@@ -85,7 +85,7 @@ export default {
           userInfo: { name: 'Test2', age: 28 },
           other: [
             { sex: '男' },
-            { more: { content: '<img height="40" src="/vxe-table/static/other/img1.gif">' } }
+            { more: { content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' } }
           ],
           role: '后端'
         },
@@ -93,7 +93,7 @@ export default {
           userInfo: { name: 'Test3', age: 20 },
           other: [
             { sex: '女' },
-            { more: { content: '<img height="40" src="/vxe-table/static/other/img2.gif">' } }
+            { more: { content: '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">' } }
           ],
           role: '程序员鼓励师'
         },
@@ -108,9 +108,9 @@ export default {
       ],
       tableData3: [
         [101, 'Test4', '男', 26, '<a href="https://github.com/x-extends/vxe-table">我是链接</a>', '前端'],
-        [102, 'Test2', '男', 28, '<img height="40" src="/vxe-table/static/other/img1.gif">', '后端'],
+        [102, 'Test2', '男', 28, '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">', '后端'],
         [103, 'Test1', '女', 22, '<div><span style="color: red">我是 Htmp 片段</span></div>', '设计师'],
-        [104, 'Test3', '女', 20, '<img height="40" src="/vxe-table/static/other/img2.gif">', '程序员鼓励师']
+        [104, 'Test3', '女', 20, '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">', '程序员鼓励师']
       ],
       demoCodes: [
         `
@@ -129,9 +129,9 @@ export default {
           data () {
             return {
               tableData: [
-                { name: 'Test2', age: 28, sex: '男', role: '后端', content: '<img height="40" src="/vxe-table/static/other/img1.gif">' },
+                { name: 'Test2', age: 28, sex: '男', role: '后端', content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' },
                 { name: 'Test4', age: 26, sex: '男', role: '前端', content: '<a href="https://github.com/x-extends/vxe-table">我是链接</a>' },
-                { name: 'Test3', age: 20, sex: '女', role: '程序员鼓励师', content: '<img height="40" src="/vxe-table/static/other/img2.gif">' },
+                { name: 'Test3', age: 20, sex: '女', role: '程序员鼓励师', content: '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">' },
                 { name: 'Test1', age: 22, sex: '女', role: '设计师', content: '<div><span style="color: red">我是 Htmp 片段</span></div>' }
               ]
             }
@@ -166,7 +166,7 @@ export default {
                   userInfo: { name: 'Test2', age: 28 },
                   other: [
                     { sex: '男' },
-                    { more: { content: '<img height="40" src="/vxe-table/static/other/img1.gif">' } }
+                    { more: { content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' } }
                   ],
                   role: '后端'
                 },
@@ -174,7 +174,7 @@ export default {
                   userInfo: { name: 'Test3', age: 20 },
                   other: [
                     { sex: '女' },
-                    { more: { content: '<img height="40" src="/vxe-table/static/other/img2.gif">' } }
+                    { more: { content: '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">' } }
                   ],
                   role: '程序员鼓励师'
                 },
@@ -210,9 +210,9 @@ export default {
               // 将第0个设置为主键，可以为 null 或者自定义主键值
               tableData: [
                 [101, 'Test4', '男', 26, '<a href="https://github.com/x-extends/vxe-table">我是链接</a>', '前端'],
-                [102, 'Test2', '男', 28, '<img height="40" src="/vxe-table/static/other/img1.gif">', '后端'],
+                [102, 'Test2', '男', 28, '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">', '后端'],
                 [103, 'Test1', '女', 22, '<div><span style="color: red">我是 Htmp 片段</span></div>', '设计师'],
-                [104, 'Test3', '女', 20, '<img height="40" src="/vxe-table/static/other/img2.gif">', '程序员鼓励师']
+                [104, 'Test3', '女', 20, '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">', '程序员鼓励师']
               ]
             }
           }

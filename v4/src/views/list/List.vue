@@ -35,7 +35,7 @@
         <vxe-list class="my-list" height="200" :data="demo1.list3">
           <template #default="{ items }">
             <div class="my-list-item" v-for="(item, index) in items" :key="index">
-              <img src="/vxe-table/static/other/img2.gif" height="28">
+              <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" height="28">
               <span>{{ item.label }}</span>
             </div>
           </template>
@@ -46,7 +46,7 @@
           <template #default="{ items }">
             <ul>
               <li v-for="(item, index) in items" :key="index">
-                <img src="/vxe-table/static/other/img1.gif" height="28">
+                <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="28">
                 <span>{{ item.label }}</span>
               </li>
             </ul>
@@ -184,7 +184,7 @@ export default defineComponent({
             <vxe-list class="my-list" height="200" :data="demo1.list3">
               <template #default="{ items }">
                 <div class="my-list-item" v-for="(item, index) in items" :key="index">
-                  <img src="/vxe-table/static/other/img2.gif" height="28">
+                  <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" height="28">
                   <span>{{ item.label }}</span>
                 </div>
               </template>
@@ -195,7 +195,7 @@ export default defineComponent({
               <template #default="{ items }">
                 <ul>
                   <li v-for="(item, index) in items" :key="index">
-                    <img src="/vxe-table/static/other/img1.gif" height="28">
+                    <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="28">
                     <span>{{ item.label }}</span>
                   </li>
                 </ul>

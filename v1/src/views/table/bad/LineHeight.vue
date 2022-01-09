@@ -21,7 +21,7 @@
             <div>{{ row.role }}</div>
           </template>
           <template v-else-if="rowIndex % 3 === 0">
-            <img src="static/other/img2.gif" style="width: 60px;">
+            <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="width: 60px;">
           </template>
           <template v-else>
             <span>{{ row.name }}</span>
@@ -32,7 +32,7 @@
       <vxe-table-column field="age" title="Age">
         <template v-slot="{ row, rowIndex }">
           <template v-if="rowIndex % 5 === 0">
-            <img src="static/other/img1.gif" style="width: 60px;">
+            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 60px;">
           </template>
           <template v-else>
             <span>{{ row.age }}</span>
@@ -76,7 +76,7 @@ export default {
                 <div>{{ row.role }}</div>
               </template>
               <template v-else-if="rowIndex % 3 === 0">
-                <img src="static/other/img2.gif" style="width: 60px;">
+                <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="width: 60px;">
               </template>
               <template v-else>
                 <span>{{ row.name }}</span>
@@ -87,7 +87,7 @@ export default {
           <vxe-table-column field="age" title="Age">
             <template v-slot="{ row, rowIndex }">
               <template v-if="rowIndex % 5 === 0">
-                <img src="static/other/img1.gif" style="width: 60px;">
+                <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 60px;">
               </template>
               <template v-else>
                 <span>{{ row.age }}</span>

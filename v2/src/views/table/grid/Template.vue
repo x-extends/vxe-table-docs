@@ -164,11 +164,11 @@
           </template>
           <template v-slot:right>
             <span>
-              <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />
-              <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />
-              <img src="/vxe-table/static/other/img2.gif" style="height: 30px;" />
-              <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />
-              <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />
+              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />
+              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />
+              <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="height: 30px;" />
+              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />
+              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />
             </span>
           </template>
         </vxe-pager>
@@ -232,9 +232,9 @@ export default {
             default: 'name_default',
             footer: () => {
               return [
-                <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />,
+                <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />,
                 <span>浪里个浪</span>,
-                <img src="/vxe-table/static/other/img2.gif" style="height: 30px;" />
+                <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="height: 30px;" />
               ]
             }
           }
@@ -478,11 +478,11 @@ export default {
               </template>
               <template v-slot:right>
                 <span>
-                  <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />
-                  <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />
-                  <img src="/vxe-table/static/other/img2.gif" style="height: 30px;" />
-                  <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />
-                  <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />
+                  <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />
+                  <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />
+                  <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="height: 30px;" />
+                  <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />
+                  <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />
                 </span>
               </template>
             </vxe-pager>
@@ -533,9 +533,9 @@ export default {
                     default: 'name_default',
                     footer: () => {
                       return [
-                        <img src="/vxe-table/static/other/img1.gif" style="height: 30px;" />,
+                        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="height: 30px;" />,
                         <span>浪里个浪</span>,
-                        <img src="/vxe-table/static/other/img2.gif" style="height: 30px;" />
+                        <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="height: 30px;" />
                       ]
                     }
                   }

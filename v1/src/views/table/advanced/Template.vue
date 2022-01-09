@@ -108,7 +108,7 @@
         </template>
         <template v-slot:footer>
           <span>
-            <img src="static/other/img1.gif" style="width: 36px;">自定义模板<img src="static/other/img2.gif" style="width: 30px;">
+            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 36px;">自定义模板<img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="width: 30px;">
           </span>
         </template>
       </vxe-table-column>
@@ -144,9 +144,9 @@
         </span>
       </template>
       <template v-slot:right>
-        <img src="static/other/img1.gif" height="34">
-        <img src="static/other/img1.gif" height="34">
-        <img src="static/other/img1.gif" height="34">
+        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
       </template>
     </vxe-pager>
 
@@ -295,7 +295,7 @@ export default {
             </template>
             <template v-slot:footer>
               <span>
-                <img src="static/other/img1.gif" style="width: 36px;">自定义模板<img src="static/other/img2.gif" style="width: 30px;">
+                <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 36px;">自定义模板<img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="width: 30px;">
               </span>
             </template>
           </vxe-table-column>
@@ -331,9 +331,9 @@ export default {
             </span>
           </template>
           <template v-slot:right>
-            <img src="static/other/img1.gif" height="34">
-            <img src="static/other/img1.gif" height="34">
-            <img src="static/other/img1.gif" height="34">
+            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
           </template>
         </vxe-pager>
 

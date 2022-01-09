@@ -157,7 +157,7 @@ export default defineComponent({
             age: 18,
             num2: 234,
             rate: 3,
-            img1: '/vxe-table/static/other/img1.gif',
+            img1: 'https://5b0988e595225.cdn.sohucs.com/images/20181014/dce7cdaa130440e8b609fad083877ef3.gif',
             html2: `<span style="color:red">HTML标签${index}</span>`,
             address: `test abc系列${index}`
           })
@@ -331,7 +331,7 @@ export default defineComponent({
                     age: 18,
                     num2: 234,
                     rate: 3,
-                    img1: '/vxe-table/static/other/img1.gif',
+                    img1: 'https://5b0988e595225.cdn.sohucs.com/images/20181014/dce7cdaa130440e8b609fad083877ef3.gif',
                     html2: \`<span style="color:red">HTML标签\${index}</span>\`,
                     address: \`test abc系列\${index}\`
                   })
