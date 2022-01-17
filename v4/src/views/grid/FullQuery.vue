@@ -168,7 +168,7 @@ export default defineComponent({
           title: 'Amount',
           width: 140,
           formatter ({ cellValue }) {
-            return cellValue ? `￥${XEUtils.commafy(XEUtils.toNumber(cellValue), { digits: 2 })}` : ''
+            return cellValue ? `￥${XEUtils.commafy(Number(cellValue), { digits: 2 })}` : ''
           }
         },
         {
@@ -354,7 +354,7 @@ export default defineComponent({
                   title: 'Amount',
                   width: 140,
                   formatter ({ cellValue }) {
-                    return cellValue ? \`￥\${XEUtils.commafy(XEUtils.toNumber(cellValue), { digits: 2 })}\` : ''
+                    return cellValue ? \`￥\${XEUtils.commafy(Number(cellValue), { digits: 2 })}\` : ''
                   }
                 },
                 {

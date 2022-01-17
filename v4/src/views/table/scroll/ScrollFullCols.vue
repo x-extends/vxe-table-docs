@@ -49,7 +49,6 @@
 <script lang="ts">
 import { defineComponent, nextTick, reactive, ref } from 'vue'
 import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
-import XEUtils from 'xe-utils'
 
 const columnList: any[] = []
 const dataList: any[] = []
@@ -94,7 +93,8 @@ export default defineComponent({
               })
             }
           }
-          const result = XEUtils.clone(columnList.slice(0, colSize), true)
+          // 模拟数据
+          const result = JSON.parse(JSON.stringify(columnList.slice(0, colSize)))
           resolve(result)
         }, 100)
       })
@@ -157,7 +157,8 @@ export default defineComponent({
               })
             }
           }
-          const result = XEUtils.clone(dataList.slice(0, rowSize), true)
+          // 模拟数据
+          const result = JSON.parse(JSON.stringify(dataList.slice(0, rowSize)))
           resolve(result)
         }, 100)
       })
@@ -224,7 +225,6 @@ export default defineComponent({
         `
         import { defineComponent, nextTick, reactive, ref } from 'vue'
         import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
-        import XEUtils from 'xe-utils'
 
         const columnList: any[] = []
         const dataList: any[] = []
@@ -269,7 +269,8 @@ export default defineComponent({
                       })
                     }
                   }
-                  const result = XEUtils.clone(columnList.slice(0, colSize), true)
+                  // 模拟数据
+                  const result = JSON.parse(JSON.stringify(columnList.slice(0, colSize)))
                   resolve(result)
                 }, 100)
               })
@@ -332,7 +333,8 @@ export default defineComponent({
                       })
                     }
                   }
-                  const result = XEUtils.clone(dataList.slice(0, rowSize), true)
+                  // 模拟数据
+                  const result = JSON.parse(JSON.stringify(dataList.slice(0, rowSize)))
                   resolve(result)
                 }, 100)
               })

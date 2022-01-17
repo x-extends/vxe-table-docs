@@ -84,7 +84,6 @@
 <script lang="ts">
 import { defineComponent, nextTick, reactive, ref } from 'vue'
 import { VXETable, VxeTableInstance } from 'vxe-table'
-import XEUtils from 'xe-utils'
 
 const dataList: any[] = []
 
@@ -125,7 +124,8 @@ export default defineComponent({
               })
             }
           }
-          const result = XEUtils.clone(dataList.slice(0, rowSize), true)
+          // 模拟数据
+          const result = JSON.parse(JSON.stringify(dataList.slice(0, rowSize)))
           resolve(result)
         }, 100)
       })
@@ -219,7 +219,6 @@ export default defineComponent({
         `
         import { defineComponent, nextTick, reactive, ref } from 'vue'
         import { VXETable, VxeTableInstance } from 'vxe-table'
-        import XEUtils from 'xe-utils'
 
         const dataList: any[] = []
 
@@ -260,7 +259,8 @@ export default defineComponent({
                       })
                     }
                   }
-                  const result = XEUtils.clone(dataList.slice(0, rowSize), true)
+                  // 模拟数据
+                  const result = JSON.parse(JSON.stringify(dataList.slice(0, rowSize)))
                   resolve(result)
                 }, 100)
               })

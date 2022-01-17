@@ -50,7 +50,6 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import XEUtils from 'xe-utils'
 import { VxeTablePropTypes } from 'vxe-table'
 
 export default defineComponent({
@@ -84,7 +83,8 @@ export default defineComponent({
     })
 
     const formatDate = (value: any) => {
-      return XEUtils.toDateString(value, 'yyyy-MM-dd HH:mm:ss.S')
+      const date = new Date(value)
+      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     }
 
     return {
@@ -129,7 +129,6 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive } from 'vue'
-        import XEUtils from 'xe-utils'
         import { VxeTablePropTypes } from 'vxe-table'
 
         export default defineComponent({
@@ -163,7 +162,8 @@ export default defineComponent({
             })
 
             const formatDate = (value: any) => {
-              return XEUtils.toDateString(value, 'yyyy-MM-dd HH:mm:ss.S')
+              const date = new Date(value)
+              return \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
             }
 
             return {

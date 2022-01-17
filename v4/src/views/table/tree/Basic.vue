@@ -82,7 +82,6 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import XEUtils from 'xe-utils'
 import { VXETable, VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
@@ -145,7 +144,7 @@ export default defineComponent({
     const getTreeExpansionEvent = () => {
       const $table = xTree.value
       const treeExpandRecords = $table.getTreeExpandRecords()
-      VXETable.modal.alert(XEUtils.toValueString(treeExpandRecords.length))
+      VXETable.modal.alert(treeExpandRecords.length)
     }
 
     const demo3 = reactive({
@@ -203,7 +202,6 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
-        import XEUtils from 'xe-utils'
         import { VXETable, VxeTableInstance } from 'vxe-table'
 
         export default defineComponent({
@@ -242,7 +240,7 @@ export default defineComponent({
             const getTreeExpansionEvent = () => {
               const $table = xTree.value
               const treeExpandRecords = $table.getTreeExpandRecords()
-              VXETable.modal.alert(XEUtils.toValueString(treeExpandRecords.length))
+              VXETable.modal.alert(treeExpandRecords.length)
             }
             return {
               xTree,

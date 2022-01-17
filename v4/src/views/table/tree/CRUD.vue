@@ -62,7 +62,6 @@
 <script lang="ts">
 import { defineComponent, reactive, ref, nextTick } from 'vue'
 import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
-import XEUtils from 'xe-utils'
 
 export default defineComponent({
   setup () {
@@ -118,6 +117,7 @@ export default defineComponent({
 
     const insertRow = async (currRow: any, locat: string) => {
       const $table = xTable.value
+      const date = new Date()
       // 如果 null 则插入到目标节点顶部
       // 如果 -1 则插入到目标节点底部
       // 如果 row 则有插入到效的目标节点该行的位置
@@ -126,7 +126,7 @@ export default defineComponent({
           name: '新数据',
           id: Date.now(),
           parentId: currRow.parentId, // 父节点必须与当前行一致
-          date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+          date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         }
         const { row: newRow } = await $table.insertAt(record, currRow)
         await $table.setActiveRow(newRow) // 插入子节点
@@ -135,7 +135,7 @@ export default defineComponent({
           name: '新数据',
           id: Date.now(),
           parentId: currRow.id, // 需要指定父节点，自动插入该节点中
-          date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+          date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         }
         const { row: newRow } = await $table.insert(record)
         await $table.setTreeExpand(currRow, true) // 将父节点展开
@@ -145,7 +145,7 @@ export default defineComponent({
           name: '新数据',
           id: Date.now(),
           parentId: currRow.id, // 需要指定父节点，自动插入该节点中
-          date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+          date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         }
         const { row: newRow } = await $table.insertAt(record, -1)
         await $table.setTreeExpand(currRow, true) // 将父节点展开
@@ -160,11 +160,12 @@ export default defineComponent({
 
     const insertEvent = async () => {
       const $table = xTable.value
+      const date = new Date()
       const record = {
         name: '新数据',
         id: Date.now(),
         parentId: null,
-        date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+        date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
       }
       const { row: newRow } = await $table.insert(record)
       await $table.setActiveRow(newRow)
@@ -260,7 +261,6 @@ export default defineComponent({
         `
         import { defineComponent, reactive, ref, nextTick } from 'vue'
         import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
-        import XEUtils from 'xe-utils'
 
         export default defineComponent({
           setup () {
@@ -316,6 +316,7 @@ export default defineComponent({
 
             const insertRow = async (currRow: any, locat: string) => {
               const $table = xTable.value
+              const date = new Date()
               // 如果 null 则插入到目标节点顶部
               // 如果 -1 则插入到目标节点底部
               // 如果 row 则有插入到效的目标节点该行的位置
@@ -324,7 +325,7 @@ export default defineComponent({
                   name: '新数据',
                   id: Date.now(),
                   parentId: currRow.parentId, // 父节点必须与当前行一致
-                  date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+                  date: \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
                 }
                 const { row: newRow } = await $table.insertAt(record, currRow)
                 await $table.setActiveRow(newRow) // 插入子节点
@@ -333,7 +334,7 @@ export default defineComponent({
                   name: '新数据',
                   id: Date.now(),
                   parentId: currRow.id, // 需要指定父节点，自动插入该节点中
-                  date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+                  date: \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
                 }
                 const { row: newRow } = await $table.insert(record)
                 await $table.setTreeExpand(currRow, true) // 将父节点展开
@@ -343,7 +344,7 @@ export default defineComponent({
                   name: '新数据',
                   id: Date.now(),
                   parentId: currRow.id, // 需要指定父节点，自动插入该节点中
-                  date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+                  date: \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
                 }
                 const { row: newRow } = await $table.insertAt(record, -1)
                 await $table.setTreeExpand(currRow, true) // 将父节点展开
@@ -358,11 +359,12 @@ export default defineComponent({
 
             const insertEvent = async () => {
               const $table = xTable.value
+              const date = new Date()
               const record = {
                 name: '新数据',
                 id: Date.now(),
                 parentId: null,
-                date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+                date: \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
               }
               const { row: newRow } = await $table.insert(record)
               await $table.setActiveRow(newRow)
