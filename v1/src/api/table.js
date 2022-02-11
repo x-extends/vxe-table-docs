@@ -440,6 +440,7 @@ const apis = [
       },
       {
         name: 'resizable',
+        abandoned: true,
         descKey: 'app.api.table.desc.resizable',
         version: '',
         type: 'Boolean',
@@ -549,6 +550,7 @@ const apis = [
       },
       {
         name: 'highlight-current-row',
+        abandoned: true,
         descKey: 'app.api.table.desc.highlightCurrentRow',
         version: '',
         type: 'Boolean',
@@ -558,6 +560,7 @@ const apis = [
       },
       {
         name: 'highlight-hover-row',
+        abandoned: true,
         descKey: 'app.api.table.desc.highlightHoverRow',
         version: '',
         type: 'Boolean',
@@ -567,6 +570,7 @@ const apis = [
       },
       {
         name: 'highlight-current-column',
+        abandoned: true,
         descKey: 'app.api.table.desc.highlightCurrentColumn',
         version: '',
         type: 'Boolean',
@@ -576,6 +580,7 @@ const apis = [
       },
       {
         name: 'highlight-hover-column',
+        abandoned: true,
         descKey: 'app.api.table.desc.highlightHoverColumn',
         version: '',
         type: 'Boolean',

@@ -180,7 +180,7 @@
 
     <p class="tip">默认渲染方式为配置式，不支持自定义的布局，可以通过设置 custom-layout 切换为自定义布局</p>
 
-    <vxe-form :collapseStatus.sync="collapseStatus3" :data="formData3" title-align="right" title-width="100" prevent-submit title-colon custom-layout>
+    <vxe-form :collapseStatus.sync="collapseStatus3" :data="formData3" :rules="formRules3" title-align="right" title-width="100" prevent-submit title-colon custom-layout>
       <div style="color: red;">使用自定义布局</div>
       <vxe-form-item title="名称" field="name" :item-render="{}">
         <template #default="{ data }">
@@ -333,6 +333,14 @@ export default {
         active: false,
         single: '1',
         flagList: []
+      },
+      formRules3: {
+        name: [
+          { required: true, message: '请输入' }
+        ],
+        nickname: [
+          { required: true, message: '请输入' }
+        ]
       },
       formData4: {
         name: '',
@@ -603,7 +611,7 @@ export default {
         }
         `,
         `
-        <vxe-form :collapseStatus.sync="collapseStatus3" :data="formData3" title-align="right" title-width="100" prevent-submit title-colon custom-layout>
+        <vxe-form :collapseStatus.sync="collapseStatus3" :data="formData3" :rules="formRules3" title-align="right" title-width="100" prevent-submit title-colon custom-layout>
           <div style="color: red;">使用自定义布局</div>
           <vxe-form-item title="名称" field="name" :item-render="{}">
             <template #default="{ data }">
@@ -681,6 +689,14 @@ export default {
                 active: false,
                 single: '1',
                 flagList: []
+              },
+              formRules3: {
+                name: [
+                  { required: true, message: '请输入' }
+                ],
+                nickname: [
+                  { required: true, message: '请输入' }
+                ]
               },
               formData4: {
                 name: '',

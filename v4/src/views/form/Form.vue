@@ -183,7 +183,7 @@
 
     <p class="tip">默认渲染方式为配置式，不支持自定义的布局，可以通过设置 custom-layout 切换为自定义布局</p>
 
-    <vxe-form v-model:collapseStatus="demo3.collapseStatus3" :data="demo3.formData3" title-align="right" title-width="100" prevent-submit title-colon custom-layout>
+    <vxe-form v-model:collapseStatus="demo3.collapseStatus3" :data="demo3.formData3" :rules="demo3.formRules3" title-align="right" title-width="100" prevent-submit title-colon custom-layout>
       <div style="color: red;">使用自定义布局</div>
       <vxe-form-item title="名称" field="name" :item-render="{}">
         <template #default="{ data }">
@@ -339,6 +339,14 @@ export default defineComponent({
         active: false,
         single: '1',
         flagList: []
+      },
+      formRules3: {
+        name: [
+          { required: true, message: '请输入' }
+        ],
+        nickname: [
+          { required: true, message: '请输入' }
+        ]
       }
     })
 
@@ -648,7 +656,7 @@ export default defineComponent({
         }
         `,
         `
-        <vxe-form v-model:collapseStatus="demo3.collapseStatus3" :data="demo3.formData3" title-align="right" title-width="100" prevent-submit title-colon custom-layout>
+        <vxe-form v-model:collapseStatus="demo3.collapseStatus3" :data="demo3.formData3" :rules="demo3.formRules3" title-align="right" title-width="100" prevent-submit title-colon custom-layout>
           <div style="color: red;">使用自定义布局</div>
           <vxe-form-item title="名称" field="name" :item-render="{}">
             <template #default="{ data }">
@@ -729,6 +737,14 @@ export default defineComponent({
                 active: false,
                 single: '1',
                 flagList: []
+              },
+              formRules3: {
+                name: [
+                  { required: true, message: '请输入' }
+                ],
+                nickname: [
+                  { required: true, message: '请输入' }
+                ]
               }
             })
 

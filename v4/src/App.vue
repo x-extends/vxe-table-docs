@@ -32,8 +32,8 @@
             <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
             <!-- <vxe-option value="3.5" :label="$t('app.body.other.v3d5')" disabled></vxe-option> -->
             <vxe-option value="3" :label="$t('app.body.other.v3')"></vxe-option>
-            <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="end-of-life"></vxe-option>
-            <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="end-of-life"></vxe-option>
+            <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
+            <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
           </vxe-select>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="appData.apiLoading && appData.showPlugin">
@@ -100,10 +100,15 @@
       </div>
       <div class="body">
         <div class="content" :class="{full: ['VXEAPI', 'Donation', 'Run'].includes($route.name)}">
-          <template v-if="!/\/start|\/module|\/api/.test($route.path)">
-            <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank"><i class="fa fa-bug"></i>{{ $t('app.body.button.runDemo') }}</a>
-          </template>
-          <router-view/>
+          <div class="page-view">
+            <template v-if="!/\/start|\/module|\/api/.test($route.path)">
+              <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank"><i class="fa fa-bug"></i>{{ $t('app.body.button.runDemo') }}</a>
+            </template>
+            <router-view/>
+          </div>
+          <footer class="page-footer">
+            <div><a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号</a></div>
+          </footer>
         </div>
       </div>
     </div>

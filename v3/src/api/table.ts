@@ -1462,7 +1462,7 @@ const apis = [
         list: [
           {
             name: 'showAll',
-            desc: '所有单元格开启 tooltip 显示',
+            desc: '所有单元格开启工具提示',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1480,7 +1480,7 @@ const apis = [
           },
           {
             name: 'enterable',
-            desc: '鼠标是否可进入到 tooltip 中',
+            desc: '鼠标是否可进入到工具提示中',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1488,8 +1488,17 @@ const apis = [
             list: []
           },
           {
+            name: 'enterDelay',
+            descKey: '鼠标移入后延时多少才显示工具提示',
+            version: '3.4.15',
+            type: 'number',
+            enum: '',
+            defVal: '500',
+            list: []
+          },
+          {
             name: 'leaveDelay',
-            desc: '鼠标移出后延时多少才隐藏 tooltip',
+            desc: '鼠标移出后延时多少才隐藏工具提示',
             version: '',
             type: 'number',
             enum: '',
@@ -1498,7 +1507,7 @@ const apis = [
           },
           {
             name: 'contentMethod',
-            desc: '该方法可以通过返回值来重写默认的提示内容，可以返回 null 使用默认的提示消息，可以返回空内容去掉指定单元格的提示消息',
+            desc: '该方法可以通过返回值来重写默认的提示内容，可以返回 null 使用默认的提示内容，可以返回空内容去掉指定单元格的提示内容',
             version: '',
             type: '({ items?, row?, rowIndex?, $rowIndex, column, columnIndex, $columnIndex, type, cell, $event }) => string',
             enum: '',
@@ -3481,7 +3490,7 @@ const apis = [
       {
         name: 'updateData()',
         abandoned: true,
-        desc: '手动处理数据（对于手动更改了排序、筛选...等条件后需要重新处理数据时可能会用到）',
+        desc: '手动处理数据，用于手动排序与筛选（对于手动更改了排序、筛选...等条件后需要重新处理数据时可能会用到）',
         version: '',
         type: 'Promise<any>',
         enum: '',

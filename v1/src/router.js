@@ -1,281 +1,281 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import StartInstall from './views/table/start/Install.vue'
-import StartUse from './views/table/start/Use.vue'
-import StartIcons from './views/table/start/Icons.vue'
-import StartGlobal from './views/table/start/Global.vue'
-import StartTheme from './views/table/start/Theme.vue'
-import StartI18n from './views/table/start/I18n.vue'
+const StartInstall = () => import('./views/table/start/Install.vue')
+const StartUse = () => import('./views/table/start/Use.vue')
+const StartIcons = () => import('./views/table/start/Icons.vue')
+const StartGlobal = () => import('./views/table/start/Global.vue')
+const StartTheme = () => import('./views/table/start/Theme.vue')
+const StartI18n = () => import('./views/table/start/I18n.vue')
 
-import RendererAPI from './views/table/renderer/API.vue'
-import RendererFilter from './views/table/renderer/Filter.vue'
-import RendererDefault from './views/table/renderer/Default.vue'
-import RendererEdit from './views/table/renderer/Edit.vue'
-import RendererExpand from './views/table/renderer/Expand.vue'
-import RendererToolbar from './views/table/renderer/Toolbar.vue'
-import RendererForm from './views/table/renderer/Form.vue'
-import RendererEmpty from './views/table/renderer/Empty.vue'
+const RendererAPI = () => import('./views/table/renderer/API.vue')
+const RendererFilter = () => import('./views/table/renderer/Filter.vue')
+const RendererDefault = () => import('./views/table/renderer/Default.vue')
+const RendererEdit = () => import('./views/table/renderer/Edit.vue')
+const RendererExpand = () => import('./views/table/renderer/Expand.vue')
+const RendererToolbar = () => import('./views/table/renderer/Toolbar.vue')
+const RendererForm = () => import('./views/table/renderer/Form.vue')
+const RendererEmpty = () => import('./views/table/renderer/Empty.vue')
 
-import CommandsAPI from './views/table/commands/API.vue'
-import MenusAPI from './views/table/menus/API.vue'
-import InterceptorAPI from './views/table/interceptor/API.vue'
-import FormatsAPI from './views/table/formats/API.vue'
+const CommandsAPI = () => import('./views/table/commands/API.vue')
+const MenusAPI = () => import('./views/table/menus/API.vue')
+const InterceptorAPI = () => import('./views/table/interceptor/API.vue')
+const FormatsAPI = () => import('./views/table/formats/API.vue')
 
-import TableBasic from './views/table/base/Basic.vue'
-import TableSize from './views/table/base/Size.vue'
-import TableWidth from './views/table/base/Width.vue'
-import TableOverflow from './views/table/base/Overflow.vue'
-import TableTooltip from './views/table/base/Tooltip.vue'
-import TableStripe from './views/table/base/Stripe.vue'
-import TableBorder from './views/table/base/Border.vue'
-import TableRound from './views/table/base/Round.vue'
-import TableStyle from './views/table/base/Style.vue'
-import TableDynamicStyle from './views/table/base/DynamicStyle.vue'
-import TableScrollStyle from './views/table/base/ScrollStyle.vue'
-import TableHeader from './views/table/base/Header.vue'
-import TableHeaderHighlight from './views/table/base/HeaderHighlight.vue'
-import TableResizable from './views/table/base/Resizable.vue'
-import TableMaxHeight from './views/table/base/MaxHeight.vue'
-import TableHeight from './views/table/base/Height.vue'
-import TableAutoHeight from './views/table/base/AutoHeight.vue'
-import TableFixed from './views/table/base/Fixed.vue'
-import TableFixedFull from './views/table/base/FixedFull.vue'
-import TableGroup from './views/table/base/Group.vue'
-import TableSeq from './views/table/base/Seq.vue'
-import TableCurrent from './views/table/base/Current.vue'
-import TableRadio from './views/table/base/Radio.vue'
-import TableSelection from './views/table/base/Selection.vue'
-import TableSort from './views/table/base/Sort.vue'
-import TableFilter from './views/table/base/Filter.vue'
-import TableEmpty from './views/table/base/Empty.vue'
-import TableLoading from './views/table/base/Loading.vue'
-import TableFormat from './views/table/base/Format.vue'
-import TableData from './views/table/base/Data.vue'
-import TableHTML from './views/table/base/HTML.vue'
-import TableFull from './views/table/base/Full.vue'
+const TableBasic = () => import('./views/table/base/Basic.vue')
+const TableSize = () => import('./views/table/base/Size.vue')
+const TableWidth = () => import('./views/table/base/Width.vue')
+const TableOverflow = () => import('./views/table/base/Overflow.vue')
+const TableTooltip = () => import('./views/table/base/Tooltip.vue')
+const TableStripe = () => import('./views/table/base/Stripe.vue')
+const TableBorder = () => import('./views/table/base/Border.vue')
+const TableRound = () => import('./views/table/base/Round.vue')
+const TableStyle = () => import('./views/table/base/Style.vue')
+const TableDynamicStyle = () => import('./views/table/base/DynamicStyle.vue')
+const TableScrollStyle = () => import('./views/table/base/ScrollStyle.vue')
+const TableHeader = () => import('./views/table/base/Header.vue')
+const TableHeaderHighlight = () => import('./views/table/base/HeaderHighlight.vue')
+const TableResizable = () => import('./views/table/base/Resizable.vue')
+const TableMaxHeight = () => import('./views/table/base/MaxHeight.vue')
+const TableHeight = () => import('./views/table/base/Height.vue')
+const TableAutoHeight = () => import('./views/table/base/AutoHeight.vue')
+const TableFixed = () => import('./views/table/base/Fixed.vue')
+const TableFixedFull = () => import('./views/table/base/FixedFull.vue')
+const TableGroup = () => import('./views/table/base/Group.vue')
+const TableSeq = () => import('./views/table/base/Seq.vue')
+const TableCurrent = () => import('./views/table/base/Current.vue')
+const TableRadio = () => import('./views/table/base/Radio.vue')
+const TableSelection = () => import('./views/table/base/Selection.vue')
+const TableSort = () => import('./views/table/base/Sort.vue')
+const TableFilter = () => import('./views/table/base/Filter.vue')
+const TableEmpty = () => import('./views/table/base/Empty.vue')
+const TableLoading = () => import('./views/table/base/Loading.vue')
+const TableFormat = () => import('./views/table/base/Format.vue')
+const TableData = () => import('./views/table/base/Data.vue')
+const TableHTML = () => import('./views/table/base/HTML.vue')
+const TableFull = () => import('./views/table/base/Full.vue')
 
-import TableEvent from './views/table/advanced/Event.vue'
-import TableTemplate from './views/table/advanced/Template.vue'
-import TableDynamic from './views/table/advanced/Dynamic.vue'
-import TableSortIcon from './views/table/advanced/SortIcon.vue'
-import TableCustomSort from './views/table/advanced/CustomSort.vue'
-import TableManualFilter from './views/table/advanced/ManualFilter.vue'
-import TableFilterIcon from './views/table/advanced/FilterIcon.vue'
-import TableSpan from './views/table/advanced/Span.vue'
-import TableSpanRow from './views/table/advanced/SpanRow.vue'
-import TableMergeCell from './views/table/advanced/MergeCell'
-import TableFooter from './views/table/advanced/Footer.vue'
-import TableFooterSpan from './views/table/advanced/FooterSpan.vue'
-import TableFooterMaxHeight from './views/table/advanced/MaxHeight.vue'
-import TableImport from './views/table/advanced/Import.vue'
-import TableExport from './views/table/advanced/Export.vue'
-import TablePrint from './views/table/advanced/Print.vue'
-import TableFixedType from './views/table/advanced/FixedType.vue'
-import TableMenu from './views/table/advanced/Menu.vue'
-import TableMenuPrivilege from './views/table/advanced/MenuPrivilege.vue'
-import TableExpand from './views/table/advanced/Expand.vue'
-import TableExpandIcon from './views/table/advanced/ExpandIcon.vue'
-import TableExpandLazy from './views/table/advanced/ExpandLazy.vue'
-import TableExpandAccordion from './views/table/advanced/ExpandAccordion.vue'
-import TableSearch from './views/table/advanced/Search.vue'
-import TableGroupBy from './views/table/advanced/GroupBy.vue'
-import TableDetails from './views/table/advanced/Details.vue'
-import TablePopupEdit from './views/table/advanced/PopupEdit.vue'
-import Toolbar from './views/table/advanced/Toolbar.vue'
-import TableCustom from './views/table/advanced/Custom.vue'
-import TableCustomStorage from './views/table/advanced/CustomStorage.vue'
-import TableCustomlWidthStorage from './views/table/advanced/CustomlWidthStorage.vue'
-import TableForm from './views/table/advanced/Form.vue'
-import TablePage from './views/table/advanced/Page.vue'
-import TablePageIcon from './views/table/advanced/PageIcon.vue'
-import TableHighlight from './views/table/advanced/Highlight.vue'
-import TableRangeSelect from './views/table/advanced/RangeSelect.vue'
-import TableTabs from './views/table/advanced/Tabs.vue'
-import TableKeepAlives from './views/table/advanced/KeepAlives.vue'
-import TableKeepAliveTable1 from './views/table/advanced/keepAlives/Table1.vue'
-import TableKeepAliveTable2 from './views/table/advanced/keepAlives/Table2.vue'
-import TableKeepAliveTable3 from './views/table/advanced/keepAlives/Table3.vue'
+const TableEvent = () => import('./views/table/advanced/Event.vue')
+const TableTemplate = () => import('./views/table/advanced/Template.vue')
+const TableDynamic = () => import('./views/table/advanced/Dynamic.vue')
+const TableSortIcon = () => import('./views/table/advanced/SortIcon.vue')
+const TableCustomSort = () => import('./views/table/advanced/CustomSort.vue')
+const TableManualFilter = () => import('./views/table/advanced/ManualFilter.vue')
+const TableFilterIcon = () => import('./views/table/advanced/FilterIcon.vue')
+const TableSpan = () => import('./views/table/advanced/Span.vue')
+const TableSpanRow = () => import('./views/table/advanced/SpanRow.vue')
+const TableMergeCell = () => import('./views/table/advanced/MergeCell.vue')
+const TableFooter = () => import('./views/table/advanced/Footer.vue')
+const TableFooterSpan = () => import('./views/table/advanced/FooterSpan.vue')
+const TableFooterMaxHeight = () => import('./views/table/advanced/MaxHeight.vue')
+const TableImport = () => import('./views/table/advanced/Import.vue')
+const TableExport = () => import('./views/table/advanced/Export.vue')
+const TablePrint = () => import('./views/table/advanced/Print.vue')
+const TableFixedType = () => import('./views/table/advanced/FixedType.vue')
+const TableMenu = () => import('./views/table/advanced/Menu.vue')
+const TableMenuPrivilege = () => import('./views/table/advanced/MenuPrivilege.vue')
+const TableExpand = () => import('./views/table/advanced/Expand.vue')
+const TableExpandIcon = () => import('./views/table/advanced/ExpandIcon.vue')
+const TableExpandLazy = () => import('./views/table/advanced/ExpandLazy.vue')
+const TableExpandAccordion = () => import('./views/table/advanced/ExpandAccordion.vue')
+const TableSearch = () => import('./views/table/advanced/Search.vue')
+const TableGroupBy = () => import('./views/table/advanced/GroupBy.vue')
+const TableDetails = () => import('./views/table/advanced/Details.vue')
+const TablePopupEdit = () => import('./views/table/advanced/PopupEdit.vue')
+const Toolbar = () => import('./views/table/advanced/Toolbar.vue')
+const TableCustom = () => import('./views/table/advanced/Custom.vue')
+const TableCustomStorage = () => import('./views/table/advanced/CustomStorage.vue')
+const TableCustomlWidthStorage = () => import('./views/table/advanced/CustomlWidthStorage.vue')
+const TableForm = () => import('./views/table/advanced/Form.vue')
+const TablePage = () => import('./views/table/advanced/Page.vue')
+const TablePageIcon = () => import('./views/table/advanced/PageIcon.vue')
+const TableHighlight = () => import('./views/table/advanced/Highlight.vue')
+const TableRangeSelect = () => import('./views/table/advanced/RangeSelect.vue')
+const TableTabs = () => import('./views/table/advanced/Tabs.vue')
+const TableKeepAlives = () => import('./views/table/advanced/KeepAlives.vue')
+const TableKeepAliveTable1 = () => import('./views/table/advanced/keepAlives/Table1.vue')
+const TableKeepAliveTable2 = () => import('./views/table/advanced/keepAlives/Table2.vue')
+const TableKeepAliveTable3 = () => import('./views/table/advanced/keepAlives/Table3.vue')
 
-import GridBasic from './views/table/grid/Basic.vue'
-import GridGroup from './views/table/grid/Group.vue'
-import GridReverse from './views/table/grid/Reverse.vue'
-import GridTemplate from './views/table/grid/Template.vue'
-import GridFooter from './views/table/grid/Footer.vue'
-import GridPage from './views/table/grid/Page.vue'
-import GridFullQuery from './views/table/grid/FullQuery.vue'
-import GridProxy from './views/table/grid/Proxy.vue'
-import GridPageProxy from './views/table/grid/PageProxy.vue'
-import GridConfigProxy from './views/table/grid/ConfigProxy.vue'
-import GridEdit from './views/table/grid/Edit.vue'
-import GridCellDisable from './views/table/grid/CellDisable.vue'
-import GridRowDisable from './views/table/grid/RowDisable.vue'
-import GridForm from './views/table/grid/Form.vue'
-import GridFormProxy from './views/table/grid/FormProxy.vue'
-import GridToolbar from './views/table/grid/Toolbar.vue'
-import GridCustomToolbar from './views/table/grid/CustomToolbar.vue'
-import GridToolbarIcon from './views/table/grid/ToolbarIcon.vue'
-import GridFullscreen from './views/table/grid/Fullscreen.vue'
-import GridDynamic from './views/table/grid/Dynamic.vue'
-import GridMenu from './views/table/grid/Menu.vue'
-import GridSpan from './views/table/grid/Span.vue'
-import GridUpload from './views/table/grid/Upload.vue'
-import GridTree from './views/table/grid/Tree.vue'
-import GridTreeLazy from './views/table/grid/TreeLazy.vue'
-import GridTreeLazyEdit from './views/table/grid/TreeLazyEdit.vue'
-import GridTreeEdit from './views/table/grid/TreeEdit.vue'
-import GridFullEdit from './views/table/grid/FullEdit.vue'
+const GridBasic = () => import('./views/table/grid/Basic.vue')
+const GridGroup = () => import('./views/table/grid/Group.vue')
+const GridReverse = () => import('./views/table/grid/Reverse.vue')
+const GridTemplate = () => import('./views/table/grid/Template.vue')
+const GridFooter = () => import('./views/table/grid/Footer.vue')
+const GridPage = () => import('./views/table/grid/Page.vue')
+const GridFullQuery = () => import('./views/table/grid/FullQuery.vue')
+const GridProxy = () => import('./views/table/grid/Proxy.vue')
+const GridPageProxy = () => import('./views/table/grid/PageProxy.vue')
+const GridConfigProxy = () => import('./views/table/grid/ConfigProxy.vue')
+const GridEdit = () => import('./views/table/grid/Edit.vue')
+const GridCellDisable = () => import('./views/table/grid/CellDisable.vue')
+const GridRowDisable = () => import('./views/table/grid/RowDisable.vue')
+const GridForm = () => import('./views/table/grid/Form.vue')
+const GridFormProxy = () => import('./views/table/grid/FormProxy.vue')
+const GridToolbar = () => import('./views/table/grid/Toolbar.vue')
+const GridCustomToolbar = () => import('./views/table/grid/CustomToolbar.vue')
+const GridToolbarIcon = () => import('./views/table/grid/ToolbarIcon.vue')
+const GridFullscreen = () => import('./views/table/grid/Fullscreen.vue')
+const GridDynamic = () => import('./views/table/grid/Dynamic.vue')
+const GridMenu = () => import('./views/table/grid/Menu.vue')
+const GridSpan = () => import('./views/table/grid/Span.vue')
+const GridUpload = () => import('./views/table/grid/Upload.vue')
+const GridTree = () => import('./views/table/grid/Tree.vue')
+const GridTreeLazy = () => import('./views/table/grid/TreeLazy.vue')
+const GridTreeLazyEdit = () => import('./views/table/grid/TreeLazyEdit.vue')
+const GridTreeEdit = () => import('./views/table/grid/TreeEdit.vue')
+const GridFullEdit = () => import('./views/table/grid/FullEdit.vue')
 
-import TableTreeBasic from './views/table/tree/Basic.vue'
-import TableTreeNormal from './views/table/tree/Normal.vue'
-import TableTreeIcon from './views/table/tree/Icon.vue'
-import TableTreeAccordion from './views/table/tree/Accordion.vue'
-import TableTreeSelection from './views/table/tree/Selection.vue'
-import TableTreeRadio from './views/table/tree/Radio.vue'
-import TableTreeFixed from './views/table/tree/Fixed.vue'
-import TableTreeMaxHeight from './views/table/tree/MaxHeight.vue'
-import TableTreeFilter from './views/table/tree/Filter.vue'
-import TableTreeSort from './views/table/tree/Sort.vue'
-import TableTreeGroupSummary from './views/table/tree/GroupSummary.vue'
-import TableTreeGroupSummaryCount from './views/table/tree/GroupSummaryCount.vue'
-import TableTreeExpand from './views/table/tree/Expand.vue'
-import TableTreeExpandLazy from './views/table/tree/ExpandLazy.vue'
-import TableTreeToolbar from './views/table/tree/Toolbar.vue'
-import TableTreeInsert from './views/table/tree/Insert.vue'
-import TableTreeMenu from './views/table/tree/Menu.vue'
-import TableTreeSpan from './views/table/tree/Span.vue'
-import TableTreeHighlight from './views/table/tree/Highlight.vue'
-import TableTreeKeyboard from './views/table/tree/Keyboard.vue'
-import TableTreeLazy from './views/table/tree/Lazy.vue'
-import TableTreeLazyMenu from './views/table/tree/LazyMenu.vue'
-import TableTreeLazyEdit from './views/table/tree/LazyEdit.vue'
-import TableTreeLine from './views/table/tree/Line.vue'
-import TableTreeEdit from './views/table/tree/Edit.vue'
-import TableTreeEditCellValid from './views/table/tree/CellValid.vue'
-import TableTreeEditRowValid from './views/table/tree/RowValid.vue'
-import TableTreeEditForceCellValid from './views/table/tree/ForceCellValid.vue'
-import TableTreeEditForceRowValid from './views/table/tree/ForceRowValid.vue'
-import TableTreeTemplate from './views/table/tree/Template.vue'
+const TableTreeBasic = () => import('./views/table/tree/Basic.vue')
+const TableTreeNormal = () => import('./views/table/tree/Normal.vue')
+const TableTreeIcon = () => import('./views/table/tree/Icon.vue')
+const TableTreeAccordion = () => import('./views/table/tree/Accordion.vue')
+const TableTreeSelection = () => import('./views/table/tree/Selection.vue')
+const TableTreeRadio = () => import('./views/table/tree/Radio.vue')
+const TableTreeFixed = () => import('./views/table/tree/Fixed.vue')
+const TableTreeMaxHeight = () => import('./views/table/tree/MaxHeight.vue')
+const TableTreeFilter = () => import('./views/table/tree/Filter.vue')
+const TableTreeSort = () => import('./views/table/tree/Sort.vue')
+const TableTreeGroupSummary = () => import('./views/table/tree/GroupSummary.vue')
+const TableTreeGroupSummaryCount = () => import('./views/table/tree/GroupSummaryCount.vue')
+const TableTreeExpand = () => import('./views/table/tree/Expand.vue')
+const TableTreeExpandLazy = () => import('./views/table/tree/ExpandLazy.vue')
+const TableTreeToolbar = () => import('./views/table/tree/Toolbar.vue')
+const TableTreeInsert = () => import('./views/table/tree/Insert.vue')
+const TableTreeMenu = () => import('./views/table/tree/Menu.vue')
+const TableTreeSpan = () => import('./views/table/tree/Span.vue')
+const TableTreeHighlight = () => import('./views/table/tree/Highlight.vue')
+const TableTreeKeyboard = () => import('./views/table/tree/Keyboard.vue')
+const TableTreeLazy = () => import('./views/table/tree/Lazy.vue')
+const TableTreeLazyMenu = () => import('./views/table/tree/LazyMenu.vue')
+const TableTreeLazyEdit = () => import('./views/table/tree/LazyEdit.vue')
+const TableTreeLine = () => import('./views/table/tree/Line.vue')
+const TableTreeEdit = () => import('./views/table/tree/Edit.vue')
+const TableTreeEditCellValid = () => import('./views/table/tree/CellValid.vue')
+const TableTreeEditRowValid = () => import('./views/table/tree/RowValid.vue')
+const TableTreeEditForceCellValid = () => import('./views/table/tree/ForceCellValid.vue')
+const TableTreeEditForceRowValid = () => import('./views/table/tree/ForceRowValid.vue')
+const TableTreeTemplate = () => import('./views/table/tree/Template.vue')
 
-import TableScroll from './views/table/scroll/Scroll.vue'
-import TableScrollRows from './views/table/scroll/ScrollRows.vue'
-import TableScrollFullRows from './views/table/scroll/ScrollFullRows.vue'
-import TableScrollCols from './views/table/scroll/ScrollCols.vue'
-import TableScrollFullCols from './views/table/scroll/ScrollFullCols.vue'
-import TableScrollHighlight from './views/table/scroll/Highlight.vue'
-import TableScrollKeyboard from './views/table/scroll/Keyboard.vue'
-import TableScrollMaxHeight from './views/table/scroll/MaxHeight.vue'
-import TableScrollGroup from './views/table/scroll/Group.vue'
-import TableScrollEdit from './views/table/scroll/Edit.vue'
-import TableScrollCellValid from './views/table/scroll/CellValid.vue'
-import TableScrollRowValid from './views/table/scroll/RowValid.vue'
-import TableScrollForceCellValid from './views/table/scroll/ForceCellValid.vue'
-import TableScrollForceRowValid from './views/table/scroll/ForceRowValid.vue'
-import TableScrollPartialLoad from './views/table/scroll/PartialLoad.vue'
-import TableScrollFullPartialLoad from './views/table/scroll/FullPartialLoad.vue'
-import TableScrollFooter from './views/table/scroll/Footer.vue'
-import TableScrollTemplate from './views/table/scroll/Template.vue'
-import TableScrollTabs from './views/table/scroll/Tabs.vue'
-import TableScrollKeepAlives from './views/table/scroll/KeepAlives.vue'
-import TableScrollKeepAliveTable1 from './views/table/scroll/keepAlives/Table1.vue'
-import TableScrollKeepAliveTable2 from './views/table/scroll/keepAlives/Table2.vue'
-import TableScrollKeepAliveTable3 from './views/table/scroll/keepAlives/Table3.vue'
+const TableScroll = () => import('./views/table/scroll/Scroll.vue')
+const TableScrollRows = () => import('./views/table/scroll/ScrollRows.vue')
+const TableScrollFullRows = () => import('./views/table/scroll/ScrollFullRows.vue')
+const TableScrollCols = () => import('./views/table/scroll/ScrollCols.vue')
+const TableScrollFullCols = () => import('./views/table/scroll/ScrollFullCols.vue')
+const TableScrollHighlight = () => import('./views/table/scroll/Highlight.vue')
+const TableScrollKeyboard = () => import('./views/table/scroll/Keyboard.vue')
+const TableScrollMaxHeight = () => import('./views/table/scroll/MaxHeight.vue')
+const TableScrollGroup = () => import('./views/table/scroll/Group.vue')
+const TableScrollEdit = () => import('./views/table/scroll/Edit.vue')
+const TableScrollCellValid = () => import('./views/table/scroll/CellValid.vue')
+const TableScrollRowValid = () => import('./views/table/scroll/RowValid.vue')
+const TableScrollForceCellValid = () => import('./views/table/scroll/ForceCellValid.vue')
+const TableScrollForceRowValid = () => import('./views/table/scroll/ForceRowValid.vue')
+const TableScrollPartialLoad = () => import('./views/table/scroll/PartialLoad.vue')
+const TableScrollFullPartialLoad = () => import('./views/table/scroll/FullPartialLoad.vue')
+const TableScrollFooter = () => import('./views/table/scroll/Footer.vue')
+const TableScrollTemplate = () => import('./views/table/scroll/Template.vue')
+const TableScrollTabs = () => import('./views/table/scroll/Tabs.vue')
+const TableScrollKeepAlives = () => import('./views/table/scroll/KeepAlives.vue')
+const TableScrollKeepAliveTable1 = () => import('./views/table/scroll/keepAlives/Table1.vue')
+const TableScrollKeepAliveTable2 = () => import('./views/table/scroll/keepAlives/Table2.vue')
+const TableScrollKeepAliveTable3 = () => import('./views/table/scroll/keepAlives/Table3.vue')
 
-import TableVirtualTreeBasic from './views/table/virtual-tree/Basic.vue'
-import TableVirtualTreeNormal from './views/table/virtual-tree/Normal.vue'
-import TableVirtualTreeRadio from './views/table/virtual-tree/Radio.vue'
-import TableVirtualTreeCheckbox from './views/table/virtual-tree/Checkbox.vue'
-import TableVirtualTreeIcon from './views/table/virtual-tree/Icon.vue'
-import TableVirtualTreeFixed from './views/table/virtual-tree/Fixed.vue'
-import TableVirtualTreeMaxHeight from './views/table/virtual-tree/MaxHeight.vue'
-import TableVirtualTreeEdit from './views/table/virtual-tree/Edit.vue'
-import TableVirtualTreeInsert from './views/table/virtual-tree/Insert.vue'
-import TableVirtualTreeRemove from './views/table/virtual-tree/Remove.vue'
-import TableVirtualTreeMenu from './views/table/virtual-tree/Menu.vue'
-import TableVirtualTreeTemplate from './views/table/virtual-tree/Template.vue'
-import TableVirtualTreeBig from './views/table/virtual-tree/Big.vue'
+const TableVirtualTreeBasic = () => import('./views/table/virtual-tree/Basic.vue')
+const TableVirtualTreeNormal = () => import('./views/table/virtual-tree/Normal.vue')
+const TableVirtualTreeRadio = () => import('./views/table/virtual-tree/Radio.vue')
+const TableVirtualTreeCheckbox = () => import('./views/table/virtual-tree/Checkbox.vue')
+const TableVirtualTreeIcon = () => import('./views/table/virtual-tree/Icon.vue')
+const TableVirtualTreeFixed = () => import('./views/table/virtual-tree/Fixed.vue')
+const TableVirtualTreeMaxHeight = () => import('./views/table/virtual-tree/MaxHeight.vue')
+const TableVirtualTreeEdit = () => import('./views/table/virtual-tree/Edit.vue')
+const TableVirtualTreeInsert = () => import('./views/table/virtual-tree/Insert.vue')
+const TableVirtualTreeRemove = () => import('./views/table/virtual-tree/Remove.vue')
+const TableVirtualTreeMenu = () => import('./views/table/virtual-tree/Menu.vue')
+const TableVirtualTreeTemplate = () => import('./views/table/virtual-tree/Template.vue')
+const TableVirtualTreeBig = () => import('./views/table/virtual-tree/Big.vue')
 
-import TableEditPopupForm from './views/table/edit/PopupForm.vue'
-import TableEditManual from './views/table/edit/Manual.vue'
-import TableEditClick from './views/table/edit/Click.vue'
-import TableEditDBLClick from './views/table/edit/DBLClick.vue'
-import TableEditSelect from './views/table/edit/Select.vue'
-import TableAutoClearManual from './views/table/edit/AutoClear.vue'
-import TableEditInsert from './views/table/edit/Insert.vue'
-import TableEditRemove from './views/table/edit/Remove.vue'
-import TableEditRevert from './views/table/edit/Revert.vue'
-import TableEditStatus from './views/table/edit/Status.vue'
-import TableEditCellDisable from './views/table/edit/CellDisable.vue'
-import TableEditRowDisable from './views/table/edit/RowDisable.vue'
-import TableEditHighlightCell from './views/table/edit/HighlightCell.vue'
-import TableEditKeyboard from './views/table/edit/Keyboard.vue'
-import TableEditKeyboardEdit from './views/table/edit/KeyboardEdit.vue'
-import TableEditCellValid from './views/table/edit/CellValid.vue'
-import TableEditRowValid from './views/table/edit/RowValid.vue'
-import TableEditForceCellValid from './views/table/edit/ForceCellValid.vue'
-import TableEditForceRowValid from './views/table/edit/ForceRowValid.vue'
-import TableEditFooter from './views/table/edit/Footer.vue'
-import TableEditFooterImmediately from './views/table/edit/FooterImmediately.vue'
-import TableEditExpand from './views/table/edit/Expand.vue'
-import TableEditMenu from './views/table/edit/Menu.vue'
-import TableEditSpan from './views/table/edit/Span.vue'
-import TableEditForm from './views/table/edit/Form.vue'
-import TableEditUpload from './views/table/edit/Upload.vue'
-import TableEditRealtimeSave from './views/table/edit/RealtimeSave.vue'
-import TableEditDataCount from './views/table/edit/DataCount.vue'
-import TableEditUniqueSelect from './views/table/edit/UniqueSelect.vue'
-import TableEditCascadingSelect from './views/table/edit/CascadingSelect.vue'
-import TableEditEvents from './views/table/edit/Events.vue'
-import TableEditTemplate from './views/table/edit/Template.vue'
-import TableEditFull from './views/table/edit/Full.vue'
+const TableEditPopupForm = () => import('./views/table/edit/PopupForm.vue')
+const TableEditManual = () => import('./views/table/edit/Manual.vue')
+const TableEditClick = () => import('./views/table/edit/Click.vue')
+const TableEditDBLClick = () => import('./views/table/edit/DBLClick.vue')
+const TableEditSelect = () => import('./views/table/edit/Select.vue')
+const TableAutoClearManual = () => import('./views/table/edit/AutoClear.vue')
+const TableEditInsert = () => import('./views/table/edit/Insert.vue')
+const TableEditRemove = () => import('./views/table/edit/Remove.vue')
+const TableEditRevert = () => import('./views/table/edit/Revert.vue')
+const TableEditStatus = () => import('./views/table/edit/Status.vue')
+const TableEditCellDisable = () => import('./views/table/edit/CellDisable.vue')
+const TableEditRowDisable = () => import('./views/table/edit/RowDisable.vue')
+const TableEditHighlightCell = () => import('./views/table/edit/HighlightCell.vue')
+const TableEditKeyboard = () => import('./views/table/edit/Keyboard.vue')
+const TableEditKeyboardEdit = () => import('./views/table/edit/KeyboardEdit.vue')
+const TableEditCellValid = () => import('./views/table/edit/CellValid.vue')
+const TableEditRowValid = () => import('./views/table/edit/RowValid.vue')
+const TableEditForceCellValid = () => import('./views/table/edit/ForceCellValid.vue')
+const TableEditForceRowValid = () => import('./views/table/edit/ForceRowValid.vue')
+const TableEditFooter = () => import('./views/table/edit/Footer.vue')
+const TableEditFooterImmediately = () => import('./views/table/edit/FooterImmediately.vue')
+const TableEditExpand = () => import('./views/table/edit/Expand.vue')
+const TableEditMenu = () => import('./views/table/edit/Menu.vue')
+const TableEditSpan = () => import('./views/table/edit/Span.vue')
+const TableEditForm = () => import('./views/table/edit/Form.vue')
+const TableEditUpload = () => import('./views/table/edit/Upload.vue')
+const TableEditRealtimeSave = () => import('./views/table/edit/RealtimeSave.vue')
+const TableEditDataCount = () => import('./views/table/edit/DataCount.vue')
+const TableEditUniqueSelect = () => import('./views/table/edit/UniqueSelect.vue')
+const TableEditCascadingSelect = () => import('./views/table/edit/CascadingSelect.vue')
+const TableEditEvents = () => import('./views/table/edit/Events.vue')
+const TableEditTemplate = () => import('./views/table/edit/Template.vue')
+const TableEditFull = () => import('./views/table/edit/Full.vue')
 
-import TableBadEdit from './views/table/bad/Edit.vue'
-import TableBadNonsupport from './views/table/bad/Nonsupport.vue'
-import TableBadLineHeight from './views/table/bad/LineHeight.vue'
+const TableBadEdit = () => import('./views/table/bad/Edit.vue')
+const TableBadNonsupport = () => import('./views/table/bad/Nonsupport.vue')
+const TableBadLineHeight = () => import('./views/table/bad/LineHeight.vue')
 
-import ModuleIcon from './views/icon/Icon.vue'
-import ModuleButton from './views/button/Button.vue'
-import ModuleRadio from './views/radio/Radio.vue'
-import ModuleCheckbox from './views/checkbox/Checkbox.vue'
-import ModuleInput from './views/input/Input.vue'
-import ModuleTextarea from './views/textarea/Textarea.vue'
-import ModuleSelect from './views/select/Select.vue'
-import ModulePager from './views/pager/Pager.vue'
-import ModuleModal from './views/modal/Modal.vue'
-import ModuleTooltip from './views/tooltip/Tooltip.vue'
-import ModuleToolbar from './views/toolbar/Toolbar.vue'
-import ModuleForm from './views/form/Form.vue'
-import ModuleSwitch from './views/switch/Switch.vue'
-import ModuleList from './views/list/List.vue'
-import ModulePulldown from './views/pulldown/Pulldown.vue'
+const ModuleIcon = () => import('./views/icon/Icon.vue')
+const ModuleButton = () => import('./views/button/Button.vue')
+const ModuleRadio = () => import('./views/radio/Radio.vue')
+const ModuleCheckbox = () => import('./views/checkbox/Checkbox.vue')
+const ModuleInput = () => import('./views/input/Input.vue')
+const ModuleTextarea = () => import('./views/textarea/Textarea.vue')
+const ModuleSelect = () => import('./views/select/Select.vue')
+const ModulePager = () => import('./views/pager/Pager.vue')
+const ModuleModal = () => import('./views/modal/Modal.vue')
+const ModuleTooltip = () => import('./views/tooltip/Tooltip.vue')
+const ModuleToolbar = () => import('./views/toolbar/Toolbar.vue')
+const ModuleForm = () => import('./views/form/Form.vue')
+const ModuleSwitch = () => import('./views/switch/Switch.vue')
+const ModuleList = () => import('./views/list/List.vue')
+const ModulePulldown = () => import('./views/pulldown/Pulldown.vue')
 
-import TableOtherElement from './views/table/other/Element.vue'
-import TableOtherIview from './views/table/other/Iview.vue'
-import TableOtherAntd from './views/table/other/Antd.vue'
-import TableSortableColumn from './views/table/other/SortableColumn.vue'
-import TableSortableRow from './views/table/other/SortableRow.vue'
-// import TableXlsx from './views/table/other/Xlsx.vue'
+const TableOtherElement = () => import('./views/table/other/Element.vue')
+const TableOtherIview = () => import('./views/table/other/Iview.vue')
+const TableOtherAntd = () => import('./views/table/other/Antd.vue')
+const TableSortableColumn = () => import('./views/table/other/SortableColumn.vue')
+const TableSortableRow = () => import('./views/table/other/SortableRow.vue')
+// const TableXlsx = () => import('./views/table/other/Xlsx.vue')
 
-import TablePluginElementConfig from './views/table/plugin/ElementConfig.vue'
-import TablePluginElementFilter from './views/table/plugin/ElementFilter.vue'
-import TablePluginElementPage from './views/table/plugin/ElementPage.vue'
-import TablePluginIviewConfig from './views/table/plugin/IviewConfig.vue'
-import TablePluginIviewFilter from './views/table/plugin/IviewFilter.vue'
-import TablePluginIviewPage from './views/table/plugin/IviewPage.vue'
-import TablePluginAntdConfig from './views/table/plugin/AntdConfig.vue'
-import TablePluginAntdFilter from './views/table/plugin/AntdFilter.vue'
-import TablePluginAntdPage from './views/table/plugin/AntdPage.vue'
-import TablePluginShortcutKey from './views/table/plugin/ShortcutKey.vue'
-// import TablePluginExportXLSX from './views/table/plugin/ExportXLSX.vue'
-// import TablePluginExportPDF from './views/table/plugin/ExportPDF.vue'
-import TablePluginRenderer from './views/table/plugin/Renderer.vue'
-import TablePluginMenus from './views/table/plugin/Menus.vue'
-import TablePluginTreeRows from './views/table/plugin/TreeRows'
-import TablePluginTreeCols from './views/table/plugin/TreeCols'
+const TablePluginElementConfig = () => import('./views/table/plugin/ElementConfig.vue')
+const TablePluginElementFilter = () => import('./views/table/plugin/ElementFilter.vue')
+const TablePluginElementPage = () => import('./views/table/plugin/ElementPage.vue')
+const TablePluginIviewConfig = () => import('./views/table/plugin/IviewConfig.vue')
+const TablePluginIviewFilter = () => import('./views/table/plugin/IviewFilter.vue')
+const TablePluginIviewPage = () => import('./views/table/plugin/IviewPage.vue')
+const TablePluginAntdConfig = () => import('./views/table/plugin/AntdConfig.vue')
+const TablePluginAntdFilter = () => import('./views/table/plugin/AntdFilter.vue')
+const TablePluginAntdPage = () => import('./views/table/plugin/AntdPage.vue')
+const TablePluginShortcutKey = () => import('./views/table/plugin/ShortcutKey.vue')
+// const TablePluginExportXLSX = () => import('./views/table/plugin/ExportXLSX.vue')
+// const TablePluginExportPDF = () => import('./views/table/plugin/ExportPDF.vue')
+const TablePluginRenderer = () => import('./views/table/plugin/Renderer.vue')
+const TablePluginMenus = () => import('./views/table/plugin/Menus.vue')
+const TablePluginTreeRows = () => import('./views/table/plugin/TreeRows.vue')
+const TablePluginTreeCols = () => import('./views/table/plugin/TreeCols.vue')
 
-import VXEAPI from './views/api/API.vue'
-import Donation from './views/api/Donation.vue'
-import Run from './views/api/Run.vue'
+const VXEAPI = () => import('./views/api/API.vue')
+const Donation = () => import('./views/api/Donation.vue')
+const Run = () => import('./views/api/Run.vue')
 
 Vue.use(Router)
 
@@ -611,7 +611,7 @@ export default new Router({
       component: TableFooterMaxHeight
     },
     {
-      path: '/table/advanced/import',
+      path: '/table/advanced/const',
       name: 'TableImport',
       component: TableImport
     },

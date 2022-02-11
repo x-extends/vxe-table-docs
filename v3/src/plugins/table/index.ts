@@ -52,7 +52,7 @@ VXETable.use(VXETablePluginRenderer)
 
 if (!XEUtils.browse().msie) {
   const exceljs = document.createElement('script')
-  exceljs.src = 'https://cdn.jsdelivr.net/npm/exceljs@4.2.1/dist/exceljs.js'
+  exceljs.src = `${process.env.VUE_APP_CDN_URL}exceljs@4.2.1/dist/exceljs.min.js`
   exceljs.onload = () => {
     import(/* webpackChunkName: 'export-xlsx' */ 'vxe-table-plugin-export-xlsx').then((VXETablePluginExportXLSX) => {
       VXETable.use(VXETablePluginExportXLSX.default)

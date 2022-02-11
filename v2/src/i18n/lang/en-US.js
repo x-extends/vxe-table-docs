@@ -320,7 +320,7 @@ export default {
       },
       other: {
         v1: 'v1+ (vue 2.6+ End of life) ~ 2020-04 Stop',
-        v2: 'v2+ (vue 2.6+ Old) ~ 2021-12 Stop',
+        v2: 'v2+ (vue 2.6+ End of life) ~ 2021-12 Stop',
         v3: 'v3+ (vue 2.6+ Stable)',
         v3d5: '3.5+ (vue 2.6+ Sticky)',
         v4: 'v4+ (vue 3.0+ Latest)',

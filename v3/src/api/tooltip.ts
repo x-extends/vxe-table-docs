@@ -71,7 +71,16 @@ const apis = [
         list: []
       },
       {
-        name: 'leaveDelay',
+        name: 'enter-delay',
+        descKey: 'app.api.tooltip.desc.enterDelay',
+        version: '3.4.15',
+        type: 'number',
+        enum: '',
+        defVal: '500',
+        list: []
+      },
+      {
+        name: 'leave-delay',
         descKey: 'app.api.tooltip.desc.leaveDelay',
         version: '',
         type: 'number',

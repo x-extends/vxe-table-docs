@@ -26,7 +26,7 @@
       :custom-config="{storage: true, checkMethod: checkColumnMethod}"
       :tree-config="{children: 'list', expandRowKeys: defaultExpandRowKeys}"
       :menu-config="{header: {options: headerMenus}, body: {options: bodyMenus}, visibleMethod: menuVisibleMethod}"
-      :tooltip-config="{contentMethod: showTooltipMethod}"
+      :tooltip-config="{showAll: true, contentMethod: showTooltipMethod}"
       @header-cell-menu="headerCellContextMenuEvent"
       @cell-menu="cellContextMenuEvent"
       @menu-click="contextMenuClickEvent">
@@ -353,17 +353,15 @@ export default {
     },
     showTooltipMethod ({ type, row, column }) {
       if (type === 'body') {
-        if (column.property === 'name') {
-          if (row.disabled) {
-            return '该参数已经被废弃了，除非不打算更新版本，否则不应该被使用'
-          } else if (row.abandoned) {
-            return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
-          } else if (row.version === 'pro') {
-            return '该参数属于 pro 扩展插件的功能'
-          }
+        if (row.disabled) {
+          return '该参数已经被废弃了，除非不打算更新版本，否则不应该被使用'
+        } else if (row.abandoned) {
+          return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
+        } else if (row.version === 'pro') {
+          return '该参数属于 pro 扩展插件的功能'
         }
       }
-      return null
+      return ''
     },
     headerCellContextMenuEvent ({ column }) {
       this.$refs.xTable.setCurrentColumn(column)

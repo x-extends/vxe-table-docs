@@ -389,19 +389,43 @@ body,
   }
   > .body {
     display: flex;
+    flex-direction: column;
     position: relative;
     flex-grow: 1;
     overflow: hidden;
     & > .content {
+      flex-grow: 1;
       width: 100%;
-      flex-flow: 1;
-      position: relative;
-      margin: 0 auto;
-      padding: 15px 25px 25px 25px;
       overflow: auto;
       &:not(.full) {
-        padding: 15px 10% 25px 10%;
-        min-width: 800px;
+        & > .page-view {
+          padding: 15px 10% 15px 10%;
+          min-width: 800px;
+        }
+      }
+      &.full {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow: hidden;
+        & > .page-view {
+          flex-grow: 1;
+          overflow: auto;
+          padding: 15px 25px 0 25px;
+        }
+      }
+      & > .page-view {
+        width: 100%;
+        position: relative;
+        margin: 0 auto;
+      }
+      & > .page-footer {
+        flex-shrink: 0;
+        text-align: center;
+        line-height: 30px;
+        .link {
+          color: #666;
+        }
       }
     }
     .full {
@@ -470,6 +494,7 @@ body,
   .vxe-body--row {
     .vxe-body--column {
       &.api-abandoned {
+        cursor: help;
         color: #70541C;
         background-color: #FFFBE5;
         .compatibility {
@@ -477,7 +502,7 @@ body,
         }
       }
       &.api-disabled {
-        cursor: no-drop;
+        cursor: help;
         color: #cb2431;
         background-color: #fbb1b1;
         .compatibility {

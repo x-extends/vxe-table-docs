@@ -429,19 +429,18 @@ export default defineComponent({
         }
       },
       tooltipConfig: {
-        contentMethod ({ type, row, column }) {
+        showAll: true,
+        contentMethod ({ type, row }) {
           if (type === 'body') {
-            if (column.property === 'name') {
-              if (row.disabled) {
-                return '该参数已经被废弃了，除非不打算更新版本，否则不应该被使用'
-              } else if (row.abandoned) {
-                return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
-              } else if (row.version === 'pro') {
-                return '该参数属于 pro 扩展插件的功能'
-              }
+            if (row.disabled) {
+              return '该参数已经被废弃了，除非不打算更新版本，否则不应该被使用'
+            } else if (row.abandoned) {
+              return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
+            } else if (row.version === 'pro') {
+              return '该参数属于 pro 扩展插件的功能'
             }
           }
-          return null
+          return ''
         }
       },
       toolbarConfig: {
