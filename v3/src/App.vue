@@ -35,11 +35,11 @@
             <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
             <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
           </vxe-select>
-          <!-- <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
+          <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="apiLoading && showPlugin">
             <a v-if="disabledPlugin" class="link support" :href="pluginUrl" target="_blank">💡插件</a>
             <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">插件</a>
-          </template> -->
+          </template>
         </div>
       </div>
     </header>
@@ -109,7 +109,7 @@
             <router-view/>
           </div>
           <footer class="page-footer">
-            <div><a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号</a></div>
+            <div><a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号-1</a></div>
           </footer>
         </div>
       </div>

@@ -27,7 +27,6 @@ gulp.task('clear_docs_temp', () => {
 
 gulp.task('move_docs_latest', gulp.series('clear_docs_temp', () => {
   return gulp.src([
-    'v4/dist/v3/index.html',
     'v4/dist/v4/404.html'
   ])
     .pipe(gulp.dest('v4/dist'))

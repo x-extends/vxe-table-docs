@@ -164,7 +164,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import { VXETable, VxeTableInstance, VxeTableEvents, VxeColumnPropTypes, VxeTablePropTypes, VxeCheckboxEvents } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeColumnPropTypes, VxeTablePropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 export default defineComponent({
@@ -217,14 +217,14 @@ export default defineComponent({
       VXETable.modal.alert(`点击了表尾第${_columnIndex}列`)
     }
 
-    const checkboxChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+    const checkboxChangeEvent = () => {
       const $table = xTable.value
       demo1.isAllChecked = $table.isAllCheckboxChecked()
       demo1.isIndeterminate = $table.isAllCheckboxIndeterminate()
-      demo1.selectRecords = records
+      demo1.selectRecords = $table.getCheckboxRecords()
     }
 
-    const changeAllEvent: VxeCheckboxEvents.Change = () => {
+    const changeAllEvent = () => {
       const $table = xTable.value
       $table.setAllCheckboxRow(demo1.isAllChecked)
       demo1.selectRecords = $table.getCheckboxRecords()
@@ -408,7 +408,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
-        import { VXETable, VxeTableInstance, VxeTableEvents, VxeColumnPropTypes, VxeTablePropTypes, VxeCheckboxEvents } from 'vxe-table'
+        import { VXETable, VxeTableInstance, VxeColumnPropTypes, VxeTablePropTypes } from 'vxe-table'
         import XEUtils from 'xe-utils'
 
         export default defineComponent({
@@ -461,14 +461,14 @@ export default defineComponent({
               VXETable.modal.alert(\`点击了表尾第\${_columnIndex}列\`)
             }
 
-            const checkboxChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+            const checkboxChangeEvent = () => {
               const $table = xTable.value
               demo1.isAllChecked = $table.isAllCheckboxChecked()
               demo1.isIndeterminate = $table.isAllCheckboxIndeterminate()
-              demo1.selectRecords = records
+              demo1.selectRecords = $table.getCheckboxRecords()
             }
 
-            const changeAllEvent: VxeCheckboxEvents.Change = () => {
+            const changeAllEvent = () => {
               const $table = xTable.value
               $table.setAllCheckboxRow(demo1.isAllChecked)
               demo1.selectRecords = $table.getCheckboxRecords()

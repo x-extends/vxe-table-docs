@@ -235,11 +235,15 @@ export default defineComponent({
 
     const xTable1 = ref({} as VxeTableInstance)
 
-    const selectAllChangeEvent1: VxeTableEvents.CheckboxAll = ({ checked, records }) => {
+    const selectAllChangeEvent1: VxeTableEvents.CheckboxAll = ({ checked }) => {
+      const $table = xTable1.value
+      const records = $table.getCheckboxRecords()
       console.log(checked ? '所有勾选事件' : '所有取消事件', records)
     }
 
-    const selectChangeEvent1: VxeTableEvents.CheckboxChange = ({ checked, records }) => {
+    const selectChangeEvent1: VxeTableEvents.CheckboxChange = ({ checked }) => {
+      const $table = xTable1.value
+      const records = $table.getCheckboxRecords()
       console.log(checked ? '勾选事件' : '取消事件', records)
     }
 
@@ -392,11 +396,15 @@ export default defineComponent({
 
             const xTable1 = ref({} as VxeTableInstance)
 
-            const selectAllChangeEvent1: VxeTableEvents.CheckboxAll = ({ checked, records }: any) => {
+            const selectAllChangeEvent1: VxeTableEvents.CheckboxAll = ({ checked }) => {
+              const $table = xTable1.value
+              const records = $table.getCheckboxRecords()
               console.log(checked ? '所有勾选事件' : '所有取消事件', records)
             }
 
-            const selectChangeEvent1: VxeTableEvents.CheckboxChange = ({ checked, records }: any) => {
+            const selectChangeEvent1: VxeTableEvents.CheckboxChange = ({ checked }) => {
+              const $table = xTable1.value
+              const records = $table.getCheckboxRecords()
               console.log(checked ? '勾选事件' : '取消事件', records)
             }
 

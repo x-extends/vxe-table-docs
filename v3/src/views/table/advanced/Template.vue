@@ -370,10 +370,10 @@ export default {
             clickFooterItem (items, _columnIndex) {
               this.$XModal.alert(\`点击了表尾第\${_columnIndex}列\`)
             },
-            checkboxChangeEvent ({ records }) {
+            checkboxChangeEvent () {
               this.isAllChecked = this.$refs.xTable.isAllCheckboxChecked()
               this.isIndeterminate = this.$refs.xTable.isAllCheckboxIndeterminate()
-              this.selectRecords = records
+              this.selectRecords = this.$refs.xTable.getCheckboxRecords()
             },
             changeAllEvent () {
               this.$refs.xTable.setAllCheckboxRow(this.isAllChecked)
@@ -452,10 +452,10 @@ export default {
     clickFooterItem (items, _columnIndex) {
       this.$XModal.alert(`点击了表尾第${_columnIndex}列`)
     },
-    checkboxChangeEvent ({ records }) {
+    checkboxChangeEvent () {
       this.isAllChecked = this.$refs.xTable.isAllCheckboxChecked()
       this.isIndeterminate = this.$refs.xTable.isAllCheckboxIndeterminate()
-      this.selectRecords = records
+      this.selectRecords = this.$refs.xTable.getCheckboxRecords()
     },
     changeAllEvent () {
       this.$refs.xTable.setAllCheckboxRow(this.isAllChecked)

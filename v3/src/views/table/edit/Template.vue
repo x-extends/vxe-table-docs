@@ -278,11 +278,11 @@ export default {
             }
           },
           methods: {
-            checkboxChangeEvent ({ records }) {
+            checkboxChangeEvent () {
               const $table = this.$refs.xTable
               this.isAllChecked = $table.isAllCheckboxChecked()
               this.isIndeterminate = $table.isAllCheckboxIndeterminate()
-              this.selectRecords = records
+              this.selectRecords = $table.getCheckboxRecords()
             },
             changeAllEvent () {
               const $table = this.$refs.xTable
@@ -322,11 +322,11 @@ export default {
     }
   },
   methods: {
-    checkboxChangeEvent ({ records }) {
+    checkboxChangeEvent () {
       const $table = this.$refs.xTable
       this.isAllChecked = $table.isAllCheckboxChecked()
       this.isIndeterminate = $table.isAllCheckboxIndeterminate()
-      this.selectRecords = records
+      this.selectRecords = $table.getCheckboxRecords()
     },
     changeAllEvent () {
       const $table = this.$refs.xTable

@@ -121,7 +121,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import { VxeTableInstance, VxeTableEvents, VxePulldownInstance } from 'vxe-table'
+import { VxeTableInstance, VxePulldownInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -148,11 +148,11 @@ export default defineComponent({
     const xTable = ref({} as VxeTableInstance)
     const xDown1 = ref({} as VxePulldownInstance)
 
-    const checkboxChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+    const checkboxChangeEvent = () => {
       const $table = xTable.value
       demo1.isAllChecked = $table.isAllCheckboxChecked()
       demo1.isIndeterminate = $table.isAllCheckboxIndeterminate()
-      demo1.selectRecords = records
+      demo1.selectRecords = $table.getCheckboxRecords()
     }
 
     const changeAllEvent = () => {
@@ -301,7 +301,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
-        import { VxeTableInstance, VxeTableEvents, VxePulldownInstance } from 'vxe-table'
+        import { VxeTableInstance, VxePulldownInstance } from 'vxe-table'
 
         export default defineComponent({
           setup () {
@@ -328,11 +328,11 @@ export default defineComponent({
             const xTable = ref({} as VxeTableInstance)
             const xDown1 = ref({} as VxePulldownInstance)
 
-            const checkboxChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+            const checkboxChangeEvent = () => {
               const $table = xTable.value
               demo1.isAllChecked = $table.isAllCheckboxChecked()
               demo1.isIndeterminate = $table.isAllCheckboxIndeterminate()
-              demo1.selectRecords = records
+              demo1.selectRecords = $table.getCheckboxRecords()
             }
 
             const changeAllEvent = () => {

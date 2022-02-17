@@ -554,11 +554,11 @@ export default {
             changeFilterEvent (evnt, option, $panel) {
               $panel.changeOption(evnt, !!option.data, option)
             },
-            checkboxChangeEvent ({ records }) {
+            checkboxChangeEvent () {
               const $grid = this.$refs.xGrid
               this.isAllChecked = $grid.isAllCheckboxChecked()
               this.isIndeterminate = $grid.isAllCheckboxIndeterminate()
-              this.selectRecords = records
+              this.selectRecords = $grid.getCheckboxRecords()
             },
             changeAllEvent () {
               const $grid = this.$refs.xGrid
@@ -666,11 +666,11 @@ export default {
     changeFilterEvent (evnt, option, $panel) {
       $panel.changeOption(evnt, !!option.data, option)
     },
-    checkboxChangeEvent ({ records }) {
+    checkboxChangeEvent () {
       const $grid = this.$refs.xGrid
       this.isAllChecked = $grid.isAllCheckboxChecked()
       this.isIndeterminate = $grid.isAllCheckboxIndeterminate()
-      this.selectRecords = records
+      this.selectRecords = $grid.getCheckboxRecords()
     },
     changeAllEvent () {
       const $grid = this.$refs.xGrid

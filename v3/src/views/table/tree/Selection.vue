@@ -174,7 +174,8 @@ export default {
             }
           },
           methods: {
-            selectChangeEvent ({ records }) {
+            selectChangeEvent ({ $table }) {
+              const records = $table.getCheckboxRecords()
               console.info(\`勾选\${records.length}个树形节点\`, records)
             }
           }
@@ -221,7 +222,8 @@ export default {
             }
           },
           methods: {
-            selectChangeEvent ({ records }) {
+            sselectChangeEvent ({ $table }) {
+              const records = $table.getCheckboxRecords()
               console.info(\`勾选\${records.length}个树形节点\`, records)
             }
           }
@@ -274,7 +276,8 @@ export default {
     checCheckboxkMethod ({ row }) {
       return !['js', 'mp4'].includes(row.type)
     },
-    selectChangeEvent ({ records }) {
+    selectChangeEvent ({ $table }) {
+      const records = $table.getCheckboxRecords()
       console.info(`勾选${records.length}个树形节点`, records)
     }
   }

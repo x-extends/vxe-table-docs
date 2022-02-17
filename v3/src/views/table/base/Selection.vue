@@ -305,10 +305,12 @@ export default {
             }
           },
           methods: {
-            selectAllEvent ({ checked, records }) {
+            selectAllEvent ({ checked }) {
+              const records = this.$refs.xTable1.getCheckboxRecords()
               console.log(checked ? '所有勾选事件' : '所有取消事件', records)
             },
-            selectChangeEvent ({ checked, records }) {
+            selectChangeEvent ({ checked }) {
+              const records = this.$refs.xTable1.getCheckboxRecords()
               console.log(checked ? '勾选事件' : '取消事件', records)
             },
             getSelectEvent () {
@@ -579,10 +581,12 @@ export default {
     checCheckboxkMethod3 () {
       return false
     },
-    selectAllEvent ({ checked, records }) {
+    selectAllEvent ({ checked }) {
+      const records = this.$refs.xTable1.getCheckboxRecords()
       console.log(checked ? '所有勾选事件' : '所有取消事件', records)
     },
-    selectChangeEvent ({ checked, records }) {
+    selectChangeEvent ({ checked }) {
+      const records = this.$refs.xTable1.getCheckboxRecords()
       console.log(checked ? '勾选事件' : '取消事件', records)
     },
     getSelectEvent1 () {

@@ -876,6 +876,7 @@ const apis = [
       },
       {
         name: 'column-key',
+        abandoned: true,
         descKey: 'app.api.table.desc.columnKey',
         version: '',
         type: 'boolean',
@@ -885,6 +886,7 @@ const apis = [
       },
       {
         name: 'row-key',
+        abandoned: true,
         descKey: 'app.api.table.desc.rowKey',
         version: '',
         type: 'boolean',
@@ -894,6 +896,7 @@ const apis = [
       },
       {
         name: 'row-id',
+        abandoned: true,
         descKey: 'app.api.table.desc.rowId',
         version: '',
         type: 'string',
@@ -928,6 +931,15 @@ const apis = [
         enum: '',
         defVal: '',
         list: [
+          {
+            name: 'useKey',
+            desc: '是否需要为每一列的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+            version: '3.5.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
           {
             name: 'isCurrent',
             desc: '当鼠标点击列头时，是否要高亮当前列',
@@ -983,6 +995,24 @@ const apis = [
         enum: '',
         defVal: '继承 setup.table.rowConfig',
         list: [
+          {
+            name: 'useKey',
+            desc: '是否需要为每一行的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+            version: '3.5.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'keyField',
+            desc: '自定义行数据唯一主键的字段名（默认自动生成）',
+            version: '3.5.0',
+            type: 'string',
+            enum: '',
+            defVal: '_X_ID',
+            list: []
+          },
           {
             name: 'isCurrent',
             desc: '当鼠标点击行时，是否要高亮当前行',
@@ -1489,7 +1519,7 @@ const apis = [
           },
           {
             name: 'enterDelay',
-            descKey: '鼠标移入后延时多少才显示工具提示',
+            desc: '鼠标移入后延时多少才显示工具提示',
             version: '3.4.15',
             type: 'number',
             enum: '',
@@ -3006,7 +3036,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ records, reserves, indeterminates, checked, row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $event }',
+        defVal: '{ checked, row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $event }',
         list: []
       },
       {
@@ -3015,7 +3045,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ records, reserves, indeterminates, checked, $event }',
+        defVal: '{ checked, $event }',
         list: []
       },
       {
@@ -3024,7 +3054,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ records, reserves, $event }',
+        defVal: '{ $event }',
         list: []
       },
       {
@@ -3033,7 +3063,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ records, reserves, $event }',
+        defVal: '{ $event }',
         list: []
       },
       {
@@ -3042,7 +3072,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ records, reserves, $event }',
+        defVal: '{ $event }',
         list: []
       },
       {

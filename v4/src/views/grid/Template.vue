@@ -198,7 +198,7 @@
 
 <script lang="tsx">
 import { defineComponent, reactive, ref } from 'vue'
-import { VXETable, VxeGridInstance, VxeGridProps, VxeTableEvents } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -328,11 +328,11 @@ export default defineComponent({
       demo1.showDetails = true
     }
 
-    const checkboxChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+    const checkboxChangeEvent = () => {
       const $grid = xGrid.value
       demo1.isAllChecked = $grid.isAllCheckboxChecked()
       demo1.isIndeterminate = $grid.isAllCheckboxIndeterminate()
-      demo1.selectRecords = records
+      demo1.selectRecords = $grid.getCheckboxRecords()
     }
 
     const changeAllEvent = () => {
@@ -532,7 +532,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
-        import { VXETable, VxeGridInstance, VxeGridProps, VxeTableEvents } from 'vxe-table'
+        import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
         export default defineComponent({
           setup () {
@@ -662,11 +662,11 @@ export default defineComponent({
               demo1.showDetails = true
             }
 
-            const checkboxChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+            const checkboxChangeEvent = () => {
               const $grid = xGrid.value
               demo1.isAllChecked = $grid.isAllCheckboxChecked()
               demo1.isIndeterminate = $grid.isAllCheckboxIndeterminate()
-              demo1.selectRecords = records
+              demo1.selectRecords = $grid.getCheckboxRecords()
             }
 
             const changeAllEvent = () => {

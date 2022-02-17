@@ -113,7 +113,6 @@ import pulldownAPI from '../../api/pulldown'
 export default {
   data () {
     return {
-      pluginUrl: '/', // `${process.env.VUE_APP_MAIN_URL}plugins/`,
       filterName: (this.$route.query.q || this.$route.query.filterName) ? decodeURIComponent(this.$route.query.q || this.$route.query.filterName) : '',
       defaultExpandRows: [],
       tableData: [],

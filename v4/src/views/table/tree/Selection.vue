@@ -143,7 +143,8 @@ export default defineComponent({
       ]
     })
 
-    const selectChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+    const selectChangeEvent: VxeTableEvents.CheckboxChange = ({ $table }) => {
+      const records = $table.getCheckboxRecords()
       console.info(`勾选${records.length}个树形节点`, records)
     }
 
@@ -196,7 +197,8 @@ export default defineComponent({
               ]
             })
 
-            const selectChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+            const selectChangeEvent: VxeTableEvents.CheckboxChange = ({ $table }) => {
+              const records = $table.getCheckboxRecords()
               console.info(\`勾选\${records.length}个树形节点\`, records)
             }
 
@@ -250,7 +252,8 @@ export default defineComponent({
               ]
             })
 
-            const selectChangeEvent: VxeTableEvents.CheckboxChange = ({ records }) => {
+            const selectChangeEvent: VxeTableEvents.CheckboxChange = ({ $table }) => {
+              const records = $table.getCheckboxRecords()
               console.info(\`勾选\${records.length}个树形节点\`, records)
             }
 
