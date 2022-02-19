@@ -43,6 +43,7 @@
 
 <script>
 import XEClipboard from 'xe-clipboard'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -121,6 +122,7 @@ export default {
         `,
         `
         import XEClipboard from 'xe-clipboard'
+        import VXETable from 'vxe-table'
 
         export default {
           data () {
@@ -187,12 +189,12 @@ export default {
                   // 示例
                   if (row && column) {
                     if (XEClipboard.copy(row[column.property])) {
-                      this.$XModal.message({ content: '已复制到剪贴板！', status: 'success' })
+                      VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                     }
                   }
                   break
                 default:
-                  this.$XModal.message(\`点击了 \${menu.name} 选项\`)
+                  VXETable.modal.message(\`点击了 \${menu.name} 选项\`)
               }
             },
             meanNum (list, field) {
@@ -249,12 +251,12 @@ export default {
           // 示例
           if (row && column) {
             if (XEClipboard.copy(row[column.property])) {
-              this.$XModal.message({ content: '已复制到剪贴板！', status: 'success' })
+              VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
             }
           }
           break
         default:
-          this.$XModal.message(`点击了 ${menu.name} 选项`)
+          VXETable.modal.message(`点击了 ${menu.name} 选项`)
       }
     },
     meanNum (list, field) {

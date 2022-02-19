@@ -14,7 +14,7 @@
     <h2>CDN</h2>
     <p class="tip">
       可以通过 <a class="link" href="https://unpkg.com/vxe-table/">unpkg</a> 或 <a class="link" href="https://cdn.jsdelivr.net/npm/vxe-table/">cdnjs</a> 获取到最新版本的资源，并在页面上引入即可<br>
-      <span class="red">（注：不建议将公共的CDN地址用于生产，因为该连接随时都可能会失效，导致项目挂掉，使用CDN方式记得锁定版本号）</span>
+      <span class="red">（注：不建议将不受信任的CDN地址用于生产，因为该连接随时都可能会失效，导致项目挂掉，使用CDN方式记得锁定版本号）</span>
     </p>
     <pre>
       <pre-code class="xml">
@@ -24,7 +24,6 @@
         &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@next"&gt;&lt;/script&gt;
       </pre-code>
-      <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
     </pre>
   </div>
 </template>
@@ -43,19 +42,6 @@ export default defineComponent({
         import 'vxe-table/lib/style.css'
 
         function useTable (app: App) {
-          app.use(VXETable)
-
-          // 给 vue 实例挂载内部对象，例如：
-          // app.config.globalProperties.$XModal = VXETable.modal
-          // app.config.globalProperties.$XPrint = VXETable.print
-          // app.config.globalProperties.$XSaveFile = VXETable.saveFile
-          // app.config.globalProperties.$XReadFile = VXETable.readFile
-        }
-
-        createApp(App).use(useTable).mount('#app')
-        `,
-        `
-        function useTable (app) {
           app.use(VXETable)
 
           // 给 vue 实例挂载内部对象，例如：

@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -66,6 +68,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -82,7 +86,7 @@ export default {
               console.log('行选中事件')
             },
             getCurrentEvent () {
-              this.$XModal.alert(JSON.stringify(this.$refs.xTable.getCurrentRecord()))
+              VXETable.modal.alert(JSON.stringify(this.$refs.xTable.getCurrentRecord()))
             }
           }
         }
@@ -95,7 +99,7 @@ export default {
       console.log(`行选中事件 ${rowIndex}`)
     },
     getCurrentEvent () {
-      this.$XModal.alert(JSON.stringify(this.$refs.xTable.getCurrentRecord()))
+      VXETable.modal.alert(JSON.stringify(this.$refs.xTable.getCurrentRecord()))
     }
   }
 }

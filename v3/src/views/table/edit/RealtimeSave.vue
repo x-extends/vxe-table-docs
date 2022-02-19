@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -116,6 +118,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -152,7 +156,7 @@ export default {
               // 判断单元格值是否被修改
               if ($table.isUpdateByRow(row, field)) {
                 setTimeout(() => {
-                  this.$XModal.message({
+                  VXETable.modal.message({
                     content: \`局部保存成功！ \${field}=\${cellValue}\`,
                     status: 'success'
                   })
@@ -184,7 +188,7 @@ export default {
       // 判断单元格值是否被修改
       if ($table.isUpdateByRow(row, field)) {
         setTimeout(() => {
-          this.$XModal.message({
+          VXETable.modal.message({
             content: `局部保存成功！ ${field}=${cellValue}`,
             status: 'success'
           })

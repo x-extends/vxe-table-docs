@@ -108,6 +108,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data  () {
     return {
@@ -215,6 +217,8 @@ export default {
         </p>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -236,7 +240,7 @@ export default {
           },
           methods: {
             funnelEvent () {
-              this.$XModal.alert({ content: '点击事件' })
+              VXETable.modal.alert({ content: '点击事件' })
             }
           }
         }
@@ -262,7 +266,7 @@ export default {
   },
   methods: {
     funnelEvent () {
-      this.$XModal.alert({ content: '点击事件' })
+      VXETable.modal.alert({ content: '点击事件' })
     }
   }
 }

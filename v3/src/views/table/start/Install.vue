@@ -27,7 +27,7 @@
     <h2>CDN</h2>
     <p class="tip">
       可以通过 <a class="link" href="https://unpkg.com/vxe-table/">unpkg</a> 或 <a class="link" href="https://cdn.jsdelivr.net/npm/vxe-table/">cdnjs</a> 获取到最新版本的资源，并在页面上引入即可<br>
-      <span class="red">（注：不建议将公共的CDN地址用于生产，因为该连接随时都可能会失效，导致项目挂掉，使用CDN方式记得锁定版本号）</span>
+      <span class="red">（注：不建议将不受信任的CDN地址用于生产，因为该连接随时都可能会失效，导致项目挂掉，使用CDN方式记得锁定版本号）</span>
     </p>
     <pre>
       <pre-code class="xml">

@@ -124,6 +124,7 @@
 
 <script>
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -233,6 +234,7 @@ export default {
         `,
         `
         import XEUtils from 'xe-utils'
+        import VXETable from 'vxe-table'
         
         export default {
           data () {
@@ -369,7 +371,7 @@ export default {
                 this.loading1 = false
                 const startTime = Date.now()
                 this.$nextTick(() => {
-                  this.$XModal.message({ content: \`渲染 \${size} 行，用时 \${Date.now() - startTime}毫秒\`, status: 'info' })
+                  VXETable.modal.message({ content: \`渲染 \${size} 行，用时 \${Date.now() - startTime}毫秒\`, status: 'info' })
                 })
               }, 200)
             },
@@ -396,7 +398,7 @@ export default {
                 this.loading6 = false
                 const startTime = Date.now()
                 this.$nextTick(() => {
-                  this.$XModal.message({ content: \`渲染 \${this.fullList6.length} 行，用时 \${Date.now() - startTime}毫秒\`, status: 'info' })
+                  VXETable.modal.message({ content: \`渲染 \${this.fullList6.length} 行，用时 \${Date.now() - startTime}毫秒\`, status: 'info' })
                 })
               }, 200)
             },
@@ -615,7 +617,7 @@ export default {
         this.loading1 = false
         const startTime = Date.now()
         this.$nextTick(() => {
-          this.$XModal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+          VXETable.modal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
         })
       }, 200)
     },
@@ -642,7 +644,7 @@ export default {
         this.loading6 = false
         const startTime = Date.now()
         this.$nextTick(() => {
-          this.$XModal.message({ content: `渲染 ${this.fullList6.length} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+          VXETable.modal.message({ content: `渲染 ${this.fullList6.length} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
         })
       }, 200)
     },

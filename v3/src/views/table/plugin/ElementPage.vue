@@ -91,6 +91,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -260,6 +262,8 @@ export default {
         </el-pagination>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -449,9 +453,9 @@ export default {
               const $table = this.$refs.xTable
               const errMap = await $table.validate().catch(errMap => errMap)
               if (errMap) {
-                this.$XModal.message({ status: 'error', message: '校验不通过！' })
+                VXETable.modal.message({ status: 'error', message: '校验不通过！' })
               } else {
-                this.$XModal.message({ status: 'success', message: '校验成功！' })
+                VXETable.modal.message({ status: 'success', message: '校验成功！' })
               }
             },
             dropdownMenuEvent (name) {
@@ -602,9 +606,9 @@ export default {
       const $table = this.$refs.xTable
       const errMap = await $table.validate().catch(errMap => errMap)
       if (errMap) {
-        this.$XModal.message({ status: 'error', message: '校验不通过！' })
+        VXETable.modal.message({ status: 'error', message: '校验不通过！' })
       } else {
-        this.$XModal.message({ status: 'success', message: '校验成功！' })
+        VXETable.modal.message({ status: 'success', message: '校验成功！' })
       }
     },
     dropdownMenuEvent (name) {

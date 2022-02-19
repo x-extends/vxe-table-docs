@@ -20,14 +20,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref } from 'vue'
+import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
+import { useStore } from 'vuex'
 import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
-import XEAjax from 'xe-ajax'
-import axios from 'axios'
 
 export default defineComponent({
   setup () {
+    const store = useStore()
+    const serveApiUrl = computed(() => store.state.serveApiUrl)
+
     const xGrid = ref({} as VxeGridInstance)
 
     const gridOptions = reactive<VxeGridProps>({
@@ -74,7 +76,7 @@ export default defineComponent({
         titleAlign: 'right',
         items: [
           { field: 'name', title: 'app.body.label.name', span: 8, titlePrefix: { message: 'app.body.valid.rName', icon: 'fa fa-exclamation-circle' }, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-          { field: 'email', title: '邮件', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
+          { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon--question' }, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
           { field: 'nickname', title: '昵称', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入昵称' } } },
           { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: '$input', props: { placeholder: '请输入角色' } } },
           { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'fa fa-info-circle' }, itemRender: { name: '$select', options: [] } },
@@ -106,7 +108,7 @@ export default defineComponent({
           result: 'result', // 配置响应结果列表字段
           total: 'page.total' // 配置响应结果总页数字段
         },
-        // 只接收Promise，不关心系实现方式
+        // 只接收Promise，具体实现自由发挥
         ajax: {
           // 当点击工具栏查询按钮或者手动提交指令 query或reload 时会被触发
           query: ({ page, sorts, filters, form }) => {
@@ -121,17 +123,15 @@ export default defineComponent({
             filters.forEach(({ property, values }) => {
               queryParams[property] = values.join(',')
             })
-            return fetch(`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams).then(response => {
-              return response.json()
-            })
+            return fetch(`${serveApiUrl.value}/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams).then(response => response.json())
           },
           // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
           delete: ({ body }) => {
-            return axios.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+            return fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
           },
           // 当点击工具栏保存按钮或者手动提交指令 save 时会被触发
           save: ({ body }) => {
-            return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+            return fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
           }
         }
       },
@@ -142,6 +142,7 @@ export default defineComponent({
           field: 'role',
           title: 'Role',
           sortable: true,
+          titleHelp: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
           filters: [
             { label: '前端开发', value: '前端' },
             { label: '后端开发', value: '后端' },
@@ -202,7 +203,7 @@ export default defineComponent({
           const $grid = xGrid.value
           const formBody = new FormData()
           formBody.append('file', file)
-          return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/import', formBody).then(data => {
+          return fetch(`${serveApiUrl.value}/api/pub/import`, { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
             VXETable.modal.message({ content: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
             // 导入完成，刷新表格
             $grid.commitProxy('query')
@@ -236,11 +237,11 @@ export default defineComponent({
             })
           }
           // 开始服务端导出
-          return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/export', body).then(data => {
+          return fetch(`${serveApiUrl.value}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
             if (data.id) {
               VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
               // 读取路径，请求文件
-              fetch(`https://api.xuliangzhan.com:10443/demo/api/pub/export/download/${data.id}`).then(response => {
+              fetch(`${serveApiUrl.value}/api/pub/export/download/${data.id}`).then(response => {
                 response.blob().then(blob => {
                   // 开始下载
                   VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })
@@ -305,14 +306,16 @@ export default defineComponent({
         <vxe-grid ref='xGrid' v-bind="gridOptions"></vxe-grid>
         `,
         `
-        import { defineComponent, onMounted, reactive, ref, Ref } from 'vue'
+        import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
+        import { useStore } from 'vuex'
         import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
         import XEUtils from 'xe-utils'
-        import XEAjax from 'xe-ajax'
-        import axios from 'axios'
 
         export default defineComponent({
           setup () {
+          const store = useStore()
+          const serveApiUrl = computed(() => store.state.serveApiUrl)
+
             const xGrid = ref({} as VxeGridInstance)
 
             const gridOptions = reactive<VxeGridProps>({
@@ -359,7 +362,7 @@ export default defineComponent({
                 titleAlign: 'right',
                 items: [
                   { field: 'name', title: 'app.body.label.name', span: 8, titlePrefix: { message: 'app.body.valid.rName', icon: 'fa fa-exclamation-circle' }, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-                  { field: 'email', title: '邮件', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
+                  { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon--question' }, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
                   { field: 'nickname', title: '昵称', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入昵称' } } },
                   { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: '$input', props: { placeholder: '请输入角色' } } },
                   { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'fa fa-info-circle' }, itemRender: { name: '$select', options: [] } },
@@ -391,7 +394,7 @@ export default defineComponent({
                   result: 'result', // 配置响应结果列表字段
                   total: 'page.total' // 配置响应结果总页数字段
                 },
-                // 只接收Promise，不关心系实现方式
+                // 只接收Promise，具体实现自由发挥
                 ajax: {
                   // 当点击工具栏查询按钮或者手动提交指令 query或reload 时会被触发
                   query: ({ page, sorts, filters, form }) => {
@@ -406,17 +409,15 @@ export default defineComponent({
                     filters.forEach(({ property, values }) => {
                       queryParams[property] = values.join(',')
                     })
-                    return fetch(\`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams).then(response => {
-                      return response.json()
-                    })
+                    return fetch(\`\${serveApiUrl.value}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams).then(response =>  response.json())
                   },
                   // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
                   delete: ({ body }) => {
-                    return axios.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                    return fetch(\`\${serveApiUrl.value}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
                   },
                   // 当点击工具栏保存按钮或者手动提交指令 save 时会被触发
                   save: ({ body }) => {
-                    return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                    return fetch(\`\${serveApiUrl.value}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
                   }
                 }
                       },
@@ -427,6 +428,7 @@ export default defineComponent({
                   field: 'role',
                   title: 'Role',
                   sortable: true,
+                  titleHelp: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
                   filters: [
                     { label: '前端开发', value: '前端' },
                     { label: '后端开发', value: '后端' },
@@ -487,7 +489,7 @@ export default defineComponent({
                   const $grid = xGrid.value
                   const formBody = new FormData()
                   formBody.append('file', file)
-                  return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/import', formBody).then(data => {
+                  return fetch(\`\${serveApiUrl.value}/api/pub/import\`, { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
                     VXETable.modal.message({ content: \`成功导入 \${data.result.insertRows} 条记录！\`, status: 'success' })
                     // 导入完成，刷新表格
                     $grid.commitProxy('query')
@@ -521,11 +523,11 @@ export default defineComponent({
                     })
                   }
                   // 开始服务端导出
-                  return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/export', body).then(data => {
+                  return fetch(\`\${serveApiUrl.value}/api/pub/export\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
                     if (data.id) {
                       VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
                       // 读取路径，请求文件
-                      fetch(\`https://api.xuliangzhan.com:10443/demo/api/pub/export/download/\${data.id}\`).then(response => {
+                      fetch(\`\${serveApiUrl.value}/api/pub/export/download/\${data.id}\`).then(response => {
                         response.blob().then(blob => {
                           // 开始下载
                           VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })

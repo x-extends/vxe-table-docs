@@ -107,6 +107,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -240,6 +242,8 @@ export default {
         </vxe-modal>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -298,7 +302,7 @@ export default {
             },
             submitEvent () {
               this.showEdit = false
-              this.$XModal.message({ content: '保存成功', status: 'success' })
+              VXETable.modal.message({ content: '保存成功', status: 'success' })
               Object.assign(this.selectRow, this.formData)
             }
           }
@@ -328,7 +332,7 @@ export default {
     },
     submitEvent () {
       this.showEdit = false
-      this.$XModal.message({ content: '保存成功', status: 'success' })
+      VXETable.modal.message({ content: '保存成功', status: 'success' })
       Object.assign(this.selectRow, this.formData)
     }
   }

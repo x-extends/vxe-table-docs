@@ -57,8 +57,7 @@
           //      showIcon: true
           //   },
           //   tooltipConfig: {
-          //     theme: 'dark',
-          //     enterable: false
+          //     enterable: true
           //   },
           //   menuConfig: {
           //     visibleMethod () {}
@@ -123,11 +122,14 @@
           // },
           // form: {
           //   preventSubmit: false
+          //   size: null,
+          //   colon: false,
           //   validConfig: {
           //     autoPos: true
           //   },
-          //   size: null,
-          //   colon: false,
+          //   tooltipConfig: {
+          //     enterable: true
+          //   },
           //   titleAsterisk: true
           // },
           // input: {

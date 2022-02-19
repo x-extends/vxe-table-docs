@@ -3022,9 +3022,27 @@ const apis = [
     defVal: '',
     list: [
       {
+        name: 'keydown-start',
+        desc: '当表格被激活且键盘被按下开始时会触发的事件',
+        version: '4.2.0',
+        type: '',
+        enum: '',
+        defVal: '{ $event }',
+        list: []
+      },
+      {
         name: 'keydown',
         desc: '当表格被激活且键盘被按下时会触发的事件',
         version: '',
+        type: '',
+        enum: '',
+        defVal: '{ $event }',
+        list: []
+      },
+      {
+        name: 'keydown-end',
+        desc: '当表格被激活且键盘被按下结束时会触发的事件',
+        version: '4.2.0',
         type: '',
         enum: '',
         defVal: '{ $event }',
@@ -3180,7 +3198,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ items, $rowIndex, column, columnIndex, $columnIndex, $event}',
+        defVal: '{ items, $rowIndex, column, columnIndex, $columnIndex, $event }',
         list: []
       },
       {
@@ -3189,7 +3207,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ type, column, columnIndex, $event}',
+        defVal: '{ type, column, columnIndex, $event }',
         list: []
       },
       {
@@ -3342,7 +3360,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ type, $event}',
+        defVal: '{ type, $event }',
         list: []
       },
       {
@@ -3351,7 +3369,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ tab, $event}',
+        defVal: '{ tab, $event }',
         list: []
       },
       {
@@ -3360,7 +3378,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ tab, $event}',
+        defVal: '{ tab, $event }',
         list: []
       },
       {
@@ -3369,7 +3387,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ findValue, row, column, $event}',
+        defVal: '{ findValue, row, column, $event }',
         list: []
       },
       {
@@ -3378,7 +3396,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ findValue, result, $event}',
+        defVal: '{ findValue, result, $event }',
         list: []
       },
       {
@@ -3387,7 +3405,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ findValue, replaceValue, row, column, $event}',
+        defVal: '{ findValue, replaceValue, row, column, $event }',
         list: []
       },
       {
@@ -3396,7 +3414,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ findValue, replaceValue, result, $event}',
+        defVal: '{ findValue, replaceValue, result, $event }',
         list: []
       },
       {
@@ -3405,7 +3423,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ status, targetAreas, cellValues, $event}',
+        defVal: '{ status, targetAreas, cellValues, $event }',
         list: []
       },
       {
@@ -3414,7 +3432,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ status, targetAreas, cellValues, $event}',
+        defVal: '{ status, targetAreas, cellValues, $event }',
         list: []
       },
       {
@@ -3423,7 +3441,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ status, targetAreas, $event}',
+        defVal: '{ status, targetAreas, $event }',
         list: []
       },
       {
@@ -3432,7 +3450,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ status, targetAreas, $event}',
+        defVal: '{ status, targetAreas, $event }',
         list: []
       },
       {
@@ -3441,7 +3459,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ mergeCells, $event}',
+        defVal: '{ mergeCells, $event }',
         list: []
       },
       {
@@ -3450,7 +3468,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, targetRows, targetCols, $event}',
+        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, targetRows, targetCols, $event }',
         list: []
       },
       {
@@ -3459,7 +3477,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, $event}',
+        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, $event }',
         list: []
       },
       {
@@ -3468,7 +3486,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ rows, cols, $event}',
+        defVal: '{ rows, cols, $event }',
         list: []
       },
       {
@@ -3477,7 +3495,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, $event}',
+        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, $event }',
         list: []
       },
       {
@@ -3486,7 +3504,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ rows, cols, targetRows, targetCols, $event}',
+        defVal: '{ rows, cols, targetRows, targetCols, $event }',
         list: []
       },
       {
@@ -3495,16 +3513,34 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ rows, cols, targetRows, targetCols, isLeft, isUp, isRight, isDown, $event}',
+        defVal: '{ rows, cols, targetRows, targetCols, isLeft, isUp, isRight, isDown, $event }',
         list: []
       },
       {
-        name: 'cell-area-arrows-start',
+        name: 'cell-area-arrows-end',
         desc: '只对 mouse-config.area 配置时有效，通过 Shift 键向指定方向移动选取区域结束时会触发该事件',
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ rows, cols, targetRows, targetCols, isLeft, isUp, isRight, isDown, $event}',
+        defVal: '{ rows, cols, targetRows, targetCols, isLeft, isUp, isRight, isDown, $event }',
+        list: []
+      },
+      {
+        name: 'active-cell-move-start',
+        desc: '只对 mouse-config.area 与 keyboard-config.isArrow|isEnter|isTab 配置时有效，通过按键移动活动单元格开始时会触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ row, column, activeArea, isTab, isEnter, isLeft, isUp, isRight, isDown, $event }',
+        list: []
+      },
+      {
+        name: 'active-cell-move-end',
+        desc: '只对 mouse-config.area 与 keyboard-config.isArrow|isEnter|isTab 配置时有效，通过按键移动活动单元格结束时会触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ row, column, activeArea, targetActiveArea, isTab, isEnter, isLeft, isUp, isRight, isDown, $event }',
         list: []
       }
     ]

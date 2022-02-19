@@ -76,6 +76,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -181,6 +183,8 @@ export default {
         </div>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -229,15 +233,15 @@ export default {
               const visibleColumn = this.$refs.xTable2.getColumns()
               switch (params.type) {
                 case 'confirm': {
-                  this.$XModal.message({ content: \`点击了确认，显示为 \${visibleColumn.length} 列\`, status: 'info' })
+                  VXETable.modal.message({ content: \`点击了确认，显示为 \${visibleColumn.length} 列\`, status: 'info' })
                   break
                 }
                 case 'reset': {
-                  this.$XModal.message({ content: \`点击了重置，显示为 \${visibleColumn.length} 列\`, status: 'info' })
+                  VXETable.modal.message({ content: \`点击了重置，显示为 \${visibleColumn.length} 列\`, status: 'info' })
                   break
                 }
                 case 'close': {
-                  this.$XModal.message({ content: \`关闭了面板，显示为 \${visibleColumn.length} 列\`, status: 'info' })
+                  VXETable.modal.message({ content: \`关闭了面板，显示为 \${visibleColumn.length} 列\`, status: 'info' })
                   break
                 }
               }
@@ -281,15 +285,15 @@ export default {
       const visibleColumn = this.$refs.xTable2.getColumns()
       switch (params.type) {
         case 'confirm': {
-          this.$XModal.message({ content: `点击了确认，显示为 ${visibleColumn.length} 列`, status: 'info' })
+          VXETable.modal.message({ content: `点击了确认，显示为 ${visibleColumn.length} 列`, status: 'info' })
           break
         }
         case 'reset': {
-          this.$XModal.message({ content: `点击了重置，显示为 ${visibleColumn.length} 列`, status: 'info' })
+          VXETable.modal.message({ content: `点击了重置，显示为 ${visibleColumn.length} 列`, status: 'info' })
           break
         }
         case 'close': {
-          this.$XModal.message({ content: `关闭了面板，显示为 ${visibleColumn.length} 列`, status: 'info' })
+          VXETable.modal.message({ content: `关闭了面板，显示为 ${visibleColumn.length} 列`, status: 'info' })
           break
         }
       }

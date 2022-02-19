@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -85,6 +87,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -110,7 +114,7 @@ export default {
             saveRowEvent () {
               const $table = this.$refs.xTable
               $table.clearActived().then(() => {
-                this.$XModal.alert('success')
+                VXETable.modal.alert('success')
               })
             },
             cancelRowEvent (row) {
@@ -132,7 +136,7 @@ export default {
     saveRowEvent () {
       const $table = this.$refs.xTable
       $table.clearActived().then(() => {
-        this.$XModal.alert('success')
+        VXETable.modal.alert('success')
       })
     },
     cancelRowEvent (row) {

@@ -20,6 +20,7 @@
 
 <script>
 import XEClipboard from 'xe-clipboard'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -147,7 +148,7 @@ export default {
   methods: {
     copyEvent ({ icon }) {
       if (XEClipboard.copy(icon)) {
-        this.$XModal.message({ content: '已复制到剪贴板！', status: 'success' })
+        VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
       }
     }
   }

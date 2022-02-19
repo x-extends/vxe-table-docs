@@ -81,6 +81,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -169,6 +171,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -202,7 +206,7 @@ export default {
             getTreeExpansionEvent () {
               const $table = this.$refs.xTable
               const treeExpandRecords = $table.getTreeExpandRecords()
-              this.$XModal.alert(treeExpandRecords.length)
+              VXETable.modal.alert(treeExpandRecords.length)
             }
           }
         }
@@ -303,7 +307,7 @@ export default {
     getTreeExpansionEvent () {
       const $table = this.$refs.xTable
       const treeExpandRecords = $table.getTreeExpandRecords()
-      this.$XModal.alert(treeExpandRecords.length)
+      VXETable.modal.alert(treeExpandRecords.length)
     }
   }
 }

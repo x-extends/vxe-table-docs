@@ -218,6 +218,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -292,6 +294,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -315,7 +319,7 @@ export default {
             },
             getSelectEvent () {
               let selectRecords = this.$refs.xTable1.getCheckboxRecords()
-              this.$XModal.alert(selectRecords.length)
+              VXETable.modal.alert(selectRecords.length)
             }
           }
         }
@@ -591,7 +595,7 @@ export default {
     },
     getSelectEvent1 () {
       const selectRecords = this.$refs.xTable1.getCheckboxRecords()
-      this.$XModal.alert(selectRecords.length)
+      VXETable.modal.alert(selectRecords.length)
     }
   }
 }

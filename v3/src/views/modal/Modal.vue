@@ -18,32 +18,30 @@
       confirm(content: string, title?: string)<br>
       手动关闭当前活动的窗口：<br>
       close(id?: string)<br>
-      给 vue 实例挂载属性：<br>
-      Vue.prototype.$XModal = VXETable.modal
     </p>
 
     <p>
-      <vxe-button content="默认消息框" @click="$XModal.message({ content: '消息提示' })"></vxe-button>
-      <vxe-button content="info" @click="$XModal.message({ content: 'info 消息提示', status: 'info' })"></vxe-button>
-      <vxe-button content="warning" @click="$XModal.message({ content: 'warning 消息提示', status: 'warning' })"></vxe-button>
-      <vxe-button content="question" @click="$XModal.message({ content: 'question 消息提示', status: 'question' })"></vxe-button>
-      <vxe-button content="success" @click="$XModal.message({ content: 'success 消息提示', status: 'success' })"></vxe-button>
-      <vxe-button content="error" @click="$XModal.message({ content: 'error 消息提示', status: 'error' })"></vxe-button>
-      <vxe-button content="loading" @click="$XModal.message({ content: 'loading 消息提示', status: 'loading' })"></vxe-button>
-      <vxe-button content="自定义图标" @click="$XModal.message({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'fa fa-thumbs-up' })"></vxe-button>
-      <vxe-button content="不允许重复点击" @click="$XModal.message({ content: '不允许重复点击', id: 'unique1' })"></vxe-button>
+      <vxe-button content="默认消息框" @click="openMessage({ content: '消息提示' })"></vxe-button>
+      <vxe-button content="info" @click="openMessage({ content: 'info 消息提示', status: 'info' })"></vxe-button>
+      <vxe-button content="warning" @click="openMessage({ content: 'warning 消息提示', status: 'warning' })"></vxe-button>
+      <vxe-button content="question" @click="openMessage({ content: 'question 消息提示', status: 'question' })"></vxe-button>
+      <vxe-button content="success" @click="openMessage({ content: 'success 消息提示', status: 'success' })"></vxe-button>
+      <vxe-button content="error" @click="openMessage({ content: 'error 消息提示', status: 'error' })"></vxe-button>
+      <vxe-button content="loading" @click="openMessage({ content: 'loading 消息提示', status: 'loading' })"></vxe-button>
+      <vxe-button content="自定义图标" @click="openMessage({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'fa fa-thumbs-up' })"></vxe-button>
+      <vxe-button content="不允许重复点击" @click="openMessage({ content: '不允许重复点击', id: 'unique1' })"></vxe-button>
     </p>
 
     <p>
-      <vxe-button content="基本提示框" @click="$XModal.alert('基本提示框', '标题1')"></vxe-button>
-      <vxe-button content="info" @click="$XModal.alert({ content: 'info 提示框', status: 'info' })"></vxe-button>
-      <vxe-button content="warning" @click="$XModal.alert({ content: 'warning 提示框', status: 'warning' })"></vxe-button>
-      <vxe-button content="question" @click="$XModal.alert({ content: 'question 提示框', status: 'question' })"></vxe-button>
-      <vxe-button content="success" @click="$XModal.alert({ content: 'success 提示框', status: 'success' })"></vxe-button>
-      <vxe-button content="error" @click="$XModal.alert({ content: 'error 提示框', title:'app.body.msg.error', status: 'error' })"></vxe-button>
-      <vxe-button content="loading" @click="$XModal.alert({ content: 'loading 提示框', status: 'loading' })"></vxe-button>
-      <vxe-button content="自定义图标" @click="$XModal.alert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'fa fa-hand-peace-o' })"></vxe-button>
-      <vxe-button content="禁止拖动" @click="$XModal.alert({ content: '禁止后，按住头部无法进行拖动', draggable: false })"></vxe-button>
+      <vxe-button content="基本提示框" @click="openAlert({ content: '基本提示框', title: '标题1' })"></vxe-button>
+      <vxe-button content="info" @click="openAlert({ content: 'info 提示框', status: 'info' })"></vxe-button>
+      <vxe-button content="warning" @click="openAlert({ content: 'warning 提示框', status: 'warning' })"></vxe-button>
+      <vxe-button content="question" @click="openAlert({ content: 'question 提示框', status: 'question' })"></vxe-button>
+      <vxe-button content="success" @click="openAlert({ content: 'success 提示框', status: 'success' })"></vxe-button>
+      <vxe-button content="error" @click="openAlert({ content: 'error 提示框', title:'app.body.msg.error', status: 'error' })"></vxe-button>
+      <vxe-button content="loading" @click="openAlert({ content: 'loading 提示框', status: 'loading' })"></vxe-button>
+      <vxe-button content="自定义图标" @click="openAlert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'fa fa-hand-peace-o' })"></vxe-button>
+      <vxe-button content="禁止拖动" @click="openAlert({ content: '禁止后，按住头部无法进行拖动', draggable: false })"></vxe-button>
       <vxe-button content="确认提示框" @click="confirmEvent"></vxe-button>
     </p>
 
@@ -83,11 +81,11 @@
     </p>
 
     <p>
-      <vxe-button content="点击遮罩层可以关闭" @click="$XModal.alert({ content: '点击遮罩层可以关闭', maskClosable: true })"></vxe-button>
-      <vxe-button content="按 Escape 键可以关闭" @click="$XModal.alert({ content: '按 Escape 键可以关闭', escClosable: true })"></vxe-button>
-      <vxe-button content="锁界面不要遮罩层" @click="$XModal.alert({ content: '锁界面不要遮罩层', mask: false })"></vxe-button>
-      <vxe-button content="多窗口、叠加窗口" @click="$XModal.alert({ content: '多窗口、叠加窗口（一旦脱离当前实例，需要配合手动关闭）', lockView: false, mask: false })"></vxe-button>
-      <vxe-button content="允许拖动范围超出屏幕" @click="$XModal.alert({ content: '允许拖动范围超出屏幕', marginSize: -500 })"></vxe-button>
+      <vxe-button content="点击遮罩层可以关闭" @click="openAlert({ content: '点击遮罩层可以关闭', maskClosable: true })"></vxe-button>
+      <vxe-button content="按 Escape 键可以关闭" @click="openAlert({ content: '按 Escape 键可以关闭', escClosable: true })"></vxe-button>
+      <vxe-button content="锁界面不要遮罩层" @click="openAlert({ content: '锁界面不要遮罩层', mask: false })"></vxe-button>
+      <vxe-button content="多窗口、叠加窗口" @click="openAlert({ content: '多窗口、叠加窗口（一旦脱离当前实例，需要配合手动关闭）', lockView: false, mask: false })"></vxe-button>
+      <vxe-button content="允许拖动范围超出屏幕" @click="openAlert({ content: '允许拖动范围超出屏幕', marginSize: -500 })"></vxe-button>
     </p>
 
     <p>
@@ -244,6 +242,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data  () {
     return {
@@ -353,27 +353,27 @@ export default {
       demoCodes: [
         `
         <p>
-          <vxe-button content="默认消息框" @click="$XModal.message({ content: '消息提示' })"></vxe-button>
-          <vxe-button content="info" @click="$XModal.message({ content: 'info 消息提示', status: 'info' })"></vxe-button>
-          <vxe-button content="warning" @click="$XModal.message({ content: 'warning 消息提示', status: 'warning' })"></vxe-button>
-          <vxe-button content="question" @click="$XModal.message({ content: 'question 消息提示', status: 'question' })"></vxe-button>
-          <vxe-button content="success" @click="$XModal.message({ content: 'success 消息提示', status: 'success' })"></vxe-button>
-          <vxe-button content="error" @click="$XModal.message({ content: 'error 消息提示', status: 'error' })"></vxe-button>
-          <vxe-button content="loading" @click="$XModal.message({ content: 'loading 消息提示', status: 'loading' })"></vxe-button>
-          <vxe-button content="自定义图标" @click="$XModal.message({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'fa fa-thumbs-up' })"></vxe-button>
-          <vxe-button content="不允许重复点击" @click="$XModal.message({ content: '不允许重复点击', id: 'unique1' })"></vxe-button>
+          <vxe-button content="默认消息框" @click="openMessage({ content: '消息提示' })"></vxe-button>
+          <vxe-button content="info" @click="openMessage({ content: 'info 消息提示', status: 'info' })"></vxe-button>
+          <vxe-button content="warning" @click="openMessage({ content: 'warning 消息提示', status: 'warning' })"></vxe-button>
+          <vxe-button content="question" @click="openMessage({ content: 'question 消息提示', status: 'question' })"></vxe-button>
+          <vxe-button content="success" @click="openMessage({ content: 'success 消息提示', status: 'success' })"></vxe-button>
+          <vxe-button content="error" @click="openMessage({ content: 'error 消息提示', status: 'error' })"></vxe-button>
+          <vxe-button content="loading" @click="openMessage({ content: 'loading 消息提示', status: 'loading' })"></vxe-button>
+          <vxe-button content="自定义图标" @click="openMessage({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'fa fa-thumbs-up' })"></vxe-button>
+          <vxe-button content="不允许重复点击" @click="openMessage({ content: '不允许重复点击', id: 'unique1' })"></vxe-button>
         </p>
 
         <p>
-          <vxe-button content="基本提示框" @click="$XModal.alert('基本提示框', '标题1')"></vxe-button>
-          <vxe-button content="info" @click="$XModal.alert({ content: 'info 提示框', status: 'info' })"></vxe-button>
-          <vxe-button content="warning" @click="$XModal.alert({ content: 'warning 提示框', status: 'warning' })"></vxe-button>
-          <vxe-button content="question" @click="$XModal.alert({ content: 'question 提示框', status: 'question' })"></vxe-button>
-          <vxe-button content="success" @click="$XModal.alert({ content: 'success 提示框', status: 'success' })"></vxe-button>
-          <vxe-button content="error" @click="$XModal.alert({ content: 'error 提示框', title:'app.body.msg.error', status: 'error' })"></vxe-button>
-          <vxe-button content="loading" @click="$XModal.alert({ content: 'loading 提示框', status: 'loading' })"></vxe-button>
-          <vxe-button content="自定义图标" @click="$XModal.alert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'fa fa-hand-peace-o' })"></vxe-button>
-          <vxe-button content="禁止拖动" @click="$XModal.alert({ content: '禁止后，按住头部无法进行拖动', draggable: false })"></vxe-button>
+          <vxe-button content="基本提示框" @click="openAlert({ content: '基本提示框', title: '标题1' })"></vxe-button>
+          <vxe-button content="info" @click="openAlert({ content: 'info 提示框', status: 'info' })"></vxe-button>
+          <vxe-button content="warning" @click="openAlert({ content: 'warning 提示框', status: 'warning' })"></vxe-button>
+          <vxe-button content="question" @click="openAlert({ content: 'question 提示框', status: 'question' })"></vxe-button>
+          <vxe-button content="success" @click="openAlert({ content: 'success 提示框', status: 'success' })"></vxe-button>
+          <vxe-button content="error" @click="openAlert({ content: 'error 提示框', title:'app.body.msg.error', status: 'error' })"></vxe-button>
+          <vxe-button content="loading" @click="openAlert({ content: 'loading 提示框', status: 'loading' })"></vxe-button>
+          <vxe-button content="自定义图标" @click="openAlert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'fa fa-hand-peace-o' })"></vxe-button>
+          <vxe-button content="禁止拖动" @click="openAlert({ content: '禁止后，按住头部无法进行拖动', draggable: false })"></vxe-button>
           <vxe-button content="确认提示框" @click="confirmEvent"></vxe-button>
         </p>
 
@@ -413,11 +413,11 @@ export default {
         </p>
 
         <<p>
-          <vxe-button content="点击遮罩层可以关闭" @click="$XModal.alert({ content: '点击遮罩层可以关闭', maskClosable: true })"></vxe-button>
-          <vxe-button content="按 Escape 键可以关闭" @click="$XModal.alert({ content: '按 Escape 键可以关闭', escClosable: true })"></vxe-button>
-          <vxe-button content="锁界面不要遮罩层" @click="$XModal.alert({ content: '锁界面不要遮罩层', mask: false })"></vxe-button>
-          <vxe-button content="多窗口、叠加窗口" @click="$XModal.alert({ content: '多窗口、叠加窗口（一旦脱离当前实例，需要配合手动关闭）', lockView: false, mask: false })"></vxe-button>
-          <vxe-button content="允许拖动范围超出屏幕" @click="$XModal.alert({ content: '允许拖动范围超出屏幕', marginSize: -500 })"></vxe-button>
+          <vxe-button content="点击遮罩层可以关闭" @click="openAlert({ content: '点击遮罩层可以关闭', maskClosable: true })"></vxe-button>
+          <vxe-button content="按 Escape 键可以关闭" @click="openAlert({ content: '按 Escape 键可以关闭', escClosable: true })"></vxe-button>
+          <vxe-button content="锁界面不要遮罩层" @click="openAlert({ content: '锁界面不要遮罩层', mask: false })"></vxe-button>
+          <vxe-button content="多窗口、叠加窗口" @click="openAlert({ content: '多窗口、叠加窗口（一旦脱离当前实例，需要配合手动关闭）', lockView: false, mask: false })"></vxe-button>
+          <vxe-button content="允许拖动范围超出屏幕" @click="openAlert({ content: '允许拖动范围超出屏幕', marginSize: -500 })"></vxe-button>
         </p>
 
         <p>
@@ -669,18 +669,24 @@ export default {
           },
           methods: {
             async beforeHideMethod () {
-              const type = await this.$XModal.confirm('您确定要关闭吗？')
+              const type = await VXETable.modal.confirm('您确定要关闭吗？')
               if (type === 'confirm') {
-                this.$XModal.message({ content: \`允许关闭 \${type}\`, status: 'success' })
+                VXETable.modal.message({ content: \`允许关闭 \${type}\`, status: 'success' })
               } else {
-                this.$XModal.message({ content: \`禁止关闭 \${type}\`, status: 'error' })
+                VXETable.modal.message({ content: \`禁止关闭 \${type}\`, status: 'error' })
                 return new Error()
               }
             },
             confirmEvent () {
-              this.$XModal.confirm('您确定要删除吗？').then(type => {
-                this.$XModal.message({ content: \`点击了 \${type}\` })
+              VXETable.modal.confirm('您确定要删除吗？').then(type => {
+                VXETable.modal.message({ content: \`点击了 \${type}\` })
               })
+            },
+            openMessage (options) {
+              VXETable.modal.message(options)
+            },
+            openAlert (options) {
+              VXETable.modal.alert(options)
             }
           }
         }
@@ -690,18 +696,24 @@ export default {
   },
   methods: {
     async beforeHideMethod () {
-      const type = await this.$XModal.confirm('您确定要关闭吗？')
+      const type = await VXETable.modal.confirm('您确定要关闭吗？')
       if (type === 'confirm') {
-        this.$XModal.message({ content: `允许关闭 ${type}`, status: 'success' })
+        VXETable.modal.message({ content: `允许关闭 ${type}`, status: 'success' })
       } else {
-        this.$XModal.message({ content: `禁止关闭 ${type}`, status: 'error' })
+        VXETable.modal.message({ content: `禁止关闭 ${type}`, status: 'error' })
         return new Error()
       }
     },
     confirmEvent () {
-      this.$XModal.confirm('您确定要删除吗？').then(type => {
-        this.$XModal.message({ content: `点击了 ${type}` })
+      VXETable.modal.confirm('您确定要删除吗？').then(type => {
+        VXETable.modal.message({ content: `点击了 ${type}` })
       })
+    },
+    openMessage (options) {
+      VXETable.modal.message(options)
+    },
+    openAlert (options) {
+      VXETable.modal.alert(options)
     }
   }
 }

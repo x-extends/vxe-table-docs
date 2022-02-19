@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -114,6 +116,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -160,9 +164,9 @@ export default {
               if (insertRecords.length || removeRecords.length || updateRecords.length) {
                 const errMap = await $table.validate().catch(errMap => errMap)
                 if (errMap) {
-                  this.$XModal.message({ status: 'error', content: '校验不通过！' })
+                  VXETable.modal.message({ status: 'error', content: '校验不通过！' })
                 } else {
-                  this.$XModal.message({ content: '保存成功！', status: 'success' })
+                  VXETable.modal.message({ content: '保存成功！', status: 'success' })
                 }
               } else {
                 this.$Message.info('数据未改动！')
@@ -209,9 +213,9 @@ export default {
       if (insertRecords.length || removeRecords.length || updateRecords.length) {
         const errMap = await $table.validate().catch(errMap => errMap)
         if (errMap) {
-          this.$XModal.message({ status: 'error', content: '校验不通过！' })
+          VXETable.modal.message({ status: 'error', content: '校验不通过！' })
         } else {
-          this.$XModal.message({ content: '保存成功！', status: 'success' })
+          VXETable.modal.message({ content: '保存成功！', status: 'success' })
         }
       } else {
         this.$Message.info('数据未改动！')

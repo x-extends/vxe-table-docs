@@ -161,6 +161,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -468,6 +470,8 @@ export default {
         </vxe-pager>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -518,11 +522,11 @@ export default {
             },
             getSelectEvent () {
               const selectRecords = this.$refs.xTable4.getCheckboxRecords()
-              this.$XModal.alert(selectRecords.length)
+              VXETable.modal.alert(selectRecords.length)
             },
             getSelectReserveEvent () {
               const selectReserveRecords = this.$refs.xTable4.getCheckboxReserveRecords()
-              this.$XModal.alert(selectReserveRecords.length)
+              VXETable.modal.alert(selectReserveRecords.length)
             }
           }
         }
@@ -663,11 +667,11 @@ export default {
     },
     getSelectEvent () {
       const selectRecords = this.$refs.xTable4.getCheckboxRecords()
-      this.$XModal.alert(selectRecords.length)
+      VXETable.modal.alert(selectRecords.length)
     },
     getSelectReserveEvent () {
       const selectReserveRecords = this.$refs.xTable4.getCheckboxReserveRecords()
-      this.$XModal.alert(selectReserveRecords.length)
+      VXETable.modal.alert(selectReserveRecords.length)
     }
   }
 }

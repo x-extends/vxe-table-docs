@@ -56,6 +56,7 @@
 
 <script>
 import XEClipboard from 'xe-clipboard'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -135,6 +136,9 @@ export default {
         </vxe-table>
         `,
         `
+        import XEClipboard from 'xe-clipboard'
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -225,7 +229,7 @@ export default {
                   break
                 case 'copy':
                   if (XEClipboard.copy(row[column.property])) {
-                    this.$XModal.message({ content: '已复制到剪贴板！', status: 'success' })
+                    VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                   }
                   break
                 case 'reload':
@@ -238,7 +242,7 @@ export default {
                   $table.remove(row)
                   break
                 case 'save':
-                  this.$XModal.message({ content: '保存成功', status: 'success' })
+                  VXETable.modal.message({ content: '保存成功', status: 'success' })
                   this.findList()
                   break
               }
@@ -246,17 +250,17 @@ export default {
             getInsertEvent () {
               const $table = this.$refs.xTable
               const insertRecords = $table.getInsertRecords()
-              this.$XModal.alert(insertRecords.length)
+              VXETable.modal.alert(insertRecords.length)
             },
             getRemoveEvent () {
               const $table = this.$refs.xTable
               const removeRecords = $table.getRemoveRecords()
-              this.$XModal.alert(removeRecords.length)
+              VXETable.modal.alert(removeRecords.length)
             },
             getUpdateEvent () {
               const $table = this.$refs.xTable
               const updateRecords = $table.getUpdateRecords()
-              this.$XModal.alert(updateRecords.length)
+              VXETable.modal.alert(updateRecords.length)
             }
           }
         }
@@ -320,7 +324,7 @@ export default {
           break
         case 'copy':
           if (XEClipboard.copy(row[column.property])) {
-            this.$XModal.message({ content: '已复制到剪贴板！', status: 'success' })
+            VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
           }
           break
         case 'reload':
@@ -333,7 +337,7 @@ export default {
           $table.remove(row)
           break
         case 'save':
-          this.$XModal.message({ content: '保存成功', status: 'success' })
+          VXETable.modal.message({ content: '保存成功', status: 'success' })
           this.findList()
           break
       }
@@ -341,17 +345,17 @@ export default {
     getInsertEvent () {
       const $table = this.$refs.xTable
       const insertRecords = $table.getInsertRecords()
-      this.$XModal.alert(insertRecords.length)
+      VXETable.modal.alert(insertRecords.length)
     },
     getRemoveEvent () {
       const $table = this.$refs.xTable
       const removeRecords = $table.getRemoveRecords()
-      this.$XModal.alert(removeRecords.length)
+      VXETable.modal.alert(removeRecords.length)
     },
     getUpdateEvent () {
       const $table = this.$refs.xTable
       const updateRecords = $table.getUpdateRecords()
-      this.$XModal.alert(updateRecords.length)
+      VXETable.modal.alert(updateRecords.length)
     }
   }
 }

@@ -275,6 +275,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data  () {
     return {
@@ -559,6 +561,8 @@ export default {
         </vxe-form>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -598,14 +602,14 @@ export default {
               this.loading2 = true
               setTimeout(() => {
                 this.loading2 = false
-                this.$XModal.message({ message: '保存成功', status: 'success' })
+                VXETable.modal.message({ message: '保存成功', status: 'success' })
               }, 1000)
             },
             searchEvent () {
-              this.$XModal.message({ message: '查询事件', status: 'info' })
+              VXETable.modal.message({ message: '查询事件', status: 'info' })
             },
             resetEvent () {
-              this.$XModal.message({ message: '重置事件', status: 'info' })
+              VXETable.modal.message({ message: '重置事件', status: 'info' })
             }
           }
         }
@@ -674,6 +678,8 @@ export default {
         </vxe-form>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -713,10 +719,10 @@ export default {
           },
           methods: {
             searchEvent () {
-              this.$XModal.message({ message: '查询事件', status: 'info' })
+              VXETable.modal.message({ message: '查询事件', status: 'info' })
             },
             resetEvent () {
-              this.$XModal.message({ message: '重置事件', status: 'info' })
+              VXETable.modal.message({ message: '重置事件', status: 'info' })
             }
           }
         }
@@ -729,6 +735,8 @@ export default {
         </vxe-form>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -780,14 +788,14 @@ export default {
       this.loading2 = true
       setTimeout(() => {
         this.loading2 = false
-        this.$XModal.message({ message: '保存成功', status: 'success' })
+        VXETable.modal.message({ message: '保存成功', status: 'success' })
       }, 1000)
     },
     searchEvent () {
-      this.$XModal.message({ message: '查询事件', status: 'info' })
+      VXETable.modal.message({ message: '查询事件', status: 'info' })
     },
     resetEvent () {
-      this.$XModal.message({ message: '重置事件', status: 'info' })
+      VXETable.modal.message({ message: '重置事件', status: 'info' })
     }
   }
 }

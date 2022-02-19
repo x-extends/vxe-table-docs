@@ -88,6 +88,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -174,6 +176,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -202,7 +206,7 @@ export default {
           methods: {
             getTreeExpansionEvent () {
               let treeExpandRecords = this.$refs.xTree.getTreeExpandRecords()
-              this.$XModal.alert(treeExpandRecords.length)
+              VXETable.modal.alert(treeExpandRecords.length)
             }
           }
         }
@@ -278,6 +282,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -307,12 +313,12 @@ export default {
             toggleTreeMethod ({ expanded, row }) {
               if (expanded) {
                 if (row.date === '2019-10-22') {
-                  this.$XModal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
+                  VXETable.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
                   return false
                 }
               } else {
                 if (row.date === '2019-03-04') {
-                  this.$XModal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
+                  VXETable.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
                   return false
                 }
               }
@@ -327,17 +333,17 @@ export default {
   methods: {
     getTreeExpansionEvent () {
       const treeExpandRecords = this.$refs.xTree1.getTreeExpandRecords()
-      this.$XModal.alert(treeExpandRecords.length)
+      VXETable.modal.alert(treeExpandRecords.length)
     },
     toggleTreeMethod ({ expanded, row }) {
       if (expanded) {
         if (row.date === '2019-10-22') {
-          this.$XModal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
+          VXETable.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
           return false
         }
       } else {
         if (row.date === '2019-03-04') {
-          this.$XModal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
+          VXETable.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
           return false
         }
       }

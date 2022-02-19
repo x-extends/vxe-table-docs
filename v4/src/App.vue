@@ -2,8 +2,8 @@
   <div id="app" @click="clickEvent">
     <header class="page-header">
       <div class="left">
-        <a :href="baseUrl">
-          <img :src="`${baseUrl}logo.png`" width="18">
+        <a :href="baseApiUrl">
+          <img :src="`${baseApiUrl}logo.png`" width="18">
           <span class="title">vxe-table</span>
         </a>
         <a href='https://gitee.com/xuliangzhan_admin/vxe-table/stargazers'>
@@ -19,14 +19,14 @@
       <div class="right">
         <div class="content">
           <span v-if="appData.usedJSHeapSize && appData.usedJSHeapSize !== '0'" class="performance">Memory used: {{ appData.usedJSHeapSize }} MB.</span>
-          <span>{{ $t('app.body.label.translations') }}:</span>
+          <!-- <span>{{ $t('app.body.label.translations') }}:</span> -->
           <vxe-select class="locale-switch" size="mini" v-model="$i18n.locale">
             <vxe-option value="zh_CN" label="中文"></vxe-option>
             <vxe-option value="zh_TC" label="繁體中文"></vxe-option>
             <vxe-option value="en_US" label="English"></vxe-option>
             <!-- <vxe-option value="ja_JP" label="ジャパン"></vxe-option> -->
           </vxe-select>
-          <span>{{ $t('app.body.label.version') }}: </span>
+          <!-- <span>{{ $t('app.body.label.version') }}: </span> -->
           <vxe-select class="version-switch" size="mini" v-model="appData.version" @change="vChangeEvent">
             <!-- <vxe-option value="4.5" :label="$t('app.body.other.v4d5')" disabled></vxe-option> -->
             <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
@@ -37,7 +37,7 @@
           </vxe-select>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="appData.apiLoading && appData.showPlugin">
-            <a v-if="appData.disabledPlugin" class="link support" :href="pluginUrl" target="_blank">💡插件</a>
+            <a v-if="appData.disabledPlugin" class="link support" :href="pluginApiUrl" target="_blank">💡插件</a>
             <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">插件</a>
           </template>
         </div>
@@ -121,13 +121,13 @@ import { useStore } from 'vuex'
 import i18n from './i18n'
 import router from './router'
 import XEUtils from 'xe-utils'
-import XEAjax from 'xe-ajax'
 
 export default defineComponent({
   setup () {
     const store = useStore()
-    const baseUrl = computed(() => store.state.baseUrl)
-    const pluginUrl = computed(() => store.state.pluginUrl)
+    const baseApiUrl = computed(() => store.state.baseApiUrl)
+    const pluginApiUrl = computed(() => store.state.pluginApiUrl)
+    const serveApiUrl = computed(() => store.state.serveApiUrl)
 
     const appData = reactive({
       showLeft: true,
@@ -2281,42 +2281,36 @@ export default defineComponent({
     })
 
     const getVersion = () => {
-      XEAjax.get('https://api.xuliangzhan.com:10443/demo/api/npm/versions/vxe-table').then(({ sp, dp, ss, time, tags, versions }) => {
-        appData.apiLoading = true
-        appData.disabledPlugin = dp
-        appData.showPlugin = sp
-        const stableVersionList: any = []
-        const betaVersionList: any = []
-        store.commit('setSupportQQ', ss)
-        if (versions) {
-          versions.forEach((version: any) => {
-            if (new RegExp(`^${appData.version}.\\d{1,3}.\\d{1,3}$`).test(version)) {
-              stableVersionList.push({ label: version, value: version })
-            } else if (new RegExp(`^${appData.version}.\\d{1,3}.\\d{1,3}-beta.\\d{1,3}$`).test(version)) {
-              betaVersionList.push({ label: version, value: version })
-            }
-          })
-        }
-        appData.stableVersionList = stableVersionList
-        appData.betaVersionList = betaVersionList
-        if (stableVersionList.length) {
-          appData.selectStableVersion = tags && tags[`xtable-v${appData.version}`] ? tags[`xtable-v${appData.version}`] : stableVersionList[0].value
-        }
-        if (betaVersionList.length) {
-          appData.selectBetaVersion = betaVersionList[0].value
-        }
+      fetch(`${serveApiUrl.value}/api/npm/versions/vxe-table`, { method: 'GET' })
+        .then(response => response.json())
+        .then((data) => {
+          const { sp, dp, ss, time, tags } = data
+          appData.apiLoading = true
+          appData.disabledPlugin = dp
+          appData.showPlugin = sp
+          store.commit('setSupportQQ', ss)
+          const stableVersionList = data[`v${appData.version}StableList`].map(version => ({ value: version, label: version }))
+          const betaVersionList = data[`v${appData.version}BetaList`].map(version => ({ value: version, label: version }))
+          appData.stableVersionList = stableVersionList
+          appData.betaVersionList = betaVersionList
+          if (stableVersionList.length) {
+            appData.selectStableVersion = tags && tags[`xtable-v${appData.version}`] ? tags[`xtable-v${appData.version}`] : stableVersionList[0].value
+          }
+          if (betaVersionList.length) {
+            appData.selectBetaVersion = betaVersionList[0].value
+          }
 
-        // 样式处理
-        const serveDate = XEUtils.toStringDate(time)
-        const yymmdd = XEUtils.toDateString(serveDate, 'yyyyMMdd')
-        if (['20210404', '20220405', '20230405', '20240404', '20250404'].includes(yymmdd)) {
-          localStorage.setItem('qingmingjie', '1')
-          document.body.className = `${document.body.className} qingmingjie`
-        } else {
-          localStorage.removeItem('qingmingjie')
-          document.body.className = document.body.className.replace('qingmingjie', '')
-        }
-      })
+          // 样式处理
+          const serveDate = XEUtils.toStringDate(time)
+          const yymmdd = XEUtils.toDateString(serveDate, 'yyyyMMdd')
+          if (['20210404', '20220405', '20230405', '20240404', '20250404'].includes(yymmdd)) {
+            localStorage.setItem('qingmingjie', '1')
+            document.body.className = `${document.body.className} qingmingjie`
+          } else {
+            localStorage.removeItem('qingmingjie')
+            document.body.className = document.body.className.replace('qingmingjie', '')
+          }
+        })
 
       if (localStorage.getItem('qingmingjie')) {
         document.body.className = `${document.body.className} qingmingjie`
@@ -2366,16 +2360,16 @@ export default defineComponent({
     const vChangeEvent = () => {
       switch (appData.version) {
         case '1':
-          location.href = `${baseUrl.value}v1/`
+          location.href = `${baseApiUrl.value}v1/`
           break
         case '2':
-          location.href = `${baseUrl.value}v2/`
+          location.href = `${baseApiUrl.value}v2/`
           break
         case '3':
-          location.href = `${baseUrl.value}v3/`
+          location.href = `${baseApiUrl.value}v3/`
           break
         case '4':
-          location.href = `${baseUrl.value}v4/`
+          location.href = `${baseApiUrl.value}v4/`
           break
       }
     }
@@ -2482,9 +2476,11 @@ export default defineComponent({
     }
 
     const loadSponsors = () => {
-      XEAjax.get('https://api.xuliangzhan.com:10443/demo/api/pub/sponsors').then(data => {
-        appData.sponsorList = data
-      })
+      fetch(`${serveApiUrl.value}/api/npm/versions/vxe-table`, { method: 'GET' })
+        .then(response => response.json())
+        .then(data => {
+          appData.sponsorList = data
+        })
     }
 
     const loadList = () => {
@@ -2525,8 +2521,8 @@ export default defineComponent({
     })
 
     return {
-      baseUrl,
-      pluginUrl,
+      baseApiUrl,
+      pluginApiUrl,
 
       appData,
       demoLink,

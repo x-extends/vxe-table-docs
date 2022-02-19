@@ -84,6 +84,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -178,6 +180,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -225,7 +229,7 @@ export default {
                 this.loading = true
                 setTimeout(() => {
                   this.loading = false
-                  this.$XModal.message({ content: '保存成功！', status: 'success' })
+                  VXETable.modal.message({ content: '保存成功！', status: 'success' })
                 }, 300)
               })
             },
@@ -268,7 +272,7 @@ export default {
         this.loading = true
         setTimeout(() => {
           this.loading = false
-          this.$XModal.message({ content: '保存成功！', status: 'success' })
+          VXETable.modal.message({ content: '保存成功！', status: 'success' })
         }, 300)
       })
     },

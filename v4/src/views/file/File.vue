@@ -2,8 +2,6 @@
   <div>
     <p class="tip">
       读取本地文件<br>
-      给 vue 实例挂载属性：<br>
-      app.config.globalProperties.$XReadFile = VXETable.readFile<br>
     </p>
 
     <p>

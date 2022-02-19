@@ -79,6 +79,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -134,6 +136,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -152,7 +156,7 @@ export default {
                 const startTime = Date.now()
                 if (xTable) {
                   this.$refs.xTable.reloadData(data).then(() => {
-                    this.$XModal.message({ content: \`渲染 \${size} 行，用时 \${Date.now() - startTime}毫秒\`, status: 'info' })
+                    VXETable.modal.message({ content: \`渲染 \${size} 行，用时 \${Date.now() - startTime}毫秒\`, status: 'info' })
                     this.loading = false
                   })
                 }
@@ -178,7 +182,7 @@ export default {
             },
             getSelectEvent () {
               let selectRecords = this.$refs.xTable.getCheckboxRecords()
-              this.$XModal.alert(selectRecords.length)
+              VXETable.modal.alert(selectRecords.length)
             }
           }
         }
@@ -198,7 +202,7 @@ export default {
         const startTime = Date.now()
         if (xTable) {
           this.$refs.xTable.reloadData(data).then(() => {
-            this.$XModal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+            VXETable.modal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
             this.loading = false
           })
         }
@@ -224,7 +228,7 @@ export default {
     },
     getSelectEvent () {
       const selectRecords = this.$refs.xTable.getCheckboxRecords()
-      this.$XModal.alert(selectRecords.length)
+      VXETable.modal.alert(selectRecords.length)
     }
   }
 }

@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -136,6 +138,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -175,9 +179,9 @@ export default {
               const $table = this.$refs.xTable
               const errMap = await $table.validate().catch(errMap => errMap)
               if (errMap) {
-                this.$XModal.message({ status: 'error', content: '校验不通过！' })
+                VXETable.modal.message({ status: 'error', content: '校验不通过！' })
               } else {
-                this.$XModal.message({ status: 'success', content: '校验成功！' })
+                VXETable.modal.message({ status: 'success', content: '校验成功！' })
               }
             },
             async fullValidEvent () {
@@ -192,7 +196,7 @@ export default {
                     })
                   })
                 })
-                this.$XModal.message({
+                VXETable.modal.message({
                   status: 'error',
                   slots: {
                     default () {
@@ -209,7 +213,7 @@ export default {
                   }
                 })
               } else {
-                this.$XModal.message({ status: 'success', content: '校验成功！' })
+                VXETable.modal.message({ status: 'success', content: '校验成功！' })
               }
             },
             async selectValidEvent () {
@@ -218,21 +222,21 @@ export default {
               if (selectRecords.length > 0) {
                 const errMap = await $table.validate(selectRecords).catch(errMap => errMap)
                 if (errMap) {
-                  this.$XModal.message({ status: 'error', content: '校验不通过！' })
+                  VXETable.modal.message({ status: 'error', content: '校验不通过！' })
                 } else {
-                  this.$XModal.message({ status: 'success', content: '校验成功！' })
+                  VXETable.modal.message({ status: 'success', content: '校验成功！' })
                 }
               } else {
-                this.$XModal.message({ status: 'warning', content: '未选中数据！' })
+                VXETable.modal.message({ status: 'warning', content: '未选中数据！' })
               }
             },
             getSelectEvent () {
               let selectRecords = this.$refs.xTable.getCheckboxRecords()
-              this.$XModal.alert(selectRecords.length)
+              VXETable.modal.alert(selectRecords.length)
             },
             getUpdateEvent () {
               let updateRecords = this.$refs.xTable.getUpdateRecords()
-              this.$XModal.alert(updateRecords.length)
+              VXETable.modal.alert(updateRecords.length)
             }
           }
         }
@@ -245,9 +249,9 @@ export default {
       const $table = this.$refs.xTable
       const errMap = await $table.validate().catch(errMap => errMap)
       if (errMap) {
-        this.$XModal.message({ status: 'error', content: '校验不通过！' })
+        VXETable.modal.message({ status: 'error', content: '校验不通过！' })
       } else {
-        this.$XModal.message({ status: 'success', content: '校验成功！' })
+        VXETable.modal.message({ status: 'success', content: '校验成功！' })
       }
     },
     async fullValidEvent () {
@@ -262,7 +266,7 @@ export default {
             })
           })
         })
-        this.$XModal.message({
+        VXETable.modal.message({
           status: 'error',
           slots: {
             default () {
@@ -279,7 +283,7 @@ export default {
           }
         })
       } else {
-        this.$XModal.message({ status: 'success', content: '校验成功！' })
+        VXETable.modal.message({ status: 'success', content: '校验成功！' })
       }
     },
     async selectValidEvent () {
@@ -288,21 +292,21 @@ export default {
       if (selectRecords.length > 0) {
         const errMap = await $table.validate(selectRecords).catch(errMap => errMap)
         if (errMap) {
-          this.$XModal.message({ status: 'error', content: '校验不通过！' })
+          VXETable.modal.message({ status: 'error', content: '校验不通过！' })
         } else {
-          this.$XModal.message({ status: 'success', content: '校验成功！' })
+          VXETable.modal.message({ status: 'success', content: '校验成功！' })
         }
       } else {
-        this.$XModal.message({ status: 'warning', content: '未选中数据！' })
+        VXETable.modal.message({ status: 'warning', content: '未选中数据！' })
       }
     },
     getSelectEvent () {
       const selectRecords = this.$refs.xTable.getCheckboxRecords()
-      this.$XModal.alert(selectRecords.length)
+      VXETable.modal.alert(selectRecords.length)
     },
     getUpdateEvent () {
       const updateRecords = this.$refs.xTable.getUpdateRecords()
-      this.$XModal.alert(updateRecords.length)
+      VXETable.modal.alert(updateRecords.length)
     }
   }
 }

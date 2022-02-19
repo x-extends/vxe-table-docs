@@ -53,6 +53,7 @@
 
 <script>
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -126,6 +127,7 @@ export default {
         `,
         `
         import XEUtils from 'xe-utils'
+        import VXETable from 'vxe-table'
         
         export default {
           data () {
@@ -169,12 +171,12 @@ export default {
             getInsertEvent () {
               const $table = this.$refs.xTable
               const insertRecords = $table.getInsertRecords()
-              this.$XModal.alert(insertRecords.length)
+              VXETable.modal.alert(insertRecords.length)
             },
             getRemoveEvent () {
               const $table = this.$refs.xTable
               const removeRecords = $table.getRemoveRecords()
-              this.$XModal.alert(removeRecords.length)
+              VXETable.modal.alert(removeRecords.length)
             }
           }
         }
@@ -194,12 +196,12 @@ export default {
     getInsertEvent () {
       const $table = this.$refs.xTable
       const insertRecords = $table.getInsertRecords()
-      this.$XModal.alert(insertRecords.length)
+      VXETable.modal.alert(insertRecords.length)
     },
     getRemoveEvent () {
       const $table = this.$refs.xTable
       const removeRecords = $table.getRemoveRecords()
-      this.$XModal.alert(removeRecords.length)
+      VXETable.modal.alert(removeRecords.length)
     }
   }
 }

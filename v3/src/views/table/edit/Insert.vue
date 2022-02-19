@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -129,6 +131,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -166,17 +170,17 @@ export default {
             getInsertEvent () {
               const $table = this.$refs.xTable
               const insertRecords = $table.getInsertRecords()
-              this.$XModal.alert(insertRecords.length)
+              VXETable.modal.alert(insertRecords.length)
             },
             getSelectionEvent () {
               const $table = this.$refs.xTable
               const selectRecords = $table.getCheckboxRecords()
-              this.$XModal.alert(selectRecords.length)
+              VXETable.modal.alert(selectRecords.length)
             },
             saveEvent () {
               const $table = this.$refs.xTable
               const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-              this.$XModal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
+              VXETable.modal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
             }
           }
         }
@@ -206,17 +210,17 @@ export default {
     getInsertEvent () {
       const $table = this.$refs.xTable
       const insertRecords = $table.getInsertRecords()
-      this.$XModal.alert(insertRecords.length)
+      VXETable.modal.alert(insertRecords.length)
     },
     getSelectionEvent () {
       const $table = this.$refs.xTable
       const selectRecords = $table.getCheckboxRecords()
-      this.$XModal.alert(selectRecords.length)
+      VXETable.modal.alert(selectRecords.length)
     },
     saveEvent () {
       const $table = this.$refs.xTable
       const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      this.$XModal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
     }
   }
 }

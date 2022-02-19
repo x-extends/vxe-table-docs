@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -72,6 +74,8 @@ export default {
         </vxe-virtual-tree>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -186,7 +190,7 @@ export default {
             },
             getRadioEvent () {
               const selectRow = this.$refs.xVTree.getRadioRecord()
-              this.$XModal.alert(selectRow ? selectRow.name : null)
+              VXETable.modal.alert(selectRow ? selectRow.name : null)
             }
           }
         }
@@ -305,7 +309,7 @@ export default {
     },
     getRadioEvent () {
       const selectRow = this.$refs.xVTree.getRadioRecord()
-      this.$XModal.alert(selectRow ? selectRow.name : null)
+      VXETable.modal.alert(selectRow ? selectRow.name : null)
     }
   }
 }

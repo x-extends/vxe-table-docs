@@ -97,6 +97,7 @@
 
 <script>
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -183,6 +184,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -211,11 +214,11 @@ export default {
           methods: {
             getTreeExpansionEvent () {
               let selectRow = this.$refs.xTree.getRadioRecord()
-              this.$XModal.alert(selectRow ? selectRow.name : 'null')
+              VXETable.modal.alert(selectRow ? selectRow.name : 'null')
             },
             getTreeExpansionEvent () {
               let treeExpandRecords = this.$refs.xTree.getTreeExpandRecords()
-              this.$XModal.alert(treeExpandRecords.length)
+              VXETable.modal.alert(treeExpandRecords.length)
             }
           }
         }
@@ -234,6 +237,7 @@ export default {
         `,
         `
         import XEUtils from 'xe-utils'
+        import VXETable from 'vxe-table'
         
         export default {
           data () {
@@ -324,7 +328,7 @@ export default {
           },
           methods: {
             async removeRowEvent (row) {
-              const type = await this.$XModal.confirm('您确定要删除吗？')
+              const type = await VXETable.modal.confirm('您确定要删除吗？')
               if (type === 'confirm') {
                 const matchObj = XEUtils.findTree(this.tableData3, item => item === row, this.treeConfig)
                 if (matchObj) {
@@ -347,7 +351,7 @@ export default {
   },
   methods: {
     async removeRowEvent (row) {
-      const type = await this.$XModal.confirm('您确定要删除吗？')
+      const type = await VXETable.modal.confirm('您确定要删除吗？')
       if (type === 'confirm') {
         const matchObj = XEUtils.findTree(this.tableData3, item => item === row, this.treeConfig)
         if (matchObj) {
@@ -358,11 +362,11 @@ export default {
     },
     getTreeRadioEvent () {
       const selectRow = this.$refs.xTree1.getRadioRecord()
-      this.$XModal.alert(selectRow ? selectRow.name : 'null')
+      VXETable.modal.alert(selectRow ? selectRow.name : 'null')
     },
     getTreeExpansionEvent () {
       const treeExpandRecords = this.$refs.xTree1.getTreeExpandRecords()
-      this.$XModal.alert(treeExpandRecords.length)
+      VXETable.modal.alert(treeExpandRecords.length)
     }
   }
 }

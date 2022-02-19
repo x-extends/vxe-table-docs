@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -167,6 +169,8 @@ export default {
         </vxe-modal>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -296,10 +300,10 @@ export default {
               this.showDetails = true
             },
             headerClickEvent (evnt) {
-              this.$XModal.alert('头部点击事件')
+              VXETable.modal.alert('头部点击事件')
             },
             addressClickEvent (row) {
-              this.$XModal.alert(\`address点击事件：\${row.address}\`)
+              VXETable.modal.alert(\`address点击事件：\${row.address}\`)
             },
             filterSexMethod ({ option, row }) {
               return row.sex === option.data
@@ -376,10 +380,10 @@ export default {
       this.showDetails = true
     },
     headerClickEvent () {
-      this.$XModal.alert('头部点击事件')
+      VXETable.modal.alert('头部点击事件')
     },
     addressClickEvent (row) {
-      this.$XModal.alert(`address点击事件：${row.address}`)
+      VXETable.modal.alert(`address点击事件：${row.address}`)
     },
     filterSexMethod ({ option, row }) {
       return row.sex === option.data

@@ -45,9 +45,4 @@ app.use(i18n)
 app.config.globalProperties.$t = i18n.global.t
 app.config.globalProperties.$i18n = i18n.global
 
-app.config.globalProperties.$XModal = VXETable.modal
-app.config.globalProperties.$XPrint = VXETable.print
-app.config.globalProperties.$XSaveFile = VXETable.saveFile
-app.config.globalProperties.$XReadFile = VXETable.readFile
-
 app.mount('#app')

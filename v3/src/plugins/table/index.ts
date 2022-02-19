@@ -32,16 +32,6 @@ VXETable.setup({
 
 Vue.use(VXETable)
 
-// 给 vue 实例挂载窗口对象
-Vue.prototype.$XModal = VXETable.modal
-
-// 给 vue 实例挂载文件对象
-Vue.prototype.$XSaveFile = VXETable.saveFile
-Vue.prototype.$XReadFile = VXETable.readFile
-
-// 给 vue 实例挂载打印对象
-Vue.prototype.$XPrint = VXETable.print
-
 VXETable.use(VXETablePluginElement)
 VXETable.use(VXETablePluginIView)
 VXETable.use(VXETablePluginAntd)

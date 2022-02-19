@@ -2,8 +2,6 @@
   <div>
     <p class="tip">
       高级打印，可以将任意视图的 HTML 片段输出打印<br>
-      给 vue 实例挂载属性：<br>
-      Vue.prototype.$XPrint = VXETable.print<br>
     </p>
 
     <vxe-toolbar print>
@@ -121,6 +119,7 @@
 <script>
 import QRCode from 'qrcode'
 import jsbarcode from 'jsbarcode'
+import VXETable from 'vxe-table'
 
 // 打印样式
 const printStyle = `
@@ -346,11 +345,13 @@ export default {
         </div>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
            methods: {
             printEvent5 () {
               const divEl = document.getElementById('myPrint5')
-              this.$XPrint({
+              VXETable.print({
                 sheetName: '打印下面区域',
                 content: divEl.innerHTML
               })
@@ -366,6 +367,8 @@ export default {
         </vxe-toolbar>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -413,7 +416,7 @@ export default {
                 \`
                 printTmpls.push(tmpl)
               })
-              this.$XPrint({
+              VXETable.print({
                 sheetName: '打印条形码模板',
                 style: printStyle,
                 content: printTmpls.join('')
@@ -430,6 +433,8 @@ export default {
         </vxe-toolbar>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           methods: {
             printEvent3 () {
@@ -450,7 +455,7 @@ export default {
                   <div style="margin-top: 15px;">如果对您有帮助，点击右上角支持我们吧！</div>
                 </div>
                 \`
-                this.$XPrint({
+                VXETable.print({
                   sheetName: '打印二维码模板',
                   style: printStyle,
                   content: printTmpl
@@ -468,6 +473,8 @@ export default {
         </vxe-toolbar>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           methods: {
             printEvent4 () {
@@ -596,7 +603,7 @@ export default {
                 <div style="margin-top: 15px;">如果对您有帮助，点击右上角支持我们吧！</div>
               </div>
               \`
-              this.$XPrint({
+              VXETable.print({
                 sheetName: '打印自定义模板',
                 style: printStyle,
                 content: printTmpl
@@ -615,11 +622,13 @@ export default {
         <img id="myPrint6" src="@/assets/image/invoice.png" style="width: 300px">
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
            methods: {
             printEvent6 () {
               const imgEl = document.getElementById('myPrint6')
-              this.$XPrint({
+              VXETable.print({
                 sheetName: '打印图片',
                 style: \`
                 img {
@@ -700,7 +709,7 @@ export default {
         `
         printTmpls.push(tmpl)
       })
-      this.$XPrint({
+      VXETable.print({
         sheetName: '打印条形码模板',
         style: printStyle,
         content: printTmpls.join('')
@@ -724,7 +733,7 @@ export default {
           <div style="margin-top: 15px;">如果对您有帮助，点击右上角支持我们吧！</div>
         </div>
         `
-        this.$XPrint({
+        VXETable.print({
           sheetName: '打印二维码模板',
           style: printStyle,
           content: printTmpl
@@ -857,7 +866,7 @@ export default {
         <div style="margin-top: 15px;">如果对您有帮助，点击右上角支持我们吧！</div>
       </div>
       `
-      this.$XPrint({
+      VXETable.print({
         sheetName: '打印自定义模板',
         style: printStyle,
         content: printTmpl
@@ -865,14 +874,14 @@ export default {
     },
     printEvent5 () {
       const divEl = document.getElementById('myPrint5')
-      this.$XPrint({
+      VXETable.print({
         sheetName: '打印下面区域',
         content: divEl.innerHTML
       })
     },
     printEvent6 () {
       const imgEl = document.getElementById('myPrint6')
-      this.$XPrint({
+      VXETable.print({
         sheetName: '打印图片',
         style: `
         img {

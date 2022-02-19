@@ -70,12 +70,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, nextTick } from 'vue'
+import { defineComponent, reactive, ref, nextTick, computed } from 'vue'
+import { useStore } from 'vuex'
 import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
-import XEAjax from 'xe-ajax'
 
 export default defineComponent({
   setup () {
+    const store = useStore()
+    const serveApiUrl = computed(() => store.state.serveApiUrl)
+
     const xToolbar = ref({} as VxeToolbarInstance)
     const xTable = ref({} as VxeTableInstance)
 
@@ -106,7 +109,7 @@ export default defineComponent({
     const loadList = async () => {
       demo1.loading = true
       try {
-        const res = await fetch('https://api.xuliangzhan.com:10443/demo/api/pub/all').then(response => response.json())
+        const res = await fetch(`${serveApiUrl.value}/api/pub/all`).then(response => response.json())
         demo1.tableData = res
       } catch (e) {
         demo1.tableData = []
@@ -136,7 +139,7 @@ export default defineComponent({
       demo1.loading = true
       try {
         const body = { removeRecords: checkboxRecords }
-        await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+        await fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
         await loadList()
       } catch (e) {}
       demo1.loading = false
@@ -155,7 +158,7 @@ export default defineComponent({
       demo1.loading = true
       try {
         const body = { removeRecords: [row] }
-        await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+        await fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
         await loadList()
       } catch (e) {}
     }
@@ -174,7 +177,7 @@ export default defineComponent({
       demo1.loading = true
       try {
         const body = { insertRecords, removeRecords, updateRecords }
-        await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+        await fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
         await loadList()
         VXETable.modal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
       } catch (e) {
@@ -265,12 +268,15 @@ export default defineComponent({
         </vxe-table>
         `,
         `
-        import { defineComponent, reactive, ref, nextTick } from 'vue'
+        import { defineComponent, reactive, ref, nextTick, computed } from 'vue'
+        import { useStore } from 'vuex'
         import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
-        import XEAjax from 'xe-ajax'
 
         export default defineComponent({
           setup () {
+            const store = useStore()
+            const serveApiUrl = computed(() => store.state.serveApiUrl)
+
             const xToolbar = ref({} as VxeToolbarInstance)
             const xTable = ref({} as VxeTableInstance)
 
@@ -301,7 +307,7 @@ export default defineComponent({
             const loadList = async () => {
               demo1.loading = true
               try {
-                const res = await fetch('https://api.xuliangzhan.com:10443/demo/api/pub/all').then(response => response.json())
+                const res = await fetch(\`\${serveApiUrl.value}/api/pub/all\`).then(response => response.json())
                 demo1.tableData = res
               } catch (e) {
                 demo1.tableData = []
@@ -331,7 +337,7 @@ export default defineComponent({
               demo1.loading = true
               try {
                 const body = { removeRecords: checkboxRecords }
-                await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                await fetch(\`\${serveApiUrl.value}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await loadList()
               } catch (e) {}
               demo1.loading = false
@@ -350,7 +356,7 @@ export default defineComponent({
               demo1.loading = true
               try {
                 const body = { removeRecords: [row] }
-                await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                await fetch(\`\${serveApiUrl.value}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await loadList()
               } catch (e) {}
             }
@@ -369,7 +375,7 @@ export default defineComponent({
               demo1.loading = true
               try {
                 const body = { insertRecords, removeRecords, updateRecords }
-                await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                await fetch(\`\${serveApiUrl.value}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await loadList()
                 VXETable.modal.message({ content: \`操作成功，新增 \${insertRecords.length} 条，更新 \${updateRecords.length} 条，删除 \${removeRecords.length} 条\`, status: 'success' })
               } catch (e) {

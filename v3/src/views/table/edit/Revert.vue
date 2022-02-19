@@ -55,6 +55,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -109,6 +111,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -136,16 +140,16 @@ export default {
               const $table = this.$refs.xTable
               const selectRecords = $table.getCheckboxRecords()
               if (selectRecords.length) {
-                const type = await this.$XModal.confirm('您确定要删除选中的数据吗?')
+                const type = await VXETable.modal.confirm('您确定要删除选中的数据吗?')
                 if (type === 'confirm') {
                   $table.removeCheckboxRow()
                 }
               } else {
-                this.$XModal.message({ content: '请至少选择一条数据', status: 'error' })
+                VXETable.modal.message({ content: '请至少选择一条数据', status: 'error' })
               }
             },
             async revertEvent () {
-              const type = await this.$XModal.confirm('您确定要还原数据吗?')
+              const type = await VXETable.modal.confirm('您确定要还原数据吗?')
               const $table = this.$refs.xTable
               if (type === 'confirm') {
                 $table.revertData()
@@ -154,7 +158,7 @@ export default {
             saveEvent () {
               const $table = this.$refs.xTable
               const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-              this.$XModal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
+              VXETable.modal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
             }
           }
         }
@@ -176,16 +180,16 @@ export default {
       const $table = this.$refs.xTable
       const selectRecords = $table.getCheckboxRecords()
       if (selectRecords.length) {
-        const type = await this.$XModal.confirm('您确定要删除选中的数据吗?')
+        const type = await VXETable.modal.confirm('您确定要删除选中的数据吗?')
         if (type === 'confirm') {
           $table.removeCheckboxRow()
         }
       } else {
-        this.$XModal.message({ content: '请至少选择一条数据', status: 'error' })
+        VXETable.modal.message({ content: '请至少选择一条数据', status: 'error' })
       }
     },
     async revertEvent () {
-      const type = await this.$XModal.confirm('您确定要还原数据吗?')
+      const type = await VXETable.modal.confirm('您确定要还原数据吗?')
       const $table = this.$refs.xTable
       if (type === 'confirm') {
         $table.revertData()
@@ -194,7 +198,7 @@ export default {
     saveEvent () {
       const $table = this.$refs.xTable
       const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      this.$XModal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
     }
   }
 }

@@ -70,8 +70,7 @@ export default defineComponent({
           //      showIcon: true
           //   },
           //   tooltipConfig: {
-          //     theme: 'dark',
-          //     enterable: false
+          //     enterable: true
           //   },
           //   menuConfig: {
           //     visibleMethod () {}
@@ -136,11 +135,14 @@ export default defineComponent({
           // },
           // form: {
           //   preventSubmit: false
+          //   size: null,
+          //   colon: false,
           //   validConfig: {
           //     autoPos: true
           //   },
-          //   size: null,
-          //   colon: false,
+          //   tooltipConfig: {
+          //     enterable: true
+          //   },
           //   titleAsterisk: true
           // },
           // input: {

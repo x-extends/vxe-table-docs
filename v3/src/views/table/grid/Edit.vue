@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -127,6 +129,8 @@ export default {
         </vxe-grid>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -223,12 +227,12 @@ export default {
                 this.gridOptions.loading = true
                 setTimeout(() => {
                   this.gridOptions.loading = false
-                  this.$XModal.message({ content: '保存成功！', status: 'success' })
+                  VXETable.modal.message({ content: '保存成功！', status: 'success' })
                 }, 300)
               })
             },
             async removeRowEvent (row) {
-              const type = await this.$XModal.confirm('您确定要删除该数据?')
+              const type = await VXETable.modal.confirm('您确定要删除该数据?')
               const $grid = this.$refs.xGrid
               if (type === 'confirm') {
                 $grid.remove(row)
@@ -291,12 +295,12 @@ export default {
         this.gridOptions.loading = true
         setTimeout(() => {
           this.gridOptions.loading = false
-          this.$XModal.message({ content: '保存成功！', status: 'success' })
+          VXETable.modal.message({ content: '保存成功！', status: 'success' })
         }, 300)
       })
     },
     async removeRowEvent (row) {
-      const type = await this.$XModal.confirm('您确定要删除该数据?')
+      const type = await VXETable.modal.confirm('您确定要删除该数据?')
       const $grid = this.$refs.xGrid
       if (type === 'confirm') {
         $grid.remove(row)

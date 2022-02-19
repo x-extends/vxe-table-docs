@@ -160,6 +160,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -204,6 +206,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -233,7 +237,7 @@ export default {
               this.$refs.xTable1.clearRadioRow()
             },
             getRadioEvent1 () {
-              this.$XModal.alert(JSON.stringify(this.$refs.xTable1.getRadioRecord()))
+              VXETable.modal.alert(JSON.stringify(this.$refs.xTable1.getRadioRecord()))
             }
           }
         }
@@ -438,7 +442,7 @@ export default {
       this.$refs.xTable1.clearRadioRow()
     },
     getRadioEvent1 () {
-      this.$XModal.alert(JSON.stringify(this.$refs.xTable1.getRadioRecord()))
+      VXETable.modal.alert(JSON.stringify(this.$refs.xTable1.getRadioRecord()))
     }
   }
 }

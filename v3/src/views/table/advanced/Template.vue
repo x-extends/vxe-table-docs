@@ -159,6 +159,7 @@
 
 <script>
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -328,6 +329,7 @@ export default {
         `,
         `
         import XEUtils from 'xe-utils'
+        import VXETable from 'vxe-table'
         
         export default {
           data () {
@@ -368,7 +370,7 @@ export default {
               this.showDetails = true
             },
             clickFooterItem (items, _columnIndex) {
-              this.$XModal.alert(\`点击了表尾第\${_columnIndex}列\`)
+              VXETable.modal.alert(\`点击了表尾第\${_columnIndex}列\`)
             },
             checkboxChangeEvent () {
               this.isAllChecked = this.$refs.xTable.isAllCheckboxChecked()
@@ -450,7 +452,7 @@ export default {
       this.showDetails = true
     },
     clickFooterItem (items, _columnIndex) {
-      this.$XModal.alert(`点击了表尾第${_columnIndex}列`)
+      VXETable.modal.alert(`点击了表尾第${_columnIndex}列`)
     },
     checkboxChangeEvent () {
       this.isAllChecked = this.$refs.xTable.isAllCheckboxChecked()

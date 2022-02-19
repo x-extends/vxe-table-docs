@@ -70,7 +70,8 @@
 </template>
 
 <script>
-import XEAjax from 'xe-ajax'
+import VXETable from 'vxe-table'
+import { mapState } from 'vuex'
 
 export default {
   data () {
@@ -146,7 +147,8 @@ export default {
         </vxe-table>
         `,
         `
-        import XEAjax from 'xe-ajax'
+        import VXETable from 'vxe-table'
+        import { mapState } from 'vuex'
 
         export default {
           data () {
@@ -164,6 +166,11 @@ export default {
               ]
             }
           },
+          computed: {
+            ...mapState([
+              'serveApiUrl'
+            ])
+          },
           created () {
             this.$nextTick(() => {
               // 将表格和工具栏进行关联
@@ -176,7 +183,7 @@ export default {
             async loadList () {
               this.loading = true
               try {
-                const res = await fetch('https://api.xuliangzhan.com:10443/demo/api/pub/all').then(response => response.json())
+                const res = await fetch(\`\${this.serveApiUrl}/api/pub/all\`).then(response => response.json())
                 this.tableData = res
               } catch (e) {
                 this.tableData = []
@@ -203,7 +210,7 @@ export default {
               await $table.removeCheckboxRow()
             },
             async deleteSelectEvent () {
-              const type = await this.$XModal.confirm('您确定要删除选中的数据?')
+              const type = await VXETable.modal.confirm('您确定要删除选中的数据?')
               if (type !== 'confirm') {
                 return
               }
@@ -212,7 +219,7 @@ export default {
               this.loading = true
               try {
                 const body = { removeRecords: checkboxRecords }
-                await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                await fetch(\`\${this.serveApiUrl}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await this.loadList()
               } catch (e) {}
               this.loading = false
@@ -222,14 +229,14 @@ export default {
               await $table.remove(row)
             },
             async deleteRowEvent (row) {
-              const type = await this.$XModal.confirm('您确定要删除该数据?')
+              const type = await VXETable.modal.confirm('您确定要删除该数据?')
               if (type !== 'confirm') {
                 return
               }
               this.loading = true
               try {
                 const body = { removeRecords: [row] }
-                await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                await fetch(\`\${this.serveApiUrl}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await this.loadList()
               } catch (e) {}
             },
@@ -237,7 +244,7 @@ export default {
               const $table = this.$refs.xTable
               const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
               if (insertRecords.length <= 0 && removeRecords.length <= 0 && updateRecords.length <= 0) {
-                this.$XModal.message({ content: '数据未改动！', status: 'warning' })
+                VXETable.modal.message({ content: '数据未改动！', status: 'warning' })
                 return
               }
               const errMap = await $table.validate().catch(errMap => errMap)
@@ -247,12 +254,12 @@ export default {
               this.loading = true
               try {
                 const body = { insertRecords, removeRecords, updateRecords }
-                await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                await fetch(\`\${this.serveApiUrl}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await this.loadList()
-                this.$XModal.message({ content: \`操作成功，新增 \${insertRecords.length} 条，更新 \${updateRecords.length} 条，删除 \${removeRecords.length} 条\`, status: 'success' })
+                VXETable.modal.message({ content: \`操作成功，新增 \${insertRecords.length} 条，更新 \${updateRecords.length} 条，删除 \${removeRecords.length} 条\`, status: 'success' })
               } catch (e) {
                 if (e && e.message) {
-                  this.$XModal.message({ content: e.message, status: 'error' })
+                  VXETable.modal.message({ content: e.message, status: 'error' })
                 }
               }
               this.loading = false
@@ -262,6 +269,11 @@ export default {
         `
       ]
     }
+  },
+  computed: {
+    ...mapState([
+      'serveApiUrl'
+    ])
   },
   created () {
     this.$nextTick(() => {
@@ -275,7 +287,7 @@ export default {
     async loadList () {
       this.loading = true
       try {
-        const res = await fetch('https://api.xuliangzhan.com:10443/demo/api/pub/all').then(response => response.json())
+        const res = await fetch(`${this.serveApiUrl}/api/pub/all`).then(response => response.json())
         this.tableData = res
       } catch (e) {
         this.tableData = []
@@ -302,7 +314,7 @@ export default {
       await $table.removeCheckboxRow()
     },
     async deleteSelectEvent () {
-      const type = await this.$XModal.confirm('您确定要删除选中的数据?')
+      const type = await VXETable.modal.confirm('您确定要删除选中的数据?')
       if (type !== 'confirm') {
         return
       }
@@ -311,7 +323,7 @@ export default {
       this.loading = true
       try {
         const body = { removeRecords: checkboxRecords }
-        await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+        await fetch(`${this.serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
         await this.loadList()
       } catch (e) {}
       this.loading = false
@@ -321,14 +333,14 @@ export default {
       await $table.remove(row)
     },
     async deleteRowEvent (row) {
-      const type = await this.$XModal.confirm('您确定要删除该数据?')
+      const type = await VXETable.modal.confirm('您确定要删除该数据?')
       if (type !== 'confirm') {
         return
       }
       this.loading = true
       try {
         const body = { removeRecords: [row] }
-        await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+        await fetch(`${this.serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
         await this.loadList()
       } catch (e) {}
     },
@@ -336,7 +348,7 @@ export default {
       const $table = this.$refs.xTable
       const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
       if (insertRecords.length <= 0 && removeRecords.length <= 0 && updateRecords.length <= 0) {
-        this.$XModal.message({ content: '数据未改动！', status: 'warning' })
+        VXETable.modal.message({ content: '数据未改动！', status: 'warning' })
         return
       }
       const errMap = await $table.validate().catch(errMap => errMap)
@@ -346,12 +358,12 @@ export default {
       this.loading = true
       try {
         const body = { insertRecords, removeRecords, updateRecords }
-        await XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+        await fetch(`${this.serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
         await this.loadList()
-        this.$XModal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
+        VXETable.modal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
       } catch (e) {
         if (e && e.message) {
-          this.$XModal.message({ content: e.message, status: 'error' })
+          VXETable.modal.message({ content: e.message, status: 'error' })
         }
       }
       this.loading = false

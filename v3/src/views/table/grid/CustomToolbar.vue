@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -109,6 +111,8 @@ export default {
         </vxe-grid>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -190,7 +194,7 @@ export default {
               setTimeout(() => {
                 const $grid = this.$refs.xGrid
                 const { insertRecords, removeRecords, updateRecords } = $grid.getRecordset()
-                this.$XModal.message({ content: \`新增 \${insertRecords.length} 条，删除 \${removeRecords.length} 条，更新 \${updateRecords.length} 条\`, status: 'success' })
+                VXETable.modal.message({ content: \`新增 \${insertRecords.length} 条，删除 \${removeRecords.length} 条，更新 \${updateRecords.length} 条\`, status: 'success' })
                 this.loadData()
               }, 100)
             }
@@ -233,7 +237,7 @@ export default {
       setTimeout(() => {
         const $grid = this.$refs.xGrid
         const { insertRecords, removeRecords, updateRecords } = $grid.getRecordset()
-        this.$XModal.message({ content: `新增 ${insertRecords.length} 条，删除 ${removeRecords.length} 条，更新 ${updateRecords.length} 条`, status: 'success' })
+        VXETable.modal.message({ content: `新增 ${insertRecords.length} 条，删除 ${removeRecords.length} 条，更新 ${updateRecords.length} 条`, status: 'success' })
         this.loadData()
       }, 100)
     }

@@ -14,7 +14,7 @@
 
       <template #default_version="{ row }">
         <template v-if="row.version === 'pro'">
-          <a class="link pro" :href="pluginUrl" target="_blank">pro</a>
+          <a class="link pro" :href="pluginApiUrl" target="_blank">pro</a>
         </template>
         <template v-else-if="row.disabled">
           <span class="disabled">已废弃</span>
@@ -37,6 +37,7 @@
 <script>
 import { mapState } from 'vuex'
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 import pack from '../../../package.json'
 import XEClipboard from 'xe-clipboard'
 import tableAPI from '../../api/table'
@@ -235,8 +236,8 @@ export default {
   },
   computed: {
     ...mapState([
-      'baseUrl',
-      'pluginUrl'
+      'baseApiUrl',
+      'pluginApiUrl'
     ]),
     apiName () {
       return this.$route.params.name
@@ -399,7 +400,7 @@ export default {
         case 'copy':
           if (row && column) {
             if (XEClipboard.copy(row[column.property])) {
-              this.$XModal.message({ content: this.$t('app.body.msg.copyToClipboard'), status: 'success' })
+              VXETable.modal.message({ content: this.$t('app.body.msg.copyToClipboard'), status: 'success' })
             }
           }
           break

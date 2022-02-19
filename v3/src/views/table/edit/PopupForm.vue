@@ -115,6 +115,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -261,6 +263,8 @@ export default {
         </vxe-modal>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -347,7 +351,7 @@ export default {
               this.showEdit = true
             },
             async removeEvent (row) {
-              const type = await this.$XModal.confirm('您确定要删除该数据?')
+              const type = await VXETable.modal.confirm('您确定要删除该数据?')
               const $table = this.$refs.xTable
               if (type === 'confirm') {
                 $table.remove(row)
@@ -360,10 +364,10 @@ export default {
                 this.submitLoading = false
                 this.showEdit = false
                 if (this.selectRow) {
-                  this.$XModal.message({ content: '保存成功', status: 'success' })
+                  VXETable.modal.message({ content: '保存成功', status: 'success' })
                   Object.assign(this.selectRow, this.formData)
                 } else {
-                  this.$XModal.message({ content: '新增成功', status: 'success' })
+                  VXETable.modal.message({ content: '新增成功', status: 'success' })
                   $table.insert(this.formData)
                 }
               }, 500)
@@ -418,7 +422,7 @@ export default {
       this.showEdit = true
     },
     async removeEvent (row) {
-      const type = await this.$XModal.confirm('您确定要删除该数据?')
+      const type = await VXETable.modal.confirm('您确定要删除该数据?')
       const $table = this.$refs.xTable
       if (type === 'confirm') {
         $table.remove(row)
@@ -431,10 +435,10 @@ export default {
         this.submitLoading = false
         this.showEdit = false
         if (this.selectRow) {
-          this.$XModal.message({ content: '保存成功', status: 'success' })
+          VXETable.modal.message({ content: '保存成功', status: 'success' })
           Object.assign(this.selectRow, this.formData)
         } else {
-          this.$XModal.message({ content: '新增成功', status: 'success' })
+          VXETable.modal.message({ content: '新增成功', status: 'success' })
           $table.insert(this.formData)
         }
       }, 500)

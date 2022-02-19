@@ -2,9 +2,6 @@
   <div>
     <p class="tip">
       文件操作<br>
-      给 vue 实例挂载属性：<br>
-      Vue.prototype.$XSaveFile = VXETable.saveFile<br>
-      Vue.prototype.$XReadFile = VXETable.readFile<br>
     </p>
 
     <p>
@@ -32,6 +29,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -53,39 +52,41 @@ export default {
         </p>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           methods: {
             async clickEvent1 () {
               try {
-                const { file } = await this.$XReadFile()
-                this.$XModal.alert(\`文件名：\${file.name}，文件大小：\${file.size}\`)
+                const { file } = await VXETable.readFile()
+                VXETable.modal.alert(\`文件名：\${file.name}，文件大小：\${file.size}\`)
               } catch (e) {}
             },
             async clickEvent2 () {
               try {
-                const { file } = await this.$XReadFile({
+                const { file } = await VXETable.readFile({
                   types: ['xlsx', 'html']
                 })
-                this.$XModal.alert(\`文件名：\${file.name}，文件大小：\${file.size}\`)
+                VXETable.modal.alert(\`文件名：\${file.name}，文件大小：\${file.size}\`)
               } catch (e) {}
             },
             async clickEvent3 () {
               try {
-                const { files } = await this.$XReadFile({
+                const { files } = await VXETable.readFile({
                   multiple: true
                 })
-                this.$XModal.alert(\`共：\${files.length} 个文件\`)
+                VXETable.modal.alert(\`共：\${files.length} 个文件\`)
               } catch (e) {}
             },
             clickEvent6 () {
-              this.$XSaveFile({
+              VXETable.saveFile({
                 filename: '文本',
                 type: 'txt',
                 content: '内容xxx'
               })
             },
             clickEvent7 () {
-              this.$XSaveFile({
+              VXETable.saveFile({
                 filename: '页面',
                 type: 'html',
                 content: '<html><head></head><body>内容xx</body></html>'
@@ -96,7 +97,7 @@ export default {
               fetch('https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif').then(response => {
                 response.blob().then(blob => {
                   // 下载到本地
-                  this.$XSaveFile({ filename: '图片', type: 'gif', content: blob })
+                  VXETable.saveFile({ filename: '图片', type: 'gif', content: blob })
                 })
               })
             }
@@ -109,35 +110,35 @@ export default {
   methods: {
     async clickEvent1 () {
       try {
-        const { file } = await this.$XReadFile()
-        this.$XModal.alert(`文件名：${file.name}，文件大小：${file.size}`)
+        const { file } = await VXETable.readFile()
+        VXETable.modal.alert(`文件名：${file.name}，文件大小：${file.size}`)
       } catch (e) {}
     },
     async clickEvent2 () {
       try {
-        const { file } = await this.$XReadFile({
+        const { file } = await VXETable.readFile({
           types: ['xlsx', 'html']
         })
-        this.$XModal.alert(`文件名：${file.name}，文件大小：${file.size}`)
+        VXETable.modal.alert(`文件名：${file.name}，文件大小：${file.size}`)
       } catch (e) {}
     },
     async clickEvent3 () {
       try {
-        const { files } = await this.$XReadFile({
+        const { files } = await VXETable.readFile({
           multiple: true
         })
-        this.$XModal.alert(`共：${files.length} 个文件`)
+        VXETable.modal.alert(`共：${files.length} 个文件`)
       } catch (e) {}
     },
     clickEvent6 () {
-      this.$XSaveFile({
+      VXETable.saveFile({
         filename: '文本',
         type: 'txt',
         content: '内容xxx'
       })
     },
     clickEvent7 () {
-      this.$XSaveFile({
+      VXETable.saveFile({
         filename: '页面',
         type: 'html',
         content: '<html><head></head><body>内容xx</body></html>'
@@ -148,7 +149,7 @@ export default {
       fetch('https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif').then(response => {
         response.blob().then(blob => {
           // 下载到本地
-          this.$XSaveFile({ filename: '图片', type: 'gif', content: blob })
+          VXETable.saveFile({ filename: '图片', type: 'gif', content: blob })
         })
       })
     }

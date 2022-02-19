@@ -178,6 +178,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -303,6 +305,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -320,12 +324,12 @@ export default {
             toggleExpandMethod ({ expanded, row }) {
               if (expanded) {
                 if (row.sex === '1') {
-                  this.$XModal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
+                  VXETable.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
                   return false
                 }
               } else {
                 if (row.sex === '0') {
-                  this.$XModal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
+                  VXETable.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
                   return false
                 }
               }
@@ -420,12 +424,12 @@ export default {
     toggleExpandMethod ({ expanded, row }) {
       if (expanded) {
         if (row.sex === '1') {
-          this.$XModal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
+          VXETable.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
           return false
         }
       } else {
         if (row.sex === '0') {
-          this.$XModal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
+          VXETable.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
           return false
         }
       }

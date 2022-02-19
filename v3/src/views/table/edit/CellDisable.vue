@@ -84,6 +84,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -137,6 +139,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -174,7 +178,7 @@ export default {
               return true
             },
             editDisabledEvent ({ row, column }) {
-              this.$XModal.message({ content: '禁止编辑', status: 'error' })
+              VXETable.modal.message({ content: '禁止编辑', status: 'error' })
             }
           }
         }
@@ -273,7 +277,7 @@ export default {
       return true
     },
     editDisabledEvent () {
-      this.$XModal.message({ content: '禁止编辑', status: 'error' })
+      VXETable.modal.message({ content: '禁止编辑', status: 'error' })
     },
     editActivedEvent ({ rowIndex, row }) {
       this.nameDisabled = rowIndex === 1

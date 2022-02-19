@@ -26,7 +26,7 @@
           <div style="font-size: 22px;font-weight: 700;">QQ交流群</div>
           <div style="padding-top: 15px;">该群供大家交流問題，如果群人数已满，将会不定期剔除不活跃的，<br>如果有 bug 建议通过 <a class="link" href="https://github.com/x-extends/vxe-table">issues</a> 反馈</div>
         </div>
-        <img :src="`${baseUrl}static/donation/qq.png`">
+        <img :src="`${baseApiUrl}static/donation/qq.png`">
       </div>
       <div style="float: right;padding-right: 5em;">
         <div style="padding: 15px 0;width: 500px;">
@@ -36,10 +36,10 @@
           </vxe-radio-group>
           <div style="padding-top: 15px;">
             <span v-if="supportAuthor === '1'">如果该项目帮助了您，请作者喝杯咖啡吧</span>
-            <a v-else class="link" :href="`${pluginUrl}#/support`" target="_blank">点击赞助作者并加入支官方持群</a>
+            <a v-else class="link" :href="`${pluginApiUrl}#/support`" target="_blank">点击赞助作者并加入支官方持群</a>
           </div>
         </div>
-        <img v-if="supportAuthor === '1'" :src="`${baseUrl}static/donation/pay.jpg`">
+        <img v-if="supportAuthor === '1'" :src="`${baseApiUrl}static/donation/pay.jpg`">
       </div>
     </div>
   </div>
@@ -52,14 +52,14 @@ import { useStore } from 'vuex'
 export default defineComponent({
   setup () {
     const store = useStore()
-    const baseUrl = computed(() => store.state.baseUrl)
-    const pluginUrl = computed(() => store.state.pluginUrl)
+    const baseApiUrl = computed(() => store.state.baseApiUrl)
+    const pluginApiUrl = computed(() => store.state.pluginApiUrl)
     const showSupportQQ = computed(() => store.state.showSupportQQ)
 
     const supportAuthor = ref('1')
     return {
-      baseUrl,
-      pluginUrl,
+      baseApiUrl,
+      pluginApiUrl,
       showSupportQQ,
       supportAuthor
     }

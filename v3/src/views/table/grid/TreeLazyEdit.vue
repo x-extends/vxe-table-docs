@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     let dataId = 1
@@ -123,6 +125,8 @@ export default {
         </vxe-grid>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             let dataId = 1
@@ -205,7 +209,7 @@ export default {
             getUpdateEvent () {
               const $grid = this.$refs.xGrid
               const updateRecords = $grid.getUpdateRecords()
-              this.$XModal.alert(updateRecords.length)
+              VXETable.modal.alert(updateRecords.length)
             },
             visibleMethod  ({ row, type }) {
               const $grid = this.$refs.xGrid
@@ -254,7 +258,7 @@ export default {
     getUpdateEvent () {
       const $grid = this.$refs.xGrid
       const updateRecords = $grid.getUpdateRecords()
-      this.$XModal.alert(updateRecords.length)
+      VXETable.modal.alert(updateRecords.length)
     },
     visibleMethod  ({ row, type }) {
       const $grid = this.$refs.xGrid

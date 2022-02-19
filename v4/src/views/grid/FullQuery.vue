@@ -8,12 +8,12 @@
       <template #toolbar_buttons>
         <vxe-form :data="formData" @submit="searchEvent" @reset="resetEvent">
           <vxe-form-item field="name">
-            <template>
+            <template #default>
               <vxe-input v-model="formData.name" type="text" placeholder="请输入名称"></vxe-input>
             </template>
           </vxe-form-item>
           <vxe-form-item>
-            <template>
+            <template #default>
               <vxe-button type="submit" status="primary" content="查询"></vxe-button>
               <vxe-button type="reset" content="重置"></vxe-button>
             </template>
@@ -40,13 +40,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from 'vue'
+import { defineComponent, reactive, ref, computed } from 'vue'
+import { useStore } from 'vuex'
 import { VxeGridInstance, VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
-import XEAjax from 'xe-ajax'
 
 export default defineComponent({
   setup () {
+    const store = useStore()
+    const serveApiUrl = computed(() => store.state.serveApiUrl)
+
     const xGrid = ref({} as VxeGridInstance)
 
     const searchEvent = () => {
@@ -129,10 +132,10 @@ export default defineComponent({
             filters.forEach(({ property, values }) => {
               queryParams[property] = values.join(',')
             })
-            return XEAjax.get(`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams)
+            return fetch(`${serveApiUrl.value}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
           },
           // 被某些特殊功能所触发，例如：导出数据 mode=all 时，会触发该方法并对返回的数据进行导出
-          queryAll: () => fetch('https://api.xuliangzhan.com:10443/demo/api/pub/all').then(response => response.json())
+          queryAll: () => fetch(`${serveApiUrl.value}/api/pub/all`).then(response => response.json())
         }
       },
       toolbarConfig: {
@@ -208,12 +211,12 @@ export default defineComponent({
           <template #toolbar_buttons>
             <vxe-form :data="formData" @submit="searchEvent" @reset="resetEvent">
               <vxe-form-item field="name">
-                <template>
+                <template #default>
                   <vxe-input v-model="formData.name" type="text" placeholder="请输入名称"></vxe-input>
                 </template>
               </vxe-form-item>
               <vxe-form-item>
-                <template>
+                <template #default>
                   <vxe-button type="submit" status="primary" content="查询"></vxe-button>
                   <vxe-button type="reset" content="重置"></vxe-button>
                 </template>
@@ -231,13 +234,16 @@ export default defineComponent({
         </vxe-grid>
         `,
         `
-        import { defineComponent, reactive, ref } from 'vue'
+        import { defineComponent, reactive, ref, computed } from 'vue'
+        import { useStore } from 'vuex'
         import { VxeGridInstance, VxeGridProps } from 'vxe-table'
         import XEUtils from 'xe-utils'
-        import XEAjax from 'xe-ajax'
 
         export default defineComponent({
           setup () {
+            const store = useStore()
+            const serveApiUrl = computed(() => store.state.serveApiUrl)
+    
             const xGrid = ref({} as VxeGridInstance)
 
             const searchEvent = () => {
@@ -315,10 +321,10 @@ export default defineComponent({
                     filters.forEach(({ property, values }) => {
                       queryParams[property] = values.join(',')
                     })
-                    return XEAjax.get(\`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams)
+                    return fetch(\`\${serveApiUrl.value}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}?\${XEUtils.serialize(queryParams)}\`).then(response => response.json())
                   },
                   // 被某些特殊功能所触发，例如：导出数据 mode=all 时，会触发该方法并对返回的数据进行导出
-                  queryAll: () => fetch('https://api.xuliangzhan.com:10443/demo/api/pub/all').then(response => response.json())
+                  queryAll: () => fetch(\`\${serveApiUrl.value}/api/pub/all\`).then(response => response.json())
                 }
               },
               toolbarConfig: {

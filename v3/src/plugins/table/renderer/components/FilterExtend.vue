@@ -52,6 +52,7 @@
 
 <script>
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 
 export default {
   name: 'FilterExtend',
@@ -127,7 +128,7 @@ export default {
       $panel.resetFilter()
     },
     childMenuClickEvent (cItem) {
-      this.$XModal.alert({ content: cItem.label })
+      VXETable.modal.alert({ content: cItem.label })
     }
   }
 }

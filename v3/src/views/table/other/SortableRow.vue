@@ -68,6 +68,7 @@
 <script>
 import Sortable from 'sortablejs'
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -226,6 +227,7 @@ export default {
         `
         import Sortable from 'sortablejs'
         import XEUtils from 'xe-utils'
+        import VXETable from 'vxe-table'
 
         export default {
           data () {
@@ -316,7 +318,7 @@ export default {
                         // 错误的移动
                         const oldTrElem = wrapperElem.children[oldIndex]
                         wrapperElem.insertBefore(targetTrElem, oldTrElem)
-                        return this.$XModal.message({ content: '不允许自己给自己拖动！', status: 'error' })
+                        return VXETable.modal.message({ content: '不允许自己给自己拖动！', status: 'error' })
                       }
                       const currRow = selfNode.items.splice(selfNode.index, 1)[0]
                       if (xTable.isTreeExpandByRow(prevRow)) {
@@ -399,7 +401,7 @@ export default {
                 // 错误的移动
                 const oldTrElem = wrapperElem.children[oldIndex]
                 wrapperElem.insertBefore(targetTrElem, oldTrElem)
-                return this.$XModal.message({ content: '不允许自己给自己拖动！', status: 'error' })
+                return VXETable.modal.message({ content: '不允许自己给自己拖动！', status: 'error' })
               }
               const currRow = selfNode.items.splice(selfNode.index, 1)[0]
               if (xTable.isTreeExpandByRow(prevRow)) {

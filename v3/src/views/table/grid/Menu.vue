@@ -32,6 +32,7 @@
 
 <script>
 import XEClipboard from 'xe-clipboard'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -100,6 +101,7 @@ export default {
         `,
         `
         import XEClipboard from 'xe-clipboard'
+        import VXETable from 'vxe-table'
 
         export default {
           data () {
@@ -187,7 +189,7 @@ export default {
                 case 'copy':
                   if (row && column) {
                     if (XEClipboard.copy(row[column.property])) {
-                      this.$XModal.message({ content: '已复制到剪贴板！', status: 'success' })
+                      VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                     }
                   }
                   break
@@ -246,7 +248,7 @@ export default {
         case 'copy':
           if (row && column) {
             if (XEClipboard.copy(row[column.property])) {
-              this.$XModal.message({ content: '已复制到剪贴板！', status: 'success' })
+              VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
             }
           }
           break

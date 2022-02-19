@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -131,6 +133,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -161,10 +165,10 @@ export default {
                   row.loading = false
                   // 保存完成后将行恢复到初始状态
                   $table.reloadRow(row, {})
-                  this.$XModal.message({ content: '保存成功！', status: 'success' })
+                  VXETable.modal.message({ content: '保存成功！', status: 'success' })
                 }, 300)
               } else {
-                this.$XModal.message({ content: '数据未改动！', status: 'info' })
+                VXETable.modal.message({ content: '数据未改动！', status: 'info' })
               }
             },
             saveEvent () {
@@ -186,17 +190,17 @@ export default {
             getInsertEvent () {
               const $table = this.$refs.xTable
               const insertRecords = $table.getInsertRecords()
-              this.$XModal.alert(insertRecords.length)
+              VXETable.modal.alert(insertRecords.length)
             },
             getRemoveEvent () {
               const $table = this.$refs.xTable
               const removeRecords = $table.getRemoveRecords()
-              this.$XModal.alert(removeRecords.length)
+              VXETable.modal.alert(removeRecords.length)
             },
             getUpdateEvent () {
               const $table = this.$refs.xTable
               const updateRecords = $table.getUpdateRecords()
-              this.$XModal.alert(updateRecords.length)
+              VXETable.modal.alert(updateRecords.length)
             }
           }
         }
@@ -220,10 +224,10 @@ export default {
           row.loading = false
           // 保存完成后将行恢复到初始状态
           $table.reloadRow(row, {})
-          this.$XModal.message({ content: '保存成功！', status: 'success' })
+          VXETable.modal.message({ content: '保存成功！', status: 'success' })
         }, 300)
       } else {
-        this.$XModal.message({ content: '数据未改动！', status: 'info' })
+        VXETable.modal.message({ content: '数据未改动！', status: 'info' })
       }
     },
     saveEvent () {
@@ -245,17 +249,17 @@ export default {
     getInsertEvent () {
       const $table = this.$refs.xTable
       const insertRecords = $table.getInsertRecords()
-      this.$XModal.alert(insertRecords.length)
+      VXETable.modal.alert(insertRecords.length)
     },
     getRemoveEvent () {
       const $table = this.$refs.xTable
       const removeRecords = $table.getRemoveRecords()
-      this.$XModal.alert(removeRecords.length)
+      VXETable.modal.alert(removeRecords.length)
     },
     getUpdateEvent () {
       const $table = this.$refs.xTable
       const updateRecords = $table.getUpdateRecords()
-      this.$XModal.alert(updateRecords.length)
+      VXETable.modal.alert(updateRecords.length)
     }
   }
 }

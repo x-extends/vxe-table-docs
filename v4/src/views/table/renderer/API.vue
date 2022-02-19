@@ -26,7 +26,7 @@
       :data="nativeRenderList">
       <vxe-column field="name" title="渲染器名称" min-width="100">
         <template #default="{ row }">
-          <a class="link" :href="row.apiUrl" target="_blank">{{ row.name }}</a>
+          <a class="link" :href="row.url" target="_blank">{{ row.name }}</a>
         </template>
       </vxe-column>
       <vxe-column field="desc" title="说明" min-width="280"></vxe-column>
@@ -55,17 +55,17 @@ export default defineComponent({
       nativeRenderList: [
         {
           name: 'input',
-          apiUrl: 'https://www.w3school.com.cn/tags/tag_input.asp',
+          url: 'https://www.w3school.com.cn/tags/tag_input.asp',
           desc: '原生-输入框'
         },
         {
           name: 'textarea',
-          apiUrl: 'https://www.w3school.com.cn/tags/tag_textarea.asp',
+          url: 'https://www.w3school.com.cn/tags/tag_textarea.asp',
           desc: '原生-文本域'
         },
         {
           name: 'select',
-          apiUrl: 'https://www.w3school.com.cn/tags/tag_select.asp',
+          url: 'https://www.w3school.com.cn/tags/tag_select.asp',
           desc: '原生-下拉框'
         }
       ],

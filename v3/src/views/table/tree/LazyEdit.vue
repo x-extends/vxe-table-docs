@@ -52,6 +52,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -102,6 +104,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -128,7 +132,7 @@ export default {
             },
             getUpdateEvent () {
               const updateRecords = this.$refs.xTable.getUpdateRecords()
-              this.$XModal.alert(updateRecords.length)
+              VXETable.modal.alert(updateRecords.length)
             }
           }
         }
@@ -151,7 +155,7 @@ export default {
     },
     getUpdateEvent () {
       const updateRecords = this.$refs.xTable.getUpdateRecords()
-      this.$XModal.alert(updateRecords.length)
+      VXETable.modal.alert(updateRecords.length)
     }
   }
 }

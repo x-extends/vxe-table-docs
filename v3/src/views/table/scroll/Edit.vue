@@ -82,6 +82,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -159,6 +161,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -213,15 +217,15 @@ export default {
             },
             getInsertEvent () {
               let insertRecords = this.$refs.xTable.getInsertRecords()
-              this.$XModal.alert(insertRecords.length)
+              VXETable.modal.alert(insertRecords.length)
             },
             getRemoveEvent () {
               let removeRecords = this.$refs.xTable.getRemoveRecords()
-              this.$XModal.alert(removeRecords.length)
+              VXETable.modal.alert(removeRecords.length)
             },
             getUpdateEvent () {
               let updateRecords = this.$refs.xTable.getUpdateRecords()
-              this.$XModal.alert(updateRecords.length)
+              VXETable.modal.alert(updateRecords.length)
             }
           }
         }
@@ -278,15 +282,15 @@ export default {
     },
     getInsertEvent () {
       const insertRecords = this.$refs.xTable.getInsertRecords()
-      this.$XModal.alert(insertRecords.length)
+      VXETable.modal.alert(insertRecords.length)
     },
     getRemoveEvent () {
       const removeRecords = this.$refs.xTable.getRemoveRecords()
-      this.$XModal.alert(removeRecords.length)
+      VXETable.modal.alert(removeRecords.length)
     },
     getUpdateEvent () {
       const updateRecords = this.$refs.xTable.getUpdateRecords()
-      this.$XModal.alert(updateRecords.length)
+      VXETable.modal.alert(updateRecords.length)
     }
   }
 }

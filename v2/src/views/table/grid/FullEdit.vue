@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import XEAjax from 'xe-ajax'
 import XEUtils from 'xe-utils'
 import hljs from 'highlight.js'
@@ -112,10 +113,10 @@ export default {
               filters.forEach(({ property, values }) => {
                 queryParams[property] = values.join(',')
               })
-              return XEAjax.get(`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams)
+              return XEAjax.get(`${this.serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams)
             },
-            delete: ({ body }) => XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body),
-            save: ({ body }) => XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+            delete: ({ body }) => XEAjax.post(`${this.serveApiUrl}/api/pub/save`, body),
+            save: ({ body }) => XEAjax.post(`${this.serveApiUrl}/api/pub/save`, body)
           }
         },
         columns: [
@@ -278,10 +279,10 @@ export default {
                       filters.forEach(({ property, values }) => {
                         queryParams[property] = values.join(',')
                       })
-                      return XEAjax.get(\`https://api.xuliangzhan.com:10443/demo/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams)
+                      return XEAjax.get(\`\${this.serveApiUrl}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams)
                     },
-                    delete: ({ body }) => XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body),
-                    save: ({ body }) => XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/save', body)
+                    delete: ({ body }) => XEAjax.post(\`\${this.serveApiUrl}/api/pub/save\`, body),
+                    save: ({ body }) => XEAjax.post(\`\${this.serveApiUrl}/api/pub/save\`, body)
                   }
                 },
                 columns: [
@@ -354,6 +355,11 @@ export default {
               }
             }
           },
+          computed: {
+            ...mapState([
+              'serveApiUrl'
+            ])
+          },
           created () {
             this.findSexList()
           },
@@ -385,7 +391,7 @@ export default {
             importMethod ({ file }) {
               const formBody = new FormData()
               formBody.append('file', file)
-              return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/import', formBody).then(data => {
+              return XEAjax.post(\`\${this.serveApiUrl}/api/pub/import\`, formBody).then(data => {
                 this.$XModal.message({ message: \`成功导入 \${data.result.insertRows} 条记录！\`, status: 'success' })
                 // 导入完成，刷新表格
                 this.$refs.xGrid.commitProxy('query')
@@ -412,11 +418,11 @@ export default {
                 })
               }
               // 开始服务端导出
-              return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/export', body).then(data => {
+              return XEAjax.post(\`\${this.serveApiUrl}/api/pub/export\`, body).then(data => {
                 if (data.id) {
                   this.$XModal.message({ message: '导出成功，开始下载', status: 'success' })
                   // 读取路径，请求文件流 => 开始下载
-                  location.href = \`https://api.xuliangzhan.com:10443/demo/api/pub/export/download/\${data.id}\`
+                  location.href = \`\${this.serveApiUrl}/api/pub/export/download/\${data.id}\`
                 }
               }).catch(() => {
                 this.$XModal.message({ message: '导出失败！', status: 'error' })
@@ -427,6 +433,11 @@ export default {
         `
       ]
     }
+  },
+  computed: {
+    ...mapState([
+      'serveApiUrl'
+    ])
   },
   created () {
     this.findSexList()
@@ -464,7 +475,7 @@ export default {
     importMethod ({ file }) {
       const formBody = new FormData()
       formBody.append('file', file)
-      return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/import', formBody).then(data => {
+      return XEAjax.post(`${this.serveApiUrl}/api/pub/import`, formBody).then(data => {
         this.$XModal.message({ message: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
         // 导入完成，刷新表格
         this.$refs.xGrid.commitProxy('query')
@@ -491,11 +502,11 @@ export default {
         })
       }
       // 开始服务端导出
-      return XEAjax.post('https://api.xuliangzhan.com:10443/demo/api/pub/export', body).then(data => {
+      return XEAjax.post(`${this.serveApiUrl}/api/pub/export`, body).then(data => {
         if (data.id) {
           this.$XModal.message({ message: '导出成功，开始下载', status: 'success' })
           // 读取路径，请求文件流 => 开始下载
-          location.href = `https://api.xuliangzhan.com:10443/demo/api/pub/export/download/${data.id}`
+          location.href = `${this.serveApiUrl}/api/pub/export/download/${data.id}`
         }
       }).catch(() => {
         this.$XModal.message({ message: '导出失败！', status: 'error' })

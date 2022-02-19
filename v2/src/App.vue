@@ -2,8 +2,8 @@
   <div id="app" @click="clickEvent">
     <header class="page-header">
       <div class="left">
-        <a :href="baseUrl">
-          <img :src="`${baseUrl}logo.png`" width="18">
+        <a :href="baseApiUrl">
+          <img :src="`${baseApiUrl}logo.png`" width="18">
           <span class="title">vxe-table</span>
         </a>
         <a href='https://gitee.com/xuliangzhan_admin/vxe-table/stargazers'>
@@ -19,14 +19,14 @@
       <div class="right">
         <div class="content">
           <span v-if="usedJSHeapSize && usedJSHeapSize !== '0'" class="performance">Memory used: {{ usedJSHeapSize }} MB.</span>
-          <span>{{ $t('app.body.label.translations') }}:</span>
+          <!-- <span>{{ $t('app.body.label.translations') }}:</span> -->
           <vxe-select class="locale-switch" size="mini" v-model="$i18n.locale">
             <vxe-option value="zh_CN" label="中文"></vxe-option>
             <vxe-option value="zh_TC" label="繁體中文"></vxe-option>
             <vxe-option value="en_US" label="English"></vxe-option>
             <!-- <vxe-option value="ja_JP" label="ジャパン"></vxe-option> -->
           </vxe-select>
-          <span>{{ $t('app.body.label.version') }}: </span>
+          <!-- <span>{{ $t('app.body.label.version') }}: </span> -->
           <vxe-select class="version-switch" size="mini" v-model="version" @change="vChangeEvent">
             <!-- <vxe-option value="4.5" :label="$t('app.body.other.v4d5')" disabled></vxe-option> -->
             <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
@@ -2136,8 +2136,9 @@ export default {
   },
   computed: {
     ...mapState([
-      'baseUrl',
-      'pluginUrl'
+      'baseApiUrl',
+      'pluginApiUrl',
+      'serveApiUrl'
     ]),
     demoLink () {
       const { $route, apiList } = this
@@ -2256,7 +2257,7 @@ export default {
       setTimeout(() => this.defaultExpand(), 1500)
     },
     loadSponsors () {
-      XEAjax.get('https://api.xuliangzhan.com:10443/demo/api/pub/sponsors').then(data => {
+      XEAjax.get(`${this.serveApiUrl}/api/pub/sponsors`).then(data => {
         this.sponsorList = data
       })
     },
@@ -2274,18 +2275,10 @@ export default {
       }
     },
     getVersion () {
-      XEAjax.get('https://api.xuliangzhan.com:10443/demo/api/npm/versions/vxe-table').then(({ time, tags, versions }) => {
-        const stableVersionList = []
-        const betaVersionList = []
-        if (versions) {
-          versions.forEach(version => {
-            if (new RegExp(`^${this.version}.\\d{1,3}.\\d{1,3}$`).test(version)) {
-              stableVersionList.push({ label: version, value: version })
-            } else if (new RegExp(`^${this.version}.\\d{1,3}.\\d{1,3}-beta.\\d{1,3}$`).test(version)) {
-              betaVersionList.push({ label: version, value: version })
-            }
-          })
-        }
+      XEAjax.get(`${this.serveApiUrl}/api/npm/versions/vxe-table`).then((data) => {
+        const { time, tags } = data
+        const stableVersionList = data[`v${this.version}StableList`].map(version => ({ value: version, label: version }))
+        const betaVersionList = data[`v${this.version}BetaList`].map(version => ({ value: version, label: version }))
         this.stableVersionList = stableVersionList
         this.betaVersionList = betaVersionList
         if (stableVersionList.length) {
@@ -2360,16 +2353,16 @@ export default {
     vChangeEvent () {
       switch (this.version) {
         case '1':
-          location.href = `${this.baseUrl}v1/`
+          location.href = `${this.baseApiUrl}v1/`
           break
         case '2':
-          location.href = `${this.baseUrl}v2/`
+          location.href = `${this.baseApiUrl}v2/`
           break
         case '3':
-          location.href = `${this.baseUrl}v3/`
+          location.href = `${this.baseApiUrl}v3/`
           break
         case '4':
-          location.href = `${this.baseUrl}v4/`
+          location.href = `${this.baseApiUrl}v4/`
           break
       }
     }

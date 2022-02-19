@@ -62,6 +62,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -124,6 +126,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -217,7 +221,7 @@ export default {
             saveEvent () {
               const $table = this.$refs.xTable
               const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-              this.$XModal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
+              VXETable.modal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
             }
           }
         }
@@ -303,7 +307,7 @@ export default {
     saveEvent () {
       const $table = this.$refs.xTable
       const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      this.$XModal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
     }
   }
 }

@@ -2,8 +2,6 @@
   <div>
     <p class="tip">
       内置打印模块：可以非常简单将任何视图直接输出打印，可以通过 <table-api-link prop="content"/> 或者 <table-api-link prop="beforePrintMethod"/> 自定义内容模板<br>
-      给 vue 实例挂载属性，属性名自行定义：<br>
-      Vue.prototype.$XPrint = VXETable.print<br>
       <span class="red">（注：打印的样式及模板自行实现，该示例仅供参考）</span>
     </p>
 
@@ -84,6 +82,7 @@
 <script>
 import QRCode from 'qrcode'
 import jsbarcode from 'jsbarcode'
+import VXETable from 'vxe-table'
 
 // 打印样式
 const printStyle = `
@@ -304,6 +303,8 @@ export default {
         </vxe-toolbar>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           data () {
             return {
@@ -351,7 +352,7 @@ export default {
                 \`
                 printTmpls.push(tmpl)
               })
-              this.$XPrint({
+              VXETable.print({
                 sheetName: '打印条形码模板',
                 style: printStyle,
                 content: printTmpls.join('')
@@ -368,6 +369,8 @@ export default {
         </vxe-toolbar>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           methods: {
             printEvent3 () {
@@ -388,7 +391,7 @@ export default {
                   <div style="margin-top: 15px;">如果对您有帮助，点击右上角捐赠打赏我们一杯咖啡！</div>
                 </div>
                 \`
-                this.$XPrint({
+                VXETable.print({
                   sheetName: '打印二维码模板',
                   style: printStyle,
                   content: printTmpl
@@ -406,6 +409,8 @@ export default {
         </vxe-toolbar>
         `,
         `
+        import VXETable from 'vxe-table'
+
         export default {
           methods: {
             printEvent4 () {
@@ -534,7 +539,7 @@ export default {
                 <div style="margin-top: 15px;">如果对您有帮助，点击右上角捐赠打赏我们一杯咖啡！</div>
               </div>
               \`
-              this.$XPrint({
+              VXETable.print({
                 sheetName: '打印合同模板',
                 style: printStyle,
                 content: printTmpl
@@ -600,7 +605,7 @@ export default {
         `
         printTmpls.push(tmpl)
       })
-      this.$XPrint({
+      VXETable.print({
         sheetName: '打印条形码模板',
         style: printStyle,
         content: printTmpls.join('')
@@ -624,7 +629,7 @@ export default {
           <div style="margin-top: 15px;">如果对您有帮助，点击右上角捐赠打赏我们一杯咖啡！</div>
         </div>
         `
-        this.$XPrint({
+        VXETable.print({
           sheetName: '打印二维码模板',
           style: printStyle,
           content: printTmpl
@@ -757,7 +762,7 @@ export default {
         <div style="margin-top: 15px;">如果对您有帮助，点击右上角捐赠打赏我们一杯咖啡！</div>
       </div>
       `
-      this.$XPrint({
+      VXETable.print({
         sheetName: '打印合同模板',
         style: printStyle,
         content: printTmpl

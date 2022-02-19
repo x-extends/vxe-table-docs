@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -98,6 +100,8 @@ export default {
         </vxe-table>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -121,7 +125,7 @@ export default {
               await $table.setActiveCell(newRow, 'sex')
             },
             async removeEvent (row) {
-              const type = await this.$XModal.confirm('您确定要删除该数据?')
+              const type = await VXETable.modal.confirm('您确定要删除该数据?')
               const $table = this.$refs.xTable
               if (type === 'confirm') {
                 $table.remove(row)
@@ -130,17 +134,17 @@ export default {
             getRemoveEvent () {
               const $table = this.$refs.xTable
               const removeRecords = $table.getRemoveRecords()
-              this.$XModal.alert(removeRecords.length)
+              VXETable.modal.alert(removeRecords.length)
             },
             getSelectionEvent () {
               const $table = this.$refs.xTable
               const selectRecords = $table.getCheckboxRecords()
-              this.$XModal.alert(selectRecords.length)
+              VXETable.modal.alert(selectRecords.length)
             },
             saveEvent () {
               const $table = this.$refs.xTable
               const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-              this.$XModal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
+              VXETable.modal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
             }
           }
         }
@@ -158,7 +162,7 @@ export default {
       await $table.setActiveCell(newRow, 'sex')
     },
     async removeEvent (row) {
-      const type = await this.$XModal.confirm('您确定要删除该数据?')
+      const type = await VXETable.modal.confirm('您确定要删除该数据?')
       const $table = this.$refs.xTable
       if (type === 'confirm') {
         $table.remove(row)
@@ -167,17 +171,17 @@ export default {
     getRemoveEvent () {
       const $table = this.$refs.xTable
       const removeRecords = $table.getRemoveRecords()
-      this.$XModal.alert(removeRecords.length)
+      VXETable.modal.alert(removeRecords.length)
     },
     getSelectionEvent () {
       const $table = this.$refs.xTable
       const selectRecords = $table.getCheckboxRecords()
-      this.$XModal.alert(selectRecords.length)
+      VXETable.modal.alert(selectRecords.length)
     },
     saveEvent () {
       const $table = this.$refs.xTable
       const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      this.$XModal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
     }
   }
 }

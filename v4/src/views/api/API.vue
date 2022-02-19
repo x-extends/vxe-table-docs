@@ -14,7 +14,7 @@
 
       <template #default_version="{ row }">
         <template v-if="row.version === 'pro'">
-          <a class="link pro" :href="pluginUrl" target="_blank">pro</a>
+          <a class="link pro" :href="pluginApiUrl" target="_blank">pro</a>
         </template>
         <template v-else-if="row.disabled">
           <span class="disabled">已废弃</span>
@@ -128,7 +128,7 @@ export default defineComponent({
     const q = (router.currentRoute.value.query.q || router.currentRoute.value.query.filterName) as string
 
     const store = useStore()
-    const pluginUrl = computed(() => store.state.pluginUrl)
+    const pluginApiUrl = computed(() => store.state.pluginApiUrl)
 
     const apiData = reactive({
       filterName: q ? decodeURIComponent(q) : '',
@@ -492,7 +492,7 @@ export default defineComponent({
 
     return {
       xGrid,
-      pluginUrl,
+      pluginApiUrl,
 
       apiData,
       apiName,

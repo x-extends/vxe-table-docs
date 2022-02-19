@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import VXETable from 'vxe-table'
+
 export default {
   data () {
     return {
@@ -95,6 +97,8 @@ export default {
         </vxe-virtual-tree>
         `,
         `
+        import VXETable from 'vxe-table'
+        
         export default {
           data () {
             return {
@@ -130,7 +134,7 @@ export default {
                 if (this.$refs.xVTree) {
                   this.$refs.xVTree.loadData(data)
                   this.$nextTick(() => {
-                    this.$XModal.message({ content: \`渲染 \${size} 行，用时 \${Date.now() - startTime}毫秒\`, status: 'info' })
+                    VXETable.modal.message({ content: \`渲染 \${size} 行，用时 \${Date.now() - startTime}毫秒\`, status: 'info' })
                   })
                 }
               })
@@ -287,7 +291,7 @@ export default {
             },
             getSelectionEvent () {
               const selectRecords = this.$refs.xVTree.getCheckboxRecords()
-              this.$XModal.alert(selectRecords.length)
+              VXETable.modal.alert(selectRecords.length)
             }
           }
         }
@@ -307,7 +311,7 @@ export default {
         if (this.$refs.xVTree) {
           this.$refs.xVTree.loadData(data)
           this.$nextTick(() => {
-            this.$XModal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+            VXETable.modal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
           })
         }
       })
@@ -464,7 +468,7 @@ export default {
     },
     getSelectionEvent () {
       const selectRecords = this.$refs.xVTree.getCheckboxRecords()
-      this.$XModal.alert(selectRecords.length)
+      VXETable.modal.alert(selectRecords.length)
     }
   }
 }
