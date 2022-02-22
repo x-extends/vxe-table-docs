@@ -107,7 +107,6 @@ import XEAjax from 'xe-ajax'
 export default {
   data () {
     return {
-      pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
       showLeft: true,
       selected: null,
       filterName: '',
@@ -1657,164 +1656,6 @@ export default {
           ]
         },
         {
-          label: 'app.aside.nav.other',
-          value: 'other',
-          expand: false,
-          children: [
-            {
-              label: 'app.aside.nav.elementRender',
-              locat: {
-                name: 'TableOtherElement'
-              }
-            },
-            {
-              label: 'app.aside.nav.iviewRender',
-              locat: {
-                name: 'TableOtherIview'
-              }
-            },
-            {
-              label: 'app.aside.nav.antd',
-              locat: {
-                name: 'TableOtherAntd'
-              }
-            },
-            {
-              label: 'app.aside.nav.sortablejsRow',
-              locat: {
-                name: 'TableSortableRow'
-              }
-            },
-            {
-              label: 'app.aside.nav.sortablejsColumn',
-              demoUrl: 'https://jsrun.net/MibKp/edit',
-              locat: {
-                name: 'TableSortableColumn'
-              }
-            }
-            // {
-            //   label: 'app.aside.nav.xlsxRender',
-            //   locat: {
-            //     name: 'TableXlsx'
-            //   }
-            // }
-          ]
-        },
-        {
-          label: 'app.aside.nav.plugin',
-          value: 'plugin',
-          expand: false,
-          children: [
-            // {
-            //   label: 'app.aside.nav.elementPlugin',
-            //   demoUrl: 'https://jsrun.pro/dwbKp/edit',
-            //   locat: {
-            //     name: 'TablePluginElementConfig'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.elementFilterPlugin',
-            //   demoUrl: 'https://jsrun.pro/BWWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginElementFilter'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.elementPluginMore',
-            //   demoUrl: 'https://jsrun.pro/uWWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginElementPage'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.iviewPlugin',
-            //   demoUrl: 'https://jsrun.pro/HPWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginIviewConfig'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.iviewFilter',
-            //   demoUrl: 'https://jsrun.pro/nPWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginIviewFilter'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.iviewPluginMore',
-            //   demoUrl: 'https://jsrun.pro/rPWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginIviewPage'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.antdPlugin',
-            //   demoUrl: 'https://jsrun.pro/APWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginAntdConfig'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.antdFilter',
-            //   locat: {
-            //     name: 'TablePluginAntdFilter'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.antdPluginMore',
-            //   locat: {
-            //     name: 'TablePluginAntdPage'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.shortcutKeyPlugin',
-            //   disabled: true,
-            //   locat: {
-            //     name: 'TablePluginShortcutKey'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.exportXLSXPlugin',
-            //   demoUrl: 'https://jsrun.pro/PIWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginExportXLSX'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.exportPDFPlugin',
-            //   demoUrl: 'https://jsrun.pro/I8WKp/edit',
-            //   locat: {
-            //     name: 'TablePluginExportPDF'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.rendererPlugin',
-            //   disabled: true,
-            //   locat: {
-            //     name: 'TablePluginRenderer'
-            //   }
-            // },
-            {
-              label: 'app.aside.nav.menusPlugin',
-              locat: {
-                name: 'TablePluginMenus'
-              }
-            // },
-            // {
-            //   label: 'app.aside.nav.treeRowPlugin',
-            //   locat: {
-            //     name: 'TablePluginTreeRows'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.treeColPlugin',
-            //   locat: {
-            //     name: 'TablePluginTreeCols'
-            //   }
-            }
-          ]
-        },
-        {
           label: 'app.aside.nav.formats',
           value: 'formats',
           expand: false,
@@ -2164,6 +2005,7 @@ export default {
   },
   computed: {
     ...mapState([
+      'docsVersion',
       'baseApiUrl',
       'pluginApiUrl',
       'serveApiUrl'
@@ -2270,6 +2112,7 @@ export default {
   },
   methods: {
     init () {
+      this.version = this.docsVersion
       this.getVersion()
       this.loadList()
       this.loadSponsors()
@@ -2296,8 +2139,8 @@ export default {
     getVersion () {
       XEAjax.get(`${this.serveApiUrl}/api/npm/versions/vxe-table`).then((data) => {
         const { time, tags } = data
-        const stableVersionList = data[`v${this.version}StableList`].map(version => ({ value: version, label: version }))
-        const betaVersionList = data[`v${this.version}BetaList`].map(version => ({ value: version, label: version }))
+        const stableVersionList = data[`v${this.version}StableList`].map(value => ({ value, label: value }))
+        const betaVersionList = data[`v${this.version}BetaList`].map(value => ({ value, label: value }))
         this.stableVersionList = stableVersionList
         this.betaVersionList = betaVersionList
         if (stableVersionList.length) {

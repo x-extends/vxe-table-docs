@@ -13,20 +13,14 @@ module.exports = {
   publicPath,
   assetsDir: 'static',
   productionSourceMap: false,
-  transpileDependencies: ['highlight.js'],
   configureWebpack: {
     performance: {
       hints: false
     },
     externals: {
-      'xlsx': 'XLSX',
-      'exceljs': 'ExcelJS',
-      'jspdf': 'jspdf',
       'jsbarcode': 'JsBarcode',
       'qrcode': 'QRCode',
-      'dayjs': 'dayjs',
-      'moment': 'moment',
-      'sortablejs': 'Sortable'
+      'highlight.js': 'hljs'
     }
   },
   chainWebpack (config) {

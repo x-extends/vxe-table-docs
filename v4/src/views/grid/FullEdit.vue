@@ -123,7 +123,7 @@ export default defineComponent({
             filters.forEach(({ property, values }) => {
               queryParams[property] = values.join(',')
             })
-            return fetch(`${serveApiUrl.value}/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams).then(response => response.json())
+            return fetch(`${serveApiUrl.value}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
           },
           // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
           delete: ({ body }) => {
@@ -409,7 +409,7 @@ export default defineComponent({
                     filters.forEach(({ property, values }) => {
                       queryParams[property] = values.join(',')
                     })
-                    return fetch(\`\${serveApiUrl.value}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams).then(response =>  response.json())
+                    return fetch(\`\${serveApiUrl.value}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}?\${XEUtils.serialize(queryParams)}\`).then(response =>  response.json())
                   },
                   // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
                   delete: ({ body }) => {

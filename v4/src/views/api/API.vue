@@ -38,10 +38,9 @@
 import { computed, defineComponent, nextTick, reactive, watch, ref } from 'vue'
 import { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 import { useStore } from 'vuex'
-import i18n from '@/i18n'
-import router from '@/router'
+import i18n from '../../i18n'
+import router from '../../router'
 import XEUtils from 'xe-utils'
-import pack from '../../../package.json'
 
 import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
@@ -125,10 +124,11 @@ import pulldownAPI from '../../api/pulldown'
 
 export default defineComponent({
   setup () {
-    const q = (router.currentRoute.value.query.q || router.currentRoute.value.query.filterName) as string
-
     const store = useStore()
+    const docsVersion = computed(() => store.state.docsVersion)
     const pluginApiUrl = computed(() => store.state.pluginApiUrl)
+
+    const q = (router.currentRoute.value.query.q || router.currentRoute.value.query.filterName) as string
 
     const apiData = reactive({
       filterName: q ? decodeURIComponent(q) : '',
@@ -323,14 +323,14 @@ export default defineComponent({
           $grid.exportData({
             type: 'html',
             data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
-            filename: `vxe-${apiName.value}_v${pack.version}`
+            filename: `vxe-${apiName.value}_v${docsVersion.value}`
           })
           break
         case 'exportXLSXAPI':
           $grid.exportData({
             type: 'xlsx',
             data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
-            filename: `vxe-${apiName.value}_v${pack.version}`
+            filename: `vxe-${apiName.value}_v${docsVersion.value}`
           })
           break
         case 'copy':
@@ -350,7 +350,7 @@ export default defineComponent({
           break
         case 'exportAPI':
           $grid.exportData({
-            filename: `vxe-${apiName.value}_v${pack.version}.csv`
+            filename: `vxe-${apiName.value}_v${docsVersion.value}.csv`
           })
           break
         case 'allExpand':

@@ -24,19 +24,18 @@ export default defineComponent({
           // table: {
           //   showHeader: true,
           //   keepSource: false,
-          //   animat: true,
-          //   delayHover: 250,
           //   showOverflow: null,
           //   showHeaderOverflow: null,
           //   showFooterOverflow: null,
           //   size: null,
-          //   resizable: false,
           //   autoResize: false,
           //   stripe: false,
           //   border: false,
           //   round: false,
           //   emptyText: '暂无数据',
-          //   rowId: '_X_ID', // 行数据的唯一主键字段名
+          //   rowConfig: {
+          //     keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
+          //   },
           //   radioConfig: {
           //     trigger: 'default'
           //   },
@@ -62,12 +61,12 @@ export default defineComponent({
           //   },
           //   treeConfig: {
           //     rowField: 'id',
-          //      parentField: 'parentId',
-          //      children: 'children',
-          //      hasChild: 'hasChild',
-          //      mapChildren: '_X_CHILD',
-          //      indent: 20,
-          //      showIcon: true
+          //     parentField: 'parentId',
+          //     children: 'children',
+          //     hasChild: 'hasChild',
+          //     mapChildren: '_X_CHILD',
+          //     indent: 20,
+          //     showIcon: true
           //   },
           //   tooltipConfig: {
           //     enterable: true
@@ -165,6 +164,9 @@ export default defineComponent({
           // select: {
           //   size: null,
           //   transfer: false,
+          //   optionConfig: {
+          //     keyField: '_X_OPTION_KEY' // 选项数据的唯一主键字段名
+          //   },
           //   multiCharOverflow: 8
           // },
           // toolbar: {

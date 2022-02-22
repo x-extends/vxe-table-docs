@@ -18,6 +18,12 @@ module.exports = {
   configureWebpack: {
     performance: {
       hints: false
+    },
+    externals: {
+      'jsbarcode': 'JsBarcode',
+      'qrcode': 'QRCode',
+      'moment': 'moment',
+      'sortablejs': 'Sortable'
     }
   },
   chainWebpack (config) {

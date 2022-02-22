@@ -81,8 +81,9 @@
                     <span v-html="item.label"></span>
                   </a>
                   <ul v-if="item.children" v-show="item.expand" class="nav-child-menu">
-                    <li v-for="(child, cIndex) in item.children" :key="cIndex" :class="{'is-donation': ['Donation'].includes(child.locat.name)}">
+                    <li v-for="(child, cIndex) in item.children" :key="cIndex" :class="{'is-donation': child.locat && ['Donation'].includes(child.locat.name)}">
                       <a class="nav-link disabled" v-if="child.disabled" :title="$t('app.body.other.newFunc')" v-html="child.label"></a>
+                      <a class="nav-link" v-else-if="child.url" :href="child.url" :title="$t('app.body.other.newFunc')" v-html="child.label" target="_blank"></a>
                       <router-link v-else class="nav-link" :to="child.locat" :title="child.label" v-html="child.label"></router-link>
                     </li>
                   </ul>
@@ -121,10 +122,12 @@ import { useStore } from 'vuex'
 import i18n from './i18n'
 import router from './router'
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 
 export default defineComponent({
   setup () {
     const store = useStore()
+    const docsVersion = computed(() => store.state.docsVersion)
     const baseApiUrl = computed(() => store.state.baseApiUrl)
     const pluginApiUrl = computed(() => store.state.pluginApiUrl)
     const serveApiUrl = computed(() => store.state.serveApiUrl)
@@ -133,13 +136,13 @@ export default defineComponent({
       showLeft: true,
       selected: null,
       filterName: '',
+      version: docsVersion.value,
       apiList: [] as any[],
       tableData: [] as any[],
       selectBetaVersion: null,
       betaVersionList: [] as any[],
       selectStableVersion: null,
       stableVersionList: [] as any[],
-      version: '4',
       usedJSHeapSize: '0',
       sponsorList: [],
       apiLoading: false,
@@ -1751,172 +1754,15 @@ export default defineComponent({
         //   ]
         // },
         {
-          label: 'app.aside.nav.other',
-          value: 'other',
-          expand: false,
-          children: [
-            {
-              label: 'app.aside.nav.elementRender',
-              locat: {
-                name: 'TableOtherElement'
-              }
-            },
-            // {
-            //   label: 'app.aside.nav.iviewRender',
-            //   locat: {
-            //     name: 'TableOtherIview'
-            //   }
-            // },
-            {
-              label: 'app.aside.nav.antd',
-              locat: {
-                name: 'TableOtherAntd'
-              }
-            },
-            {
-              label: 'app.aside.nav.sortablejsRow',
-              locat: {
-                name: 'TableSortableRow'
-              }
-            },
-            {
-              label: 'app.aside.nav.sortablejsColumn',
-              demoUrl: 'https://jsrun.pro/MibKp/edit',
-              locat: {
-                name: 'TableSortableColumn'
-              }
-            },
-            {
-              label: 'app.aside.nav.xlsxRender',
-              locat: {
-                name: 'TableXlsx'
-              }
-            }
-          ]
-        },
-        {
           label: 'app.aside.nav.plugin',
           value: 'plugin',
           expand: false,
           children: [
-            // {
-            //   label: 'app.aside.nav.elementPlugin',
-            //   demoUrl: 'https://jsrun.pro/dwbKp/edit',
-            //   locat: {
-            //     name: 'TablePluginElementConfig'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.elementFilterPlugin',
-            //   demoUrl: 'https://jsrun.pro/BWWKpv/edit',
-            //   locat: {
-            //     name: 'TablePluginElementFilter'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.elementPluginMore',
-            //   demoUrl: 'https://jsrun.pro/uWWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginElementPage'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.iviewPlugin',
-            //   demoUrl: 'https://jsrun.pro/HPWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginIviewConfig'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.iviewFilter',
-            //   demoUrl: 'https://jsrun.pro/nPWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginIviewFilter'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.iviewPluginMore',
-            //   demoUrl: 'https://jsrun.pro/rPWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginIviewPage'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.antdPlugin',
-            //   demoUrl: 'https://jsrun.pro/APWKp/edit',
-            //   locat: {
-            //     name: 'TablePluginAntdConfig'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.antdFilter',
-            //   locat: {
-            //     name: 'TablePluginAntdFilter'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.antdPluginMore',
-            //   locat: {
-            //     name: 'TablePluginAntdPage'
-            //   }
-            // },
-            // // {
-            // //   label: 'app.aside.nav.shortcutKeyPlugin',
-            // //   disabled: true,
-            // //   locat: {
-            // //     name: 'TablePluginShortcutKey'
-            // //   }
-            // // },
-            // // {
-            // //   label: 'app.aside.nav.chartsPlugin',
-            // //   disabled: true,
-            // //   demoUrl: 'https://jsrun.pro/9aWKp/edit',
-            // //   locat: {
-            // //     name: 'TablePluginCharts'
-            // //   }
-            // // },
             {
-              label: 'app.aside.nav.exportXLSXPlugin',
-              demoUrl: 'https://jsrun.pro/PIWKp/edit',
-              locat: {
-                name: 'TablePluginExportXLSX'
-              },
-              keywords: ['xlsx']
-            },
-            {
-              label: 'app.aside.nav.exportPDFPlugin',
-              demoUrl: 'https://jsrun.pro/I8WKp/edit',
-              locat: {
-                name: 'TablePluginExportPDF'
-              },
-              keywords: ['pdf']
-            },
-            {
-              label: 'app.aside.nav.rendererPlugin',
-              locat: {
-                name: 'TablePluginRenderer'
-              },
-              keywords: ['renderer']
-            },
-            {
-              label: 'app.aside.nav.menusPlugin',
-              locat: {
-                name: 'TablePluginMenus'
-              },
-              keywords: ['menu']
+              label: 'app.aside.nav.plugin',
+              url: 'other3/',
+              keywords: ['plugin']
             }
-            // {
-            //   label: 'app.aside.nav.treeRowPlugin',
-            //   locat: {
-            //     name: 'TablePluginTreeRows'
-            //   }
-            // },
-            // {
-            //   label: 'app.aside.nav.treeColPlugin',
-            //   locat: {
-            //     name: 'TablePluginTreeCols'
-            //   }
-            // }
           ]
         },
         {
@@ -2289,8 +2135,8 @@ export default defineComponent({
           appData.disabledPlugin = dp
           appData.showPlugin = sp
           store.commit('setSupportQQ', ss)
-          const stableVersionList = data[`v${appData.version}StableList`].map(version => ({ value: version, label: version }))
-          const betaVersionList = data[`v${appData.version}BetaList`].map(version => ({ value: version, label: version }))
+          const stableVersionList = data[`v${appData.version}StableList`].map(value => ({ value, label: value }))
+          const betaVersionList = data[`v${appData.version}BetaList`].map(value => ({ value, label: value }))
           appData.stableVersionList = stableVersionList
           appData.betaVersionList = betaVersionList
           if (stableVersionList.length) {
@@ -2516,6 +2362,18 @@ export default defineComponent({
             appData.usedJSHeapSize = XEUtils.toFixed(XEUtils.floor(performance.memory.usedJSHeapSize / 1048576, 2), 2)
           }
         }, 3000)
+      } else {
+        setTimeout(() => {
+          if (location.href.indexOf('vxetable.cn') === -1) {
+            VXETable.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
+              confirmButtonText: '点击跳转'
+            }).then(type => {
+              if (type === 'confirm') {
+                location.href = 'https://vxetable.cn'
+              }
+            })
+          }
+        })
       }
       init()
     })

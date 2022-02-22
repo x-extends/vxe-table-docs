@@ -16,12 +16,6 @@ import ToolbarAPILink from './components/ToolbarAPILink.vue'
 import PagerAPILink from './components/PagerAPILink.vue'
 import VirtualTreeAPILink from './components/VirtualTreeAPILink.vue'
 
-import Antd from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css'
-
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-
 import VXETable from 'vxe-table'
 
 const app = createApp(App)
@@ -35,8 +29,6 @@ app.component(PagerAPILink.name, PagerAPILink)
 app.component(VirtualTreeAPILink.name, VirtualTreeAPILink)
 
 app.use(VXETable)
-app.use(Antd)
-app.use(ElementPlus)
 
 app.use(store)
 app.use(router)

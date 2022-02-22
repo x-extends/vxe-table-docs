@@ -20,7 +20,6 @@ module.exports = {
       hints: false
     },
     externals: {
-      'xlsx': 'XLSX',
       'jsbarcode': 'JsBarcode',
       'qrcode': 'QRCode',
       'moment': 'moment',

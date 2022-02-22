@@ -107,7 +107,7 @@
       </template>
     </vxe-toolbar>
 
-    <img id="myPrint6" src="@/assets/image/invoice.png" style="width: 300px">
+    <img id="myPrint6" src="../../assets/image/invoice.png" style="width: 300px">
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -944,7 +944,7 @@ export default defineComponent({
           </template>
         </vxe-toolbar>
 
-        <img id="myPrint6" src="@/assets/image/invoice.png" style="width: 300px">
+        <img id="myPrint6" src="../../assets/image/invoice.png" style="width: 300px">
         `,
         `
         import { defineComponent } from 'vue'
