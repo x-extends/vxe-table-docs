@@ -54,36 +54,6 @@
       <pre-code class="typescript">{{ demoCodes[3] }}</pre-code>
     </pre>
 
-    <p class="tip">打印条形码：先用第三方 <a class="link" href="https://www.npmjs.com/package/jsbarcode" target="_blank">jsbarcode</a> 库生成条形码，再用打印模块输出打印</p>
-
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button content="打印条形码" @click="printEvent2"></vxe-button>
-      </template>
-    </vxe-toolbar>
-
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
-
-    <pre>
-      <pre-code class="xml">{{ demoCodes[4] }}</pre-code>
-      <pre-code class="typescript">{{ demoCodes[5] }}</pre-code>
-    </pre>
-
-    <p class="tip">打印二维码：先用第三方 <a class="link" href="https://www.npmjs.com/package/qrcode" target="_blank">qrcode</a> 库生成二维码，再用打印模块输出打印</p>
-
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button content="打印二维码" @click="printEvent3"></vxe-button>
-      </template>
-    </vxe-toolbar>
-
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
-
-    <pre>
-      <pre-code class="xml">{{ demoCodes[6] }}</pre-code>
-      <pre-code class="typescript">{{ demoCodes[7] }}</pre-code>
-    </pre>
-
     <p class="tip">打印自定义模板</p>
 
     <vxe-toolbar>
@@ -95,8 +65,8 @@
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
-      <pre-code class="xml">{{ demoCodes[8] }}</pre-code>
-      <pre-code class="typescript">{{ demoCodes[9] }}</pre-code>
+      <pre-code class="xml">{{ demoCodes[4] }}</pre-code>
+      <pre-code class="typescript">{{ demoCodes[5] }}</pre-code>
     </pre>
 
     <p class="tip">打印图片</p>
@@ -112,8 +82,8 @@
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
-      <pre-code class="xml">{{ demoCodes[10] }}</pre-code>
-      <pre-code class="typescript">{{ demoCodes[11] }}</pre-code>
+      <pre-code class="xml">{{ demoCodes[6] }}</pre-code>
+      <pre-code class="typescript">{{ demoCodes[7] }}</pre-code>
     </pre>
 
   </div>
@@ -122,8 +92,6 @@
 <script lang="ts">
 import { defineComponent, reactive, ref, nextTick } from 'vue'
 import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
-import QRCode from 'qrcode'
-import jsbarcode from 'jsbarcode'
 
 export default defineComponent({
   setup () {
@@ -242,81 +210,6 @@ export default defineComponent({
       const $toolbar = xToolbar.value
       $table.connect($toolbar)
     })
-
-    const codeList = [
-      { name: '某年xx1', price: 340, code: '1201545742000' },
-      { name: 'vue 开发指南', price: 99, code: '1271545042006' },
-      { name: 'test abc', price: 288, code: '1001545847781' },
-      { name: 'vue 高级用法', price: 188, code: '1201511842009' },
-      { name: '某某xx2', price: 860, code: '1201543242003' },
-      { name: 'js 从入门到精通', price: 99, code: '1201775849605' },
-      { name: 'vxe-table pro test abc', price: 888, code: '1201775112606' },
-      { name: 'js 进阶宝典', price: 166, code: '1201775849608' }
-    ]
-
-    const printEvent2 = () => {
-      // 打印样式
-      const printStyle = `
-      .barcode {
-        display: inline-block;
-        width: 50%;
-        height: 240px;
-        float: left;
-        text-align: center;
-      }
-      `
-      // 打印模板
-      const printTmpls: string[] = []
-      codeList.forEach(item => {
-        const img = document.createElement('img')
-        // 生成条形码
-        jsbarcode(img, item.code, {
-          lineColor: '#000',
-          width: 2,
-          height: 80,
-          displayValue: true
-        })
-        const tmpl = `
-        <div class="barcode">
-          <p>${item.name}</p>
-          ${img.outerHTML}
-          <p>统一售价：￥${item.price}</p>
-        </div>
-        `
-        printTmpls.push(tmpl)
-      })
-      VXETable.print({
-        sheetName: '打印条形码模板',
-        style: printStyle,
-        content: printTmpls.join('')
-      })
-    }
-
-    const printEvent3 = () => {
-      // 打印样式
-      const printStyle = `
-      .title,
-      .qrcode {
-        text-align: center;
-      }
-      `
-      // 生成二维码
-      QRCode.toDataURL('https://gitee.com/xuliangzhan_admin/vxe-table').then((url: string) => {
-        // 打印模板
-        const printTmpl = `
-        <p class="title">扫一扫二维码</p>
-        <div class="qrcode">
-          <img src="${url}">
-          <div style="margin-top: 15px;">如果对您有帮助，点击右上角支持我们吧！</div>
-        </div>
-        `
-        VXETable.print({
-          sheetName: '打印二维码模板',
-          style: printStyle,
-          content: printTmpl
-        })
-      })
-    }
 
     const printEvent4 = () => {
       // 打印样式
@@ -478,8 +371,6 @@ export default defineComponent({
       demo1,
       printEvent1,
       printSelectEvent1,
-      printEvent2,
-      printEvent3,
       printEvent4,
       printEvent5,
       printEvent6,
@@ -666,121 +557,6 @@ export default defineComponent({
             }
             return {
               printEvent5
-            }
-          }
-        })
-        `,
-        `
-        <vxe-toolbar>
-          <template #buttons>
-            <vxe-button content="打印条形码" @click="printEvent2"></vxe-button>
-          </template>
-        </vxe-toolbar>
-        `,
-        `
-        import { defineComponent, reactive, ref } from 'vue'
-        import { VXETable } from 'vxe-table'
-        import jsbarcode from 'jsbarcode'
-
-        export default defineComponent({
-          setup () {
-            const codeList = [
-              { name: '某年xx1', price: 340, code: '1201545742000' },
-              { name: 'vue 开发指南', price: 99, code: '1271545042006' },
-              { name: 'test abc', price: 288, code: '1001545847781' },
-              { name: 'vue 高级用法', price: 188, code: '1201511842009' },
-              { name: '某某xx2', price: 860, code: '1201543242003' },
-              { name: 'js 从入门到精通', price: 99, code: '1201775849605' },
-              { name: 'vxe-table pro test abc', price: 888, code: '1201775112606' },
-              { name: 'js 进阶宝典', price: 166, code: '1201775849608' }
-            ]
-
-            const printEvent2 = () => {
-              // 打印样式
-              const printStyle = \`
-              .barcode {
-                display: inline-block;
-                width: 50%;
-                height: 240px;
-                float: left;
-                text-align: center;
-              }
-              \`
-              // 打印模板
-              const printTmpls: string[] = []
-              codeList.forEach(item => {
-                const img = document.createElement('img')
-                // 生成条形码
-                jsbarcode(img, item.code, {
-                  lineColor: '#000',
-                  width: 2,
-                  height: 80,
-                  displayValue: true
-                })
-                const tmpl = \`
-                <div class="barcode">
-                  <p>\${item.name}</p>
-                  \${img.outerHTML}
-                  <p>统一售价：￥\${item.price}</p>
-                </div>
-                \`
-                printTmpls.push(tmpl)
-              })
-              VXETable.print({
-                sheetName: '打印条形码模板',
-                style: printStyle,
-                content: printTmpls.join('')
-              })
-            }
-
-            return {
-              printEvent2
-            }
-          }
-        })
-        `,
-        `
-        <vxe-toolbar>
-          <template #buttons>
-            <vxe-button content="打印二维码" @click="printEvent3"></vxe-button>
-          </template>
-        </vxe-toolbar>
-        `,
-        `
-        import { defineComponent, reactive, ref } from 'vue'
-        import { VXETable } from 'vxe-table'
-        import QRCode from 'qrcode'
-
-        export default defineComponent({
-          setup () {
-            const printEvent3 = () => {
-              // 打印样式
-              const printStyle = \`
-              .title,
-              .qrcode {
-                text-align: center;
-              }
-              \`
-              // 生成二维码
-              QRCode.toDataURL('https://gitee.com/xuliangzhan_admin/vxe-table').then((url: string) => {
-                // 打印模板
-                const printTmpl = \`
-                <p class="title">扫一扫二维码</p>
-                <div class="qrcode">
-                  <img src="\${url}">
-                  <div style="margin-top: 15px;">如果对您有帮助，点击右上角支持我们吧！</div>
-                </div>
-                \`
-                VXETable.print({
-                  sheetName: '打印二维码模板',
-                  style: printStyle,
-                  content: printTmpl
-                })
-              })
-            }
-
-            return {
-              printEvent3
             }
           }
         })

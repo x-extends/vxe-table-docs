@@ -14,6 +14,14 @@ module.exports = {
   outputDir: '../v4/public/v3',
   assetsDir: 'static',
   productionSourceMap: false,
+  pages: {
+    index: {
+      entry: 'src/main.ts',
+      template: 'public/index.html',
+      filename: 'index.html',
+      title: 'vxe-table v3',
+    }
+  },
   configureWebpack: {
     performance: {
       hints: false
@@ -24,8 +32,6 @@ module.exports = {
       hints: false
     },
     externals: {
-      'jsbarcode': 'JsBarcode',
-      'qrcode': 'QRCode',
       'highlight.js': 'hljs'
     }
   },

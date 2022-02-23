@@ -100,7 +100,7 @@
         <vxe-button class="oper-btn" :icon="appData.showLeft ? 'vxe-icon--arrow-left' : 'vxe-icon--arrow-right'" @click="appData.showLeft = !appData.showLeft"></vxe-button>
       </div>
       <div class="body">
-        <div class="content" :class="{full: ['VXEAPI', 'Donation', 'Run'].includes($route.name)}">
+        <div class="content" :class="{full: ['VXEAPI', 'Donation'].includes($route.name)}">
           <div class="page-view">
             <template v-if="!/\/start|\/module|\/api/.test($route.path)">
               <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank"><i class="fa fa-bug"></i>{{ $t('app.body.button.runDemo') }}</a>
@@ -719,12 +719,6 @@ export default defineComponent({
                 name: 'TablePrint'
               }
             },
-            // {
-            //   label: 'app.aside.nav.customPrint',
-            //   locat: {
-            //     name: 'TableCustomPrint'
-            //   }
-            // },
             {
               label: 'app.aside.nav.fixedType',
               locat: {
@@ -1760,7 +1754,7 @@ export default defineComponent({
           children: [
             {
               label: 'app.aside.nav.plugin',
-              url: 'other3/',
+              url: 'other4/',
               keywords: ['plugin']
             }
           ]
@@ -2311,7 +2305,7 @@ export default defineComponent({
 
     const showOperBtn = computed(() => {
       const $route = router.currentRoute.value
-      return XEUtils.isString($route.name) && ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'VXEAPI', 'Donation', 'Run'].includes($route.name)
+      return XEUtils.isString($route.name) && ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'VXEAPI', 'Donation'].includes($route.name)
     })
 
     const defaultExpand = () => {

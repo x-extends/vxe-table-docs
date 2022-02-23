@@ -13,13 +13,19 @@ module.exports = {
   publicPath,
   assetsDir: 'static',
   productionSourceMap: false,
+  pages: {
+    index: {
+      entry: 'src/main.ts',
+      template: 'public/index.html',
+      filename: 'index.html',
+      title: 'vxe-table v4',
+    }
+  },
   configureWebpack: {
     performance: {
       hints: false
     },
     externals: {
-      'jsbarcode': 'JsBarcode',
-      'qrcode': 'QRCode',
       'highlight.js': 'hljs'
     }
   },

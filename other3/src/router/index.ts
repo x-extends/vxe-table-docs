@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+const TableOtherPrint = () => import('../views/table/other/Print.vue')
 const TableOtherElement = () => import('../views/table/other/Element.vue')
 const TableOtherIview = () => import('../views/table/other/Iview.vue')
 const TableOtherAntd = () => import('../views/table/other/Antd.vue')
@@ -44,6 +45,11 @@ export default new Router({
       redirect: {
         name: 'TablePluginExportXLSX'
       }
+    },
+    {
+      path: '/table/other/print',
+      name: 'TableOtherPrint',
+      component: TableOtherPrint
     },
     {
       path: '/table/other/element',

@@ -102,7 +102,7 @@
         <vxe-button class="oper-btn" :icon="showLeft ? 'vxe-icon--arrow-left' : 'vxe-icon--arrow-right'" @click="showLeft = !showLeft"></vxe-button>
       </div>
       <div class="body">
-        <div class="content" :class="{full: ['VXEAPI', 'Donation', 'Run'].includes($route.name)}">
+        <div class="content" :class="{full: ['VXEAPI', 'Donation'].includes($route.name)}">
           <div class="page-view">
             <template v-if="!/\/start|\/module|\/api/.test($route.path)">
               <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank"><i class="fa fa-bug"></i>{{ $t('app.body.button.runDemo') }}</a>
@@ -733,12 +733,6 @@ export default {
                 name: 'TablePrint'
               }
             },
-            // {
-            //   label: 'app.aside.nav.customPrint',
-            //   locat: {
-            //     name: 'TableCustomPrint'
-            //   }
-            // },
             {
               label: 'app.aside.nav.fixedType',
               locat: {
@@ -2144,7 +2138,7 @@ export default {
       return this.$route.path.split('/')[2]
     },
     showOperBtn () {
-      return ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'VXEAPI', 'Donation', 'Run'].includes(this.$route.name)
+      return ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'VXEAPI', 'Donation'].includes(this.$route.name)
     }
   },
   watch: {

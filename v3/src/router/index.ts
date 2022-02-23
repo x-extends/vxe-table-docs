@@ -77,7 +77,6 @@ const TableFooterMaxHeight = () => import('../views/table/advanced/MaxHeight.vue
 const TableImport = () => import('../views/table/advanced/Import.vue')
 const TableExport = () => import('../views/table/advanced/Export.vue')
 const TablePrint = () => import('../views/table/advanced/Print.vue')
-const TableCustomPrint = () => import('../views/table/advanced/CustomPrint.vue')
 const TableFixedType = () => import('../views/table/advanced/FixedType.vue')
 const TableMenu = () => import('../views/table/advanced/Menu.vue')
 const TableMenuPrivilege = () => import('../views/table/advanced/MenuPrivilege.vue')
@@ -254,7 +253,6 @@ const ModulePrint = () => import('../views/print/Print.vue')
 
 const VXEAPI = () => import('../views/api/API.vue')
 const Donation = () => import('../views/api/Donation.vue')
-const Run = () => import('../views/api/Run.vue')
 const Preview = () => import('../views/api/Preview.vue')
 
 Vue.use(Router)
@@ -634,11 +632,6 @@ export default new Router({
       path: '/table/advanced/print',
       name: 'TablePrint',
       component: TablePrint
-    },
-    {
-      path: '/table/advanced/customPrint',
-      name: 'TableCustomPrint',
-      component: TableCustomPrint
     },
     {
       path: '/table/advanced/fixedType',
@@ -1492,11 +1485,6 @@ export default new Router({
       path: '/:name/api',
       name: 'VXEAPI',
       component: VXEAPI
-    },
-    {
-      path: '/api/run',
-      name: 'Run',
-      component: Run
     },
     {
       path: '/api/preview',

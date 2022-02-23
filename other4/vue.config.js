@@ -14,12 +14,20 @@ module.exports = {
   outputDir: '../v4/public/other4',
   assetsDir: 'static',
   productionSourceMap: false,
-  transpileDependencies: ['highlight.js'],
+  pages: {
+    index: {
+      entry: 'src/main.ts',
+      template: 'public/index.html',
+      filename: 'index.html',
+      title: 'vxe-table v4 集成第三方',
+    }
+  },
   configureWebpack: {
     performance: {
       hints: false
     },
     externals: {
+      'highlight.js': 'hljs',
       'xlsx': 'XLSX',
       'exceljs': 'ExcelJS',
       'jspdf': 'jspdf',

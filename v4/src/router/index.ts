@@ -77,7 +77,6 @@ const TableFooterMaxHeight = () => import('../views/table/advanced/MaxHeight.vue
 const TableImport = () => import('../views/table/advanced/Import.vue')
 const TableExport = () => import('../views/table/advanced/Export.vue')
 const TablePrint = () => import('../views/table/advanced/Print.vue')
-const TableCustomPrint = () => import('../views/table/advanced/CustomPrint.vue')
 const TableFixedType = () => import('../views/table/advanced/FixedType.vue')
 const TableMenu = () => import('../views/table/advanced/Menu.vue')
 const TableMenuPrivilege = () => import('../views/table/advanced/MenuPrivilege.vue')
@@ -647,11 +646,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/table/advanced/print',
     name: 'TablePrint',
     component: TablePrint
-  },
-  {
-    path: '/table/advanced/customPrint',
-    name: 'TableCustomPrint',
-    component: TableCustomPrint
   },
   {
     path: '/table/advanced/fixedType',

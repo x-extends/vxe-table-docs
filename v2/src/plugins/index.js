@@ -10,7 +10,6 @@ import PreCode from '../components/PreCode.vue'
 
 import './utils'
 import './ajax'
-import './highlight'
 import './table'
 
 Vue.component(MyDiv.name, MyDiv)

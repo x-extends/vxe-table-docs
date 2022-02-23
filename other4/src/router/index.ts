@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
+const TableOtherPrint = () => import('../views/table/other/Print.vue')
 const TableOtherElement = () => import('../views/table/other/Element.vue')
 // const TableOtherIview = () => import('../views/table/other/Iview.vue')
 const TableOtherAntd = () => import('../views/table/other/Antd.vue')
@@ -39,6 +40,11 @@ const routes: Array<RouteRecordRaw> = [
     redirect: {
       name: 'TablePluginExportXLSX'
     }
+  },
+  {
+    path: '/table/other/print',
+    name: 'TableOtherPrint',
+    component: TableOtherPrint
   },
   {
     path: '/table/other/element',

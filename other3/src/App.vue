@@ -285,6 +285,12 @@ export default {
           expand: false,
           children: [
             {
+              label: 'app.aside.nav.print',
+              locat: {
+                name: 'TableOtherPrint'
+              }
+            },
+            {
               label: 'app.aside.nav.elementRender',
               locat: {
                 name: 'TableOtherElement'

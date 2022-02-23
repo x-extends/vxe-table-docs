@@ -14,12 +14,20 @@ module.exports = {
   outputDir: '../v4/public/v2',
   assetsDir: 'static',
   productionSourceMap: false,
-  transpileDependencies: ['highlight.js'],
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      template: 'public/index.html',
+      filename: 'index.html',
+      title: 'vxe-table v2',
+    }
+  },
   configureWebpack: {
     performance: {
       hints: false
     },
     externals: {
+      'highlight.js': 'hljs',
       'jsbarcode': 'JsBarcode',
       'qrcode': 'QRCode',
       'moment': 'moment',
