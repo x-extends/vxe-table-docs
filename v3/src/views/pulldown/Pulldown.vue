@@ -59,9 +59,9 @@
           <div class="my-dropdown4">
             <vxe-grid
               border
-              highlight-hover-row
               auto-resize
               height="auto"
+              :row-config="{isHover: true}"
               :loading="loading4"
               :pager-config="tablePage4"
               :data="tableData4"
@@ -179,9 +179,9 @@ export default {
               <div class="my-dropdown4">
                 <vxe-grid
                   border
-                  highlight-hover-row
                   auto-resize
                   height="auto"
+                  :row-config="{isHover: true}"
                   :loading="loading4"
                   :pager-config="tablePage4"
                   :data="tableData4"

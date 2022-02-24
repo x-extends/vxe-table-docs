@@ -7,9 +7,9 @@
 
     <vxe-table
       border
-      resizable
-      highlight-hover-row
       show-footer
+      :row-config="{isHover: true}"
+      :column-config="{resizable: true}"
       :footer-method="footerMethod"
       :data="demo1.tableData"
       :menu-config="demo1.tableMenuConfig"
@@ -176,9 +176,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
-          highlight-hover-row
           show-footer
+          :row-config="{isHover: true}"
+          :column-config="{resizable: true}"
           :footer-method="footerMethod"
           :data="demo1.tableData"
           :menu-config="demo1.tableMenuConfig"

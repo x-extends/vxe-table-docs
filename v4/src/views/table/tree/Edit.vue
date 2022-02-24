@@ -14,9 +14,9 @@
     </vxe-toolbar>
 
     <vxe-table
-      resizable
       show-overflow
       ref="xTable"
+      :column-config="{resizable: true}"
       :tree-config="{transform: true}"
       :edit-config="{trigger: 'click', mode: 'row'}"
       :checkbox-config="{labelField: 'id'}"
@@ -94,9 +94,9 @@ export default defineComponent({
         </vxe-toolbar>
 
         <vxe-table
-          resizable
           show-overflow
           ref="xTable"
+          :column-config="{resizable: true}"
           :tree-config="{transform: true}"
           :edit-config="{trigger: 'click', mode: 'row'}"
           :checkbox-config="{labelField: 'id'}"

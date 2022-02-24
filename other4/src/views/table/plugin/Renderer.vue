@@ -4,9 +4,9 @@
 
     <vxe-grid
       border
-      resizable
       show-overflow
       height="400"
+      :column-config="{resizable: true}"
       :data="tableData"
       :columns="tableColumn"></vxe-grid>
 
@@ -165,9 +165,9 @@ export default defineComponent({
         `
         <vxe-grid
           border
-          resizable
           show-overflow
           height="400"
+          :column-config="{resizable: true}"
           :data="tableData"
           :columns="tableColumn"></vxe-grid>
         `,

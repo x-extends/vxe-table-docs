@@ -9,9 +9,9 @@
     <vxe-table
       class="mytable-footer"
       border
-      highlight-hover-row
       show-footer
       max-height="400"
+      :row-config="{isHover: true}"
       :footer-method="footerMethod1"
       :data="tableData1">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -133,9 +133,9 @@ export default {
         <vxe-table
           class="mytable-footer"
           border
-          highlight-hover-row
           show-footer
           max-height="400"
+          :row-config="{isHover: true}"
           :footer-method="footerMethod1"
           :data="tableData1">
           <vxe-column type="seq" width="60"></vxe-column>

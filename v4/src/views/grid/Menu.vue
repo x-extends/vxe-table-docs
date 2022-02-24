@@ -48,9 +48,13 @@ export default defineComponent({
 
     const gridOptions = reactive<VxeGridProps>({
       border: true,
-      resizable: true,
       showFooter: true,
-      highlightCurrentRow: true,
+      rowConfig: {
+        isCurrent: true
+      },
+      columnConfig: {
+        resizable: true
+      },
       columns: [
         { type: 'checkbox', width: 50 },
         { type: 'seq', width: 60 },
@@ -187,9 +191,13 @@ export default defineComponent({
 
             const gridOptions = reactive<VxeGridProps>({
               border: true,
-              resizable: true,
               showFooter: true,
-              highlightCurrentRow: true,
+              rowConfig: {
+                isCurrent: true
+              },
+              columnConfig: {
+                resizable: true
+              },
               columns: [
                 { type: 'checkbox', width: 50 },
                 { type: 'seq', width: 60 },

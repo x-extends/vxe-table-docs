@@ -8,7 +8,7 @@
 
     <vxe-table
       border
-      resizable
+      :column-config="{resizable: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column type="expand" width="80" :content-render="{name: 'MyExpand'}"></vxe-column>
@@ -79,7 +79,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
+          :column-config="{resizable: true}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column type="expand" width="80" :content-render="{name: 'MyExpand'}"></vxe-column>

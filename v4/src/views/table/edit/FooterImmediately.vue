@@ -18,10 +18,10 @@
       border
       show-footer
       show-overflow
-      highlight-hover-row
       ref="xTable"
       height="400"
       class="editable-footer"
+      :row-config="{isHover: true}"
       :export-config="{}"
       :footer-method="footerMethod"
       :footer-cell-class-name="footerCellClassName"
@@ -194,10 +194,10 @@ export default defineComponent({
           border
           show-footer
           show-overflow
-          highlight-hover-row
           ref="xTable"
           height="400"
           class="editable-footer"
+          :row-config="{isHover: true}"
           :export-config="{}"
           :footer-method="footerMethod"
           :footer-cell-class-name="footerCellClassName"

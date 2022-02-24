@@ -8,10 +8,10 @@
 
     <vxe-table
       border
-      highlight-hover-row
       show-footer
       class="mytable-footer"
       max-height="400"
+      :row-config="{isHover: true}"
       :footer-method="footerMethod1"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -228,10 +228,10 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-row
           show-footer
           class="mytable-footer"
           max-height="400"
+          :row-config="{isHover: true}"
           :footer-method="footerMethod1"
           :data="demo1.tableData">
           <vxe-column type="seq" width="60"></vxe-column>

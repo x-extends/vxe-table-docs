@@ -4,10 +4,10 @@
 
     <vxe-table
       border
-      highlight-hover-row
       show-overflow
       resizable
       height="400"
+      :row-config="{isHover: true}"
       :menu-config="{}"
       :tooltip-config="{}"
       :data="tableData"
@@ -55,10 +55,10 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
           show-overflow
           resizable
           height="400"
+          :row-config="{isHover: true}"
           :menu-config="{}"
           :tooltip-config="{}"
           :data="tableData"

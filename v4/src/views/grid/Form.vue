@@ -33,12 +33,14 @@ import { VxeGridProps, VxeGridListeners } from 'vxe-table'
 export default defineComponent({
   setup () {
     const gridOptions = reactive<VxeGridProps>({
-      resizable: true,
       border: true,
       showOverflow: true,
       loading: false,
       height: 400,
       exportConfig: {},
+      columnConfig: {
+        resizable: true
+      },
       formConfig: {
         data: {
           name: '',
@@ -126,12 +128,14 @@ export default defineComponent({
         export default defineComponent({
           setup () {
             const gridOptions = reactive<VxeGridProps>({
-              resizable: true,
               border: true,
               showOverflow: true,
               loading: false,
               height: 400,
               exportConfig: {},
+              columnConfig: {
+                resizable: true
+              },
               formConfig: {
                 data: {
                   name: '',

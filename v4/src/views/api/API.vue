@@ -363,13 +363,8 @@ export default defineComponent({
     }
 
     const gridOptions = reactive<VxeGridProps>({
-      resizable: true,
       autoResize: true,
-      highlightCurrentRow: true,
-      highlightHoverRow: true,
-      highlightCurrentColumn: true,
       height: 'auto',
-      rowId: 'id',
       loading: false,
       cellClassName ({ row, column }) {
         return {
@@ -378,6 +373,16 @@ export default defineComponent({
           'api-abandoned': row.abandoned,
           'disabled-line-through': (row.disabled) && column.property === 'name'
         }
+      },
+      rowConfig: {
+        keyField: 'id',
+        isHover: true,
+        isCurrent: true
+      },
+      columnConfig: {
+        resizable: true,
+        isHover: true,
+        isCurrent: true
       },
       customConfig: {
         storage: true,

@@ -9,9 +9,9 @@
     <vxe-table
       border
       show-overflow
-      highlight-hover-row
       ref="xTable1"
       height="300"
+      :row-config="{isHover: true}"
       :sort-config="{trigger: 'cell'}">
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -108,9 +108,9 @@ export default {
         <vxe-table
           border
           show-overflow
-          highlight-hover-row
           ref="xTable1"
           height="300"
+          :row-config="{isHover: true}"
           :sort-config="{trigger: 'cell'}">
           <vxe-column type="seq" width="100"></vxe-column>
           <vxe-column field="name" title="Name" sortable></vxe-column>

@@ -4,8 +4,8 @@
 
     <vxe-grid
       border
-      resizable
       height="530"
+      :column-config="{resizable: true}"
       :loading="loading"
       :pager-config="tablePage"
       :columns="tableColumn"
@@ -46,8 +46,8 @@ export default {
         `
         <vxe-grid
           border
-          resizable
           height="530"
+          :column-config="{resizable: true}"
           :loading="loading"
           :pager-config="tablePage"
           :columns="tableColumn"

@@ -8,8 +8,8 @@
 
     <vxe-table
       border
-      resizable
       height="400"
+      :column-config="{resizable: true}"
       :empty-render="{name: 'NotData'}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -57,8 +57,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           height="400"
+          :column-config="{resizable: true}"
           :empty-render="{name: 'NotData'}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>

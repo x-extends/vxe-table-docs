@@ -140,7 +140,7 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import XEUtils from 'xe-utils'
-import VXETable from 'vxe-table'
+// import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -343,7 +343,7 @@ export default {
               locat: {
                 name: 'TableBasic'
               },
-              keywords: ['field', 'title', 'width', 'type', 'highlight-hover-row']
+              keywords: ['field', 'title', 'width', 'type', 'isHover']
             },
             {
               label: 'app.aside.nav.size',
@@ -511,14 +511,14 @@ export default {
               locat: {
                 name: 'TableHeaderHighlight'
               },
-              keywords: ['highlight-hover-column', 'highlight-hover-column']
+              keywords: ['isHover']
             },
             {
               label: 'app.aside.nav.current',
               locat: {
                 name: 'TableCurrent'
               },
-              keywords: ['highlight-hover-row', 'highlight-hover-row']
+              keywords: ['isHover']
             },
             {
               label: 'app.aside.nav.radio',
@@ -2160,17 +2160,17 @@ export default {
         }
       }, 3000)
     } else {
-      setTimeout(() => {
-        if (location.href.indexOf('vxetable.cn') === -1) {
-          VXETable.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
-            confirmButtonText: '点击跳转'
-          }).then(type => {
-            if (type === 'confirm') {
-              location.href = 'https://vxetable.cn'
-            }
-          })
-        }
-      })
+      // setTimeout(() => {
+      //   if (location.href.indexOf('vxetable.cn') === -1) {
+      //     VXETable.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
+      //       confirmButtonText: '点击跳转'
+      //     }).then(type => {
+      //       if (type === 'confirm') {
+      //         location.href = 'https://vxetable.cn'
+      //       }
+      //     })
+      //   }
+      // })
     }
     // setTimeout(() => {
     //   this.newVersionVisible = localStorage.getItem('VXE_TABLE_NEW_VERSION') !== '4.0'

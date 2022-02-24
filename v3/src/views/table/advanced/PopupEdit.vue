@@ -5,9 +5,8 @@
     <vxe-table
       border
       resizable
-      highlight-hover-row
-      highlight-current-row
       height="500"
+      :row-config="{isCurrent: true, isHover: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -149,9 +148,8 @@ export default {
         <vxe-table
           border
           resizable
-          highlight-hover-row
-          highlight-current-row
           height="500"
+          :row-config="{isCurrent: true, isHover: true}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>

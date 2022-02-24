@@ -25,10 +25,9 @@
       show-overflow
       row-key
       show-header-overflow
-      highlight-hover-row
-      highlight-current-row
       ref="xTable"
       height="600"
+      :row-config="{isCurrent: true, isHover: true}"
       :export-config="{}"
       :loading="loading"
       :checkbox-config="{checkField: 'checked'}">
@@ -105,10 +104,9 @@ export default {
           show-overflow
           row-key
           show-header-overflow
-          highlight-hover-row
-          highlight-current-row
           ref="xTable"
           height="600"
+          :row-config="{isCurrent: true, isHover: true}"
           :export-config="{}"
           :loading="loading"
           :checkbox-config="{checkField: 'checked'}">

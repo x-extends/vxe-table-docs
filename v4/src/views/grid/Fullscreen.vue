@@ -79,10 +79,12 @@ export default defineComponent({
 
     const gridOptions = reactive<VxeGridProps>({
       border: true,
-      resizable: true,
       showOverflow: true,
       showFooter: true,
       height: 530,
+      columnConfig: {
+        resizable: true
+      },
       pagerConfig: {
         pageSize: 20,
         perfect: true
@@ -205,10 +207,12 @@ export default defineComponent({
 
             const gridOptions = reactive<VxeGridProps>({
               border: true,
-              resizable: true,
               showOverflow: true,
               showFooter: true,
               height: 530,
+              columnConfig: {
+                resizable: true
+              },
               pagerConfig: {
                 pageSize: 20,
                 perfect: true

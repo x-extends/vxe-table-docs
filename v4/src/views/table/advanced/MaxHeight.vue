@@ -4,10 +4,10 @@
 
     <vxe-table
       border
-      resizable
       show-footer
       show-overflow
       max-height="400"
+      :column-config="{resizable: true}"
       :loading="demo1.loading"
       :data="demo1.tableData"
       :footer-method="footerMethod">
@@ -33,10 +33,10 @@
 
     <vxe-table
       border
-      resizable
       show-footer
       show-overflow
       max-height="400"
+      :column-config="{resizable: true}"
       :loading="demo2.loading"
       :data="demo2.tableData"
       :footer-method="footerMethod">
@@ -150,10 +150,10 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-footer
           show-overflow
           max-height="400"
+          :column-config="{resizable: true}"
           :loading="demo1.loading"
           :data="demo1.tableData"
           :footer-method="footerMethod">
@@ -239,10 +239,10 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-footer
           show-overflow
           max-height="400"
+          :column-config="{resizable: true}"
           :loading="demo2.loading"
           :data="demo2.tableData"
           :footer-method="footerMethod">

@@ -1,11 +1,11 @@
 <template>
   <div>
     <p class="tip">
-      使用 <table-api-link prop="highlight-current-row"/> 方式
+      使用 <table-api-link prop="row-config"/>.<table-api-link prop="isCurrent"/> 方式
     </p>
 
     <vxe-table
-      highlight-current-row
+      :row-config="{isCurrent: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData1">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
@@ -44,8 +44,8 @@
 
     <vxe-table
       resizable
-      highlight-current-row
       ref="xTable3"
+      :row-config="{isCurrent: true}"
       :tree-config="{transform: true}"
       :radio-config="{labelField: 'name', trigger: 'row'}"
       :data="tableData3"
@@ -137,7 +137,7 @@ export default {
       demoCodes: [
         `
         <vxe-table
-          highlight-current-row
+          :row-config="{isCurrent: true}"
           :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
           :data="tableData1">
           <vxe-column field="name" title="Name" tree-node></vxe-column>
@@ -216,8 +216,8 @@ export default {
         `
         <vxe-table
           resizable
-          highlight-current-row
           ref="xTable"
+          :row-config="{isCurrent: true}"
           :tree-config="{transform: true}"
           :radio-config="{labelField: 'name', trigger: 'row'}"
           :data="tableData3"

@@ -4,10 +4,10 @@
 
     <vxe-table
       border
-      resizable
       keep-source
       show-overflow
       ref="xTable"
+      :column-config="{resizable: true}"
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil'}"
       @edit-closed="editClosedEvent">
@@ -114,10 +114,10 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           keep-source
           show-overflow
           ref="xTable"
+          :column-config="{resizable: true}"
           :data="tableData"
           :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil'}"
           @edit-closed="editClosedEvent">

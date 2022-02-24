@@ -22,8 +22,10 @@ export default defineComponent({
     const gridOptions = reactive<VxeGridProps>({
       border: true,
       stripe: true,
-      resizable: true,
       height: 500,
+      columnConfig: {
+        resizable: true
+      },
       columns: [
         { type: 'seq', width: 50 },
         {
@@ -69,8 +71,10 @@ export default defineComponent({
             const gridOptions = reactive<VxeGridProps>({
               border: true,
               stripe: true,
-              resizable: true,
               height: 500,
+              columnConfig: {
+                resizable: true
+              },
               columns: [
                 { type: 'seq', width: 50 },
                 {

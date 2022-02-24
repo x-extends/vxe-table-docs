@@ -12,11 +12,11 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       keep-source
       ref="xTable"
       height="400"
+      :column-config="{resizable: true}"
       :loading="demo1.loading"
       :data="demo1.tableData"
       :menu-config="demo1.tableMenu"
@@ -205,11 +205,11 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
           keep-source
           ref="xTable"
           height="400"
+          :column-config="{resizable: true}"
           :loading="demo1.loading"
           :data="demo1.tableData"
           :menu-config="demo1.tableMenu"

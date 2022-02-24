@@ -4,8 +4,8 @@
 
     <vxe-table
       border
-      highlight-hover-column
       height="300"
+      :column-config="{isHover: true}"
       :sort-config="{multiple: true, trigger: 'cell'}"
       :data="demo1.tableData"
       @sort-change="sortChangeEvent">
@@ -72,8 +72,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-column
           height="300"
+          :column-config="{isHover: true}"
           :sort-config="{multiple: true, trigger: 'cell'}"
           :data="demo1.tableData"
           @sort-change="sortChangeEvent">

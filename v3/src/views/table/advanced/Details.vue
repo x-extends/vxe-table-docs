@@ -5,9 +5,8 @@
     <vxe-table
       border
       resizable
-      highlight-hover-row
-      highlight-current-row
       height="500"
+      :row-config="{isCurrent: true, isHover: true}"
       :data="tableData"
       @cell-click="cellClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -23,8 +22,8 @@
           border="inner"
           auto-resize
           show-overflow
-          highlight-hover-row
           height="auto"
+          :row-config="{isHover: true}"
           :show-header="false"
           :sync-resize="showDetails"
           :data="detailData">
@@ -66,9 +65,8 @@ export default {
         <vxe-table
           border
           resizable
-          highlight-hover-row
-          highlight-current-row
           height="500"
+          :row-config="{isCurrent: true, isHover: true}"
           :data="tableData"
           @cell-click="cellClickEvent">
           <vxe-column type="seq" width="60"></vxe-column>
@@ -84,8 +82,8 @@ export default {
               border="inner"
               auto-resize
               show-overflow
-              highlight-hover-row
               height="auto"
+              :row-config="{isHover: true}"
               :show-header="false"
               :sync-resize="showDetails"
               :data="detailData">

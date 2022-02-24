@@ -36,7 +36,7 @@
             <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
           </vxe-select>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
-          <template v-if="appData.apiLoading && appData.showPlugin">
+          <template v-if="showExtendPlugin && appData.apiLoading && appData.showPlugin">
             <a v-if="appData.disabledPlugin" class="link support" :href="pluginApiUrl" target="_blank">💡插件</a>
             <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">插件</a>
           </template>
@@ -122,7 +122,7 @@ import { useStore } from 'vuex'
 import i18n from './i18n'
 import router from './router'
 import XEUtils from 'xe-utils'
-import VXETable from 'vxe-table'
+// import VXETable from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -131,6 +131,8 @@ export default defineComponent({
     const baseApiUrl = computed(() => store.state.baseApiUrl)
     const pluginApiUrl = computed(() => store.state.pluginApiUrl)
     const serveApiUrl = computed(() => store.state.serveApiUrl)
+
+    const showExtendPlugin = location.href.indexOf('vxetable.cn') > -1
 
     const appData = reactive({
       showLeft: true,
@@ -336,7 +338,7 @@ export default defineComponent({
               locat: {
                 name: 'TableBasic'
               },
-              keywords: ['field', 'title', 'width', 'type', 'highlight-hover-row']
+              keywords: ['field', 'title', 'width', 'type', 'isHover']
             },
             {
               label: 'app.aside.nav.size',
@@ -504,14 +506,14 @@ export default defineComponent({
               locat: {
                 name: 'TableHeaderHighlight'
               },
-              keywords: ['highlight-hover-column', 'highlight-hover-column']
+              keywords: ['isHover']
             },
             {
               label: 'app.aside.nav.current',
               locat: {
                 name: 'TableCurrent'
               },
-              keywords: ['highlight-hover-row', 'highlight-hover-row']
+              keywords: ['isHover']
             },
             {
               label: 'app.aside.nav.radio',
@@ -2357,17 +2359,17 @@ export default defineComponent({
           }
         }, 3000)
       } else {
-        setTimeout(() => {
-          if (location.href.indexOf('vxetable.cn') === -1) {
-            VXETable.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
-              confirmButtonText: '点击跳转'
-            }).then(type => {
-              if (type === 'confirm') {
-                location.href = 'https://vxetable.cn'
-              }
-            })
-          }
-        })
+        // setTimeout(() => {
+        //   if (location.href.indexOf('vxetable.cn') === -1) {
+        //     VXETable.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
+        //       confirmButtonText: '点击跳转'
+        //     }).then(type => {
+        //       if (type === 'confirm') {
+        //         location.href = 'https://vxetable.cn'
+        //       }
+        //     })
+        //   }
+        // })
       }
       init()
     })
@@ -2375,6 +2377,8 @@ export default defineComponent({
     return {
       baseApiUrl,
       pluginApiUrl,
+
+      showExtendPlugin,
 
       appData,
       demoLink,

@@ -17,10 +17,10 @@
     <vxe-table
       ref="xTable"
       border
-      resizable
       show-overflow
       height="500"
-      row-id="id"
+      :row-config="{keyField: 'id'}"
+      :column-config="{resizable: true}"
       :loading="demo1.loading"
       :checkbox-config="{checkField: 'checked'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
@@ -110,10 +110,10 @@ export default defineComponent({
         <vxe-table
           ref="xTable"
           border
-          resizable
           show-overflow
           height="500"
-          row-id="id"
+          :row-config="{keyField: 'id'}"
+          :column-config="{resizable: true}"
           :loading="demo1.loading"
           :checkbox-config="{checkField: 'checked'}">
           <vxe-column type="checkbox" width="60"></vxe-column>

@@ -12,11 +12,11 @@
     </vxe-toolbar>
 
     <vxe-table
-      resizable
       show-overflow
       keep-source
       ref="xTable"
-      row-id="id"
+      :row-config="{keyField: 'id'}"
+      :column-config="{resizable: true}"
       :print-config="{}"
       :export-config="{}"
       :loading="demo1.loading"
@@ -220,11 +220,11 @@ export default defineComponent({
         </vxe-toolbar>
 
         <vxe-table
-          resizable
           show-overflow
           keep-source
           ref="xTable"
-          row-id="id"
+          :row-config="{keyField: 'id'}"
+          :column-config="{resizable: true}"
           :print-config="{}"
           :export-config="{}"
           :loading="demo1.loading"

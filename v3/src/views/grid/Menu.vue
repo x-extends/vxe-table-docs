@@ -39,10 +39,14 @@ export default {
     return {
       gridOptions: {
         border: true,
-        resizable: true,
         showFooter: true,
-        highlightCurrentRow: true,
         footerMethod: this.footerMethod,
+        rowConfig: {
+          isCurrent: true
+        },
+        columnConfig: {
+          resizable: true
+        },
         menuConfig: {
           header: {
             options: [
@@ -108,10 +112,14 @@ export default {
             return {
               gridOptions: {
                 border: true,
-                resizable: true,
                 showFooter: true,
-                highlightCurrentRow: true,
                 footerMethod: this.footerMethod,
+                rowConfig: {
+                  isCurrent: true
+                },
+                columnConfig: {
+                  resizable: true
+                },
                 menuConfig: {
                   header: {
                     options: [

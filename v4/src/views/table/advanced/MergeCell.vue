@@ -9,14 +9,13 @@
 
     <vxe-table
       border
-      resizable
       show-footer
       ref="xTable"
       height="800"
       align="center"
       :loading="demo1.loading"
       :print-config="{}"
-      :column-config="{width: 90}"
+      :column-config="{resizable: true, width: 90}"
       :merge-cells="demo1.mergeCells"
       :merge-footer-items="demo1.mergeFooterItems"
       :footer-method="footerMethod"
@@ -221,14 +220,13 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-footer
           ref="xTable"
           height="800"
           align="center"
           :loading="demo1.loading"
           :print-config="{}"
-          :column-config="{width: 90}"
+          :column-config="{resizable: true, width: 90}"
           :merge-cells="demo1.mergeCells"
           :merge-footer-items="demo1.mergeFooterItems"
           :footer-method="footerMethod"

@@ -34,12 +34,14 @@ export default defineComponent({
   setup () {
     const gridOptions = reactive<VxeGridProps>({
       border: true,
-      resizable: true,
       keepSource: true,
       height: 500,
       printConfig: {},
       importConfig: {},
       exportConfig: {},
+      columnConfig: {
+        resizable: true
+      },
       pagerConfig: {
         perfect: true,
         pageSize: 15
@@ -166,12 +168,14 @@ export default defineComponent({
           setup () {
             const gridOptions = reactive<VxeGridProps>({
               border: true,
-              resizable: true,
               keepSource: true,
               height: 500,
               printConfig: {},
               importConfig: {},
               exportConfig: {},
+              columnConfig: {
+                resizable: true
+              },
               pagerConfig: {
                 perfect: true,
                 pageSize: 15

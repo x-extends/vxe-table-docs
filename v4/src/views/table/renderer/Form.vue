@@ -11,8 +11,8 @@
 
     <vxe-grid
       border
-      resizable
       height="400"
+      :column-config="{resizable: true}"
       :export-config="{}"
       :toolbar-config="{export: true, custom: true}"
       :form-config="demo1.tableForm"
@@ -98,8 +98,8 @@ export default defineComponent({
         `
         <vxe-grid
           border
-          resizable
           height="400"
+          :column-config="{resizable: true}"
           :export-config="{}"
           :toolbar-config="{export: true, custom: true}"
           :form-config="demo1.tableForm"

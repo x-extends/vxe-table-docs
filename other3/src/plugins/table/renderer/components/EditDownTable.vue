@@ -7,9 +7,9 @@
       <template #dropdown>
         <div class="edit-down-wrapper">
           <vxe-grid
-            highlight-hover-row
             auto-resize
             height="auto"
+            :row-config="{isHover: true}"
             :loading="loading"
             :pager-config="tablePage"
             :data="tableData"

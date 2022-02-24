@@ -8,8 +8,8 @@
     <vxe-table
       resizable
       show-overflow
-      highlight-hover-row
       row-key
+      :row-config="{isHover: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', line: true}"
       :data="tableData1"
       :scroll-y="{enabled: false}">
@@ -31,10 +31,9 @@
     <vxe-table
       resizable
       show-overflow
-      highlight-hover-row
-      highlight-current-row
       row-key
       size="medium"
+      :row-config="{isCurrent: true, isHover: true}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon--caret-right rotate45', iconClose: 'vxe-icon--caret-right'}"
       :checkbox-config="{labelField: 'name'}"
       :data="tableData2"
@@ -57,9 +56,9 @@
     <vxe-table
       resizable
       show-overflow
-      highlight-hover-row
       row-key
       size="small"
+      :row-config="{isHover: true}"
       :radio-config="{labelField: 'name'}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
       :data="tableData3"
@@ -82,10 +81,10 @@
     <vxe-table
       resizable
       show-overflow
-      highlight-hover-row
       row-key
       ref="xTree"
       size="mini"
+      :row-config="{isHover: true}"
       :checkbox-config="{labelField: 'name'}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-caret-down', iconClose: 'fa fa-caret-right'}"
       :data="tableData4"
@@ -207,8 +206,8 @@ export default {
         <vxe-table
           resizable
           show-overflow
-          highlight-hover-row
           row-key
+          :row-config="{isHover: true}"
           :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', line: true}"
           :data="tableData1"
           :scroll-y="{enabled: false}">
@@ -250,10 +249,9 @@ export default {
         <vxe-table
           resizable
           show-overflow
-          highlight-hover-row
-          highlight-current-row
           row-key
           size="medium"
+          :row-config="{isCurrent: true, isHover: true}"
           :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon--caret-right rotate45', iconClose: 'vxe-icon--caret-right'}"
           :checkbox-config="{labelField: 'name'}"
           :data="tableData2"
@@ -296,9 +294,9 @@ export default {
         <vxe-table
           resizable
           show-overflow
-          highlight-hover-row
           row-key
           size="small"
+          :row-config="{isHover: true}"
           :radio-config="{labelField: 'name'}"
           :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
           :data="tableData3"
@@ -341,10 +339,10 @@ export default {
         <vxe-table
           resizable
           show-overflow
-          highlight-hover-row
           row-key
           ref="xTree"
           size="mini"
+          :row-config="{isHover: true}"
           :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-caret-down', iconClose: 'fa fa-caret-right'}"
           :data="tableData4"
           :scroll-y="{enabled: false}">

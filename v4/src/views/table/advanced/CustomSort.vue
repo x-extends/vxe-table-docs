@@ -4,13 +4,12 @@
 
     <vxe-table
       border
-      resizable
-      highlight-hover-row
-      highlight-current-row
       class="my-sort"
       ref="xTable"
       height="300"
       :data="tableData"
+      :row-config="{isCurrent: true, isHover: true}"
+      :column-config="{resizable: true}"
       :sort-config="{showIcon: false}"
       @header-cell-click="headerCellClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -103,13 +102,12 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
-          highlight-hover-row
-          highlight-current-row
           class="my-sort"
           ref="xTable"
           height="300"
           :data="tableData"
+          :row-config="{isCurrent: true, isHover: true}"
+          :column-config="{resizable: true}"
           :sort-config="{showIcon: false}"
           @header-cell-click="headerCellClickEvent">
           <vxe-column type="seq" width="60"></vxe-column>

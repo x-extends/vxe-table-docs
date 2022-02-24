@@ -6,12 +6,11 @@
     </p>
 
     <vxe-virtual-tree
-      resizable
       show-overflow
-      highlight-current-row
-      row-key
       ref="xVTree"
       height="500"
+      :row-config="{useKey: true, isHover: true}"
+      :column-config="{resizable: true}"
       :loading="loading"
       :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
       :checkbox-config="{labelField: 'a', checkField: 'checked', halfField: 'indeterminate'}"
@@ -70,12 +69,12 @@ export default {
       demoCodes: [
         `
         <vxe-virtual-tree
-          resizable
           show-overflow
-          row-key
           ref="xVTree"
           height="500"
+          :column-config="{resizable: true}"
           :loading="loading"
+          :row-config="{useKey: true}"
           :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
           :checkbox-config="{labelField: 'a', checkField: 'checked', halfField: 'indeterminate'}"
           :tree-config="{children: 'children'}"

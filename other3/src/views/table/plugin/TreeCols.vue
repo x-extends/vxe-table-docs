@@ -6,13 +6,13 @@
     </p>
 
     <vxe-virtual-tree
-      resizable
       show-overflow
       show-header-overflow
-      row-key
       ref="xVTree"
       height="500"
+      :column-config="{resizable: true}"
       :loading="loading"
+      :row-config="{useKey: true}"
       :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
       :radio-config="{labelField: 'name'}"
       :tree-config="{children: 'children'}">
@@ -49,13 +49,13 @@ export default {
       demoCodes: [
         `
         <vxe-virtual-tree
-          resizable
           show-overflow
           show-header-overflow
-          row-key
           ref="xVTree"
           height="500"
+          :column-config="{resizable: true}"
           :loading="loading"
+          :row-config="{useKey: true}"
           :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
           :radio-config="{labelField: 'name'}"
           :tree-config="{children: 'children'}">

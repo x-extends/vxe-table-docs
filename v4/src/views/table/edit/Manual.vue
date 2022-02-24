@@ -4,9 +4,9 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       ref="xTable"
+      :column-config="{resizable: true}"
       :loading="demo1.loading"
       :data="demo1.tableData"
       :edit-config="{trigger: 'manual', mode: 'row'}">
@@ -172,9 +172,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
           ref="xTable"
+          :column-config="{resizable: true}"
           :loading="demo1.loading"
           :data="demo1.tableData"
           :edit-config="{trigger: 'manual', mode: 'row'}">

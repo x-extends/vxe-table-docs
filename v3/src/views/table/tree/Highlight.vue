@@ -5,7 +5,7 @@
     </p>
 
     <vxe-table
-      highlight-current-row
+      :row-config="{isCurrent: true}"
       :data="tableData"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :keyboard-config="{isArrow: true, isEnter: true}">
@@ -60,7 +60,7 @@ export default {
       demoCodes: [
         `
         <vxe-table
-          highlight-current-row
+          :row-config="{isCurrent: true}"
           :data="tableData"
           :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
           :keyboard-config="{isArrow: true, isEnter: true}">

@@ -9,9 +9,9 @@
     <vxe-table
       border
       show-overflow
-      highlight-hover-row
       ref="xTable1"
-      height="300">
+      height="300"
+      :row-config="{isHover: true}">
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
@@ -176,9 +176,9 @@ export default defineComponent({
         <vxe-table
           border
           show-overflow
-          highlight-hover-row
           ref="xTable1"
-          height="300">
+          height="300"
+          :row-config="{isHover: true}">
           <vxe-column type="seq" width="100"></vxe-column>
           <vxe-column field="name" title="Name" sortable></vxe-column>
           <vxe-column field="role" title="Role"></vxe-column>

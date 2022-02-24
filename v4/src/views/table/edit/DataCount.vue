@@ -7,9 +7,9 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       show-footer
+      :column-config="{resizable: true}"
       :data="tableData"
       :footer-method="footerMethod"
       :edit-config="{trigger: 'click', mode: 'cell'}">
@@ -102,9 +102,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
           show-footer
+          :column-config="{resizable: true}"
           :data="tableData"
           :footer-method="footerMethod"
           :edit-config="{trigger: 'click', mode: 'cell'}">

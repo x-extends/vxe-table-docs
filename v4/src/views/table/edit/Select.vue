@@ -4,8 +4,8 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
+      :column-config="{resizable: true}"
       :data="demo1.tableData"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -96,8 +96,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
+          :column-config="{resizable: true}"
           :data="demo1.tableData"
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="tip">调用 <table-api-link prop="remove"/> 删除指定行数据<br><span class="red">（当移除行元素后由于 vue 缓存造成事件错乱，应该使用 <table-api-link prop="row-key "/>来避免该问题）</span></p>
+    <p class="tip">调用 <table-api-link prop="remove"/> 删除指定行数据</p>
 
     <vxe-toolbar>
       <template #buttons>

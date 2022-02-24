@@ -47,9 +47,11 @@ export default defineComponent({
 
     const gridOptions = reactive({
       border: true,
-      resizable: true,
       highlightHoverRow: true,
       height: 400,
+      columnConfig: {
+        resizable: true
+      },
       data: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex1: [], region: [], age: 28, date: '', date1: '', date2: '', date3: '', date4: [], date5: '', date7: '', color1: '', tree1: '', tree2: [], rate: 5, rate1: 59, flag: false, address: 'Shenzhen' },
         { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: '1', sex1: [], region: [], age: 22, date: '', date1: '', date2: '', date3: '', date4: [], date5: '', date7: '', color1: '', tree1: '', tree2: [], rate: 2, rate1: 22, flag: false, address: 'Guangzhou' },
@@ -119,9 +121,11 @@ export default defineComponent({
 
             const gridOptions = reactive({
               border: true,
-              resizable: true,
               highlightHoverRow: true,
               height: 400,
+              columnConfig: {
+                resizable: true
+              },
               data: [
                 { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex1: [], region: [], age: 28, date: '', date1: '', date2: '', date3: '', date4: [], date5: '', date7: '', color1: '', tree1: '', tree2: [], rate: 5, flag: false, address: 'Shenzhen' },
                 { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: '1', sex1: [], region: [], age: 22, date: '', date1: '', date2: '', date3: '', date4: [], date5: '', date7: '', color1: '', tree1: '', tree2: [], rate: 2, flag: false, address: 'Guangzhou' },

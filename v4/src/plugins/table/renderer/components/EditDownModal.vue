@@ -36,10 +36,12 @@ export default defineComponent({
     const xGrid = ref({} as VxeGridInstance)
 
     const gridOptions = reactive({
-      highlightHoverRow: true,
       autoResize: true,
       height: 'auto',
       loading: false,
+      rowConfig: {
+        isHover: true
+      },
       pagerConfig: {
         total: 0,
         currentPage: 1,

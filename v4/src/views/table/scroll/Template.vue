@@ -90,10 +90,12 @@ export default defineComponent({
 
     const gridOptions = reactive({
       border: true,
-      resizable: true,
       showOverflow: true,
       loading: false,
       height: 400,
+      columnConfig: {
+        resizable: true
+      },
       toolbarConfig: {
         custom: true,
         slots: {
@@ -264,10 +266,12 @@ export default defineComponent({
 
             const gridOptions = reactive({
               border: true,
-              resizable: true,
               showOverflow: true,
               loading: false,
               height: 400,
+              columnConfig: {
+                resizable: true
+              },
               toolbarConfig: {
                 custom: true,
                 slots: {

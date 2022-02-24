@@ -470,8 +470,7 @@ export default {
           params: '自定义参数（可以用来存放一些自定义的数据）',
 
           empty: 'Text content displayed when empty data',
-
-          currentChange: 'Only valid for highlightCurrentRow, the event that fires when the row is manually selected and the value changes',
+          currentChange: 'Only valid for row-config.isCurrent, the event that fires when the row is manually selected and the value changes',
           radioChange: 'Only works for type=radio, the event that is triggered when the value is manually checked and changed',
           selectChange: 'Obsolete, please use "checkbox-change"',
           checkboxChange: 'Only valid for type=checkbox, events that are triggered when checked manually and the value changes',

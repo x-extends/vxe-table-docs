@@ -12,9 +12,9 @@
       border
       resizable
       show-overflow
-      highlight-hover-row
       ref="xTable"
       height="500"
+      :row-config="{isHover: true}"
       :data="tableData"
       @cell-dblclick="cellDBLClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -169,9 +169,9 @@ export default {
           border
           resizable
           show-overflow
-          highlight-hover-row
           ref="xTable"
           height="500"
+          :row-config="{isHover: true}"
           :data="tableData"
           @cell-dblclick="cellDBLClickEvent">
           <vxe-column type="seq" width="60"></vxe-column>

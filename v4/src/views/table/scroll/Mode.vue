@@ -21,11 +21,11 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       show-header-overflow
       ref="xTable"
       height="600"
+      :column-config="{resizable: true}"
       :loading="demo1.loading"
       :scroll-y="{mode: 'wheel'}">
       <vxe-column type="seq" width="100" fixed="left"></vxe-column>
@@ -162,11 +162,11 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
           show-header-overflow
           ref="xTable"
           height="600"
+          :column-config="{resizable: true}"
           :loading="demo1.loading"
           :scroll-y="{mode: 'wheel'}">
           <vxe-column type="seq" width="100" fixed="left"></vxe-column>

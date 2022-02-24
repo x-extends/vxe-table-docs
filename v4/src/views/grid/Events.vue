@@ -66,12 +66,14 @@ export default defineComponent({
     const gridOptions = reactive<VxeGridProps>({
       border: true,
       stripe: true,
-      resizable: true,
       showFooter: true,
       height: 500,
       tooltipConfig: {},
       exportConfig: {},
       menuConfig: {},
+      columnConfig: {
+        resizable: true
+      },
       toolbarConfig: {
         export: true,
         zoom: true
@@ -261,12 +263,14 @@ export default defineComponent({
             const gridOptions = reactive<VxeGridProps>({
               border: true,
               stripe: true,
-              resizable: true,
               showFooter: true,
               height: 500,
               tooltipConfig: {},
               exportConfig: {},
               menuConfig: {},
+              columnConfig: {
+                resizable: true
+              },
               toolbarConfig: {
                 export: true,
                 zoom: true

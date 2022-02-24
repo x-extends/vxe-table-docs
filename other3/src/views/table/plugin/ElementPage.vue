@@ -40,12 +40,12 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       keep-source
-      highlight-hover-row
       ref="xTable"
       height="460"
+      :row-config="{isHover: true}"
+      :column-config="{resizable: true}"
       :export-config="{}"
       :print-config="{}"
       :loading="loading"
@@ -220,12 +220,12 @@ export default {
 
         <vxe-table
           border
-          resizable
           show-overflow
           keep-source
-          highlight-hover-row
           ref="xTable"
           height="460"
+          :row-config="{isHover: true}"
+          :column-config="{resizable: true}"
           :export-config="{}"
           :print-config="{}"
           :loading="loading"

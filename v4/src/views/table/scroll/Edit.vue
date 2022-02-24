@@ -30,11 +30,11 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       keep-source
       ref="xTable"
       height="500"
+      :column-config="{resizable: true}"
       :export-config="{}"
       :loading="demo1.loading"
       :checkbox-config="{checkField: 'checked'}"
@@ -195,11 +195,11 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
           keep-source
           ref="xTable"
           height="500"
+          :column-config="{resizable: true}"
           :export-config="{}"
           :loading="demo1.loading"
           :checkbox-config="{checkField: 'checked'}"

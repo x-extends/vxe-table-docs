@@ -192,10 +192,10 @@
         <template #default>
           <vxe-table
             border
-            resizable
             show-overflow
             auto-resize
             height="auto"
+            :column-config="{resizable: true}"
             :sync-resize="demo1.value10"
             :data="demo1.tableData">
             <vxe-column type="seq" width="60"></vxe-column>
@@ -215,10 +215,10 @@
         <template #default>
           <vxe-grid
             border
-            resizable
             show-overflow
             auto-resize
             height="auto"
+            :column-config="{resizable: true}"
             :sync-resize="demo1.value11"
             :pager-config="demo1.tablePage"
             :columns="demo1.tableColumn"
@@ -529,10 +529,10 @@ export default defineComponent({
             <template #default>
               <vxe-table
                 border
-                resizable
                 show-overflow
                 auto-resize
                 height="auto"
+                :column-config="{resizable: true}"
                 :sync-resize="demo1.value10"
                 :data="demo1.tableData">
                 <vxe-column type="seq" width="60"></vxe-column>
@@ -552,10 +552,10 @@ export default defineComponent({
             <template #default>
               <vxe-grid
                 border
-                resizable
                 show-overflow
                 auto-resize
                 height="auto"
+                :column-config="{resizable: true}"
                 :sync-resize="demo1.value11"
                 :pager-config="demo1.tablePage"
                 :columns="demo1.tableColumn"

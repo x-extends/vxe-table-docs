@@ -20,9 +20,9 @@
 
     <vxe-table
       border
-      highlight-hover-row
       ref="xTable"
       height="400"
+      :row-config="{isHover: true}"
       :loading="demo1.loading"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -192,9 +192,9 @@ export default defineComponent({
 
         <vxe-table
           border
-          highlight-hover-row
           ref="xTable"
           height="400"
+          :row-config="{isHover: true}"
           :loading="demo1.loading"
           :data="demo1.tableData">
           <vxe-column type="seq" width="60"></vxe-column>

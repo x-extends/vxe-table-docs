@@ -5,10 +5,10 @@
     <vxe-table
       border
       show-footer
-      highlight-current-row
-      highlight-current-column
       ref="xTable"
       height="400"
+      :row-config="{isCurrent: true}"
+      :column-config="{isCurrent: true}"
       :footer-method="footerMethod"
       :data="tableData"
       :menu-config="tableMenu"
@@ -114,10 +114,10 @@ export default {
         <vxe-table
           border
           show-footer
-          highlight-current-row
-          highlight-current-column
           ref="xTable"
           height="400"
+          :row-config="{isCurrent: true}"
+          :column-config="{isCurrent: true}"
           :footer-method="footerMethod"
           :data="tableData"
           :menu-config="tableMenu"

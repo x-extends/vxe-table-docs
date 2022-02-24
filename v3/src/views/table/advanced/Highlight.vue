@@ -5,8 +5,8 @@
     <vxe-table
       border
       resizable
-      highlight-current-row
       height="400"
+      :row-config="{isCurrent: true}"
       :data="tableData"
       :keyboard-config="{isArrow: true}">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -53,8 +53,8 @@ export default {
         <vxe-table
           border
           resizable
-          highlight-current-row
           height="400"
+          :row-config="{isCurrent: true}"
           :data="tableData"
           :keyboard-config="{isArrow: true}">
           <vxe-column type="seq" width="60"></vxe-column>

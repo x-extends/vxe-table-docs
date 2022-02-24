@@ -29,14 +29,18 @@ export default {
     return {
       gridOptions: {
         border: true,
-        resizable: true,
         showHeaderOverflow: true,
         showOverflow: true,
-        highlightHoverRow: true,
         keepSource: true,
         id: 'full_edit_1',
         height: 600,
         rowId: 'id',
+        rowConfig: {
+          isHover: true
+        },
+        columnConfig: {
+          resizable: true
+        },
         customConfig: {
           storage: true,
           checkMethod: this.checkColumnMethod
@@ -208,14 +212,18 @@ export default {
             return {
               gridOptions: {
                 border: true,
-                resizable: true,
                 showHeaderOverflow: true,
                 showOverflow: true,
-                highlightHoverRow: true,
                 keepSource: true,
                 id: 'full_edit_1',
                 height: 600,
                 rowId: 'id',
+                rowConfig: {
+                  isHover: true
+                },
+                columnConfig: {
+                  resizable: true
+                },
                 customConfig: {
                   storage: true,
                   checkMethod: this.checkColumnMethod

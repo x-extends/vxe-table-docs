@@ -9,9 +9,9 @@
 
     <vxe-grid
       border
-      resizable
       ref="xGrid"
       height="400"
+      :column-config="{resizable: true}"
       :export-config="{}"
       :toolbar-config="demo1.tableToolbar"
       :proxy-config="demo1.tableProxy"
@@ -126,9 +126,9 @@ export default defineComponent({
         `
         <vxe-grid
           border
-          resizable
           ref="xGrid"
           height="400"
+          :column-config="{resizable: true}"
           :export-config="{}"
           :toolbar-config="tableToolbar"
           :proxy-config="tableProxy"

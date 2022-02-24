@@ -23,11 +23,11 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       show-header-overflow
       ref="xTable"
       height="700"
+      :column-config="{resizable: true}"
       :export-config="{}"
       :sort-config="{trigger: 'cell'}"
       :loading="demo1.loading">
@@ -153,11 +153,11 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
           show-header-overflow
           ref="xTable"
           height="700"
+          :column-config="{resizable: true}"
           :export-config="{}"
           :sort-config="{trigger: 'cell'}"
           :loading="demo1.loading">

@@ -4,10 +4,10 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       ref="xTable1"
       max-height="400"
+      :column-config="{resizable: true}"
       :loading="demo1.loading">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
@@ -31,10 +31,10 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       ref="xTable2"
       max-height="400"
+      :column-config="{resizable: true}"
       :loading="demo2.loading">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
@@ -133,10 +133,10 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
           ref="xTable1"
           max-height="400"
+          :column-config="{resizable: true}"
           :loading="demo1.loading">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>
@@ -205,10 +205,10 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
           ref="xTable2"
           max-height="400"
+          :column-config="{resizable: true}"
           :loading="demo2.loading">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>

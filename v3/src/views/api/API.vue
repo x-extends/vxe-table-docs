@@ -118,11 +118,7 @@ export default {
       defaultExpandRows: [],
       tableData: [],
       gridOptions: {
-        resizable: true,
         autoResize: true,
-        highlightCurrentRow: true,
-        highlightHoverRow: true,
-        highlightCurrentColumn: true,
         height: 'auto',
         rowId: 'id',
         loading: false,
@@ -133,6 +129,15 @@ export default {
             'api-abandoned': row.abandoned,
             'disabled-line-through': (row.disabled) && column.property === 'name'
           }
+        },
+        rowConfig: {
+          isHover: true,
+          isCurrent: true
+        },
+        columnConfig: {
+          resizable: true,
+          isHover: true,
+          isCurrent: true
         },
         customConfig: {
           storage: true,

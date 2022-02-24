@@ -4,9 +4,8 @@
     <p class="tip">将工具栏按钮或数据代理中常用的指令注册成全局可复用</p>
     <vxe-table
       resizable
-      highlight-current-row
-      highlight-hover-row
-      highlight-current-column
+      :row-config="{isCurrent: true, isHover: true}"
+      :column-config="{isCurrent: true}"
       :data="tableData">
       <vxe-column field="name" title="app.api.title.prop" min-width="280" tree-node></vxe-column>
       <vxe-column field="desc" title="app.api.title.desc" min-width="200"></vxe-column>

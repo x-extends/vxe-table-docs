@@ -7,9 +7,9 @@
 
     <vxe-table
       border
-      highlight-hover-row
-      resizable
       height="400"
+      :row-config="{isHover: true}"
+      :column-config="{resizable: true}"
       :tooltip-config="{}"
       :menu-config="{}"
       :data="tableData"
@@ -139,9 +139,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-row
-          resizable
           height="400"
+          :row-config="{isHover: true}"
+          :column-config="{resizable: true}"
           :tooltip-config="{}"
           :menu-config="{}"
           :data="tableData"

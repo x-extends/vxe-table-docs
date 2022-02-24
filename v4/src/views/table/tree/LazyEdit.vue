@@ -13,10 +13,10 @@
     <vxe-table
       border
       show-overflow
-      resizable
       keep-source
       ref="xTable1"
-      row-id="id"
+      :row-config="{keyField: 'id'}"
+      :column-config="{resizable: true}"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       :tree-config="demo1.tableTree"
       :data="demo1.tableData">
@@ -106,10 +106,10 @@ export default defineComponent({
         <vxe-table
           border
           show-overflow
-          resizable
           keep-source
           ref="xTable1"
-          row-id="id"
+          :row-config="{keyField: 'id'}"
+          :column-config="{resizable: true}"
           :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
           :tree-config="demo1.tableTree"
           :data="demo1.tableData">

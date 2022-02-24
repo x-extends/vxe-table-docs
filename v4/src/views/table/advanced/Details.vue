@@ -4,10 +4,9 @@
 
     <vxe-table
       border
-      resizable
-      highlight-hover-row
-      highlight-current-row
       height="500"
+      :row-config="{isCurrent: true, isHover: true}"
+      :column-config="{resizable: true}"
       :data="demo1.tableData"
       @cell-click="cellClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -23,8 +22,8 @@
           border="inner"
           auto-resize
           show-overflow
-          highlight-hover-row
           height="auto"
+          :row-config="{isHover: true}"
           :show-header="false"
           :sync-resize="demo1.showDetails"
           :data="demo1.detailData">
@@ -80,10 +79,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
-          highlight-hover-row
-          highlight-current-row
           height="500"
+          :row-config="{isCurrent: true, isHover: true}"
+          :column-config="{resizable: true}"
           :data="demo1.tableData"
           @cell-click="cellClickEvent">
           <vxe-column type="seq" width="60"></vxe-column>
@@ -99,10 +97,10 @@ export default defineComponent({
               border="inner"
               auto-resize
               show-overflow
-              highlight-hover-row
               height="auto"
               :show-header="false"
               :sync-resize="demo1.showDetails"
+              :row-config="{isHover: true}"
               :data="demo1.detailData">
               <vxe-column field="label" width="40%"></vxe-column>
               <vxe-column field="value"></vxe-column>

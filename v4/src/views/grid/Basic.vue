@@ -40,9 +40,11 @@ export default defineComponent({
   setup () {
     const gridOptions1 = reactive<VxeGridProps>({
       border: true,
-      resizable: true,
       height: 300,
       align: null,
+      columnConfig: {
+        resizable: true
+      },
       columns: [
         { type: 'seq', width: 50 },
         { field: 'name', title: 'name' },
@@ -68,11 +70,13 @@ export default defineComponent({
 
     const gridOptions2 = reactive<VxeGridProps>({
       border: true,
-      resizable: true,
       loading: false,
       height: 300,
       columns: [],
-      data: []
+      data: [],
+      columnConfig: {
+        resizable: true
+      }
     })
 
     gridOptions2.loading = true
@@ -118,9 +122,11 @@ export default defineComponent({
           setup () {
             const gridOptions1 = reactive<VxeGridProps>({
               border: true,
-              resizable: true,
               height: 300,
               align: null,
+              columnConfig: {
+                resizable: true
+              },
               columns: [
                 { type: 'seq', width: 50 },
                 { field: 'name', title: 'name' },
@@ -161,11 +167,13 @@ export default defineComponent({
           setup () {
             const gridOptions2 = reactive<VxeGridProps>({
               border: true,
-              resizable: true,
               loading: false,
               height: 300,
               columns: [],
-              data: []
+              data: [],
+              columnConfig: {
+                resizable: true
+              }
             })
 
             gridOptions2.loading = true

@@ -26,10 +26,10 @@
 
     <vxe-table
       border
-      resizable
       show-footer
       ref="xTable"
       height="500"
+      :column-config="{resizable: true}"
       :footer-method="footerMethod"
       :data="demo1.tableData"
       @checkbox-change="checkboxChangeEvent"
@@ -280,10 +280,10 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-footer
           ref="xTable"
           height="500"
+          :column-config="{resizable: true}"
           :footer-method="footerMethod"
           :data="demo1.tableData"
           @checkbox-change="checkboxChangeEvent"

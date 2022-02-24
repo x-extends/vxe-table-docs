@@ -5,9 +5,8 @@
     <vxe-table
       border
       resizable
-      highlight-hover-row
-      highlight-current-row
       height="300"
+      :row-config="{isCurrent: true, isHover: true}"
       :sort-config="{iconAsc: 'fa fa-chevron-up', iconDesc: 'fa fa-chevron-down'}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -45,9 +44,8 @@ export default {
         <vxe-table
           border
           resizable
-          highlight-hover-row
-          highlight-current-row
           height="300"
+          :row-config="{isCurrent: true, isHover: true}"
           :sort-config="{iconAsc: 'fa fa-chevron-up', iconDesc: 'fa fa-chevron-down'}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>

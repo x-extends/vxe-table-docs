@@ -10,11 +10,11 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
-      highlight-hover-row
       ref="xTable"
       height="300"
+      :column-config="{resizable: true}"
+      :row-config="{isHover: true}"
       :data="demo1.tableData"
       @cell-dblclick="cellDBLClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -260,11 +260,11 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
-          highlight-hover-row
           ref="xTable"
           height="300"
+          :column-config="{resizable: true}"
+          :row-config="{isHover: true}"
           :data="demo1.tableData"
           @cell-dblclick="cellDBLClickEvent">
           <vxe-column type="seq" width="60"></vxe-column>

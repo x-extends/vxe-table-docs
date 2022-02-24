@@ -30,8 +30,10 @@ export default defineComponent({
       showFooterOverflow: true,
       showFooter: true,
       height: 500,
-      rowId: 'id',
       loading: false,
+      rowConfig: {
+        keyField: 'id'
+      },
       checkboxConfig: {
         checkField: 'checked',
         labelField: 'id'
@@ -147,8 +149,10 @@ export default defineComponent({
               showFooterOverflow: true,
               showFooter: true,
               height: 500,
-              rowId: 'id',
               loading: false,
+              rowConfig: {
+                keyField: 'id'
+              },
               checkboxConfig: {
                 checkField: 'checked',
                 labelField: 'id'

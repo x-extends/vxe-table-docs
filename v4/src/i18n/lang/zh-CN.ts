@@ -469,7 +469,7 @@ export default {
 
           empty: '空数据时显示的文本内容',
 
-          currentChange: '只对 highlightCurrentRow 有效，当手动选中行并且值发生改变时触发的事件',
+          currentChange: '只对 row-config.isCurrent 有效，当手动选中行并且值发生改变时触发的事件',
           radioChange: '只对 type=radio 有效，当手动勾选并且值发生改变时触发的事件',
           selectChange: '即将废弃，请使用 checkbox-change',
           checkboxChange: '只对 type=checkbox 有效，当手动勾选并且值发生改变时触发的事件',

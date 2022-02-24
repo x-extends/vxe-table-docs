@@ -47,11 +47,11 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       keep-source
       ref="xTable"
       height="300"
+      :column-config="{resizable: true}"
       :loading="demo1.loading"
       :edit-rules="demo1.validRules"
       :mouse-config="{selected: true}"
@@ -314,11 +314,11 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
           keep-source
           ref="xTable"
           height="300"
+          :column-config="{resizable: true}"
           :loading="demo1.loading"
           :edit-rules="demo1.validRules"
           :mouse-config="{selected: true}"

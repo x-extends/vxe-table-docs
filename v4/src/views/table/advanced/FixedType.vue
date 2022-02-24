@@ -14,9 +14,9 @@
 
     <vxe-table
       border
-      highlight-hover-row
       ref="xTable"
       height="400"
+      :row-config="{isHover: true}"
       :import-config="{}"
       :export-config="{}"
       :data="demo1.tableData">
@@ -87,9 +87,9 @@ export default defineComponent({
 
         <vxe-table
           border
-          highlight-hover-row
           ref="xTable"
           height="400"
+          :row-config="{isHover: true}"
           :import-config="{}"
           :export-config="{}"
           :data="demo1.tableData">

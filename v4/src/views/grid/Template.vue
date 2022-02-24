@@ -238,9 +238,11 @@ export default defineComponent({
 
     const gridOptions = reactive<VxeGridProps>({
       border: true,
-      resizable: true,
       showFooter: true,
       height: 600,
+      columnConfig: {
+        resizable: true
+      },
       editConfig: {
         trigger: 'click',
         mode: 'cell',
@@ -572,9 +574,11 @@ export default defineComponent({
 
             const gridOptions = reactive<VxeGridProps>({
               border: true,
-              resizable: true,
               showFooter: true,
               height: 600,
+              columnConfig: {
+                resizable: true
+              },
               editConfig: {
                 trigger: 'click',
                 mode: 'cell',

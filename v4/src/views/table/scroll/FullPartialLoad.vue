@@ -46,7 +46,9 @@ export default defineComponent({
       showOverflow: true,
       showHeaderOverflow: true,
       height: 500,
-      rowId: 'id',
+      rowConfig: {
+        keyField: 'id'
+      },
       checkboxConfig: {
         checkField: 'checked',
         labelField: 'id'
@@ -220,7 +222,9 @@ export default defineComponent({
               showOverflow: true,
               showHeaderOverflow: true,
               height: 500,
-              rowId: 'id',
+              rowConfig: {
+                keyField: 'id'
+              },
               checkboxConfig: {
                 checkField: 'checked',
                 labelField: 'id'

@@ -7,12 +7,12 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       show-header-overflow
       show-footer
       ref="xTable"
       height="500"
+      :column-config="{resizable: true}"
       :export-config="{}"
       :merge-cells="demo1.mergeCells"
       :sort-config="{trigger: 'cell'}"
@@ -125,12 +125,12 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
           show-header-overflow
           show-footer
           ref="xTable"
           height="500"
+          :column-config="{resizable: true}"
           :export-config="{}"
           :merge-cells="demo1.mergeCells"
           :sort-config="{trigger: 'cell'}"

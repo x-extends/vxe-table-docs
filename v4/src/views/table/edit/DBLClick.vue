@@ -4,8 +4,8 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
+      :column-config="{resizable: true}"
       :data="tableData1"
       :edit-config="{trigger: 'dblclick', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -72,8 +72,8 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
+      :column-config="{resizable: true}"
       :data="tableData2"
       :edit-config="{trigger: 'dblclick', mode: 'row'}">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -189,8 +189,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
+          :column-config="{resizable: true}"
           :data="tableData1"
           :edit-config="{trigger: 'dblclick', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
@@ -293,8 +293,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
+          :column-config="{resizable: true}"
           :data="tableData2"
           :edit-config="{trigger: 'dblclick', mode: 'row'}">
           <vxe-column type="seq" width="60"></vxe-column>

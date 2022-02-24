@@ -43,12 +43,14 @@ export default defineComponent({
   setup () {
     const gridOptions = reactive<VxeGridProps>({
       border: true,
-      resizable: true,
       keepSource: true,
       showOverflow: true,
       height: 530,
       id: 'toolbar_demo_2',
       loading: false,
+      columnConfig: {
+        resizable: true
+      },
       customConfig: {
         storage: true
       },
@@ -130,12 +132,14 @@ export default defineComponent({
           setup () {
             const gridOptions = reactive<VxeGridProps>({
               border: true,
-              resizable: true,
               keepSource: true,
               showOverflow: true,
               height: 530,
               id: 'toolbar_demo_2',
               loading: false,
+              columnConfig: {
+                resizable: true
+              },
               customConfig: {
                 storage: true
               },

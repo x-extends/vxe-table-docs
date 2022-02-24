@@ -31,11 +31,15 @@ export default {
   data () {
     return {
       gridOptions: {
-        resizable: true,
         showOverflow: true,
-        highlightHoverRow: true,
         keepSource: true,
         rowId: 'id',
+        rowConfig: {
+          isHover: true
+        },
+        columnConfig: {
+          resizable: true
+        },
         treeConfig: {
           transform: true,
           rowField: 'id',
@@ -136,11 +140,15 @@ export default {
           data () {
             return {
               gridOptions: {
-                resizable: true,
                 showOverflow: true,
-                highlightHoverRow: true,
                 keepSource: true,
                 rowId: 'id',
+                rowConfig: {
+                  isHover: true
+                },
+                columnConfig: {
+                  resizable: true
+                },
                 treeConfig: {
                   transform: true,
                   rowField: 'id',

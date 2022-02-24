@@ -12,10 +12,9 @@
       resizable
       show-overflow
       show-header-overflow
-      highlight-hover-row
-      highlight-current-row
       ref="xGrid"
       height="600"
+      :row-config="{isCurrent: true, isHover: true}"
       :loading="loading"
       :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
       :checkbox-config="{checkField: 'checked', labelField: 'name'}">
@@ -69,10 +68,9 @@ export default {
           resizable
           show-overflow
           show-header-overflow
-          highlight-hover-row
-          highlight-current-row
           ref="xGrid"
           height="600"
+          :row-config="{isCurrent: true, isHover: true}"
           :loading="loading"
           :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
           :checkbox-config="{checkField: 'checked', labelField: 'name'}">

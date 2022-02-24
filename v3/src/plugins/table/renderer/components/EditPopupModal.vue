@@ -11,10 +11,10 @@
       @confirm="confirmEvent">
       <template #default>
         <vxe-grid
-          highlight-hover-row
           auto-resize
           ref="xGrid"
           height="auto"
+          :row-config="{isHover: true}"
           :loading="loading"
           :pager-config="tablePage"
           :data="tableData"

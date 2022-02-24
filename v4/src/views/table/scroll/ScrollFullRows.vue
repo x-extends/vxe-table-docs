@@ -25,14 +25,12 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
-      row-key
       show-header-overflow
-      highlight-hover-row
-      highlight-current-row
       ref="xTable"
       height="600"
+      :row-config="{isCurrent: true, isHover: true, useKey: true}"
+      :column-config="{resizable: true}"
       :export-config="{}"
       :loading="demo1.loading"
       :sort-config="{trigger: 'cell'}"
@@ -183,14 +181,12 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
-          row-key
           show-header-overflow
-          highlight-hover-row
-          highlight-current-row
           ref="xTable"
           height="600"
+          :row-config="{isCurrent: true, isHover: true, useKey: true}"
+          :column-config="{resizable: true}"
           :export-config="{}"
           :loading="demo1.loading"
           :sort-config="{trigger: 'cell'}"

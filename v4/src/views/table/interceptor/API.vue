@@ -3,11 +3,9 @@
     <h1>{{ $t('app.aside.nav.interceptor') }}</h1>
     <p class="tip">通过内置事件拦截器可以很容易的处理表格事件行为与第三方组件的兼容性；比如这些插件 <a class="link" href="https://www.npmjs.com/package/vxe-table-plugin-element" target="_blank">vxe-table-plugin-element</a></p>
     <vxe-table
-      resizable
-      highlight-current-row
-      highlight-hover-row
-      highlight-current-column
       class="api-table"
+      :row-config="{isCurrent: true, isHover: true}"
+      :column-config="{resizable: true, isCurrent: true}"
       :data="tableData">
       <vxe-column field="name" title="app.api.title.prop" min-width="280" tree-node></vxe-column>
       <vxe-column field="desc" title="app.api.title.desc" min-width="200"></vxe-column>
@@ -22,9 +20,9 @@
     </vxe-table>
     <h2>可选值</h2>
     <vxe-table
-      resizable
-      highlight-hover-row
       class="api-table"
+      :row-config="{isHover: true}"
+      :column-config="{resizable: true}"
       :data="typeList">
       <vxe-column field="name" title="app.api.title.prop" min-width="280" tree-node></vxe-column>
       <vxe-column field="desc" title="app.api.title.desc" min-width="200"></vxe-column>

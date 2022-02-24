@@ -15,10 +15,10 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       show-header-overflow
       ref="xTree"
+      :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :checkbox-config="{labelField: 'id'}"
       :data="demo1.tableData">
@@ -80,10 +80,10 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
           show-header-overflow
           ref="xTree"
+          :column-config="{resizable: true}"
           :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
           :checkbox-config="{labelField: 'id'}"
           :data="demo1.tableData">

@@ -15,9 +15,9 @@
     </vxe-toolbar>
 
     <vxe-table
-      highlight-hover-row
       ref="xTable"
       height="400"
+      :row-config="{isHover: true}"
       :export-config="{}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -65,9 +65,9 @@ export default {
         </vxe-toolbar>
 
         <vxe-table
-          highlight-hover-row
           ref="xTable"
           height="400"
+          :row-config="{isHover: true}"
           :export-config="{}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>

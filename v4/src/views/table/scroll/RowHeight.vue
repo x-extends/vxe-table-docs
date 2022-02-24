@@ -4,11 +4,11 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       ref="xTable"
       height="500"
       :row-config="{height: 120}"
+      :column-config="{resizable: true}"
       :scroll-y="{gt: 0}"
       :loading="demo1.loading">
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
@@ -87,11 +87,11 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
           ref="xTable"
           height="500"
           :row-config="{height: 120}"
+          :column-config="{resizable: true}"
           :scroll-y="{gt: 0}"
           :loading="demo1.loading">
           <vxe-column type="seq" title="序号" width="100"></vxe-column>

@@ -58,13 +58,17 @@ export default defineComponent({
     const gridOptions = reactive({
       border: true,
       showOverflow: true,
-      rowKey: true,
       showHeaderOverflow: true,
-      highlightHoverRow: true,
-      highlightCurrentRow: true,
       height: 600,
-      resizable: true,
       loading: false,
+      rowConfig: {
+        useKey: true,
+        isHover: true,
+        isCurrent: true
+      },
+      columnConfig: {
+        resizable: true
+      },
       toolbarConfig: {
         slots: {
           buttons: 'toolbar_buttons'
@@ -234,13 +238,17 @@ export default defineComponent({
             const gridOptions = reactive({
               border: true,
               showOverflow: true,
-              rowKey: true,
               showHeaderOverflow: true,
-              highlightHoverRow: true,
-              highlightCurrentRow: true,
               height: 600,
-              resizable: true,
               loading: false,
+              rowConfig: {
+                useKey: true,
+                isHover: true,
+                isCurrent: true
+              },
+              columnConfig: {
+                resizable: true
+              },
               toolbarConfig: {
                 slots: {
                   buttons: 'toolbar_buttons'

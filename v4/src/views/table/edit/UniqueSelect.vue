@@ -10,10 +10,10 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       ref="xTable"
       max-height="400"
+      :column-config="{resizable: true}"
       :data="demo1.tableData"
       :edit-config="{trigger: 'click', mode: 'row'}"
       @edit-actived="editActivedEvent">
@@ -125,10 +125,10 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           show-overflow
           ref="xTable"
           max-height="400"
+          :column-config="{resizable: true}"
           :data="demo1.tableData"
           :edit-config="{trigger: 'click', mode: 'row'}"
           @edit-actived="editActivedEvent">

@@ -6,7 +6,7 @@
 
     <vxe-table
       border
-      resizable
+      :column-config="{resizable: true}"
       :tree-config="{transform: true}"
       :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
@@ -74,7 +74,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
+          :column-config="{resizable: true}"
           :tree-config="{transform: true}"
           :data="tableData">
           <vxe-column field="name" title="Name" tree-node></vxe-column>

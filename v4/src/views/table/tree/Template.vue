@@ -17,7 +17,7 @@
 
     <vxe-table
       border
-      resizable
+      :column-config="{resizable: true}"
       :tree-config="demo1.tableTreeConfig"
       :data="demo1.tableData">
       <vxe-column field="name" title="app.body.label.name"></vxe-column>
@@ -105,7 +105,7 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
+          :column-config="{resizable: true}"
           :tree-config="demo1.tableTreeConfig"
           :data="demo1.tableData">
           <vxe-column field="name" title="app.body.label.name"></vxe-column>

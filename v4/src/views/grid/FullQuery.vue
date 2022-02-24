@@ -67,11 +67,15 @@ export default defineComponent({
     })
 
     const gridOptions = reactive<VxeGridProps>({
-      resizable: true,
       showOverflow: true,
       border: 'inner',
       height: 548,
-      rowId: 'id',
+      rowConfig: {
+        keyField: 'id'
+      },
+      columnConfig: {
+        resizable: true
+      },
       printConfig: {
         columns: [
           { field: 'name' },
@@ -256,11 +260,15 @@ export default defineComponent({
             })
 
             const gridOptions = reactive<VxeGridProps>({
-              resizable: true,
               showOverflow: true,
               border: 'inner',
               height: 548,
-              rowId: 'id',
+              rowConfig: {
+                keyField: 'id'
+              },
+              columnConfig: {
+                resizable: true
+              },
               printConfig: {
                 columns: [
                   { field: 'name' },

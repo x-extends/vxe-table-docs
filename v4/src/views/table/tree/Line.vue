@@ -6,10 +6,9 @@
     </p>
 
     <vxe-table
-      resizable
       show-overflow
-      highlight-hover-row
-      row-key
+      :row-config="{isHover: true, useKey: true}"
+      :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', line: true}"
       :data="demo1.tableData"
       :scroll-y="{enabled: false}">
@@ -29,12 +28,10 @@
     <p class="tip">复选框</p>
 
     <vxe-table
-      resizable
       show-overflow
-      highlight-hover-row
-      highlight-current-row
-      row-key
       size="medium"
+      :row-config="{isCurrent: true, isHover: true, useKey: true}"
+      :column-config="{resizable: true}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon--caret-right rotate45', iconClose: 'vxe-icon--caret-right'}"
       :checkbox-config="{labelField: 'name'}"
       :data="demo2.tableData"
@@ -55,11 +52,10 @@
     <p class="tip">自定义图标，通过设置 <table-api-link prop="tree-config"/>={<table-api-link prop="iconOpen"/>, <table-api-link prop="iconClose"/>} 局部替换默认的图标</p>
 
     <vxe-table
-      resizable
       show-overflow
-      highlight-hover-row
-      row-key
       size="small"
+      :row-config="{isHover: true, useKey: true}"
+      :column-config="{resizable: true}"
       :radio-config="{labelField: 'name'}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
       :data="demo3.tableData"
@@ -80,12 +76,11 @@
     <p class="tip">更多自定义</p>
 
     <vxe-table
-      resizable
       show-overflow
-      highlight-hover-row
-      row-key
       ref="xTree"
       size="mini"
+      :row-config="{isHover: true, useKey: true}"
+      :column-config="{resizable: true}"
       :checkbox-config="{labelField: 'name'}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-caret-down', iconClose: 'fa fa-caret-right'}"
       :data="demo4.tableData"
@@ -223,10 +218,9 @@ export default defineComponent({
       demoCodes: [
         `
         <vxe-table
-          resizable
           show-overflow
-          highlight-hover-row
-          row-key
+          :row-config="{isHover: true, useKey: true}"
+          :column-config="{resizable: true}"
           :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', line: true}"
           :data="demo1.tableData"
           :scroll-y="{enabled: false}">
@@ -271,12 +265,10 @@ export default defineComponent({
         `,
         `
         <vxe-table
-          resizable
           show-overflow
-          highlight-hover-row
-          highlight-current-row
-          row-key
           size="medium"
+          :row-config="{isCurrent: true, isHover: true, useKey: true}"
+          :column-config="{resizable: true}"
           :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon--caret-right rotate45', iconClose: 'vxe-icon--caret-right'}"
           :checkbox-config="{labelField: 'name'}"
           :data="demo2.tableData"
@@ -322,11 +314,10 @@ export default defineComponent({
         `,
         `
         <vxe-table
-          resizable
           show-overflow
-          highlight-hover-row
-          row-key
           size="small"
+          :row-config="{isHover: true, useKey: true}"
+          :column-config="{resizable: true}"
           :radio-config="{labelField: 'name'}"
           :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
           :data="demo3.tableData"
@@ -372,12 +363,11 @@ export default defineComponent({
         `,
         `
         <vxe-table
-          resizable
           show-overflow
-          highlight-hover-row
-          row-key
           ref="xTree"
           size="mini"
+          :row-config="{isHover: true, useKey: true}"
+          :column-config="{resizable: true}"
           :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-caret-down', iconClose: 'fa fa-caret-right'}"
           :data="demo4.tableData"
           :scroll-y="{enabled: false}">

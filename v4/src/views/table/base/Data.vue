@@ -38,10 +38,10 @@
       <pre-code class="typescript">{{ demoCodes[3] }}</pre-code>
     </pre>
 
-    <p class="tip">二维数组结构，适用场景较少<span class="red">（缺点局限性比较大，需要手动指定 <table-api-link prop="row-id"/> 唯一主键）</span></p>
+    <p class="tip">二维数组结构，适用场景较少<span class="red">（缺点局限性比较大，需要手动指定 <table-api-link prop="row-config"/>.<table-api-link prop="keyField"/> 唯一主键）</span></p>
 
     <vxe-table
-      row-id="0"
+      :row-config="{keyField: '0'}"
       :data="tableData3">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="1" title="Name"></vxe-column>
@@ -207,7 +207,7 @@ export default defineComponent({
         `,
         `
         <vxe-table
-          row-id="0"
+          :row-config="{keyField: 'id'}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="1" title="Name"></vxe-column>

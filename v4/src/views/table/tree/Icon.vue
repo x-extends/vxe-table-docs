@@ -14,8 +14,8 @@
 
     <vxe-table
       border
-      resizable
       ref="xTree1"
+      :column-config="{resizable: true}"
       :tree-config="demo1.tableTreeConfig"
       :data="demo1.tableData">
       <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
@@ -34,9 +34,9 @@
     <p class="tip">更多自定义</p>
 
     <vxe-table
-      resizable
       show-overflow
       ref="xTree2"
+      :column-config="{resizable: true}"
       :tree-config="demo2.tableTreeConfig"
       :data="demo2.tableData">
       <vxe-column field="name" title="Name" tree-node>
@@ -68,8 +68,8 @@
     <p class="tip">还可以通过 <table-api-link prop="tree-config"/>={<table-api-link prop="toggleMethod"/>} 方法实现展开与关闭的细节处理，返回值用来决定是否允许继续执行</p>
 
     <vxe-table
-      resizable
       show-overflow
+      :column-config="{resizable: true}"
       :tree-config="demo3.tableTreeConfig"
       :data="demo3.tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
@@ -217,8 +217,8 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           ref="xTree1"
+          :column-config="{resizable: true}"
           :tree-config="demo1.tableTreeConfig"
           :data="demo1.tableData">
           <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
@@ -281,9 +281,9 @@ export default defineComponent({
         `,
         `
         <vxe-table
-          resizable
           show-overflow
           ref="xTree2"
+          :column-config="{resizable: true}"
           :tree-config="demo2.tableTreeConfig"
           :data="demo2.tableData">
           <vxe-column field="name" title="Name" tree-node>
@@ -351,8 +351,8 @@ export default defineComponent({
         `,
         `
         <vxe-table
-          resizable
           show-overflow
+          :column-config="{resizable: true}"
           :tree-config="demo3.tableTreeConfig"
           :data="demo3.tableData">
           <vxe-column field="name" title="Name" tree-node></vxe-column>

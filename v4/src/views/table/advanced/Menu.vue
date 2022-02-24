@@ -5,8 +5,8 @@
     <vxe-table
       border
       show-footer
-      highlight-current-row
-      highlight-current-column
+      :row-config="{isCurrent: true}"
+      :column-config="{isCurrent: true}"
       :footer-method="footerMethod"
       :data="demo1.tableData"
       :menu-config="demo1.tableMenu"
@@ -149,8 +149,8 @@ export default defineComponent({
         <vxe-table
           border
           show-footer
-          highlight-current-row
-          highlight-current-column
+          :row-config="{isCurrent: true}"
+          :column-config="{isCurrent: true}"
           :footer-method="footerMethod"
           :data="demo1.tableData"
           :menu-config="demo1.tableMenu"

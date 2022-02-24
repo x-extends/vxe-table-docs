@@ -4,8 +4,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="400"
+      :row-config="{isHover: true}"
       :filter-config="{iconNone: 'fa fa-wheelchair', iconMatch: 'fa fa-wheelchair-alt'}"
       :loading="loading"
       :data="tableData">
@@ -36,8 +36,8 @@ export default {
         `
         <vxe-table
           border
-          highlight-hover-row
           height="400"
+          :row-config="{isHover: true}"
           :filter-config="{iconNone: 'fa fa-wheelchair', iconMatch: 'fa fa-wheelchair-alt'}"
           :loading="loading"
           :data="tableData">

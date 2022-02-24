@@ -116,14 +116,13 @@
     </pre>
 
     <p class="tip">
-      默认选中，通过指定 <table-api-link prop="checkRowKeys"/> 设置默认选中的行，指定默认值需要有 <table-api-link prop="row-id"/>，通过 <table-api-link prop="highlight"/> 设置高亮选中行<br>
+      默认选中，通过指定 <table-api-link prop="checkRowKeys"/> 设置默认选中的行，指定默认值需要有 <table-api-link prop="row-config"/>.<table-api-link prop="keyField"/>，通过 <table-api-link prop="checkbox-config"/>.<table-api-link prop="highlight"/> 设置高亮选中行<br>
       <span class="red">（注：默认行为只会在 reload 之后触发一次）</span>
     </p>
 
     <vxe-table
       border
-      row-id="id"
-      :row-config="{isHover: true}"
+      :row-config="{keyField: 'id', isHover: true}"
       :data="demo5.tableData"
       :checkbox-config="{checkRowKeys: demo5.defaultSelecteRows5, highlight: true}"
       :radio-config="{labelField: 'name'}">
@@ -566,8 +565,7 @@ export default defineComponent({
         `
         <vxe-table
           border
-          row-id="id"
-          :row-config="{isHover: true}"
+          :row-config="{keyField: 'id', isHover: true}"
           :data="demo5.tableData"
           :checkbox-config="{checkRowKeys: demo5.defaultSelecteRows5, highlight: true}"
           :radio-config="{labelField: 'name'}">

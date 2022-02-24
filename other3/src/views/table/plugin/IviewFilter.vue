@@ -7,9 +7,9 @@
 
     <vxe-table
       border
-      resizable
-      highlight-hover-row
       height="400"
+      :row-config="{isHover: true}"
+      :column-config="{resizable: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Input" :filters="[{data: ''}]" :filter-render="{name: 'Input', props: {placeholder: '请输入名称'}}"></vxe-column>
@@ -57,9 +57,9 @@ export default {
         `
         <vxe-table
           border
-          resizable
-          highlight-hover-row
           height="400"
+          :row-config="{isHover: true}"
+          :column-config="{resizable: true}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Input" :filters="[{data: ''}]" :filter-render="{name: 'Input', props: {placeholder: '请输入名称'}}"></vxe-column>

@@ -6,10 +6,10 @@
 
     <vxe-table
       border
-      resizable
       ref="xTree1"
       height="400"
-      row-id="id"
+      :row-config="{keyField: 'id'}"
+      :column-config="{resizable: true}"
       :menu-config="demo1.tableMenu"
       :tree-config="demo1.treeConfig"
       :data="demo1.tableData"
@@ -132,10 +132,10 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           ref="xTree1"
           height="400"
-          row-id="id"
+          :row-config="{keyField: 'id'}"
+          :column-config="{resizable: true}"
           :menu-config="demo1.tableMenu"
           :tree-config="demo1.treeConfig"
           :data="demo1.tableData"

@@ -4,9 +4,9 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       :data="tableData1"
+      :column-config="{resizable: true}"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
@@ -72,9 +72,9 @@
 
     <vxe-table
       border
-      resizable
       show-overflow
       :data="tableData2"
+      :column-config="{resizable: true}"
       :edit-config="{trigger: 'click', mode: 'row'}">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="分组1">
@@ -189,9 +189,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
           :data="tableData1"
+          :column-config="{resizable: true}"
           :edit-config="{trigger: 'click', mode: 'cell'}">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
@@ -293,9 +293,9 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           show-overflow
           :data="tableData2"
+          :column-config="{resizable: true}"
           :edit-config="{trigger: 'click', mode: 'row'}">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-colgroup title="分组1">

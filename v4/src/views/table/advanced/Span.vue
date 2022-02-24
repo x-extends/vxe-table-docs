@@ -15,8 +15,8 @@
 
     <vxe-table
       border
-      resizable
       height="300"
+      :column-config="{resizable: true}"
       :align="demo1.allAlign"
       :merge-cells="demo1.mergeCells"
       :data="demo1.tableData">
@@ -38,8 +38,8 @@
 
     <vxe-table
       border
-      resizable
       height="300"
+      :column-config="{resizable: true}"
       :scroll-y="{enabled: false}"
       :span-method="colspanMethod"
       :data="demo2.tableData">
@@ -61,8 +61,8 @@
 
     <vxe-table
       border
-      resizable
       height="300"
+      :column-config="{resizable: true}"
       :scroll-y="{enabled: false}"
       :span-method="mergeRowMethod"
       :data="demo3.tableData">
@@ -185,8 +185,8 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           height="300"
+          :column-config="{resizable: true}"
           :align="demo1.allAlign"
           :merge-cells="demo1.mergeCells"
           :data="demo1.tableData">
@@ -230,8 +230,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           height="300"
+          :column-config="{resizable: true}"
           :scroll-y="{enabled: false}"
           :span-method="colspanMethod"
           :data="demo2.tableData">
@@ -281,8 +281,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          resizable
           height="300"
+          :column-config="{resizable: true}"
           :scroll-y="{enabled: false}"
           :span-method="mergeRowMethod"
           :data="demo3.tableData">

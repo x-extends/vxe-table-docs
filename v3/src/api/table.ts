@@ -640,7 +640,7 @@ const apis = [
       {
         name: 'highlight-hover-row',
         disabled: true,
-        desc: '已废弃，被 row-config.isCurrent 替换',
+        desc: '已废弃，被 row-config.isHover 替换',
         version: '',
         type: 'boolean',
         enum: '',
@@ -660,7 +660,7 @@ const apis = [
       {
         name: 'highlight-hover-column',
         disabled: true,
-        desc: '已废弃，被 column-config.isCurrent 替换',
+        desc: '已废弃，被 column-config.isHover 替换',
         version: '',
         type: 'boolean',
         enum: '',
@@ -3927,7 +3927,7 @@ const apis = [
       },
       {
         name: 'getRowById(rowid)',
-        desc: '根据行的唯一主键获取行',
+        desc: '根据行的唯一主键获取行（需要 row-config.keyField）',
         version: '',
         type: 'String',
         enum: '',
@@ -3936,7 +3936,7 @@ const apis = [
       },
       {
         name: 'getRowid(row)',
-        desc: '根据行获取行的唯一主键',
+        desc: '根据行获取行的唯一主键（需要 row-config.keyField）',
         version: '',
         type: 'Row',
         enum: '',
@@ -4008,7 +4008,7 @@ const apis = [
       },
       {
         name: 'getCurrentColumn()',
-        desc: '用于 highlight-current-column，获取当前列',
+        desc: '用于 column-config.isCurrent，获取当前列',
         version: '',
         type: 'ColumnConfig',
         enum: '',
@@ -4017,7 +4017,7 @@ const apis = [
       },
       {
         name: 'getCurrentRecord()',
-        desc: '用于 highlight-current-row，获取高亮的当前行数据',
+        desc: '用于 row-config.isCurrent，获取高亮的当前行数据',
         version: '',
         type: 'Row',
         enum: '',
@@ -4378,7 +4378,7 @@ const apis = [
       },
       {
         name: 'setCurrentRow(row)',
-        desc: '用于 highlight-current-row，设置某一行为高亮状态',
+        desc: '用于 row-config.isCurrent，设置某一行为高亮状态',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4387,7 +4387,7 @@ const apis = [
       },
       {
         name: 'setCurrentColumn(column)',
-        desc: '用于 highlight-current-column，设置某列行为高亮状态',
+        desc: '用于 column-config.isCurrent，设置某列行为高亮状态',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4477,7 +4477,7 @@ const apis = [
       },
       {
         name: 'clearCurrentRow()',
-        desc: '用于 highlight-current-row，手动清空当前高亮的状态',
+        desc: '用于 row-config.isCurrent，手动清空当前高亮的状态',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4486,7 +4486,7 @@ const apis = [
       },
       {
         name: 'clearCurrentColumn()',
-        desc: '用于 highlight-current-column，手动清空当前高亮的状态',
+        desc: '用于 column-config.isCurrent，手动清空当前高亮的状态',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4615,7 +4615,7 @@ const apis = [
         version: 'pro',
         type: 'Promise<any>',
         enum: '',
-        defVal: '',
+        defVal: 'area?: any',
         list: []
       },
       {

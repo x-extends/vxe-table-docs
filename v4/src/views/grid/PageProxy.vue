@@ -26,9 +26,13 @@ export default defineComponent({
   setup () {
     const gridOptions = reactive<VxeGridProps>({
       border: true,
-      resizable: false,
       height: 530,
-      rowId: 'id',
+      rowConfig: {
+        keyField: 'id'
+      },
+      columnConfig: {
+        resizable: true
+      },
       checkboxConfig: {
         reserve: true
       },
@@ -96,9 +100,13 @@ export default defineComponent({
           setup () {
             const gridOptions = reactive<VxeGridProps>({
               border: true,
-              resizable: false,
               height: 530,
-              rowId: 'id',
+              rowConfig: {
+                keyField: 'id'
+              },
+              columnConfig: {
+                resizable: true
+              },
               checkboxConfig: {
                 reserve: true
               },

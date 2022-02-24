@@ -482,9 +482,9 @@ export default {
 
         <vxe-table
           border
-          highlight-hover-row
           ref="xTable6"
           :data="tableData"
+          :row-config="{isHover: true}"
           :checkbox-config="{checkStrictly: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>

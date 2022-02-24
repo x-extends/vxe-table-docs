@@ -4,9 +4,8 @@
     <p class="tip">将右键菜单注册成全局可复用的</p>
     <vxe-table
       resizable
-      highlight-current-row
-      highlight-hover-row
-      highlight-current-column
+      :row-config="{isCurrent: true, isHover: true}"
+      :column-config="{isCurrent: true}"
       :data="tableData">
       <vxe-column field="name" title="app.api.title.prop" min-width="280" tree-node></vxe-column>
       <vxe-column field="desc" title="app.api.title.desc" min-width="200"></vxe-column>

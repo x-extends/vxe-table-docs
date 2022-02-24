@@ -13,9 +13,9 @@
 
     <vxe-table
       border
-      resizable
       ref="xTree"
       max-height="400"
+      :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData">
       <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
@@ -71,9 +71,9 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           ref="xTree"
           max-height="400"
+          :column-config="{resizable: true}"
           :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
           :data="tableData">
           <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>

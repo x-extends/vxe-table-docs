@@ -11,7 +11,7 @@
     <h2>API</h2>
     <vxe-table
       resizable
-      highlight-hover-row
+      :row-config="{isHover: true}"
       :data="tableData">
       <vxe-column field="name" title="app.api.title.prop" min-width="280" tree-node></vxe-column>
       <vxe-column field="desc" title="app.api.title.desc" min-width="200"></vxe-column>
@@ -22,7 +22,7 @@
     <h2>原生渲染器</h2>
     <vxe-table
       resizable
-      highlight-hover-row
+      :row-config="{isHover: true}"
       :data="nativeRenderList">
       <vxe-column field="name" title="渲染器名称" min-width="100">
         <template #default="{ row }">
@@ -34,7 +34,7 @@
     <h2>内置渲染器</h2>
     <vxe-table
       resizable
-      highlight-hover-row
+      :row-config="{isHover: true}"
       :data="xRenderList">
       <vxe-column field="name" title="渲染器名称" min-width="100">
         <template #default="{ row }">

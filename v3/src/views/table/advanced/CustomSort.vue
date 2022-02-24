@@ -5,11 +5,10 @@
     <vxe-table
       border
       resizable
-      highlight-hover-row
-      highlight-current-row
       class="my-sort"
       ref="xTable"
       height="300"
+      :row-config="{isCurrent: true, isHover: true}"
       :data="tableData"
       :sort-config="{showIcon: false}"
       @header-cell-click="headerCellClickEvent">
@@ -72,11 +71,10 @@ export default {
         <vxe-table
           border
           resizable
-          highlight-hover-row
-          highlight-current-row
           class="my-sort"
           ref="xTable"
           height="300"
+          ::row-config="{isCurrent: true, isHover: true}"
           :data="tableData"
           :sort-config="{showIcon: false}"
           @header-cell-click="headerCellClickEvent">

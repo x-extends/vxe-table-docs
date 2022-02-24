@@ -5,10 +5,10 @@
     <vxe-toolbar custom></vxe-toolbar>
 
     <vxe-table
-      resizable
       show-overflow
       keep-source
       ref="xTree1"
+      :column-config="{resizable: true}"
       :tree-config="demo1.treeConfig"
       :menu-config="demo1.tableMenu"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
@@ -157,10 +157,10 @@ export default defineComponent({
         <vxe-toolbar custom></vxe-toolbar>
 
         <vxe-table
-          resizable
           show-overflow
           keep-source
           ref="xTree1"
+          :column-config="{resizable: true}"
           :tree-config="demo1.treeConfig"
           :menu-config="demo1.tableMenu"
           :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"

@@ -34,14 +34,18 @@ export default defineComponent({
 
     const gridOptions = reactive<VxeGridProps>({
       border: true,
-      resizable: true,
       showHeaderOverflow: true,
       showOverflow: true,
-      highlightHoverRow: true,
       keepSource: true,
       id: 'full_edit_1',
       height: 600,
-      rowId: 'id',
+      rowConfig: {
+        keyField: 'id',
+        isHover: true
+      },
+      columnConfig: {
+        resizable: true
+      },
       customConfig: {
         storage: true,
         checkMethod ({ column }) {
@@ -320,14 +324,18 @@ export default defineComponent({
 
             const gridOptions = reactive<VxeGridProps>({
               border: true,
-              resizable: true,
               showHeaderOverflow: true,
               showOverflow: true,
-              highlightHoverRow: true,
               keepSource: true,
               id: 'full_edit_1',
               height: 600,
-              rowId: 'id',
+              rowConfig: {
+                keyField: 'id',
+                isHover: true
+              },
+              columnConfig: {
+                resizable: true
+              },
               customConfig: {
                 storage: true,
                 checkMethod ({ column }) {

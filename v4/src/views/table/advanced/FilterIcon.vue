@@ -4,8 +4,8 @@
 
     <vxe-table
       border
-      highlight-hover-row
       height="400"
+      :row-config="{isCurrent: true, isHover: true}"
       :filter-config="{iconNone: 'fa fa-wheelchair', iconMatch: 'fa fa-wheelchair-alt'}"
       :loading="demo1.loading"
       :data="demo1.tableData">
@@ -64,8 +64,8 @@ export default defineComponent({
         `
         <vxe-table
           border
-          highlight-hover-row
           height="400"
+          :row-config="{isHover: true}"
           :filter-config="{iconNone: 'fa fa-wheelchair', iconMatch: 'fa fa-wheelchair-alt'}"
           :loading="demo1.loading"
           :data="demo1.tableData">

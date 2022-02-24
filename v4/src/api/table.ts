@@ -1301,7 +1301,7 @@ const apis = [
           },
           {
             name: 'reserve',
-            desc: '是否保留勾选状态，例如：数据被刷新或者分页之后还保留之前选中的状态（需要有 row-id）',
+            desc: '是否保留勾选状态，例如：数据被刷新或者分页之后还保留之前选中的状态（需要有 row-config.keyField）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1319,7 +1319,7 @@ const apis = [
           },
           {
             name: 'checkRowKey',
-            desc: '默认选中指定行（只会在初始化时被触发一次，需要有 row-id）',
+            desc: '默认选中指定行（只会在初始化时被触发一次，需要有 row-config.keyField）',
             version: '',
             type: 'string',
             enum: '',
@@ -1410,7 +1410,7 @@ const apis = [
           },
           {
             name: 'checkRowKeys',
-            desc: '默认勾选指定行（只会在初始化时被触发一次，需要有 row-id）',
+            desc: '默认勾选指定行（只会在初始化时被触发一次，需要有 row-config.keyField）',
             version: '',
             type: 'string[]',
             enum: '',
@@ -1473,7 +1473,7 @@ const apis = [
           },
           {
             name: 'reserve',
-            desc: '是否保留勾选状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前选中的状态（需要有 row-id）',
+            desc: '是否保留勾选状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前选中的状态（需要有 row-config.keyField）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1583,7 +1583,7 @@ const apis = [
           },
           {
             name: 'expandRowKeys',
-            desc: '默认展开指定行（只会在初始化时被触发一次，需要有 row-id）',
+            desc: '默认展开指定行（只会在初始化时被触发一次，需要有 row-config.keyField）',
             version: '',
             type: 'string[]',
             enum: '',
@@ -1646,7 +1646,7 @@ const apis = [
           },
           {
             name: 'reserve',
-            desc: '是否保留展开状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前展开的状态（需要有 row-id）',
+            desc: '是否保留展开状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前展开的状态（需要有 row-config.keyField）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1764,7 +1764,7 @@ const apis = [
           },
           {
             name: 'expandRowKeys',
-            desc: '默认展开指定树节点（只会在初始化时被触发一次，需要有 row-id）',
+            desc: '默认展开指定树节点（只会在初始化时被触发一次，需要有 row-config.keyField）',
             version: '',
             type: 'string[]',
             enum: '',
@@ -1827,7 +1827,7 @@ const apis = [
           },
           {
             name: 'reserve',
-            desc: '是否保留展开状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前展开的状态（需要有 row-id）',
+            desc: '是否保留展开状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前展开的状态（需要有 row-config.keyField）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -3944,7 +3944,7 @@ const apis = [
       },
       {
         name: 'getRowById(rowid)',
-        desc: '根据行的唯一主键获取行',
+        desc: '根据行的唯一主键获取行（需要 row-config.keyField）',
         version: '',
         type: 'String',
         enum: '',
@@ -3953,7 +3953,7 @@ const apis = [
       },
       {
         name: 'getRowid(row)',
-        desc: '根据行获取行的唯一主键',
+        desc: '根据行获取行的唯一主键（需要 row-config.keyField）',
         version: '',
         type: 'Row',
         enum: '',
@@ -4025,7 +4025,7 @@ const apis = [
       },
       {
         name: 'getCurrentColumn()',
-        desc: '用于 highlight-current-column，获取当前列',
+        desc: '用于 column-config.isCurrent，获取当前列',
         version: '',
         type: 'ColumnConfig',
         enum: '',
@@ -4034,7 +4034,7 @@ const apis = [
       },
       {
         name: 'getCurrentRecord()',
-        desc: '用于 highlight-current-row，获取高亮的当前行数据',
+        desc: '用于 row-config.isCurrent，获取高亮的当前行数据',
         version: '',
         type: 'Row',
         enum: '',
@@ -4385,7 +4385,7 @@ const apis = [
       },
       {
         name: 'setCurrentRow(row)',
-        desc: '用于 highlight-current-row，设置某一行为高亮状态',
+        desc: '用于 row-config.isCurrent，设置某一行为高亮状态',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4394,7 +4394,7 @@ const apis = [
       },
       {
         name: 'setCurrentColumn(fieldOrColumn)',
-        desc: '用于 highlight-current-column，设置某列行为高亮状态',
+        desc: '用于 column-config.isCurrent，设置某列行为高亮状态',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4484,7 +4484,7 @@ const apis = [
       },
       {
         name: 'clearCurrentRow()',
-        desc: '用于 highlight-current-row，手动清空当前高亮的状态',
+        desc: '用于 row-config.isCurrent，手动清空当前高亮的状态',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4493,7 +4493,7 @@ const apis = [
       },
       {
         name: 'clearCurrentColumn()',
-        desc: '用于 highlight-current-column，手动清空当前高亮的状态',
+        desc: '用于 column-config.isCurrent，手动清空当前高亮的状态',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4622,7 +4622,7 @@ const apis = [
         version: 'pro',
         type: 'Promise<any>',
         enum: '',
-        defVal: '',
+        defVal: 'area?: any',
         list: []
       },
       {

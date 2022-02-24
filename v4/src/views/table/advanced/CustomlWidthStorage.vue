@@ -14,10 +14,10 @@
 
     <vxe-table
       border
-      resizable
       ref="xTable"
       id="toolbar_demo5"
       height="400"
+      :column-config="{resizable: true}"
       :custom-config="demo1.tableCustom"
       :data="demo1.tableData"
       @resizable-change="resizableChangeEvent">
@@ -102,10 +102,10 @@ export default defineComponent({
 
         <vxe-table
           border
-          resizable
           ref="xTable"
           id="toolbar_demo5"
           height="400"
+          :column-config="{resizable: true}"
           :custom-config="demo1.tableCustom"
           :data="demo1.tableData"
           @resizable-change="resizableChangeEvent">

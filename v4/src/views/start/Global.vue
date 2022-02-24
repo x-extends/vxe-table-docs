@@ -64,7 +64,7 @@ export default defineComponent({
           //     parentField: 'parentId',
           //     children: 'children',
           //     hasChild: 'hasChild',
-          //     mapChildren: '_X_CHILD',
+          //     mapChildren: '_X_ROW_CHILD',
           //     indent: 20,
           //     showIcon: true
           //   },

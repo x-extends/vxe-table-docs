@@ -18,10 +18,10 @@
     </vxe-toolbar>
 
     <vxe-table
-      highlight-hover-row
       ref="xTable1"
       height="300"
       :show-overflow="demo1.showOverflow"
+      :row-config="{isHover: true}"
       :export-config="{}"
       :data="demo1.tableData1">
       <vxe-column type="checkbox" width="60"></vxe-column>
@@ -52,9 +52,9 @@
     </vxe-toolbar>
 
     <vxe-table
-      highlight-hover-row
       ref="xTable2"
       height="300"
+      :row-config="{isHover: true}"
       :data="demo2.tableData2">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -80,9 +80,9 @@
 
     <vxe-table
       show-footer
-      highlight-hover-row
       height="300"
       ref="xTable3"
+      :row-config="{isHover: true}"
       :footer-method="footerMethod"
       :data="demo3.tableData3">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -112,9 +112,9 @@
     <vxe-table
       border
       show-footer
-      highlight-hover-row
       ref="xTable4"
       height="300"
+      :row-config="{isHover: true}"
       :loading="demo4.loading"
       :footer-method="footerMethod"
       :data="demo4.tableData4">
@@ -385,9 +385,9 @@ export default defineComponent({
         </vxe-toolbar>
 
         <vxe-table
-          highlight-hover-row
           ref="xTable1"
           height="300"
+          :row-config="{isHover: true}"
           :show-overflow="demo1.showOverflow"
           :export-config="{}"
           :data="demo1.tableData1">
@@ -459,9 +459,9 @@ export default defineComponent({
         </vxe-toolbar>
 
         <vxe-table
-          highlight-hover-row
           ref="xTable2"
           height="300"
+          :row-config="{isHover: true}"
           :data="demo2.tableData2">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>
@@ -518,9 +518,9 @@ export default defineComponent({
 
         <vxe-table
           show-footer
-          highlight-hover-row
           height="300"
           ref="xTable3"
+          :row-config="{isHover: true}"
           :footer-method="footerMethod"
           :data="demo3.tableData3">
           <vxe-column type="seq" width="60"></vxe-column>
@@ -615,9 +615,9 @@ export default defineComponent({
         <vxe-table
           border
           show-footer
-          highlight-hover-row
           ref="xTable4"
           height="300"
+          :row-config="{isHover: true}"
           :loading="demo4.loading"
           :footer-method="footerMethod"
           :data="demo4.tableData4">
