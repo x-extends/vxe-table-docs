@@ -362,8 +362,8 @@ export default {
             formatDate (value) {
               return XEUtils.toDateString(value, 'yyyy-MM-dd HH:mm:ss.S')
             },
-            changeFilterEvent (evnt, option, $panel) {
-              $panel.changeOption(evnt, !!option.data, option)
+            changeFilterEvent (event, option, $panel) {
+              $panel.changeOption(event, !!option.data, option)
             },
             showDetailEvent (row) {
               this.selectRow = row

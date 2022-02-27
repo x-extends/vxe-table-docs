@@ -127,7 +127,7 @@
       <template #num1_filter="{ column, $panel }">
         <div>
           <div v-for="(option, index) in column.filters" :key="index">
-            <input type="type" v-model="option.data" @input="changeFilterEvent(evnt, option, $panel)"/>
+            <input type="type" v-model="option.data" @input="changeFilterEvent($event, option, $panel)"/>
           </div>
         </div>
       </template>
@@ -398,7 +398,7 @@ export default {
           <template #num1_filter="{ column, $panel }">
             <div>
               <div v-for="(option, index) in column.filters" :key="index">
-                <input type="type" v-model="option.data" @input="changeFilterEvent(evnt, option, $panel)"/>
+                <input type="type" v-model="option.data" @input="changeFilterEvent($event, option, $panel)"/>
               </div>
             </div>
           </template>
@@ -549,14 +549,14 @@ export default {
               this.selectRow = row
               this.showDetails = true
             },
-            headerClickEvent (evnt) {
+            headerClickEvent () {
               VXETable.modal.alert('头部点击事件')
             },
             addressClickEvent (row) {
               VXETable.modal.alert(\`address点击事件：\${row.address}\`)
             },
-            changeFilterEvent (evnt, option, $panel) {
-              $panel.changeOption(evnt, !!option.data, option)
+            changeFilterEvent (event, option, $panel) {
+              $panel.changeOption(event, !!option.data, option)
             },
             checkboxChangeEvent () {
               const $grid = this.$refs.xGrid
@@ -667,8 +667,8 @@ export default {
     addressClickEvent (row) {
       VXETable.modal.alert(`address点击事件：${row.address}`)
     },
-    changeFilterEvent (evnt, option, $panel) {
-      $panel.changeOption(evnt, !!option.data, option)
+    changeFilterEvent (event, option, $panel) {
+      $panel.changeOption(event, !!option.data, option)
     },
     checkboxChangeEvent () {
       const $grid = this.$refs.xGrid

@@ -119,7 +119,7 @@
       <template #num1_filter="{ column, $panel }">
         <div>
           <div v-for="(option, index) in column.filters" :key="index">
-            <input type="type" v-model="option.data" @input="changeFilterEvent(evnt, option, $panel)"/>
+            <input type="type" v-model="option.data" @input="changeFilterEvent($event, option, $panel)"/>
           </div>
         </div>
       </template>
@@ -321,8 +321,8 @@ export default defineComponent({
       VXETable.modal.alert('头部点击事件')
     }
 
-    const changeFilterEvent = (evnt: Event, option: any, $panel: any) => {
-      $panel.changeOption(evnt, !!option.data, option)
+    const changeFilterEvent = (event: Event, option: any, $panel: any) => {
+      $panel.changeOption(event, !!option.data, option)
     }
 
     const showDetailEvent = (row: any) => {
@@ -465,7 +465,7 @@ export default defineComponent({
           <template #num1_filter="{ column, $panel }">
             <div>
               <div v-for="(option, index) in column.filters" :key="index">
-                <input type="type" v-model="option.data" @input="changeFilterEvent(evnt, option, $panel)"/>
+                <input type="type" v-model="option.data" @input="changeFilterEvent($event, option, $panel)"/>
               </div>
             </div>
           </template>
@@ -657,8 +657,8 @@ export default defineComponent({
               VXETable.modal.alert('头部点击事件')
             }
 
-            const changeFilterEvent = (evnt: Event, option: any, $panel: any) => {
-              $panel.changeOption(evnt, !!option.data, option)
+            const changeFilterEvent = (event: Event, option: any, $panel: any) => {
+              $panel.changeOption(event, !!option.data, option)
             }
 
             const showDetailEvent = (row: any) => {
