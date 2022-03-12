@@ -89,7 +89,7 @@ const apis = [
           },
           {
             name: 'gt',
-            desc: '指定大于指定行时自动启动纵向虚拟滚动',
+            desc: '指定大于指定行时自动启动纵向虚拟滚动，如果为 0 则总是启用；如果需要关闭，可以设置 enabled 为 false',
             version: '',
             type: 'number',
             enum: '',

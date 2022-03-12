@@ -406,6 +406,15 @@ const importDataAPI = [
     list: []
   },
   {
+    name: 'encoding',
+    desc: '导入的文件的编码类型',
+    version: '3.5.0',
+    type: 'string',
+    enum: '',
+    defVal: 'UTF-8',
+    list: []
+  },
+  {
     name: 'remote',
     desc: '是否服务端导入',
     version: '',

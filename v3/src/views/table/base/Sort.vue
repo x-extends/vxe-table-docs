@@ -87,11 +87,17 @@
 
     <p class="tip">配置 <table-api-link prop="multiple"/> 启用多字段组合排序</p>
 
+    <vxe-toolbar>
+      <template #buttons>
+        按点击先后顺序排序：<vxe-switch v-model="isChronological4"></vxe-switch>
+      </template>
+    </vxe-toolbar>
+
     <vxe-table
       border
       height="300"
       :row-config="{isHover: true}"
-      :sort-config="{multiple: true}"
+      :sort-config="{multiple: true, chronological: isChronological4}"
       :data="tableData4"
       @sort-change="sortChangeEvent3">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -193,6 +199,7 @@ export default {
         { name: '前任', role: '测试', num: 3, num1: 10957, num2: '10957' },
         { name: 'q老王1', role: '前端', num: 6, num1: 6737, num2: '6737' }
       ],
+      isChronological4: false,
       tableData4: [
         { name: '小红', role: '前端', num: 7 },
         { name: '老王', role: '后端', num: 6 },
@@ -398,11 +405,17 @@ export default {
         }
         `,
         `
+        <vxe-toolbar>
+          <template #buttons>
+            按点击先后顺序排序：<vxe-switch v-model="isChronological4"></vxe-switch>
+          </template>
+        </vxe-toolbar>
+
         <vxe-table
           border
           height="300"
           :row-config="{isHover: true}"
-          :sort-config="{multiple: true}"
+          :sort-config="{multiple: true, chronological: isChronological4}"
           :data="tableData4"
           @sort-change="sortChangeEvent3">
           <vxe-column type="seq" width="60"></vxe-column>
@@ -415,6 +428,7 @@ export default {
         export default {
           data () {
             return {
+              isChronological4: false,
               tableData4: [
                 { name: '小红', role: '前端', num: 7 },
                 { name: '老王', role: '后端', num: 6 },

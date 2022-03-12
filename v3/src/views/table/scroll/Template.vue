@@ -79,7 +79,7 @@ export default {
             },
             filter: ({ column, $panel }) => {
               return column.filters.map(option => {
-                return <input type="type" v-model={ option.data } onInput={ evnt => this.changeFilterEvent(evnt, option, $panel) }/>
+                return <input type="type" v-model={ option.data } onInput={ event => this.changeFilterEvent(event, option, $panel) }/>
               })
             },
             edit: ({ row }) => {
@@ -203,7 +203,7 @@ export default {
                     },
                     filter: ({ column, $panel }) => {
                       return column.filters.map(option => {
-                        return <input type="type" v-model={ option.data } onInput={ evnt => this.changeFilterEvent(evnt, option, $panel) }/>
+                        return <input type="type" v-model={ option.data } onInput={ event => this.changeFilterEvent(event, option, $panel) }/>
                       })
                     },
                     edit: ({ row }) => {
@@ -299,7 +299,7 @@ export default {
               this.selectRow = row
               this.showDetails = true
             },
-            headerClickEvent (evnt) {
+            headerClickEvent () {
               VXETable.modal.alert('头部点击事件')
             },
             addressClickEvent (row) {
@@ -308,8 +308,8 @@ export default {
             filterSexMethod ({ option, row }) {
               return row.sex === option.data
             },
-            changeFilterEvent (evnt, option, $panel) {
-              $panel.changeOption(evnt, !!option.data, option)
+            changeFilterEvent (event, option, $panel) {
+              $panel.changeOption(event, !!option.data, option)
             }
           }
         }
@@ -388,8 +388,8 @@ export default {
     filterSexMethod ({ option, row }) {
       return row.sex === option.data
     },
-    changeFilterEvent (evnt, option, $panel) {
-      $panel.changeOption(evnt, !!option.data, option)
+    changeFilterEvent (event, option, $panel) {
+      $panel.changeOption(event, !!option.data, option)
     }
   }
 }

@@ -6,8 +6,8 @@
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="$refs.xTable.toggleTreeExpand(tableData[0], true)">切换第一个</vxe-button>
-        <vxe-button @click="$refs.xTable.setTreeExpand(tableData[2], true)">展开第三个</vxe-button>
+        <vxe-button @click="$refs.xTable.toggleTreeExpand(demo1.tableData[1], true)">切换第一个</vxe-button>
+        <vxe-button @click="$refs.xTable.setTreeExpand(demo1.tableData[8], true)">展开第三个</vxe-button>
         <vxe-button @click="$refs.xTable.setAllTreeExpand(true)">展开所有</vxe-button>
         <vxe-button @click="$refs.xTable.clearTreeExpand()">关闭所有</vxe-button>
       </template>
@@ -86,8 +86,8 @@ export default defineComponent({
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button @click="$refs.xTable.toggleTreeExpand(tableData[0], true)">切换第一个</vxe-button>
-            <vxe-button @click="$refs.xTable.setTreeExpand(tableData[2], true)">展开第三个</vxe-button>
+            <vxe-button @click="$refs.xTable.toggleTreeExpand(demo1.tableData[1], true)">切换第一个</vxe-button>
+            <vxe-button @click="$refs.xTable.setTreeExpand(demo1.tableData[8], true)">展开第三个</vxe-button>
             <vxe-button @click="$refs.xTable.setAllTreeExpand(true)">展开所有</vxe-button>
             <vxe-button @click="$refs.xTable.clearTreeExpand()">关闭所有</vxe-button>
           </template>

@@ -406,6 +406,15 @@ const importDataAPI = [
     list: []
   },
   {
+    name: 'encoding',
+    desc: '导入的文件的编码类型',
+    version: '3.5.0',
+    type: 'string',
+    enum: '',
+    defVal: 'utf-8',
+    list: []
+  },
+  {
     name: 'remote',
     desc: '是否服务端导入',
     version: '',
@@ -1142,6 +1151,24 @@ const apis = [
             type: '({ data, column, property, order }) => any[]',
             enum: '',
             defVal: '',
+            list: []
+          },
+          {
+            name: 'multiple',
+            desc: '是否启用多列组合筛选',
+            version: '3.4.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'chronological',
+            desc: '只对 multiple 有效，是否按照先后触发顺序进行排序',
+            version: '3.5.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
             list: []
           },
           {
@@ -2837,7 +2864,7 @@ const apis = [
           },
           {
             name: 'gt',
-            desc: '指定大于指定列时自动启动横向虚拟滚动，如果为 0 则总是启用，如果为 -1 则关闭（注：启用横向虚拟滚动之后将不能支持分组表头）',
+            desc: '指定大于指定列时自动启动横向虚拟滚动，如果为 0 则总是启用；如果需要关闭，可以设置 enabled 为 false（注：启用横向虚拟滚动之后将不能支持分组表头）',
             version: '',
             type: 'number',
             enum: '',
@@ -2883,7 +2910,7 @@ const apis = [
           },
           {
             name: 'gt',
-            desc: '指定大于指定行时自动启动纵向虚拟滚动，如果为 0 则总是启用，如果为 -1 则关闭（注：启用纵向虚拟滚动之后将不能支持动态行高）',
+            desc: '指定大于指定行时自动启动纵向虚拟滚动，如果为 0 则总是启用；如果需要关闭，可以设置 enabled 为 false（注：启用纵向虚拟滚动之后将不能支持动态行高）',
             version: '',
             type: 'number',
             enum: '',
@@ -3522,7 +3549,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ row, column, activeArea, targetActiveArea, isTab, isEnter, isLeft, isUp, isRight, isDown, $event }',
+        defVal: '{ row, column, activeArea, beforeActiveArea, isTab, isEnter, isLeft, isUp, isRight, isDown, $event }',
         list: []
       }
     ]
@@ -4123,15 +4150,15 @@ const apis = [
         defVal: '',
         list: []
       },
-      {
-        name: 'getCopyCellArea()',
-        desc: '如果功能被支持，用于 mouse-config.area，用于获取被标记为复制状态的区域',
-        version: 'pro',
-        type: '{cols: ColumnConfig[], rows: any[]}',
-        enum: '',
-        defVal: '',
-        list: []
-      },
+      // {
+      //   name: 'getCopyCellAreas()',
+      //   desc: '如果功能被支持，用于 mouse-config.area，用于获取被标记为复制状态的区域',
+      //   version: 'pro',
+      //   type: '{cols: ColumnConfig[], rows: any[]}',
+      //   enum: '',
+      //   defVal: '',
+      //   list: []
+      // },
       {
         name: 'getScroll()',
         desc: '获取表格的滚动状态',

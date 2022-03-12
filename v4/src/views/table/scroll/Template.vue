@@ -144,8 +144,8 @@ export default defineComponent({
       VXETable.modal.alert(`address点击事件：${row.address}`)
     }
 
-    const changeFilterEvent = (evnt: Event, option: any, $panel: any) => {
-      $panel.changeOption(evnt, !!option.data, option)
+    const changeFilterEvent = (event: Event, option: any, $panel: any) => {
+      $panel.changeOption(event, !!option.data, option)
     }
 
     const mockList = (size: number): Promise<any[]> => {
@@ -320,8 +320,8 @@ export default defineComponent({
               VXETable.modal.alert(\`address点击事件：\${row.address}\`)
             }
 
-            const changeFilterEvent = (evnt: Event, option: any, $panel: any) => {
-              $panel.changeOption(evnt, !!option.data, option)
+            const changeFilterEvent = (event: Event, option: any, $panel: any) => {
+              $panel.changeOption(event, !!option.data, option)
             }
 
             const mockList = (size: number): Promise<any[]> => {

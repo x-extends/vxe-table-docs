@@ -204,8 +204,8 @@ export default defineComponent({
       return row.sex === option.data
     }
 
-    const changeFilterEvent = (evnt: any, option: any, $panel: any) => {
-      $panel.changeOption(evnt, !!option.data, option)
+    const changeFilterEvent = (event: any, option: any, $panel: any) => {
+      $panel.changeOption(event, !!option.data, option)
     }
 
     const showDetailEvent = (row: any) => {
@@ -448,8 +448,8 @@ export default defineComponent({
               return row.sex === option.data
             }
 
-            const changeFilterEvent = (evnt: any, option: any, $panel: any) => {
-              $panel.changeOption(evnt, !!option.data, option)
+            const changeFilterEvent = (event: any, option: any, $panel: any) => {
+              $panel.changeOption(event, !!option.data, option)
             }
 
             const showDetailEvent = (row: any) => {
