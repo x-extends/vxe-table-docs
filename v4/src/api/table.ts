@@ -406,6 +406,15 @@ const importDataAPI = [
     list: []
   },
   {
+    name: 'encoding',
+    desc: '导入的文件的编码类型',
+    version: '4.2.1',
+    type: 'string',
+    enum: '',
+    defVal: 'utf-8',
+    list: []
+  },
+  {
     name: 'remote',
     desc: '是否服务端导入',
     version: '',
@@ -1148,6 +1157,15 @@ const apis = [
             name: 'multiple',
             desc: '是否启用多列组合筛选',
             version: '',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'chronological',
+            desc: '只对 multiple 有效，是否按照先后触发顺序进行排序',
+            version: '4.2.1',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -3540,7 +3558,7 @@ const apis = [
         version: 'pro',
         type: '',
         enum: '',
-        defVal: '{ row, column, activeArea, targetActiveArea, isTab, isEnter, isLeft, isUp, isRight, isDown, $event }',
+        defVal: '{ row, column, activeArea, beforeActiveArea, isTab, isEnter, isLeft, isUp, isRight, isDown, $event }',
         list: []
       }
     ]
@@ -4140,15 +4158,15 @@ const apis = [
         defVal: '',
         list: []
       },
-      {
-        name: 'getCopyCellArea()',
-        desc: '如果功能被支持，用于 mouse-config.area，用于获取被标记为复制状态的区域',
-        version: 'pro',
-        type: '{cols: ColumnConfig[], rows: any[]}',
-        enum: '',
-        defVal: '',
-        list: []
-      },
+      // {
+      //   name: 'getCopyCellAreas()',
+      //   desc: '如果功能被支持，用于 mouse-config.area，用于获取被标记为复制状态的区域',
+      //   version: 'pro',
+      //   type: '{cols: ColumnConfig[], rows: any[]}',
+      //   enum: '',
+      //   defVal: '',
+      //   list: []
+      // },
       {
         name: 'getScroll()',
         desc: '获取表格的滚动状态',

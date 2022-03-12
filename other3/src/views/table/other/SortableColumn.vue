@@ -28,9 +28,12 @@ export default {
     return {
       gridOptions2: {
         border: true,
-        columnKey: true,
         showFooter: true,
         class: 'sortable-column-demo',
+        columnConfig: {
+          useKey: true,
+          minWidth: 200
+        },
         scrollX: {
           enabled: false
         },
@@ -39,12 +42,13 @@ export default {
           custom: true
         },
         columns: [
-          { field: 'name', title: 'Name', fixed: 'left', minWidth: 200 },
-          { field: 'role', title: 'Role', minWidth: 220 },
-          { field: 'sex', title: 'Sex', minWidth: 100 },
-          { field: 'age', title: 'Age', minWidth: 150 },
-          { field: 'date3', title: 'Date', minWidth: 200 },
-          { field: 'address', title: 'Address', minWidth: 200, showOverflow: true }
+          { field: 'name', title: 'Name', fixed: 'left', width: 300 },
+          { field: 'nickname', title: 'Nickname' },
+          { field: 'role', title: 'Role' },
+          { field: 'sex', title: 'Sex' },
+          { field: 'age', title: 'Age' },
+          { field: 'date3', title: 'Date' },
+          { field: 'address', title: 'Address', width: 200, fixed: 'right', showOverflow: true }
         ],
         data: [
           { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -67,9 +71,12 @@ export default {
             return {
               gridOptions2: {
                 border: true,
-                columnKey: true,
                 showFooter: true,
                 class: 'sortable-column-demo',
+                columnConfig: {
+                  useKey: true,
+                  minWidth: 200
+                },
                 scrollX: {
                   enabled: false
                 },
@@ -78,12 +85,13 @@ export default {
                   custom: true
                 },
                 columns: [
-                  { field: 'name', title: 'Name', fixed: 'left', minWidth: 200 },
-                  { field: 'role', title: 'Role', minWidth: 220 },
-                  { field: 'sex', title: 'Sex', minWidth: 100 },
-                  { field: 'age', title: 'Age', minWidth: 150 },
-                  { field: 'date3', title: 'Date', minWidth: 200 },
-                  { field: 'address', title: 'Address', minWidth: 200, showOverflow: true }
+                  { field: 'name', title: 'Name', fixed: 'left', width: 300 },
+                  { field: 'nickname', title: 'Nickname' },
+                  { field: 'role', title: 'Role' },
+                  { field: 'sex', title: 'Sex' },
+                  { field: 'age', title: 'Age' },
+                  { field: 'date3', title: 'Date' },
+                  { field: 'address', title: 'Address', width: 200, fixed: 'right', showOverflow: true }
                 ],
                 data: [
                   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -144,22 +152,24 @@ export default {
               this.$nextTick(() => {
                 const $table = this.$refs.xGrid2
                 this.sortable2 = Sortable.create($table.$el.querySelector('.body--wrapper>.vxe-table--header .vxe-header--row'), {
-                  handle: '.vxe-header--column:not(.col--fixed)',
+                  handle: '.vxe-header--column',
                   onEnd: ({ item, newIndex, oldIndex }) => {
                     const { fullColumn, tableColumn } = $table.getTableColumn()
                     const targetThElem = item
                     const wrapperElem = targetThElem.parentNode
                     const newColumn = fullColumn[newIndex]
                     if (newColumn.fixed) {
+                      const oldThElem = wrapperElem.children[oldIndex]
                       // 错误的移动
                       if (newIndex > oldIndex) {
-                        wrapperElem.insertBefore(targetThElem, wrapperElem.children[oldIndex])
+                        wrapperElem.insertBefore(targetThElem, oldThElem)
                       } else {
-                        wrapperElem.insertBefore(wrapperElem.children[oldIndex], targetThElem)
+                        wrapperElem.insertBefore(targetThElem, oldThElem ? oldThElem.nextElementSibling : oldThElem)
                       }
-                      return VXETable.modal.message({ content: '固定列不允许拖动！', status: 'error' })
+                      VXETable.modal.message({ content: '固定列不允许拖动，即将还原操作！', status: 'error' })
+                      return
                     }
-                    // 转换真实索引
+                    // 获取列索引 columnIndex > fullColumn
                     const oldColumnIndex = $table.getColumnIndex(tableColumn[oldIndex])
                     const newColumnIndex = $table.getColumnIndex(tableColumn[newIndex])
                     // 移动到目标列
@@ -234,22 +244,24 @@ export default {
       this.$nextTick(() => {
         const $table = this.$refs.xGrid2
         this.sortable2 = Sortable.create($table.$el.querySelector('.body--wrapper>.vxe-table--header .vxe-header--row'), {
-          handle: '.vxe-header--column:not(.col--fixed)',
+          handle: '.vxe-header--column',
           onEnd: ({ item, newIndex, oldIndex }) => {
             const { fullColumn, tableColumn } = $table.getTableColumn()
             const targetThElem = item
             const wrapperElem = targetThElem.parentNode
             const newColumn = fullColumn[newIndex]
             if (newColumn.fixed) {
+              const oldThElem = wrapperElem.children[oldIndex]
               // 错误的移动
               if (newIndex > oldIndex) {
-                wrapperElem.insertBefore(targetThElem, wrapperElem.children[oldIndex])
+                wrapperElem.insertBefore(targetThElem, oldThElem)
               } else {
-                wrapperElem.insertBefore(wrapperElem.children[oldIndex], targetThElem)
+                wrapperElem.insertBefore(targetThElem, oldThElem ? oldThElem.nextElementSibling : oldThElem)
               }
-              return VXETable.modal.message({ content: '固定列不允许拖动！', status: 'error' })
+              VXETable.modal.message({ content: '固定列不允许拖动，即将还原操作！', status: 'error' })
+              return
             }
-            // 转换真实索引
+            // 获取列索引 columnIndex > fullColumn
             const oldColumnIndex = $table.getColumnIndex(tableColumn[oldIndex])
             const newColumnIndex = $table.getColumnIndex(tableColumn[newIndex])
             // 移动到目标列

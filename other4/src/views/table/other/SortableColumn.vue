@@ -49,7 +49,8 @@ export default defineComponent({
       showFooter: true,
       class: 'sortable-column-demo',
       columnConfig: {
-        useKey: true
+        useKey: true,
+        minWidth: 200
       },
       scrollX: {
         enabled: false
@@ -58,12 +59,13 @@ export default defineComponent({
         custom: true
       },
       columns: [
-        { field: 'name', title: 'Name', fixed: 'left', minWidth: 200 },
-        { field: 'role', title: 'Role', minWidth: 220 },
-        { field: 'sex', title: 'Sex', minWidth: 100 },
-        { field: 'age', title: 'Age', minWidth: 150 },
-        { field: 'date3', title: 'Date', minWidth: 200 },
-        { field: 'address', title: 'Address', minWidth: 200, showOverflow: true }
+        { field: 'name', title: 'Name', fixed: 'left', width: 300 },
+        { field: 'nickname', title: 'Nickname' },
+        { field: 'role', title: 'Role' },
+        { field: 'sex', title: 'Sex' },
+        { field: 'age', title: 'Age' },
+        { field: 'date3', title: 'Date' },
+        { field: 'address', title: 'Address', width: 200, fixed: 'right', showOverflow: true }
       ],
       data: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -101,7 +103,7 @@ export default defineComponent({
     const columnDrop2 = () => {
       const $grid = xGrid2.value
       sortable2 = Sortable.create($grid.$el.querySelector('.body--wrapper>.vxe-table--header .vxe-header--row'), {
-        handle: '.vxe-header--column:not(.col--fixed)',
+        handle: '.vxe-header--column',
         onEnd: (sortableEvent) => {
           const targetThElem = sortableEvent.item
           const newIndex = sortableEvent.newIndex as number
@@ -111,15 +113,16 @@ export default defineComponent({
           const newColumn = fullColumn[newIndex]
           if (newColumn.fixed) {
             // 错误的移动
-            const oldTrElement = wrapperElem.children[oldIndex] as HTMLElement
+            const oldThElem = wrapperElem.children[oldIndex] as HTMLElement
             if (newIndex > oldIndex) {
-              wrapperElem.insertBefore(targetThElem, oldTrElement)
+              wrapperElem.insertBefore(targetThElem, oldThElem)
             } else {
-              wrapperElem.insertBefore(oldTrElement, targetThElem)
+              wrapperElem.insertBefore(targetThElem, oldThElem ? oldThElem.nextElementSibling : oldThElem)
             }
-            return VXETable.modal.message({ content: '固定列不允许拖动！', status: 'error' })
+            VXETable.modal.message({ content: '固定列不允许拖动！', status: 'error' })
+            return
           }
-          // 转换真实索引
+          // 获取列索引 columnIndex > fullColumn
           const oldColumnIndex = $grid.getColumnIndex(tableColumn[oldIndex])
           const newColumnIndex = $grid.getColumnIndex(tableColumn[newIndex])
           // 移动到目标列
@@ -192,12 +195,13 @@ export default defineComponent({
                 custom: true
               },
               columns: [
-                { field: 'name', title: 'Name', fixed: 'left', minWidth: 200 },
-                { field: 'role', title: 'Role', minWidth: 220 },
-                { field: 'sex', title: 'Sex', minWidth: 100 },
-                { field: 'age', title: 'Age', minWidth: 150 },
-                { field: 'date3', title: 'Date', minWidth: 200 },
-                { field: 'address', title: 'Address', minWidth: 200, showOverflow: true }
+                { field: 'name', title: 'Name', fixed: 'left', width: 300 },
+                { field: 'nickname', title: 'Nickname' },
+                { field: 'role', title: 'Role' },
+                { field: 'sex', title: 'Sex' },
+                { field: 'age', title: 'Age' },
+                { field: 'date3', title: 'Date' },
+                { field: 'address', title: 'Address', width: 200, fixed: 'right', showOverflow: true }
               ],
               data: [
                 { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -235,7 +239,7 @@ export default defineComponent({
             const columnDrop2 = () => {
               const $grid = xGrid2.value
               sortable2 = Sortable.create($grid.$el.querySelector('.body--wrapper>.vxe-table--header .vxe-header--row'), {
-                handle: '.vxe-header--column:not(.col--fixed)',
+                handle: '.vxe-header--column',
                 onEnd: (sortableEvent) => {
                   const targetThElem = sortableEvent.item
                   const newIndex = sortableEvent.newIndex as number
@@ -245,15 +249,16 @@ export default defineComponent({
                   const newColumn = fullColumn[newIndex]
                   if (newColumn.fixed) {
                     // 错误的移动
-                    const oldTrElement = wrapperElem.children[oldIndex] as HTMLElement
+                    const oldThElem = wrapperElem.children[oldIndex] as HTMLElement
                     if (newIndex > oldIndex) {
-                      wrapperElem.insertBefore(targetThElem, oldTrElement)
+                      wrapperElem.insertBefore(targetThElem, oldThElem)
                     } else {
-                      wrapperElem.insertBefore(oldTrElement, targetThElem)
+                      wrapperElem.insertBefore(targetThElem, oldThElem ? oldThElem.nextElementSibling : oldThElem)
                     }
-                    return VXETable.modal.message({ content: '固定列不允许拖动！', status: 'error' })
+                    VXETable.modal.message({ content: '固定列不允许拖动！', status: 'error' })
+                    return
                   }
-                  // 转换真实索引
+                  // 获取列索引 columnIndex > fullColumn
                   const oldColumnIndex = $grid.getColumnIndex(tableColumn[oldIndex])
                   const newColumnIndex = $grid.getColumnIndex(tableColumn[newIndex])
                   // 移动到目标列
