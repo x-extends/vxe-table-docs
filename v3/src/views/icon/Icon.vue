@@ -3,6 +3,19 @@
     <h2>{{ $t('app.aside.nav.icon') }}</h2>
     <p class="tip">内置轻量级的 css 图标，可以通过 <router-link class="link" :to="{name: 'StartIcons'}">setup</router-link> 替换为 font 图标，例如第三方图标库：font-awesome、inconfont</p>
 
+    <h3>{{ $t('使用方法') }}</h3>
+    <p class="">直接通过设置类名为 vxe-icon--edit-outline 来使用即可。例如：</p>
+    <demo-block>
+      <div slot="source">
+        <i class="vxe-icon--edit-outline"></i>
+        <i class="vxe-icon--refresh"></i>
+        <i class="vxe-icon--print"></i>
+        <vxe-button status="primary" icon="vxe-icon--search">图标按钮</vxe-button>
+      </div>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[0] }}</pre-code></pre>
+    </demo-block>
+
+    <h3>{{ $t('图标集合') }}</h3>
     <ul class="vxe-row icon-list" title="点击复制内容">
       <li class="vxe-col--4" v-for="item in list" :key="item.icon" @click="copyEvent(item)">
         <i :class="item.icon"></i>
@@ -10,11 +23,6 @@
       </li>
     </ul>
 
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
-
-    <pre>
-      <pre-code class="xml">{{ demoCodes[0] }}</pre-code>
-    </pre>
   </div>
 </template>
 
@@ -140,7 +148,10 @@ export default {
       ],
       demoCodes: [
         `
-        <i class="vxe-icon--caret-top"></i>
+        <i class="vxe-icon--edit-outline"></i>
+        <i class="vxe-icon--refresh"></i>
+        <i class="vxe-icon--print"></i>
+        <vxe-button status="primary" icon="vxe-icon--search">图标按钮</vxe-button>
         `
       ]
     }
@@ -156,6 +167,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.source{
+  i{
+    color: #606266;
+    margin-right:40px;
+    font-size: 26px;
+    vertical-align: middle;
+  }
+}
+
 .icon-list {
   font-size: 26px;
   text-align: center;
