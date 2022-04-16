@@ -222,7 +222,7 @@ export default {
             }
           },
           methods: {
-            sselectChangeEvent ({ $table }) {
+            selectChangeEvent ({ $table }) {
               const records = $table.getCheckboxRecords()
               console.info(\`勾选\${records.length}个树形节点\`, records)
             }

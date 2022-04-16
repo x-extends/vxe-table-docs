@@ -433,6 +433,29 @@ body,
           color: #000;
         }
       }
+      & > .footer-link {
+        a{
+          font-size: 15px;
+          color: #333;
+          text-decoration: none;
+          &:hover{
+            color: #409eff;
+          }
+        }
+        padding: 40px 120px;
+        .pre-link{
+          float: left;
+          &::before {
+              content: "< ";
+          }
+        }
+        .next-link{
+          float: right;
+          &::after {
+            content: " >";
+          }
+        }
+      }
     }
     .full {
       .todemo {
@@ -621,5 +644,11 @@ body,
   font-size: 12px;
   & > li {
     padding: 0 5px 0 20px;
+  }
+}
+
+.page-view{
+  h3{
+    margin: 55px 0 20px;
   }
 }
