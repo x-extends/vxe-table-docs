@@ -12,20 +12,15 @@
       <pre-code class="typescript">
         import { defineConfig } from 'vite'
         import vue from '@vitejs/plugin-vue'
-        import styleImport from 'vite-plugin-style-import'
+        import { createStyleImportPlugin, VxeTableResolve } from 'vite-plugin-style-import'
 
         export default defineConfig({
           plugins: [
             // ...,
-            styleImport({
-              libs: [
-                {
-                  libraryName: 'vxe-table',
-                  esModule: true,
-                  resolveComponent: (name) => `vxe-table/es/${name}`,
-                  resolveStyle: (name) => `vxe-table/es/${name}/style.css`
-                }
-              ]
+            createStyleImportPlugin({
+              resolves: [
+                VxeTableResolve()
+              ],
             })
           ]
         })
@@ -35,7 +30,7 @@
         import { App, createApp } = 'vue'
         import 'xe-utils'
         import {
-          // 核心
+          // 全局对象
           VXETable,
 
           // 表格功能

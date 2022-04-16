@@ -98,6 +98,15 @@ const apis = [
         list: []
       },
       {
+        name: 'multiple',
+        desc: '只对 type=date|week|month|quarter|year 有效，是否启用多选',
+        version: '4.2.3',
+        type: 'boolean',
+        enum: '',
+        defVal: 'false',
+        list: []
+      },
+      {
         name: 'readonly',
         desc: '是否只读',
         version: '',

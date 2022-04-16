@@ -29,7 +29,7 @@
         import Vue from 'vue'
         import XEUtils from 'xe-utils'
         import {
-          // 核心
+          // 全局对象
           VXETable,
 
           // 功能模块
