@@ -1756,7 +1756,7 @@ export default defineComponent({
           children: [
             {
               label: 'app.aside.nav.plugin',
-              url: 'other4/',
+              url: '/other4/',
               keywords: ['plugin']
             }
           ]

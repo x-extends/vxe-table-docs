@@ -1687,7 +1687,7 @@ export default {
           children: [
             {
               label: 'app.aside.nav.plugin',
-              url: 'other3/',
+              url: '/other3/',
               keywords: ['plugin']
             }
           ]

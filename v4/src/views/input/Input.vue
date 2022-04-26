@@ -75,6 +75,17 @@
       <vxe-input v-model="demo1.value404" placeholder="年选择" type="year" clearable></vxe-input>
     </p>
 
+    <p class="tip">日期多选</p>
+
+    <p>
+      <vxe-input v-model="demo1.value800" placeholder="日期多选" type="date" clearable multiple></vxe-input>
+      <vxe-input v-model="demo1.value801" placeholder="月份多选" type="month" clearable multiple></vxe-input>
+      <vxe-input v-model="demo1.value802" placeholder="季度多选" type="quarter" clearable multiple></vxe-input>
+      <vxe-input v-model="demo1.value803" placeholder="年份多选" type="year" clearable multiple></vxe-input>
+      <vxe-input v-model="demo1.value804" placeholder="周多选" type="week" clearable multiple></vxe-input>
+      <vxe-input v-model="demo1.value805" placeholder="日期和时间多选" type="datetime" clearable multiple></vxe-input>
+    </p>
+
     <p class="tip">日期和时间选择器</p>
 
     <p>
@@ -211,7 +222,13 @@ export default defineComponent({
       value704: '',
       value705: '',
       value706: '',
-      value707: ''
+      value707: '',
+      value800: '',
+      value801: '',
+      value802: '',
+      value803: '',
+      value804: '',
+      value805: ''
     })
 
     const disabledDateMethod: VxeInputPropTypes.DisabledMethod = (params) => {
@@ -321,6 +338,8 @@ export default defineComponent({
           <vxe-input v-model="demo1.value103" placeholder="超小尺寸" size="mini"></vxe-input>
         </p>
 
+        <p class="tip">文本输入</p>
+
         <p>
           <vxe-input v-model="demo1.value200" placeholder="可清除" clearable></vxe-input>
           <vxe-input v-model="demo1.value201" placeholder="带图标" prefix-icon="fa fa-user" suffix-icon="fa fa-search" clearable></vxe-input>
@@ -328,15 +347,21 @@ export default defineComponent({
           <vxe-input v-model="demo1.value203" placeholder="禁用的" prefix-icon="fa fa-user-o" disabled></vxe-input>
         </p>
 
+        <p class="tip">搜索输入</p>
+
         <p>
           <vxe-input v-model="demo1.value300" placeholder="搜索类型" type="search"></vxe-input>
           <vxe-input v-model="demo1.value301" placeholder="可清除" type="search" clearable></vxe-input>
         </p>
 
+        <p class="tip">密码输入</p>
+
         <p>
           <vxe-input v-model="demo1.value302" placeholder="密码类型" type="password"></vxe-input>
           <vxe-input v-model="demo1.value303" placeholder="可清除" type="password" clearable></vxe-input>
         </p>
+
+        <p class="tip">日期选择器</p>
 
         <p>
           <vxe-input v-model="demo1.value400" placeholder="日期选择" type="date"></vxe-input>
@@ -344,6 +369,8 @@ export default defineComponent({
           <vxe-input v-model="demo1.value408" placeholder="小圆点" type="date" :festival-method="festivalNoticeMethod" transfer></vxe-input>
           <vxe-input v-model="demo1.value409" placeholder="农历节日" type="date" :festival-method="festivalCalendarMethod" transfer></vxe-input>
         </p>
+
+        <p class="tip">周选择器</p>
 
         <p>
           <vxe-input v-model="demo1.value701" placeholder="周选择" type="week" :start-day="0"></vxe-input>
@@ -355,25 +382,48 @@ export default defineComponent({
           <vxe-input v-model="demo1.value707" placeholder="周选择" type="week" :start-day="6" clearable></vxe-input>
         </p>
 
+        <p class="tip">月选择器</p>
+
         <p>
           <vxe-input v-model="demo1.value402" placeholder="月选择" type="month" valueFormat="yyyy-MM-dd"></vxe-input>
         </p>
+
+        <p class="tip">季选择器</p>
 
         <p>
           <vxe-input v-model="demo1.value403" placeholder="季选择" type="quarter" clearable></vxe-input>
         </p>
 
+        <p class="tip">年选择器</p>
+
         <p>
           <vxe-input v-model="demo1.value404" placeholder="年选择" type="year" clearable></vxe-input>
         </p>
+
+        <p class="tip">日期多选</p>
+
+        <p>
+          <vxe-input v-model="demo1.value800" placeholder="日期多选" type="date" clearable multiple></vxe-input>
+          <vxe-input v-model="demo1.value801" placeholder="月份多选" type="month" clearable multiple></vxe-input>
+          <vxe-input v-model="demo1.value802" placeholder="季度多选" type="quarter" clearable multiple></vxe-input>
+          <vxe-input v-model="demo1.value803" placeholder="年份多选" type="year" clearable multiple></vxe-input>
+          <vxe-input v-model="demo1.value804" placeholder="周多选" type="week" clearable multiple></vxe-input>
+          <vxe-input v-model="demo1.value805" placeholder="日期和时间多选" type="datetime" clearable multiple></vxe-input>
+        </p>
+
+        <p class="tip">日期和时间选择器</p>
 
         <p>
           <vxe-input v-model="demo1.value406" placeholder="日期和时间选择" type="datetime" transfer></vxe-input>
         </p>
 
+        <p class="tip">时间选择器</p>
+
         <p>
           <vxe-input v-model="demo1.value405" placeholder="时间选择" type="time" clearable></vxe-input>
         </p>
+
+        <p class="tip">数值输入</p>
 
         <p>
           <vxe-input v-model="demo1.value500" placeholder="数值类型" type="number"></vxe-input>
@@ -382,17 +432,23 @@ export default defineComponent({
           <vxe-input v-model="demo1.value509" placeholder="允许输入科学计数" type="number" exponential clearable></vxe-input>
         </p>
 
+        <p class="tip">整数输入</p>
+
         <p>
           <vxe-input v-model="demo1.value506" placeholder="整数类型" type="integer"></vxe-input>
           <vxe-input v-model="demo1.value507" placeholder="整数间隔 5" type="integer" step="5" clearable></vxe-input>
           <vxe-input v-model="demo1.value508" placeholder="整数范围限制 0-100" type="integer" min="0" max="100" clearable></vxe-input>
         </p>
 
+        <p class="tip">小数输入</p>
+
         <p>
           <vxe-input v-model="demo1.value503" placeholder="小数类型" type="float"></vxe-input>
           <vxe-input v-model="demo1.value504" placeholder="小数间隔 2.3" type="float" step="2.3" clearable></vxe-input>
           <vxe-input v-model="demo1.value505" placeholder="小数范围限制 0-50" type="float" min="0" max="50" clearable></vxe-input>
         </p>
+
+        <p class="tip">自定义插槽</p>
 
         <p>
           <vxe-input v-model="demo1.value600" placeholder="自定义前缀图标">
@@ -467,7 +523,13 @@ export default defineComponent({
               value704: '',
               value705: '',
               value706: '',
-              value707: ''
+              value707: '',
+              value800: '',
+              value801: '',
+              value802: '',
+              value803: '',
+              value804: '',
+              value805: ''
             })
 
             const disabledDateMethod: VxeInputPropTypes.DisabledMethod = (params) => {
