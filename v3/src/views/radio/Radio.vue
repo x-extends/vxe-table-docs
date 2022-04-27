@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.radio') }}</h2>
-    <p class="tip">单选框、单选组、单选按钮</p>
+    <!-- <p class="tip">单选框、单选组、单选按钮</p> -->
 
     <h3>{{ $t('基础用法') }}</h3>
     <demo-block>
@@ -13,10 +13,10 @@
           <vxe-radio name="n1" v-model="value1" label="4" content="超小尺寸" size="mini"></vxe-radio>
         </p>
       </div>
-      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[0] }}</pre-code></pre>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[0] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
     </demo-block>
 
-    <h3>{{ $t('禁用') }}</h3>
+    <h3>{{ $t('禁用状态') }}</h3>
     <demo-block>
       <div slot="source">
         <p>
@@ -25,7 +25,7 @@
           <vxe-radio name="n2" v-model="value2" label="3" content="单选3"></vxe-radio>
         </p>
       </div>
-      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[1] }}</pre-code></pre>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[1] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
     </demo-block>
 
     <h3>{{ $t('单选组') }}</h3>
@@ -41,7 +41,7 @@
           </vxe-radio-group>
         </p>
       </div>
-      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[2] }}</pre-code></pre>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[2] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
     </demo-block>
 
     <h3>{{ $t('支持取消') }}</h3>
@@ -55,7 +55,7 @@
           </vxe-radio-group>
         </p>
       </div>
-      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[3] }}</pre-code></pre>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[3] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
     </demo-block>
 
     <h3>{{ $t('单选按钮') }}</h3>
@@ -84,7 +84,7 @@
           </vxe-radio-group>
         </p>
       </div>
-      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[4] }}</pre-code></pre>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[4] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
     </demo-block>
 
     <pre>
@@ -99,12 +99,12 @@
       </pre-code>
     </pre>
 
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
-      <!-- <pre-code class="html">{{ demoCodes[0] }}</pre-code> -->
+      <pre-code class="html">{{ demoCodes[0] }}</pre-code>
       <pre-code class="javascript">{{ demoCodes[5] }}</pre-code>
-    </pre>
+    </pre> -->
   </div>
 </template>
 
