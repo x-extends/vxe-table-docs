@@ -24,85 +24,76 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watch, onMounted, onUnmounted, ref, nextTick } from 'vue'
-export default defineComponent({
-  name: 'DemoBlock',
-  setup () {
-    const hovering = ref(false)
-    const isExpanded = ref(false)
-    const fixedControl = ref(false)
-    const meta = ref()
-    const control = ref()
-    const description = ref()
-    const highlight = ref()
+import { computed, watch, onMounted, onUnmounted, ref, nextTick } from 'vue'
+export default {
+  name: 'DemoBlock'
+}
+</script>
 
-    let scrollParent:any = null
+<script setup lang="ts">
 
-    const iconClass = computed(() => isExpanded.value ? 'vxe-icon--caret-top' : 'vxe-icon--caret-bottom')
-    const controlText = computed(() => isExpanded.value ? '隐藏代码' : '显示代码')
-    const codeAreaHeight = computed(() => {
-      if (description.value) {
-        return description.value.clientHeight +
-            highlight.value.clientHeight + 20
-      }
-      return highlight.value.clientHeight
-    })
+const hovering = ref(false)
+const isExpanded = ref(false)
+const fixedControl = ref(false)
+const meta = ref()
+const control = ref()
+const description = ref()
+const highlight = ref()
 
-    watch(isExpanded, (val) => {
-      meta.value.style.height = val ? `${codeAreaHeight.value + 1}px` : '0'
+let scrollParent:any = null
 
-      if (!val) {
-        fixedControl.value = false
-        control.value.style.left = '0'
-        removeScrollHandler()
-        return
-      }
-
-      setTimeout(() => {
-        scrollParent = document.querySelector('.body > .content')
-        scrollParent && scrollParent.addEventListener('scroll', scrollHandler)
-        scrollHandler()
-      }, 200)
-    })
-
-    const scrollHandler = () => {
-      const { top, bottom, left, width } = meta.value.getBoundingClientRect()
-      fixedControl.value = bottom > document.documentElement.clientHeight &&
-          top + 44 <= document.documentElement.clientHeight
-      control.value.style.left = fixedControl.value ? `${left}px` : '0'
-      control.value.style.width = `${width}px`
-    }
-
-    const removeScrollHandler = () => {
-      scrollParent.removeEventListener('scroll', scrollHandler)
-    }
-
-    onMounted(() => {
-      nextTick(() => {
-        if (description.value) {
-          highlight.value.style.width = '100%'
-          highlight.value.borderRight = 'none'
-        }
-      })
-    })
-
-    onUnmounted(() => {
-      removeScrollHandler()
-    })
-
-    return {
-      hovering,
-      isExpanded,
-      fixedControl,
-      meta,
-      control,
-      description,
-      highlight,
-      iconClass,
-      controlText
-    }
+const iconClass = computed(() => isExpanded.value ? 'vxe-icon--caret-top' : 'vxe-icon--caret-bottom')
+const controlText = computed(() => isExpanded.value ? '隐藏代码' : '显示代码')
+const codeAreaHeight = computed(() => {
+  if (description.value) {
+    return description.value.clientHeight +
+        highlight.value.clientHeight + 20
   }
+  return highlight.value.clientHeight
 })
+
+watch(isExpanded, (val) => {
+  meta.value.style.height = val ? `${codeAreaHeight.value + 1}px` : '0'
+
+  if (!val) {
+    fixedControl.value = false
+    control.value.style.left = '0'
+    removeScrollHandler()
+    return
+  }
+
+  setTimeout(() => {
+    scrollParent = document.querySelector('.body > .content')
+    scrollParent && scrollParent.addEventListener('scroll', scrollHandler)
+    scrollHandler()
+  }, 200)
+})
+
+const scrollHandler = () => {
+  const { top, bottom, left, width } = meta.value.getBoundingClientRect()
+  fixedControl.value = bottom > document.documentElement.clientHeight &&
+      top + 44 <= document.documentElement.clientHeight
+  control.value.style.left = fixedControl.value ? `${left}px` : '0'
+  control.value.style.width = `${width}px`
+}
+
+const removeScrollHandler = () => {
+  scrollParent.removeEventListener('scroll', scrollHandler)
+}
+
+onMounted(() => {
+  nextTick(() => {
+    if (description.value) {
+      highlight.value.style.width = '100%'
+      highlight.value.borderRight = 'none'
+    }
+  })
+})
+
+onUnmounted(() => {
+  removeScrollHandler()
+})
+
 </script>
 
 <style lang="scss">
