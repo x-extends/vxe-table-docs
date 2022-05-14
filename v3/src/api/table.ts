@@ -1719,7 +1719,7 @@ const apis = [
         list: [
           {
             name: 'transform',
-            desc: '自动将列表转为树结构',
+            desc: '自动将列表转为树结构（支持虚拟滚动）',
             version: '4.1.2',
             type: 'string',
             enum: '',
@@ -3490,6 +3490,15 @@ const apis = [
         list: []
       },
       {
+        name: 'cell-area-selection-drag',
+        desc: '只对 mouse-config.area 配置时有效，在单元格区域选取过程中持续触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ rows, cols, $event }',
+        list: []
+      },
+      {
         name: 'cell-area-selection-end',
         desc: '只对 mouse-config.area 配置时有效，在单元格区域选取结束时会触发该事件',
         version: 'pro',
@@ -3505,6 +3514,15 @@ const apis = [
         type: '',
         enum: '',
         defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, $event }',
+        list: []
+      },
+      {
+        name: 'cell-area-extension-drag',
+        desc: '只对 mouse-config.extension 配置时有效，在单元格区域扩展过程中持续触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ rows, cols, targetRows, targetCols, $event }',
         list: []
       },
       {
