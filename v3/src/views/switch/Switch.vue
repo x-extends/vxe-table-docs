@@ -1,36 +1,55 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.switch') }}</h2>
-    <p class="tip">开关按钮</p>
+    <!-- <p class="tip">开关按钮</p> -->
 
-    <p>
-      <vxe-switch v-model="value1"></vxe-switch>
-      <vxe-switch v-model="value2" size="medium"></vxe-switch>
-      <vxe-switch v-model="value3" size="small"></vxe-switch>
-      <vxe-switch v-model="value4" size="mini"></vxe-switch>
-    </p>
+    <h3>{{ $t('基础用法') }}</h3>
+    <demo-block>
+      <div slot="source">
+        <p>
+          <vxe-switch v-model="value1"></vxe-switch>
+          <vxe-switch v-model="value2" size="medium"></vxe-switch>
+          <vxe-switch v-model="value3" size="small"></vxe-switch>
+          <vxe-switch v-model="value4" size="mini"></vxe-switch>
+        </p>
+      </div>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[0] }}</pre-code><pre-code class="javascript">{{ demoCodes[3] }}</pre-code></pre>
+    </demo-block>
 
-    <p>
-      <vxe-switch v-model="value5" open-label="是" close-label="否"></vxe-switch>
-      <vxe-switch v-model="value6" size="medium" open-label="是" close-label="否"></vxe-switch>
-      <vxe-switch v-model="value7" size="small" open-label="开" close-label="关"></vxe-switch>
-      <vxe-switch v-model="value8" size="mini" open-label="开" close-label="关"></vxe-switch>
-    </p>
+    <h3>{{ $t('扩展用法') }}</h3>
+    <p class="tip">禁用状态，文字描述，扩展的 value 类型</p>
+    <demo-block>
+      <div slot="source">
+        <p>
+          <vxe-switch v-model="value5" open-label="是" close-label="否"></vxe-switch>
+          <vxe-switch v-model="value6" size="medium" open-label="是" close-label="否"></vxe-switch>
+          <vxe-switch v-model="value7" size="small" open-label="开" close-label="关"></vxe-switch>
+          <vxe-switch v-model="value8" size="mini" open-label="开" close-label="关"></vxe-switch>
+        </p>
 
-    <p>
-      <vxe-switch v-model="value9" open-label="开" open-value="Y" close-label="关" close-value="N"></vxe-switch>
-      <vxe-switch v-model="value10" open-label="打开" :open-value="1" close-label="关闭" :close-value="0"></vxe-switch>
-      <vxe-switch v-model="value11" disabled></vxe-switch>
-      <vxe-switch v-model="value12" open-label="是" close-label="否" disabled></vxe-switch>
-    </p>
+        <p>
+          <vxe-switch v-model="value9" open-label="开" open-value="Y" close-label="关" close-value="N"></vxe-switch>
+          <vxe-switch v-model="value10" open-label="打开" :open-value="1" close-label="关闭" :close-value="0"></vxe-switch>
+          <vxe-switch v-model="value11" disabled></vxe-switch>
+          <vxe-switch v-model="value12" open-label="是" close-label="否" disabled></vxe-switch>
+        </p>
+      </div>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[1] }}</pre-code><pre-code class="javascript">{{ demoCodes[3] }}</pre-code></pre>
+    </demo-block>
 
-    <p>
-      <vxe-switch v-model="value13" open-icon="fa fa-check" close-icon="fa fa-close"></vxe-switch>
-      <vxe-switch v-model="value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="fa fa-bell" close-icon="fa fa-bell-slash"></vxe-switch>
-      <vxe-switch v-model="value15" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch1"></vxe-switch>
-      <vxe-switch v-model="value16" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch2"></vxe-switch>
-      <vxe-switch v-model="value17" open-label="ON" close-label="OFF" class="my-switch3"></vxe-switch>
-    </p>
+    <h3>{{ $t('自定义图标') }}</h3>
+    <demo-block>
+      <div slot="source">
+        <p>
+          <vxe-switch v-model="value13" open-icon="fa fa-check" close-icon="fa fa-close"></vxe-switch>
+          <vxe-switch v-model="value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="fa fa-bell" close-icon="fa fa-bell-slash"></vxe-switch>
+          <vxe-switch v-model="value15" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch1"></vxe-switch>
+          <vxe-switch v-model="value16" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch2"></vxe-switch>
+          <vxe-switch v-model="value17" open-label="ON" close-label="OFF" class="my-switch3"></vxe-switch>
+        </p>
+      </div>
+      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[2] }}</pre-code><pre-code class="javascript">{{ demoCodes[3] }}</pre-code></pre>
+    </demo-block>
 
     <pre>
       <pre-code>
@@ -41,12 +60,12 @@
       </pre-code>
     </pre>
 
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
       <pre-code class="html">{{ demoCodes[0] }}</pre-code>
       <pre-code class="javascript">{{ demoCodes[1] }}</pre-code>
-    </pre>
+    </pre> -->
   </div>
 </template>
 
@@ -78,8 +97,8 @@ export default {
           <vxe-switch v-model="value2" size="medium"></vxe-switch>
           <vxe-switch v-model="value3" size="small"></vxe-switch>
           <vxe-switch v-model="value4" size="mini"></vxe-switch>
-        </p>
-
+        </p>`,
+        `
         <p>
           <vxe-switch v-model="value5" open-label="是" close-label="否"></vxe-switch>
           <vxe-switch v-model="value6" size="medium" open-label="是" close-label="否"></vxe-switch>
@@ -92,8 +111,8 @@ export default {
           <vxe-switch v-model="value10" open-label="打开" :open-value="1" close-label="关闭" :close-value="0"></vxe-switch>
           <vxe-switch v-model="value11" disabled></vxe-switch>
           <vxe-switch v-model="value12" open-label="是" close-label="否" disabled></vxe-switch>
-        </p>
-
+        </p>`,
+        `
         <p>
           <vxe-switch v-model="value13" open-icon="fa fa-check" close-icon="fa fa-close"></vxe-switch>
           <vxe-switch v-model="value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="fa fa-bell" close-icon="fa fa-bell-slash"></vxe-switch>

@@ -107,6 +107,10 @@
             </template>
             <router-view/>
           </div>
+          <div class="footer-link">
+              <router-link v-if="currentLink.preLink" class="pre-link" :to="currentLink.preLink.locat" >{{currentLink.preLink.label}}</router-link>
+              <router-link v-if="currentLink.nextLink" class="next-link" :to="currentLink.nextLink.locat">{{currentLink.nextLink.label}}</router-link>
+          </div>
           <footer class="page-footer">
             <div><a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号-1</a></div>
           </footer>
@@ -2310,6 +2314,16 @@ export default defineComponent({
       return XEUtils.isString($route.name) && ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'VXEAPI', 'Donation'].includes($route.name)
     })
 
+    const currentLink = computed(() => {
+      const $route = router.currentRoute.value
+      const childArr = XEUtils.toTreeArray(appData.tableData).filter(data => data.locat && data.locat.name !== 'VXEAPI')
+      const cindex = childArr.findIndex(item => (item.locat && item.locat.name) === ($route && $route.name))
+      return {
+        preLink: cindex >= 0 && childArr[cindex - 1],
+        nextLink: cindex >= 0 && childArr[cindex + 1]
+      }
+    })
+
     const defaultExpand = () => {
       const group = appData.apiList.find(item => item.value === pageKey.value)
       if (group) {
@@ -2350,6 +2364,10 @@ export default defineComponent({
       defaultExpand()
     })
 
+    watch(() => router.currentRoute.value, () =>
+      document.querySelector('.body .content')?.scrollTo(0, 0)
+    )
+
     nextTick(() => {
       if (process.env.NODE_ENV === 'development') {
         setInterval(() => {
@@ -2386,6 +2404,7 @@ export default defineComponent({
       newBetsVersionList,
       pageKey,
       showOperBtn,
+      currentLink,
 
       searchEvent,
       clickEvent,
