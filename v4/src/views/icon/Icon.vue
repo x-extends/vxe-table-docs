@@ -6,10 +6,6 @@
     <h3>{{ $t('使用方法') }}</h3>
     <p class="">直接通过设置类名为 vxe-icon--edit-outline 来使用即可。例如：</p>
     <demo-block>
-      <template v-slot:default>
-        <p>A paragraph for the main content.</p>
-        <p>And another one.</p>
-      </template>
       <template v-slot:source>
         <div>
           <i class="vxe-icon--edit-outline"></i>

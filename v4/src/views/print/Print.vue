@@ -4,87 +4,121 @@
       高级打印，可以将任意视图的 HTML 片段输出打印<br>
     </p>
 
-    <vxe-toolbar ref="xToolbar" print>
-      <template #buttons>
-        <vxe-button content="打印表格" @click="printEvent1"></vxe-button>
-        <vxe-button content="打印勾选行" @click="printSelectEvent1"></vxe-button>
+    <h3>{{ $t('表格打印') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <vxe-toolbar ref="xToolbar" print>
+          <template #buttons>
+            <vxe-button content="打印表格" @click="printEvent1"></vxe-button>
+            <vxe-button content="打印勾选行" @click="printSelectEvent1"></vxe-button>
+          </template>
+        </vxe-toolbar>
+
+        <vxe-table
+          border
+          ref="xTable"
+          height="300"
+          :print-config="{}"
+          :data="demo1.tableData">
+          <vxe-column type="checkbox" width="60"></vxe-column>
+          <vxe-column type="seq" width="60"></vxe-column>
+          <vxe-column field="name" title="Name"></vxe-column>
+          <vxe-column field="role" title="Role"></vxe-column>
+          <vxe-column field="age" title="Age"></vxe-column>
+          <vxe-column field="address" title="Address"></vxe-column>
+        </vxe-table>
       </template>
-    </vxe-toolbar>
+      <template v-slot:highlight>
+        <pre>
+        <pre-code class="xml">{{ demoCodes[0] }}</pre-code>
+        <pre-code class="javascript">{{ demoCodes[1] }}</pre-code>
+      </pre></template>
+    </demo-block>
 
-    <vxe-table
-      border
-      ref="xTable"
-      height="300"
-      :print-config="{}"
-      :data="demo1.tableData">
-      <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="Role"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="address" title="Address"></vxe-column>
-    </vxe-table>
-
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
       <pre-code class="xml">{{ demoCodes[0] }}</pre-code>
       <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
-    </pre>
+    </pre> -->
 
-    <p class="tip">打印 HTML 元素</p>
+    <h3>{{ $t('HTML打印') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <vxe-toolbar>
+          <template #buttons>
+            <vxe-button content="打印下面的区域" @click="printEvent5"></vxe-button>
+          </template>
+        </vxe-toolbar>
 
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button content="打印下面的区域" @click="printEvent5"></vxe-button>
+        <div id="myPrint5">
+          <div>
+            <p>将当前渲染的<span style="color: #20f320">内容</span>打印出来，仅<span style="color: blue;font-size: 20px">打印</span>内联<span style="color: red">样式</span></p>
+            <p>内容<span style="font-size: 30px;font-weight: 700">区域</span></p>
+          </div>
+        </div>
       </template>
-    </vxe-toolbar>
+      <template v-slot:highlight>
+        <pre>
+        <pre-code class="xml">{{ demoCodes[2] }}</pre-code>
+        <pre-code class="javascript">{{ demoCodes[3] }}</pre-code>
+      </pre></template>
+    </demo-block>
 
-    <div id="myPrint5">
-      <div>
-        <p>将当前渲染的<span style="color: #20f320">内容</span>打印出来，仅<span style="color: blue;font-size: 20px">打印</span>内联<span style="color: red">样式</span></p>
-        <p>内容<span style="font-size: 30px;font-weight: 700">区域</span></p>
-      </div>
-    </div>
-
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
       <pre-code class="xml">{{ demoCodes[2] }}</pre-code>
       <pre-code class="typescript">{{ demoCodes[3] }}</pre-code>
-    </pre>
+    </pre> -->
 
-    <p class="tip">打印自定义模板</p>
-
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button content="打印自定义模板" @click="printEvent4"></vxe-button>
+    <h3>{{ $t('自定义模板打印') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <vxe-toolbar>
+          <template #buttons>
+            <vxe-button content="打印自定义模板" @click="printEvent4"></vxe-button>
+          </template>
+        </vxe-toolbar>
       </template>
-    </vxe-toolbar>
+      <template v-slot:highlight>
+        <pre>
+        <pre-code class="xml">{{ demoCodes[4] }}</pre-code>
+        <pre-code class="javascript">{{ demoCodes[5] }}</pre-code>
+      </pre></template>
+    </demo-block>
 
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
       <pre-code class="xml">{{ demoCodes[4] }}</pre-code>
       <pre-code class="typescript">{{ demoCodes[5] }}</pre-code>
-    </pre>
+    </pre> -->
 
-    <p class="tip">打印图片</p>
+    <h3>{{ $t('图片打印') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <vxe-toolbar>
+          <template #buttons>
+            <vxe-button content="打印图片" @click="printEvent6"></vxe-button>
+          </template>
+        </vxe-toolbar>
 
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button content="打印图片" @click="printEvent6"></vxe-button>
+        <img id="myPrint6" src="../../assets/image/invoice.png" style="width: 300px">
       </template>
-    </vxe-toolbar>
+      <template v-slot:highlight>
+        <pre>
+        <pre-code class="xml">{{ demoCodes[6] }}</pre-code>
+        <pre-code class="javascript">{{ demoCodes[7] }}</pre-code>
+      </pre></template>
+    </demo-block>
 
-    <img id="myPrint6" src="../../assets/image/invoice.png" style="width: 300px">
-
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
       <pre-code class="xml">{{ demoCodes[6] }}</pre-code>
       <pre-code class="typescript">{{ demoCodes[7] }}</pre-code>
-    </pre>
+    </pre> -->
 
   </div>
 </template>

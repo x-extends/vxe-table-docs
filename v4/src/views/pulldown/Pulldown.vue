@@ -2,85 +2,91 @@
   <div>
     <h2>{{ $t('app.aside.nav.pulldown') }}</h2>
     <p class="tip">下拉容器，可以非常简单的基于下拉容器去实现各种下拉组件。查看 <router-link class="link" :to="{name: 'VXEAPI', params: {name: 'pulldown'}}">API</router-link></p>
-
-    <p>
-      <vxe-pulldown v-model="demo1.visible">
-        <template #default>
-          <vxe-input v-model="demo1.value1" placeholder="可搜索的下拉框" @focus="focusEvent1" @keyup="keyupEvent1"></vxe-input>
-        </template>
-        <template #dropdown>
-          <div class="my-dropdown1">
-            <div class="list-item1" v-for="item in demo1.list1" :key="item.value" @click="selectEvent1(item)">
-              <i class="fa fa-user-o"></i>
-              <span>{{ item.label }}</span>
-            </div>
-          </div>
-        </template>
-      </vxe-pulldown>
-
-      <vxe-pulldown ref="xDown2">
-        <template #default>
-          <vxe-input v-model="demo2.value2" placeholder="可搜索的大数据下拉框" @focus="focusEvent2" @keyup="keyupEvent2"></vxe-input>
-        </template>
-        <template #dropdown>
-          <vxe-list height="200" class="my-dropdown2" :data="demo2.list2" auto-resize>
-            <template #default="{ items }">
-              <div class="list-item2" v-for="item in items" :key="item.value" @click="selectEvent2(item)">
-                <i class="fa fa-envelope-o"></i>
-                <span>{{ item.label }}</span>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-pulldown v-model="demo1.visible">
+            <template #default>
+              <vxe-input v-model="demo1.value1" placeholder="可搜索的下拉框" @focus="focusEvent1" @keyup="keyupEvent1"></vxe-input>
+            </template>
+            <template #dropdown>
+              <div class="my-dropdown1">
+                <div class="list-item1" v-for="item in demo1.list1" :key="item.value" @click="selectEvent1(item)">
+                  <i class="fa fa-user-o"></i>
+                  <span>{{ item.label }}</span>
+                </div>
               </div>
             </template>
-          </vxe-list>
-        </template>
-      </vxe-pulldown>
+          </vxe-pulldown>
 
-      <vxe-pulldown ref="xDown3" destroy-on-close>
-        <template #default>
-          <vxe-button icon="fa fa-table" @click="clickEvent3">切换下拉表格</vxe-button>
-        </template>
-        <template #dropdown>
-          <div class="my-dropdown3">
-            <vxe-table
-              auto-resize
-              :data="demo3.tableData3">
-              <vxe-column field="name" title="Name"></vxe-column>
-              <vxe-column field="role" title="Role"></vxe-column>
-              <vxe-column field="sex" title="Sex"></vxe-column>
-            </vxe-table>
-          </div>
-        </template>
-      </vxe-pulldown>
+          <vxe-pulldown ref="xDown2">
+            <template #default>
+              <vxe-input v-model="demo2.value2" placeholder="可搜索的大数据下拉框" @focus="focusEvent2" @keyup="keyupEvent2"></vxe-input>
+            </template>
+            <template #dropdown>
+              <vxe-list height="200" class="my-dropdown2" :data="demo2.list2" auto-resize>
+                <template #default="{ items }">
+                  <div class="list-item2" v-for="item in items" :key="item.value" @click="selectEvent2(item)">
+                    <i class="fa fa-envelope-o"></i>
+                    <span>{{ item.label }}</span>
+                  </div>
+                </template>
+              </vxe-list>
+            </template>
+          </vxe-pulldown>
 
-      <vxe-pulldown ref="xDown4" transfer>
-        <template #default>
-          <vxe-input v-model="demo4.value4" suffix-icon="fa fa-search" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
-        </template>
-        <template #dropdown>
-          <div class="my-dropdown4">
-            <vxe-grid
-              border
-              auto-resize
-              height="auto"
-              :row-config="{isHover: true}"
-              :loading="demo4.loading4"
-              :pager-config="demo4.tablePage4"
-              :data="demo4.tableData4"
-              :columns="demo4.tableColumn4"
-              @cell-click="cellClickEvent4"
-              @page-change="pageChangeEvent4">
-            </vxe-grid>
-          </div>
-        </template>
-      </vxe-pulldown>
-    </p>
+          <vxe-pulldown ref="xDown3" destroy-on-close>
+            <template #default>
+              <vxe-button icon="fa fa-table" @click="clickEvent3">切换下拉表格</vxe-button>
+            </template>
+            <template #dropdown>
+              <div class="my-dropdown3">
+                <vxe-table
+                  auto-resize
+                  :data="demo3.tableData3">
+                  <vxe-column field="name" title="Name"></vxe-column>
+                  <vxe-column field="role" title="Role"></vxe-column>
+                  <vxe-column field="sex" title="Sex"></vxe-column>
+                </vxe-table>
+              </div>
+            </template>
+          </vxe-pulldown>
 
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+          <vxe-pulldown ref="xDown4" transfer>
+            <template #default>
+              <vxe-input v-model="demo4.value4" suffix-icon="fa fa-search" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
+            </template>
+            <template #dropdown>
+              <div class="my-dropdown4">
+                <vxe-grid
+                  border
+                  auto-resize
+                  height="auto"
+                  :row-config="{isHover: true}"
+                  :loading="demo4.loading4"
+                  :pager-config="demo4.tablePage4"
+                  :data="demo4.tableData4"
+                  :columns="demo4.tableColumn4"
+                  @cell-click="cellClickEvent4"
+                  @page-change="pageChangeEvent4">
+                </vxe-grid>
+              </div>
+            </template>
+          </vxe-pulldown>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[0] }}</pre-code><pre-code class="javascript">{{ demoCodes[1] }}</pre-code><pre-code class="css">{{ demoCodes[2] }}</pre-code></pre>
+      </template>
+    </demo-block>
+
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
       <pre-code class="html">{{ demoCodes[0] }}</pre-code>
       <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
       <pre-code class="css">{{ demoCodes[2] }}</pre-code>
-    </pre>
+    </pre> -->
   </div>
 </template>
 

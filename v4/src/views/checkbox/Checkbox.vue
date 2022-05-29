@@ -1,34 +1,62 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.checkbox') }}</h2>
-    <p class="tip">复选框、复选组</p>
+    <!-- <p class="tip">复选框、复选组</p> -->
 
-    <p>
-      <vxe-checkbox v-model="demo1.value1" content="默认尺寸"></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value2" size="medium" content="中等尺寸"></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value3" size="small" content="小型尺寸"></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value4" size="mini" content="超小尺寸"></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value5" content="默认尺寸" indeterminate></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value6" size="medium" content="中等尺寸" indeterminate></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value7" size="small" content="小型尺寸" indeterminate></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value8" size="mini" content="超小尺寸" indeterminate></vxe-checkbox>
-    </p>
+    <h3>{{ $t('基础用法') }}</h3>
+    <p class="tip">indeterminate: 属性用以表示 checkbox 的不确定状态，一般用于实现全选的效果</p>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-checkbox v-model="demo1.value1" content="默认尺寸"></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value2" size="medium" content="中等尺寸"></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value3" size="small" content="小型尺寸"></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value4" size="mini" content="超小尺寸"></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value5" content="默认尺寸" indeterminate></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value6" size="medium" content="中等尺寸" indeterminate></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value7" size="small" content="小型尺寸" indeterminate></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value8" size="mini" content="超小尺寸" indeterminate></vxe-checkbox>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[0] }}</pre-code><pre-code class="javascript">{{ demoCodes[3] }}</pre-code></pre>
+      </template>
+    </demo-block>
 
-    <p>
-      <vxe-checkbox v-model="demo1.value9" content="复选1"></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value10" content="复选2" disabled></vxe-checkbox>
-      <vxe-checkbox v-model="demo1.value11" content="自定义值" checked-value="1" unchecked-value="0"></vxe-checkbox>
-    </p>
+    <h3>{{ $t('禁用状态') }}</h3>
+    <p class="tip">unchecked/checked-value: 自定义选中和未选择的值</p>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-checkbox v-model="demo1.value9" content="复选1"></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value10" content="复选2" disabled></vxe-checkbox>
+          <vxe-checkbox v-model="demo1.value11" content="自定义值" checked-value="1" unchecked-value="0"></vxe-checkbox>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[1] }}</pre-code><pre-code class="javascript">{{ demoCodes[3] }}</pre-code></pre>
+      </template>
+    </demo-block>
 
-    <p>
-      <vxe-checkbox-group v-model="demo1.value12">
-        <vxe-checkbox label="1" content="HTML"></vxe-checkbox>
-        <vxe-checkbox label="2" content="CSS"></vxe-checkbox>
-        <vxe-checkbox label="3" content="Javascript"></vxe-checkbox>
-        <vxe-checkbox label="4" content="SASS"></vxe-checkbox>
-        <vxe-checkbox label="5" content="LESS"></vxe-checkbox>
-      </vxe-checkbox-group>
-    </p>
+    <h3>{{ $t('复选组') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-checkbox-group v-model="demo1.value12">
+            <vxe-checkbox label="1" content="HTML"></vxe-checkbox>
+            <vxe-checkbox label="2" content="CSS"></vxe-checkbox>
+            <vxe-checkbox label="3" content="Javascript"></vxe-checkbox>
+            <vxe-checkbox label="4" content="SASS"></vxe-checkbox>
+            <vxe-checkbox label="5" content="LESS"></vxe-checkbox>
+          </vxe-checkbox-group>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre>
+          <pre-code class="xml">{{ demoCodes[2] }}</pre-code><pre-code class="typescript">{{ demoCodes[3] }}</pre-code>
+        </pre>
+      </template>
+    </demo-block>
 
     <pre>
       <pre-code>
@@ -38,12 +66,12 @@
       </pre-code>
     </pre>
 
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
       <pre-code class="html">{{ demoCodes[0] }}</pre-code>
-      <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
-    </pre>
+      <pre-code class="javascript">{{ demoCodes[1] }}</pre-code>
+    </pre> -->
   </div>
 </template>
 
@@ -80,13 +108,15 @@ export default defineComponent({
           <vxe-checkbox v-model="demo1.value7" size="small" content="小型尺寸" indeterminate></vxe-checkbox>
           <vxe-checkbox v-model="demo1.value8" size="mini" content="超小尺寸" indeterminate></vxe-checkbox>
         </p>
-
+        `,
+        `
         <p>
           <vxe-checkbox v-model="demo1.value9" content="复选1"></vxe-checkbox>
           <vxe-checkbox v-model="demo1.value10" content="复选2" disabled></vxe-checkbox>
           <vxe-checkbox v-model="demo1.value11" content="自定义值" checked-value="1" unchecked-value="0"></vxe-checkbox>
         </p>
-
+        `,
+        `
         <p>
           <vxe-checkbox-group v-model="demo1.value12">
             <vxe-checkbox label="1" content="HTML"></vxe-checkbox>

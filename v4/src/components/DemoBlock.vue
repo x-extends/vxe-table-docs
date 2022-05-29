@@ -78,7 +78,7 @@ const scrollHandler = () => {
 }
 
 const removeScrollHandler = () => {
-  scrollParent.removeEventListener('scroll', scrollHandler)
+  scrollParent && scrollParent.removeEventListener('scroll', scrollHandler)
 }
 
 onMounted(() => {

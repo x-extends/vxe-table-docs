@@ -1,61 +1,101 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.radio') }}</h2>
-    <p class="tip">单选框、单选祖、单选按钮</p>
+    <!-- <p class="tip">单选框、单选组、单选按钮</p> -->
 
-    <p>
-      <vxe-radio name="n1" v-model="demo1.value1" label="1" content="默认尺寸"></vxe-radio>
-      <vxe-radio name="n1" v-model="demo1.value1" label="2" content="中等尺寸" size="medium"></vxe-radio>
-      <vxe-radio name="n1" v-model="demo1.value1" label="3" content="小型尺寸" size="small"></vxe-radio>
-      <vxe-radio name="n1" v-model="demo1.value1" label="4" content="超小尺寸" size="mini"></vxe-radio>
-    </p>
+    <h3>{{ $t('基础用法') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-radio name="n1" v-model="demo1.value1" label="1" content="默认尺寸"></vxe-radio>
+          <vxe-radio name="n1" v-model="demo1.value1" label="2" content="中等尺寸" size="medium"></vxe-radio>
+          <vxe-radio name="n1" v-model="demo1.value1" label="3" content="小型尺寸" size="small"></vxe-radio>
+          <vxe-radio name="n1" v-model="demo1.value1" label="4" content="超小尺寸" size="mini"></vxe-radio>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[0] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
+      </template>
+    </demo-block>
 
-    <p>
-      <vxe-radio name="n2" v-model="demo1.value2" label="1" content="单选1"></vxe-radio>
-      <vxe-radio name="n2" v-model="demo1.value2" label="2" content="禁用2" disabled></vxe-radio>
-      <vxe-radio name="n2" v-model="demo1.value2" label="3" content="单选3"></vxe-radio>
-    </p>
+    <h3>{{ $t('禁用状态') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-radio name="n2" v-model="demo1.value2" label="1" content="单选1"></vxe-radio>
+          <vxe-radio name="n2" v-model="demo1.value2" label="2" content="禁用2" disabled></vxe-radio>
+          <vxe-radio name="n2" v-model="demo1.value2" label="3" content="单选3"></vxe-radio>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[1] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
+      </template>
+    </demo-block>
 
-    <p>
-      <vxe-radio-group v-model="demo1.value3">
-        <vxe-radio label="1" content="HTML"></vxe-radio>
-        <vxe-radio label="2" content="CSS"></vxe-radio>
-        <vxe-radio label="3" content="Javascript"></vxe-radio>
-        <vxe-radio label="4" content="SASS"></vxe-radio>
-        <vxe-radio label="5" content="LESS"></vxe-radio>
-      </vxe-radio-group>
-    </p>
+    <h3>{{ $t('单选组') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-radio-group v-model="demo1.value3">
+            <vxe-radio label="1" content="HTML"></vxe-radio>
+            <vxe-radio label="2" content="CSS"></vxe-radio>
+            <vxe-radio label="3" content="Javascript"></vxe-radio>
+            <vxe-radio label="4" content="SASS"></vxe-radio>
+            <vxe-radio label="5" content="LESS"></vxe-radio>
+          </vxe-radio-group>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[2] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
+      </template>
+    </demo-block>
 
-    <p>
-      <vxe-radio-group v-model="demo1.value8" :strict="false">
-        <vxe-radio label="1" content="支持取消1"></vxe-radio>
-        <vxe-radio label="2" content="支持取消2"></vxe-radio>
-        <vxe-radio label="3" content="支持取消3"></vxe-radio>
-      </vxe-radio-group>
-    </p>
+    <h3>{{ $t('支持取消') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-radio-group v-model="demo1.value8" :strict="false">
+            <vxe-radio label="1" content="支持取消1"></vxe-radio>
+            <vxe-radio label="2" content="支持取消2"></vxe-radio>
+            <vxe-radio label="3" content="支持取消3"></vxe-radio>
+          </vxe-radio-group>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[3] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
+      </template>
+    </demo-block>
 
-    <p>
-      <vxe-radio-group v-model="demo1.value4">
-        <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
-        <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
-        <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
-      </vxe-radio-group>
-      <vxe-radio-group v-model="demo1.value5" size="medium">
-        <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
-        <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
-        <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
-      </vxe-radio-group>
-      <vxe-radio-group v-model="demo1.value6" size="small" :strict="false">
-        <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
-        <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
-        <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
-      </vxe-radio-group>
-      <vxe-radio-group v-model="demo1.value7" size="mini" :strict="false">
-        <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
-        <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
-        <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
-      </vxe-radio-group>
-    </p>
+    <h3>{{ $t('单选按钮') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-radio-group v-model="demo1.value4">
+            <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
+            <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
+            <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
+          </vxe-radio-group>
+          <vxe-radio-group v-model="demo1.value5" size="medium">
+            <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
+            <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
+            <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
+          </vxe-radio-group>
+          <vxe-radio-group v-model="demo1.value6" size="small" :strict="false">
+            <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
+            <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
+            <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
+          </vxe-radio-group>
+          <vxe-radio-group v-model="demo1.value7" size="mini" :strict="false">
+            <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
+            <vxe-radio-button label="2" content="按钮2"></vxe-radio-button>
+            <vxe-radio-button label="3" content="按钮3"></vxe-radio-button>
+          </vxe-radio-group>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[4] }}</pre-code><pre-code class="javascript">{{ demoCodes[5] }}</pre-code></pre>
+      </template>
+    </demo-block>
 
     <pre>
       <pre-code>
@@ -69,12 +109,12 @@
       </pre-code>
     </pre>
 
-    <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
+    <!-- <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
     <pre>
       <pre-code class="html">{{ demoCodes[0] }}</pre-code>
-      <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
-    </pre>
+      <pre-code class="javascript">{{ demoCodes[5] }}</pre-code>
+    </pre> -->
   </div>
 </template>
 
@@ -103,13 +143,15 @@ export default defineComponent({
           <vxe-radio name="n1" v-model="demo1.value1" label="3" content="小型尺寸" size="small"></vxe-radio>
           <vxe-radio name="n1" v-model="demo1.value1" label="4" content="超小尺寸" size="mini"></vxe-radio>
         </p>
-
+        `,
+        `
         <p>
           <vxe-radio name="n2" v-model="demo1.value2" label="1" content="单选1"></vxe-radio>
           <vxe-radio name="n2" v-model="demo1.value2" label="2" content="禁用2" disabled></vxe-radio>
           <vxe-radio name="n2" v-model="demo1.value2" label="3" content="单选3"></vxe-radio>
         </p>
-
+        `,
+        `
         <p>
           <vxe-radio-group v-model="demo1.value3">
             <vxe-radio label="1" content="HTML"></vxe-radio>
@@ -119,7 +161,8 @@ export default defineComponent({
             <vxe-radio label="5" content="LESS"></vxe-radio>
           </vxe-radio-group>
         </p>
-
+        `,
+        `
         <p>
           <vxe-radio-group v-model="demo1.value8" :strict="false">
             <vxe-radio label="1" content="支持取消1"></vxe-radio>
@@ -127,7 +170,8 @@ export default defineComponent({
             <vxe-radio label="3" content="支持取消3"></vxe-radio>
           </vxe-radio-group>
         </p>
-
+        `,
+        `
         <p>
           <vxe-radio-group v-model="demo1.value4">
             <vxe-radio-button label="1" content="按钮1"></vxe-radio-button>
