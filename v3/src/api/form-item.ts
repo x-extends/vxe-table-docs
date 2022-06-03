@@ -113,6 +113,24 @@ const apis = [
         list: []
       },
       {
+        name: 'title-colon',
+        desc: '是否显示标题冒号',
+        version: '3.5.7',
+        type: 'boolean',
+        enum: '',
+        defVal: '继承 form.titleColon',
+        list: []
+      },
+      {
+        name: 'title-asterisk',
+        desc: '是否显示必填字段的红色星号',
+        version: '3.5.7',
+        type: 'boolean',
+        enum: '',
+        defVal: '继承 form.titleAsterisk',
+        list: []
+      },
+      {
         name: 'title-overflow',
         descKey: 'app.api.formItem.desc.titleOverflow',
         version: '3.2.3',

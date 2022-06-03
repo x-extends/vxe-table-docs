@@ -273,7 +273,7 @@
     <h3>{{ $t('配置式表单') }}</h3>
     <demo-block>
       <div slot="source">
-        <vxe-form :data="formData4" :items="formItems4">
+        <vxe-form :data="formData4" :items="formItems4" titleColon>
           <template #myregion="{ data }">
             <vxe-input v-model="data.region" placeholder="自定义插槽模板"></vxe-input>
           </template>
@@ -755,7 +755,7 @@ export default {
         }
         `,
         `
-        <vxe-form :data="formData4" :items="formItems4">
+        <vxe-form :data="formData4" :items="formItems4" titleColon>
           <template #myregion="{ data }">
             <vxe-input v-model="data.region" placeholder="自定义插槽模板"></vxe-input>
           </template>

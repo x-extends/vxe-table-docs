@@ -4134,8 +4134,18 @@ const apis = [
       },
       {
         name: 'getActiveRecord()',
-        desc: '用于 edit-config，获取已激活的行数据',
+        abandoned: true,
+        desc: '请使用 getEditRecord',
         version: '',
+        type: '{row,rowIndex,$rowIndex,column,columnIndex,$columnIndex}',
+        enum: '',
+        defVal: 'row',
+        list: []
+      },
+      {
+        name: 'getEditRecord()',
+        desc: '用于 edit-config，获取已激活的行数据',
+        version: '3.5.7',
         type: '{row,rowIndex,$rowIndex,column,columnIndex,$columnIndex}',
         enum: '',
         defVal: 'row',
@@ -4188,8 +4198,18 @@ const apis = [
       },
       {
         name: 'isActiveByRow(row)',
-        desc: '用于 edit-config，判断行是否为激活编辑状态',
+        abandoned: true,
+        desc: '请使用 isEditByRow',
         version: '',
+        type: 'Boolean',
+        enum: '',
+        defVal: 'row',
+        list: []
+      },
+      {
+        name: 'isEditByRow(row)',
+        desc: '用于 edit-config，判断行是否为激活编辑状态',
+        version: '3.5.7',
         type: 'Boolean',
         enum: '',
         defVal: 'row',
@@ -4333,7 +4353,8 @@ const apis = [
       },
       {
         name: 'setActiveRow(row)',
-        desc: '用于 edit-config，激活行编辑并激活第一个单元格',
+        abandoned: true,
+        desc: '请使用 setEditRow',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4341,7 +4362,17 @@ const apis = [
         list: []
       },
       {
+        name: 'setEditRow(row)',
+        desc: '用于 edit-config，激活行编辑并激活第一个单元格',
+        version: '3.5.7',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'row: Row',
+        list: []
+      },
+      {
         name: 'setActiveCell(row, fieldOrColumn)',
+        abandoned: true,
         desc: '用于 edit-config，激活单元格编辑',
         version: '',
         type: 'Promise<any>',
@@ -4350,9 +4381,18 @@ const apis = [
         list: []
       },
       {
-        name: 'setSelectCell(row, fieldOrColumn)',
-        desc: '用于 mouse-config.selected，选中指定的单元格',
+        name: 'setActiveCell(row, fieldOrColumn)',
+        desc: '请使用 setEditCell',
         version: '',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'row: Row, fieldOrColumn: string | ColumnInfo',
+        list: []
+      },
+      {
+        name: 'setEditCell(row, fieldOrColumn)',
+        desc: '用于 mouse-config.selected，选中指定的单元格',
+        version: '3.5.7',
         type: 'Promise<any>',
         enum: '',
         defVal: 'row: Row, fieldOrColumn: string | ColumnInfo',
@@ -4639,8 +4679,18 @@ const apis = [
       },
       {
         name: 'clearActived()',
-        desc: '手动清除单元格激活状态',
+        abandoned: true,
+        desc: '请使用 clearEdit',
         version: '',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'clearEdit()',
+        desc: '手动清除单元格激活状态',
+        version: '3.5.7',
         type: 'Promise<any>',
         enum: '',
         defVal: '',
