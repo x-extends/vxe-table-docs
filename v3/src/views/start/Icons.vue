@@ -10,6 +10,7 @@
         // icon: {
         //   // loading
         //   LOADING: 'vxe-icon--refresh roll',
+
         //   // table
         //   TABLE_SORT_ASC: 'vxe-icon--caret-top',
         //   TABLE_SORT_DESC: 'vxe-icon--caret-bottom',

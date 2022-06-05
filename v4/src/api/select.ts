@@ -191,6 +191,42 @@ const apis = [
         list: []
       },
       {
+        name: 'filterable',
+        desc: '是否启用下拉过滤功能',
+        version: '4.2.6',
+        type: 'boolean',
+        enum: '',
+        defVal: 'false',
+        list: []
+      },
+      {
+        name: 'filter-method',
+        desc: '只对 filterable 有效，自定义过滤方法',
+        version: '4.2.6',
+        type: '({ searchValue, option, group }) => boolean',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      // {
+      //   name: 'remote',
+      //   desc: '只对 filterable 有效，是否启用远程过滤功能',
+      //   version: '4.2.6',
+      //   type: 'boolean',
+      //   enum: '',
+      //   defVal: 'false',
+      //   list: []
+      // },
+      // {
+      //   name: 'remote-method',
+      //   desc: '只对 remote 有效，自定义过滤方法',
+      //   version: '4.2.6',
+      //   type: '({ searchValue }) => void',
+      //   enum: '',
+      //   defVal: '',
+      //   list: []
+      // },
+      {
         name: 'transfer',
         descKey: 'app.api.select.desc.transfer',
         version: '',

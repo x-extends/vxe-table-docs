@@ -1081,7 +1081,7 @@ const apis = [
           {
             name: 'startIndex',
             abandoned: true,
-            desc: '设置序号的起始值（不支持树形结构），建议使用 seqMethod',
+            desc: '请使用 seqMethod',
             version: '',
             type: 'number',
             enum: '',
@@ -2545,8 +2545,18 @@ const apis = [
           },
           {
             name: 'activeMethod',
-            desc: '该方法的返回值用来决定该单元格是否允许编辑',
+            abandoned: true,
+            desc: '请使用 beforeEditMethod',
             version: '',
+            type: '({ row, rowIndex, column, columnIndex }) => boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'beforeEditMethod',
+            desc: '该方法的返回值用来决定该单元格是否允许编辑',
+            version: '4.2.5',
             type: '({ row, rowIndex, column, columnIndex }) => boolean',
             enum: '',
             defVal: '',
@@ -2888,6 +2898,15 @@ const apis = [
             enum: '',
             defVal: '0',
             list: []
+          },
+          {
+            name: 'scrollToLeftOnChange',
+            desc: '当数据源被更改时，自动将横向滚动条滚动到左侧',
+            version: '4.2.6',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
           }
         ]
       },
@@ -2943,6 +2962,15 @@ const apis = [
           //   enum: '',
           //   defVal: '',
           //   list: []
+          },
+          {
+            name: 'scrollToTopOnChange',
+            desc: '当数据源被更改时，自动将横向滚动条滚动到顶部',
+            version: '4.2.6',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
           }
           // {
           //   name: 'adaptive',

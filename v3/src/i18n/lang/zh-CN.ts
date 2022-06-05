@@ -51,7 +51,7 @@ export default {
 
         more: '复杂表格',
         events: '事件绑定',
-        template: '自定义模板',
+        template: '自定义模板、插槽',
         dynamic: '使用 v-for 动态实现',
         customCheckbox: '自定义复选框',
         customRadio: '自定义单选框',

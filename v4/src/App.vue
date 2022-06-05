@@ -615,7 +615,8 @@ export default defineComponent({
               // demoUrl: 'https://jsrun.pro/DjXKp/edit',
               locat: {
                 name: 'TableTemplate'
-              }
+              },
+              keywords: ['自定义插槽']
             },
             {
               label: 'app.aside.nav.dynamic',
