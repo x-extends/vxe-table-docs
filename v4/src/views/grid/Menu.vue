@@ -75,27 +75,27 @@ export default defineComponent({
         header: {
           options: [
             [
-              { code: 'exportAll', name: '导出所有.csv', prefixIcon: 'fa fa-download', visible: true, disabled: false }
+              { code: 'exportAll', name: '导出所有.csv', prefixIcon: 'vxe-icon--question', visible: true, disabled: false }
             ]
           ]
         },
         body: {
           options: [
             [
-              { code: 'copy', name: '复制内容', prefixIcon: 'fa fa-copy', visible: true, disabled: false },
+              { code: 'copy', name: '复制内容', prefixIcon: 'vxe-icon--question', visible: true, disabled: false },
               { code: 'clear', name: '清除内容', visible: true, disabled: false },
               { code: 'reload', name: '刷新表格', visible: true, disabled: false }
             ],
             [
-              { code: 'myPrint', name: '打印', prefixIcon: 'fa fa-print', visible: true, disabled: false },
-              { code: 'myExport', name: '导出.csv', prefixIcon: 'fa fa-download', visible: true, disabled: false }
+              { code: 'myPrint', name: '打印', prefixIcon: 'vxe-icon--question', visible: true, disabled: false },
+              { code: 'myExport', name: '导出.csv', prefixIcon: 'vxe-icon--question', visible: true, disabled: false }
             ]
           ]
         },
         footer: {
           options: [
             [
-              { code: 'exportAll', name: '导出所有.csv', prefixIcon: 'fa fa-download', visible: true, disabled: false }
+              { code: 'exportAll', name: '导出所有.csv', prefixIcon: 'vxe-icon--question', visible: true, disabled: false }
             ]
           ]
         },
@@ -222,27 +222,27 @@ export default defineComponent({
                 header: {
                   options: [
                     [
-                      { code: 'exportAll', name: '导出所有.csv', prefixIcon: 'fa fa-download', visible: true, disabled: false }
+                      { code: 'exportAll', name: '导出所有.csv', prefixIcon: 'vxe-icon--question', visible: true, disabled: false }
                     ]
                   ]
                 },
                 body: {
                   options: [
                     [
-                      { code: 'copy', name: '复制内容', prefixIcon: 'fa fa-copy', visible: true, disabled: false },
+                      { code: 'copy', name: '复制内容', prefixIcon: 'vxe-icon--question', visible: true, disabled: false },
                       { code: 'clear', name: '清除内容', visible: true, disabled: false },
                       { code: 'reload', name: '刷新表格', visible: true, disabled: false }
                     ],
                     [
-                      { code: 'myPrint', name: '打印', prefixIcon: 'fa fa-print', visible: true, disabled: false },
-                      { code: 'myExport', name: '导出.csv', prefixIcon: 'fa fa-download', visible: true, disabled: false }
+                      { code: 'myPrint', name: '打印', prefixIcon: 'vxe-icon--question', visible: true, disabled: false },
+                      { code: 'myExport', name: '导出.csv', prefixIcon: 'vxe-icon--question', visible: true, disabled: false }
                     ]
                   ]
                 },
                 footer: {
                   options: [
                     [
-                      { code: 'exportAll', name: '导出所有.csv', prefixIcon: 'fa fa-download', visible: true, disabled: false }
+                      { code: 'exportAll', name: '导出所有.csv', prefixIcon: 'vxe-icon--question', visible: true, disabled: false }
                     ]
                   ]
                 },

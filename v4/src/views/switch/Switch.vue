@@ -45,8 +45,8 @@
     <demo-block>
       <template v-slot:source>
         <p>
-          <vxe-switch v-model="demo1.value13" open-icon="fa fa-check" close-icon="fa fa-close"></vxe-switch>
-          <vxe-switch v-model="demo1.value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="fa fa-bell" close-icon="fa fa-bell-slash"></vxe-switch>
+          <vxe-switch v-model="demo1.value13" open-icon="vxe-icon--question" close-icon="vxe-icon--question"></vxe-switch>
+          <vxe-switch v-model="demo1.value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="vxe-icon--question" close-icon="vxe-icon--question"></vxe-switch>
           <vxe-switch v-model="demo1.value15" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch1"></vxe-switch>
           <vxe-switch v-model="demo1.value16" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch2"></vxe-switch>
           <vxe-switch v-model="demo1.value17" open-label="ON" close-label="OFF" class="my-switch3"></vxe-switch>
@@ -126,8 +126,8 @@ export default defineComponent({
         `,
         `
         <p>
-          <vxe-switch v-model="demo1.value13" open-icon="fa fa-check" close-icon="fa fa-close"></vxe-switch>
-          <vxe-switch v-model="demo1.value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="fa fa-bell" close-icon="fa fa-bell-slash"></vxe-switch>
+          <vxe-switch v-model="demo1.value13" open-icon="vxe-icon--question" close-icon="vxe-icon--question"></vxe-switch>
+          <vxe-switch v-model="demo1.value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="vxe-icon--question" close-icon="vxe-icon--question"></vxe-switch>
           <vxe-switch v-model="demo1.value15" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch1"></vxe-switch>
           <vxe-switch v-model="demo1.value16" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch2"></vxe-switch>
           <vxe-switch v-model="demo1.value17" open-label="ON" close-label="OFF" class="my-switch3"></vxe-switch>

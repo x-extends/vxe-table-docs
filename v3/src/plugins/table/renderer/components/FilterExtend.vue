@@ -14,9 +14,9 @@
           <span>清除筛选</span>
         </li>
         <li class="my-fe-menu-link">
-          <i class="fa fa-filter my-fe-menu-link-left-icon"></i>
+          <i class="vxe-icon--question my-fe-menu-link-left-icon"></i>
           <span>筛选条件</span>
-          <i class="fa fa-caret-right my-fe-menu-link-right-icon"></i>
+          <i class="vxe-icon--question my-fe-menu-link-right-icon"></i>
           <div class="my-fe-menu-child-list">
             <ul class="my-fe-child-menu-group-list" v-for="(cList, gIndex) in caseGroups" :key="gIndex">
               <li v-for="(cItem, cIndex) in cList" :key="cIndex" class="my-fe-child-menu-item" @click="childMenuClickEvent(cItem)">
@@ -30,15 +30,15 @@
     <div class="my-fe-search">
       <div class="my-fe-search-top">
         <input v-model="option.data.sVal" placeholder="搜索"/>
-        <i class="fa fa-search my-fe-search-icon"></i>
+        <i class="vxe-icon--question my-fe-search-icon"></i>
       </div>
       <ul class="my-fe-search-list">
         <li class="my-fe-search-item" @click="sAllEvent">
-          <i class="fa fa-square-o my-fe-search-item-icon"></i>
+          <i class="vxe-icon--question my-fe-search-item-icon"></i>
           <span>(全选)</span>
         </li>
         <li class="my-fe-search-item" v-for="(val, sIndex) in searchList" :key="sIndex" @click="sItemEvent(val)">
-          <i :class="[option.data.vals.indexOf(val) === -1 ? 'fa fa-square-o my-fe-search-item-icon' : 'fa fa-check-square-o my-fe-search-item-icon']"></i>
+          <i :class="[option.data.vals.indexOf(val) === -1 ? 'vxe-icon--question my-fe-search-item-icon' : 'vxe-icon--question my-fe-search-item-icon']"></i>
           <span>{{ val }}</span>
         </li>
       </ul>

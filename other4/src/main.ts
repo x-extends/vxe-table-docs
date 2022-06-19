@@ -9,6 +9,7 @@ import './assets/style/index.scss'
 import './plugins'
 
 import PreCode from './components/PreCode.vue'
+import DemoBlock from './components/DemoBlock.vue'
 
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
@@ -21,6 +22,7 @@ import VXETable from 'vxe-table'
 const app = createApp(App)
 
 app.component(PreCode.name, PreCode)
+app.component(DemoBlock.name, DemoBlock)
 
 app.use(VXETable)
 app.use(Antd)

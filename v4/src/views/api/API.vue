@@ -407,19 +407,19 @@ export default defineComponent({
               { code: 'resetColumn', name: '重置个性化数据' }
             ],
             [
-              { code: 'exportXLSXAPI', name: '导出文档.xlsx', prefixIcon: 'fa fa-download' }
+              { code: 'exportXLSXAPI', name: '导出文档.xlsx' }
             ]
           ]
         },
         body: {
           options: [
             [
-              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'fa fa-copy' }
+              { code: 'copy', name: 'app.body.label.copy' }
             ],
             [
               { code: 'resize', name: '重新加载' },
-              { code: 'exportHTMLAPI', name: '导出文档.html', prefixIcon: 'fa fa-download' },
-              { code: 'exportXLSXAPI', name: '导出文档.xlsx', prefixIcon: 'fa fa-download' }
+              { code: 'exportHTMLAPI', name: '导出文档.html' },
+              { code: 'exportXLSXAPI', name: '导出文档.xlsx' }
             ],
             [
               { code: 'allExpand', name: '全部展开' },

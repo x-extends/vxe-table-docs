@@ -11,14 +11,14 @@ VXETable.renderer.add('MyInput', {
   renderEdit (renderOpts, params) {
     const { row, column } = params
     return [
-      <vxe-input class="my-cell" v-model={ row[column.property] } prefix-icon="fa fa-user" suffix-icon="fa fa-search" clearable></vxe-input>
+      <vxe-input class="my-cell" v-model={ row[column.field] } clearable></vxe-input>
     ]
   },
   // 可编辑显示模板
   renderCell (renderOpts, params) {
     const { row, column } = params
     return [
-      <span>{ row[column.property] }</span>
+      <span>{ row[column.field] }</span>
     ]
   }
 })

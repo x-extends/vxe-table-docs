@@ -7,10 +7,10 @@
 
     <vxe-toolbar perfect>
       <template #buttons>
-        <vxe-button icon="fa fa-plus" status="perfect" @click="insertEvent">新增</vxe-button>
-        <vxe-button icon="fa fa-trash-o" status="perfect" @click="removeEvent">移除</vxe-button>
-        <vxe-button icon="fa fa-save" status="perfect" @click="saveEvent">保存</vxe-button>
-        <vxe-button icon="fa fa-mail-reply" status="perfect" @click="revertEvent">还原</vxe-button>
+        <vxe-button status="perfect" @click="insertEvent">新增</vxe-button>
+        <vxe-button status="perfect" @click="removeEvent">移除</vxe-button>
+        <vxe-button status="perfect" @click="saveEvent">保存</vxe-button>
+        <vxe-button status="perfect" @click="revertEvent">还原</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -128,10 +128,10 @@ export default defineComponent({
         `
         <vxe-toolbar perfect>
           <template #buttons>
-            <vxe-button icon="fa fa-plus" status="perfect" @click="insertEvent">新增</vxe-button>
-            <vxe-button icon="fa fa-trash-o" status="perfect" @click="removeEvent">移除</vxe-button>
-            <vxe-button icon="fa fa-save" status="perfect" @click="saveEvent">保存</vxe-button>
-            <vxe-button icon="fa fa-mail-reply" status="perfect" @click="revertEvent">还原</vxe-button>
+            <vxe-button status="perfect" @click="insertEvent">新增</vxe-button>
+            <vxe-button status="perfect" @click="removeEvent">移除</vxe-button>
+            <vxe-button status="perfect" @click="saveEvent">保存</vxe-button>
+            <vxe-button status="perfect" @click="revertEvent">还原</vxe-button>
           </template>
         </vxe-toolbar>
 

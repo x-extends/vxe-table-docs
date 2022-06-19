@@ -48,7 +48,7 @@ export default defineComponent({
         },
         items: [
           { field: 'name', title: 'Name', slots: { default: 'name_item' } },
-          { field: 'sex', title: '性别', titlePrefix: { message: '帮助信息！！！', icon: 'fa fa-info-circle' }, slots: { default: 'sex_item' } },
+          { field: 'sex', title: '性别', titlePrefix: { message: '帮助信息！！！', icon: 'vxe-icon--question' }, slots: { default: 'sex_item' } },
           { slots: { default: 'operate_item' } }
         ]
       },
@@ -143,7 +143,7 @@ export default defineComponent({
                 },
                 items: [
                   { field: 'name', title: 'Name', slots: { default: 'name_item' } },
-                  { field: 'sex', title: '性别', titlePrefix: { message: '帮助信息！！！', icon: 'fa fa-info-circle' }, slots: { default: 'sex_item' } },
+                  { field: 'sex', title: '性别', titlePrefix: { message: '帮助信息！！！', icon: 'vxe-icon--question' }, slots: { default: 'sex_item' } },
                   { slots: { default: 'operate_item' } }
                 ]
               },

@@ -68,7 +68,6 @@
       <!--使用 top 插槽-->
       <template #top>
         <div class="alert-message">
-          <i class="fa fa-exclamation-circle alert-message-icon"></i>
           <span class="alert-message-content">
             <div>自定义模板</div>
           </span>
@@ -136,7 +135,6 @@
       <!--使用 bottom 插槽-->
       <template #bottom>
         <div class="alert-message">
-          <i class="fa fa-exclamation-circle alert-message-icon"></i>
           <span class="alert-message-content">
             <div>自定义模板</div>
           </span>
@@ -245,8 +243,7 @@ export default defineComponent({
       },
       editConfig: {
         trigger: 'click',
-        mode: 'cell',
-        icon: 'fa fa-pencil-square-o'
+        mode: 'cell'
       },
       data: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', num1: '222', sex: 'Man', age: 28, address: 'Shenzhen', img1: 'https://5b0988e595225.cdn.sohucs.com/images/20181014/dce7cdaa130440e8b609fad083877ef3.gif' },
@@ -418,7 +415,6 @@ export default defineComponent({
           <!--使用 top 插槽-->
           <template #top>
             <div class="alert-message">
-              <i class="fa fa-exclamation-circle alert-message-icon"></i>
               <span class="alert-message-content">
                 <div>自定义模板</div>
               </span>
@@ -486,7 +482,6 @@ export default defineComponent({
           <!--使用 bottom 插槽-->
           <template #bottom>
             <div class="alert-message">
-              <i class="fa fa-exclamation-circle alert-message-icon"></i>
               <span class="alert-message-content">
                 <div>自定义模板</div>
               </span>
@@ -585,8 +580,7 @@ export default defineComponent({
               },
               editConfig: {
                 trigger: 'click',
-                mode: 'cell',
-                icon: 'fa fa-pencil-square-o'
+                mode: 'cell'
               },
               data: [
                 { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', num1: '222', sex: 'Man', age: 28, address: 'Shenzhen', img1: 'https://5b0988e595225.cdn.sohucs.com/images/20181014/dce7cdaa130440e8b609fad083877ef3.gif' },

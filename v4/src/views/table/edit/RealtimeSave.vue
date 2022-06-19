@@ -9,7 +9,7 @@
       ref="xTable"
       :column-config="{resizable: true}"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil'}"
+      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
       @edit-closed="editClosedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
@@ -121,7 +121,7 @@ export default defineComponent({
           ref="xTable"
           :column-config="{resizable: true}"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil'}"
+          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
           @edit-closed="editClosedEvent">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :edit-render="{}">

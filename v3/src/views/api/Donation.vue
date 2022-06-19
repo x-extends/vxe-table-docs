@@ -9,17 +9,6 @@
         <span>👀{{ $t('app.body.other.releases') }}</span>
       </a>
     </div>
-    <!-- <div class="desc">
-      <div class="title">
-        <span style="vertical-align: middle;padding-left: 0.4em;">🔥{{ $t('app.body.label.plan') }}</span>
-      </div>
-      <ul class="plan">
-        <li><i class="fa fa-battery-4"></i>{{ $t('app.body.other.plan.v1') }}</li>
-        <li><i class="fa fa-battery-4"></i>{{ $t('app.body.other.plan.v2') }}</li>
-        <li><i class="fa fa-battery-4"></i>{{ $t('app.body.other.plan.v3') }}</li>
-        <li><i class="fa fa-battery-3"></i>{{ $t('app.body.other.plan.v4') }}</li>
-      </ul>
-    </div> -->
     <div class="content" style="padding-top: 50px">
       <div style="float: left;padding-left: 5em;">
         <div style="padding: 15px 0;">

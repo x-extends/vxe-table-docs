@@ -104,7 +104,7 @@
         <div class="content" :class="{full: ['VXEAPI', 'Donation', 'Run'].includes($route.name)}">
           <div class="page-view">
             <template v-if="!/\/start|\/module|\/api/.test($route.path)">
-              <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank"><i class="fa fa-bug"></i>{{ $t('app.body.button.runDemo') }}</a>
+              <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank">{{ $t('app.body.button.runDemo') }}</a>
             </template>
             <router-view/>
           </div>
@@ -161,6 +161,20 @@ export default {
       showPlugin: false,
       disabledPlugin: false,
       tableList: [
+        {
+          label: 'app.aside.nav.module',
+          value: 'module',
+          expand: false,
+          children: [
+            {
+              label: '使用第三方图标',
+              locat: {
+                name: 'ModuleButton'
+              },
+              keywords: ['button']
+            }
+          ]
+        },
         {
           label: 'app.aside.nav.plugin',
           value: 'plugin',
