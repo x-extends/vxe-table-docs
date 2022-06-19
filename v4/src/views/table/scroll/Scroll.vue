@@ -99,7 +99,7 @@ export default defineComponent({
       })
     }
 
-    const xTable1 = ref({} as VxeTableInstance)
+    const xTable1 = ref<VxeTableInstance>()
 
     onMounted(() => {
       nextTick(() => {
@@ -131,7 +131,7 @@ export default defineComponent({
       })
     }
 
-    const xTable2 = ref({} as VxeTableInstance)
+    const xTable2 = ref<VxeTableInstance>()
 
     onMounted(() => {
       nextTick(() => {
@@ -201,7 +201,7 @@ export default defineComponent({
               })
             }
 
-            const xTable1 = ref({} as VxeTableInstance)
+            const xTable1 = ref<VxeTableInstance>()
 
             onMounted(() => {
               nextTick(() => {
@@ -277,7 +277,7 @@ export default defineComponent({
               })
             }
 
-            const xTable2 = ref({} as VxeTableInstance)
+            const xTable2 = ref<VxeTableInstance>()
 
             onMounted(() => {
               nextTick(() => {

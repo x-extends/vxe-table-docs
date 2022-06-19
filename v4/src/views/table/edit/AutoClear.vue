@@ -78,7 +78,7 @@ export default defineComponent({
       sexList: [] as any[]
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const formatSex = (value: any) => {
       if (value === '1') {
@@ -92,22 +92,28 @@ export default defineComponent({
 
     const editRowEvent = async (row: any) => {
       const $table = xTable.value
-      await $table.setActiveRow(row)
+      if ($table) {
+        await $table.setActiveRow(row)
+      }
     }
 
     const saveRowEvent = async (row: any) => {
       const $table = xTable.value
-      await $table.clearActived()
-      // 重新加载行
-      await $table.reloadRow(row, {})
-      VXETable.modal.message({ content: 'success', status: 'success' })
+      if ($table) {
+        await $table.clearActived()
+        // 重新加载行
+        await $table.reloadRow(row, {})
+        VXETable.modal.message({ content: 'success', status: 'success' })
+      }
     }
 
     const cancelRowEvent = async (row: any) => {
       const $table = xTable.value
-      await $table.clearActived()
-      // 还原数据
-      await $table.revertData(row)
+      if ($table) {
+        await $table.clearActived()
+        // 还原数据
+        await $table.revertData(row)
+      }
     }
 
     demo1.loading = true
@@ -202,7 +208,7 @@ export default defineComponent({
               sexList: [] as any[]
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const formatSex = (value: any) => {
               if (value === '1') {

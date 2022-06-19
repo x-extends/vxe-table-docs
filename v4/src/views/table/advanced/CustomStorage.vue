@@ -41,8 +41,8 @@ import { VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
-    const xToolbar = ref({} as VxeToolbarInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xToolbar = ref<VxeToolbarInstance>()
 
     const tableData = ref([
       { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -59,7 +59,9 @@ export default defineComponent({
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
     })
 
     return {
@@ -95,8 +97,8 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
-            const xToolbar = ref({} as VxeToolbarInstance)
+            const xTable = ref<VxeTableInstance>()
+            const xToolbar = ref<VxeToolbarInstance>()
 
             const tableData = ref([
               { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

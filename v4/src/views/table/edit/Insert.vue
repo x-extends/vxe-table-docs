@@ -70,7 +70,7 @@ import { VXETable, VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const tableData = ref([
       { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
@@ -97,30 +97,38 @@ export default defineComponent({
 
     const insertEvent = async (row: any) => {
       const $table = xTable.value
-      const record = {
-        sex: '1',
-        date12: '2021-01-01'
+      if ($table) {
+        const record = {
+          sex: '1',
+          date12: '2021-01-01'
+        }
+        const { row: newRow } = await $table.insertAt(record, row)
+        await $table.setActiveCell(newRow, 'name')
       }
-      const { row: newRow } = await $table.insertAt(record, row)
-      await $table.setActiveCell(newRow, 'name')
     }
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(`新增：${insertRecords.length}`)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(`新增：${insertRecords.length}`)
+      }
     }
 
     const getSelectionEvent = () => {
       const $table = xTable.value
-      const selectRecords = $table.getCheckboxRecords()
-      VXETable.modal.alert(`选中：${selectRecords.length}`)
+      if ($table) {
+        const selectRecords = $table.getCheckboxRecords()
+        VXETable.modal.alert(`选中：${selectRecords.length}`)
+      }
     }
 
     const saveEvent = () => {
       const $table = xTable.value
-      const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      if ($table) {
+        const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
+        VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      }
     }
 
     return {
@@ -190,7 +198,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const tableData = ref([
               { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },

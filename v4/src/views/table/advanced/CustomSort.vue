@@ -68,18 +68,20 @@ export default defineComponent({
       { id: 10008, name: 'Test8', role: 'Develop', sex: '1', age: 35, amount: 999, address: 'test abc' }
     ])
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const headerCellClickEvent: VxeTableEvents.HeaderCellClick = ({ column, triggerResizable, triggerSort, triggerFilter }) => {
       const $table = xTable.value
-      // 如果触发了列的其他功能按钮
-      if (column.sortable && !(triggerResizable || triggerSort || triggerFilter)) {
-        if (column.order === 'desc') {
-          $table.clearSort()
-        } else if (column.order === 'asc') {
-          $table.sort(column.property, 'desc')
-        } else {
-          $table.sort(column.property, 'asc')
+      if ($table) {
+        // 如果触发了列的其他功能按钮
+        if (column.sortable && !(triggerResizable || triggerSort || triggerFilter)) {
+          if (column.order === 'desc') {
+            $table.clearSort()
+          } else if (column.order === 'asc') {
+            $table.sort(column.property, 'desc')
+          } else {
+            $table.sort(column.property, 'asc')
+          }
         }
       }
     }
@@ -156,7 +158,7 @@ export default defineComponent({
               { id: 10008, name: 'Test8', role: 'Develop', sex: '1', age: 35, amount: 999, address: 'test abc' }
             ])
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const headerCellClickEvent: VxeTableEvents.HeaderCellClick = ({ column, triggerResizable, triggerSort, triggerFilter }) => {
               const $table = xTable.value

@@ -47,7 +47,7 @@ export default defineComponent({
       ]
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const currentChangeEvent: VxeTableEvents.CurrentChange = ({ rowIndex }) => {
       console.log(`行选中事件 ${rowIndex}`)
@@ -55,7 +55,9 @@ export default defineComponent({
 
     const getCurrentEvent = () => {
       const $table = xTable.value
-      VXETable.modal.alert(JSON.stringify($table.getCurrentRecord()))
+      if ($table) {
+        VXETable.modal.alert(JSON.stringify($table.getCurrentRecord()))
+      }
     }
 
     return {
@@ -101,7 +103,7 @@ export default defineComponent({
               ]
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const currentChangeEvent: VxeTableEvents.CurrentChange = ({ rowIndex }: any) => {
               console.log(\`行选中事件 \${rowIndex}\`)

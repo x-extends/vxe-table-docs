@@ -60,7 +60,7 @@ export default defineComponent({
       { label: '男', value: '1' }
     ]
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const formatterSex: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
       const item = sexList.find(item => item.value === cellValue)
@@ -73,15 +73,19 @@ export default defineComponent({
 
     const exportDataEvent: VxeButtonEvents.Click = () => {
       const $table = xTable.value
-      $table.openExport({
-        // 默认勾选源
-        original: true
-      })
+      if ($table) {
+        $table.openExport({
+          // 默认勾选源
+          original: true
+        })
+      }
     }
 
     const importDataEvent: VxeButtonEvents.Click = () => {
       const $table = xTable.value
-      $table.importData()
+      if ($table) {
+        $table.importData()
+      }
     }
 
     return {
@@ -138,7 +142,7 @@ export default defineComponent({
               { label: '男', value: '1' }
             ]
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const formatterSex: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
               const item = sexList.find(item => item.value === cellValue)

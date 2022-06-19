@@ -97,7 +97,7 @@ export default defineComponent({
       { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
     ])
 
-    const xTable2 = ref({} as VxeTableInstance)
+    const xTable2 = ref<VxeTableInstance>()
     const tableData2 = ref([
       { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
       { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
@@ -111,15 +111,17 @@ export default defineComponent({
 
     const toggleFixedColumn = (field: string, type: VxeColumnPropTypes.Fixed) => {
       const $table = xTable2.value
-      const column = $table.getColumnByField(field)
-      if (column) {
-        const groupFixed = column.fixed ? null : type
-        // 将分组整体设置固定列
-        XEUtils.eachTree([column], column => {
-          column.fixed = groupFixed
-        })
-        // 刷新列
-        $table.refreshColumn()
+      if ($table) {
+        const column = $table.getColumnByField(field)
+        if (column) {
+          const groupFixed = column.fixed ? null : type
+          // 将分组整体设置固定列
+          XEUtils.eachTree([column], column => {
+            column.fixed = groupFixed
+          })
+          // 刷新列
+          $table.refreshColumn()
+        }
       }
     }
 
@@ -219,7 +221,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable2 = ref({} as VxeTableInstance)
+            const xTable2 = ref<VxeTableInstance>()
 
             const tableData2 = ref([
               { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

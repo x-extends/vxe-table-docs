@@ -179,7 +179,7 @@ export default defineComponent({
       selectRow: null as any
     })
 
-    const xTable1 = ref({} as VxeTableInstance)
+    const xTable1 = ref<VxeTableInstance>()
 
     const cellClickEvent1: VxeTableEvents.CellClick = () => {
       console.log('单元格点击事件')
@@ -192,13 +192,17 @@ export default defineComponent({
 
     const clearRadioRowEevnt1 = () => {
       const $table = xTable1.value
-      demo1.selectRow = null
-      $table.clearRadioRow()
+      if ($table) {
+        demo1.selectRow = null
+        $table.clearRadioRow()
+      }
     }
 
     const getRadioEvent1 = () => {
       const $table = xTable1.value
-      VXETable.modal.alert(JSON.stringify($table.getRadioRecord()))
+      if ($table) {
+        VXETable.modal.alert(JSON.stringify($table.getRadioRecord()))
+      }
     }
 
     const demo2 = reactive({
@@ -337,7 +341,7 @@ export default defineComponent({
               selectRow: null as any
             })
 
-            const xTable1 = ref({} as VxeTableInstance)
+            const xTable1 = ref<VxeTableInstance>()
 
             const cellClickEvent1: VxeTableEvents.CellClick = () => {
               console.log('单元格点击事件')

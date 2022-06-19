@@ -160,11 +160,13 @@ export default defineComponent({
       list2: data2
     })
 
-    const xDown2 = ref({} as VxePulldownInstance)
+    const xDown2 = ref<VxePulldownInstance>()
 
     const focusEvent2 = () => {
-      const $pulldown2 = xDown2.value
-      $pulldown2.showPanel()
+      const $pulldown = xDown2.value
+      if ($pulldown) {
+        $pulldown.showPanel()
+      }
     }
 
     const keyupEvent2 = () => {
@@ -172,11 +174,13 @@ export default defineComponent({
     }
 
     const selectEvent2 = (item: ItemVO2) => {
-      const $pulldown2 = xDown2.value
-      demo2.value2 = item.label
-      $pulldown2.hidePanel().then(() => {
-        demo2.list2 = data2
-      })
+      const $pulldown = xDown2.value
+      if ($pulldown) {
+        demo2.value2 = item.label
+        $pulldown.hidePanel().then(() => {
+          demo2.list2 = data2
+        })
+      }
     }
 
     const demo3 = reactive({
@@ -188,11 +192,13 @@ export default defineComponent({
       ]
     })
 
-    const xDown3 = ref({} as VxePulldownInstance)
+    const xDown3 = ref<VxePulldownInstance>()
 
     const clickEvent3 = () => {
-      const $pulldown3 = xDown3.value
-      $pulldown3.togglePanel()
+      const $pulldown = xDown3.value
+      if ($pulldown) {
+        $pulldown.togglePanel()
+      }
     }
 
     const demo4 = reactive({
@@ -220,11 +226,13 @@ export default defineComponent({
       }
     })
 
-    const xDown4 = ref({} as VxePulldownInstance)
+    const xDown4 = ref<VxePulldownInstance>()
 
     const focusEvent4 = () => {
-      const $pulldown4 = xDown4.value
-      $pulldown4.showPanel()
+      const $pulldown = xDown4.value
+      if ($pulldown) {
+        $pulldown.showPanel()
+      }
     }
 
     const keyupEvent4 = () => {
@@ -240,14 +248,18 @@ export default defineComponent({
     }
 
     const suffixClick4 = () => {
-      const $pulldown4 = xDown4.value
-      $pulldown4.togglePanel()
+      const $pulldown = xDown4.value
+      if ($pulldown) {
+        $pulldown.togglePanel()
+      }
     }
 
     const cellClickEvent4: VxeGridEvents.CellClick = ({ row }) => {
-      const $pulldown4 = xDown4.value
-      demo4.value4 = row.name
-      $pulldown4.hidePanel()
+      const $pulldown = xDown4.value
+      if ($pulldown) {
+        demo4.value4 = row.name
+        $pulldown.hidePanel()
+      }
     }
 
     const pageChangeEvent4: VxeGridEvents.PageChange = ({ currentPage, pageSize }) => {
@@ -418,7 +430,7 @@ export default defineComponent({
               list2: data2
             })
 
-            const xDown2 = ref({} as VxePulldownInstance)
+            const xDown2 = ref<VxePulldownInstance>()
 
             const focusEvent2 = () => {
               const $pulldown2 = xDown2.value
@@ -446,7 +458,7 @@ export default defineComponent({
               ]
             })
 
-            const xDown3 = ref({} as VxePulldownInstance)
+            const xDown3 = ref<VxePulldownInstance>()
 
             const clickEvent3 = () => {
               const $pulldown3 = xDown3.value
@@ -478,7 +490,7 @@ export default defineComponent({
               }
             })
 
-            const xDown4 = ref({} as VxePulldownInstance)
+            const xDown4 = ref<VxePulldownInstance>()
 
             const focusEvent4 = () => {
               const $pulldown4 = xDown4.value

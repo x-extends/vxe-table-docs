@@ -79,8 +79,8 @@ export default defineComponent({
     const store = useStore()
     const serveApiUrl = computed(() => store.state.serveApiUrl)
 
-    const xToolbar = ref({} as VxeToolbarInstance)
-    const xTable = ref({} as VxeTableInstance)
+    const xToolbar = ref<VxeToolbarInstance>()
+    const xTable = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       loading: false,
@@ -119,14 +119,18 @@ export default defineComponent({
 
     const insertEvent = async () => {
       const $table = xTable.value
-      const newRecord = {}
-      const { row: newRow } = await $table.insert(newRecord)
-      await $table.setActiveRow(newRow)
+      if ($table) {
+        const newRecord = {}
+        const { row: newRow } = await $table.insert(newRecord)
+        await $table.setActiveRow(newRow)
+      }
     }
 
     const removeSelectEvent = async () => {
       const $table = xTable.value
-      await $table.removeCheckboxRow()
+      if ($table) {
+        await $table.removeCheckboxRow()
+      }
     }
 
     const deleteSelectEvent = async () => {
@@ -135,19 +139,23 @@ export default defineComponent({
         return
       }
       const $table = xTable.value
-      const checkboxRecords = $table.getCheckboxRecords()
-      demo1.loading = true
-      try {
-        const body = { removeRecords: checkboxRecords }
-        await fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
-        await loadList()
-      } catch (e) {}
-      demo1.loading = false
+      if ($table) {
+        const checkboxRecords = $table.getCheckboxRecords()
+        demo1.loading = true
+        try {
+          const body = { removeRecords: checkboxRecords }
+          await fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+          await loadList()
+        } catch (e) {}
+        demo1.loading = false
+      }
     }
 
     const removeRowEvent = async (row: any) => {
       const $table = xTable.value
-      await $table.remove(row)
+      if ($table) {
+        await $table.remove(row)
+      }
     }
 
     const deleteRowEvent = async (row: any) => {
@@ -165,34 +173,38 @@ export default defineComponent({
 
     const saveEvent = async () => {
       const $table = xTable.value
-      const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      if (insertRecords.length <= 0 && removeRecords.length <= 0 && updateRecords.length <= 0) {
-        VXETable.modal.message({ content: '数据未改动！', status: 'warning' })
-        return
-      }
-      const errMap = await $table.validate()
-      if (errMap) {
-        return
-      }
-      demo1.loading = true
-      try {
-        const body = { insertRecords, removeRecords, updateRecords }
-        await fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
-        await loadList()
-        VXETable.modal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
-      } catch (e) {
-        if (e && e.message) {
-          VXETable.modal.message({ content: e.message, status: 'error' })
+      if ($table) {
+        const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
+        if (insertRecords.length <= 0 && removeRecords.length <= 0 && updateRecords.length <= 0) {
+          VXETable.modal.message({ content: '数据未改动！', status: 'warning' })
+          return
         }
+        const errMap = await $table.validate()
+        if (errMap) {
+          return
+        }
+        demo1.loading = true
+        try {
+          const body = { insertRecords, removeRecords, updateRecords }
+          await fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+          await loadList()
+          VXETable.modal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
+        } catch (e) {
+          if (e && e.message) {
+            VXETable.modal.message({ content: e.message, status: 'error' })
+          }
+        }
+        demo1.loading = false
       }
-      demo1.loading = false
     }
 
     nextTick(() => {
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
     })
 
     loadList()
@@ -277,8 +289,8 @@ export default defineComponent({
             const store = useStore()
             const serveApiUrl = computed(() => store.state.serveApiUrl)
 
-            const xToolbar = ref({} as VxeToolbarInstance)
-            const xTable = ref({} as VxeTableInstance)
+            const xToolbar = ref<VxeToolbarInstance>()
+            const xTable = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               loading: false,

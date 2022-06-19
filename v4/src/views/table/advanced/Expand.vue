@@ -174,7 +174,7 @@ import { VxeTableInstance, VxeTableEvents, VxeColumnPropTypes } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable1 = ref({} as VxeTableInstance)
+    const xTable1 = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       seqFixed: null as VxeColumnPropTypes.Fixed,
@@ -198,7 +198,9 @@ export default defineComponent({
       demo1.seqFixed = demo1.seqFixed ? null : 'left'
       nextTick(() => {
         const $table = xTable1.value
-        $table.refreshColumn()
+        if ($table) {
+          $table.refreshColumn()
+        }
       })
     }
 
@@ -206,7 +208,9 @@ export default defineComponent({
       demo1.expandFixed = demo1.expandFixed ? null : 'left'
       nextTick(() => {
         const $table = xTable1.value
-        $table.refreshColumn()
+        if ($table) {
+          $table.refreshColumn()
+        }
       })
     }
 
@@ -214,7 +218,9 @@ export default defineComponent({
       demo1.ageFixed = demo1.ageFixed ? null : 'right'
       nextTick(() => {
         const $table = xTable1.value
-        $table.refreshColumn()
+        if ($table) {
+          $table.refreshColumn()
+        }
       })
     }
 
@@ -317,7 +323,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable1 = ref({} as VxeTableInstance)
+            const xTable1 = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               seqFixed: null as VxeColumnPropTypes.Fixed,

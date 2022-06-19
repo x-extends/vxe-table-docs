@@ -129,8 +129,8 @@ import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
-    const xToolbar = ref({} as VxeToolbarInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xToolbar = ref<VxeToolbarInstance>()
 
     // 打印样式
     const printStyle = `
@@ -203,46 +203,52 @@ export default defineComponent({
 
     const printEvent1 = () => {
       const $table = xTable.value
-      $table.print({
-        sheetName: '打印出货单据',
-        style: printStyle,
-        columns: [
-          { type: 'seq' },
-          { field: 'name' },
-          { field: 'role' },
-          { field: 'address' }
-        ],
-        beforePrintMethod: ({ content }) => {
-          // 拦截打印之前，返回自定义的 html 内容
-          return topHtml + content + bottomHtml
-        }
-      })
+      if ($table) {
+        $table.print({
+          sheetName: '打印出货单据',
+          style: printStyle,
+          columns: [
+            { type: 'seq' },
+            { field: 'name' },
+            { field: 'role' },
+            { field: 'address' }
+          ],
+          beforePrintMethod: ({ content }) => {
+            // 拦截打印之前，返回自定义的 html 内容
+            return topHtml + content + bottomHtml
+          }
+        })
+      }
     }
 
     const printSelectEvent1 = () => {
       const $table = xTable.value
-      $table.print({
-        sheetName: '打印勾选行',
-        style: printStyle,
-        mode: 'selected',
-        columns: [
-          { type: 'seq' },
-          { field: 'name' },
-          { field: 'role' },
-          { field: 'address' }
-        ],
-        beforePrintMethod: ({ content }) => {
-          // 拦截打印之前，返回自定义的 html 内容
-          return topHtml + content + bottomHtml
-        }
-      })
+      if ($table) {
+        $table.print({
+          sheetName: '打印勾选行',
+          style: printStyle,
+          mode: 'selected',
+          columns: [
+            { type: 'seq' },
+            { field: 'name' },
+            { field: 'role' },
+            { field: 'address' }
+          ],
+          beforePrintMethod: ({ content }) => {
+            // 拦截打印之前，返回自定义的 html 内容
+            return topHtml + content + bottomHtml
+          }
+        })
+      }
     }
 
     nextTick(() => {
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
     })
 
     const printEvent4 = () => {
@@ -437,8 +443,8 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
-            const xToolbar = ref({} as VxeToolbarInstance)
+            const xTable = ref<VxeTableInstance>()
+            const xToolbar = ref<VxeToolbarInstance>()
 
             // 打印样式
             const printStyle = \`

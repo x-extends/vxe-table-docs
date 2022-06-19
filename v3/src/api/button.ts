@@ -153,6 +153,15 @@ const apis = [
         list: []
       },
       {
+        name: 'icon',
+        desc: '自定义图标',
+        version: '3.5.9',
+        type: '',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'dropdowns',
         desc: '下拉按钮',
         version: '',

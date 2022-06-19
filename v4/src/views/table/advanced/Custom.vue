@@ -133,7 +133,7 @@ import { VxeTableInstance, VxeTableDefines } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable1 = ref({} as VxeTableInstance)
+    const xTable1 = ref<VxeTableInstance>()
     const demo1 = reactive({
       tableData: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -147,7 +147,7 @@ export default defineComponent({
       ]
     })
 
-    const xTable2 = ref({} as VxeTableInstance)
+    const xTable2 = ref<VxeTableInstance>()
     const demo2 = reactive({
       loading: false,
       columns: [] as VxeTableDefines.ColumnInfo[],
@@ -163,7 +163,7 @@ export default defineComponent({
       ]
     })
 
-    const xTable3 = ref({} as VxeTableInstance)
+    const xTable3 = ref<VxeTableInstance>()
     const demo3 = reactive({
       loading: false,
       columns: [] as VxeTableDefines.ColumnInfo[],
@@ -179,7 +179,7 @@ export default defineComponent({
       ]
     })
 
-    const xTable4 = ref({} as VxeTableInstance)
+    const xTable4 = ref<VxeTableInstance>()
     const demo4 = reactive({
       collapsable1: false,
       collapsable2: false,
@@ -197,58 +197,66 @@ export default defineComponent({
 
     const collapsable1Event = () => {
       const $table = xTable4.value
-      const fields = ['role', 'sex']
-      demo4.collapsable1 = !demo4.collapsable1
-      fields.forEach(field => {
-        const column = $table.getColumnByField(field)
-        if (column) {
-          column.visible = demo4.collapsable1
-        }
-      })
-      $table.refreshColumn()
+      if ($table) {
+        const fields = ['role', 'sex']
+        demo4.collapsable1 = !demo4.collapsable1
+        fields.forEach(field => {
+          const column = $table.getColumnByField(field)
+          if (column) {
+            column.visible = demo4.collapsable1
+          }
+        })
+        $table.refreshColumn()
+      }
     }
 
     const collapsable2Event = () => {
       const $table = xTable4.value
-      const fields = ['rate', 'address']
-      demo4.collapsable2 = !demo4.collapsable2
-      fields.forEach(field => {
-        const column = $table.getColumnByField(field)
-        if (column) {
-          column.visible = demo4.collapsable2
-        }
-      })
-      $table.refreshColumn()
+      if ($table) {
+        const fields = ['rate', 'address']
+        demo4.collapsable2 = !demo4.collapsable2
+        fields.forEach(field => {
+          const column = $table.getColumnByField(field)
+          if (column) {
+            column.visible = demo4.collapsable2
+          }
+        })
+        $table.refreshColumn()
+      }
     }
 
     setTimeout(() => {
       nextTick(() => {
         // 获取所有列配置
         const $table = xTable2.value
-        demo2.loading = true
-        demo2.columns = $table.getColumns()
-        setTimeout(() => {
-          // 将指定列设置为隐藏状态
-          demo2.columns.forEach(column => {
-            if (['name'].includes(column.property)) {
-              column.visible = false
+        if ($table) {
+          demo2.loading = true
+          demo2.columns = $table.getColumns()
+          setTimeout(() => {
+            // 将指定列设置为隐藏状态
+            demo2.columns.forEach(column => {
+              if (['name'].includes(column.field)) {
+                column.visible = false
+              }
+            })
+            if ($table) {
+              $table.refreshColumn()
             }
-          })
-          if ($table) {
-            $table.refreshColumn()
-          }
-          demo2.loading = false
-        }, 800)
+            demo2.loading = false
+          }, 800)
+        }
       })
 
       nextTick(() => {
         // 获取所有列配置
         const $table = xTable3.value
-        demo3.loading = true
-        demo3.columns = $table.getColumns()
-        setTimeout(() => {
-          demo3.loading = false
-        }, 800)
+        if ($table) {
+          demo3.loading = true
+          demo3.columns = $table.getColumns()
+          setTimeout(() => {
+            demo3.loading = false
+          }, 800)
+        }
       })
     }, 100)
 
@@ -291,7 +299,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable1 = ref({} as VxeTableInstance)
+            const xTable1 = ref<VxeTableInstance>()
             const demo1 = reactive({
               tableData: [
                 { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -336,7 +344,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable2 = ref({} as VxeTableInstance)
+            const xTable2 = ref<VxeTableInstance>()
             const demo2 = reactive({
               loading: false,
               columns: [] as VxeTableDefines.ColumnInfo[],
@@ -412,7 +420,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable3 = ref({} as VxeTableInstance)
+            const xTable3 = ref<VxeTableInstance>()
             const demo3 = reactive({
               loading: false,
               columns: [] as VxeTableDefines.ColumnInfo[],
@@ -478,7 +486,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable4 = ref({} as VxeTableInstance)
+            const xTable4 = ref<VxeTableInstance>()
             const demo4 = reactive({
               collapsable1: false,
               collapsable2: false,

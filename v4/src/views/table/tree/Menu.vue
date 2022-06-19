@@ -64,7 +64,7 @@ import { VxeTableInstance, VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTree1 = ref({} as VxeTableInstance)
+    const xTree1 = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       treeConfig: {
@@ -91,19 +91,21 @@ export default defineComponent({
         },
         visibleMethod ({ row, type, options }) {
           const $table = xTree1.value
-          if (type === 'body') {
-            options.forEach(list => {
-              list.forEach(item => {
-                if (item.code === 'expand' || item.code === 'contract') {
-                  if (row && row.hasChild) {
-                    const isExpand = $table.isTreeExpandByRow(row)
-                    item.disabled = item.code === 'expand' ? isExpand : !isExpand
-                  } else {
-                    item.disabled = true
+          if ($table) {
+            if (type === 'body') {
+              options.forEach(list => {
+                list.forEach(item => {
+                  if (item.code === 'expand' || item.code === 'contract') {
+                    if (row && row.hasChild) {
+                      const isExpand = $table.isTreeExpandByRow(row)
+                      item.disabled = item.code === 'expand' ? isExpand : !isExpand
+                    } else {
+                      item.disabled = true
+                    }
                   }
-                }
+                })
               })
-            })
+            }
           }
           return true
         }
@@ -132,19 +134,21 @@ export default defineComponent({
 
     const contextMenuClickEvent: VxeTableEvents.MenuClick = ({ menu, row, column }) => {
       const $table = xTree1.value
-      switch (menu.code) {
-        case 'hideCurrColumn':
-          $table.hideColumn(column)
-          break
-        case 'showAllColumn':
-          $table.resetColumn()
-          break
-        case 'expand':
-          $table.setTreeExpand(row, true)
-          break
-        case 'contract':
-          $table.setTreeExpand(row, false)
-          break
+      if ($table) {
+        switch (menu.code) {
+          case 'hideCurrColumn':
+            $table.hideColumn(column)
+            break
+          case 'showAllColumn':
+            $table.resetColumn()
+            break
+          case 'expand':
+            $table.setTreeExpand(row, true)
+            break
+          case 'contract':
+            $table.setTreeExpand(row, false)
+            break
+        }
       }
     }
 
@@ -195,7 +199,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTree1 = ref({} as VxeTableInstance)
+            const xTree1 = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               treeConfig: {

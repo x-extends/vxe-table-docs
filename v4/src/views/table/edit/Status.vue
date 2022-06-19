@@ -80,7 +80,7 @@ export default defineComponent({
       { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04' }
     ])
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const formatDate: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
       return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
@@ -88,24 +88,28 @@ export default defineComponent({
 
     const insertEvent = async () => {
       const $table = xTable.value
-      const record = {}
-      const { row: newRow } = await $table.insert(record)
-      await $table.setActiveCell(newRow, 'name')
+      if ($table) {
+        const record = {}
+        const { row: newRow } = await $table.insert(record)
+        await $table.setActiveCell(newRow, 'name')
+      }
     }
 
     const saveUpdateEvent = (row: any) => {
       const $table = xTable.value
-      if ($table.isUpdateByRow(row)) {
-        row.loading = true
-        // 模拟异步
-        setTimeout(() => {
-          row.loading = false
-          // 保存完成后将行恢复到初始状态
-          $table.reloadRow(row, {})
-          VXETable.modal.message({ content: '保存成功！', status: 'success' })
-        }, 300)
-      } else {
-        VXETable.modal.message({ content: '数据未改动！', status: 'info' })
+      if ($table) {
+        if ($table.isUpdateByRow(row)) {
+          row.loading = true
+          // 模拟异步
+          setTimeout(() => {
+            row.loading = false
+            // 保存完成后将行恢复到初始状态
+            $table.reloadRow(row, {})
+            VXETable.modal.message({ content: '保存成功！', status: 'success' })
+          }, 300)
+        } else {
+          VXETable.modal.message({ content: '数据未改动！', status: 'info' })
+        }
       }
     }
 
@@ -126,20 +130,26 @@ export default defineComponent({
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(`新增：${insertRecords.length}`)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(`新增：${insertRecords.length}`)
+      }
     }
 
     const getRemoveEvent = () => {
       const $table = xTable.value
-      const removeRecords = $table.getRemoveRecords()
-      VXETable.modal.alert(`删除：${removeRecords.length}`)
+      if ($table) {
+        const removeRecords = $table.getRemoveRecords()
+        VXETable.modal.alert(`删除：${removeRecords.length}`)
+      }
     }
 
     const getUpdateEvent = () => {
       const $table = xTable.value
-      const updateRecords = $table.getUpdateRecords()
-      VXETable.modal.alert(`更新：${updateRecords.length}`)
+      if ($table) {
+        const updateRecords = $table.getUpdateRecords()
+        VXETable.modal.alert(`更新：${updateRecords.length}`)
+      }
     }
 
     return {
@@ -220,7 +230,7 @@ export default defineComponent({
               { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04' }
             ])
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const formatDate: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
               return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')

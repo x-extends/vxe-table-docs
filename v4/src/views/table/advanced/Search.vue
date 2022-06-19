@@ -146,7 +146,7 @@ export default defineComponent({
       ] as any[]
     })
 
-    const xTree = ref({} as VxeTableInstance)
+    const xTree = ref<VxeTableInstance>()
 
     const searchEvent2 = () => {
       const filterName = XEUtils.toValueString(demo2.filterName).trim().toLowerCase()
@@ -164,7 +164,9 @@ export default defineComponent({
         // 搜索之后默认展开所有子节点
         nextTick(() => {
           const $table = xTree.value
-          $table.setAllTreeExpand(true)
+          if ($table) {
+            $table.setAllTreeExpand(true)
+          }
         })
       } else {
         demo2.list = demo2.tableData
@@ -325,7 +327,7 @@ export default defineComponent({
               ] as any[]
             })
 
-            const xTree = ref({} as VxeTableInstance)
+            const xTree = ref<VxeTableInstance>()
 
             const searchEvent2 = () => {
               const filterName = XEUtils.toValueString(demo2.filterName).trim().toLowerCase()

@@ -123,12 +123,14 @@ export default defineComponent({
       } as VxeTablePropTypes.TreeConfig
     })
 
-    const xTree1 = ref({} as VxeTableInstance)
+    const xTree1 = ref<VxeTableInstance>()
 
     const getTreeExpansionEvent = () => {
       const $table = xTree1.value
-      const treeExpandRecords = $table.getTreeExpandRecords()
-      VXETable.modal.alert(`${treeExpandRecords.length}`)
+      if ($table) {
+        const treeExpandRecords = $table.getTreeExpandRecords()
+        VXETable.modal.alert(`${treeExpandRecords.length}`)
+      }
     }
 
     const demo2 = reactive({
@@ -263,7 +265,7 @@ export default defineComponent({
               } as VxeTablePropTypes.TreeConfig
             })
 
-            const xTree1 = ref({} as VxeTableInstance)
+            const xTree1 = ref<VxeTableInstance>()
 
             const getTreeExpansionEvent = () => {
               const $table = xTree1.value

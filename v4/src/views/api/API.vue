@@ -136,7 +136,7 @@ export default defineComponent({
       tableData: [] as any[]
     })
 
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const apiName = computed(() => {
       const $route = router.currentRoute.value
@@ -152,12 +152,16 @@ export default defineComponent({
 
     const headerCellContextMenuEvent = ({ column }: any) => {
       const $grid = xGrid.value
-      $grid.setCurrentColumn(column)
+      if ($grid) {
+        $grid.setCurrentColumn(column)
+      }
     }
 
     const cellContextMenuEvent = ({ row }: any) => {
       const $grid = xGrid.value
-      $grid.setCurrentRow(row)
+      if ($grid) {
+        $grid.setCurrentRow(row)
+      }
     }
 
     const handleSearch = () => {
@@ -309,56 +313,58 @@ export default defineComponent({
 
     const contextMenuClickEvent = ({ menu, row, column }: any) => {
       const $grid = xGrid.value
-      switch (menu.code) {
-        case 'hideColumn':
-          $grid.hideColumn(column)
-          break
-        case 'showAllColumn':
-          $grid.resetColumn({ visible: true })
-          break
-        case 'resetColumn':
-          $grid.resetColumn(true)
-          break
-        case 'exportHTMLAPI':
-          $grid.exportData({
-            type: 'html',
-            data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
-            filename: `vxe-${apiName.value}_v${docsVersion.value}`
-          })
-          break
-        case 'exportXLSXAPI':
-          $grid.exportData({
-            type: 'xlsx',
-            data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
-            filename: `vxe-${apiName.value}_v${docsVersion.value}`
-          })
-          break
-        case 'copy':
-          if (row && column) {
-            if (XEClipboard.copy(row[column.property])) {
-              VXETable.modal.message({ content: i18n.global.t('app.body.msg.copyToClipboard'), status: 'success' })
+      if ($grid) {
+        switch (menu.code) {
+          case 'hideColumn':
+            $grid.hideColumn(column)
+            break
+          case 'showAllColumn':
+            $grid.resetColumn({ visible: true })
+            break
+          case 'resetColumn':
+            $grid.resetColumn(true)
+            break
+          case 'exportHTMLAPI':
+            $grid.exportData({
+              type: 'html',
+              data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
+              filename: `vxe-${apiName.value}_v${docsVersion.value}`
+            })
+            break
+          case 'exportXLSXAPI':
+            $grid.exportData({
+              type: 'xlsx',
+              data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
+              filename: `vxe-${apiName.value}_v${docsVersion.value}`
+            })
+            break
+          case 'copy':
+            if (row && column) {
+              if (XEClipboard.copy(row[column.property])) {
+                VXETable.modal.message({ content: i18n.global.t('app.body.msg.copyToClipboard'), status: 'success' })
+              }
             }
-          }
-          break
-        case 'resize':
-          apiData.filterName = ''
-          apiData.tableData = []
-          nextTick(() => {
-            $grid.clearAll()
-            loadList()
-          })
-          break
-        case 'exportAPI':
-          $grid.exportData({
-            filename: `vxe-${apiName.value}_v${docsVersion.value}.csv`
-          })
-          break
-        case 'allExpand':
-          $grid.setAllTreeExpand(true)
-          break
-        case 'allShrink':
-          $grid.clearTreeExpand()
-          break
+            break
+          case 'resize':
+            apiData.filterName = ''
+            apiData.tableData = []
+            nextTick(() => {
+              $grid.clearAll()
+              loadList()
+            })
+            break
+          case 'exportAPI':
+            $grid.exportData({
+              filename: `vxe-${apiName.value}_v${docsVersion.value}.csv`
+            })
+            break
+          case 'allExpand':
+            $grid.setAllTreeExpand(true)
+            break
+          case 'allShrink':
+            $grid.clearTreeExpand()
+            break
+        }
       }
     }
 

@@ -72,14 +72,18 @@ export default defineComponent({
         { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
       ]
     })
-    const xTip5 = ref({} as VxeTooltipInstance)
+    const xTip5 = ref<VxeTooltipInstance>()
     const cellMouseenterEvent = ({ cell }: any) => {
-      const $tooltip5 = xTip5.value
-      $tooltip5.open(cell, `自定义提示内容：${cell.innerText}`)
+      const $tooltip = xTip5.value
+      if ($tooltip) {
+        $tooltip.open(cell, `自定义提示内容：${cell.innerText}`)
+      }
     }
     const cellMouseleaveEvent = () => {
-      const $tooltip5 = xTip5.value
-      $tooltip5.close()
+      const $tooltip = xTip5.value
+      if ($tooltip) {
+        $tooltip.close()
+      }
     }
     return {
       demo1,
@@ -148,7 +152,7 @@ export default defineComponent({
                 { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
               ]
             })
-            const xTip5 = ref({} as VxeTooltipInstance)
+            const xTip5 = ref<VxeTooltipInstance>()
             const cellMouseenterEvent = ({ cell }: any) => {
               const $tooltip5 = xTip5.value
               $tooltip5.open(cell, \`自定义提示内容：\${cell.innerText}\`)

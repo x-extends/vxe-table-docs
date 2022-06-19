@@ -202,7 +202,7 @@ import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const addressClickEvent = (row: any) => {
       VXETable.modal.alert(`address点击事件：${row.address}`)
@@ -304,8 +304,8 @@ export default defineComponent({
           columns.map((column, index) => {
             if (index === 0) {
               return '平均'
-            } else if (['num1', 'age'].includes(column.property)) {
-              return meanNum(data, column.property)
+            } else if (['num1', 'age'].includes(column.field)) {
+              return meanNum(data, column.field)
             }
             return null
           })
@@ -332,15 +332,19 @@ export default defineComponent({
 
     const checkboxChangeEvent = () => {
       const $grid = xGrid.value
-      demo1.isAllChecked = $grid.isAllCheckboxChecked()
-      demo1.isIndeterminate = $grid.isAllCheckboxIndeterminate()
-      demo1.selectRecords = $grid.getCheckboxRecords()
+      if ($grid) {
+        demo1.isAllChecked = $grid.isAllCheckboxChecked()
+        demo1.isIndeterminate = $grid.isAllCheckboxIndeterminate()
+        demo1.selectRecords = $grid.getCheckboxRecords()
+      }
     }
 
     const changeAllEvent = () => {
       const $grid = xGrid.value
-      $grid.setAllCheckboxRow(demo1.isAllChecked)
-      demo1.selectRecords = $grid.getCheckboxRecords()
+      if ($grid) {
+        $grid.setAllCheckboxRow(demo1.isAllChecked)
+        demo1.selectRecords = $grid.getCheckboxRecords()
+      }
     }
 
     return {
@@ -538,7 +542,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const addressClickEvent = (row: any) => {
               VXETable.modal.alert(\`address点击事件：\${row.address}\`)

@@ -80,7 +80,7 @@ export default defineComponent({
       }
     } as VxeGridProps)
 
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const mockColumns = (colSize: number): Promise<any[]> => {
       return new Promise(resolve => {
@@ -195,8 +195,10 @@ export default defineComponent({
 
     const getSelectEvent = () => {
       const $grid = xGrid.value
-      const selectRecords = $grid.getCheckboxRecords()
-      VXETable.modal.alert(`${selectRecords.length}`)
+      if ($grid) {
+        const selectRecords = $grid.getCheckboxRecords()
+        VXETable.modal.alert(`${selectRecords.length}`)
+      }
     }
 
     nextTick(() => {
@@ -260,7 +262,7 @@ export default defineComponent({
               }
             } as VxeGridProps)
 
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const mockColumns = (colSize: number): Promise<any[]> => {
               return new Promise(resolve => {

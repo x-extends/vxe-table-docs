@@ -28,7 +28,7 @@ import { VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const findList = (): Promise<any> => {
       return new Promise(resolve => {
@@ -56,17 +56,23 @@ export default defineComponent({
 
     const maximizeEvent = () => {
       const $grid = xGrid.value
-      $grid.maximize()
+      if ($grid) {
+        $grid.maximize()
+      }
     }
 
     const revertEvent = () => {
       const $grid = xGrid.value
-      $grid.revert()
+      if ($grid) {
+        $grid.revert()
+      }
     }
 
     const zoomEvent = () => {
       const $grid = xGrid.value
-      $grid.zoom()
+      if ($grid) {
+        $grid.zoom()
+      }
     }
 
     const meanNum = (list: any[], field: string) => {
@@ -122,7 +128,7 @@ export default defineComponent({
           if (columnIndex === 0) {
             sums.push('平均')
           } else {
-            if (column.property === 'age') {
+            if (column.field === 'age') {
               sums.push(meanNum(data, 'age'))
             } else {
               sums.push('-')
@@ -156,7 +162,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const findList = () => {
               return new Promise(resolve => {

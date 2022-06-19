@@ -30,7 +30,7 @@ export default defineComponent({
     const store = useStore()
     const serveApiUrl = computed(() => store.state.serveApiUrl)
 
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const gridOptions = reactive<VxeGridProps>({
       border: true,
@@ -210,7 +210,9 @@ export default defineComponent({
           return fetch(`${serveApiUrl.value}/api/pub/import`, { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
             VXETable.modal.message({ content: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
             // 导入完成，刷新表格
-            $grid.commitProxy('query')
+            if ($grid) {
+              $grid.commitProxy('query')
+            }
           }).catch(() => {
             VXETable.modal.message({ content: '导入失败，请检查数据是否正确！', status: 'error' })
           })
@@ -223,38 +225,41 @@ export default defineComponent({
         // 自定义服务端导出
         exportMethod ({ options }) {
           const $grid = xGrid.value
-          const proxyInfo = $grid.getProxyInfo()
-          // 传给服务端的参数
-          const body = {
-            filename: options.filename,
-            sheetName: options.sheetName,
-            isHeader: options.isHeader,
-            original: options.original,
-            mode: options.mode,
-            pager: proxyInfo ? proxyInfo.pager : null,
-            ids: options.mode === 'selected' ? options.data.map((item) => item.id) : [],
-            fields: options.columns.map((column) => {
-              return {
-                field: column.property,
-                title: column.title
-              }
-            })
-          }
-          // 开始服务端导出
-          return fetch(`${serveApiUrl.value}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
-            if (data.id) {
-              VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
-              // 读取路径，请求文件
-              fetch(`${serveApiUrl.value}/api/pub/export/download/${data.id}`).then(response => {
-                response.blob().then(blob => {
-                  // 开始下载
-                  VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })
-                })
+          if ($grid) {
+            const proxyInfo = $grid.getProxyInfo()
+            // 传给服务端的参数
+            const body = {
+              filename: options.filename,
+              sheetName: options.sheetName,
+              isHeader: options.isHeader,
+              original: options.original,
+              mode: options.mode,
+              pager: proxyInfo ? proxyInfo.pager : null,
+              ids: options.mode === 'selected' ? options.data.map((item) => item.id) : [],
+              fields: options.columns.map((column) => {
+                return {
+                  field: column.property,
+                  title: column.title
+                }
               })
             }
-          }).catch(() => {
-            VXETable.modal.message({ content: '导出失败！', status: 'error' })
-          })
+            // 开始服务端导出
+            return fetch(`${serveApiUrl.value}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
+              if (data.id) {
+                VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
+                // 读取路径，请求文件
+                fetch(`${serveApiUrl.value}/api/pub/export/download/${data.id}`).then(response => {
+                  response.blob().then(blob => {
+                    // 开始下载
+                    VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })
+                  })
+                })
+              }
+            }).catch(() => {
+              VXETable.modal.message({ content: '导出失败！', status: 'error' })
+            })
+          }
+          return Promise.resolve()
         }
       },
       checkboxConfig: {
@@ -320,7 +325,7 @@ export default defineComponent({
           const store = useStore()
           const serveApiUrl = computed(() => store.state.serveApiUrl)
 
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const gridOptions = reactive<VxeGridProps>({
               border: true,

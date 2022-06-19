@@ -34,7 +34,7 @@ import { VxeGridInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const findList = () => {
       return new Promise(resolve => {
@@ -56,7 +56,9 @@ export default defineComponent({
 
     const btnDownEvent = () => {
       const $grid = xGrid.value
-      $grid.exportData()
+      if ($grid) {
+        $grid.exportData()
+      }
     }
 
     const demo1 = reactive({
@@ -141,7 +143,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const findList = () => {
               return new Promise(resolve => {

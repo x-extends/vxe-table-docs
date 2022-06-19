@@ -36,7 +36,7 @@ import XEClipboard from 'xe-clipboard'
 
 export default defineComponent({
   setup () {
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const sumNum = (list: any[], field: string) => {
       let count = 0
@@ -123,8 +123,8 @@ export default defineComponent({
             if (columnIndex === 0) {
               return '和值'
             }
-            if (['age'].includes(column.property)) {
-              return sumNum(data, column.property)
+            if (['age'].includes(column.field)) {
+              return sumNum(data, column.field)
             }
             return '-'
           })
@@ -134,28 +134,32 @@ export default defineComponent({
 
     const cellContextMenuEvent: VxeGridEvents.CellMenu = ({ row }) => {
       const $grid = xGrid.value
-      $grid.setCurrentRow(row)
+      if ($grid) {
+        $grid.setCurrentRow(row)
+      }
     }
 
     const contextMenuClickEvent: VxeGridEvents.MenuClick = ({ menu, row, column }) => {
       const $grid = xGrid.value
-      switch (menu.code) {
-        case 'copy':
-          if (row && column) {
-            if (XEClipboard.copy(row[column.property])) {
-              VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+      if ($grid) {
+        switch (menu.code) {
+          case 'copy':
+            if (row && column) {
+              if (XEClipboard.copy(row[column.property])) {
+                VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+              }
             }
-          }
-          break
-        case 'clear':
-          $grid.clearData(row, column.property)
-          break
-        case 'myPrint':
-          $grid.print()
-          break
-        case 'myExport':
-          $grid.exportData()
-          break
+            break
+          case 'clear':
+            $grid.clearData(row, column.property)
+            break
+          case 'myPrint':
+            $grid.print()
+            break
+          case 'myExport':
+            $grid.exportData()
+            break
+        }
       }
     }
 
@@ -179,7 +183,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const sumNum = (list: any[], field: string) => {
               let count = 0

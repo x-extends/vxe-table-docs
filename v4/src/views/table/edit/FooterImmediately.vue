@@ -67,8 +67,8 @@ import { VXETable, VxeTableInstance, VxeTablePropTypes, VxeToolbarInstance } fro
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
-    const xToolbar = ref({} as VxeToolbarInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xToolbar = ref<VxeToolbarInstance>()
 
     const demo1 = reactive({
       tableData: [
@@ -99,7 +99,9 @@ export default defineComponent({
     // 在值发生改变时更新表尾合计
     const updateFooterEvent = () => {
       const $table = xTable.value
-      $table.updateFooter()
+      if ($table) {
+        $table.updateFooter()
+      }
     }
 
     const meanNum = (list: any[], field: string) => {
@@ -124,10 +126,10 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '平均'
           }
-          if (['age'].includes(column.property)) {
-            return meanNum(data, column.property)
-          } else if (['rate', 'num1'].includes(column.property)) {
-            return meanNum(data, column.property)
+          if (['age'].includes(column.field)) {
+            return meanNum(data, column.field)
+          } else if (['rate', 'num1'].includes(column.field)) {
+            return meanNum(data, column.field)
           }
           return null
         }),
@@ -135,8 +137,8 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '和值'
           }
-          if (['rate', 'num1'].includes(column.property)) {
-            return sumNum(data, column.property)
+          if (['rate', 'num1'].includes(column.field)) {
+            return sumNum(data, column.field)
           }
           return null
         })
@@ -148,26 +150,34 @@ export default defineComponent({
         name: 'New name'
       }
       const $table = xTable.value
-      const { row: newRow } = await $table.insert(record)
-      $table.setActiveCell(newRow, 'age')
+      if ($table) {
+        const { row: newRow } = await $table.insert(record)
+        $table.setActiveCell(newRow, 'age')
+      }
     }
 
     const removeEvent = () => {
       const $table = xTable.value
-      $table.removeCheckboxRow()
+      if ($table) {
+        $table.removeCheckboxRow()
+      }
     }
 
     const saveEvent = () => {
       const $table = xTable.value
-      const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      if ($table) {
+        const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
+        VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      }
     }
 
     nextTick(() => {
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
     })
 
     return {
@@ -234,8 +244,8 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
-            const xToolbar = ref({} as VxeToolbarInstance)
+            const xTable = ref<VxeTableInstance>()
+            const xToolbar = ref<VxeToolbarInstance>()
 
             const demo1 = reactive({
               tableData: [

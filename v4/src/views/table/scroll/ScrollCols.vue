@@ -54,7 +54,7 @@ export default defineComponent({
       }
     } as VxeGridProps)
 
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const mockColumns = (colSize: number): Promise<any[]> => {
       return new Promise(resolve => {
@@ -231,7 +231,7 @@ export default defineComponent({
               }
             } as VxeGridProps)
 
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const mockColumns = (colSize: number): Promise<any[]> => {
               return new Promise(resolve => {

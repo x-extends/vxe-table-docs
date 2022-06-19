@@ -130,27 +130,33 @@ export default defineComponent({
       } as VxeTablePropTypes.MenuConfig
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const insertEvent = async () => {
       const $table = xTable.value
-      const record = {
-        sex: '1'
+      if ($table) {
+        const record = {
+          sex: '1'
+        }
+        const { row: newRow } = await $table.insert(record)
+        await $table.setActiveCell(newRow, 'name')
       }
-      const { row: newRow } = await $table.insert(record)
-      await $table.setActiveCell(newRow, 'name')
     }
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(insertRecords.length)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(insertRecords.length)
+      }
     }
 
     const getSelectionEvent = () => {
       const $table = xTable.value
-      const selectRecords = $table.getCheckboxRecords()
-      VXETable.modal.alert(selectRecords.length)
+      if ($table) {
+        const selectRecords = $table.getCheckboxRecords()
+        VXETable.modal.alert(selectRecords.length)
+      }
     }
 
     return {
@@ -240,7 +246,7 @@ export default defineComponent({
               } as VxeTablePropTypes.MenuConfig
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const insertEvent = async () => {
               const $table = xTable.value

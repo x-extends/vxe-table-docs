@@ -64,7 +64,7 @@ import XEUtils from 'xe-utils'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       tableData: [
@@ -89,8 +89,10 @@ export default defineComponent({
 
     const insertEvent = () => {
       const $table = xTable.value
-      const record = {}
-      $table.insert(record)
+      if ($table) {
+        const record = {}
+        $table.insert(record)
+      }
     }
 
     // 格式化显示名称
@@ -200,7 +202,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               tableData: [

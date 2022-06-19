@@ -86,7 +86,7 @@ import { VXETable, VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTree = ref({} as VxeTableInstance)
+    const xTree = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       tableData: [
@@ -137,14 +137,18 @@ export default defineComponent({
 
     const toggleExpandChangeEvent = (params: any) => {
       const $table = xTree.value
-      const { row, expanded } = params
-      console.log('节点展开事件', expanded, '获取父节点：', $table.getParentRow(row))
+      if ($table) {
+        const { row, expanded } = params
+        console.log('节点展开事件', expanded, '获取父节点：', $table.getParentRow(row))
+      }
     }
 
     const getTreeExpansionEvent = () => {
       const $table = xTree.value
-      const treeExpandRecords = $table.getTreeExpandRecords()
-      VXETable.modal.alert(treeExpandRecords.length)
+      if ($table) {
+        const treeExpandRecords = $table.getTreeExpandRecords()
+        VXETable.modal.alert(treeExpandRecords.length)
+      }
     }
 
     const demo3 = reactive({
@@ -206,7 +210,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTree = ref({} as VxeTableInstance)
+            const xTree = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               tableData: [
@@ -320,7 +324,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTree = ref({} as VxeTableInstance)
+            const xTree = ref<VxeTableInstance>()
 
             const demo3 = reactive({
               tableData: [

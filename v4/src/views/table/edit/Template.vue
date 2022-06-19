@@ -145,20 +145,24 @@ export default defineComponent({
       }
     })
 
-    const xTable = ref({} as VxeTableInstance)
-    const xDown1 = ref({} as VxePulldownInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xDown1 = ref<VxePulldownInstance>()
 
     const checkboxChangeEvent = () => {
       const $table = xTable.value
-      demo1.isAllChecked = $table.isAllCheckboxChecked()
-      demo1.isIndeterminate = $table.isAllCheckboxIndeterminate()
-      demo1.selectRecords = $table.getCheckboxRecords()
+      if ($table) {
+        demo1.isAllChecked = $table.isAllCheckboxChecked()
+        demo1.isIndeterminate = $table.isAllCheckboxIndeterminate()
+        demo1.selectRecords = $table.getCheckboxRecords()
+      }
     }
 
     const changeAllEvent = () => {
       const $table = xTable.value
-      $table.setAllCheckboxRow(demo1.isAllChecked)
-      demo1.selectRecords = $table.getCheckboxRecords()
+      if ($table) {
+        $table.setAllCheckboxRow(demo1.isAllChecked)
+        demo1.selectRecords = $table.getCheckboxRecords()
+      }
     }
 
     const clickDownEvent = () => {
@@ -325,8 +329,8 @@ export default defineComponent({
               }
             })
 
-            const xTable = ref({} as VxeTableInstance)
-            const xDown1 = ref({} as VxePulldownInstance)
+            const xTable = ref<VxeTableInstance>()
+            const xDown1 = ref<VxePulldownInstance>()
 
             const checkboxChangeEvent = () => {
               const $table = xTable.value

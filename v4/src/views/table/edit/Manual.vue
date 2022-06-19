@@ -89,7 +89,7 @@ import { VXETable, VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     interface ItemVO {
       id: number;
@@ -132,31 +132,39 @@ export default defineComponent({
 
     const isActiveStatus = (row: ItemVO) => {
       const $table = xTable.value
-      return $table.isActiveByRow(row)
+      if ($table) {
+        return $table.isActiveByRow(row)
+      }
     }
 
     const editRowEvent = (row: ItemVO) => {
       const $table = xTable.value
-      $table.setActiveRow(row)
+      if ($table) {
+        $table.setActiveRow(row)
+      }
     }
 
     const saveRowEvent = () => {
       const $table = xTable.value
-      $table.clearActived().then(() => {
-        demo1.loading = true
-        setTimeout(() => {
-          demo1.loading = false
-          VXETable.modal.message({ content: '保存成功！', status: 'success' })
-        }, 300)
-      })
+      if ($table) {
+        $table.clearActived().then(() => {
+          demo1.loading = true
+          setTimeout(() => {
+            demo1.loading = false
+            VXETable.modal.message({ content: '保存成功！', status: 'success' })
+          }, 300)
+        })
+      }
     }
 
     const cancelRowEvent = (row: ItemVO) => {
       const $table = xTable.value
-      $table.clearActived().then(() => {
-        // 还原行数据
-        $table.revertData(row)
-      })
+      if ($table) {
+        $table.clearActived().then(() => {
+          // 还原行数据
+          $table.revertData(row)
+        })
+      }
     }
 
     return {
@@ -248,7 +256,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             interface ItemVO {
               id: number;

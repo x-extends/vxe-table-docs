@@ -56,7 +56,7 @@ import { VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       tableData: [
@@ -82,8 +82,10 @@ export default defineComponent({
         isEdit: true,
         editMethod ({ row, column }) {
           const $table = xTable.value
-          // 重写默认的覆盖式，改为追加式
-          $table.setActiveCell(row, column)
+          if ($table) {
+            // 重写默认的覆盖式，改为追加式
+            $table.setActiveCell(row, column)
+          }
         }
       } as VxeTablePropTypes.KeyboardConfig
     })
@@ -158,7 +160,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               tableData: [

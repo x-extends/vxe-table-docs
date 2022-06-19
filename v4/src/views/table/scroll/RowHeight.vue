@@ -48,7 +48,7 @@ export default defineComponent({
       loading: false
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const mockList = (size: number) => {
       const list: any[] = []
@@ -121,7 +121,7 @@ export default defineComponent({
               loading: false
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const mockList = (size: number) => {
               const list: any[] = []

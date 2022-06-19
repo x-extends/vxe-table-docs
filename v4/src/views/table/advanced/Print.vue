@@ -84,23 +84,29 @@ export default defineComponent({
       }
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const printEvent1: VxeButtonEvents.Click = () => {
       const $table = xTable.value
-      $table.print()
+      if ($table) {
+        $table.print()
+      }
     }
 
     const printSelectEvent: VxeButtonEvents.Click = () => {
       const $table = xTable.value
-      $table.print({
-        data: $table.getCheckboxRecords()
-      })
+      if ($table) {
+        $table.print({
+          data: $table.getCheckboxRecords()
+        })
+      }
     }
 
     const printEvent2: VxeButtonEvents.Click = () => {
       const $table = xTable.value
-      $table.openPrint()
+      if ($table) {
+        $table.openPrint()
+      }
     }
 
     const meanNum = (list: any[], field: string) => {
@@ -221,7 +227,7 @@ export default defineComponent({
                 \`
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const printEvent1: VxeButtonEvents.Click = () => {
               const $table = xTable.value

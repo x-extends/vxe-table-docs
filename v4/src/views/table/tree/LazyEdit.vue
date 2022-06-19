@@ -83,12 +83,14 @@ export default defineComponent({
       ] as any[]
     })
 
-    const xTable1 = ref({} as VxeTableInstance)
+    const xTable1 = ref<VxeTableInstance>()
 
     const getUpdateEvent = () => {
       const $table = xTable1.value
-      const updateRecords = $table.getUpdateRecords()
-      VXETable.modal.alert(updateRecords.length)
+      if ($table) {
+        const updateRecords = $table.getUpdateRecords()
+        VXETable.modal.alert(updateRecords.length)
+      }
     }
 
     return {
@@ -167,7 +169,7 @@ export default defineComponent({
               ] as any[]
             })
 
-            const xTable1 = ref({} as VxeTableInstance)
+            const xTable1 = ref<VxeTableInstance>()
 
             const getUpdateEvent = () => {
               const $table = xTable1.value

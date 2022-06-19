@@ -43,8 +43,8 @@ import { VxeTablePropTypes, VxeTableInstance, VxeToolbarInstance, VxeTableEvents
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
-    const xToolbar = ref({} as VxeToolbarInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xToolbar = ref<VxeToolbarInstance>()
 
     const demo1 = reactive({
       tableData: [
@@ -70,20 +70,24 @@ export default defineComponent({
 
     const resizableChangeEvent: VxeTableEvents.ResizableChange = () => {
       const $table = xTable.value
-      const columns = $table.getColumns()
-      const customData = columns.map(column => {
-        return {
-          width: column.renderWidth
-        }
-      })
-      console.log(customData)
+      if ($table) {
+        const columns = $table.getColumns()
+        const customData = columns.map(column => {
+          return {
+            width: column.renderWidth
+          }
+        })
+        console.log(customData)
+      }
     }
 
     nextTick(() => {
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
     })
 
     return {
@@ -122,8 +126,8 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
-            const xToolbar = ref({} as VxeToolbarInstance)
+            const xTable = ref<VxeTableInstance>()
+            const xToolbar = ref<VxeToolbarInstance>()
 
             const demo1 = reactive({
               tableData: [

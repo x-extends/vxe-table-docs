@@ -89,7 +89,7 @@ export default defineComponent({
       console.log('禁止编辑')
     }
 
-    const xGrid2 = ref({} as VxeGridInstance)
+    const xGrid2 = ref<VxeGridInstance>()
 
     const gridOptions2 = reactive<VxeGridProps>({
       border: true,
@@ -210,7 +210,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid2 = ref({} as VxeGridInstance)
+            const xGrid2 = ref<VxeGridInstance>()
 
             const gridOptions2 = reactive<VxeGridProps>({
               border: true,

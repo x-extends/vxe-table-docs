@@ -49,7 +49,7 @@ export default defineComponent({
   setup () {
     let allData: any[] = []
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       loading: false
@@ -133,7 +133,7 @@ export default defineComponent({
           setup () {
             let allData: any[] = []
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               loading: false
