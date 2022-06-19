@@ -81,7 +81,7 @@ export default defineComponent({
           filterMethod (params) {
             const { option, row, column } = params
             const { data } = option
-            const cellValue = row[column.property]
+            const cellValue = row[column.field]
             if (cellValue) {
               return cellValue.indexOf(data) > -1
             }

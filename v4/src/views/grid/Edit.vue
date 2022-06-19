@@ -4,7 +4,7 @@
 
     <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents">
       <template #operate="{ row }">
-        <template v-if="$refs.xGrid.isActiveByRow(row)">
+        <template v-if="$refs.xGrid.isEditByRow(row)">
           <vxe-button icon="fa fa-save" status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
         </template>
         <template v-else>
@@ -138,14 +138,14 @@ export default defineComponent({
     const editRowEvent = (row: any) => {
       const $grid = xGrid.value
       if ($grid) {
-        $grid.setActiveRow(row)
+        $grid.setEditRow(row)
       }
     }
 
     const saveRowEvent = async () => {
       const $grid = xGrid.value
       if ($grid) {
-        await $grid.clearActived()
+        await $grid.clearEdit()
         gridOptions.loading = true
         // 模拟异步保存
         setTimeout(() => {
@@ -180,7 +180,7 @@ export default defineComponent({
         `
         <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents">
           <template #operate="{ row }">
-            <template v-if="$refs.xGrid.isActiveByRow(row)">
+            <template v-if="$refs.xGrid.isEditByRow(row)">
               <vxe-button icon="fa fa-save" status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
             </template>
             <template v-else>
@@ -305,14 +305,14 @@ export default defineComponent({
             const editRowEvent = (row: any) => {
               const $grid = xGrid.value
               if ($grid) {
-                $grid.setActiveRow(row)
+                $grid.setEditRow(row)
               }
             }
 
             const saveRowEvent = async () => {
               const $grid = xGrid.value
               if ($grid) {
-                await $grid.clearActived()
+                await $grid.clearEdit()
                 gridOptions.loading = true
                 // 模拟异步保存
                 setTimeout(() => {

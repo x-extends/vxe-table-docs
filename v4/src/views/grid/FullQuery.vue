@@ -133,7 +133,7 @@ export default defineComponent({
             // 处理排序条件
             const firstSort = sorts[0]
             if (firstSort) {
-              queryParams.sort = firstSort.property
+              queryParams.sort = firstSort.field
               queryParams.order = firstSort.order
             }
             // 处理筛选条件
@@ -326,12 +326,12 @@ export default defineComponent({
                     // 处理排序条件
                     const firstSort = sorts[0]
                     if (firstSort) {
-                      queryParams.sort = firstSort.property
+                      queryParams.sort = firstSort.field
                       queryParams.order = firstSort.order
                     }
                     // 处理筛选条件
-                    filters.forEach(({ property, values }) => {
-                      queryParams[property] = values.join(',')
+                    filters.forEach(({ field, values }) => {
+                      queryParams[field] = values.join(',')
                     })
                     return fetch(\`\${serveApiUrl.value}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}?\${XEUtils.serialize(queryParams)}\`).then(response => response.json())
                   },

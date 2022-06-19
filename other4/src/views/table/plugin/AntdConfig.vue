@@ -230,7 +230,7 @@ export default defineComponent({
         rate: 2
       }
       const { row: newRow } = await $grid.insert(record)
-      $grid.setActiveRow(newRow)
+      $grid.setEditRow(newRow)
     }
 
     const saveEvent = () => {
@@ -495,7 +495,7 @@ export default defineComponent({
                 rate: 2
               }
               const { row: newRow } = await $grid.insert(record)
-              $grid.setActiveRow(newRow)
+              $grid.setEditRow(newRow)
             }
 
             const saveEvent = () => {

@@ -489,8 +489,8 @@ export default defineComponent({
             const footerMethod: VxeTablePropTypes.FooterMethod = ({ columns, data }) => {
               return [
                 columns.map(column => {
-                  if (['sex', 'num'].includes(column.property)) {
-                    return sumNum(data, column.property)
+                  if (['sex', 'num'].includes(column.field)) {
+                    return sumNum(data, column.field)
                   }
                   return null
                 })

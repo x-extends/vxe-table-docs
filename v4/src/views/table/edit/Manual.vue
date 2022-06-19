@@ -63,7 +63,7 @@
       </vxe-column>
       <vxe-column title="操作" width="160">
         <template #default="{ row }">
-          <template v-if="$refs.xTable.isActiveByRow(row)">
+          <template v-if="$refs.xTable.isEditByRow(row)">
             <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
             <vxe-button @click="cancelRowEvent(row)">取消</vxe-button>
           </template>
@@ -133,21 +133,21 @@ export default defineComponent({
     const isActiveStatus = (row: ItemVO) => {
       const $table = xTable.value
       if ($table) {
-        return $table.isActiveByRow(row)
+        return $table.isEditByRow(row)
       }
     }
 
     const editRowEvent = (row: ItemVO) => {
       const $table = xTable.value
       if ($table) {
-        $table.setActiveRow(row)
+        $table.setEditRow(row)
       }
     }
 
     const saveRowEvent = () => {
       const $table = xTable.value
       if ($table) {
-        $table.clearActived().then(() => {
+        $table.clearEdit().then(() => {
           demo1.loading = true
           setTimeout(() => {
             demo1.loading = false
@@ -160,7 +160,7 @@ export default defineComponent({
     const cancelRowEvent = (row: ItemVO) => {
       const $table = xTable.value
       if ($table) {
-        $table.clearActived().then(() => {
+        $table.clearEdit().then(() => {
           // 还原行数据
           $table.revertData(row)
         })
@@ -239,7 +239,7 @@ export default defineComponent({
           </vxe-column>
           <vxe-column title="操作" width="160">
             <template #default="{ row }">
-              <template v-if="$refs.xTable.isActiveByRow(row)">
+              <template v-if="$refs.xTable.isEditByRow(row)">
                 <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
                 <vxe-button @click="cancelRowEvent(row)">取消</vxe-button>
               </template>
@@ -299,17 +299,17 @@ export default defineComponent({
 
             const isActiveStatus = (row: ItemVO) => {
               const $table = xTable.value
-              return $table.isActiveByRow(row)
+              return $table.isEditByRow(row)
             }
 
             const editRowEvent = (row: ItemVO) => {
               const $table = xTable.value
-              $table.setActiveRow(row)
+              $table.setEditRow(row)
             }
 
             const saveRowEvent = () => {
               const $table = xTable.value
-              $table.clearActived().then(() => {
+              $table.clearEdit().then(() => {
                 demo1.loading = true
                 setTimeout(() => {
                   demo1.loading = false
@@ -320,7 +320,7 @@ export default defineComponent({
 
             const cancelRowEvent = (row: ItemVO) => {
               const $table = xTable.value
-              $table.clearActived().then(() => {
+              $table.clearEdit().then(() => {
                 // 还原行数据
                 $table.revertData(row)
               })

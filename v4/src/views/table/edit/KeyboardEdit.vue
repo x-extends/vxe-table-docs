@@ -84,7 +84,7 @@ export default defineComponent({
           const $table = xTable.value
           if ($table) {
             // 重写默认的覆盖式，改为追加式
-            $table.setActiveCell(row, column)
+            $table.setEditCell(row, column)
           }
         }
       } as VxeTablePropTypes.KeyboardConfig
@@ -104,8 +104,8 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '和值'
           }
-          if (['age'].includes(column.property)) {
-            return sumNum(data, column.property)
+          if (['age'].includes(column.field)) {
+            return sumNum(data, column.field)
           }
           return null
         })
@@ -187,7 +187,7 @@ export default defineComponent({
                 editMethod ({ row, column }) {
                   const $table = xTable.value
                   // 重写默认的覆盖式，改为追加式
-                  $table.setActiveCell(row, column)
+                  $table.setEditCell(row, column)
                 }
               } as VxeTablePropTypes.KeyboardConfig
             })
@@ -206,8 +206,8 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '和值'
                   }
-                  if (['age'].includes(column.property)) {
-                    return sumNum(data, column.property)
+                  if (['age'].includes(column.field)) {
+                    return sumNum(data, column.field)
                   }
                   return null
                 })

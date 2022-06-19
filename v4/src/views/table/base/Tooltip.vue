@@ -50,16 +50,16 @@ export default defineComponent({
         showAll: true,
         enterable: true,
         contentMethod: ({ type, column, row, items, _columnIndex }) => {
-          const { property } = column
+          const { field } = column
           // 重写默认的提示内容
-          if (property === 'role' || property === 'date') {
+          if (field === 'role' || field === 'date') {
             if (type === 'header') {
               return column.title ? '自定义标题提示内容：' + column.title : ''
             } else if (type === 'footer') {
               return items[_columnIndex] ? '自定义表尾提示内容，\n并且自定义换行：\n' + items[_columnIndex] : ''
             }
-            return row[property] ? '自定义提示内容：' + row[property] : ''
-          } else if (property === 'rate') {
+            return row[field] ? '自定义提示内容：' + row[field] : ''
+          } else if (field === 'rate') {
             // 返回空字符串，控制单元格不显示提示内容
             return ''
           }
@@ -75,10 +75,10 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '合计'
           }
-          if (['date'].includes(column.property)) {
+          if (['date'].includes(column.field)) {
             return '2020-09-05'
           }
-          if (['rate'].includes(column.property)) {
+          if (['rate'].includes(column.field)) {
             return 999.8
           }
           return null
@@ -128,19 +128,19 @@ export default defineComponent({
                 showAll: true,
                 enterable: true,
                 contentMethod: ({ type, column, row, items, _columnIndex }) => {
-                  const { property } = column
+                  const { field } = column
                   // 重写默认的提示内容
-                  if (property === 'role' || property === 'date') {
+                  if (field === 'role' || field === 'date') {
                     if (type === 'header') {
                       return column.title ? '自定义标题提示内容：' + column.title : ''
                     } else if (type === 'footer') {
                       return items[_columnIndex] ? '自定义表尾提示内容，\\n并且自定义换行：\\n' + items[_columnIndex] : ''
                     }
-                    return row[property] ? '自定义提示内容：' + row[property] : ''
+                    return row[field] ? '自定义提示内容：' + row[field] : ''
                   }
                   // 其余的单元格使用默认行为
                   return null
-                } else if (property === 'rate') {
+                } else if (field === 'rate') {
                   // 返回空字符串，控制单元格不显示提示内容
                   return ''
                 }
@@ -153,10 +153,10 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '合计'
                   }
-                  if (['date'].includes(column.property)) {
+                  if (['date'].includes(column.field)) {
                     return '2020-09-05'
                   }
-                  if (['rate'].includes(column.property)) {
+                  if (['rate'].includes(column.field)) {
                     return 999.8
                   }
                   return null

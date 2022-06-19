@@ -78,9 +78,9 @@ export default defineComponent({
           if (column.order === 'desc') {
             $table.clearSort()
           } else if (column.order === 'asc') {
-            $table.sort(column.property, 'desc')
+            $table.sort(column.field, 'desc')
           } else {
-            $table.sort(column.property, 'asc')
+            $table.sort(column.field, 'asc')
           }
         }
       }
@@ -167,9 +167,9 @@ export default defineComponent({
                 if (column.order === 'desc') {
                   $table.clearSort()
                 } else if (column.order === 'asc') {
-                  $table.sort(column.property, 'desc')
+                  $table.sort(column.field, 'desc')
                 } else {
-                  $table.sort(column.property, 'asc')
+                  $table.sort(column.field, 'asc')
                 }
               }
             }

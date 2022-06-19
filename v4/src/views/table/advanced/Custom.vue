@@ -369,7 +369,7 @@ export default defineComponent({
                 setTimeout(() => {
                   // 将指定列设置为隐藏状态
                   demo2.columns.forEach(column => {
-                    if (['name'].includes(column.property)) {
+                    if (['name'].includes(column.field)) {
                       column.visible = false
                     }
                   })

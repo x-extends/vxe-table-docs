@@ -3,11 +3,11 @@
     <p class="tip">
       表单-项渲染 <grid-api-link prop="itemRender"/>，查看 <a class="link" href="https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/plugins/table/renderer" target="_blank">示例的源码</a><span class="red">（具体请自行实现，该示例仅供参考）</span><br>
       配置参数：<br>
-      itemClassName: string | (params: { data, property, $form }) => string 表单项className<br>
-      renderItemTitle (renderOpts: any, params: { data, item, property, $form }) 表单项标题<br>
-      renderItemContent (renderOpts: any, params: { data, item, property, $form }) 表单项内容<br>
-      itemVisibleMethod (params: { data, property }) 表单项可视函数<br>
-      itemResetMethod (params: { data, property }) 表单项重置函数<br>
+      itemClassName: string | (params: { data, field, $form }) => string 表单项className<br>
+      renderItemTitle (renderOpts: any, params: { data, item, field, $form }) 表单项标题<br>
+      renderItemContent (renderOpts: any, params: { data, item, field, $form }) 表单项内容<br>
+      itemVisibleMethod (params: { data, field }) 表单项可视函数<br>
+      itemResetMethod (params: { data, field }) 表单项重置函数<br>
     </p>
 
     <vxe-grid
@@ -89,9 +89,9 @@ export default defineComponent({
         VXETable.renderer.add('FormItemInput', {
           // 项显示模板
           renderItemContent (renderOpts, params) {
-            const { data, property } = params
+            const { data, field } = params
             return [
-              <input v-model={ data[property] } text="text"></input>
+              <input v-model={ data[field] } text="text"></input>
             ]
           }
         })

@@ -60,7 +60,7 @@ export default defineComponent({
       tableCustom: {
         storage: true,
         checkMethod ({ column }) {
-          if (column.property === 'role') {
+          if (column.field === 'role') {
             return false
           }
           return true
@@ -143,7 +143,7 @@ export default defineComponent({
               tableCustom: {
                 storage: true,
                 checkMethod ({ column }) {
-                  if (column.property === 'role') {
+                  if (column.field === 'role') {
                     return false
                   }
                   return true

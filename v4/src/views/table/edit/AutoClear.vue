@@ -2,7 +2,7 @@
   <div>
     <p class="tip">
       通过设置 <table-api-link prop="edit-config"/>.<table-api-link prop="autoClear"/> 关闭默认的单元格清除激活行为<br>
-      <span class="red">（注：如果设置为手动模式则不会自动关闭激活状态，需要手动调用 clearActived 关闭编辑状态）</span>
+      <span class="red">（注：如果设置为手动模式则不会自动关闭激活状态，需要手动调用 clearEdit 关闭编辑状态）</span>
     </p>
 
     <vxe-table
@@ -46,7 +46,7 @@
       </vxe-column>
       <vxe-column title="操作">
         <template #default="{ row }">
-          <template v-if="$refs.xTable.isActiveByRow(row)">
+          <template v-if="$refs.xTable.isEditByRow(row)">
             <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
             <vxe-button @click="cancelRowEvent(row)">取消</vxe-button>
           </template>
@@ -93,14 +93,14 @@ export default defineComponent({
     const editRowEvent = async (row: any) => {
       const $table = xTable.value
       if ($table) {
-        await $table.setActiveRow(row)
+        await $table.setEditRow(row)
       }
     }
 
     const saveRowEvent = async (row: any) => {
       const $table = xTable.value
       if ($table) {
-        await $table.clearActived()
+        await $table.clearEdit()
         // 重新加载行
         await $table.reloadRow(row, {})
         VXETable.modal.message({ content: 'success', status: 'success' })
@@ -110,7 +110,7 @@ export default defineComponent({
     const cancelRowEvent = async (row: any) => {
       const $table = xTable.value
       if ($table) {
-        await $table.clearActived()
+        await $table.clearEdit()
         // 还原数据
         await $table.revertData(row)
       }
@@ -185,7 +185,7 @@ export default defineComponent({
           </vxe-column>
           <vxe-column title="操作">
             <template #default="{ row }">
-              <template v-if="$refs.xTable.isActiveByRow(row)">
+              <template v-if="$refs.xTable.isEditByRow(row)">
                 <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
                 <vxe-button @click="cancelRowEvent(row)">取消</vxe-button>
               </template>
@@ -222,12 +222,12 @@ export default defineComponent({
 
             const editRowEvent = async (row: any) => {
               const $table = xTable.value
-              await $table.setActiveRow(row)
+              await $table.setEditRow(row)
             }
 
             const saveRowEvent = async (row: any) => {
               const $table = xTable.value
-              await $table.clearActived()
+              await $table.clearEdit()
               // 重新加载行
               await $table.reloadRow(row, {})
               VXETable.modal.message({ content: 'success', status: 'success' })
@@ -235,7 +235,7 @@ export default defineComponent({
 
             const cancelRowEvent = async (row: any) => {
               const $table = xTable.value
-              await $table.clearActived()
+              await $table.clearEdit()
               // 还原数据
               await $table.revertData(row)
             }

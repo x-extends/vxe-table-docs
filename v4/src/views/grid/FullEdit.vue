@@ -49,7 +49,7 @@ export default defineComponent({
       customConfig: {
         storage: true,
         checkMethod ({ column }) {
-          if (['nickname', 'role'].includes(column.property)) {
+          if (['nickname', 'role'].includes(column.field)) {
             return false
           }
           return true
@@ -120,12 +120,12 @@ export default defineComponent({
             // 处理排序条件
             const firstSort = sorts[0]
             if (firstSort) {
-              queryParams.sort = firstSort.property
+              queryParams.sort = firstSort.field
               queryParams.order = firstSort.order
             }
             // 处理筛选条件
-            filters.forEach(({ property, values }) => {
-              queryParams[property] = values.join(',')
+            filters.forEach(({ field, values }) => {
+              queryParams[field] = values.join(',')
             })
             return fetch(`${serveApiUrl.value}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
           },
@@ -141,12 +141,12 @@ export default defineComponent({
       },
       columns: [
         { type: 'checkbox', title: 'ID', width: 120 },
-        { field: 'name', title: 'Name', sortable: true, titleHelp: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
+        { field: 'name', title: 'Name', sortable: true, titlePrefix: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
         {
           field: 'role',
           title: 'Role',
           sortable: true,
-          titleHelp: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
+          titlePrefix: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
           filters: [
             { label: '前端开发', value: '前端' },
             { label: '后端开发', value: '后端' },
@@ -238,7 +238,7 @@ export default defineComponent({
               ids: options.mode === 'selected' ? options.data.map((item) => item.id) : [],
               fields: options.columns.map((column) => {
                 return {
-                  field: column.property,
+                  field: column.field,
                   title: column.title
                 }
               })
@@ -344,7 +344,7 @@ export default defineComponent({
               customConfig: {
                 storage: true,
                 checkMethod ({ column }) {
-                  if (['nickname', 'role'].includes(column.property)) {
+                  if (['nickname', 'role'].includes(column.field)) {
                     return false
                   }
                   return true
@@ -415,12 +415,12 @@ export default defineComponent({
                     // 处理排序条件
                     const firstSort = sorts[0]
                     if (firstSort) {
-                      queryParams.sort = firstSort.property
+                      queryParams.sort = firstSort.field
                       queryParams.order = firstSort.order
                     }
                     // 处理筛选条件
-                    filters.forEach(({ property, values }) => {
-                      queryParams[property] = values.join(',')
+                    filters.forEach(({ field, values }) => {
+                      queryParams[field] = values.join(',')
                     })
                     return fetch(\`\${serveApiUrl.value}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}?\${XEUtils.serialize(queryParams)}\`).then(response =>  response.json())
                   },
@@ -436,12 +436,12 @@ export default defineComponent({
                       },
               columns: [
                 { type: 'checkbox', title: 'ID', width: 120 },
-                { field: 'name', title: 'Name', sortable: true, titleHelp: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
+                { field: 'name', title: 'Name', sortable: true, titlePrefix: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
                 {
                   field: 'role',
                   title: 'Role',
                   sortable: true,
-                  titleHelp: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
+                  titlePrefix: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
                   filters: [
                     { label: '前端开发', value: '前端' },
                     { label: '后端开发', value: '后端' },
@@ -530,7 +530,7 @@ export default defineComponent({
                     ids: options.mode === 'selected' ? options.data.map((item) => item.id) : [],
                     fields: options.columns.map((column) => {
                       return {
-                        field: column.property,
+                        field: column.field,
                         title: column.title
                       }
                     })

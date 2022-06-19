@@ -428,7 +428,7 @@ export default {
                 flag: false,
                 rate: 2
               }
-              this.$refs.xTable.insert(record).then(({ row }) => this.$refs.xTable.setActiveRow(row))
+              this.$refs.xTable.insert(record).then(({ row }) => this.$refs.xTable.setEditRow(row))
             },
             saveEvent () {
               const { insertRecords, removeRecords, updateRecords } = this.$refs.xTable.getRecordset()
@@ -571,7 +571,7 @@ export default {
         flag: false,
         rate: 2
       }
-      this.$refs.xTable.insert(record).then(({ row }) => this.$refs.xTable.setActiveRow(row))
+      this.$refs.xTable.insert(record).then(({ row }) => this.$refs.xTable.setEditRow(row))
     },
     saveEvent () {
       const { insertRecords, removeRecords, updateRecords } = this.$refs.xTable.getRecordset()

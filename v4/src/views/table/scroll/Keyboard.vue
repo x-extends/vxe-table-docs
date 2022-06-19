@@ -239,7 +239,7 @@ export default defineComponent({
           checked: false
         }
         $table.insertAt(record, row).then(({ row }) => {
-          $table.setActiveRow(row)
+          $table.setEditRow(row)
         })
       }
     }
@@ -483,7 +483,7 @@ export default defineComponent({
                 checked: false
               }
               $table.insertAt(record, row).then(({ row }) => {
-                $table.setActiveRow(row)
+                $table.setEditRow(row)
               })
             }
 

@@ -256,7 +256,7 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     sums.push('平均')
                   } else {
-                    if (column.property === 'age') {
+                    if (column.field === 'age') {
                       sums.push(meanNum(data, 'age'))
                     } else {
                       sums.push('-')

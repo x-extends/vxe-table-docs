@@ -132,7 +132,7 @@ export default defineComponent({
             date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
           }
           const { row: newRow } = await $table.insertAt(record, currRow)
-          await $table.setActiveRow(newRow) // 插入子节点
+          await $table.setEditRow(newRow) // 插入子节点
         } else if (locat === 'top') {
           const record = {
             name: '新数据',
@@ -142,7 +142,7 @@ export default defineComponent({
           }
           const { row: newRow } = await $table.insert(record)
           await $table.setTreeExpand(currRow, true) // 将父节点展开
-          await $table.setActiveRow(newRow) // 插入子节点
+          await $table.setEditRow(newRow) // 插入子节点
         } else if (locat === 'bottom') {
           const record = {
             name: '新数据',
@@ -152,7 +152,7 @@ export default defineComponent({
           }
           const { row: newRow } = await $table.insertAt(record, -1)
           await $table.setTreeExpand(currRow, true) // 将父节点展开
-          await $table.setActiveRow(newRow) // 插入子节点
+          await $table.setEditRow(newRow) // 插入子节点
         }
       }
     }
@@ -175,7 +175,7 @@ export default defineComponent({
           date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         }
         const { row: newRow } = await $table.insert(record)
-        await $table.setActiveRow(newRow)
+        await $table.setEditRow(newRow)
       }
     }
 
@@ -344,7 +344,7 @@ export default defineComponent({
                   date: \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
                 }
                 const { row: newRow } = await $table.insertAt(record, currRow)
-                await $table.setActiveRow(newRow) // 插入子节点
+                await $table.setEditRow(newRow) // 插入子节点
               } else if (locat === 'top') {
                 const record = {
                   name: '新数据',
@@ -354,7 +354,7 @@ export default defineComponent({
                 }
                 const { row: newRow } = await $table.insert(record)
                 await $table.setTreeExpand(currRow, true) // 将父节点展开
-                await $table.setActiveRow(newRow) // 插入子节点
+                await $table.setEditRow(newRow) // 插入子节点
               } else if (locat === 'bottom') {
                 const record = {
                   name: '新数据',
@@ -364,7 +364,7 @@ export default defineComponent({
                 }
                 const { row: newRow } = await $table.insertAt(record, -1)
                 await $table.setTreeExpand(currRow, true) // 将父节点展开
-                await $table.setActiveRow(newRow) // 插入子节点
+                await $table.setEditRow(newRow) // 插入子节点
               }
             }
 
@@ -383,7 +383,7 @@ export default defineComponent({
                 date: \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
               }
               const { row: newRow } = await $table.insert(record)
-              await $table.setActiveRow(newRow)
+              await $table.setEditRow(newRow)
             }
 
             const getInsertEvent = () => {

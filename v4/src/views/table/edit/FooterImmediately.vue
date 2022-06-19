@@ -152,7 +152,7 @@ export default defineComponent({
       const $table = xTable.value
       if ($table) {
         const { row: newRow } = await $table.insert(record)
-        $table.setActiveCell(newRow, 'age')
+        $table.setEditCell(newRow, 'age')
       }
     }
 
@@ -301,10 +301,10 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age'].includes(column.property)) {
-                    return meanNum(data, column.property)
-                  } else if (['rate', 'num1'].includes(column.property)) {
-                    return meanNum(data, column.property)
+                  if (['age'].includes(column.field)) {
+                    return meanNum(data, column.field)
+                  } else if (['rate', 'num1'].includes(column.field)) {
+                    return meanNum(data, column.field)
                   }
                   return null
                 }),
@@ -312,8 +312,8 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '和值'
                   }
-                  if (['rate', 'num1'].includes(column.property)) {
-                    return sumNum(data, column.property)
+                  if (['rate', 'num1'].includes(column.field)) {
+                    return sumNum(data, column.field)
                   }
                   return null
                 })
@@ -326,7 +326,7 @@ export default defineComponent({
               }
               const $table = xTable.value
               const { row: newRow } = await $table.insert(record)
-              $table.setActiveCell(newRow, 'age')
+              $table.setEditCell(newRow, 'age')
             }
 
             const removeEvent = () => {

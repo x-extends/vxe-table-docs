@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="tip">通过 <table-api-link prop="edit-config"/>.<table-api-link prop="activeMethod"/> 方法来判断单元格是否禁用，禁用后不可编辑</p>
+    <p class="tip">通过 <table-api-link prop="edit-config"/>.<table-api-link prop="beforeEditMethod"/> 方法来判断单元格是否禁用，禁用后不可编辑</p>
 
     <vxe-grid v-bind="gridOptions1" @edit-disabled="editDisabledEvent">
       <template #name_edit="{ row }">
@@ -62,7 +62,7 @@ export default defineComponent({
       editConfig: {
         trigger: 'click',
         mode: 'cell',
-        activeMethod ({ columnIndex }) {
+        beforeEditMethod ({ columnIndex }) {
           if (columnIndex === 1) {
             return false
           }
@@ -97,7 +97,7 @@ export default defineComponent({
       editConfig: {
         trigger: 'click',
         mode: 'cell',
-        activeMethod ({ rowIndex }) {
+        beforeEditMethod ({ rowIndex }) {
           if (rowIndex === 1) {
             return false
           }
@@ -154,7 +154,7 @@ export default defineComponent({
               editConfig: {
                 trigger: 'click',
                 mode: 'cell',
-                activeMethod ({ columnIndex }) {
+                beforeEditMethod ({ columnIndex }) {
                   if (columnIndex === 1) {
                     return false
                   }
@@ -218,7 +218,7 @@ export default defineComponent({
               editConfig: {
                 trigger: 'click',
                 mode: 'cell',
-                activeMethod ({ rowIndex }) {
+                beforeEditMethod ({ rowIndex }) {
                   if (rowIndex === 1) {
                     return false
                   }

@@ -644,8 +644,8 @@ export default defineComponent({
                   columns.map((column, index) => {
                     if (index === 0) {
                       return '平均'
-                    } else if (['num1', 'age'].includes(column.property)) {
-                      return meanNum(data, column.property)
+                    } else if (['num1', 'age'].includes(column.field)) {
+                      return meanNum(data, column.field)
                     }
                     return null
                   })

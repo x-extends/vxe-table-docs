@@ -144,7 +144,7 @@ export default defineComponent({
             $table.resetColumn(true)
             break
           case 'copy':
-            if (XEClipboard.copy(row[column.property])) {
+            if (XEClipboard.copy(row[column.field])) {
               VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
             }
             break
@@ -153,7 +153,7 @@ export default defineComponent({
             break
           case 'insertAt':
             $table.insertAt({}, row || -1).then(({ row }) => {
-              $table.setActiveCell(row, column || 'name')
+              $table.setEditCell(row, column || 'name')
             })
             break
           case 'remove':
@@ -331,7 +331,7 @@ export default defineComponent({
                   $table.resetColumn(true)
                   break
                 case 'copy':
-                  if (XEClipboard.copy(row[column.property])) {
+                  if (XEClipboard.copy(row[column.field])) {
                     VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                   }
                   break
@@ -340,7 +340,7 @@ export default defineComponent({
                   break
                 case 'insertAt':
                   $table.insertAt({}, row || -1).then(({ row }) => {
-                    $table.setActiveCell(row, column || 'name')
+                    $table.setEditCell(row, column || 'name')
                   })
                   break
                 case 'remove':

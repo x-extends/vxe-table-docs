@@ -13,7 +13,7 @@
         <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
         <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
         <vxe-button @click="getInsertEvent">获取新增</vxe-button>
-        <vxe-button @click="$refs.xTable.setActiveCell(tableData[2], 'name')">激活第三行</vxe-button>
+        <vxe-button @click="$refs.xTable.setEditCell(tableData[2], 'name')">激活第三行</vxe-button>
         <vxe-button icon="fa fa-save" @click="saveEvent">保存</vxe-button>
       </template>
     </vxe-toolbar>
@@ -103,7 +103,7 @@ export default defineComponent({
           date12: '2021-01-01'
         }
         const { row: newRow } = await $table.insertAt(record, row)
-        await $table.setActiveCell(newRow, 'name')
+        await $table.setEditCell(newRow, 'name')
       }
     }
 
@@ -150,7 +150,7 @@ export default defineComponent({
             <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
             <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
             <vxe-button @click="getInsertEvent">获取新增</vxe-button>
-            <vxe-button @click="$refs.xTable.setActiveCell(tableData[2], 'name')">激活第三行</vxe-button>
+            <vxe-button @click="$refs.xTable.setEditCell(tableData[2], 'name')">激活第三行</vxe-button>
             <vxe-button icon="fa fa-save" @click="saveEvent">保存</vxe-button>
           </template>
         </vxe-toolbar>
@@ -230,7 +230,7 @@ export default defineComponent({
                 date12: '2021-01-01'
               }
               const { row: newRow } = await $table.insertAt(record, row)
-              await $table.setActiveCell(newRow, 'name')
+              await $table.setEditCell(newRow, 'name')
             }
 
             const getInsertEvent = () => {

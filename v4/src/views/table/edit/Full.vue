@@ -122,7 +122,7 @@ export default defineComponent({
       if ($table) {
         const newRecord = {}
         const { row: newRow } = await $table.insert(newRecord)
-        await $table.setActiveRow(newRow)
+        await $table.setEditRow(newRow)
       }
     }
 
@@ -331,7 +331,7 @@ export default defineComponent({
               const $table = xTable.value
               const newRecord = {}
               const { row: newRow } = await $table.insert(newRecord)
-              await $table.setActiveRow(newRow)
+              await $table.setEditRow(newRow)
             }
 
             const removeSelectEvent = async () => {

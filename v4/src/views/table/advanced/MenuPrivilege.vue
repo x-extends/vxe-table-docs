@@ -123,7 +123,7 @@ export default defineComponent({
                   item.disabled = isDisabled
                 }
                 if (item.code === 'details') {
-                  item.visible = column.property === 'name'
+                  item.visible = column.field === 'name'
                 } else if (item.code === 'clear' || item.code === 'filter') {
                   item.visible = isVisible
                 }
@@ -291,8 +291,8 @@ export default defineComponent({
                 visibleMethod ({ options, column }) {
                   // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
                   // 显示之前处理按钮的操作权限
-                  const isDisabled = !column || column.property !== 'name'
-                  const isVisible = column && column.property === 'age'
+                  const isDisabled = !column || column.field !== 'name'
+                  const isVisible = column && column.field === 'age'
                   options.forEach(list => {
                     list.forEach(item => {
                       item.disabled = false
@@ -301,7 +301,7 @@ export default defineComponent({
                           item.disabled = isDisabled
                         }
                         if (item.code === 'details') {
-                          item.visible = column.property === 'name'
+                          item.visible = column.field === 'name'
                         } else if (item.code === 'clear' || item.code === 'filter') {
                           item.visible = isVisible
                         }
@@ -334,7 +334,7 @@ export default defineComponent({
               switch (menu.code) {
                 case 'copy':
                   if (row && column) {
-                    if (XEClipboard.copy(row[column.property])) {
+                    if (XEClipboard.copy(row[column.field])) {
                       VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                     }
                   }
@@ -358,8 +358,8 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age', 'rate'].includes(column.property)) {
-                    return meanNum(data, column.property)
+                  if (['age', 'rate'].includes(column.field)) {
+                    return meanNum(data, column.field)
                   }
                   return '-'
                 })

@@ -62,7 +62,7 @@ export default defineComponent({
     })
 
     const sortChangeEvent: VxeTableEvents.SortChange = ({ sortList }) => {
-      console.info(sortList.map((item) => `${item.property},${item.order}`).join('; '))
+      console.info(sortList.map((item) => `${item.field},${item.order}`).join('; '))
     }
 
     return {
@@ -121,7 +121,7 @@ export default defineComponent({
             })
 
             const sortChangeEvent: VxeTableEvents.SortChange = ({ sortList }) => {
-              console.info(sortList.map((item) => \`\${item.property},\${item.order}\`).join('; '))
+              console.info(sortList.map((item) => \`\${item.field},\${item.order}\`).join('; '))
             }
 
             return {

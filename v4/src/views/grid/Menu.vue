@@ -102,8 +102,8 @@ export default defineComponent({
         visibleMethod ({ options, column }) {
           // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
           // 显示之前处理按钮的操作权限
-          const isDisabled = !column || column.property !== 'name'
-          const isVisible = column && column.property === 'age'
+          const isDisabled = !column || column.field !== 'name'
+          const isVisible = column && column.field === 'age'
           options.forEach(list => {
             list.forEach(item => {
               if (item.code === 'copy') {
@@ -145,13 +145,13 @@ export default defineComponent({
         switch (menu.code) {
           case 'copy':
             if (row && column) {
-              if (XEClipboard.copy(row[column.property])) {
+              if (XEClipboard.copy(row[column.field])) {
                 VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
               }
             }
             break
           case 'clear':
-            $grid.clearData(row, column.property)
+            $grid.clearData(row, column.field)
             break
           case 'myPrint':
             $grid.print()
@@ -249,8 +249,8 @@ export default defineComponent({
                 visibleMethod ({ options, column }) {
                   // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
                   // 显示之前处理按钮的操作权限
-                  const isDisabled = !column || column.property !== 'name'
-                  const isVisible = column && column.property === 'age'
+                  const isDisabled = !column || column.field !== 'name'
+                  const isVisible = column && column.field === 'age'
                   options.forEach(list => {
                     list.forEach(item => {
                       if (item.code === 'copy') {
@@ -270,8 +270,8 @@ export default defineComponent({
                     if (columnIndex === 0) {
                       return '和值'
                     }
-                    if (['age'].includes(column.property)) {
-                      return sumNum(data, column.property)
+                    if (['age'].includes(column.field)) {
+                      return sumNum(data, column.field)
                     }
                     return '-'
                   })
@@ -289,13 +289,13 @@ export default defineComponent({
               switch (menu.code) {
                 case 'copy':
                   if (row && column) {
-                    if (XEClipboard.copy(row[column.property])) {
+                    if (XEClipboard.copy(row[column.field])) {
                       VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                     }
                   }
                   break
                 case 'clear':
-                  $grid.clearData(row, column.property)
+                  $grid.clearData(row, column.field)
                   break
                 case 'myPrint':
                   $grid.print()

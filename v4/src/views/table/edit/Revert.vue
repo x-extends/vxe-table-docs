@@ -80,7 +80,7 @@ export default defineComponent({
           sex: '1'
         }
         const { row: newRow } = await $table.insert(record)
-        $table.setActiveCell(newRow, 'sex')
+        $table.setEditCell(newRow, 'sex')
       }
     }
 
@@ -191,7 +191,7 @@ export default defineComponent({
                 sex: '1'
               }
               const { row: newRow } = await $table.insert(record)
-              $table.setActiveCell(newRow, 'sex')
+              $table.setEditCell(newRow, 'sex')
             }
 
             const removeEvent = async () => {

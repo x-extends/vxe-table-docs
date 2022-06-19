@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="tip">设置 <table-api-link prop="edit-config"/> 的 <table-api-link prop="activeMethod"/> 方法判断单元格是否禁用，例如：限制第二行不允许编辑</p>
+    <p class="tip">设置 <table-api-link prop="edit-config"/> 的 <table-api-link prop="beforeEditMethod"/> 方法判断单元格是否禁用，例如：限制第二行不允许编辑</p>
 
     <vxe-grid v-bind="gridOptions1" @edit-disabled="editDisabledEvent">
       <template #name_edit="{ row }">
@@ -62,7 +62,7 @@ export default defineComponent({
       editConfig: {
         trigger: 'click',
         mode: 'row',
-        activeMethod ({ rowIndex }) {
+        beforeEditMethod ({ rowIndex }) {
           if (rowIndex === 1) {
             return false
           }
@@ -165,7 +165,7 @@ export default defineComponent({
               editConfig: {
                 trigger: 'click',
                 mode: 'row',
-                activeMethod ({ rowIndex }) {
+                beforeEditMethod ({ rowIndex }) {
                   if (rowIndex === 1) {
                     return false
                   }

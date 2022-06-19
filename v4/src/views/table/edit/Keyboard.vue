@@ -139,7 +139,7 @@ export default defineComponent({
           sex: '1'
         }
         const { row: newRow } = await $table.insert(record)
-        await $table.setActiveCell(newRow, 'name')
+        await $table.setEditCell(newRow, 'name')
       }
     }
 
@@ -254,7 +254,7 @@ export default defineComponent({
                 sex: '1'
               }
               const { row: newRow } = await $table.insert(record)
-              await $table.setActiveCell(newRow, 'name')
+              await $table.setEditCell(newRow, 'name')
             }
 
             const getInsertEvent = () => {

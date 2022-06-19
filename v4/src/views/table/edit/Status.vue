@@ -91,7 +91,7 @@ export default defineComponent({
       if ($table) {
         const record = {}
         const { row: newRow } = await $table.insert(record)
-        await $table.setActiveCell(newRow, 'name')
+        await $table.setEditCell(newRow, 'name')
       }
     }
 
@@ -240,7 +240,7 @@ export default defineComponent({
               const $table = xTable.value
               const record = {}
               const { row: newRow } = await $table.insert(record)
-              await $table.setActiveCell(newRow, 'name')
+              await $table.setEditCell(newRow, 'name')
             }
 
             const saveUpdateEvent = (row: any) => {

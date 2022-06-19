@@ -144,7 +144,7 @@ export default defineComponent({
     })
 
     const checkColumnMethod = ({ column }: any) => {
-      if (['name', 'desc'].includes(column.property)) {
+      if (['name', 'desc'].includes(column.field)) {
         return false
       }
       return true
@@ -340,7 +340,7 @@ export default defineComponent({
             break
           case 'copy':
             if (row && column) {
-              if (XEClipboard.copy(row[column.property])) {
+              if (XEClipboard.copy(row[column.field])) {
                 VXETable.modal.message({ content: i18n.global.t('app.body.msg.copyToClipboard'), status: 'success' })
               }
             }
@@ -377,7 +377,7 @@ export default defineComponent({
           'api-pro': row.version === 'pro',
           'api-disabled': row.disabled,
           'api-abandoned': row.abandoned,
-          'disabled-line-through': (row.disabled) && column.property === 'name'
+          'disabled-line-through': (row.disabled) && column.field === 'name'
         }
       },
       rowConfig: {
@@ -470,7 +470,7 @@ export default defineComponent({
           type: 'html',
           treeNode: true,
           minWidth: 280,
-          titleHelp: {
+          titlePrefix: {
             message: '参数名称及使用，如果是在 CDN 环境中使用 kebab-case（短横线式），\n如果项目基于 vue-cli 脚手架可以使用 camelCase（驼峰式）'
           },
           filters: [
@@ -483,8 +483,8 @@ export default defineComponent({
         { field: 'desc', title: 'app.api.title.desc', type: 'html', minWidth: 300 },
         { field: 'type', title: 'app.api.title.type', type: 'html', minWidth: 140 },
         { field: 'enum', title: 'app.api.title.enum', type: 'html', minWidth: 150 },
-        { field: 'defVal', title: 'app.api.title.defVal', type: 'html', minWidth: 160, titleHelp: { message: '部分参数可支持全局设置，具体请查阅相关说明' } },
-        { field: 'version', title: 'app.api.title.version', type: 'html', width: 120, titleHelp: { message: '该文档与最新版本保持同步，如果遇到参数无效时，\n请检查当前使用的版本号是否支持该参数' }, slots: { default: 'default_version' } }
+        { field: 'defVal', title: 'app.api.title.defVal', type: 'html', minWidth: 160, titlePrefix: { message: '部分参数可支持全局设置，具体请查阅相关说明' } },
+        { field: 'version', title: 'app.api.title.version', type: 'html', width: 120, titlePrefix: { message: '该文档与最新版本保持同步，如果遇到参数无效时，\n请检查当前使用的版本号是否支持该参数' }, slots: { default: 'default_version' } }
       ],
       data: []
     })

@@ -157,7 +157,7 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '平均'
           }
-          switch (column.property) {
+          switch (column.field) {
             case 'attr1':
               return sumNum(data, 'attr1')
           }
@@ -303,7 +303,7 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  switch (column.property) {
+                  switch (column.field) {
                     case 'attr1':
                       return sumNum(data, 'attr1')
                   }

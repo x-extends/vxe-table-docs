@@ -89,7 +89,7 @@ export default defineComponent({
     })
 
     const headerCellClassName: VxeTablePropTypes.HeaderCellClassName = ({ column }) => {
-      if (column.property === 'name') {
+      if (column.field === 'name') {
         return 'col-blue'
       }
       return null
@@ -103,7 +103,7 @@ export default defineComponent({
     }
 
     const cellClassName: VxeTablePropTypes.CellClassName = ({ row, column }) => {
-      if (column.property === 'sex') {
+      if (column.field === 'sex') {
         if (row.sex >= '1') {
           return 'col-red'
         } else if (row.age === 26) {
@@ -185,7 +185,7 @@ export default defineComponent({
             })
 
             const headerCellClassName: VxeTablePropTypes.HeaderCellClassName = ({ column }) => {
-              if (column.property === 'name') {
+              if (column.field === 'name') {
                 return 'col-blue'
               }
               return null
@@ -199,7 +199,7 @@ export default defineComponent({
             }
 
             const cellClassName: VxeTablePropTypes.CellClassName = ({ row, column }) => {
-              if (column.property === 'sex') {
+              if (column.field === 'sex') {
                 if (row.sex >= '1') {
                   return 'col-red'
                 } else if (row.age === 26) {

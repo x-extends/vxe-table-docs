@@ -177,11 +177,11 @@ export default defineComponent({
             })
 
             const filterVisibleEvent: VxeTableEvents.FilterVisible = ({ column, visible }) => {
-              console.log(\`\${column.property} \${visible ? '打开' : '关闭'}筛选面板\`)
+              console.log(\`\${column.field} \${visible ? '打开' : '关闭'}筛选面板\`)
             }
 
             const filterChangeEvent: VxeTableEvents.FilterChange = ({ column }) => {
-              console.log(\`\${column.property} 筛选了数据\`)
+              console.log(\`\${column.field} 筛选了数据\`)
             }
 
             nextTick(() => {

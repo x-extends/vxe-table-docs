@@ -192,7 +192,7 @@ export default defineComponent({
 
             const editClosedEvent: VxeTableEvents.EditClosed = ({ row, column }) => {
               const $table = xTable.value
-              const field = column.property
+              const field = column.field
               const cellValue = row[field]
               // 判断单元格值是否被修改
               if ($table.isUpdateByRow(row, field)) {

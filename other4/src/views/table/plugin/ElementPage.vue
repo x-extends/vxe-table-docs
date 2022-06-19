@@ -294,7 +294,7 @@ export default defineComponent({
         rate: 2
       }
       const { row: newRow } = await $table.insert(record)
-      $table.setActiveRow(newRow)
+      $table.setEditRow(newRow)
     }
 
     const saveEvent = () => {
@@ -668,7 +668,7 @@ export default defineComponent({
                 rate: 2
               }
               const { row: newRow } = await $table.insert(record)
-              $table.setActiveRow(newRow)
+              $table.setEditRow(newRow)
             }
 
             const saveEvent = () => {
