@@ -2965,7 +2965,7 @@ const apis = [
           },
           {
             name: 'scrollToTopOnChange',
-            desc: '当数据源被更改时，自动将横向滚动条滚动到顶部',
+            desc: '当数据源被更改时，自动将竖向滚动条滚动到顶部',
             version: '4.2.6',
             type: 'boolean',
             enum: '',
