@@ -7,7 +7,7 @@
       height="300"
       :row-config="{isCurrent: true, isHover: true}"
       :column-config="{resizable: true}"
-      :sort-config="{iconAsc: 'vxe-icon--question', iconDesc: 'vxe-icon--question'}"
+      :sort-config="{iconAsc: 'vxe-icon-question-circle-fill', iconDesc: 'vxe-icon-question-circle-fill'}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable :filters="[{label: 'id大于10', value: 10}, {label: 'id大于40', value: 40}]" :filter-method="filterNameMethod"></vxe-column>
@@ -56,7 +56,7 @@ export default defineComponent({
           height="300"
           :row-config="{isCurrent: true, isHover: true}"
           :column-config="{resizable: true}"
-          :sort-config="{iconAsc: 'vxe-icon--question', iconDesc: 'vxe-icon--question'}"
+          :sort-config="{iconAsc: 'vxe-icon-question-circle-fill', iconDesc: 'vxe-icon-question-circle-fill'}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" sortable :filters="[{label: 'id大于10', value: 10}, {label: 'id大于40', value: 40}]" :filter-method="filterNameMethod"></vxe-column>

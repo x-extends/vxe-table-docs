@@ -17,12 +17,12 @@
       <vxe-column width="60">
         <template #default>
           <span class="drag-btn">
-            <i class="vxe-icon--menu"></i>
+            <i class="vxe-icon-edit"></i>
           </span>
         </template>
         <template #header>
           <vxe-tooltip v-model="showHelpTip1" content="按住后可以上下拖动排序！" enterable>
-            <i class="vxe-icon--question" @click="showHelpTip1 = !showHelpTip1"></i>
+            <i class="vxe-icon-question-circle-fill" @click="showHelpTip1 = !showHelpTip1"></i>
           </vxe-tooltip>
         </template>
       </vxe-column>
@@ -89,14 +89,14 @@ export default {
             default: () => {
               return [
                 <span class="drag-btn">
-                  <i class="vxe-icon--menu"></i>
+                  <i class="vxe-icon-edit"></i>
                 </span>
               ]
             },
             header: () => {
               return [
                 <vxe-tooltip v-model={ this.showHelpTip2 } content="按住后可以上下拖动排序！" enterable>
-                  <i class="vxe-icon--question" onClick={ () => { this.showHelpTip2 = !this.showHelpTip2 } }></i>
+                  <i class="vxe-icon-question-circle-fill" onClick={ () => { this.showHelpTip2 = !this.showHelpTip2 } }></i>
                 </vxe-tooltip>
               ]
             }
@@ -147,12 +147,12 @@ export default {
           <vxe-column width="60">
             <template #default>
               <span class="drag-btn">
-                <i class="vxe-icon--menu"></i>
+                <i class="vxe-icon-edit"></i>
               </span>
             </template>
             <template #header>
               <vxe-tooltip v-model="showHelpTip1" content="按住后可以上下拖动排序！" enterable>
-                <i class="vxe-icon--question" @click="showHelpTip1 = !showHelpTip1"></i>
+                <i class="vxe-icon-question-circle-fill" @click="showHelpTip1 = !showHelpTip1"></i>
               </vxe-tooltip>
             </template>
           </vxe-column>
@@ -268,14 +268,14 @@ export default {
                     default: () => {
                       return [
                         <span class="drag-btn">
-                          <i class="vxe-icon--menu"></i>
+                          <i class="vxe-icon-menu"></i>
                         </span>
                       ]
                     },
                     header: () => {
                       return [
                         <vxe-tooltip v-model={ this.showHelpTip2 } content="按住后可以上下拖动排序！" enterable>
-                          <i class="vxe-icon--question" onClick={ () => { this.showHelpTip2 = !this.showHelpTip2 } }></i>
+                          <i class="vxe-icon-question-circle-fill" onClick={ () => { this.showHelpTip2 = !this.showHelpTip2 } }></i>
                         </vxe-tooltip>
                       ]
                     }

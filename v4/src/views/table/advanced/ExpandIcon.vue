@@ -17,7 +17,7 @@
     <vxe-table
       ref="xTable"
       border
-      :expand-config="{iconOpen: 'vxe-icon--question', iconClose: 'vxe-icon--question'}"
+      :expand-config="{iconOpen: 'vxe-icon-question-circle-fill', iconClose: 'vxe-icon-question-circle-fill'}"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column type="expand" title="Name">
@@ -258,7 +258,7 @@ export default defineComponent({
         <vxe-table
           ref="xTable"
           border
-          :expand-config="{iconOpen: 'vxe-icon--question', iconClose: 'vxe-icon--question'}"
+          :expand-config="{iconOpen: 'vxe-icon-question-circle-fill', iconClose: 'vxe-icon-question-circle-fill'}"
           :data="demo1.tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column type="expand" title="Name">

@@ -102,7 +102,7 @@
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" width="200">
         <template #header>
-          <i :class="demo4.collapsable1 ? 'vxe-icon--question' : 'vxe-icon--question'" @click="collapsable1Event"></i>
+          <i :class="demo4.collapsable1 ? 'vxe-icon-question-circle-fill' : 'vxe-icon-question-circle-fill'" @click="collapsable1Event"></i>
           <span>Name</span>
         </template>
       </vxe-column>
@@ -110,7 +110,7 @@
       <vxe-column field="sex" title="Sex" :visible="false" width="200"></vxe-column>
       <vxe-column field="age" title="Age" width="200">
         <template #header>
-          <i :class="demo4.collapsable2 ? 'vxe-icon--question' : 'vxe-icon--question'" @click="collapsable2Event"></i>
+          <i :class="demo4.collapsable2 ? 'vxe-icon-question-circle-fill' : 'vxe-icon-question-circle-fill'" @click="collapsable2Event"></i>
           <span>Age</span>
         </template>
       </vxe-column>
@@ -464,7 +464,7 @@ export default defineComponent({
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column field="name" title="Name" width="200">
             <template #header>
-              <i :class="demo4.collapsable1 ? 'vxe-icon--question' : 'vxe-icon--question'" @click="collapsable1Event"></i>
+              <i :class="demo4.collapsable1 ? 'vxe-icon-question-circle-fill' : 'vxe-icon-question-circle-fill'" @click="collapsable1Event"></i>
               <span>Name</span>
             </template>
           </vxe-column>
@@ -472,7 +472,7 @@ export default defineComponent({
           <vxe-column field="sex" title="Sex" :visible="false" width="200"></vxe-column>
           <vxe-column field="age" title="Age" width="200">
             <template #header>
-              <i :class="demo4.collapsable2 ? 'vxe-icon--question' : 'vxe-icon--question'" @click="collapsable2Event"></i>
+              <i :class="demo4.collapsable2 ? 'vxe-icon-question-circle-fill' : 'vxe-icon-question-circle-fill'" @click="collapsable2Event"></i>
               <span>Age</span>
             </template>
           </vxe-column>

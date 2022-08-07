@@ -12,7 +12,7 @@
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="名称" :title-help="{message: '自定义帮助提示信息'}"></vxe-column>
-      <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'vxe-icon--question'}"></vxe-column>
+      <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'vxe-icon-question-circle-fill'}"></vxe-column>
       <vxe-column field="date" title="Date"></vxe-column>
       <vxe-column field="rate" title="Rate">
         <template #header>
@@ -99,7 +99,7 @@ export default defineComponent({
           :data="demo1.tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="名称" :title-help="{message: '自定义帮助提示信息'}"></vxe-column>
-          <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'vxe-icon--question'}"></vxe-column>
+          <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'vxe-icon-question-circle-fill'}"></vxe-column>
           <vxe-column field="date" title="Date"></vxe-column>
           <vxe-column field="rate" title="Rate">
             <template #header>

@@ -17,12 +17,12 @@
       <vxe-column width="60">
         <template #default>
           <span class="drag-btn">
-            <i class="vxe-icon--menu"></i>
+            <i class="vxe-icon-edit"></i>
           </span>
         </template>
         <template #header>
           <vxe-tooltip v-model="demo1.showHelpTip" content="按住后可以上下拖动排序！" enterable>
-            <i class="vxe-icon--question" @click="demo1.showHelpTip = !demo1.showHelpTip"></i>
+            <i class="vxe-icon-question-circle-fill" @click="demo1.showHelpTip = !demo1.showHelpTip"></i>
           </vxe-tooltip>
         </template>
       </vxe-column>
@@ -48,12 +48,12 @@
     <vxe-grid ref="xGrid2" v-bind="gridOptions2">
       <template #dragBtn>
         <span class="drag-btn">
-          <i class="vxe-icon--menu"></i>
+          <i class="vxe-icon-edit"></i>
         </span>
       </template>
       <template #dragTip>
         <vxe-tooltip v-model="demo2.showHelpTip" content="按住后可以上下拖动排序！" enterable>
-          <i class="vxe-icon--question" @click="demo2.showHelpTip = !demo2.showHelpTip"></i>
+          <i class="vxe-icon-question-circle-fill" @click="demo2.showHelpTip = !demo2.showHelpTip"></i>
         </vxe-tooltip>
       </template>
     </vxe-grid>
@@ -250,12 +250,12 @@ export default defineComponent({
           <vxe-column width="60">
             <template #default>
               <span class="drag-btn">
-                <i class="vxe-icon--menu"></i>
+                <i class="vxe-icon-edit"></i>
               </span>
             </template>
             <template #header>
               <vxe-tooltip v-model="demo1.showHelpTip" content="按住后可以上下拖动排序！" enterable>
-                <i class="vxe-icon--question" @click="demo1.showHelpTip = !demo1.showHelpTip"></i>
+                <i class="vxe-icon-question-circle-fill" @click="demo1.showHelpTip = !demo1.showHelpTip"></i>
               </vxe-tooltip>
             </template>
           </vxe-column>
@@ -338,12 +338,12 @@ export default defineComponent({
         <vxe-grid ref="xGrid2" v-bind="gridOptions2">
           <template #dragBtn>
             <span class="drag-btn">
-              <i class="vxe-icon--menu"></i>
+              <i class="vxe-icon-edit"></i>
             </span>
           </template>
           <template #dragTip>
             <vxe-tooltip v-model="demo2.showHelpTip" content="按住后可以上下拖动排序！" enterable>
-              <i class="vxe-icon--question" @click="demo2.showHelpTip = !demo2.showHelpTip"></i>
+              <i class="vxe-icon-question-circle-fill" @click="demo2.showHelpTip = !demo2.showHelpTip"></i>
             </vxe-tooltip>
           </template>
         </vxe-grid>

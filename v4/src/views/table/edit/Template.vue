@@ -17,7 +17,7 @@
       ref="xTable"
       :loading="demo1.loading"
       :data="demo1.tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', icon: 'vxe-icon--question'}"
+      :edit-config="{trigger: 'click', mode: 'cell', icon: 'vxe-icon-question-circle-fill'}"
       @checkbox-change="checkboxChangeEvent"
       @checkbox-all="checkboxChangeEvent">
       <vxe-column type="checkbox" width="60"></vxe-column>
@@ -36,7 +36,7 @@
             <template #dropdown>
               <ul class="my-downpanel1">
                 <li v-for="item in demo1.downList" :key="item.value" @click="changeNameEvent(item, row)">
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>{{ item.label }}</span>
                 </li>
               </ul>
@@ -211,7 +211,7 @@ export default defineComponent({
           ref="xTable"
           :loading="demo1.loading"
           :data="demo1.tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', icon: 'vxe-icon--question'}"
+          :edit-config="{trigger: 'click', mode: 'cell', icon: 'vxe-icon-question-circle-fill'}"
           @checkbox-change="checkboxChangeEvent"
           @checkbox-all="checkboxChangeEvent">
           <vxe-column type="checkbox" width="60"></vxe-column>
@@ -230,7 +230,7 @@ export default defineComponent({
                 <template #dropdown>
                   <ul class="my-downpanel1">
                     <li v-for="item in demo1.downList" :key="item.value" @click="changeNameEvent(item, row)">
-                      <i class="vxe-icon--question"></i>
+                      <i class="vxe-icon-question-circle-fill"></i>
                       <span>{{ item.label }}</span>
                     </li>
                   </ul>

@@ -100,7 +100,7 @@
                 :key="item.id"
                 :class="[`level-${item._LEVEL}`, {'has-child': item._HAS_CHILDREN, 'is-expand': item._EXPAND}]"
                 :style="{paddingLeft: `${item._LEVEL * 20}px`}">
-                <i class="tree-icon vxe-icon--caret-right" @click="toggleTreeNode(item)"></i>
+                <i class="tree-icon vxe-icon-caret-right" @click="toggleTreeNode(item)"></i>
                 <span class="tree-label">{{ item.label }}</span>
               </div>
             </template>
@@ -317,7 +317,7 @@ export default {
                 :key="item.id"
                 :class="[\`level-\${item._LEVEL}\`, {'has-child': item._HAS_CHILDREN, 'is-expand': item._EXPAND}]"
                 :style="{paddingLeft: \`\${item._LEVEL * 20}px\`}">
-                <i class="tree-icon vxe-icon--caret-right" @click="toggleTreeNode(item)"></i>
+                <i class="tree-icon vxe-icon-caret-right" @click="toggleTreeNode(item)"></i>
                 <span class="tree-label">{{ item.label }}</span>
               </div>
             </template>

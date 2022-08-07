@@ -37,7 +37,7 @@ export default {
 
   computed: {
     iconClass () {
-      return this.isExpanded ? 'vxe-icon--caret-top' : 'vxe-icon--caret-bottom'
+      return this.isExpanded ? 'vxe-icon-caret-top' : 'vxe-icon-caret-bottom'
     },
     controlText () {
       return this.isExpanded ? '隐藏代码' : '显示代码'

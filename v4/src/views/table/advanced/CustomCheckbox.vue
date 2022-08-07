@@ -10,16 +10,16 @@
       <vxe-column type="checkbox" width="60">
         <template #header="{ checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="$refs.xTable.toggleAllCheckboxRow()">
-            <i v-if="indeterminate" class="vxe-icon--question"></i>
-            <i v-else-if="checked" class="vxe-icon--question"></i>
-            <i v-else class="vxe-icon--question"></i>
+            <i v-if="indeterminate" class="vxe-icon-question-circle-fill"></i>
+            <i v-else-if="checked" class="vxe-icon-question-circle-fill"></i>
+            <i v-else class="vxe-icon-question-circle-fill"></i>
           </span>
         </template>
         <template #checkbox="{ row, checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="$refs.xTable.toggleCheckboxRow(row)">
-            <i v-if="indeterminate" class="vxe-icon--question"></i>
-            <i v-else-if="checked" class="vxe-icon--question"></i>
-            <i v-else class="vxe-icon--question"></i>
+            <i v-if="indeterminate" class="vxe-icon-question-circle-fill"></i>
+            <i v-else-if="checked" class="vxe-icon-question-circle-fill"></i>
+            <i v-else class="vxe-icon-question-circle-fill"></i>
           </span>
         </template>
       </vxe-column>
@@ -69,16 +69,16 @@ export default defineComponent({
           <vxe-column type="checkbox" width="60">
             <template #header="{ checked, indeterminate }">
               <span class="custom-checkbox" @click.stop="$refs.xTable.toggleAllCheckboxRow()">
-                <i v-if="indeterminate" class="vxe-icon--question"></i>
-                <i v-else-if="checked" class="vxe-icon--question"></i>
-                <i v-else class="vxe-icon--question"></i>
+                <i v-if="indeterminate" class="vxe-icon-question-circle-fill"></i>
+                <i v-else-if="checked" class="vxe-icon-question-circle-fill"></i>
+                <i v-else class="vxe-icon-question-circle-fill"></i>
               </span>
             </template>
             <template #checkbox="{ row, checked, indeterminate }">
               <span class="custom-checkbox" @click.stop="$refs.xTable.toggleCheckboxRow(row)">
-                <i v-if="indeterminate" class="vxe-icon--question"></i>
-                <i v-else-if="checked" class="vxe-icon--question"></i>
-                <i v-else class="vxe-icon--question"></i>
+                <i v-if="indeterminate" class="vxe-icon-question-circle-fill"></i>
+                <i v-else-if="checked" class="vxe-icon-question-circle-fill"></i>
+                <i v-else class="vxe-icon-question-circle-fill"></i>
               </span>
             </template>
           </vxe-column>

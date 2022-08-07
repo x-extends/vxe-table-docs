@@ -68,10 +68,10 @@ export default defineComponent({
         body: {
           options: [
             [
-              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon--question', className: 'my-copy-item' }
+              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-question-circle-fill', className: 'my-copy-item' }
             ],
             [
-              { code: 'remove', name: '删除', prefixIcon: 'vxe-icon--question color-red' },
+              { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-question-circle-fill color-red' },
               {
                 name: '筛选',
                 children: [
@@ -82,11 +82,11 @@ export default defineComponent({
               {
                 code: 'sort',
                 name: '排序',
-                prefixIcon: 'vxe-icon--question color-blue',
+                prefixIcon: 'vxe-icon-question-circle-fill color-blue',
                 children: [
                   { code: 'clearSort', name: '清除排序' },
-                  { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon--question color-orange' },
-                  { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon--question color-orange' }
+                  { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' },
+                  { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' }
                 ]
               },
               { code: 'print', name: '打印', disabled: true }
@@ -190,10 +190,10 @@ export default defineComponent({
                 body: {
                   options: [
                     [
-                      { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon--question', className: 'my-copy-item' }
+                      { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-question-circle-fill', className: 'my-copy-item' }
                     ],
                     [
-                      { code: 'remove', name: '删除', prefixIcon: 'vxe-icon--question color-red' },
+                      { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-question-circle-fill color-red' },
                       {
                         name: '筛选',
                         children: [
@@ -204,11 +204,11 @@ export default defineComponent({
                       {
                         code: 'sort',
                         name: '排序',
-                        prefixIcon: 'vxe-icon--question color-blue',
+                        prefixIcon: 'vxe-icon-question-circle-fill color-blue',
                         children: [
                           { code: 'clearSort', name: '清除排序' },
-                          { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon--question color-orange' },
-                          { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon--question color-orange' }
+                          { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' },
+                          { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' }
                         ]
                       },
                       { code: 'print', name: '打印', disabled: true }

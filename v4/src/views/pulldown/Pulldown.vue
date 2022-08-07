@@ -12,7 +12,7 @@
             <template #dropdown>
               <div class="my-dropdown1">
                 <div class="list-item1" v-for="item in demo1.list1" :key="item.value" @click="selectEvent1(item)">
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>{{ item.label }}</span>
                 </div>
               </div>
@@ -27,7 +27,7 @@
               <vxe-list height="200" class="my-dropdown2" :data="demo2.list2" auto-resize>
                 <template #default="{ items }">
                   <div class="list-item2" v-for="item in items" :key="item.value" @click="selectEvent2(item)">
-                    <i class="vxe-icon--question"></i>
+                    <i class="vxe-icon-question-circle-fill"></i>
                     <span>{{ item.label }}</span>
                   </div>
                 </template>
@@ -37,7 +37,7 @@
 
           <vxe-pulldown ref="xDown3" destroy-on-close>
             <template #default>
-              <vxe-button icon="vxe-icon--question" @click="clickEvent3">切换下拉表格</vxe-button>
+              <vxe-button icon="vxe-icon-question-circle-fill" @click="clickEvent3">切换下拉表格</vxe-button>
             </template>
             <template #dropdown>
               <div class="my-dropdown3">
@@ -54,7 +54,7 @@
 
           <vxe-pulldown ref="xDown4" transfer>
             <template #default>
-              <vxe-input v-model="demo4.value4" suffix-icon="vxe-icon--question" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
+              <vxe-input v-model="demo4.value4" suffix-icon="vxe-icon-question-circle-fill" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
             </template>
             <template #dropdown>
               <div class="my-dropdown4">
@@ -301,7 +301,7 @@ export default defineComponent({
             <template #dropdown>
               <div class="my-dropdown1">
                 <div class="list-item1" v-for="item in demo1.list1" :key="item.value" @click="selectEvent1(item)">
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>{{ item.label }}</span>
                 </div>
               </div>
@@ -316,7 +316,7 @@ export default defineComponent({
               <vxe-list height="200" class="my-dropdown2" :data="demo2.list2" auto-resize>
                 <template #default="{ items }">
                   <div class="list-item2" v-for="item in items" :key="item.value" @click="selectEvent2(item)">
-                    <i class="vxe-icon--question"></i>
+                    <i class="vxe-icon-question-circle-fill"></i>
                     <span>{{ item.label }}</span>
                   </div>
                 </template>
@@ -326,7 +326,7 @@ export default defineComponent({
 
           <vxe-pulldown ref="xDown3" destroy-on-close>
             <template #default>
-              <vxe-button icon="vxe-icon--question" @click="clickEvent3">切换下拉表格</vxe-button>
+              <vxe-button icon="vxe-icon-question-circle-fill" @click="clickEvent3">切换下拉表格</vxe-button>
             </template>
             <template #dropdown>
               <div class="my-dropdown3">
@@ -343,7 +343,7 @@ export default defineComponent({
 
           <vxe-pulldown ref="xDown4" transfer>
             <template #default>
-              <vxe-input v-model="demo4.value4" suffix-icon="vxe-icon--question" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
+              <vxe-input v-model="demo4.value4" suffix-icon="vxe-icon-question-circle-fill" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
             </template>
             <template #dropdown>
               <div class="my-dropdown4">

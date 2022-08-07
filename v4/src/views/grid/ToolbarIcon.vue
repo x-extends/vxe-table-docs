@@ -53,30 +53,30 @@ export default defineComponent({
       },
       toolbarConfig: {
         buttons: [
-          { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon--question' },
-          { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon--question' },
-          { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon--question' }
+          { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon-question-circle-fill' },
+          { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon-question-circle-fill' },
+          { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon-question-circle-fill' }
         ],
         perfect: true,
         refresh: {
-          icon: 'vxe-icon--question',
-          iconLoading: 'fa vxe-icon--question'
+          icon: 'vxe-icon-question-circle-fill',
+          iconLoading: 'fa vxe-icon-question-circle-fill'
         },
         import: {
-          icon: 'vxe-icon--question'
+          icon: 'vxe-icon-question-circle-fill'
         },
         export: {
-          icon: 'vxe-icon--question'
+          icon: 'vxe-icon-question-circle-fill'
         },
         print: {
-          icon: 'vxe-icon--question'
+          icon: 'vxe-icon-question-circle-fill'
         },
         zoom: {
-          iconIn: 'vxe-icon--question',
-          iconOut: 'vxe-icon--question'
+          iconIn: 'vxe-icon-question-circle-fill',
+          iconOut: 'vxe-icon-question-circle-fill'
         },
         custom: {
-          icon: 'vxe-icon--question'
+          icon: 'vxe-icon-question-circle-fill'
         }
       },
       proxyConfig: {
@@ -187,30 +187,30 @@ export default defineComponent({
               },
               toolbarConfig: {
                 buttons: [
-                  { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon--question' },
-                  { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon--question' },
-                  { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon--question' }
+                  { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon-question-circle-fill' },
+                  { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon-question-circle-fill' },
+                  { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon-question-circle-fill' }
                 ],
                 perfect: true,
                 refresh: {
-                  icon: 'vxe-icon--question',
-                  iconLoading: 'vxe-icon--question'
+                  icon: 'vxe-icon-question-circle-fill',
+                  iconLoading: 'vxe-icon-question-circle-fill'
                 },
                 import: {
-                  icon: 'vxe-icon--question'
+                  icon: 'vxe-icon-question-circle-fill'
                 },
                 export: {
-                  icon: 'vxe-icon--question'
+                  icon: 'vxe-icon-question-circle-fill'
                 },
                 print: {
-                  icon: 'vxe-icon--question'
+                  icon: 'vxe-icon-question-circle-fill'
                 },
                 zoom: {
-                  iconIn: 'vxe-icon--question',
-                  iconOut: 'vxe-icon--question'
+                  iconIn: 'vxe-icon-question-circle-fill',
+                  iconOut: 'vxe-icon-question-circle-fill'
                 },
                 custom: {
-                  icon: 'vxe-icon--question'
+                  icon: 'vxe-icon-question-circle-fill'
                 }
               },
               proxyConfig: {

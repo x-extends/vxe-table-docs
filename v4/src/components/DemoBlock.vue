@@ -42,7 +42,7 @@ const highlight = ref()
 
 let scrollParent:any = null
 
-const iconClass = computed(() => isExpanded.value ? 'vxe-icon--caret-top' : 'vxe-icon--caret-bottom')
+const iconClass = computed(() => isExpanded.value ? 'vxe-icon-caret-top' : 'vxe-icon-caret-bottom')
 const controlText = computed(() => isExpanded.value ? '隐藏代码' : '显示代码')
 const codeAreaHeight = computed(() => {
   if (description.value) {

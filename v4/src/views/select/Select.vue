@@ -30,7 +30,7 @@
     <demo-block>
       <template v-slot:source>
         <p>
-          <vxe-select v-model="demo1.value20" placeholder="请选择" prefix-icon="vxe-icon--question">
+          <vxe-select v-model="demo1.value20" placeholder="请选择" prefix-icon="vxe-icon-question-circle-fill">
             <vxe-option v-for="num in 3" :key="num" :value="num" :label="`选项${num}`"></vxe-option>
           </vxe-select>
           <vxe-select v-model="demo1.value21" placeholder="可清除" clearable>
@@ -129,7 +129,7 @@
             <vxe-option value="3" label="选项3">
               <template #default="{ option }">
                 <span style="color: red">
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>{{ option.label }}</span>
                 </span>
               </template>
@@ -137,7 +137,7 @@
             <vxe-option value="4" label="选项4">
               <template #default>
                 <span style="color: green">
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>选项4</span>
                 </span>
               </template>
@@ -146,7 +146,7 @@
               <template #default="{ option }">
                 <span>
                   <span>{{ option.label }}</span>
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                 </span>
               </template>
             </vxe-option>
@@ -182,14 +182,14 @@
           <vxe-select v-model="demo1.value46" placeholder="自定义模板" :options="demo1.list46" multiple clearable transfer>
             <template #opt3="{ option }">
               <span style="color: red">
-                <i class="vxe-icon--question"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
 
             <template #opt4="{ option }">
               <span style="color: green">
-                <i class="vxe-icon--question"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
@@ -197,7 +197,7 @@
             <template #opt5="{ option }">
               <span>
                 <span>{{ option.label }}</span>
-                <i class="vxe-icon--question"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
               </span>
             </template>
           </vxe-select>
@@ -384,7 +384,7 @@ export default defineComponent({
         `,
         `
         <p>
-          <vxe-select v-model="demo1.value20" placeholder="请选择" prefix-icon="vxe-icon--question">
+          <vxe-select v-model="demo1.value20" placeholder="请选择" prefix-icon="vxe-icon-question-circle-fill">
             <vxe-option v-for="num in 3" :key="num" :value="num" :label="\`选项\${num}\`"></vxe-option>
           </vxe-select>
           <vxe-select v-model="demo1.value21" placeholder="可清除" clearable>
@@ -492,7 +492,7 @@ export default defineComponent({
             <vxe-option value="3" label="选项3">
               <template #default="{ option }">
                 <span style="color: red">
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>{{ option.label }}</span>
                 </span>
               </template>
@@ -500,7 +500,7 @@ export default defineComponent({
             <vxe-option value="4" label="选项4">
               <template #default>
                 <span style="color: green">
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>选项4</span>
                 </span>
               </template>
@@ -509,7 +509,7 @@ export default defineComponent({
               <template #default="{ option }">
                 <span>
                   <span>{{ option.label }}</span>
-                  <i class="vxe-icon--question"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                 </span>
               </template>
             </vxe-option>
@@ -545,14 +545,14 @@ export default defineComponent({
           <vxe-select v-model="demo1.value46" placeholder="自定义模板" :options="demo1.list46" multiple clearable transfer>
             <template #opt3="{ option }">
               <span style="color: red">
-                <i class="vxe-icon--question"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
 
             <template #opt4="{ option }">
               <span style="color: green">
-                <i class="vxe-icon--question"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
@@ -560,7 +560,7 @@ export default defineComponent({
             <template #opt5="{ option }">
               <span>
                 <span>{{ option.label }}</span>
-                <i class="vxe-icon--question"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
               </span>
             </template>
           </vxe-select>

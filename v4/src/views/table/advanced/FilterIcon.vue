@@ -6,7 +6,7 @@
       border
       height="400"
       :row-config="{isCurrent: true, isHover: true}"
-      :filter-config="{iconNone: 'vxe-icon--question', iconMatch: 'vxe-icon--question'}"
+      :filter-config="{iconNone: 'vxe-icon-question-circle-fill', iconMatch: 'vxe-icon-question-circle-fill'}"
       :loading="demo1.loading"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -66,7 +66,7 @@ export default defineComponent({
           border
           height="400"
           :row-config="{isHover: true}"
-          :filter-config="{iconNone: 'vxe-icon--question', iconMatch: 'vxe-icon--question'}"
+          :filter-config="{iconNone: 'vxe-icon-question-circle-fill', iconMatch: 'vxe-icon-question-circle-fill'}"
           :loading="demo1.loading"
           :data="demo1.tableData">
           <vxe-column type="seq" width="60"></vxe-column>

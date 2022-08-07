@@ -2965,7 +2965,7 @@ const apis = [
           },
           {
             name: 'scrollToTopOnChange',
-            desc: '当数据源被更改时，自动将竖向滚动条滚动到顶部',
+            desc: '当数据源被更改时，自动将纵向滚动条滚动到顶部',
             version: '4.2.6',
             type: 'boolean',
             enum: '',
@@ -3674,6 +3674,7 @@ const apis = [
       },
       {
         name: 'reloadExpandContent(row)',
+        disabled: true,
         desc: '即将废弃，请使用 reloadRowExpand',
         version: '',
         type: 'Promise<any>',

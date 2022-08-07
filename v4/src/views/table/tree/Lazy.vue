@@ -96,8 +96,8 @@ export default defineComponent({
         transform: true,
         hasChild: 'hasChild',
         expandRowKeys: [],
-        iconOpen: 'vxe-icon--question',
-        iconClose: 'vxe-icon--question',
+        iconOpen: 'vxe-icon-question-circle-fill',
+        iconClose: 'vxe-icon-question-circle-fill',
         loadMethod ({ row }) {
           // 异步加载子节点
           return new Promise(resolve => {
@@ -219,8 +219,8 @@ export default defineComponent({
                 transform: true,
                 hasChild: 'hasChild',
                 expandRowKeys: [],
-                iconOpen: 'vxe-icon--question',
-                iconClose: 'vxe-icon--question',
+                iconOpen: 'vxe-icon-question-circle-fill',
+                iconClose: 'vxe-icon-question-circle-fill',
                 loadMethod ({ row }) {
                   // 异步加载子节点
                   return new Promise(resolve => {

@@ -156,19 +156,19 @@ export default {
                 { code: 'resetColumn', name: '重置个性化数据' }
               ],
               [
-                { code: 'exportXLSXAPI', name: '导出文档.xlsx', prefixIcon: 'vxe-icon--question' }
+                { code: 'exportXLSXAPI', name: '导出文档.xlsx', prefixIcon: 'vxe-icon-question-circle-fill' }
               ]
             ]
           },
           body: {
             options: [
               [
-                { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon--question' }
+                { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-question-circle-fill' }
               ],
               [
                 { code: 'resize', name: '重新加载' },
-                { code: 'exportHTMLAPI', name: '导出文档.html', prefixIcon: 'vxe-icon--question' },
-                { code: 'exportXLSXAPI', name: '导出文档.xlsx', prefixIcon: 'vxe-icon--question' }
+                { code: 'exportHTMLAPI', name: '导出文档.html', prefixIcon: 'vxe-icon-question-circle-fill' },
+                { code: 'exportXLSXAPI', name: '导出文档.xlsx', prefixIcon: 'vxe-icon-question-circle-fill' }
               ],
               [
                 { code: 'allExpand', name: '全部展开' },

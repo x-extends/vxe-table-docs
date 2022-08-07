@@ -1720,7 +1720,7 @@ const apis = [
           {
             name: 'transform',
             desc: '自动将列表转为树结构（支持虚拟滚动）',
-            version: '4.1.2',
+            version: '3.3.16',
             type: 'string',
             enum: '',
             defVal: 'false',
@@ -1729,7 +1729,7 @@ const apis = [
           {
             name: 'rowField',
             desc: '树节点的字段名',
-            version: '4.1.2',
+            version: '3.3.16',
             type: 'string',
             enum: '',
             defVal: 'id',
@@ -1738,7 +1738,7 @@ const apis = [
           {
             name: 'parentField',
             desc: '树父节点的字段名',
-            version: '4.1.2',
+            version: '3.3.16',
             type: 'string',
             enum: '',
             defVal: 'parentId',
@@ -2956,7 +2956,7 @@ const apis = [
           },
           {
             name: 'scrollToTopOnChange',
-            desc: '当数据源被更改时，自动将横向滚动条滚动到顶部',
+            desc: '当数据源被更改时，自动将纵向滚动条滚动到顶部',
             version: '3.5.9',
             type: 'boolean',
             enum: '',
@@ -3656,8 +3656,9 @@ const apis = [
       },
       {
         name: 'reloadExpandContent(row)',
-        desc: '用于懒加载展开行，重新加载展开行的内容',
-        version: '3.4.0',
+        disabled: true,
+        desc: '即将废弃，请使用 reloadRowExpand',
+        version: '',
         type: 'Promise<any>',
         enum: '',
         defVal: 'rows: Row',
@@ -3665,9 +3666,8 @@ const apis = [
       },
       {
         name: 'reloadRowExpand(row)',
-        desc: '即将废弃，请使用 reloadExpandContent',
-        disabled: true,
-        version: '',
+        desc: '用于懒加载展开行，重新加载展开行的内容',
+        version: '3.4.0',
         type: 'Promise<any>',
         enum: '',
         defVal: 'rows: Row',
@@ -4373,7 +4373,7 @@ const apis = [
       {
         name: 'openFilter(fieldOrColumn)',
         desc: '用于 filters，手动弹出筛选面板',
-        version: '4.1.9',
+        version: '3.4.7',
         type: 'Promise<any>',
         enum: '',
         defVal: 'fieldOrColumn: string | ColumnInfo',
