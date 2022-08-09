@@ -61,7 +61,7 @@ import XEClipboard from 'xe-clipboard'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       loading: false,
@@ -78,11 +78,11 @@ export default defineComponent({
         body: {
           options: [
             [
-              { code: 'copy', name: '复制', prefixIcon: 'fa fa-copy', disabled: false },
+              { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-question-circle-fill', disabled: false },
               { code: 'reload', name: '刷新', disabled: false },
               { code: 'insertAt', name: '插入', disabled: false },
               { code: 'remove', name: '删除', disabled: false },
-              { code: 'save', name: '保存', prefixIcon: 'fa fa-save', disabled: false }
+              { code: 'save', name: '保存', prefixIcon: 'vxe-icon-question-circle-fill', disabled: false }
             ]
           ]
         },
@@ -135,52 +135,60 @@ export default defineComponent({
 
     const contextMenuClickEvent: VxeTableEvents.MenuClick = ({ menu, row, column }) => {
       const $table = xTable.value
-      switch (menu.code) {
-        case 'hideColumn':
-          $table.hideColumn(column)
-          break
-        case 'showAllColumn':
-          $table.resetColumn(true)
-          break
-        case 'copy':
-          if (XEClipboard.copy(row[column.property])) {
-            VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
-          }
-          break
-        case 'reload':
-          findList()
-          break
-        case 'insertAt':
-          $table.insertAt({}, row || -1).then(({ row }) => {
-            $table.setActiveCell(row, column || 'name')
-          })
-          break
-        case 'remove':
-          $table.remove(row)
-          break
-        case 'save':
-          VXETable.modal.message({ content: '保存成功', status: 'success' })
-          findList()
-          break
+      if ($table) {
+        switch (menu.code) {
+          case 'hideColumn':
+            $table.hideColumn(column)
+            break
+          case 'showAllColumn':
+            $table.resetColumn(true)
+            break
+          case 'copy':
+            if (XEClipboard.copy(row[column.field])) {
+              VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+            }
+            break
+          case 'reload':
+            findList()
+            break
+          case 'insertAt':
+            $table.insertAt({}, row || -1).then(({ row }) => {
+              $table.setEditCell(row, column || 'name')
+            })
+            break
+          case 'remove':
+            $table.remove(row)
+            break
+          case 'save':
+            VXETable.modal.message({ content: '保存成功', status: 'success' })
+            findList()
+            break
+        }
       }
     }
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(insertRecords.length)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(insertRecords.length)
+      }
     }
 
     const getRemoveEvent = () => {
       const $table = xTable.value
-      const removeRecords = $table.getRemoveRecords()
-      VXETable.modal.alert(removeRecords.length)
+      if ($table) {
+        const removeRecords = $table.getRemoveRecords()
+        VXETable.modal.alert(removeRecords.length)
+      }
     }
 
     const getUpdateEvent = () => {
       const $table = xTable.value
-      const updateRecords = $table.getUpdateRecords()
-      VXETable.modal.alert(updateRecords.length)
+      if ($table) {
+        const updateRecords = $table.getUpdateRecords()
+        VXETable.modal.alert(updateRecords.length)
+      }
     }
 
     findList()
@@ -245,7 +253,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               loading: false,
@@ -262,11 +270,11 @@ export default defineComponent({
                 body: {
                   options: [
                     [
-                      { code: 'copy', name: '复制', prefixIcon: 'fa fa-copy', disabled: false },
+                      { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-question-circle-fill', disabled: false },
                       { code: 'reload', name: '刷新', disabled: false },
                       { code: 'insertAt', name: '插入', disabled: false },
                       { code: 'remove', name: '删除', disabled: false },
-                      { code: 'save', name: '保存', prefixIcon: 'fa fa-save', disabled: false }
+                      { code: 'save', name: '保存', prefixIcon: 'vxe-icon-question-circle-fill', disabled: false }
                     ]
                   ]
                 },
@@ -323,7 +331,7 @@ export default defineComponent({
                   $table.resetColumn(true)
                   break
                 case 'copy':
-                  if (XEClipboard.copy(row[column.property])) {
+                  if (XEClipboard.copy(row[column.field])) {
                     VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                   }
                   break
@@ -332,7 +340,7 @@ export default defineComponent({
                   break
                 case 'insertAt':
                   $table.insertAt({}, row || -1).then(({ row }) => {
-                    $table.setActiveCell(row, column || 'name')
+                    $table.setEditCell(row, column || 'name')
                   })
                   break
                 case 'remove':

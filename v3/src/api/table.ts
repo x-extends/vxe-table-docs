@@ -1081,7 +1081,7 @@ const apis = [
           {
             name: 'startIndex',
             abandoned: true,
-            desc: '设置序号的起始值（不支持树形结构），建议使用 seqMethod',
+            desc: '请使用 seqMethod',
             version: '',
             type: 'number',
             enum: '',
@@ -1720,7 +1720,7 @@ const apis = [
           {
             name: 'transform',
             desc: '自动将列表转为树结构（支持虚拟滚动）',
-            version: '4.1.2',
+            version: '3.3.16',
             type: 'string',
             enum: '',
             defVal: 'false',
@@ -1729,7 +1729,7 @@ const apis = [
           {
             name: 'rowField',
             desc: '树节点的字段名',
-            version: '4.1.2',
+            version: '3.3.16',
             type: 'string',
             enum: '',
             defVal: 'id',
@@ -1738,7 +1738,7 @@ const apis = [
           {
             name: 'parentField',
             desc: '树父节点的字段名',
-            version: '4.1.2',
+            version: '3.3.16',
             type: 'string',
             enum: '',
             defVal: 'parentId',
@@ -2545,6 +2545,16 @@ const apis = [
           },
           {
             name: 'activeMethod',
+            abandoned: true,
+            desc: '请使用 beforeEditMethod',
+            version: '',
+            type: '({ row, rowIndex, column, columnIndex }) => boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'beforeEditMethod',
             desc: '该方法的返回值用来决定该单元格是否允许编辑',
             version: '',
             type: '({ row, rowIndex, column, columnIndex }) => boolean',
@@ -2879,6 +2889,15 @@ const apis = [
             enum: '',
             defVal: '0',
             list: []
+          },
+          {
+            name: 'scrollToLeftOnChange',
+            desc: '当数据源被更改时，自动将横向滚动条滚动到左侧',
+            version: '3.5.9',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
           }
         ]
       },
@@ -2934,6 +2953,15 @@ const apis = [
           //   enum: '',
           //   defVal: '',
           //   list: []
+          },
+          {
+            name: 'scrollToTopOnChange',
+            desc: '当数据源被更改时，自动将纵向滚动条滚动到顶部',
+            version: '3.5.9',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
           }
           // {
           //   name: 'adaptive',
@@ -3628,8 +3656,9 @@ const apis = [
       },
       {
         name: 'reloadExpandContent(row)',
-        desc: '用于懒加载展开行，重新加载展开行的内容',
-        version: '3.4.0',
+        disabled: true,
+        desc: '即将废弃，请使用 reloadRowExpand',
+        version: '',
         type: 'Promise<any>',
         enum: '',
         defVal: 'rows: Row',
@@ -3637,9 +3666,8 @@ const apis = [
       },
       {
         name: 'reloadRowExpand(row)',
-        desc: '即将废弃，请使用 reloadExpandContent',
-        disabled: true,
-        version: '',
+        desc: '用于懒加载展开行，重新加载展开行的内容',
+        version: '3.4.0',
         type: 'Promise<any>',
         enum: '',
         defVal: 'rows: Row',
@@ -4134,8 +4162,18 @@ const apis = [
       },
       {
         name: 'getActiveRecord()',
-        desc: '用于 edit-config，获取已激活的行数据',
+        abandoned: true,
+        desc: '请使用 getEditRecord',
         version: '',
+        type: '{row,rowIndex,$rowIndex,column,columnIndex,$columnIndex}',
+        enum: '',
+        defVal: 'row',
+        list: []
+      },
+      {
+        name: 'getEditRecord()',
+        desc: '用于 edit-config，获取已激活的行数据',
+        version: '3.5.7',
         type: '{row,rowIndex,$rowIndex,column,columnIndex,$columnIndex}',
         enum: '',
         defVal: 'row',
@@ -4188,8 +4226,18 @@ const apis = [
       },
       {
         name: 'isActiveByRow(row)',
-        desc: '用于 edit-config，判断行是否为激活编辑状态',
+        abandoned: true,
+        desc: '请使用 isEditByRow',
         version: '',
+        type: 'Boolean',
+        enum: '',
+        defVal: 'row',
+        list: []
+      },
+      {
+        name: 'isEditByRow(row)',
+        desc: '用于 edit-config，判断行是否为激活编辑状态',
+        version: '3.5.7',
         type: 'Boolean',
         enum: '',
         defVal: 'row',
@@ -4325,7 +4373,7 @@ const apis = [
       {
         name: 'openFilter(fieldOrColumn)',
         desc: '用于 filters，手动弹出筛选面板',
-        version: '4.1.9',
+        version: '3.4.7',
         type: 'Promise<any>',
         enum: '',
         defVal: 'fieldOrColumn: string | ColumnInfo',
@@ -4333,7 +4381,8 @@ const apis = [
       },
       {
         name: 'setActiveRow(row)',
-        desc: '用于 edit-config，激活行编辑并激活第一个单元格',
+        abandoned: true,
+        desc: '请使用 setEditRow',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4341,7 +4390,17 @@ const apis = [
         list: []
       },
       {
+        name: 'setEditRow(row)',
+        desc: '用于 edit-config，激活行编辑并激活第一个单元格',
+        version: '3.5.7',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'row: Row',
+        list: []
+      },
+      {
         name: 'setActiveCell(row, fieldOrColumn)',
+        abandoned: true,
         desc: '用于 edit-config，激活单元格编辑',
         version: '',
         type: 'Promise<any>',
@@ -4350,9 +4409,18 @@ const apis = [
         list: []
       },
       {
-        name: 'setSelectCell(row, fieldOrColumn)',
-        desc: '用于 mouse-config.selected，选中指定的单元格',
+        name: 'setActiveCell(row, fieldOrColumn)',
+        desc: '请使用 setEditCell',
         version: '',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'row: Row, fieldOrColumn: string | ColumnInfo',
+        list: []
+      },
+      {
+        name: 'setEditCell(row, fieldOrColumn)',
+        desc: '用于 mouse-config.selected，选中指定的单元格',
+        version: '3.5.7',
         type: 'Promise<any>',
         enum: '',
         defVal: 'row: Row, fieldOrColumn: string | ColumnInfo',
@@ -4639,8 +4707,18 @@ const apis = [
       },
       {
         name: 'clearActived()',
-        desc: '手动清除单元格激活状态',
+        abandoned: true,
+        desc: '请使用 clearEdit',
         version: '',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'clearEdit()',
+        desc: '手动清除单元格激活状态',
+        version: '3.5.7',
         type: 'Promise<any>',
         enum: '',
         defVal: '',

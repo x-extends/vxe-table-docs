@@ -67,17 +67,17 @@
         <p>
           <vxe-toolbar perfect>
             <template #buttons>
-              <vxe-button type="text" icon="fa fa-plus" content="新增"></vxe-button>
-              <vxe-button type="text" icon="fa fa-trash-o" content="删除"></vxe-button>
-              <vxe-button type="text" icon="fa fa-save" content="保存"></vxe-button>
+              <vxe-button type="text" content="新增"></vxe-button>
+              <vxe-button type="text" content="删除"></vxe-button>
+              <vxe-button type="text" content="保存"></vxe-button>
             </template>
           </vxe-toolbar>
 
           <vxe-toolbar perfect>
             <template #buttons>
-              <vxe-button icon="fa fa-plus" status="perfect" content="新增"></vxe-button>
-              <vxe-button icon="fa fa-trash-o" status="perfect" content="删除"></vxe-button>
-              <vxe-button icon="fa fa-save" status="perfect" content="保存"></vxe-button>
+              <vxe-button status="perfect" content="新增"></vxe-button>
+              <vxe-button status="perfect" content="删除"></vxe-button>
+              <vxe-button status="perfect" content="保存"></vxe-button>
             </template>
           </vxe-toolbar>
 
@@ -95,8 +95,8 @@
               </vxe-button>
             </template>
             <template #tools>
-              <vxe-button type="text" icon="vxe-icon--question" class="tool-btn"></vxe-button>
-              <vxe-button type="text" icon="vxe-icon--funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-question-circle-fill" class="tool-btn"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
             </template>
           </vxe-toolbar>
 
@@ -136,8 +136,8 @@ export default defineComponent({
       ]
     })
 
-    const xTable = ref({} as VxeTableInstance)
-    const xToolbar = ref({} as VxeToolbarInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xToolbar = ref<VxeToolbarInstance>()
 
     const funnelEvent = () => {
       VXETable.modal.alert({ content: '点击事件' })
@@ -147,7 +147,9 @@ export default defineComponent({
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
     })
 
     return {
@@ -212,17 +214,17 @@ export default defineComponent({
         <p>
           <vxe-toolbar perfect>
             <template #buttons>
-              <vxe-button type="text" icon="fa fa-plus" content="新增"></vxe-button>
-              <vxe-button type="text" icon="fa fa-trash-o" content="删除"></vxe-button>
-              <vxe-button type="text" icon="fa fa-save" content="保存"></vxe-button>
+              <vxe-button type="text" content="新增"></vxe-button>
+              <vxe-button type="text" content="删除"></vxe-button>
+              <vxe-button type="text" content="保存"></vxe-button>
             </template>
           </vxe-toolbar>
 
           <vxe-toolbar perfect>
             <template #buttons>
-              <vxe-button icon="fa fa-plus" status="perfect" content="新增"></vxe-button>
-              <vxe-button icon="fa fa-trash-o" status="perfect" content="删除"></vxe-button>
-              <vxe-button icon="fa fa-save" status="perfect" content="保存"></vxe-button>
+              <vxe-button status="perfect" content="新增"></vxe-button>
+              <vxe-button status="perfect" content="删除"></vxe-button>
+              <vxe-button status="perfect" content="保存"></vxe-button>
             </template>
           </vxe-toolbar>
 
@@ -240,8 +242,8 @@ export default defineComponent({
               </vxe-button>
             </template>
             <template #tools>
-              <vxe-button type="text" icon="vxe-icon--question" class="tool-btn"></vxe-button>
-              <vxe-button type="text" icon="vxe-icon--funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-question-circle-fill" class="tool-btn"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
             </template>
           </vxe-toolbar>
 
@@ -267,8 +269,8 @@ export default defineComponent({
               ]
             })
 
-            const xTable = ref({} as VxeTableInstance)
-            const xToolbar = ref({} as VxeToolbarInstance)
+            const xTable = ref<VxeTableInstance>()
+            const xToolbar = ref<VxeToolbarInstance>()
 
             const funnelEvent = () => {
               VXETable.modal.alert({ content: '点击事件' })

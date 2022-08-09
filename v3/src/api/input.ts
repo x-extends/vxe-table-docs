@@ -215,23 +215,23 @@ const apis = [
         list: []
       },
       {
-        name: 'min-date',
+        name: 'start-date',
         abandoned: true,
-        desc: '只对 type=date|datetime|week|month|quarter|year 有效，设置日期可选范围的最小值',
+        desc: '只对 type=date|datetime|week|month|quarter|year 有效，设置面板起始日期',
         version: '',
         type: 'number | string | Date',
         enum: '',
-        defVal: '默认 new Date(1900, 0, 1)，继承 setup.input.minDate',
+        defVal: '默认 new Date(1900, 0, 1)，继承 setup.input.startDate',
         list: []
       },
       {
-        name: 'max-date',
+        name: 'end-date',
         abandoned: true,
-        desc: '只对 type=date|datetime|week|month|quarter|year 有效，设置日期可选范围的最大值',
+        desc: '只对 type=date|datetime|week|month|quarter|year 有效，设置面板结束日期',
         version: '',
         type: 'number | string | Date',
         enum: '',
-        defVal: '默认 new Date(2100, 0, 1)，继承 setup.input.maxDate',
+        defVal: '默认 new Date(2100, 0, 1)，继承 setup.input.endDate',
         list: []
       },
       {

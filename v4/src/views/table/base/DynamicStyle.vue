@@ -44,7 +44,7 @@ export default defineComponent({
     })
 
     const headerCellStyle: VxeTablePropTypes.HeaderCellStyle = ({ column }) => {
-      if (column.property === 'name') {
+      if (column.field === 'name') {
         return {
           backgroundColor: '#f60',
           color: '#ffffff'
@@ -62,7 +62,7 @@ export default defineComponent({
     }
 
     const cellStyle: VxeTablePropTypes.CellStyle = ({ row, column }) => {
-      if (column.property === 'sex') {
+      if (column.field === 'sex') {
         if (row.sex >= '1') {
           return {
             backgroundColor: '#187'
@@ -112,7 +112,7 @@ export default defineComponent({
             })
 
             const headerCellStyle: VxeTablePropTypes.HeaderCellStyle = ({ column }) => {
-              if (column.property === 'name') {
+              if (column.field === 'name') {
                 return {
                   backgroundColor: '#f60',
                   color: '#ffffff'
@@ -130,7 +130,7 @@ export default defineComponent({
             }
 
             const cellStyle: VxeTablePropTypes.CellStyle = ({ row, column }) => {
-              if (column.property === 'sex') {
+              if (column.field === 'sex') {
                 if (row.sex >= '1') {
                   return {
                     backgroundColor: '#187'

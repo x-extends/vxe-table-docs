@@ -26,6 +26,8 @@ const TablePluginMenus = () => import('../views/table/plugin/Menus.vue')
 // const TablePluginTreeRows = () => import('../views/table/plugin/TreeRows'
 // const TablePluginTreeCols = () => import('../views/table/plugin/TreeCols'
 
+const ModuleButton = () => import('../views/button/Button.vue')
+
 const Donation = () => import('../views/api/Donation.vue')
 
 const routes: Array<RouteRecordRaw> = [
@@ -165,6 +167,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/donation/api',
     name: 'Donation',
     component: Donation
+  },
+  {
+    path: '/table/module/button',
+    name: 'ModuleButton',
+    component: ModuleButton
   }
 ]
 

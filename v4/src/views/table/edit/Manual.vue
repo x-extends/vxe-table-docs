@@ -63,7 +63,7 @@
       </vxe-column>
       <vxe-column title="操作" width="160">
         <template #default="{ row }">
-          <template v-if="$refs.xTable.isActiveByRow(row)">
+          <template v-if="$refs.xTable.isEditByRow(row)">
             <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
             <vxe-button @click="cancelRowEvent(row)">取消</vxe-button>
           </template>
@@ -89,7 +89,7 @@ import { VXETable, VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     interface ItemVO {
       id: number;
@@ -132,31 +132,39 @@ export default defineComponent({
 
     const isActiveStatus = (row: ItemVO) => {
       const $table = xTable.value
-      return $table.isActiveByRow(row)
+      if ($table) {
+        return $table.isEditByRow(row)
+      }
     }
 
     const editRowEvent = (row: ItemVO) => {
       const $table = xTable.value
-      $table.setActiveRow(row)
+      if ($table) {
+        $table.setEditRow(row)
+      }
     }
 
     const saveRowEvent = () => {
       const $table = xTable.value
-      $table.clearActived().then(() => {
-        demo1.loading = true
-        setTimeout(() => {
-          demo1.loading = false
-          VXETable.modal.message({ content: '保存成功！', status: 'success' })
-        }, 300)
-      })
+      if ($table) {
+        $table.clearEdit().then(() => {
+          demo1.loading = true
+          setTimeout(() => {
+            demo1.loading = false
+            VXETable.modal.message({ content: '保存成功！', status: 'success' })
+          }, 300)
+        })
+      }
     }
 
     const cancelRowEvent = (row: ItemVO) => {
       const $table = xTable.value
-      $table.clearActived().then(() => {
-        // 还原行数据
-        $table.revertData(row)
-      })
+      if ($table) {
+        $table.clearEdit().then(() => {
+          // 还原行数据
+          $table.revertData(row)
+        })
+      }
     }
 
     return {
@@ -231,7 +239,7 @@ export default defineComponent({
           </vxe-column>
           <vxe-column title="操作" width="160">
             <template #default="{ row }">
-              <template v-if="$refs.xTable.isActiveByRow(row)">
+              <template v-if="$refs.xTable.isEditByRow(row)">
                 <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
                 <vxe-button @click="cancelRowEvent(row)">取消</vxe-button>
               </template>
@@ -248,7 +256,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             interface ItemVO {
               id: number;
@@ -291,17 +299,17 @@ export default defineComponent({
 
             const isActiveStatus = (row: ItemVO) => {
               const $table = xTable.value
-              return $table.isActiveByRow(row)
+              return $table.isEditByRow(row)
             }
 
             const editRowEvent = (row: ItemVO) => {
               const $table = xTable.value
-              $table.setActiveRow(row)
+              $table.setEditRow(row)
             }
 
             const saveRowEvent = () => {
               const $table = xTable.value
-              $table.clearActived().then(() => {
+              $table.clearEdit().then(() => {
                 demo1.loading = true
                 setTimeout(() => {
                   demo1.loading = false
@@ -312,7 +320,7 @@ export default defineComponent({
 
             const cancelRowEvent = (row: ItemVO) => {
               const $table = xTable.value
-              $table.clearActived().then(() => {
+              $table.clearEdit().then(() => {
                 // 还原行数据
                 $table.revertData(row)
               })

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.button') }}</h2>
-    <p class="tip">标准按钮，文本按钮、下拉按钮，可以使用任意第三方字体图标，例如：font-awesome、inconfont...</p>
+    <p class="tip">标准按钮，文本按钮、下拉按钮</p>
 
     <h3>{{ $t('基础用法') }}</h3>
     <demo-block>
@@ -36,24 +36,6 @@
           <vxe-button status="info" round>信息颜色</vxe-button>
           <vxe-button status="warning" round>警告颜色</vxe-button>
           <vxe-button status="danger" round>危险颜色</vxe-button>
-        </p>
-        <p>
-          <vxe-button icon="fa fa-plus" circle></vxe-button>
-          <vxe-button loading circle></vxe-button>
-          <vxe-button status="primary" icon="fa fa-save" circle></vxe-button>
-          <vxe-button status="success" icon="fa fa-check" circle></vxe-button>
-          <vxe-button status="info" icon="fa fa-info" circle></vxe-button>
-          <vxe-button status="warning" icon="fa fa-warning" circle></vxe-button>
-          <vxe-button status="danger" icon="fa fa-trash-o" circle></vxe-button>
-        </p>
-        <p>
-          <vxe-button icon="fa fa-plus"></vxe-button>
-          <vxe-button loading></vxe-button>
-          <vxe-button status="primary" icon="fa fa-save"></vxe-button>
-          <vxe-button status="success" icon="fa fa-check"></vxe-button>
-          <vxe-button status="info" icon="fa fa-info"></vxe-button>
-          <vxe-button status="warning" icon="fa fa-warning"></vxe-button>
-          <vxe-button status="danger" icon="fa fa-trash-o"></vxe-button>
         </p>
       </div>
       <pre slot="highlight"><pre-code class="xml">{{ demoCodes[0] }}</pre-code></pre>
@@ -195,48 +177,6 @@
       <pre slot="highlight"><pre-code class="xml">{{ demoCodes[3] }}</pre-code></pre>
     </demo-block>
 
-    <h3>{{ $t('第三方图标') }}</h3>
-    <demo-block>
-      <div slot="source">
-        <p>
-          <vxe-button icon="fa fa-plus">第三方图标</vxe-button>
-          <vxe-button status="primary" icon="fa fa-save">主要图标颜色</vxe-button>
-          <vxe-button status="success" icon="fa fa-check">成功图标颜色</vxe-button>
-          <vxe-button status="info" icon="fa fa-info">信息图标颜色</vxe-button>
-          <vxe-button status="warning" icon="fa fa-warning">警告图标颜色</vxe-button>
-          <vxe-button status="danger" icon="fa fa-trash-o">危险图标颜色</vxe-button>
-        </p>
-
-        <p>
-          <vxe-button icon="fa fa-download">默认图标颜色</vxe-button>
-          <vxe-button icon="fa fa-save my-primary">主要图标颜色</vxe-button>
-          <vxe-button icon="fa fa-check my-success">成功图标颜色</vxe-button>
-          <vxe-button icon="fa fa-info my-info">信息图标颜色</vxe-button>
-          <vxe-button icon="fa fa-warning my-warning">警告图标颜色</vxe-button>
-          <vxe-button icon="fa fa-trash-o my-danger">危险图标颜色</vxe-button>
-        </p>
-
-        <p>
-          <vxe-button type="text" icon="fa fa-plus">使用第三方图标</vxe-button>
-          <vxe-button type="text" status="primary" icon="fa fa-save">主要图标颜色</vxe-button>
-          <vxe-button type="text" status="success" icon="fa fa-check">成功图标颜色</vxe-button>
-          <vxe-button type="text" status="info" icon="fa fa-info">信息图标颜色</vxe-button>
-          <vxe-button type="text" status="warning" icon="fa fa-warning">警告图标颜色</vxe-button>
-          <vxe-button type="text" status="danger" icon="fa fa-trash-o">危险图标颜色</vxe-button>
-        </p>
-
-        <p>
-          <vxe-button type="text" icon="fa fa-plus"></vxe-button>
-          <vxe-button type="text" icon="fa fa-refresh"></vxe-button>
-          <vxe-button status="primary" icon="fa fa-download">图标按钮</vxe-button>
-          <vxe-button status="my-purple" icon="fa fa-save">自定义按钮颜色</vxe-button>
-          <vxe-button icon="fa fa-graduation-cap my-green">自定义图标颜色</vxe-button>
-          <vxe-button> <i class="my-icn"></i> 自定义图标</vxe-button>
-        </p>
-      </div>
-      <pre slot="highlight"><pre-code class="xml">{{ demoCodes[4] }}</pre-code></pre>
-    </demo-block>
-
     <pre>
       <pre-code>
         | Tab | 切换到上一个 |
@@ -291,24 +231,6 @@ export default {
           <vxe-button status="info" round>信息颜色</vxe-button>
           <vxe-button status="warning" round>警告颜色</vxe-button>
           <vxe-button status="danger" round>危险颜色</vxe-button>
-        </p>
-        <p>
-          <vxe-button icon="fa fa-plus" circle></vxe-button>
-          <vxe-button loading circle></vxe-button>
-          <vxe-button status="primary" icon="fa fa-save" circle></vxe-button>
-          <vxe-button status="success" icon="fa fa-check" circle></vxe-button>
-          <vxe-button status="info" icon="fa fa-info" circle></vxe-button>
-          <vxe-button status="warning" icon="fa fa-warning" circle></vxe-button>
-          <vxe-button status="danger" icon="fa fa-trash-o" circle></vxe-button>
-        </p>
-        <p>
-          <vxe-button icon="fa fa-plus"></vxe-button>
-          <vxe-button loading></vxe-button>
-          <vxe-button status="primary" icon="fa fa-save"></vxe-button>
-          <vxe-button status="success" icon="fa fa-check"></vxe-button>
-          <vxe-button status="info" icon="fa fa-info"></vxe-button>
-          <vxe-button status="warning" icon="fa fa-warning"></vxe-button>
-          <vxe-button status="danger" icon="fa fa-trash-o"></vxe-button>
         </p>
         `,
 
@@ -433,127 +355,9 @@ export default {
             </template>
           </vxe-button>
         </p>
-        `,
-
-       `
-       <p>
-          <vxe-button icon="fa fa-plus">第三方图标</vxe-button>
-          <vxe-button status="primary" icon="fa fa-save">主要图标颜色</vxe-button>
-          <vxe-button status="success" icon="fa fa-check">成功图标颜色</vxe-button>
-          <vxe-button status="info" icon="fa fa-info">信息图标颜色</vxe-button>
-          <vxe-button status="warning" icon="fa fa-warning">警告图标颜色</vxe-button>
-          <vxe-button status="danger" icon="fa fa-trash-o">危险图标颜色</vxe-button>
-        </p>
-
-        <p>
-          <vxe-button icon="fa fa-download">默认图标颜色</vxe-button>
-          <vxe-button icon="fa fa-save my-primary">主要图标颜色</vxe-button>
-          <vxe-button icon="fa fa-check my-success">成功图标颜色</vxe-button>
-          <vxe-button icon="fa fa-info my-info">信息图标颜色</vxe-button>
-          <vxe-button icon="fa fa-warning my-warning">警告图标颜色</vxe-button>
-          <vxe-button icon="fa fa-trash-o my-danger">危险图标颜色</vxe-button>
-        </p>
-
-        <p>
-          <vxe-button type="text" icon="fa fa-plus">使用第三方图标</vxe-button>
-          <vxe-button type="text" status="primary" icon="fa fa-save">主要图标颜色</vxe-button>
-          <vxe-button type="text" status="success" icon="fa fa-check">成功图标颜色</vxe-button>
-          <vxe-button type="text" status="info" icon="fa fa-info">信息图标颜色</vxe-button>
-          <vxe-button type="text" status="warning" icon="fa fa-warning">警告图标颜色</vxe-button>
-          <vxe-button type="text" status="danger" icon="fa fa-trash-o">危险图标颜色</vxe-button>
-        </p>
-
-        <p>
-          <vxe-button type="text" icon="fa fa-plus"></vxe-button>
-          <vxe-button type="text" icon="fa fa-refresh"></vxe-button>
-          <vxe-button status="primary" icon="fa fa-download">图标按钮</vxe-button>
-          <vxe-button status="my-purple" icon="fa fa-save">自定义按钮颜色</vxe-button>
-          <vxe-button icon="fa fa-graduation-cap my-green">自定义图标颜色</vxe-button>
-          <vxe-button> <i class="my-icn"></i> 自定义图标</vxe-button>
-        </p>
-
-        .vxe-button.type--button.theme--my-purple,
-        .vxe-button.type--button.theme--my-purple:hover {
-          color: #fff;
-        }
-        .vxe-button.type--button.theme--my-purple {
-          background-color: #800080;
-        }
-        .vxe-button.type--button.theme--my-purple:active {
-          background-color: #a50aa5;
-        }
-        .my-green {
-          color: #008000;
-        }
-        .my-primary {
-          color: #3196ff;
-        }
-        .my-success {
-          color: #67c23a;
-        }
-        .my-info {
-          color: #909399;
-        }
-        .my-warning {
-          color: #e6a23c;
-        }
-        .my-danger {
-          color: #f56c6c;
-        }
-        .my-icn{
-          width: 20px;
-          height: 20px;
-          display: inline-block;
-          vertical-align: sub;
-          background: #333;
-        }
         `
       ]
     }
   }
 }
 </script>
-
-<style>
-.vxe-button.type--button.theme--my-purple,
-.vxe-button.type--button.theme--my-purple:hover {
-  color: #fff;
-}
-.vxe-button.type--button.theme--my-purple {
-  background-color: #800080;
-}
-.vxe-button.type--button.theme--my-purple:active {
-  background-color: #a50aa5;
-}
-.vxe-button.type--text.theme--my-purple {
-  color: #800080;
-}
-.vxe-button.type--text.theme--my-purple:not(.is--disabled):hover {
-  color: #a50aa5;
-}
-.my-green {
-  color: #008000;
-}
-.my-primary {
-  color: #3196ff;
-}
-.my-success {
-  color: #67c23a;
-}
-.my-info {
-  color: #909399;
-}
-.my-warning {
-  color: #e6a23c;
-}
-.my-danger {
-  color: #f56c6c;
-}
-.my-icn{
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: sub;
-  background: #333;
-}
-</style>

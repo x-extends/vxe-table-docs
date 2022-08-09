@@ -1,14 +1,14 @@
 <template>
   <div>
     <p class="tip">
-      设置 <table-api-link prop="keep-source"/> 开启保持原始值状态和 <table-api-link prop="edit-config"/>={showStatus, showUpdateStatus, showInsertStatus} 开启编辑状态显示功能，还可以通过 icon 自定义编辑状态的图标，例如第三方图标库：font-awesome、inconfont<br>
+      设置 <table-api-link prop="keep-source"/> 开启保持原始值状态和 <table-api-link prop="edit-config"/>={showStatus, showUpdateStatus, showInsertStatus} 开启编辑状态显示功能，还可以通过 icon 自定义编辑状态的图标<br>
       对于某些需要局部保存的场景，可以在数据保存完成后调用 <table-api-link prop="reloadRow"/> 方法加载行数据并恢复到初始状态<br>
       <span class="red">（注：开启 showStatus 后如果使用自定义渲染需要配合 <table-api-link prop="updateStatus"/> 方法使用，在对应单元格的值发生改变时调用更新状态）</span>
     </p>
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button icon="fa fa-plus" @click="insertEvent">新增</vxe-button>
+        <vxe-button @click="insertEvent">新增</vxe-button>
         <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
         <vxe-button @click="getInsertEvent">获取新增</vxe-button>
         <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
@@ -24,7 +24,7 @@
       ref="xTable"
       :loading="loading"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil-square-o'}">
+      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
@@ -80,7 +80,7 @@ export default defineComponent({
       { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04' }
     ])
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const formatDate: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
       return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
@@ -88,24 +88,28 @@ export default defineComponent({
 
     const insertEvent = async () => {
       const $table = xTable.value
-      const record = {}
-      const { row: newRow } = await $table.insert(record)
-      await $table.setActiveCell(newRow, 'name')
+      if ($table) {
+        const record = {}
+        const { row: newRow } = await $table.insert(record)
+        await $table.setEditCell(newRow, 'name')
+      }
     }
 
     const saveUpdateEvent = (row: any) => {
       const $table = xTable.value
-      if ($table.isUpdateByRow(row)) {
-        row.loading = true
-        // 模拟异步
-        setTimeout(() => {
-          row.loading = false
-          // 保存完成后将行恢复到初始状态
-          $table.reloadRow(row, {})
-          VXETable.modal.message({ content: '保存成功！', status: 'success' })
-        }, 300)
-      } else {
-        VXETable.modal.message({ content: '数据未改动！', status: 'info' })
+      if ($table) {
+        if ($table.isUpdateByRow(row)) {
+          row.loading = true
+          // 模拟异步
+          setTimeout(() => {
+            row.loading = false
+            // 保存完成后将行恢复到初始状态
+            $table.reloadRow(row, {})
+            VXETable.modal.message({ content: '保存成功！', status: 'success' })
+          }, 300)
+        } else {
+          VXETable.modal.message({ content: '数据未改动！', status: 'info' })
+        }
       }
     }
 
@@ -126,20 +130,26 @@ export default defineComponent({
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(`新增：${insertRecords.length}`)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(`新增：${insertRecords.length}`)
+      }
     }
 
     const getRemoveEvent = () => {
       const $table = xTable.value
-      const removeRecords = $table.getRemoveRecords()
-      VXETable.modal.alert(`删除：${removeRecords.length}`)
+      if ($table) {
+        const removeRecords = $table.getRemoveRecords()
+        VXETable.modal.alert(`删除：${removeRecords.length}`)
+      }
     }
 
     const getUpdateEvent = () => {
       const $table = xTable.value
-      const updateRecords = $table.getUpdateRecords()
-      VXETable.modal.alert(`更新：${updateRecords.length}`)
+      if ($table) {
+        const updateRecords = $table.getUpdateRecords()
+        VXETable.modal.alert(`更新：${updateRecords.length}`)
+      }
     }
 
     return {
@@ -157,7 +167,7 @@ export default defineComponent({
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button icon="fa fa-plus" @click="insertEvent">新增</vxe-button>
+            <vxe-button @click="insertEvent">新增</vxe-button>
             <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
             <vxe-button @click="getInsertEvent">获取新增</vxe-button>
             <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
@@ -173,7 +183,7 @@ export default defineComponent({
           ref="xTable"
           :loading="loading"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil-square-o'}">
+          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
@@ -220,7 +230,7 @@ export default defineComponent({
               { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04' }
             ])
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const formatDate: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
               return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
@@ -230,7 +240,7 @@ export default defineComponent({
               const $table = xTable.value
               const record = {}
               const { row: newRow } = await $table.insert(record)
-              await $table.setActiveCell(newRow, 'name')
+              await $table.setEditCell(newRow, 'name')
             }
 
             const saveUpdateEvent = (row: any) => {

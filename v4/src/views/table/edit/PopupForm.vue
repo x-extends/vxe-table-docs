@@ -155,7 +155,7 @@ export default defineComponent({
       } as VxeFormPropTypes.Rules
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const formatterSex: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
       const item = demo1.sexList.find(item => item.value === cellValue)
@@ -208,7 +208,9 @@ export default defineComponent({
       const type = await VXETable.modal.confirm('您确定要删除该数据?')
       if (type === 'confirm') {
         const $table = xTable.value
-        $table.remove(row)
+        if ($table) {
+          $table.remove(row)
+        }
       }
     }
 
@@ -216,14 +218,16 @@ export default defineComponent({
       demo1.submitLoading = true
       setTimeout(() => {
         const $table = xTable.value
-        demo1.submitLoading = false
-        demo1.showEdit = false
-        if (demo1.selectRow) {
-          VXETable.modal.message({ content: '保存成功', status: 'success' })
-          Object.assign(demo1.selectRow, demo1.formData)
-        } else {
-          VXETable.modal.message({ content: '新增成功', status: 'success' })
-          $table.insert(demo1.formData)
+        if ($table) {
+          demo1.submitLoading = false
+          demo1.showEdit = false
+          if (demo1.selectRow) {
+            VXETable.modal.message({ content: '保存成功', status: 'success' })
+            Object.assign(demo1.selectRow, demo1.formData)
+          } else {
+            VXETable.modal.message({ content: '新增成功', status: 'success' })
+            $table.insert(demo1.formData)
+          }
         }
       }, 500)
     }
@@ -396,7 +400,7 @@ export default defineComponent({
               } as VxeFormPropTypes.Rules
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const formatterSex: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
               const item = demo1.sexList.find(item => item.value === cellValue)

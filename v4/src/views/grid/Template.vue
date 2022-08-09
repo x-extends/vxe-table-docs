@@ -68,7 +68,6 @@
       <!--使用 top 插槽-->
       <template #top>
         <div class="alert-message">
-          <i class="fa fa-exclamation-circle alert-message-icon"></i>
           <span class="alert-message-content">
             <div>自定义模板</div>
           </span>
@@ -136,7 +135,6 @@
       <!--使用 bottom 插槽-->
       <template #bottom>
         <div class="alert-message">
-          <i class="fa fa-exclamation-circle alert-message-icon"></i>
           <span class="alert-message-content">
             <div>自定义模板</div>
           </span>
@@ -202,7 +200,7 @@ import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const addressClickEvent = (row: any) => {
       VXETable.modal.alert(`address点击事件：${row.address}`)
@@ -245,8 +243,7 @@ export default defineComponent({
       },
       editConfig: {
         trigger: 'click',
-        mode: 'cell',
-        icon: 'fa fa-pencil-square-o'
+        mode: 'cell'
       },
       data: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', num1: '222', sex: 'Man', age: 28, address: 'Shenzhen', img1: 'https://5b0988e595225.cdn.sohucs.com/images/20181014/dce7cdaa130440e8b609fad083877ef3.gif' },
@@ -304,8 +301,8 @@ export default defineComponent({
           columns.map((column, index) => {
             if (index === 0) {
               return '平均'
-            } else if (['num1', 'age'].includes(column.property)) {
-              return meanNum(data, column.property)
+            } else if (['num1', 'age'].includes(column.field)) {
+              return meanNum(data, column.field)
             }
             return null
           })
@@ -332,15 +329,19 @@ export default defineComponent({
 
     const checkboxChangeEvent = () => {
       const $grid = xGrid.value
-      demo1.isAllChecked = $grid.isAllCheckboxChecked()
-      demo1.isIndeterminate = $grid.isAllCheckboxIndeterminate()
-      demo1.selectRecords = $grid.getCheckboxRecords()
+      if ($grid) {
+        demo1.isAllChecked = $grid.isAllCheckboxChecked()
+        demo1.isIndeterminate = $grid.isAllCheckboxIndeterminate()
+        demo1.selectRecords = $grid.getCheckboxRecords()
+      }
     }
 
     const changeAllEvent = () => {
       const $grid = xGrid.value
-      $grid.setAllCheckboxRow(demo1.isAllChecked)
-      demo1.selectRecords = $grid.getCheckboxRecords()
+      if ($grid) {
+        $grid.setAllCheckboxRow(demo1.isAllChecked)
+        demo1.selectRecords = $grid.getCheckboxRecords()
+      }
     }
 
     return {
@@ -414,7 +415,6 @@ export default defineComponent({
           <!--使用 top 插槽-->
           <template #top>
             <div class="alert-message">
-              <i class="fa fa-exclamation-circle alert-message-icon"></i>
               <span class="alert-message-content">
                 <div>自定义模板</div>
               </span>
@@ -482,7 +482,6 @@ export default defineComponent({
           <!--使用 bottom 插槽-->
           <template #bottom>
             <div class="alert-message">
-              <i class="fa fa-exclamation-circle alert-message-icon"></i>
               <span class="alert-message-content">
                 <div>自定义模板</div>
               </span>
@@ -538,7 +537,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const addressClickEvent = (row: any) => {
               VXETable.modal.alert(\`address点击事件：\${row.address}\`)
@@ -581,8 +580,7 @@ export default defineComponent({
               },
               editConfig: {
                 trigger: 'click',
-                mode: 'cell',
-                icon: 'fa fa-pencil-square-o'
+                mode: 'cell'
               },
               data: [
                 { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', num1: '222', sex: 'Man', age: 28, address: 'Shenzhen', img1: 'https://5b0988e595225.cdn.sohucs.com/images/20181014/dce7cdaa130440e8b609fad083877ef3.gif' },
@@ -640,8 +638,8 @@ export default defineComponent({
                   columns.map((column, index) => {
                     if (index === 0) {
                       return '平均'
-                    } else if (['num1', 'age'].includes(column.property)) {
-                      return meanNum(data, column.property)
+                    } else if (['num1', 'age'].includes(column.field)) {
+                      return meanNum(data, column.field)
                     }
                     return null
                   })

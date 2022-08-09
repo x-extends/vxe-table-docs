@@ -50,16 +50,20 @@ export default defineComponent({
     const store = useStore()
     const serveApiUrl = computed(() => store.state.serveApiUrl)
 
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const searchEvent = () => {
       const $grid = xGrid.value
-      $grid.commitProxy('query')
+      if ($grid) {
+        $grid.commitProxy('query')
+      }
     }
 
     const resetEvent = () => {
       const $grid = xGrid.value
-      $grid.commitProxy('reload')
+      if ($grid) {
+        $grid.commitProxy('reload')
+      }
     }
 
     const formData = reactive({
@@ -129,12 +133,12 @@ export default defineComponent({
             // 处理排序条件
             const firstSort = sorts[0]
             if (firstSort) {
-              queryParams.sort = firstSort.property
+              queryParams.sort = firstSort.field
               queryParams.order = firstSort.order
             }
             // 处理筛选条件
-            filters.forEach(({ property, values }) => {
-              queryParams[property] = values.join(',')
+            filters.forEach(({ field, values }) => {
+              queryParams[field] = values.join(',')
             })
             return fetch(`${serveApiUrl.value}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
           },
@@ -248,7 +252,7 @@ export default defineComponent({
             const store = useStore()
             const serveApiUrl = computed(() => store.state.serveApiUrl)
     
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const searchEvent = () => {
               const $grid = xGrid.value
@@ -322,12 +326,12 @@ export default defineComponent({
                     // 处理排序条件
                     const firstSort = sorts[0]
                     if (firstSort) {
-                      queryParams.sort = firstSort.property
+                      queryParams.sort = firstSort.field
                       queryParams.order = firstSort.order
                     }
                     // 处理筛选条件
-                    filters.forEach(({ property, values }) => {
-                      queryParams[property] = values.join(',')
+                    filters.forEach(({ field, values }) => {
+                      queryParams[field] = values.join(',')
                     })
                     return fetch(\`\${serveApiUrl.value}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}?\${XEUtils.serialize(queryParams)}\`).then(response => response.json())
                   },

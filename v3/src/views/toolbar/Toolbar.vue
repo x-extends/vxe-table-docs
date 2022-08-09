@@ -94,8 +94,8 @@
               </vxe-button>
             </template>
             <template #tools>
-              <vxe-button type="text" icon="vxe-icon--question" class="tool-btn"></vxe-button>
-              <vxe-button type="text" icon="vxe-icon--funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-question-circle-fill" class="tool-btn"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
             </template>
           </vxe-toolbar>
 
@@ -217,8 +217,8 @@ export default {
               </vxe-button>
             </template>
             <template #tools>
-              <vxe-button type="text" icon="vxe-icon--question" class="tool-btn"></vxe-button>
-              <vxe-button type="text" icon="vxe-icon--funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-question-circle-fill" class="tool-btn"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
             </template>
           </vxe-toolbar>
 

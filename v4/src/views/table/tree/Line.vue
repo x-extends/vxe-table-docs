@@ -32,7 +32,7 @@
       size="medium"
       :row-config="{isCurrent: true, isHover: true, useKey: true}"
       :column-config="{resizable: true}"
-      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon--caret-right rotate45', iconClose: 'vxe-icon--caret-right'}"
+      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-caret-right rotate45', iconClose: 'vxe-icon-caret-right'}"
       :checkbox-config="{labelField: 'name'}"
       :data="demo2.tableData"
       :scroll-y="{enabled: false}">
@@ -269,7 +269,7 @@ export default defineComponent({
           size="medium"
           :row-config="{isCurrent: true, isHover: true, useKey: true}"
           :column-config="{resizable: true}"
-          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon--caret-right rotate45', iconClose: 'vxe-icon--caret-right'}"
+          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-caret-right rotate45', iconClose: 'vxe-icon-caret-right'}"
           :checkbox-config="{labelField: 'name'}"
           :data="demo2.tableData"
           :scroll-y="{enabled: false}">

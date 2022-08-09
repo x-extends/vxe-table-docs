@@ -92,7 +92,7 @@ export default defineComponent({
       loading: false
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const mockList = (size: number) => {
       const list: any[] = []
@@ -129,30 +129,38 @@ export default defineComponent({
 
     const insertEvent = (row: any) => {
       const $table = xTable.value
-      const record = {
-        checked: false
+      if ($table) {
+        const record = {
+          checked: false
+        }
+        $table.insertAt(record, row).then(({ row }) => {
+          $table.setEditRow(row)
+        })
       }
-      $table.insertAt(record, row).then(({ row }) => {
-        $table.setActiveRow(row)
-      })
     }
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(insertRecords.length)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(insertRecords.length)
+      }
     }
 
     const getRemoveEvent = () => {
       const $table = xTable.value
-      const removeRecords = $table.getRemoveRecords()
-      VXETable.modal.alert(removeRecords.length)
+      if ($table) {
+        const removeRecords = $table.getRemoveRecords()
+        VXETable.modal.alert(removeRecords.length)
+      }
     }
 
     const getUpdateEvent = () => {
       const $table = xTable.value
-      const updateRecords = $table.getUpdateRecords()
-      VXETable.modal.alert(updateRecords.length)
+      if ($table) {
+        const updateRecords = $table.getUpdateRecords()
+        VXETable.modal.alert(updateRecords.length)
+      }
     }
 
     findList()
@@ -248,7 +256,7 @@ export default defineComponent({
               loading: false
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const mockList = (size: number) => {
               const list: any[] = []
@@ -289,7 +297,7 @@ export default defineComponent({
                 checked: false
               }
               $table.insertAt(record, row).then(({ row }) => {
-                $table.setActiveRow(row)
+                $table.setEditRow(row)
               })
             }
 

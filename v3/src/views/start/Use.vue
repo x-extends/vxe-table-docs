@@ -40,8 +40,7 @@
           // Export,
           // Keyboard,
           // Validator,
-          Header,
-          // Footer,
+          Footer,
 
           // 可选组件
           Column,
@@ -80,8 +79,7 @@
         })
 
         // 表格功能
-        Vue.use(Header)
-        // .use(Footer)
+        Vue.use(Footer)
         // .use(Icon)
         // .use(Filter)
         // .use(Edit)

@@ -63,7 +63,7 @@ export default defineComponent({
       })
     }
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       loading: false
@@ -139,7 +139,7 @@ export default defineComponent({
               })
             }
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               loading: false

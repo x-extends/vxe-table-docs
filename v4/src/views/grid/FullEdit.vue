@@ -30,7 +30,7 @@ export default defineComponent({
     const store = useStore()
     const serveApiUrl = computed(() => store.state.serveApiUrl)
 
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const gridOptions = reactive<VxeGridProps>({
       border: true,
@@ -49,7 +49,7 @@ export default defineComponent({
       customConfig: {
         storage: true,
         checkMethod ({ column }) {
-          if (['nickname', 'role'].includes(column.property)) {
+          if (['nickname', 'role'].includes(column.field)) {
             return false
           }
           return true
@@ -79,21 +79,21 @@ export default defineComponent({
         titleWidth: 100,
         titleAlign: 'right',
         items: [
-          { field: 'name', title: 'app.body.label.name', span: 8, titlePrefix: { message: 'app.body.valid.rName', icon: 'fa fa-exclamation-circle' }, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-          { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon--question' }, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
+          { field: 'name', title: 'app.body.label.name', span: 8, titlePrefix: { message: 'app.body.valid.rName', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
+          { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
           { field: 'nickname', title: '昵称', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入昵称' } } },
           { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: '$input', props: { placeholder: '请输入角色' } } },
-          { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'fa fa-info-circle' }, itemRender: { name: '$select', options: [] } },
+          { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$select', options: [] } },
           { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: '$input', props: { type: 'number', min: 1, max: 120, placeholder: '请输入年龄' } } },
           { span: 24, align: 'center', collapseNode: true, itemRender: { name: '$buttons', children: [{ props: { type: 'submit', content: 'app.body.label.search', status: 'primary' } }, { props: { type: 'reset', content: 'app.body.label.reset' } }] } }
         ]
       },
       toolbarConfig: {
         buttons: [
-          { code: 'insert_actived', name: '新增', icon: 'fa fa-plus' },
-          { code: 'delete', name: '直接删除', icon: 'fa fa-trash-o' },
-          { code: 'mark_cancel', name: '删除/取消', icon: 'fa fa-trash-o' },
-          { code: 'save', name: 'app.body.button.save', icon: 'fa fa-save', status: 'success' }
+          { code: 'insert_actived', name: '新增' },
+          { code: 'delete', name: '直接删除' },
+          { code: 'mark_cancel', name: '删除/取消' },
+          { code: 'save', name: 'app.body.button.save', status: 'success' }
         ],
         refresh: true,
         import: true,
@@ -120,12 +120,12 @@ export default defineComponent({
             // 处理排序条件
             const firstSort = sorts[0]
             if (firstSort) {
-              queryParams.sort = firstSort.property
+              queryParams.sort = firstSort.field
               queryParams.order = firstSort.order
             }
             // 处理筛选条件
-            filters.forEach(({ property, values }) => {
-              queryParams[property] = values.join(',')
+            filters.forEach(({ field, values }) => {
+              queryParams[field] = values.join(',')
             })
             return fetch(`${serveApiUrl.value}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
           },
@@ -141,12 +141,12 @@ export default defineComponent({
       },
       columns: [
         { type: 'checkbox', title: 'ID', width: 120 },
-        { field: 'name', title: 'Name', sortable: true, titleHelp: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
+        { field: 'name', title: 'Name', sortable: true, titlePrefix: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
         {
           field: 'role',
           title: 'Role',
           sortable: true,
-          titleHelp: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
+          titlePrefix: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
           filters: [
             { label: '前端开发', value: '前端' },
             { label: '后端开发', value: '后端' },
@@ -210,7 +210,9 @@ export default defineComponent({
           return fetch(`${serveApiUrl.value}/api/pub/import`, { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
             VXETable.modal.message({ content: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
             // 导入完成，刷新表格
-            $grid.commitProxy('query')
+            if ($grid) {
+              $grid.commitProxy('query')
+            }
           }).catch(() => {
             VXETable.modal.message({ content: '导入失败，请检查数据是否正确！', status: 'error' })
           })
@@ -223,38 +225,41 @@ export default defineComponent({
         // 自定义服务端导出
         exportMethod ({ options }) {
           const $grid = xGrid.value
-          const proxyInfo = $grid.getProxyInfo()
-          // 传给服务端的参数
-          const body = {
-            filename: options.filename,
-            sheetName: options.sheetName,
-            isHeader: options.isHeader,
-            original: options.original,
-            mode: options.mode,
-            pager: proxyInfo ? proxyInfo.pager : null,
-            ids: options.mode === 'selected' ? options.data.map((item) => item.id) : [],
-            fields: options.columns.map((column) => {
-              return {
-                field: column.property,
-                title: column.title
-              }
-            })
-          }
-          // 开始服务端导出
-          return fetch(`${serveApiUrl.value}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
-            if (data.id) {
-              VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
-              // 读取路径，请求文件
-              fetch(`${serveApiUrl.value}/api/pub/export/download/${data.id}`).then(response => {
-                response.blob().then(blob => {
-                  // 开始下载
-                  VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })
-                })
+          if ($grid) {
+            const proxyInfo = $grid.getProxyInfo()
+            // 传给服务端的参数
+            const body = {
+              filename: options.filename,
+              sheetName: options.sheetName,
+              isHeader: options.isHeader,
+              original: options.original,
+              mode: options.mode,
+              pager: proxyInfo ? proxyInfo.pager : null,
+              ids: options.mode === 'selected' ? options.data.map((item) => item.id) : [],
+              fields: options.columns.map((column) => {
+                return {
+                  field: column.field,
+                  title: column.title
+                }
               })
             }
-          }).catch(() => {
-            VXETable.modal.message({ content: '导出失败！', status: 'error' })
-          })
+            // 开始服务端导出
+            return fetch(`${serveApiUrl.value}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
+              if (data.id) {
+                VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
+                // 读取路径，请求文件
+                fetch(`${serveApiUrl.value}/api/pub/export/download/${data.id}`).then(response => {
+                  response.blob().then(blob => {
+                    // 开始下载
+                    VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })
+                  })
+                })
+              }
+            }).catch(() => {
+              VXETable.modal.message({ content: '导出失败！', status: 'error' })
+            })
+          }
+          return Promise.resolve()
         }
       },
       checkboxConfig: {
@@ -320,7 +325,7 @@ export default defineComponent({
           const store = useStore()
           const serveApiUrl = computed(() => store.state.serveApiUrl)
 
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const gridOptions = reactive<VxeGridProps>({
               border: true,
@@ -339,7 +344,7 @@ export default defineComponent({
               customConfig: {
                 storage: true,
                 checkMethod ({ column }) {
-                  if (['nickname', 'role'].includes(column.property)) {
+                  if (['nickname', 'role'].includes(column.field)) {
                     return false
                   }
                   return true
@@ -369,21 +374,21 @@ export default defineComponent({
                 titleWidth: 100,
                 titleAlign: 'right',
                 items: [
-                  { field: 'name', title: 'app.body.label.name', span: 8, titlePrefix: { message: 'app.body.valid.rName', icon: 'fa fa-exclamation-circle' }, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-                  { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon--question' }, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
+                  { field: 'name', title: 'app.body.label.name', span: 8, titlePrefix: { message: 'app.body.valid.rName', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
+                  { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
                   { field: 'nickname', title: '昵称', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入昵称' } } },
                   { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: '$input', props: { placeholder: '请输入角色' } } },
-                  { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'fa fa-info-circle' }, itemRender: { name: '$select', options: [] } },
+                  { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$select', options: [] } },
                   { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: '$input', props: { type: 'number', min: 1, max: 120, placeholder: '请输入年龄' } } },
                   { span: 24, align: 'center', collapseNode: true, itemRender: { name: '$buttons', children: [{ props: { type: 'submit', content: 'app.body.label.search', status: 'primary' } }, { props: { type: 'reset', content: 'app.body.label.reset' } }] } }
                 ]
               },
               toolbarConfig: {
                 buttons: [
-                  { code: 'insert_actived', name: '新增', icon: 'fa fa-plus' },
-                  { code: 'delete', name: '直接删除', icon: 'fa fa-trash-o' },
-                  { code: 'mark_cancel', name: '删除/取消', icon: 'fa fa-trash-o' },
-                  { code: 'save', name: 'app.body.button.save', icon: 'fa fa-save', status: 'success' }
+                  { code: 'insert_actived', name: '新增' },
+                  { code: 'delete', name: '直接删除' },
+                  { code: 'mark_cancel', name: '删除/取消' },
+                  { code: 'save', name: 'app.body.button.save', status: 'success' }
                 ],
                 refresh: true,
                 import: true,
@@ -410,12 +415,12 @@ export default defineComponent({
                     // 处理排序条件
                     const firstSort = sorts[0]
                     if (firstSort) {
-                      queryParams.sort = firstSort.property
+                      queryParams.sort = firstSort.field
                       queryParams.order = firstSort.order
                     }
                     // 处理筛选条件
-                    filters.forEach(({ property, values }) => {
-                      queryParams[property] = values.join(',')
+                    filters.forEach(({ field, values }) => {
+                      queryParams[field] = values.join(',')
                     })
                     return fetch(\`\${serveApiUrl.value}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}?\${XEUtils.serialize(queryParams)}\`).then(response =>  response.json())
                   },
@@ -431,12 +436,12 @@ export default defineComponent({
                       },
               columns: [
                 { type: 'checkbox', title: 'ID', width: 120 },
-                { field: 'name', title: 'Name', sortable: true, titleHelp: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
+                { field: 'name', title: 'Name', sortable: true, titlePrefix: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
                 {
                   field: 'role',
                   title: 'Role',
                   sortable: true,
-                  titleHelp: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
+                  titlePrefix: { useHTML: true, content: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>' },
                   filters: [
                     { label: '前端开发', value: '前端' },
                     { label: '后端开发', value: '后端' },
@@ -525,7 +530,7 @@ export default defineComponent({
                     ids: options.mode === 'selected' ? options.data.map((item) => item.id) : [],
                     fields: options.columns.map((column) => {
                       return {
-                        field: column.property,
+                        field: column.field,
                         title: column.title
                       }
                     })

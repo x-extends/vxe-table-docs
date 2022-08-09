@@ -86,7 +86,7 @@ export default defineComponent({
       selectRow: null
     })
 
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const gridOptions = reactive({
       border: true,
@@ -262,7 +262,7 @@ export default defineComponent({
               selectRow: null
             })
 
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const gridOptions = reactive({
               border: true,

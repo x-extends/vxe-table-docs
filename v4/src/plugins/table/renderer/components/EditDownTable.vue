@@ -2,7 +2,7 @@
   <div class="edit-down-table">
     <vxe-pulldown class="edit-down-pulldown" ref="xDown" transfer>
       <template #default>
-        <vxe-input class="edit-down-input" v-model="demo1.row[demo1.column.property]" suffix-icon="fa fa-caret-down" @keyup="keyupEvent" @click="clickEvent" @suffix-click="suffixClick"></vxe-input>
+        <vxe-input class="edit-down-input" v-model="demo1.row[demo1.column.property]" @keyup="keyupEvent" @click="clickEvent" @suffix-click="suffixClick"></vxe-input>
       </template>
       <template #dropdown>
         <div class="edit-down-wrapper">

@@ -10,16 +10,16 @@
       <vxe-column type="checkbox" width="60">
         <template #header="{ checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="$refs.xTable.toggleAllCheckboxRow()">
-            <i v-if="indeterminate" class="fa fa-minus-square-o"></i>
-            <i v-else-if="checked" class="fa fa-check-square-o"></i>
-            <i v-else class="fa fa-square-o"></i>
+            <i v-if="indeterminate" class="vxe-icon-question-circle-fill"></i>
+            <i v-else-if="checked" class="vxe-icon-question-circle-fill"></i>
+            <i v-else class="vxe-icon-question-circle-fill"></i>
           </span>
         </template>
         <template #checkbox="{ row, checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="$refs.xTable.toggleCheckboxRow(row)">
-            <i v-if="indeterminate" class="fa fa-minus-square-o"></i>
-            <i v-else-if="checked" class="fa fa-check-square-o"></i>
-            <i v-else class="fa fa-square-o"></i>
+            <i v-if="indeterminate" class="vxe-icon-question-circle-fill"></i>
+            <i v-else-if="checked" class="vxe-icon-question-circle-fill"></i>
+            <i v-else class="vxe-icon-question-circle-fill"></i>
           </span>
         </template>
       </vxe-column>
@@ -45,7 +45,7 @@ import { VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
     const tableData = ref([
       { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 26, address: 'test abc' },
       { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 32, address: 'Shanghai' },
@@ -69,16 +69,16 @@ export default defineComponent({
           <vxe-column type="checkbox" width="60">
             <template #header="{ checked, indeterminate }">
               <span class="custom-checkbox" @click.stop="$refs.xTable.toggleAllCheckboxRow()">
-                <i v-if="indeterminate" class="fa fa-minus-square-o"></i>
-                <i v-else-if="checked" class="fa fa-check-square-o"></i>
-                <i v-else class="fa fa-square-o"></i>
+                <i v-if="indeterminate" class="vxe-icon-question-circle-fill"></i>
+                <i v-else-if="checked" class="vxe-icon-question-circle-fill"></i>
+                <i v-else class="vxe-icon-question-circle-fill"></i>
               </span>
             </template>
             <template #checkbox="{ row, checked, indeterminate }">
               <span class="custom-checkbox" @click.stop="$refs.xTable.toggleCheckboxRow(row)">
-                <i v-if="indeterminate" class="fa fa-minus-square-o"></i>
-                <i v-else-if="checked" class="fa fa-check-square-o"></i>
-                <i v-else class="fa fa-square-o"></i>
+                <i v-if="indeterminate" class="vxe-icon-question-circle-fill"></i>
+                <i v-else-if="checked" class="vxe-icon-question-circle-fill"></i>
+                <i v-else class="vxe-icon-question-circle-fill"></i>
               </span>
             </template>
           </vxe-column>
@@ -94,7 +94,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
             const tableData = ref([
               { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 26, address: 'test abc' },
               { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 32, address: 'Shanghai' },

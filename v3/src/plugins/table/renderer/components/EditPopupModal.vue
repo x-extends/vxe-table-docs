@@ -1,7 +1,7 @@
 <template>
   <div class="edit-popup-modal">
     <vxe-input class="edit-popup-input" v-model="row[column.property]" placeholder="请选择"></vxe-input>
-    <vxe-button class="edit-popup-button" icon="fa fa-list" type="text" @click="popupEvent"></vxe-button>
+    <vxe-button class="edit-popup-button" type="text" @click="popupEvent"></vxe-button>
     <vxe-modal
       show-footer
       class-name="vxe-table--ignore-clear edit-popup-box"

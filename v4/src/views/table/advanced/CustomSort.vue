@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="tip">自定义列头排序的实现，你可以把表格封装成子组件进行定制，通过 <table-column-api-link prop="slot"/> 就可以实现自定义排序，通过设置 <table-column-api-link prop="showIcon"/> 可以去掉内置排序图标，例如第三方图标库：font-awesome、inconfont<br><span class="red">（具体请自行实现，该示例仅供参考）</span></p>
+    <p class="tip">自定义列头排序的实现，你可以把表格封装成子组件进行定制，通过 <table-column-api-link prop="slot"/> 就可以实现自定义排序，通过设置 <table-column-api-link prop="showIcon"/> 可以去掉内置排序图标<br><span class="red">（具体请自行实现，该示例仅供参考）</span></p>
 
     <vxe-table
       border
@@ -68,18 +68,20 @@ export default defineComponent({
       { id: 10008, name: 'Test8', role: 'Develop', sex: '1', age: 35, amount: 999, address: 'test abc' }
     ])
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const headerCellClickEvent: VxeTableEvents.HeaderCellClick = ({ column, triggerResizable, triggerSort, triggerFilter }) => {
       const $table = xTable.value
-      // 如果触发了列的其他功能按钮
-      if (column.sortable && !(triggerResizable || triggerSort || triggerFilter)) {
-        if (column.order === 'desc') {
-          $table.clearSort()
-        } else if (column.order === 'asc') {
-          $table.sort(column.property, 'desc')
-        } else {
-          $table.sort(column.property, 'asc')
+      if ($table) {
+        // 如果触发了列的其他功能按钮
+        if (column.sortable && !(triggerResizable || triggerSort || triggerFilter)) {
+          if (column.order === 'desc') {
+            $table.clearSort()
+          } else if (column.order === 'asc') {
+            $table.sort(column.field, 'desc')
+          } else {
+            $table.sort(column.field, 'asc')
+          }
         }
       }
     }
@@ -156,7 +158,7 @@ export default defineComponent({
               { id: 10008, name: 'Test8', role: 'Develop', sex: '1', age: 35, amount: 999, address: 'test abc' }
             ])
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const headerCellClickEvent: VxeTableEvents.HeaderCellClick = ({ column, triggerResizable, triggerSort, triggerFilter }) => {
               const $table = xTable.value
@@ -165,9 +167,9 @@ export default defineComponent({
                 if (column.order === 'desc') {
                   $table.clearSort()
                 } else if (column.order === 'asc') {
-                  $table.sort(column.property, 'desc')
+                  $table.sort(column.field, 'desc')
                 } else {
-                  $table.sort(column.property, 'asc')
+                  $table.sort(column.field, 'asc')
                 }
               }
             }

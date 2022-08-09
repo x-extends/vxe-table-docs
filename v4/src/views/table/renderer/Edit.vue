@@ -62,14 +62,14 @@ export default defineComponent({
           renderEdit (renderOpts, params) {
             let { row, column } = params
             return [
-              <input class="my-cell" text="text" v-model={ row[column.property] } />
+              <input class="my-cell" text="text" v-model={ row[column.field] } />
             ]
           },
           // 可编辑显示模板
           renderCell (renderOpts, params) {
             let { row, column } = params
             return [
-              <span>{ row[column.property] }</span>
+              <span>{ row[column.field] }</span>
             ]
           },
           // 导出模板，例如导出插槽中自定义的内容

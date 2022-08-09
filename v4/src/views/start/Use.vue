@@ -34,8 +34,7 @@
           VXETable,
 
           // 表格功能
-          Header,
-          // Footer,
+          Footer,
           // Icon,
           // Filter,
           // Edit,
@@ -82,8 +81,7 @@
 
         function useTable (app: App) {
           // 表格功能
-          app.use(Header)
-          // .use(Footer)
+          app.use(Footer)
           // .use(Icon)
           // .use(Filter)
           // .use(Edit)

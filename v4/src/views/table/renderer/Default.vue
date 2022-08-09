@@ -3,6 +3,7 @@
     <p class="tip">
       默认的渲染 <table-column-api-link prop="cell-render"/>，查看 <a class="link" href="https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/plugins/table/renderer" target="_blank">示例的源码</a><span class="red">（具体请自行实现，该示例仅供参考）</span><br>
       配置参数：<br>
+      cellClassName: string | (params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) => string 单元格单项className<br>
       renderHeader (renderOpts, params: { column, columnIndex, columnIndex, $rowIndex, $table }) 表头单元格显示内容<br>
       renderDefault (renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) 单元格默认显示内容<br>
       renderFooter (renderOpts, params: { column, columnIndex, $columnIndex, $rowIndex, _columnIndex, items, $table }) 表尾单元格显示内容<br>
@@ -63,7 +64,7 @@ export default defineComponent({
             let { row, column } = params
             let { events } = renderOpts
             return [
-              <a class="my-link" onClick={ () => events.click(params) }>{row[column.property]}</a>
+              <a class="my-link" onClick={ () => events.click(params) }>{row[column.field]}</a>
             ]
           },
           // 导出模板，例如导出插槽中自定义的内容

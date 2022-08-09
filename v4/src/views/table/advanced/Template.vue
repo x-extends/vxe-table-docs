@@ -194,7 +194,7 @@ export default defineComponent({
       }
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const formatDate = (value: any) => {
       return XEUtils.toDateString(value, 'yyyy-MM-dd HH:mm:ss.S')
@@ -219,15 +219,19 @@ export default defineComponent({
 
     const checkboxChangeEvent = () => {
       const $table = xTable.value
-      demo1.isAllChecked = $table.isAllCheckboxChecked()
-      demo1.isIndeterminate = $table.isAllCheckboxIndeterminate()
-      demo1.selectRecords = $table.getCheckboxRecords()
+      if ($table) {
+        demo1.isAllChecked = $table.isAllCheckboxChecked()
+        demo1.isIndeterminate = $table.isAllCheckboxIndeterminate()
+        demo1.selectRecords = $table.getCheckboxRecords()
+      }
     }
 
     const changeAllEvent = () => {
       const $table = xTable.value
-      $table.setAllCheckboxRow(demo1.isAllChecked)
-      demo1.selectRecords = $table.getCheckboxRecords()
+      if ($table) {
+        $table.setAllCheckboxRow(demo1.isAllChecked)
+        demo1.selectRecords = $table.getCheckboxRecords()
+      }
     }
 
     const sumNum = (list: any[], field: string) => {
@@ -241,8 +245,8 @@ export default defineComponent({
     const footerMethod: VxeTablePropTypes.FooterMethod = ({ columns, data }) => {
       return [
         columns.map(column => {
-          if (['sex', 'num'].includes(column.property)) {
-            return sumNum(data, column.property)
+          if (['sex', 'num'].includes(column.field)) {
+            return sumNum(data, column.field)
           }
           return null
         })
@@ -438,7 +442,7 @@ export default defineComponent({
               }
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const formatDate = (value: any) => {
               return XEUtils.toDateString(value, 'yyyy-MM-dd HH:mm:ss.S')
@@ -485,8 +489,8 @@ export default defineComponent({
             const footerMethod: VxeTablePropTypes.FooterMethod = ({ columns, data }) => {
               return [
                 columns.map(column => {
-                  if (['sex', 'num'].includes(column.property)) {
-                    return sumNum(data, column.property)
+                  if (['sex', 'num'].includes(column.field)) {
+                    return sumNum(data, column.field)
                   }
                   return null
                 })

@@ -7,10 +7,10 @@
 
     <vxe-toolbar perfect>
       <template #buttons>
-        <vxe-button icon="fa fa-plus" status="perfect" @click="insertEvent">新增</vxe-button>
-        <vxe-button icon="fa fa-trash-o" status="perfect" @click="removeEvent">移除</vxe-button>
-        <vxe-button icon="fa fa-save" status="perfect" @click="saveEvent">保存</vxe-button>
-        <vxe-button icon="fa fa-mail-reply" status="perfect" @click="revertEvent">还原</vxe-button>
+        <vxe-button status="perfect" @click="insertEvent">新增</vxe-button>
+        <vxe-button status="perfect" @click="removeEvent">移除</vxe-button>
+        <vxe-button status="perfect" @click="saveEvent">保存</vxe-button>
+        <vxe-button status="perfect" @click="revertEvent">还原</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -71,42 +71,50 @@ export default defineComponent({
       ]
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const insertEvent = async () => {
       const $table = xTable.value
-      const record = {
-        sex: '1'
+      if ($table) {
+        const record = {
+          sex: '1'
+        }
+        const { row: newRow } = await $table.insert(record)
+        $table.setEditCell(newRow, 'sex')
       }
-      const { row: newRow } = await $table.insert(record)
-      $table.setActiveCell(newRow, 'sex')
     }
 
     const removeEvent = async () => {
       const $table = xTable.value
-      const selectRecords = $table.getCheckboxRecords()
-      if (selectRecords.length) {
-        const type = await VXETable.modal.confirm('您确定要删除选中的数据吗?')
-        if (type === 'confirm') {
-          $table.removeCheckboxRow()
+      if ($table) {
+        const selectRecords = $table.getCheckboxRecords()
+        if (selectRecords.length) {
+          const type = await VXETable.modal.confirm('您确定要删除选中的数据吗?')
+          if (type === 'confirm') {
+            $table.removeCheckboxRow()
+          }
+        } else {
+          VXETable.modal.message({ content: '请至少选择一条数据', status: 'error' })
         }
-      } else {
-        VXETable.modal.message({ content: '请至少选择一条数据', status: 'error' })
       }
     }
 
     const revertEvent = async () => {
       const $table = xTable.value
-      const type = await VXETable.modal.confirm('您确定要还原数据吗?')
-      if (type === 'confirm') {
-        $table.revertData()
+      if ($table) {
+        const type = await VXETable.modal.confirm('您确定要还原数据吗?')
+        if (type === 'confirm') {
+          $table.revertData()
+        }
       }
     }
 
     const saveEvent = () => {
       const $table = xTable.value
-      const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      if ($table) {
+        const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
+        VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      }
     }
 
     return {
@@ -120,10 +128,10 @@ export default defineComponent({
         `
         <vxe-toolbar perfect>
           <template #buttons>
-            <vxe-button icon="fa fa-plus" status="perfect" @click="insertEvent">新增</vxe-button>
-            <vxe-button icon="fa fa-trash-o" status="perfect" @click="removeEvent">移除</vxe-button>
-            <vxe-button icon="fa fa-save" status="perfect" @click="saveEvent">保存</vxe-button>
-            <vxe-button icon="fa fa-mail-reply" status="perfect" @click="revertEvent">还原</vxe-button>
+            <vxe-button status="perfect" @click="insertEvent">新增</vxe-button>
+            <vxe-button status="perfect" @click="removeEvent">移除</vxe-button>
+            <vxe-button status="perfect" @click="saveEvent">保存</vxe-button>
+            <vxe-button status="perfect" @click="revertEvent">还原</vxe-button>
           </template>
         </vxe-toolbar>
 
@@ -175,7 +183,7 @@ export default defineComponent({
               ]
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const insertEvent = async () => {
               const $table = xTable.value
@@ -183,7 +191,7 @@ export default defineComponent({
                 sex: '1'
               }
               const { row: newRow } = await $table.insert(record)
-              $table.setActiveCell(newRow, 'sex')
+              $table.setEditCell(newRow, 'sex')
             }
 
             const removeEvent = async () => {

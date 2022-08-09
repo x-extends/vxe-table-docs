@@ -104,13 +104,13 @@ export default defineComponent({
       tableTooltipConfig: {
         contentMethod: ({ type, column, row, items, _columnIndex }) => {
           // 重写默认的提示内容
-          if (column.property === 'date') {
+          if (column.field === 'date') {
             if (type === 'header') {
               return '自定义标题提示内容：' + column.title
             } else if (type === 'footer') {
               return '自定义表尾提示内容：' + items[_columnIndex]
             }
-            return '自定义提示内容：' + row[column.property]
+            return '自定义提示内容：' + row[column.field]
           }
         },
         enterable: true
@@ -123,10 +123,10 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '合计'
           }
-          if (['date'].includes(column.property)) {
+          if (['date'].includes(column.field)) {
             return '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
           }
-          if (['rate'].includes(column.property)) {
+          if (['rate'].includes(column.field)) {
             return '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行'
           }
           return null
@@ -180,10 +180,10 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '合计'
                   }
-                  if (['date'].includes(column.property)) {
+                  if (['date'].includes(column.field)) {
                     return '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
                   }
-                  if (['rate'].includes(column.property)) {
+                  if (['rate'].includes(column.field)) {
                     return '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行'
                   }
                   return null
@@ -249,13 +249,13 @@ export default defineComponent({
               tableTooltipConfig: {
                 contentMethod: ({ type, column, row, items, _columnIndex }) => {
                   // 重写默认的提示内容
-                  if (column.property === 'date') {
+                  if (column.field === 'date') {
                     if (type === 'header') {
                       return '自定义标题提示内容：' + column.title
                     } else if (type === 'footer') {
                       return '自定义表尾提示内容：' + items[_columnIndex]
                     }
-                    return '自定义提示内容：' + row[column.property]
+                    return '自定义提示内容：' + row[column.field]
                   }
                 },
                 enterable: true
@@ -268,10 +268,10 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '合计'
                   }
-                  if (['date'].includes(column.property)) {
+                  if (['date'].includes(column.field)) {
                     return '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
                   }
-                  if (['rate'].includes(column.property)) {
+                  if (['rate'].includes(column.field)) {
                     return '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行'
                   }
                   return null

@@ -136,7 +136,7 @@ export default defineComponent({
       tableData: [] as any[]
     })
 
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const apiName = computed(() => {
       const $route = router.currentRoute.value
@@ -144,7 +144,7 @@ export default defineComponent({
     })
 
     const checkColumnMethod = ({ column }: any) => {
-      if (['name', 'desc'].includes(column.property)) {
+      if (['name', 'desc'].includes(column.field)) {
         return false
       }
       return true
@@ -152,12 +152,16 @@ export default defineComponent({
 
     const headerCellContextMenuEvent = ({ column }: any) => {
       const $grid = xGrid.value
-      $grid.setCurrentColumn(column)
+      if ($grid) {
+        $grid.setCurrentColumn(column)
+      }
     }
 
     const cellContextMenuEvent = ({ row }: any) => {
       const $grid = xGrid.value
-      $grid.setCurrentRow(row)
+      if ($grid) {
+        $grid.setCurrentRow(row)
+      }
     }
 
     const handleSearch = () => {
@@ -309,56 +313,58 @@ export default defineComponent({
 
     const contextMenuClickEvent = ({ menu, row, column }: any) => {
       const $grid = xGrid.value
-      switch (menu.code) {
-        case 'hideColumn':
-          $grid.hideColumn(column)
-          break
-        case 'showAllColumn':
-          $grid.resetColumn({ visible: true })
-          break
-        case 'resetColumn':
-          $grid.resetColumn(true)
-          break
-        case 'exportHTMLAPI':
-          $grid.exportData({
-            type: 'html',
-            data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
-            filename: `vxe-${apiName.value}_v${docsVersion.value}`
-          })
-          break
-        case 'exportXLSXAPI':
-          $grid.exportData({
-            type: 'xlsx',
-            data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
-            filename: `vxe-${apiName.value}_v${docsVersion.value}`
-          })
-          break
-        case 'copy':
-          if (row && column) {
-            if (XEClipboard.copy(row[column.property])) {
-              VXETable.modal.message({ content: i18n.global.t('app.body.msg.copyToClipboard'), status: 'success' })
+      if ($grid) {
+        switch (menu.code) {
+          case 'hideColumn':
+            $grid.hideColumn(column)
+            break
+          case 'showAllColumn':
+            $grid.resetColumn({ visible: true })
+            break
+          case 'resetColumn':
+            $grid.resetColumn(true)
+            break
+          case 'exportHTMLAPI':
+            $grid.exportData({
+              type: 'html',
+              data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
+              filename: `vxe-${apiName.value}_v${docsVersion.value}`
+            })
+            break
+          case 'exportXLSXAPI':
+            $grid.exportData({
+              type: 'xlsx',
+              data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
+              filename: `vxe-${apiName.value}_v${docsVersion.value}`
+            })
+            break
+          case 'copy':
+            if (row && column) {
+              if (XEClipboard.copy(row[column.field])) {
+                VXETable.modal.message({ content: i18n.global.t('app.body.msg.copyToClipboard'), status: 'success' })
+              }
             }
-          }
-          break
-        case 'resize':
-          apiData.filterName = ''
-          apiData.tableData = []
-          nextTick(() => {
-            $grid.clearAll()
-            loadList()
-          })
-          break
-        case 'exportAPI':
-          $grid.exportData({
-            filename: `vxe-${apiName.value}_v${docsVersion.value}.csv`
-          })
-          break
-        case 'allExpand':
-          $grid.setAllTreeExpand(true)
-          break
-        case 'allShrink':
-          $grid.clearTreeExpand()
-          break
+            break
+          case 'resize':
+            apiData.filterName = ''
+            apiData.tableData = []
+            nextTick(() => {
+              $grid.clearAll()
+              loadList()
+            })
+            break
+          case 'exportAPI':
+            $grid.exportData({
+              filename: `vxe-${apiName.value}_v${docsVersion.value}.csv`
+            })
+            break
+          case 'allExpand':
+            $grid.setAllTreeExpand(true)
+            break
+          case 'allShrink':
+            $grid.clearTreeExpand()
+            break
+        }
       }
     }
 
@@ -371,7 +377,7 @@ export default defineComponent({
           'api-pro': row.version === 'pro',
           'api-disabled': row.disabled,
           'api-abandoned': row.abandoned,
-          'disabled-line-through': (row.disabled) && column.property === 'name'
+          'disabled-line-through': (row.disabled) && column.field === 'name'
         }
       },
       rowConfig: {
@@ -401,19 +407,19 @@ export default defineComponent({
               { code: 'resetColumn', name: '重置个性化数据' }
             ],
             [
-              { code: 'exportXLSXAPI', name: '导出文档.xlsx', prefixIcon: 'fa fa-download' }
+              { code: 'exportXLSXAPI', name: '导出文档.xlsx' }
             ]
           ]
         },
         body: {
           options: [
             [
-              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'fa fa-copy' }
+              { code: 'copy', name: 'app.body.label.copy' }
             ],
             [
               { code: 'resize', name: '重新加载' },
-              { code: 'exportHTMLAPI', name: '导出文档.html', prefixIcon: 'fa fa-download' },
-              { code: 'exportXLSXAPI', name: '导出文档.xlsx', prefixIcon: 'fa fa-download' }
+              { code: 'exportHTMLAPI', name: '导出文档.html' },
+              { code: 'exportXLSXAPI', name: '导出文档.xlsx' }
             ],
             [
               { code: 'allExpand', name: '全部展开' },
@@ -464,7 +470,7 @@ export default defineComponent({
           type: 'html',
           treeNode: true,
           minWidth: 280,
-          titleHelp: {
+          titlePrefix: {
             message: '参数名称及使用，如果是在 CDN 环境中使用 kebab-case（短横线式），\n如果项目基于 vue-cli 脚手架可以使用 camelCase（驼峰式）'
           },
           filters: [
@@ -477,8 +483,8 @@ export default defineComponent({
         { field: 'desc', title: 'app.api.title.desc', type: 'html', minWidth: 300 },
         { field: 'type', title: 'app.api.title.type', type: 'html', minWidth: 140 },
         { field: 'enum', title: 'app.api.title.enum', type: 'html', minWidth: 150 },
-        { field: 'defVal', title: 'app.api.title.defVal', type: 'html', minWidth: 160, titleHelp: { message: '部分参数可支持全局设置，具体请查阅相关说明' } },
-        { field: 'version', title: 'app.api.title.version', type: 'html', width: 120, titleHelp: { message: '该文档与最新版本保持同步，如果遇到参数无效时，\n请检查当前使用的版本号是否支持该参数' }, slots: { default: 'default_version' } }
+        { field: 'defVal', title: 'app.api.title.defVal', type: 'html', minWidth: 160, titlePrefix: { message: '部分参数可支持全局设置，具体请查阅相关说明' } },
+        { field: 'version', title: 'app.api.title.version', type: 'html', width: 120, titlePrefix: { message: '该文档与最新版本保持同步，如果遇到参数无效时，\n请检查当前使用的版本号是否支持该参数' }, slots: { default: 'default_version' } }
       ],
       data: []
     })

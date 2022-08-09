@@ -35,7 +35,7 @@ import { VxeTableInstance, VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTree1 = ref({} as VxeTableInstance)
+    const xTree1 = ref<VxeTableInstance>()
     let key = 1
 
     const demo1 = reactive({
@@ -77,19 +77,21 @@ export default defineComponent({
         visibleMethod ({ row, type, options }) {
           const $table = xTree1.value
           const treeConfig = demo1.treeConfig
-          if (type === 'body') {
-            options.forEach(list => {
-              list.forEach(item => {
-                if (item.code === 'expand' || item.code === 'contract') {
-                  if (row && treeConfig.children && row[treeConfig.children] && row[treeConfig.children].length) {
-                    const isExpand = $table.isTreeExpandByRow(row)
-                    item.disabled = item.code === 'expand' ? isExpand : !isExpand
-                  } else {
-                    item.disabled = true
+          if ($table) {
+            if (type === 'body') {
+              options.forEach(list => {
+                list.forEach(item => {
+                  if (item.code === 'expand' || item.code === 'contract') {
+                    if (row && treeConfig.children && row[treeConfig.children] && row[treeConfig.children].length) {
+                      const isExpand = $table.isTreeExpandByRow(row)
+                      item.disabled = item.code === 'expand' ? isExpand : !isExpand
+                    } else {
+                      item.disabled = true
+                    }
                   }
-                }
+                })
               })
-            })
+            }
           }
           return true
         }
@@ -108,19 +110,21 @@ export default defineComponent({
 
     const contextMenuClickEvent: VxeTableEvents.MenuClick = ({ menu, row }) => {
       const $table = xTree1.value
-      switch (menu.code) {
-        case 'clearLoaded':
-          $table.clearTreeExpandLoaded(row)
-          break
-        case 'reloadNodes':
-          $table.reloadTreeExpand(row)
-          break
-        case 'expand':
-          $table.setTreeExpand(row, true)
-          break
-        case 'contract':
-          $table.setTreeExpand(row, false)
-          break
+      if ($table) {
+        switch (menu.code) {
+          case 'clearLoaded':
+            $table.clearTreeExpandLoaded(row)
+            break
+          case 'reloadNodes':
+            $table.reloadTreeExpand(row)
+            break
+          case 'expand':
+            $table.setTreeExpand(row, true)
+            break
+          case 'contract':
+            $table.setTreeExpand(row, false)
+            break
+        }
       }
     }
 
@@ -152,7 +156,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTree1 = ref({} as VxeTableInstance)
+            const xTree1 = ref<VxeTableInstance>()
             let key = 1
 
             const demo1 = reactive({

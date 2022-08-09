@@ -8,10 +8,10 @@
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button icon="fa fa-plus" @click="insertEvent()">新增</vxe-button>
+        <vxe-button icon="vxe-icon-question-circle-fill" @click="insertEvent()">新增</vxe-button>
         <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
         <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
-        <vxe-button icon="fa fa-save" @click="getInsertEvent">获取新增</vxe-button>
+        <vxe-button icon="vxe-icon-question-circle-fill" @click="getInsertEvent">获取新增</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -121,36 +121,42 @@ export default defineComponent({
         body: {
           options: [
             [
-              { code: 'copy', name: '复制', prefixIcon: 'fa fa-copy', disabled: false },
+              { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-question-circle-fill', disabled: false },
               { code: 'remove', name: '删除', disabled: false },
-              { code: 'save', name: '保存', prefixIcon: 'fa fa-save', disabled: false }
+              { code: 'save', name: '保存', prefixIcon: 'vxe-icon-question-circle-fill', disabled: false }
             ]
           ]
         }
       } as VxeTablePropTypes.MenuConfig
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const insertEvent = async () => {
       const $table = xTable.value
-      const record = {
-        sex: '1'
+      if ($table) {
+        const record = {
+          sex: '1'
+        }
+        const { row: newRow } = await $table.insert(record)
+        await $table.setEditCell(newRow, 'name')
       }
-      const { row: newRow } = await $table.insert(record)
-      await $table.setActiveCell(newRow, 'name')
     }
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(insertRecords.length)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(insertRecords.length)
+      }
     }
 
     const getSelectionEvent = () => {
       const $table = xTable.value
-      const selectRecords = $table.getCheckboxRecords()
-      VXETable.modal.alert(selectRecords.length)
+      if ($table) {
+        const selectRecords = $table.getCheckboxRecords()
+        VXETable.modal.alert(selectRecords.length)
+      }
     }
 
     return {
@@ -163,10 +169,10 @@ export default defineComponent({
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button icon="fa fa-plus" @click="insertEvent()">新增</vxe-button>
+            <vxe-button icon="vxe-icon-question-circle-fill" @click="insertEvent()">新增</vxe-button>
             <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
             <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
-            <vxe-button icon="fa fa-save" @click="getInsertEvent">获取新增</vxe-button>
+            <vxe-button icon="vxe-icon-question-circle-fille" @click="getInsertEvent">获取新增</vxe-button>
           </template>
         </vxe-toolbar>
 
@@ -231,16 +237,16 @@ export default defineComponent({
                 body: {
                   options: [
                     [
-                      { code: 'copy', name: '复制', prefixIcon: 'fa fa-copy', disabled: false },
+                      { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-question-circle-fill', disabled: false },
                       { code: 'remove', name: '删除', disabled: false },
-                      { code: 'save', name: '保存', prefixIcon: 'fa fa-save', disabled: false }
+                      { code: 'save', name: '保存', prefixIcon: 'vxe-icon-question-circle-fill', disabled: false }
                     ]
                   ]
                 }
               } as VxeTablePropTypes.MenuConfig
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const insertEvent = async () => {
               const $table = xTable.value
@@ -248,7 +254,7 @@ export default defineComponent({
                 sex: '1'
               }
               const { row: newRow } = await $table.insert(record)
-              await $table.setActiveCell(newRow, 'name')
+              await $table.setEditCell(newRow, 'name')
             }
 
             const getInsertEvent = () => {

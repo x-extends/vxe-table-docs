@@ -80,7 +80,7 @@ export default defineComponent({
       tableData: []
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const mockList = (rowSize: number): Promise<any[]> => {
       return new Promise(resolve => {
@@ -212,7 +212,7 @@ export default defineComponent({
               tableData: []
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const mockList = (rowSize: number): Promise<any[]> => {
               return new Promise(resolve => {

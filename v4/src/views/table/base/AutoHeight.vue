@@ -164,11 +164,11 @@ export default defineComponent({
         } else {
           let meanCell: any = null
           let sumCell: any = null
-          switch (column.property) {
+          switch (column.field) {
             case 'age':
             case 'rate':
-              meanCell = meanNum(data, column.property)
-              sumCell = sumNum(data, column.property)
+              meanCell = meanNum(data, column.field)
+              sumCell = sumNum(data, column.field)
               break
           }
           means.push(meanCell)
@@ -343,11 +343,11 @@ export default defineComponent({
                 } else {
                   let meanCell: any = null
                   let sumCell: any = null
-                  switch (column.property) {
+                  switch (column.field) {
                     case 'age':
                     case 'rate':
-                      meanCell = meanNum(data, column.property)
-                      sumCell = sumNum(data, column.property)
+                      meanCell = meanNum(data, column.field)
+                      sumCell = sumNum(data, column.field)
                       break
                   }
                   means.push(meanCell)

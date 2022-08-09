@@ -56,7 +56,7 @@ import { VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const demo1 = reactive({
       tableData: [
@@ -79,20 +79,24 @@ export default defineComponent({
 
     const insertEvent = () => {
       const $table = xTable.value
-      const record = {}
-      $table.insert(record)
+      if ($table) {
+        const record = {}
+        $table.insert(record)
+      }
     }
 
     const updateRoleList = () => {
       const $table = xTable.value
-      // 获取表格中的全量数据
-      const { fullData } = $table.getTableData()
-      demo1.roleList.forEach(item => {
-        if (item.value) {
-          // 如果当前选项已经被选过，则禁用
-          item.disabled = fullData.some(row => row.role === item.value)
-        }
-      })
+      if ($table) {
+        // 获取表格中的全量数据
+        const { fullData } = $table.getTableData()
+        demo1.roleList.forEach(item => {
+          if (item.value) {
+            // 如果当前选项已经被选过，则禁用
+            item.disabled = fullData.some(row => row.role === item.value)
+          }
+        })
+      }
     }
 
     const roleChangeEvent = () => {
@@ -161,7 +165,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const demo1 = reactive({
               tableData: [

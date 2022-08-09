@@ -5,14 +5,14 @@
     <vxe-grid ref="xGrid" v-bind="gridOptions" @page-change="handlePageChange">
       <template #operate="{ row }">
         <template v-if="$refs.xGrid.isActiveByRow(row)">
-          <vxe-button icon="fa fa-save" status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
+          <vxe-button icon="vxe-icon-question-circle-fill" status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
         </template>
         <template v-else>
-          <vxe-button icon="fa fa-edit" title="编辑" circle @click="editRowEvent(row)"></vxe-button>
+          <vxe-button icon="vxe-icon-question-circle-fill" title="编辑" circle @click="editRowEvent(row)"></vxe-button>
         </template>
-        <vxe-button icon="fa fa-trash" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
-        <vxe-button icon="fa fa-eye" title="查看" circle></vxe-button>
-        <vxe-button icon="fa fa-gear" title="设置" circle></vxe-button>
+        <vxe-button icon="vxe-icon-question-circle-fill" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
+        <vxe-button icon="vxe-icon-question-circle-fill" title="查看" circle></vxe-button>
+        <vxe-button icon="vxe-icon-question-circle-fill" title="设置" circle></vxe-button>
       </template>
 
       <template #name_edit="{ row }">
@@ -73,7 +73,7 @@ export default {
           // 显示修改状态和新增状态
           showStatus: true,
           // 自定义可编辑列头的图标
-          icon: 'fa fa-file-text-o'
+          icon: 'vxe-icon-question-circle-fill'
         },
         columns: [
           { type: 'seq', width: 60 },
@@ -96,14 +96,14 @@ export default {
         <vxe-grid ref="xGrid" v-bind="gridOptions" @page-change="handlePageChange">
           <template #operate="{ row }">
             <template v-if="$refs.xGrid.isActiveByRow(row)">
-              <vxe-button icon="fa fa-save" status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
+              <vxe-button icon="vxe-icon-question-circle-fill" status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
             </template>
             <template v-else>
-              <vxe-button icon="fa fa-edit" title="编辑" circle @click="editRowEvent(row)"></vxe-button>
+              <vxe-button icon="vxe-icon-question-circle-fill" title="编辑" circle @click="editRowEvent(row)"></vxe-button>
             </template>
-            <vxe-button icon="fa fa-trash" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
-            <vxe-button icon="fa fa-eye" title="查看" circle></vxe-button>
-            <vxe-button icon="fa fa-gear" title="设置" circle></vxe-button>
+            <vxe-button icon="vxe-icon-question-circle-fill" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
+            <vxe-button icon="vxe-icon-question-circle-fill" title="查看" circle></vxe-button>
+            <vxe-button icon="vxe-icon-question-circle-fill" title="设置" circle></vxe-button>
           </template>
 
           <template #name_edit="{ row }">
@@ -155,7 +155,7 @@ export default {
                   // 显示修改状态和新增状态
                   showStatus: true,
                   // 自定义可编辑列头的图标
-                  icon: 'fa fa-file-text-o'
+                  icon: 'vxe-icon-question-circle-fill'
                 },
                 columns: [
                   { type: 'seq', width: 60 },

@@ -51,7 +51,7 @@ export default {
 
         more: '复杂表格',
         events: '事件绑定',
-        template: '自定义模板',
+        template: '自定义模板、插槽',
         dynamic: '使用 v-for 动态实现',
         customCheckbox: '自定义复选框',
         customRadio: '自定义单选框',
@@ -688,7 +688,7 @@ export default {
           position: '只对 type=modal 有效，窗口的默认位置，可以设置为 center 居中显示',
           zIndex: '自定义堆叠顺序（对于某些特殊场景，比如被遮挡时可能会用到）',
           showTitleOverflow: '设置标题内容过长时显示为省略号',
-          fullscreen: '默认最大化显示',
+          fullscreen: '窗口打开时自动最大化显示',
           draggable: '是否启用窗口拖动',
           dblclickZoom: '只对 type=modal 有效，是否允许通过双击头部放大或还原窗口',
           remember: '记忆功能，会记住最后操作状态，再次打开窗口时还原窗口状态',

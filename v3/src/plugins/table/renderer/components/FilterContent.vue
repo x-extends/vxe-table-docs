@@ -2,7 +2,7 @@
   <div class="my-filter-content">
     <div class="my-fc-search">
       <div class="my-fc-search-top">
-        <vxe-input v-model="option.data.sVal" placeholder="搜索" suffix-icon="fa fa-search"></vxe-input>
+        <vxe-input v-model="option.data.sVal" placeholder="搜索"></vxe-input>
       </div>
       <div class="my-fc-search-content">
         <template v-if="valList.length">

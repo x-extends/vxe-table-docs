@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="tip">自定义工具栏按钮图标，例如第三方图标库：font-awesome、inconfont，可以局部替换也可以 <router-link :to="{name: 'StartIcons'}">全部替换</router-link></p>
+    <p class="tip">自定义工具栏按钮图标，可以局部替换也可以 <router-link :to="{name: 'StartIcons'}">全部替换</router-link></p>
 
     <vxe-grid v-bind="gridOptions">
       <template #name_edit="{ row }">
@@ -53,30 +53,30 @@ export default defineComponent({
       },
       toolbarConfig: {
         buttons: [
-          { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'fa fa-plus' },
-          { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'fa fa-trash-o' },
-          { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'fa fa-save' }
+          { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon-question-circle-fill' },
+          { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon-question-circle-fill' },
+          { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon-question-circle-fill' }
         ],
         perfect: true,
         refresh: {
-          icon: 'fa fa-refresh',
-          iconLoading: 'fa fa-spinner fa-spin'
+          icon: 'vxe-icon-question-circle-fill',
+          iconLoading: 'fa vxe-icon-question-circle-fill'
         },
         import: {
-          icon: 'fa fa-upload'
+          icon: 'vxe-icon-question-circle-fill'
         },
         export: {
-          icon: 'fa fa-download'
+          icon: 'vxe-icon-question-circle-fill'
         },
         print: {
-          icon: 'fa fa-print'
+          icon: 'vxe-icon-question-circle-fill'
         },
         zoom: {
-          iconIn: 'fa fa-arrows-alt',
-          iconOut: 'fa fa-expand'
+          iconIn: 'vxe-icon-question-circle-fill',
+          iconOut: 'vxe-icon-question-circle-fill'
         },
         custom: {
-          icon: 'fa fa-cog'
+          icon: 'vxe-icon-question-circle-fill'
         }
       },
       proxyConfig: {
@@ -187,30 +187,30 @@ export default defineComponent({
               },
               toolbarConfig: {
                 buttons: [
-                  { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'fa fa-plus' },
-                  { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'fa fa-trash-o' },
-                  { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'fa fa-save' }
+                  { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon-question-circle-fill' },
+                  { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon-question-circle-fill' },
+                  { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon-question-circle-fill' }
                 ],
                 perfect: true,
                 refresh: {
-                  icon: 'fa fa-refresh',
-                  iconLoading: 'fa fa-spinner fa-spin'
+                  icon: 'vxe-icon-question-circle-fill',
+                  iconLoading: 'vxe-icon-question-circle-fill'
                 },
                 import: {
-                  icon: 'fa fa-upload'
+                  icon: 'vxe-icon-question-circle-fill'
                 },
                 export: {
-                  icon: 'fa fa-download'
+                  icon: 'vxe-icon-question-circle-fill'
                 },
                 print: {
-                  icon: 'fa fa-print'
+                  icon: 'vxe-icon-question-circle-fill'
                 },
                 zoom: {
-                  iconIn: 'fa fa-arrows-alt',
-                  iconOut: 'fa fa-expand'
+                  iconIn: 'vxe-icon-question-circle-fill',
+                  iconOut: 'vxe-icon-question-circle-fill'
                 },
                 custom: {
-                  icon: 'fa fa-cog'
+                  icon: 'vxe-icon-question-circle-fill'
                 }
               },
               proxyConfig: {

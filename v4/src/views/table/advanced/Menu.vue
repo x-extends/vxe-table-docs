@@ -68,10 +68,10 @@ export default defineComponent({
         body: {
           options: [
             [
-              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'fa fa-copy', className: 'my-copy-item' }
+              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-question-circle-fill', className: 'my-copy-item' }
             ],
             [
-              { code: 'remove', name: '删除', prefixIcon: 'fa fa-trash-o color-red' },
+              { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-question-circle-fill color-red' },
               {
                 name: '筛选',
                 children: [
@@ -82,11 +82,11 @@ export default defineComponent({
               {
                 code: 'sort',
                 name: '排序',
-                prefixIcon: 'fa fa-sort color-blue',
+                prefixIcon: 'vxe-icon-question-circle-fill color-blue',
                 children: [
                   { code: 'clearSort', name: '清除排序' },
-                  { code: 'sortAsc', name: '升序', prefixIcon: 'fa fa-sort-alpha-asc color-orange' },
-                  { code: 'sortDesc', name: '倒序', prefixIcon: 'fa fa-sort-alpha-desc color-orange' }
+                  { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' },
+                  { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' }
                 ]
               },
               { code: 'print', name: '打印', disabled: true }
@@ -108,7 +108,7 @@ export default defineComponent({
         case 'copy':
           // 示例
           if (row && column) {
-            if (XEClipboard.copy(row[column.property])) {
+            if (XEClipboard.copy(row[column.field])) {
               VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
             }
           }
@@ -132,8 +132,8 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '平均'
           }
-          if (['age', 'rate'].includes(column.property)) {
-            return meanNum(data, column.property)
+          if (['age', 'rate'].includes(column.field)) {
+            return meanNum(data, column.field)
           }
           return null
         })
@@ -190,10 +190,10 @@ export default defineComponent({
                 body: {
                   options: [
                     [
-                      { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'fa fa-copy', className: 'my-copy-item' }
+                      { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-question-circle-fill', className: 'my-copy-item' }
                     ],
                     [
-                      { code: 'remove', name: '删除', prefixIcon: 'fa fa-trash-o color-red' },
+                      { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-question-circle-fill color-red' },
                       {
                         name: '筛选',
                         children: [
@@ -204,11 +204,11 @@ export default defineComponent({
                       {
                         code: 'sort',
                         name: '排序',
-                        prefixIcon: 'fa fa-sort color-blue',
+                        prefixIcon: 'vxe-icon-question-circle-fill color-blue',
                         children: [
                           { code: 'clearSort', name: '清除排序' },
-                          { code: 'sortAsc', name: '升序', prefixIcon: 'fa fa-sort-alpha-asc color-orange' },
-                          { code: 'sortDesc', name: '倒序', prefixIcon: 'fa fa-sort-alpha-desc color-orange' }
+                          { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' },
+                          { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' }
                         ]
                       },
                       { code: 'print', name: '打印', disabled: true }
@@ -230,7 +230,7 @@ export default defineComponent({
                 case 'copy':
                   // 示例
                   if (row && column) {
-                    if (XEClipboard.copy(row[column.property])) {
+                    if (XEClipboard.copy(row[column.field])) {
                       VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                     }
                   }
@@ -254,8 +254,8 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age', 'rate'].includes(column.property)) {
-                    return meanNum(data, column.property)
+                  if (['age', 'rate'].includes(column.field)) {
+                    return meanNum(data, column.field)
                   }
                   return null
                 })

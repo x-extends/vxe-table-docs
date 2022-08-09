@@ -39,7 +39,7 @@ import { VxeGridInstance, VxeGridPropTypes, VxeGridProps } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const gridOptions = reactive({
       border: true,
@@ -215,7 +215,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const gridOptions = reactive({
               border: true,

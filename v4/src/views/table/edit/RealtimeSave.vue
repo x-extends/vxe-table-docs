@@ -9,7 +9,7 @@
       ref="xTable"
       :column-config="{resizable: true}"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil'}"
+      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
       @edit-closed="editClosedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
@@ -59,7 +59,7 @@ import { VXETable, VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const tableData = ref([
       { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
@@ -89,18 +89,20 @@ export default defineComponent({
 
     const editClosedEvent: VxeTableEvents.EditClosed = ({ row, column }) => {
       const $table = xTable.value
-      const field = column.property
-      const cellValue = row[field]
-      // 判断单元格值是否被修改
-      if ($table.isUpdateByRow(row, field)) {
-        setTimeout(() => {
-          VXETable.modal.message({
-            content: `局部保存成功！ ${field}=${cellValue}`,
-            status: 'success'
-          })
-          // 局部更新单元格为已保存状态
-          $table.reloadRow(row, null, field)
-        }, 300)
+      if ($table) {
+        const field = column.field
+        const cellValue = row[field]
+        // 判断单元格值是否被修改
+        if ($table.isUpdateByRow(row, field)) {
+          setTimeout(() => {
+            VXETable.modal.message({
+              content: `局部保存成功！ ${field}=${cellValue}`,
+              status: 'success'
+            })
+            // 局部更新单元格为已保存状态
+            $table.reloadRow(row, null, field)
+          }, 300)
+        }
       }
     }
 
@@ -119,7 +121,7 @@ export default defineComponent({
           ref="xTable"
           :column-config="{resizable: true}"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil'}"
+          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
           @edit-closed="editClosedEvent">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :edit-render="{}">
@@ -160,7 +162,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const tableData = ref([
               { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
@@ -190,7 +192,7 @@ export default defineComponent({
 
             const editClosedEvent: VxeTableEvents.EditClosed = ({ row, column }) => {
               const $table = xTable.value
-              const field = column.property
+              const field = column.field
               const cellValue = row[field]
               // 判断单元格值是否被修改
               if ($table.isUpdateByRow(row, field)) {

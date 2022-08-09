@@ -1,20 +1,20 @@
 <template>
   <div>
     <p class="tip">
-      调用 <table-api-link prop="insert"/>、<table-api-link prop="insertAt"/> 函数插入临时数据，还可以通过 <table-api-link prop="icon"/> 自定义编辑状态的图标，例如第三方图标库：font-awesome、inconfont<br>
+      调用 <table-api-link prop="insert"/>、<table-api-link prop="insertAt"/> 函数插入临时数据，还可以通过 <table-api-link prop="icon"/> 自定义编辑状态的图标<br>
       <span class="red">（可以直接使用内置的 CRUD 管理器进行增删改，也可以自行操作数据源，两种方式二选一）</span>
     </p>
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button icon="fa fa-plus" @click="insertEvent()">新增</vxe-button>
+        <vxe-button @click="insertEvent()">新增</vxe-button>
         <vxe-button @click="insertEvent(tableData[2])">在第3行插入并激活 Sex 单元格</vxe-button>
         <vxe-button @click="insertEvent(-1)">在最后行插入</vxe-button>
         <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
         <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
         <vxe-button @click="getInsertEvent">获取新增</vxe-button>
-        <vxe-button @click="$refs.xTable.setActiveCell(tableData[2], 'name')">激活第三行</vxe-button>
-        <vxe-button icon="fa fa-save" @click="saveEvent">保存</vxe-button>
+        <vxe-button @click="$refs.xTable.setEditCell(tableData[2], 'name')">激活第三行</vxe-button>
+        <vxe-button @click="saveEvent">保存</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -25,7 +25,7 @@
       ref="xTable"
       max-height="400"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', icon: 'fa fa-pencil', showStatus: true}">
+      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable :edit-render="{autofocus: '.vxe-input--inner', defaultValue: '默认的名字'}">
@@ -70,7 +70,7 @@ import { VXETable, VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const tableData = ref([
       { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
@@ -97,30 +97,38 @@ export default defineComponent({
 
     const insertEvent = async (row: any) => {
       const $table = xTable.value
-      const record = {
-        sex: '1',
-        date12: '2021-01-01'
+      if ($table) {
+        const record = {
+          sex: '1',
+          date12: '2021-01-01'
+        }
+        const { row: newRow } = await $table.insertAt(record, row)
+        await $table.setEditCell(newRow, 'name')
       }
-      const { row: newRow } = await $table.insertAt(record, row)
-      await $table.setActiveCell(newRow, 'name')
     }
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(`新增：${insertRecords.length}`)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(`新增：${insertRecords.length}`)
+      }
     }
 
     const getSelectionEvent = () => {
       const $table = xTable.value
-      const selectRecords = $table.getCheckboxRecords()
-      VXETable.modal.alert(`选中：${selectRecords.length}`)
+      if ($table) {
+        const selectRecords = $table.getCheckboxRecords()
+        VXETable.modal.alert(`选中：${selectRecords.length}`)
+      }
     }
 
     const saveEvent = () => {
       const $table = xTable.value
-      const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      if ($table) {
+        const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
+        VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      }
     }
 
     return {
@@ -136,14 +144,14 @@ export default defineComponent({
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button icon="fa fa-plus" @click="insertEvent()">新增</vxe-button>
+            <vxe-button @click="insertEvent()">新增</vxe-button>
             <vxe-button @click="insertEvent(tableData[2])">在第3行插入并激活 Sex 单元格</vxe-button>
             <vxe-button @click="insertEvent(-1)">在最后行插入</vxe-button>
             <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
             <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
             <vxe-button @click="getInsertEvent">获取新增</vxe-button>
-            <vxe-button @click="$refs.xTable.setActiveCell(tableData[2], 'name')">激活第三行</vxe-button>
-            <vxe-button icon="fa fa-save" @click="saveEvent">保存</vxe-button>
+            <vxe-button @click="$refs.xTable.setEditCell(tableData[2], 'name')">激活第三行</vxe-button>
+            <vxe-button @click="saveEvent">保存</vxe-button>
           </template>
         </vxe-toolbar>
 
@@ -154,7 +162,7 @@ export default defineComponent({
           ref="xTable"
           max-height="400"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', icon: 'fa fa-pencil', showStatus: true}">
+          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" sortable :edit-render="{autofocus: '.vxe-input--inner', defaultValue: '默认的名字'}">
@@ -190,7 +198,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const tableData = ref([
               { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
@@ -222,7 +230,7 @@ export default defineComponent({
                 date12: '2021-01-01'
               }
               const { row: newRow } = await $table.insertAt(record, row)
-              await $table.setActiveCell(newRow, 'name')
+              await $table.setEditCell(newRow, 'name')
             }
 
             const getInsertEvent = () => {

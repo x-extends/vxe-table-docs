@@ -236,7 +236,7 @@ export default {
                 flag: false,
                 rate: 2
               }
-              xGrid.insert(record).then(({ row }) => xGrid.setActiveRow(row))
+              xGrid.insert(record).then(({ row }) => xGrid.setEditRow(row))
             },
             saveEvent () {
               const { insertRecords, removeRecords, updateRecords } = this.$refs.xGrid.getRecordset()
@@ -314,7 +314,7 @@ export default {
         flag: false,
         rate: 2
       }
-      xGrid.insert(record).then(({ row }) => xGrid.setActiveRow(row))
+      xGrid.insert(record).then(({ row }) => xGrid.setEditRow(row))
     },
     saveEvent () {
       const { insertRecords, removeRecords, updateRecords } = this.$refs.xGrid.getRecordset()

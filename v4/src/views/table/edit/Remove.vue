@@ -9,7 +9,7 @@
         <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
         <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
         <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
-        <vxe-button icon="fa fa-save" @click="saveEvent">保存</vxe-button>
+        <vxe-button @click="saveEvent">保存</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -64,41 +64,51 @@ export default defineComponent({
       ]
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const insertEvent = async (row: any) => {
       const $table = xTable.value
-      const record = {
-        sex: '1'
+      if ($table) {
+        const record = {
+          sex: '1'
+        }
+        const { row: newRow } = await $table.insertAt(record, row)
+        await $table.setEditCell(newRow, 'sex')
       }
-      const { row: newRow } = await $table.insertAt(record, row)
-      await $table.setActiveCell(newRow, 'sex')
     }
 
     const removeEvent = async (row: any) => {
       const $table = xTable.value
-      const type = await VXETable.modal.confirm('您确定要删除该数据?')
-      if (type === 'confirm') {
-        $table.remove(row)
+      if ($table) {
+        const type = await VXETable.modal.confirm('您确定要删除该数据?')
+        if (type === 'confirm') {
+          $table.remove(row)
+        }
       }
     }
 
     const getRemoveEvent = () => {
       const $table = xTable.value
-      const removeRecords = $table.getRemoveRecords()
-      VXETable.modal.alert(removeRecords.length)
+      if ($table) {
+        const removeRecords = $table.getRemoveRecords()
+        VXETable.modal.alert(removeRecords.length)
+      }
     }
 
     const getSelectionEvent = () => {
       const $table = xTable.value
-      const selectRecords = $table.getCheckboxRecords()
-      VXETable.modal.alert(selectRecords.length)
+      if ($table) {
+        const selectRecords = $table.getCheckboxRecords()
+        VXETable.modal.alert(selectRecords.length)
+      }
     }
 
     const saveEvent = () => {
       const $table = xTable.value
-      const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      if ($table) {
+        const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
+        VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      }
     }
 
     return {
@@ -118,7 +128,7 @@ export default defineComponent({
             <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
             <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
             <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
-            <vxe-button icon="fa fa-save" @click="saveEvent">保存</vxe-button>
+            <vxe-button @click="saveEvent">保存</vxe-button>
           </template>
         </vxe-toolbar>
 
@@ -164,7 +174,7 @@ export default defineComponent({
               ]
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const insertEvent = async (row: any) => {
               const $table = xTable.value
@@ -172,7 +182,7 @@ export default defineComponent({
                 sex: '1'
               }
               const { row: newRow } = await $table.insertAt(record, row)
-              await $table.setActiveCell(newRow, 'sex')
+              await $table.setEditCell(newRow, 'sex')
             }
 
             const removeEvent = async (row: any) => {

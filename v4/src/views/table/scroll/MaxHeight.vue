@@ -81,7 +81,7 @@ export default defineComponent({
       loading: false
     })
 
-    const xTable1 = ref({} as VxeTableInstance)
+    const xTable1 = ref<VxeTableInstance>()
 
     const findList1 = () => {
       demo1.loading = true
@@ -103,7 +103,7 @@ export default defineComponent({
       loading: false
     })
 
-    const xTable2 = ref({} as VxeTableInstance)
+    const xTable2 = ref<VxeTableInstance>()
 
     const findList2 = () => {
       demo2.loading = true
@@ -175,7 +175,7 @@ export default defineComponent({
               loading: false
             })
 
-            const xTable2 = ref({} as VxeTableInstance)
+            const xTable2 = ref<VxeTableInstance>()
 
             const findList2 = () => {
               demo2.loading = true
@@ -246,7 +246,7 @@ export default defineComponent({
               loading: false
             })
 
-            const xTable2 = ref({} as VxeTableInstance)
+            const xTable2 = ref<VxeTableInstance>()
 
             const findList2 = () => {
               demo2.loading = true

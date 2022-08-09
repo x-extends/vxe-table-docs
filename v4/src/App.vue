@@ -77,7 +77,7 @@
                 </li>
                 <li v-for="(item, index) in appData.apiList" :key="index" :class="{expand: item.expand}">
                   <a class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{disabled: item.disabled, active: pageKey === item.value}">
-                    <i class="vxe-icon--arrow-right nav-link-icon"></i>
+                    <i class="vxe-icon-arrow-right nav-link-icon"></i>
                     <span v-html="item.label"></span>
                   </a>
                   <ul v-if="item.children" v-show="item.expand" class="nav-child-menu">
@@ -97,13 +97,13 @@
         </div>
       </div>
       <div class="oper-wrapper" v-show="showOperBtn">
-        <vxe-button class="oper-btn" :icon="appData.showLeft ? 'vxe-icon--arrow-left' : 'vxe-icon--arrow-right'" @click="appData.showLeft = !appData.showLeft"></vxe-button>
+        <vxe-button class="oper-btn" :icon="appData.showLeft ? 'vxe-icon-arrow-left' : 'vxe-icon-arrow-right'" @click="appData.showLeft = !appData.showLeft"></vxe-button>
       </div>
       <div class="body">
         <div class="content" :class="{full: ['VXEAPI', 'Donation'].includes($route.name)}">
           <div class="page-view">
             <template v-if="!/\/start|\/module|\/api/.test($route.path)">
-              <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank"><i class="fa fa-bug"></i>{{ $t('app.body.button.runDemo') }}</a>
+              <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank">{{ $t('app.body.button.runDemo') }}</a>
             </template>
             <router-view/>
           </div>
@@ -615,7 +615,8 @@ export default defineComponent({
               // demoUrl: 'https://jsrun.pro/DjXKp/edit',
               locat: {
                 name: 'TableTemplate'
-              }
+              },
+              keywords: ['自定义插槽']
             },
             {
               label: 'app.aside.nav.dynamic',

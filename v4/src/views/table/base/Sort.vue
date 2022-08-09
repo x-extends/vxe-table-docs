@@ -232,10 +232,10 @@ export default defineComponent({
       sortMethod ({ data, sortList }) {
         const sortItem = sortList[0]
         // 取出第一个排序的列
-        const { property, order } = sortItem
+        const { field, order } = sortItem
         let list: any[] = []
         if (order === 'asc' || order === 'desc') {
-          if (property === 'name') {
+          if (field === 'name') {
             // 例如：实现中英文混排，按照字母排序
             list = data.sort((a, b) => {
               return getPinYin(a.name).localeCompare(getPinYin(b.name))
@@ -277,11 +277,11 @@ export default defineComponent({
     ])
 
     const sortChangeEvent3: VxeTableEvents.SortChange = ({ sortList }) => {
-      console.info(sortList.map((item) => `${item.property},${item.order}`).join('; '))
+      console.info(sortList.map((item) => `${item.field},${item.order}`).join('; '))
     }
 
-    const sortChangeEvent4: VxeTableEvents.SortChange = ({ property, order }) => {
-      console.info(property, order)
+    const sortChangeEvent4: VxeTableEvents.SortChange = ({ field, order }) => {
+      console.info(field, order)
     }
 
     return {
@@ -467,10 +467,10 @@ export default defineComponent({
               sortMethod ({ data, sortList }) {
                 const sortItem = sortList[0]
                 // 取出第一个排序的列
-                const { property, order } = sortItem
+                const { field, order } = sortItem
                 let list: any[] = []
                 if (order === 'asc' || order === 'desc') {
-                  if (property === 'name') {
+                  if (field === 'name') {
                     // 例如：实现中英文混排，按照字母排序
                     list = data.sort((a, b) => {
                       return getPinYin(a.name).localeCompare(getPinYin(b.name))
@@ -545,7 +545,7 @@ export default defineComponent({
             ])
 
             const sortChangeEvent3: VxeTableEvents.SortChange = ({ sortList }) => {
-              console.info(sortList.map((item) => \`\${item.property},\${item.order}\`).join('; '))
+              console.info(sortList.map((item) => \`\${item.field},\${item.order}\`).join('; '))
             }
 
             return {
@@ -589,8 +589,8 @@ export default defineComponent({
               { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
             ])
 
-            const sortChangeEvent4: VxeTableEvents.SortChange = ({ property, order }) => {
-              console.info(property, order)
+            const sortChangeEvent4: VxeTableEvents.SortChange = ({ field, order }) => {
+              console.info(field, order)
             }
 
             return {

@@ -34,7 +34,7 @@
       row-key
       size="medium"
       :row-config="{isCurrent: true, isHover: true}"
-      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon--caret-right rotate45', iconClose: 'vxe-icon--caret-right'}"
+      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-caret-right rotate45', iconClose: 'vxe-icon-caret-right'}"
       :checkbox-config="{labelField: 'name'}"
       :data="tableData2"
       :scroll-y="{enabled: false}">
@@ -252,7 +252,7 @@ export default {
           row-key
           size="medium"
           :row-config="{isCurrent: true, isHover: true}"
-          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon--caret-right rotate45', iconClose: 'vxe-icon--caret-right'}"
+          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-caret-right rotate45', iconClose: 'vxe-icon-caret-right'}"
           :checkbox-config="{labelField: 'name'}"
           :data="tableData2"
           :scroll-y="{enabled: false}">

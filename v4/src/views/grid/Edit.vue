@@ -4,15 +4,15 @@
 
     <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents">
       <template #operate="{ row }">
-        <template v-if="$refs.xGrid.isActiveByRow(row)">
-          <vxe-button icon="fa fa-save" status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
+        <template v-if="$refs.xGrid.isEditByRow(row)">
+          <vxe-button status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
         </template>
         <template v-else>
-          <vxe-button icon="fa fa-edit" title="编辑" circle @click="editRowEvent(row)"></vxe-button>
+          <vxe-button title="编辑" circle @click="editRowEvent(row)"></vxe-button>
         </template>
-        <vxe-button icon="fa fa-trash" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
-        <vxe-button icon="fa fa-eye" title="查看" circle></vxe-button>
-        <vxe-button icon="fa fa-gear" title="设置" circle></vxe-button>
+        <vxe-button title="删除" circle @click="removeRowEvent(row)"></vxe-button>
+        <vxe-button title="查看" circle></vxe-button>
+        <vxe-button title="设置" circle></vxe-button>
       </template>
 
       <template #name_edit="{ row }">
@@ -72,8 +72,7 @@ export default defineComponent({
       editConfig: {
         trigger: 'manual',
         mode: 'row',
-        showStatus: true,
-        icon: 'fa fa-file-text-o'
+        showStatus: true
       },
       columns: [
         { type: 'seq', width: 60 },
@@ -138,14 +137,14 @@ export default defineComponent({
     const editRowEvent = (row: any) => {
       const $grid = xGrid.value
       if ($grid) {
-        $grid.setActiveRow(row)
+        $grid.setEditRow(row)
       }
     }
 
     const saveRowEvent = async () => {
       const $grid = xGrid.value
       if ($grid) {
-        await $grid.clearActived()
+        await $grid.clearEdit()
         gridOptions.loading = true
         // 模拟异步保存
         setTimeout(() => {
@@ -180,15 +179,15 @@ export default defineComponent({
         `
         <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents">
           <template #operate="{ row }">
-            <template v-if="$refs.xGrid.isActiveByRow(row)">
-              <vxe-button icon="fa fa-save" status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
+            <template v-if="$refs.xGrid.isEditByRow(row)">
+              <vxe-button status="primary" title="保存" circle @click="saveRowEvent(row)"></vxe-button>
             </template>
             <template v-else>
-              <vxe-button icon="fa fa-edit" title="编辑" circle @click="editRowEvent(row)"></vxe-button>
+              <vxe-button title="编辑" circle @click="editRowEvent(row)"></vxe-button>
             </template>
-            <vxe-button icon="fa fa-trash" title="删除" circle @click="removeRowEvent(row)"></vxe-button>
-            <vxe-button icon="fa fa-eye" title="查看" circle></vxe-button>
-            <vxe-button icon="fa fa-gear" title="设置" circle></vxe-button>
+            <vxe-button title="删除" circle @click="removeRowEvent(row)"></vxe-button>
+            <vxe-button title="查看" circle></vxe-button>
+            <vxe-button title="设置" circle></vxe-button>
           </template>
 
           <template #name_edit="{ row }">
@@ -239,8 +238,7 @@ export default defineComponent({
               editConfig: {
                 trigger: 'manual',
                 mode: 'row',
-                showStatus: true,
-                icon: 'fa fa-file-text-o'
+                showStatus: true
               },
               columns: [
                 { type: 'seq', width: 60 },
@@ -305,14 +303,14 @@ export default defineComponent({
             const editRowEvent = (row: any) => {
               const $grid = xGrid.value
               if ($grid) {
-                $grid.setActiveRow(row)
+                $grid.setEditRow(row)
               }
             }
 
             const saveRowEvent = async () => {
               const $grid = xGrid.value
               if ($grid) {
-                await $grid.clearActived()
+                await $grid.clearEdit()
                 gridOptions.loading = true
                 // 模拟异步保存
                 setTimeout(() => {

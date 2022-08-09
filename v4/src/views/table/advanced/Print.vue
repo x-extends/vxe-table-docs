@@ -84,23 +84,29 @@ export default defineComponent({
       }
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const printEvent1: VxeButtonEvents.Click = () => {
       const $table = xTable.value
-      $table.print()
+      if ($table) {
+        $table.print()
+      }
     }
 
     const printSelectEvent: VxeButtonEvents.Click = () => {
       const $table = xTable.value
-      $table.print({
-        data: $table.getCheckboxRecords()
-      })
+      if ($table) {
+        $table.print({
+          data: $table.getCheckboxRecords()
+        })
+      }
     }
 
     const printEvent2: VxeButtonEvents.Click = () => {
       const $table = xTable.value
-      $table.openPrint()
+      if ($table) {
+        $table.openPrint()
+      }
     }
 
     const meanNum = (list: any[], field: string) => {
@@ -125,8 +131,8 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '平均'
           }
-          if (['age', 'rate'].includes(column.property)) {
-            return meanNum(data, column.property)
+          if (['age', 'rate'].includes(column.field)) {
+            return meanNum(data, column.field)
           }
           return null
         }),
@@ -134,8 +140,8 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '和值'
           }
-          if (['age', 'rate'].includes(column.property)) {
-            return sumNum(data, column.property)
+          if (['age', 'rate'].includes(column.field)) {
+            return sumNum(data, column.field)
           }
           return null
         })
@@ -221,7 +227,7 @@ export default defineComponent({
                 \`
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const printEvent1: VxeButtonEvents.Click = () => {
               const $table = xTable.value
@@ -262,8 +268,8 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age', 'rate'].includes(column.property)) {
-                    return meanNum(data, column.property)
+                  if (['age', 'rate'].includes(column.field)) {
+                    return meanNum(data, column.field)
                   }
                   return null
                 }),
@@ -271,8 +277,8 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '和值'
                   }
-                  if (['age', 'rate'].includes(column.property)) {
-                    return sumNum(data, column.property)
+                  if (['age', 'rate'].includes(column.field)) {
+                    return sumNum(data, column.field)
                   }
                   return null
                 })

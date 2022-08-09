@@ -6,7 +6,7 @@ VXETable.renderer.add('ToolbarButtonDownload', {
     const { events = {} } = renderOpts
     const { button } = params
     return [
-      <vxe-button circle icon="fa fa-cloud-download" onClick={
+      <vxe-button circle onClick={
         () => {
           events.click(button)
         }
@@ -20,7 +20,7 @@ VXETable.renderer.add('ToolbarToolPrint', {
   renderToolbarTool (h, renderOpts, params) {
     const { $table } = params
     return [
-      <vxe-button circle icon="fa fa-print" onClick={
+      <vxe-button circle onClick={
         () => {
           $table.print()
         }

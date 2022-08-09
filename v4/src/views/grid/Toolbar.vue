@@ -32,7 +32,7 @@ import { VXETable, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-t
 
 export default defineComponent({
   setup () {
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const gridOptions = reactive<VxeGridProps>({
       border: true,
@@ -105,32 +105,36 @@ export default defineComponent({
     const gridEvents: VxeGridListeners = {
       toolbarButtonClick ({ code }) {
         const $grid = xGrid.value
-        switch (code) {
-          case 'myInsert': {
-            $grid.insert({
-              name: 'xxx'
-            })
-            break
-          }
-          case 'mySave': {
-            const { insertRecords, removeRecords, updateRecords } = $grid.getRecordset()
-            VXETable.modal.message({ content: `新增 ${insertRecords.length} 条，删除 ${removeRecords.length} 条，更新 ${updateRecords.length} 条`, status: 'success' })
-            break
-          }
-          case 'myExport': {
-            $grid.exportData({
-              type: 'csv'
-            })
-            break
+        if ($grid) {
+          switch (code) {
+            case 'myInsert': {
+              $grid.insert({
+                name: 'xxx'
+              })
+              break
+            }
+            case 'mySave': {
+              const { insertRecords, removeRecords, updateRecords } = $grid.getRecordset()
+              VXETable.modal.message({ content: `新增 ${insertRecords.length} 条，删除 ${removeRecords.length} 条，更新 ${updateRecords.length} 条`, status: 'success' })
+              break
+            }
+            case 'myExport': {
+              $grid.exportData({
+                type: 'csv'
+              })
+              break
+            }
           }
         }
       },
       toolbarToolClick ({ code }) {
         const $grid = xGrid.value
-        switch (code) {
-          case 'myPrint': {
-            $grid.print()
-            break
+        if ($grid) {
+          switch (code) {
+            case 'myPrint': {
+              $grid.print()
+              break
+            }
           }
         }
       }
@@ -163,7 +167,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const gridOptions = reactive<VxeGridProps>({
               border: true,

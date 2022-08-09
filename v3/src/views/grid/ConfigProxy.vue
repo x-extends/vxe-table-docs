@@ -95,9 +95,9 @@ export default {
       },
       tableToolbar: {
         buttons: [
-          { code: 'insert_actived', name: 'Add', icon: 'fa fa-plus' },
-          { code: 'mark_cancel', name: '删除/取消', icon: 'fa fa-bookmark-o' },
-          { code: 'save', name: 'Save', icon: 'fa fa-save' }
+          { code: 'insert_actived', name: 'Add' },
+          { code: 'mark_cancel', name: '删除/取消' },
+          { code: 'save', name: 'Save' }
         ],
         refresh: true,
         custom: true
@@ -252,9 +252,9 @@ export default {
                 },
                 toolbarConfig: {
                   buttons: [
-                    { code: 'insert_actived', name: 'Add', icon: 'fa fa-plus' },
-                    { code: 'mark_cancel', name: '删除/取消', icon: 'fa fa-bookmark-o' },
-                    { code: 'save', name: 'Save', icon: 'fa fa-save' }
+                    { code: 'insert_actived', name: 'Add' },
+                    { code: 'mark_cancel', name: '删除/取消' },
+                    { code: 'save', name: 'Save' }
                   ],
                   refresh: true,
                   custom: true

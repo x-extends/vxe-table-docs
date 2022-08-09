@@ -161,7 +161,7 @@ export default defineComponent({
         } else {
           return 'col-red'
         }
-      } else if (column.property === 'age') {
+      } else if (column.field === 'age') {
         if ($rowIndex === 1) {
           return 'col-red'
         }
@@ -197,11 +197,11 @@ export default defineComponent({
           let meanCell: any = null
           let sumCell: any = null
           let otherCell = '-'
-          switch (column.property) {
+          switch (column.field) {
             case 'age':
             case 'amount':
-              meanCell = meanNum(data, column.property)
-              sumCell = sumNum(data, column.property)
+              meanCell = meanNum(data, column.field)
+              sumCell = sumNum(data, column.field)
               break
             case 'sex':
               otherCell = '无'
@@ -347,11 +347,11 @@ export default defineComponent({
                   let meanCell: any = null
                   let sumCell: any = null
                   let otherCell = '-'
-                  switch (column.property) {
+                  switch (column.field) {
                     case 'age':
                     case 'amount':
-                      meanCell = meanNum(data, column.property)
-                      sumCell = sumNum(data, column.property)
+                      meanCell = meanNum(data, column.field)
+                      sumCell = sumNum(data, column.field)
                       break
                     case 'sex':
                       otherCell = '无'
@@ -439,7 +439,7 @@ export default defineComponent({
                 } else {
                   return 'col-red'
                 }
-              } else if (column.property === 'age') {
+              } else if (column.field === 'age') {
                 if ($rowIndex === 1) {
                   return 'col-red'
                 }
@@ -475,11 +475,11 @@ export default defineComponent({
                   let meanCell: any = null
                   let sumCell: any = null
                   let otherCell = '-'
-                  switch (column.property) {
+                  switch (column.field) {
                     case 'age':
                     case 'amount':
-                      meanCell = meanNum(data, column.property)
-                      sumCell = sumNum(data, column.property)
+                      meanCell = meanNum(data, column.field)
+                      sumCell = sumNum(data, column.field)
                       break
                     case 'sex':
                       otherCell = '无'

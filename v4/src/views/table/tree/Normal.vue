@@ -124,18 +124,22 @@ export default defineComponent({
       ]
     })
 
-    const xTree1 = ref({} as VxeTableInstance)
+    const xTree1 = ref<VxeTableInstance>()
 
     const getTreeRadioEvent = () => {
       const $table = xTree1.value
-      const selectRow = $table.getRadioRecord()
-      VXETable.modal.alert(selectRow ? selectRow.name : null)
+      if ($table) {
+        const selectRow = $table.getRadioRecord()
+        VXETable.modal.alert(selectRow ? selectRow.name : null)
+      }
     }
 
     const getTreeExpansionEvent = () => {
       const $table = xTree1.value
-      const treeExpandRecords = $table.getTreeExpandRecords()
-      VXETable.modal.alert(`${treeExpandRecords.length}`)
+      if ($table) {
+        const treeExpandRecords = $table.getTreeExpandRecords()
+        VXETable.modal.alert(`${treeExpandRecords.length}`)
+      }
     }
 
     const demo2 = reactive({
@@ -184,7 +188,7 @@ export default defineComponent({
       ]
     })
 
-    const xTree3 = ref({} as VxeTableInstance)
+    const xTree3 = ref<VxeTableInstance>()
 
     const removeRowEvent = async (row: any) => {
       const type = await VXETable.modal.confirm('您确定要删除吗？')
@@ -257,7 +261,7 @@ export default defineComponent({
               ]
             })
 
-            const xTree1 = ref({} as VxeTableInstance)
+            const xTree1 = ref<VxeTableInstance>()
 
             const getTreeRadioEvent = () => {
               const $table = xTree1.value
@@ -389,7 +393,7 @@ export default defineComponent({
               ]
             })
 
-            const xTree3 = ref({} as VxeTableInstance)
+            const xTree3 = ref<VxeTableInstance>()
 
             const removeRowEvent = async (row: any) => {
               const type = await VXETable.modal.confirm('您确定要删除吗？')

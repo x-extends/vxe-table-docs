@@ -3,8 +3,8 @@
     <p class="tip">
       筛选渲染 <table-column-api-link prop="filter-render"/>，查看 <a class="link" href="https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/plugins/table/renderer" target="_blank">示例的源码</a><span class="red">（具体请自行实现，该示例仅供参考）</span><br>
       配置参数：<br>
-      className 自定义容器的 className<br>
-      showFilterFooter 是否显示底部按钮<br>
+      filterClassName: string | (params: { column, $table }) => string 筛选容器className<br>
+      showFilterFooter: 是否显示底部按钮<br>
       renderFilter (params: { column, columnIndex, columnIndex, $panel }) 内容<br>
       filterMethod (params: { value, option, cellValue, row, column, $table }) 筛选数据函数<br>
       filterResetMethod (params: { options, column }) 筛选重置函数<br>
@@ -81,7 +81,7 @@ export default defineComponent({
           filterMethod (params) {
             const { option, row, column } = params
             const { data } = option
-            const cellValue = row[column.property]
+            const cellValue = row[column.field]
             if (cellValue) {
               return cellValue.indexOf(data) > -1
             }

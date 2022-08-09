@@ -30,7 +30,7 @@
     <demo-block>
       <template v-slot:source>
         <p>
-          <vxe-select v-model="demo1.value20" placeholder="请选择" prefix-icon="fa fa-user-o">
+          <vxe-select v-model="demo1.value20" placeholder="请选择" prefix-icon="vxe-icon-question-circle-fill">
             <vxe-option v-for="num in 3" :key="num" :value="num" :label="`选项${num}`"></vxe-option>
           </vxe-select>
           <vxe-select v-model="demo1.value21" placeholder="可清除" clearable>
@@ -129,7 +129,7 @@
             <vxe-option value="3" label="选项3">
               <template #default="{ option }">
                 <span style="color: red">
-                  <i class="fa fa-plane"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>{{ option.label }}</span>
                 </span>
               </template>
@@ -137,7 +137,7 @@
             <vxe-option value="4" label="选项4">
               <template #default>
                 <span style="color: green">
-                  <i class="fa fa-area-chart"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>选项4</span>
                 </span>
               </template>
@@ -146,7 +146,7 @@
               <template #default="{ option }">
                 <span>
                   <span>{{ option.label }}</span>
-                  <i class="fa fa-angellist"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                 </span>
               </template>
             </vxe-option>
@@ -156,6 +156,17 @@
       </template>
       <template v-slot:highlight>
         <pre><pre-code class="xml">{{ demoCodes[2] }}</pre-code></pre></template>
+    </demo-block>
+
+    <h3>{{ $t('可搜索') }}</h3>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-select v-model="demo1.value51" placeholder="可搜索" :options="demo1.list51" filterable></vxe-select>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre><pre-code class="xml">{{ demoCodes[3] }}</pre-code></pre></template>
     </demo-block>
 
     <h3>{{ $t('配置式用法') }}</h3>
@@ -168,17 +179,17 @@
           <vxe-select v-model="demo1.value42" placeholder="禁用选项" :options="demo1.list42"></vxe-select>
           <vxe-select v-model="demo1.value43" placeholder="禁用分组" :option-groups="demo1.list43" transfer></vxe-select>
           <vxe-select v-model="demo1.value44" placeholder="多选" :options="demo1.list44" multiple clearable transfer></vxe-select>
-          <vxe-select v-model="demo1.value46" placeholder="自定义模板" :options="list46" multiple clearable transfer>
+          <vxe-select v-model="demo1.value46" placeholder="自定义模板" :options="demo1.list46" multiple clearable transfer>
             <template #opt3="{ option }">
               <span style="color: red">
-                <i class="fa fa-plane"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
 
             <template #opt4="{ option }">
               <span style="color: green">
-                <i class="fa fa-area-chart"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
@@ -186,7 +197,7 @@
             <template #opt5="{ option }">
               <span>
                 <span>{{ option.label }}</span>
-                <i class="fa fa-angellist"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
               </span>
             </template>
           </vxe-select>
@@ -320,6 +331,21 @@ export default defineComponent({
         { label: '4444', value: '4', slots: { default: 'opt4' } },
         { label: '5555', value: '5', slots: { default: 'opt5' } },
         { label: '6666', value: '6' }
+      ],
+      value51: null,
+      list51: [
+        { value: 1001, label: 'table' },
+        { value: 1002, label: 'grid' },
+        { value: 1003, label: 'button' },
+        { value: 1004, label: 'toolbar' },
+        { value: 1005, label: 'tooltip' },
+        { value: 1006, label: 'pager' },
+        { value: 1007, label: 'print' },
+        { value: 1008, label: 'export' },
+        { value: 1009, label: 'import' },
+        { value: 1010, label: 'select' },
+        { value: 1012, label: 'checkbox' },
+        { value: 1013, label: 'group' }
       ]
     })
     return {
@@ -358,7 +384,7 @@ export default defineComponent({
         `,
         `
         <p>
-          <vxe-select v-model="demo1.value20" placeholder="请选择" prefix-icon="fa fa-user-o">
+          <vxe-select v-model="demo1.value20" placeholder="请选择" prefix-icon="vxe-icon-question-circle-fill">
             <vxe-option v-for="num in 3" :key="num" :value="num" :label="\`选项\${num}\`"></vxe-option>
           </vxe-select>
           <vxe-select v-model="demo1.value21" placeholder="可清除" clearable>
@@ -466,7 +492,7 @@ export default defineComponent({
             <vxe-option value="3" label="选项3">
               <template #default="{ option }">
                 <span style="color: red">
-                  <i class="fa fa-plane"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>{{ option.label }}</span>
                 </span>
               </template>
@@ -474,7 +500,7 @@ export default defineComponent({
             <vxe-option value="4" label="选项4">
               <template #default>
                 <span style="color: green">
-                  <i class="fa fa-area-chart"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                   <span>选项4</span>
                 </span>
               </template>
@@ -483,7 +509,7 @@ export default defineComponent({
               <template #default="{ option }">
                 <span>
                   <span>{{ option.label }}</span>
-                  <i class="fa fa-angellist"></i>
+                  <i class="vxe-icon-question-circle-fill"></i>
                 </span>
               </template>
             </vxe-option>
@@ -516,17 +542,17 @@ export default defineComponent({
           <vxe-select v-model="demo1.value42" placeholder="禁用选项" :options="demo1.list42"></vxe-select>
           <vxe-select v-model="demo1.value43" placeholder="禁用分组" :option-groups="demo1.list43" transfer></vxe-select>
           <vxe-select v-model="demo1.value44" placeholder="多选" :options="demo1.list44" multiple clearable transfer></vxe-select>
-          <vxe-select v-model="demo1.value46" placeholder="自定义模板" :options="list46" multiple clearable transfer>
+          <vxe-select v-model="demo1.value46" placeholder="自定义模板" :options="demo1.list46" multiple clearable transfer>
             <template #opt3="{ option }">
               <span style="color: red">
-                <i class="fa fa-plane"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
 
             <template #opt4="{ option }">
               <span style="color: green">
-                <i class="fa fa-area-chart"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
@@ -534,7 +560,7 @@ export default defineComponent({
             <template #opt5="{ option }">
               <span>
                 <span>{{ option.label }}</span>
-                <i class="fa fa-angellist"></i>
+                <i class="vxe-icon-question-circle-fill"></i>
               </span>
             </template>
           </vxe-select>

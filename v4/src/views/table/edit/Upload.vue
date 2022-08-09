@@ -46,37 +46,43 @@ import XEUtils from 'xe-utils'
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
-    const xToolbar = ref({} as VxeToolbarInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xToolbar = ref<VxeToolbarInstance>()
 
     const insertEvent = async (isMultiple: boolean) => {
       const $table = xTable.value
-      const { files } = await $table.readFile({ multiple: isMultiple })
-      const records = Array.from(files).map(file => {
-        const ns = file.name.split('.')
-        const name = ns.slice(0, ns.length - 1).join('')
-        const type = ns[ns.length - 1]
-        return {
-          name: name,
-          size: file.size,
-          type: type,
-          date: XEUtils.toDateString(new Date())
-        }
-      })
-      $table.insert(records)
+      if ($table) {
+        const { files } = await $table.readFile({ multiple: isMultiple })
+        const records = Array.from(files).map(file => {
+          const ns = file.name.split('.')
+          const name = ns.slice(0, ns.length - 1).join('')
+          const type = ns[ns.length - 1]
+          return {
+            name: name,
+            size: file.size,
+            type: type,
+            date: XEUtils.toDateString(new Date())
+          }
+        })
+        $table.insert(records)
+      }
     }
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(insertRecords.length)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(insertRecords.length)
+      }
     }
 
     nextTick(() => {
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
     })
 
     return {
@@ -122,8 +128,8 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xTable = ref({} as VxeTableInstance)
-            const xToolbar = ref({} as VxeToolbarInstance)
+            const xTable = ref<VxeTableInstance>()
+            const xToolbar = ref<VxeToolbarInstance>()
 
             const insertEvent = async (isMultiple: boolean) => {
               const $table = xTable.value

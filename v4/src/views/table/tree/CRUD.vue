@@ -75,8 +75,8 @@ export default defineComponent({
       }
     })
 
-    const xTable = ref({} as VxeTableInstance)
-    const xToolbar = ref({} as VxeToolbarInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xToolbar = ref<VxeToolbarInstance>()
 
     const findList = () => {
       demo1.loading = true
@@ -110,90 +110,106 @@ export default defineComponent({
 
     const searchMethod = () => {
       const $table = xTable.value
-      // 清除所有状态
-      $table.clearAll()
-      return findList()
+      if ($table) {
+        // 清除所有状态
+        $table.clearAll()
+        return findList()
+      }
     }
 
     const insertRow = async (currRow: any, locat: string) => {
       const $table = xTable.value
-      const date = new Date()
-      // 如果 null 则插入到目标节点顶部
-      // 如果 -1 则插入到目标节点底部
-      // 如果 row 则有插入到效的目标节点该行的位置
-      if (locat === 'current') {
-        const record = {
-          name: '新数据',
-          id: Date.now(),
-          parentId: currRow.parentId, // 父节点必须与当前行一致
-          date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+      if ($table) {
+        const date = new Date()
+        // 如果 null 则插入到目标节点顶部
+        // 如果 -1 则插入到目标节点底部
+        // 如果 row 则有插入到效的目标节点该行的位置
+        if (locat === 'current') {
+          const record = {
+            name: '新数据',
+            id: Date.now(),
+            parentId: currRow.parentId, // 父节点必须与当前行一致
+            date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+          }
+          const { row: newRow } = await $table.insertAt(record, currRow)
+          await $table.setEditRow(newRow) // 插入子节点
+        } else if (locat === 'top') {
+          const record = {
+            name: '新数据',
+            id: Date.now(),
+            parentId: currRow.id, // 需要指定父节点，自动插入该节点中
+            date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+          }
+          const { row: newRow } = await $table.insert(record)
+          await $table.setTreeExpand(currRow, true) // 将父节点展开
+          await $table.setEditRow(newRow) // 插入子节点
+        } else if (locat === 'bottom') {
+          const record = {
+            name: '新数据',
+            id: Date.now(),
+            parentId: currRow.id, // 需要指定父节点，自动插入该节点中
+            date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+          }
+          const { row: newRow } = await $table.insertAt(record, -1)
+          await $table.setTreeExpand(currRow, true) // 将父节点展开
+          await $table.setEditRow(newRow) // 插入子节点
         }
-        const { row: newRow } = await $table.insertAt(record, currRow)
-        await $table.setActiveRow(newRow) // 插入子节点
-      } else if (locat === 'top') {
-        const record = {
-          name: '新数据',
-          id: Date.now(),
-          parentId: currRow.id, // 需要指定父节点，自动插入该节点中
-          date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-        }
-        const { row: newRow } = await $table.insert(record)
-        await $table.setTreeExpand(currRow, true) // 将父节点展开
-        await $table.setActiveRow(newRow) // 插入子节点
-      } else if (locat === 'bottom') {
-        const record = {
-          name: '新数据',
-          id: Date.now(),
-          parentId: currRow.id, // 需要指定父节点，自动插入该节点中
-          date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-        }
-        const { row: newRow } = await $table.insertAt(record, -1)
-        await $table.setTreeExpand(currRow, true) // 将父节点展开
-        await $table.setActiveRow(newRow) // 插入子节点
       }
     }
 
     const removeRow = async (row: any) => {
       const $table = xTable.value
-      await $table.remove(row)
+      if ($table) {
+        await $table.remove(row)
+      }
     }
 
     const insertEvent = async () => {
       const $table = xTable.value
-      const date = new Date()
-      const record = {
-        name: '新数据',
-        id: Date.now(),
-        parentId: null,
-        date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+      if ($table) {
+        const date = new Date()
+        const record = {
+          name: '新数据',
+          id: Date.now(),
+          parentId: null,
+          date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+        }
+        const { row: newRow } = await $table.insert(record)
+        await $table.setEditRow(newRow)
       }
-      const { row: newRow } = await $table.insert(record)
-      await $table.setActiveRow(newRow)
     }
 
     const getInsertEvent = () => {
       const $table = xTable.value
-      const insertRecords = $table.getInsertRecords()
-      VXETable.modal.alert(`新增：${insertRecords.length}`)
+      if ($table) {
+        const insertRecords = $table.getInsertRecords()
+        VXETable.modal.alert(`新增：${insertRecords.length}`)
+      }
     }
 
     const getRemoveEvent = () => {
       const $table = xTable.value
-      const removeRecords = $table.getRemoveRecords()
-      VXETable.modal.alert(removeRecords.length)
+      if ($table) {
+        const removeRecords = $table.getRemoveRecords()
+        VXETable.modal.alert(removeRecords.length)
+      }
     }
 
     const getUpdateEvent = () => {
       const $table = xTable.value
-      const updateRecords = $table.getUpdateRecords()
-      VXETable.modal.alert(`更新：${updateRecords.length}`)
+      if ($table) {
+        const updateRecords = $table.getUpdateRecords()
+        VXETable.modal.alert(`更新：${updateRecords.length}`)
+      }
     }
 
     nextTick(() => {
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
       findList()
     })
 
@@ -274,8 +290,8 @@ export default defineComponent({
               }
             })
 
-            const xTable = ref({} as VxeTableInstance)
-            const xToolbar = ref({} as VxeToolbarInstance)
+            const xTable = ref<VxeTableInstance>()
+            const xToolbar = ref<VxeToolbarInstance>()
 
             const findList = () => {
               demo1.loading = true
@@ -328,7 +344,7 @@ export default defineComponent({
                   date: \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
                 }
                 const { row: newRow } = await $table.insertAt(record, currRow)
-                await $table.setActiveRow(newRow) // 插入子节点
+                await $table.setEditRow(newRow) // 插入子节点
               } else if (locat === 'top') {
                 const record = {
                   name: '新数据',
@@ -338,7 +354,7 @@ export default defineComponent({
                 }
                 const { row: newRow } = await $table.insert(record)
                 await $table.setTreeExpand(currRow, true) // 将父节点展开
-                await $table.setActiveRow(newRow) // 插入子节点
+                await $table.setEditRow(newRow) // 插入子节点
               } else if (locat === 'bottom') {
                 const record = {
                   name: '新数据',
@@ -348,7 +364,7 @@ export default defineComponent({
                 }
                 const { row: newRow } = await $table.insertAt(record, -1)
                 await $table.setTreeExpand(currRow, true) // 将父节点展开
-                await $table.setActiveRow(newRow) // 插入子节点
+                await $table.setEditRow(newRow) // 插入子节点
               }
             }
 
@@ -367,7 +383,7 @@ export default defineComponent({
                 date: \`\${date.getFullYear()}-\${date.getMonth() + 1}-\${date.getDate()}\`
               }
               const { row: newRow } = await $table.insert(record)
-              await $table.setActiveRow(newRow)
+              await $table.setEditRow(newRow)
             }
 
             const getInsertEvent = () => {

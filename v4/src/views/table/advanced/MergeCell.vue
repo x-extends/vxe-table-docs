@@ -85,8 +85,8 @@ import { VxeTablePropTypes, VxeTableInstance, VxeToolbarInstance } from 'vxe-tab
 
 export default defineComponent({
   setup () {
-    const xTable = ref({} as VxeTableInstance)
-    const xToolbar = ref({} as VxeToolbarInstance)
+    const xTable = ref<VxeTableInstance>()
+    const xToolbar = ref<VxeToolbarInstance>()
 
     const demo1 = reactive({
       loading: false,
@@ -206,7 +206,9 @@ export default defineComponent({
       // 将表格和工具栏进行关联
       const $table = xTable.value
       const $toolbar = xToolbar.value
-      $table.connect($toolbar)
+      if ($table && $toolbar) {
+        $table.connect($toolbar)
+      }
     })
 
     return {

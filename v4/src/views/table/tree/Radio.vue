@@ -145,7 +145,7 @@ export default defineComponent({
       ]
     })
 
-    const xTree3 = ref({} as VxeTableInstance)
+    const xTree3 = ref<VxeTableInstance>()
 
     const currentChangeEvent: VxeTableEvents.CurrentChange = ({ row }) => {
       demo3.selectRow = row
@@ -153,9 +153,11 @@ export default defineComponent({
 
     const clearCurrentRowEvent = () => {
       const $table = xTree3.value
-      demo3.selectRow = null
-      $table.clearRadioRow()
-      $table.clearCurrentRow()
+      if ($table) {
+        demo3.selectRow = null
+        $table.clearRadioRow()
+        $table.clearCurrentRow()
+      }
     }
 
     return {
@@ -303,7 +305,7 @@ export default defineComponent({
               ]
             })
 
-            const xTree3 = ref({} as VxeTableInstance)
+            const xTree3 = ref<VxeTableInstance>()
 
             const currentChangeEvent: VxeTableEvents.CurrentChange = ({ row }) => {
               demo3.selectRow = row

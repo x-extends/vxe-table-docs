@@ -19,7 +19,7 @@ import { VxeGridInstance, VxeGridPropTypes, VxeGridProps } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xGrid = ref({} as VxeGridInstance)
+    const xGrid = ref<VxeGridInstance>()
 
     const footerData = ref([] as string[][])
 
@@ -138,7 +138,7 @@ export default defineComponent({
 
         export default defineComponent({
           setup () {
-            const xGrid = ref({} as VxeGridInstance)
+            const xGrid = ref<VxeGridInstance>()
 
             const footerData = ref([] as string[][])
 

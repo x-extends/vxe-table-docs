@@ -76,7 +76,7 @@ export default defineComponent({
       ]
     })
 
-    const xTable = ref({} as VxeTableInstance)
+    const xTable = ref<VxeTableInstance>()
 
     const footerCellClassName: VxeTablePropTypes.FooterCellClassName = ({ $rowIndex, columnIndex }) => {
       if (columnIndex === 0) {
@@ -110,8 +110,8 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '平均'
           }
-          if (['age'].includes(column.property)) {
-            return meanNum(data, column.property)
+          if (['age'].includes(column.field)) {
+            return meanNum(data, column.field)
           }
           return null
         }),
@@ -119,8 +119,8 @@ export default defineComponent({
           if (columnIndex === 0) {
             return '和值'
           }
-          if (['age'].includes(column.property)) {
-            return sumNum(data, column.property)
+          if (['age'].includes(column.field)) {
+            return sumNum(data, column.field)
           }
           return null
         })
@@ -129,23 +129,29 @@ export default defineComponent({
 
     const insertEvent = async () => {
       const $table = xTable.value
-      const record = {
-        name: 'New name',
-        age: 18
+      if ($table) {
+        const record = {
+          name: 'New name',
+          age: 18
+        }
+        const { row: newRow } = await $table.insert(record)
+        $table.setEditCell(newRow, 'age')
       }
-      const { row: newRow } = await $table.insert(record)
-      $table.setActiveCell(newRow, 'age')
     }
 
     const removeEvent = () => {
       const $table = xTable.value
-      $table.removeCheckboxRow()
+      if ($table) {
+        $table.removeCheckboxRow()
+      }
     }
 
     const saveEvent = () => {
       const $table = xTable.value
-      const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-      VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      if ($table) {
+        const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
+        VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+      }
     }
 
     return {
@@ -220,7 +226,7 @@ export default defineComponent({
               ]
             })
 
-            const xTable = ref({} as VxeTableInstance)
+            const xTable = ref<VxeTableInstance>()
 
             const footerCellClassName: VxeTablePropTypes.FooterCellClassName = ({ $rowIndex, columnIndex }) => {
               if (columnIndex === 0) {
@@ -254,8 +260,8 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age'].includes(column.property)) {
-                    return meanNum(data, column.property)
+                  if (['age'].includes(column.field)) {
+                    return meanNum(data, column.field)
                   }
                   return null
                 }),
@@ -263,8 +269,8 @@ export default defineComponent({
                   if (columnIndex === 0) {
                     return '和值'
                   }
-                  if (['age'].includes(column.property)) {
-                    return sumNum(data, column.property)
+                  if (['age'].includes(column.field)) {
+                    return sumNum(data, column.field)
                   }
                   return null
                 })
@@ -278,7 +284,7 @@ export default defineComponent({
                 age: 18
               }
               const { row: newRow } = await $table.insert(record)
-              $table.setActiveCell(newRow, 'age')
+              $table.setEditCell(newRow, 'age')
             }
 
             const removeEvent = () => {
