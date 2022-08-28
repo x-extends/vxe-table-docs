@@ -33,16 +33,15 @@
           VXETable,
 
           // 功能模块
-          // Icon,
           // Filter,
           // Menu,
           // Edit,
           // Export,
           // Keyboard,
           // Validator,
-          Footer,
 
           // 可选组件
+          Icon,
           Column,
           // Colgroup,
           // Grid,
@@ -79,9 +78,7 @@
         })
 
         // 表格功能
-        Vue.use(Footer)
-        // .use(Icon)
-        // .use(Filter)
+        // Vue.use(Filter)
         // .use(Edit)
         // .use(Menu)
         // .use(Export)
@@ -89,6 +86,7 @@
         // .use(Validator)
 
         // 可选组件
+        Vue.use(Icon)
         .use(Column)
         // .use(Colgroup)
         // .use(Grid)

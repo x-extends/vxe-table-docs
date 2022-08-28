@@ -37,7 +37,6 @@ export default defineComponent({
       demoCodes: [
         `
         import { App, createApp } = 'vue'
-        import 'xe-utils'
         import VXETable from 'vxe-table'
         import 'vxe-table/lib/style.css'
 

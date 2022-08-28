@@ -34,8 +34,6 @@
           VXETable,
 
           // 表格功能
-          Footer,
-          // Icon,
           // Filter,
           // Edit,
           // Menu,
@@ -44,6 +42,7 @@
           // Validator,
 
           // 可选组件
+          Icon,
           Column,
           // Colgroup,
           // Grid,
@@ -81,9 +80,7 @@
 
         function useTable (app: App) {
           // 表格功能
-          app.use(Footer)
-          // .use(Icon)
-          // .use(Filter)
+          // app.use(Filter)
           // .use(Edit)
           // .use(Menu)
           // .use(Export)
@@ -91,6 +88,7 @@
           // .use(Validator)
 
           // 可选组件
+          app.use(Icon)
           .use(Column)
           // .use(Colgroup)
           // .use(Grid)
