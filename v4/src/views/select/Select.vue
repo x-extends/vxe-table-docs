@@ -166,7 +166,7 @@
         </p>
       </template>
       <template v-slot:highlight>
-        <pre><pre-code class="xml">{{ demoCodes[3] }}</pre-code></pre></template>
+        <pre><pre-code class="xml">{{ demoCodes[4] }}</pre-code></pre></template>
     </demo-block>
 
     <h3>{{ $t('配置式用法') }}</h3>
@@ -646,6 +646,43 @@ export default defineComponent({
               ],
               value45: null,
               list45: []
+            })
+            return {
+              demo1
+            }
+          }
+        })
+        .red {
+          color: red;
+        }
+        .green {
+          color: green;
+        }
+        `,
+        `
+        <p>
+          <vxe-select v-model="demo1.value51" placeholder="可搜索" :options="demo1.list51" filterable></vxe-select>
+        </p>
+        import { defineComponent, reactive } from 'vue'
+
+        export default defineComponent({
+          setup () {
+            const demo1 = reactive({
+              value51: null,
+              list51: [
+                { value: 1001, label: 'table' },
+                { value: 1002, label: 'grid' },
+                { value: 1003, label: 'button' },
+                { value: 1004, label: 'toolbar' },
+                { value: 1005, label: 'tooltip' },
+                { value: 1006, label: 'pager' },
+                { value: 1007, label: 'print' },
+                { value: 1008, label: 'export' },
+                { value: 1009, label: 'import' },
+                { value: 1010, label: 'select' },
+                { value: 1012, label: 'checkbox' },
+                { value: 1013, label: 'group' }
+              ]
             })
             return {
               demo1

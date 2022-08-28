@@ -176,9 +176,11 @@
                   </template>
                 </vxe-form-item>
                 <vxe-form-item title="性别" field="sex" span="12">
-                  <vxe-select v-model="formData3.sex" transfer>
-                    <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
-                  </vxe-select>
+                  <template #default>
+                    <vxe-select v-model="formData3.sex" transfer>
+                      <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+                    </vxe-select>
+                  </template>
                 </vxe-form-item>
                 <vxe-form-item title="年龄" field="age" span="12">
                   <template #default>
@@ -566,9 +568,11 @@ export default {
                   </template>
                 </vxe-form-item>
                 <vxe-form-item title="性别" field="sex" span="12">
-                  <vxe-select v-model="formData3.sex" transfer>
-                    <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
-                  </vxe-select>
+                  <template #default>
+                    <vxe-select v-model="formData3.sex" transfer>
+                      <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+                    </vxe-select>
+                  </template>
                 </vxe-form-item>
                 <vxe-form-item title="年龄" field="age" span="12">
                   <template #default>
