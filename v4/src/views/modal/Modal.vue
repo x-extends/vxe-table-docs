@@ -120,8 +120,15 @@
     <demo-block>
       <template v-slot:source>
         <p>
-          <vxe-button content="基本窗口" @click="demo1.value5 = true"></vxe-button>
+          <vxe-button content="自定义模板" @click="demo1.value5 = true"></vxe-button>
           <vxe-modal v-model="demo1.value5" width="600" show-footer>
+            <template #title>
+              <span style="color:red">自定义标题</span>
+            </template>
+            <template #corner>
+              <vxe-icon name="bell-fill"></vxe-icon>
+              <vxe-icon name="minus"></vxe-icon>
+            </template>
             <template #default>
               <vxe-table
                 show-overflow
@@ -538,8 +545,15 @@ export default defineComponent({
         `,
         `
         <p>
-          <vxe-button content="基本窗口" @click="demo1.value5 = true"></vxe-button>
+          <vxe-button content="自定义模板" @click="demo1.value5 = true"></vxe-button>
           <vxe-modal v-model="demo1.value5" width="600" show-footer>
+            <template #title>
+              <span style="color:red">自定义标题</span>
+            </template>
+            <template #corner>
+              <vxe-icon name="bell-fill"></vxe-icon>
+              <vxe-icon name="minus"></vxe-icon>
+            </template>
             <template #default>
               <vxe-table
                 show-overflow

@@ -434,6 +434,15 @@ const apis = [
         list: []
       },
       {
+        name: 'corner',
+        desc: '窗口右上角的模板',
+        version: '3.6.0',
+        type: '',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'footer',
         desc: '窗口底部的模板',
         version: '',

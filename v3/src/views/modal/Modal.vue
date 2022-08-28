@@ -116,8 +116,15 @@
     <demo-block>
       <div slot="source">
         <p>
-          <vxe-button @click="value5 = true">基本窗口</vxe-button>
+          <vxe-button @click="value5 = true">自定义模板</vxe-button>
           <vxe-modal v-model="value5" width="600" show-footer>
+            <template #title>
+              <span style="color:red">自定义标题</span>
+            </template>
+            <template #corner>
+              <vxe-icon name="bell-fill"></vxe-icon>
+              <vxe-icon name="minus"></vxe-icon>
+            </template>
             <template #default>
               <vxe-table
                 show-overflow
@@ -508,8 +515,15 @@ export default {
         `,
         `
         <p>
-          <vxe-button @click="value5 = true">基本窗口</vxe-button>
+          <vxe-button @click="value5 = true">自定义模板</vxe-button>
           <vxe-modal v-model="value5" width="600" show-footer>
+            <template #title>
+              <span style="color:red">自定义标题</span>
+            </template>
+            <template #corner>
+              <vxe-icon name="bell-fill"></vxe-icon>
+              <vxe-icon name="minus"></vxe-icon>
+            </template>
             <template #default>
               <vxe-table
                 show-overflow
