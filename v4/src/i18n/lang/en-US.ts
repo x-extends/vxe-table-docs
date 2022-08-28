@@ -272,7 +272,8 @@ export default {
         vxeFormGather: 'vxe-form-gather',
         vxeSwitch: 'vxe-switch',
         vxeList: 'vxe-list',
-        vxePulldown: 'vxe-pulldown'
+        vxePulldown: 'vxe-pulldown',
+        vxeIcon: 'vxe-icon'
       }
     },
     header: {

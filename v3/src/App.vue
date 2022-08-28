@@ -2048,6 +2048,15 @@ export default {
                   name: 'pulldown'
                 }
               }
+            },
+            {
+              label: 'app.aside.nav.vxeIcon',
+              locat: {
+                name: 'VXEAPI',
+                params: {
+                  name: 'icon'
+                }
+              }
             }
           ]
         }

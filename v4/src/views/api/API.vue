@@ -45,6 +45,7 @@ import XEUtils from 'xe-utils'
 import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 import XEClipboard from 'xe-clipboard'
+import iconAPI from '../../api/icon'
 import tableAPI from '../../api/table'
 import colgroupAPI from '../../api/colgroup'
 import columnAPI from '../../api/column'
@@ -82,6 +83,7 @@ import pulldownAPI from '../../api/pulldown'
 // const tags: any = window.tags = {}
 
 // const tagMaps = [
+//   ['vxe-icon', iconAPI, { description: '图标' }],
 //   ['vxe-table', tableAPI, { subtags: ['vxe-colgroup', 'vxe-column'], description: '基础表格' }],
 //   ['vxe-colgroup', colgroupAPI, { subtags: ['vxe-column'], description: '基础表格 - 分组列' }],
 //   ['vxe-column', columnAPI, { description: '基础表格 - 列' }],
@@ -211,6 +213,9 @@ export default defineComponent({
         setTimeout(() => {
           let apis: any[] = []
           switch ($route.params.name) {
+            case 'icon':
+              apis = iconAPI
+              break
             case 'table':
               apis = tableAPI
               break

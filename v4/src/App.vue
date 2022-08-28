@@ -2121,6 +2121,15 @@ export default defineComponent({
                   name: 'pulldown'
                 }
               }
+            },
+            {
+              label: 'app.aside.nav.vxeIcon',
+              locat: {
+                name: 'VXEAPI',
+                params: {
+                  name: 'icon'
+                }
+              }
             }
           ]
         }
