@@ -12,7 +12,7 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="名称" :title-help="{message: '自定义帮助提示信息'}"></vxe-column>
-      <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'fa fa-bell'}"></vxe-column>
+      <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'vxe-icon-bell-fill'}"></vxe-column>
       <vxe-column field="date" title="Date"></vxe-column>
       <vxe-column field="rate" title="Rate">
         <template #header>
@@ -52,7 +52,7 @@ export default {
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="名称" :title-help="{message: '自定义帮助提示信息'}"></vxe-column>
-          <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'fa fa-bell'}"></vxe-column>
+          <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'vxe-icon-bell-fill'}"></vxe-column>
           <vxe-column field="date" title="Date"></vxe-column>
           <vxe-column field="rate" title="Rate">
             <template #header>

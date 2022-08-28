@@ -49,30 +49,30 @@ export default {
         },
         toolbarConfig: {
           buttons: [
-            { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'fa fa-plus' },
-            { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'fa fa-trash-o' },
-            { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'fa fa-save' }
+            { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon-square-plus' },
+            { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon-delete' },
+            { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon-save' }
           ],
           perfect: true,
           refresh: {
-            icon: 'fa fa-refresh',
-            iconLoading: 'fa fa-spinner fa-spin'
+            icon: 'vxe-icon-refresh',
+            iconLoading: 'vxe-icon-spinner roll'
           },
           import: {
-            icon: 'fa fa-upload'
+            icon: 'vxe-icon-upload'
           },
           export: {
-            icon: 'fa fa-download'
+            icon: 'vxe-icon-download'
           },
           print: {
-            icon: 'fa fa-print'
+            icon: 'vxe-icon-print'
           },
           zoom: {
-            iconIn: 'fa fa-arrows-alt',
-            iconOut: 'fa fa-expand'
+            iconIn: 'vxe-icon-fullscreen',
+            iconOut: 'vxe-icon-minimize'
           },
           custom: {
-            icon: 'fa fa-cog'
+            icon: 'vxe-icon-menu'
           }
         },
         proxyConfig: {
@@ -176,30 +176,30 @@ export default {
                 },
                 toolbarConfig: {
                   buttons: [
-                    { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'fa fa-plus' },
-                    { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'fa fa-trash-o' },
-                    { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'fa fa-save' }
+                    { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon-square-plus' },
+                    { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon-delete' },
+                    { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon-save' }
                   ],
                   perfect: true,
                   refresh: {
-                    icon: 'fa fa-refresh',
-                    iconLoading: 'fa fa-spinner fa-spin'
+                    icon: 'vxe-icon-refresh',
+                    iconLoading: 'vxe-icon-spinner roll'
                   },
                   import: {
-                    icon: 'fa fa-upload'
+                    icon: 'vxe-icon-upload'
                   },
                   export: {
-                    icon: 'fa fa-download'
+                    icon: 'vxe-icon-download'
                   },
                   print: {
-                    icon: 'fa fa-print'
+                    icon: 'vxe-icon-print'
                   },
                   zoom: {
-                    iconIn: 'fa fa-arrows-alt',
-                    iconOut: 'fa fa-expand'
+                    iconIn: 'vxe-icon-fullscreen',
+                    iconOut: 'vxe-icon-minimize'
                   },
                   custom: {
-                    icon: 'fa fa-cog'
+                    icon: 'vxe-icon-menu'
                   }
                 },
                 proxyConfig: {

@@ -12,7 +12,7 @@
             <template #dropdown>
               <div class="my-dropdown1">
                 <div class="list-item1" v-for="item in list1" :key="item.value" @click="selectEvent1(item)">
-                  <i class="fa fa-user-o"></i>
+                  <i class="vxe-icon-user-fill"></i>
                   <span>{{ item.label }}</span>
                 </div>
               </div>
@@ -27,7 +27,7 @@
               <vxe-list height="200" class="my-dropdown2" :data="list2" auto-resize>
                 <template #default="{ items }">
                   <div class="list-item2" v-for="item in items" :key="item.value" @click="selectEvent2(item)">
-                    <i class="fa fa-envelope-o"></i>
+                    <i class="vxe-icon-star-fill"></i>
                     <span>{{ item.label }}</span>
                   </div>
                 </template>
@@ -37,7 +37,7 @@
 
           <vxe-pulldown ref="xDown3" destroy-on-close>
             <template #default>
-              <vxe-button icon="fa fa-table" @click="clickEvent3">切换下拉表格</vxe-button>
+              <vxe-button icon="vxe-icon-table" @click="clickEvent3">切换下拉表格</vxe-button>
             </template>
             <template #dropdown>
               <div class="my-dropdown3">
@@ -54,7 +54,7 @@
 
           <vxe-pulldown ref="xDown4" transfer>
             <template #default>
-              <vxe-input v-model="value4" suffix-icon="fa fa-search" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
+              <vxe-input v-model="value4" suffix-icon="vxe-icon-search" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
             </template>
             <template #dropdown>
               <div class="my-dropdown4">
@@ -137,7 +137,7 @@ export default {
             <template #dropdown>
               <div class="my-dropdown1">
                 <div class="list-item1" v-for="item in list1" :key="item.value" @click="selectEvent1(item)">
-                  <i class="fa fa-user-o"></i>
+                  <i class="vxe-icon-user-fill"></i>
                   <span>{{ item.label }}</span>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default {
               <vxe-list height="200" class="my-dropdown2" :data="list2" auto-resize>
                 <template #default="{ items }">
                   <div class="list-item2" v-for="item in items" :key="item.value" @click="selectEvent2(item)">
-                    <i class="fa fa-envelope-o"></i>
+                    <i class="vxe-icon-star-fill"></i>
                     <span>{{ item.label }}</span>
                   </div>
                 </template>
@@ -162,7 +162,7 @@ export default {
 
           <vxe-pulldown ref="xDown3" destroy-on-close>
             <template #default>
-              <vxe-button icon="fa fa-table" @click="clickEvent3">切换下拉表格</vxe-button>
+              <vxe-button icon="vxe-icon-table" @click="clickEvent3">切换下拉表格</vxe-button>
             </template>
             <template #dropdown>
               <div class="my-dropdown3">
@@ -179,7 +179,7 @@ export default {
 
           <vxe-pulldown ref="xDown4" transfer>
             <template #default>
-              <vxe-input v-model="value4" suffix-icon="fa fa-search" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
+              <vxe-input v-model="value4" suffix-icon="vxe-icon-search" placeholder="实现下拉分页表格" @keyup="keyupEvent4" @focus="focusEvent4" @suffix-click="suffixClick4"></vxe-input>
             </template>
             <template #dropdown>
               <div class="my-dropdown4">

@@ -9,7 +9,7 @@
       show-overflow
       ref="xTable"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil'}"
+      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'vxe-icon-edit'}"
       @edit-closed="editClosedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
@@ -82,7 +82,7 @@ export default {
           show-overflow
           ref="xTable"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil'}"
+          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'vxe-icon-edit'}"
           @edit-closed="editClosedEvent">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :edit-render="{}">

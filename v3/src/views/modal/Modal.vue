@@ -31,7 +31,7 @@
           <vxe-button content="success" @click="openMessage({ content: 'success 消息提示', status: 'success' })"></vxe-button>
           <vxe-button content="error" @click="openMessage({ content: 'error 消息提示', status: 'error' })"></vxe-button>
           <vxe-button content="loading" @click="openMessage({ content: 'loading 消息提示', status: 'loading' })"></vxe-button>
-          <vxe-button content="自定义图标" @click="openMessage({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'fa fa-thumbs-up' })"></vxe-button>
+          <vxe-button content="自定义图标" @click="openMessage({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'vxe-icon-info-circle' })"></vxe-button>
           <vxe-button content="不允许重复点击" @click="openMessage({ content: '不允许重复点击', id: 'unique1' })"></vxe-button>
         </p>
       </div>
@@ -49,7 +49,7 @@
           <vxe-button content="success" @click="openAlert({ content: 'success 提示框', status: 'success' })"></vxe-button>
           <vxe-button content="error" @click="openAlert({ content: 'error 提示框', title:'app.body.msg.error', status: 'error' })"></vxe-button>
           <vxe-button content="loading" @click="openAlert({ content: 'loading 提示框', status: 'loading' })"></vxe-button>
-          <vxe-button content="自定义图标" @click="openAlert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'fa fa-hand-peace-o' })"></vxe-button>
+          <vxe-button content="自定义图标" @click="openAlert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'vxe-icon-info-circle' })"></vxe-button>
           <vxe-button content="禁止拖动" @click="openAlert({ content: '禁止后，按住头部无法进行拖动', draggable: false })"></vxe-button>
           <vxe-button content="确认提示框" @click="confirmEvent"></vxe-button>
         </p>
@@ -171,7 +171,7 @@
           <vxe-modal v-model="value8" title="记忆功能的窗口" width="600" height="400" show-zoom resize remember>
             <template #default>
               <vxe-form :data="formData3" :rules="formRules3" title-align="right" title-width="60">
-                <vxe-form-item title="基本信息" span="24" title-align="left" title-width="200px" :title-prefix="{icon: 'fa fa-address-card-o'}"></vxe-form-item>
+                <vxe-form-item title="基本信息" span="24" title-align="left" title-width="200px" :title-prefix="{icon: 'vxe-icon-comment'}"></vxe-form-item>
                 <vxe-form-item title="名称" field="name" span="12">
                   <template #default>
                     <vxe-input v-model="formData3.name" placeholder="请输入名称"></vxe-input>
@@ -194,7 +194,7 @@
                     <vxe-input v-model="formData3.age" type="number" placeholder="请输入年龄"></vxe-input>
                   </template>
                 </vxe-form-item>
-                <vxe-form-item title="其他信息" span="24" title-align="left" title-width="200px" :title-prefix="{icon: 'fa fa-info-circle'}"></vxe-form-item>
+                <vxe-form-item title="其他信息" span="24" title-align="left" title-width="200px" :title-prefix="{icon: 'vxe-icon-info-circle-fill'}"></vxe-form-item>
                 <vxe-form-item title="地址" field="address" span="24">
                   <template #default>
                     <vxe-textarea v-model="formData3.address"></vxe-textarea>
@@ -399,7 +399,7 @@ export default {
           <vxe-button content="success" @click="openMessage({ content: 'success 消息提示', status: 'success' })"></vxe-button>
           <vxe-button content="error" @click="openMessage({ content: 'error 消息提示', status: 'error' })"></vxe-button>
           <vxe-button content="loading" @click="openMessage({ content: 'loading 消息提示', status: 'loading' })"></vxe-button>
-          <vxe-button content="自定义图标" @click="openMessage({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'fa fa-thumbs-up' })"></vxe-button>
+          <vxe-button content="自定义图标" @click="openMessage({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'vxe-icon-info-circle' })"></vxe-button>
           <vxe-button content="不允许重复点击" @click="openMessage({ content: '不允许重复点击', id: 'unique1' })"></vxe-button>
         </p>
 
@@ -423,7 +423,7 @@ export default {
           <vxe-button content="success" @click="openAlert({ content: 'success 提示框', status: 'success' })"></vxe-button>
           <vxe-button content="error" @click="openAlert({ content: 'error 提示框', title:'app.body.msg.error', status: 'error' })"></vxe-button>
           <vxe-button content="loading" @click="openAlert({ content: 'loading 提示框', status: 'loading' })"></vxe-button>
-          <vxe-button content="自定义图标" @click="openAlert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'fa fa-hand-peace-o' })"></vxe-button>
+          <vxe-button content="自定义图标" @click="openAlert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'vxe-icon-info-circle' })"></vxe-button>
           <vxe-button content="禁止拖动" @click="openAlert({ content: '禁止后，按住头部无法进行拖动', draggable: false })"></vxe-button>
           <vxe-button content="确认提示框" @click="confirmEvent"></vxe-button>
         </p>
@@ -570,7 +570,7 @@ export default {
           <vxe-modal v-model="value8" title="记忆功能的窗口" width="600" height="400" show-zoom resize remember>
             <template #default>
               <vxe-form :data="formData3" :rules="formRules3" title-align="right" title-width="60">
-                <vxe-form-item title="基本信息" span="24" title-align="left" title-width="200px" :title-prefix="{icon: 'fa fa-address-card-o'}"></vxe-form-item>
+                <vxe-form-item title="基本信息" span="24" title-align="left" title-width="200px" :title-prefix="{icon: 'vxe-icon-comment'}"></vxe-form-item>
                 <vxe-form-item title="名称" field="name" span="12">
                   <template #default>
                     <vxe-input v-model="formData3.name" placeholder="请输入名称"></vxe-input>
@@ -593,7 +593,7 @@ export default {
                     <vxe-input v-model="formData3.age" type="number" placeholder="请输入年龄"></vxe-input>
                   </template>
                 </vxe-form-item>
-                <vxe-form-item title="其他信息" span="24" title-align="left" title-width="200px" :title-prefix="{icon: 'fa fa-info-circle'}"></vxe-form-item>
+                <vxe-form-item title="其他信息" span="24" title-align="left" title-width="200px" :title-prefix="{icon: 'vxe-icon-info-circle-fill'}"></vxe-form-item>
                 <vxe-form-item title="地址" field="address" span="24">
                   <template #default>
                     <vxe-textarea v-model="formData3.address"></vxe-textarea>

@@ -17,7 +17,7 @@
         <template #header="{ column }">
           <span>{{ column.title }}</span>
           <span class="custom-sort" :class="{'is-order': column.order}">
-            <i class="fa" :class="[column.order ? `fa-sort-alpha-${column.order}` : 'fa-long-arrow-down']"></i>
+            <i :class="[column.order ? `vxe-icon-sort-alpha-${column.order}` : 'vxe-icon-sort']"></i>
           </span>
         </template>
       </vxe-column>
@@ -26,7 +26,7 @@
         <template #header="{ column }">
           <span>{{ column.title }}</span>
           <span class="custom-sort" :class="{'is-order': column.order}">
-            <i class="fa" :class="[column.order ? `fa-sort-numeric-${column.order}` : 'fa-long-arrow-down']"></i>
+            <i :class="[column.order ? `vxe-icon-sort-numeric-${column.order}` : 'vxe-icon-sort']"></i>
           </span>
         </template>
       </vxe-column>
@@ -34,7 +34,7 @@
         <template #header="{ column }">
           <span>{{ column.title }}</span>
           <span class="custom-sort" :class="{'is-order': column.order}">
-            <i class="fa" :class="[column.order ? `fa-sort-amount-${column.order}` : 'fa-long-arrow-down']"></i>
+            <i :class="[column.order ? `vxe-icon-sort-numeric-${column.order}` : 'vxe-icon-sort']"></i>
           </span>
         </template>
       </vxe-column>
@@ -117,7 +117,7 @@ export default defineComponent({
             <template #header="{ column }">
               <span>{{ column.title }}</span>
               <span class="custom-sort" :class="{'is-order': column.order}">
-                <i class="fa" :class="[column.order ? \`fa-sort-alpha-\${column.order}\` : 'fa-long-arrow-down']"></i>
+                <i :class="[column.order ? \`vxe-icon-sort-alpha-\${column.order}\` : 'vxe-icon-sort']"></i>
               </span>
             </template>
           </vxe-column>
@@ -126,7 +126,7 @@ export default defineComponent({
             <template #header="{ column }">
               <span>{{ column.title }}</span>
               <span class="custom-sort" :class="{'is-order': column.order}">
-                <i class="fa" :class="[column.order ? \`fa-sort-numeric-\${column.order}\` : 'fa-long-arrow-down']"></i>
+                <i :class="[column.order ? \`vxe-icon-sort-numeric-\${column.order}\` : 'vxe-icon-sort']"></i>
               </span>
             </template>
           </vxe-column>
@@ -134,7 +134,7 @@ export default defineComponent({
             <template #header="{ column }">
               <span>{{ column.title }}</span>
               <span class="custom-sort" :class="{'is-order': column.order}">
-                <i class="fa" :class="[column.order ? \`fa-sort-amount-\${column.order}\` : 'fa-long-arrow-down']"></i>
+                <i :class="[column.order ? \`vxe-icon-sort-numeric-\${column.order}\` : 'vxe-icon-sort']"></i>
               </span>
             </template>
           </vxe-column>

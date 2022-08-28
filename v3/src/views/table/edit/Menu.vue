@@ -75,11 +75,11 @@ export default {
         body: {
           options: [
             [
-              { code: 'copy', name: '复制', prefixIcon: 'fa fa-copy', disabled: false },
+              { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-copy', disabled: false },
               { code: 'reload', name: '刷新', disabled: false },
               { code: 'insertAt', name: '插入', disabled: false },
               { code: 'remove', name: '删除', disabled: false },
-              { code: 'save', name: '保存', prefixIcon: 'fa fa-save', disabled: false }
+              { code: 'save', name: '保存', prefixIcon: 'vxe-icon-save', disabled: false }
             ]
           ]
         },
@@ -156,11 +156,11 @@ export default {
                 body: {
                   options: [
                     [
-                      { code: 'copy', name: '复制', prefixIcon: 'fa fa-copy', disabled: false },
+                      { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-copy', disabled: false },
                       { code: 'reload', name: '刷新', disabled: false },
                       { code: 'insertAt', name: '插入', disabled: false },
                       { code: 'remove', name: '删除', disabled: false },
-                      { code: 'save', name: '保存', prefixIcon: 'fa fa-save', disabled: false }
+                      { code: 'save', name: '保存', prefixIcon: 'vxe-icon-save', disabled: false }
                     ]
                   ]
                 },

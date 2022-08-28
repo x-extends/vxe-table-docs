@@ -16,7 +16,7 @@
       show-overflow
       ref="xTable"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', icon: 'fa fa-pencil'}"
+      :edit-config="{trigger: 'click', mode: 'cell', icon: 'vxe-icon-edit'}"
       @checkbox-change="checkboxChangeEvent"
       @checkbox-all="checkboxChangeEvent">
       <vxe-column type="checkbox" width="60"></vxe-column>
@@ -35,7 +35,7 @@
             <template #dropdown>
               <ul class="my-downpanel1">
                 <li v-for="item in downList" :key="item.value" @click="changeNameEvent(item, row)">
-                  <i class="fa fa-user-o"></i>
+                  <i class="vxe-icon-user-fill"></i>
                   <span>{{ item.label }}</span>
                 </li>
               </ul>
@@ -154,7 +154,7 @@ export default {
           show-overflow
           ref="xTable"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', icon: 'fa fa-pencil'}"
+          :edit-config="{trigger: 'click', mode: 'cell', icon: 'vxe-icon-edit'}"
           @checkbox-change="checkboxChangeEvent"
           @checkbox-all="checkboxChangeEvent">
           <vxe-column type="checkbox" width="60"></vxe-column>
@@ -173,7 +173,7 @@ export default {
                 <template #dropdown>
                   <ul class="my-downpanel1">
                     <li v-for="item in downList" :key="item.value" @click="changeNameEvent(item, row)">
-                      <i class="fa fa-user-o"></i>
+                      <i class="vxe-icon-user-fill"></i>
                       <span>{{ item.label }}</span>
                     </li>
                   </ul>

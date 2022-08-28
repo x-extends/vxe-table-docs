@@ -28,7 +28,7 @@
     <demo-block>
       <div slot="source">
         <p>
-          <vxe-select v-model="value20" placeholder="请选择" prefix-icon="fa fa-user-o">
+          <vxe-select v-model="value20" placeholder="请选择" prefix-icon="vxe-icon-user-fill">
             <vxe-option v-for="num in 3" :key="num" :value="num" :label="`选项${num}`"></vxe-option>
           </vxe-select>
           <vxe-select v-model="value21" placeholder="可清除" clearable>
@@ -126,7 +126,7 @@
             <vxe-option value="3" label="选项3">
               <template #default="{ option }">
                 <span style="color: red">
-                  <i class="fa fa-plane"></i>
+                  <i class="vxe-icon-info-circle"></i>
                   <span>{{ option.label }}</span>
                 </span>
               </template>
@@ -134,7 +134,7 @@
             <vxe-option value="4" label="选项4">
               <template #default>
                 <span style="color: green">
-                  <i class="fa fa-area-chart"></i>
+                  <i class="vxe-icon-info-circle"></i>
                   <span>选项4</span>
                 </span>
               </template>
@@ -143,7 +143,7 @@
               <template #default="{ option }">
                 <span>
                   <span>{{ option.label }}</span>
-                  <i class="fa fa-angellist"></i>
+                  <i class="vxe-icon-info-circle"></i>
                 </span>
               </template>
             </vxe-option>
@@ -167,14 +167,14 @@
           <vxe-select v-model="value46" placeholder="自定义模板" :options="list46" multiple clearable transfer>
             <template #opt3="{ option }">
               <span style="color: red">
-                <i class="fa fa-plane"></i>
+                <i class="vxe-icon-info-circle"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
 
             <template #opt4="{ option }">
               <span style="color: green">
-                <i class="fa fa-area-chart"></i>
+                <i class="vxe-icon-info-circle"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
@@ -182,7 +182,7 @@
             <template #opt5="{ option }">
               <span>
                 <span>{{ option.label }}</span>
-                <i class="fa fa-angellist"></i>
+                <i class="vxe-icon-info-circle"></i>
               </span>
             </template>
           </vxe-select>
@@ -346,7 +346,7 @@ export default {
         `,
         `
         <p>
-          <vxe-select v-model="value20" placeholder="请选择" prefix-icon="fa fa-user-o">
+          <vxe-select v-model="value20" placeholder="请选择" prefix-icon="vxe-icon-user-fill">
             <vxe-option v-for="num in 3" :key="num" :value="num" :label="\`选项\${num}\`"></vxe-option>
           </vxe-select>
           <vxe-select v-model="value21" placeholder="可清除" clearable>
@@ -451,7 +451,7 @@ export default {
             <vxe-option value="3" label="选项3">
               <template #default="{ option }">
                 <span style="color: red">
-                  <i class="fa fa-plane"></i>
+                  <i class="vxe-icon-info-circle"></i>
                   <span>{{ option.label }}</span>
                 </span>
               </template>
@@ -459,7 +459,7 @@ export default {
             <vxe-option value="4" label="选项4">
               <template #default>
                 <span style="color: green">
-                  <i class="fa fa-area-chart"></i>
+                  <i class="vxe-icon-info-circle"></i>
                   <span>选项4</span>
                 </span>
               </template>
@@ -468,7 +468,7 @@ export default {
               <template #default="{ option }">
                 <span>
                   <span>{{ option.label }}</span>
-                  <i class="fa fa-angellist"></i>
+                  <i class="vxe-icon-info-circle"></i>
                 </span>
               </template>
             </vxe-option>
@@ -501,14 +501,14 @@ export default {
           <vxe-select v-model="value46" placeholder="自定义模板" :options="list46" multiple clearable transfer>
             <template #opt3="{ option }">
               <span style="color: red">
-                <i class="fa fa-plane"></i>
+                <i class="vxe-icon-info-circle"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
 
             <template #opt4="{ option }">
               <span style="color: green">
-                <i class="fa fa-area-chart"></i>
+                <i class="vxe-icon-info-circle"></i>
                 <span>{{ option.label }}</span>
               </span>
             </template>
@@ -516,7 +516,7 @@ export default {
             <template #opt5="{ option }">
               <span>
                 <span>{{ option.label }}</span>
-                <i class="fa fa-angellist"></i>
+                <i class="vxe-icon-info-circle"></i>
               </span>
             </template>
           </vxe-select>

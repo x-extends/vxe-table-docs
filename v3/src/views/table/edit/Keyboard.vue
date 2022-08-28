@@ -8,10 +8,10 @@
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button icon="fa fa-plus" @click="insertEvent()">新增</vxe-button>
+        <vxe-button icon="vxe-icon-square-plus" @click="insertEvent()">新增</vxe-button>
         <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
         <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
-        <vxe-button icon="fa fa-save" @click="getInsertEvent">获取新增</vxe-button>
+        <vxe-button icon="vxe-icon-save" @click="getInsertEvent">获取新增</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -115,9 +115,9 @@ export default {
         body: {
           options: [
             [
-              { code: 'copy', name: '复制', prefixIcon: 'fa fa-copy', disabled: false },
+              { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-copy', disabled: false },
               { code: 'remove', name: '删除', disabled: false },
-              { code: 'save', name: '保存', prefixIcon: 'fa fa-save', disabled: false }
+              { code: 'save', name: '保存', prefixIcon: 'vxe-icon-save', disabled: false }
             ]
           ]
         }
@@ -126,10 +126,10 @@ export default {
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button icon="fa fa-plus" @click="insertEvent()">新增</vxe-button>
+            <vxe-button icon="vxe-icon-square-plus" @click="insertEvent()">新增</vxe-button>
             <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
             <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
-            <vxe-button icon="fa fa-save" @click="getInsertEvent">获取新增</vxe-button>
+            <vxe-button icon="vxe-icon-save" @click="getInsertEvent">获取新增</vxe-button>
           </template>
         </vxe-toolbar>
 
@@ -188,9 +188,9 @@ export default {
                 body: {
                   options: [
                     [
-                      { code: 'copy', name: '复制', prefixIcon: 'fa fa-copy', disabled: false },
+                      { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-copy', disabled: false },
                       { code: 'remove', name: '删除', disabled: false },
-                      { code: 'save', name: '保存', prefixIcon: 'fa fa-save', disabled: false }
+                      { code: 'save', name: '保存', prefixIcon: 'vxe-icon-save', disabled: false }
                     ]
                   ]
                 }

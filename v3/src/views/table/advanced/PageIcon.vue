@@ -18,11 +18,11 @@
 
     <vxe-pager
       border
-      icon-prev-page="fa fa-angle-left"
-      icon-jump-prev="fa fa-angle-double-left"
-      icon-jump-next="fa fa-angle-double-right"
-      icon-next-page="fa fa-angle-right"
-      icon-jump-more="fa fa-ellipsis-h"
+      icon-prev-page="vxe-icon-arrow-left"
+      icon-jump-prev="vxe-icon-arrow-double-left"
+      icon-jump-next="vxe-icon-arrow-double-right"
+      icon-next-page="vxe-icon-arrow-right"
+      icon-jump-more="vxe-icon-ellipsis-h"
       :loading="loading"
       :current-page="tablePage.currentPage"
       :page-size="tablePage.pageSize"
@@ -69,11 +69,11 @@ export default {
 
         <vxe-pager
           border
-          icon-prev-page="fa fa-angle-left"
-          icon-jump-prev="fa fa-angle-double-left"
-          icon-jump-next="fa fa-angle-double-right"
-          icon-next-page="fa fa-angle-right"
-          icon-jump-more="fa fa-ellipsis-h"
+          icon-prev-page="vxe-icon-arrow-left"
+          icon-jump-prev="vxe-icon-arrow-double-left"
+          icon-jump-next="vxe-icon-arrow-double-right"
+          icon-next-page="vxe-icon-arrow-right"
+          icon-jump-more="vxe-icon-ellipsis-h"
           :loading="loading"
           :current-page="tablePage.currentPage"
           :page-size="tablePage.pageSize"

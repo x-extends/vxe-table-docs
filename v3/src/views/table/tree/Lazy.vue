@@ -44,7 +44,7 @@
       row-id="id"
       :loading="loading2"
       :checkbox-config="{labelField: 'name'}"
-      :tree-config="{transform: true, lazy: true, hasChild: 'hasChild', expandRowKeys: defaultExpandRowKeys, loadMethod: loadChildrenMethod, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
+      :tree-config="{transform: true, lazy: true, hasChild: 'hasChild', expandRowKeys: defaultExpandRowKeys, loadMethod: loadChildrenMethod, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
       :data="tableData2">
       <vxe-column type="checkbox" title="Name" width="400" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -134,7 +134,7 @@ export default {
           row-id="id"
           :loading="loading2"
           :checkbox-config="{labelField: 'name'}"
-          :tree-config="{transform: true, lazy: true, hasChild: 'hasChild', expandRowKeys: defaultExpandRowKeys, loadMethod: loadChildrenMethod, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
+          :tree-config="{transform: true, lazy: true, hasChild: 'hasChild', expandRowKeys: defaultExpandRowKeys, loadMethod: loadChildrenMethod, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
           :data="tableData2">
           <vxe-column type="checkbox" title="Name" width="400" tree-node></vxe-column>
           <vxe-column field="size" title="Size"></vxe-column>

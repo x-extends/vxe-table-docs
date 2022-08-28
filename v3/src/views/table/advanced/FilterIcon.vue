@@ -6,7 +6,7 @@
       border
       height="400"
       :row-config="{isHover: true}"
-      :filter-config="{iconNone: 'fa fa-wheelchair', iconMatch: 'fa fa-wheelchair-alt'}"
+      :filter-config="{iconNone: 'vxe-icon-fixed', iconMatch: 'vxe-icon-fixed-fill'}"
       :loading="loading"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -38,7 +38,7 @@ export default {
           border
           height="400"
           :row-config="{isHover: true}"
-          :filter-config="{iconNone: 'fa fa-wheelchair', iconMatch: 'fa fa-wheelchair-alt'}"
+          :filter-config="{iconNone: 'vxe-icon-fixed', iconMatch: 'vxe-icon-fixed-fill'}"
           :loading="loading"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>

@@ -67,11 +67,11 @@ export default {
         body: {
           options: [
             [
-              { code: 'details', name: '查看详情', prefixIcon: 'fa fa-link', visible: true, disabled: false }
+              { code: 'details', name: '查看详情', prefixIcon: 'vxe-icon-link', visible: true, disabled: false }
             ],
             [
-              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'fa fa-copy', visible: true, disabled: false },
-              { code: 'clear', name: '清除内容', prefixIcon: 'fa fa-copy', visible: true, disabled: false }
+              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-copy', visible: true, disabled: false },
+              { code: 'clear', name: '清除内容', prefixIcon: 'vxe-icon-copy', visible: true, disabled: false }
             ],
             [
               { code: 'remove', name: '删除', visible: true, disabled: false },
@@ -155,11 +155,11 @@ export default {
                 body: {
                   options: [
                     [
-                      { code: 'details', name: '查看详情', prefixIcon: 'fa fa-link', visible: true, disabled: false }
+                      { code: 'details', name: '查看详情', prefixIcon: 'vxe-icon-link', visible: true, disabled: false }
                     ],
                     [
-                      { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'fa fa-copy', visible: true, disabled: false },
-                      { code: 'clear', name: '清除内容', prefixIcon: 'fa fa-copy', visible: true, disabled: false }
+                      { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-copy', visible: true, disabled: false },
+                      { code: 'clear', name: '清除内容', prefixIcon: 'vxe-icon-copy', visible: true, disabled: false }
                     ],
                     [
                       { code: 'remove', name: '删除', visible: true, disabled: false },

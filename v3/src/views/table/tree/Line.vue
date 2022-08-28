@@ -60,7 +60,7 @@
       size="small"
       :row-config="{isHover: true}"
       :radio-config="{labelField: 'name'}"
-      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
+      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
       :data="tableData3"
       :scroll-y="{enabled: false}">
       <vxe-column type="radio" title="Name" tree-node></vxe-column>
@@ -86,17 +86,17 @@
       size="mini"
       :row-config="{isHover: true}"
       :checkbox-config="{labelField: 'name'}"
-      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-caret-down', iconClose: 'fa fa-caret-right'}"
+      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus', iconClose: 'vxe-icon-square-plus'}"
       :data="tableData4"
       :scroll-y="{enabled: false}">
       <vxe-column type="checkbox" title="Name" tree-node>
         <template #default="{ row }">
           <span>
             <template v-if="row.children && row.children.length">
-              <i class="tree-node-icon fa" :class="$refs.xTree.isTreeExpandByRow(row) ? 'fa-folder-open-o' : 'fa-folder-o'"></i>
+              <i class="tree-node-icon" :class="$refs.xTree.isTreeExpandByRow(row) ? 'vxe-icon-folder-open' : 'vxe-icon-folder'"></i>
             </template>
             <template v-else>
-              <i class="tree-node-icon fa fa-file-o"></i>
+              <i class="tree-node-icon vxe-icon-file-txt"></i>
             </template>
             <span>{{ row.name }}</span>
           </span>
@@ -298,7 +298,7 @@ export default {
           size="small"
           :row-config="{isHover: true}"
           :radio-config="{labelField: 'name'}"
-          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
+          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
           :data="tableData3"
           :scroll-y="{enabled: false}">
           <vxe-column type="radio" title="Name" tree-node></vxe-column>
@@ -343,17 +343,17 @@ export default {
           ref="xTree"
           size="mini"
           :row-config="{isHover: true}"
-          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-caret-down', iconClose: 'fa fa-caret-right'}"
+          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus', iconClose: 'vxe-icon-square-plus'}"
           :data="tableData4"
           :scroll-y="{enabled: false}">
           <vxe-column field="name" title="Name" tree-node>
             <template #default="{ row }">
               <span>
                 <template v-if="row.children && row.children.length">
-                  <i class="tree-node-icon fa" :class="$refs.xTree.isTreeExpandByRow(row) ? 'fa-folder-open-o' : 'fa-folder-o'"></i>
+                  <i class="tree-node-icon" :class="$refs.xTree.isTreeExpandByRow(row) ? 'vxe-icon-folder-open' : 'vxe-icon-folder'"></i>
                 </template>
                 <template v-else>
-                  <i class="tree-node-icon fa fa-file-o"></i>
+                  <i class="tree-node-icon vxe-icon-file-txt"></i>
                 </template>
                 <span>{{ row.name }}</span>
               </span>

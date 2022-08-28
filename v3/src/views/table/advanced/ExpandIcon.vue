@@ -17,7 +17,7 @@
     <vxe-table
       ref="xTable"
       border
-      :expand-config="{iconOpen: 'fa fa-minus-square', iconClose: 'fa fa-plus-square'}"
+      :expand-config="{iconOpen: 'vxe-icon-square-minus', iconClose: 'vxe-icon-square-plus'}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column type="expand" title="Name">
@@ -196,7 +196,7 @@ export default {
         <vxe-table
           ref="xTable"
           border
-          :expand-config="{iconOpen: 'fa fa-minus-square', iconClose: 'fa fa-plus-square'}"
+          :expand-config="{iconOpen: 'vxe-icon-square-minus', iconClose: 'vxe-icon-square-plus'}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column type="expand" title="Name">

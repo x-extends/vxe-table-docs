@@ -16,7 +16,7 @@
       border
       resizable
       ref="xTree1"
-      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
+      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
       :data="tableData1">
       <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -37,16 +37,16 @@
       resizable
       show-overflow
       ref="xTree2"
-      :tree-config="{transform: true, iconOpen: 'fa fa-minus-circle', iconClose: 'fa fa-plus-circle'}"
+      :tree-config="{transform: true, iconOpen: 'vxe-icon-square-minus', iconClose: 'vxe-icon-square-plus'}"
       :data="tableData2">
       <vxe-column field="name" title="Name" tree-node>
         <template #default="{ row }">
           <span>
             <template v-if="row.children && row.children.length">
-              <i class="tree-node-icon fa" :class="$refs.xTree2.isTreeExpandByRow(row) ? 'fa-folder-open-o' : 'fa-folder-o'"></i>
+              <i class="tree-node-icon" :class="$refs.xTree2.isTreeExpandByRow(row) ? 'vxe-icon-folder-open' : 'vxe-icon-folder'"></i>
             </template>
             <template v-else>
-              <i class="tree-node-icon fa fa-file-o"></i>
+              <i class="tree-node-icon vxe-icon-file-txt"></i>
             </template>
             <span>{{ row.name }}</span>
           </span>
@@ -167,7 +167,7 @@ export default {
           border
           resizable
           ref="xTree"
-          :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}"
+          :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
           :data="tableData1">
           <vxe-column field="name" title="app.body.label.name"  tree-node></vxe-column>
           <vxe-column field="size" title="Size"></vxe-column>
@@ -216,16 +216,16 @@ export default {
           resizable
           show-overflow
           ref="xTree"
-          :tree-config="{transform: true, iconOpen: 'fa fa-minus-circle', iconClose: 'fa fa-plus-circle'}"
+          :tree-config="{transform: true, iconOpen: 'vxe-icon-square-minus', iconClose: 'vxe-icon-square-plus'}"
           :data="tableData2">
           <vxe-column field="name" title="Name" tree-node>
             <template #default="{ row }">
               <span>
                 <template v-if="row.children && row.children.length">
-                  <i class="tree-node-icon fa" :class="$refs.xTree.isTreeExpandByRow(row) ? 'fa-folder-open-o' : 'fa-folder-o'"></i>
+                  <i class="tree-node-icon" :class="$refs.xTree.isTreeExpandByRow(row) ? 'vxe-icon-folder-open' : 'vxe-icon-folder'"></i>
                 </template>
                 <template v-else>
-                  <i class="tree-node-icon fa fa-file-o"></i>
+                  <i class="tree-node-icon vxe-icon-file-txt"></i>
                 </template>
                 <span>{{ row.name }}</span>
               </span>

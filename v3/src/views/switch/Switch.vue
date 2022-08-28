@@ -41,8 +41,8 @@
     <demo-block>
       <div slot="source">
         <p>
-          <vxe-switch v-model="value13" open-icon="fa fa-check" close-icon="fa fa-close"></vxe-switch>
-          <vxe-switch v-model="value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="fa fa-bell" close-icon="fa fa-bell-slash"></vxe-switch>
+          <vxe-switch v-model="value13" open-icon="vxe-icon-square-checked" close-icon="vxe-icon-square-close"></vxe-switch>
+          <vxe-switch v-model="value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="vxe-icon-bell-fill" close-icon="vxe-icon-bell"></vxe-switch>
           <vxe-switch v-model="value15" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch1"></vxe-switch>
           <vxe-switch v-model="value16" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch2"></vxe-switch>
           <vxe-switch v-model="value17" open-label="ON" close-label="OFF" class="my-switch3"></vxe-switch>
@@ -114,8 +114,8 @@ export default {
         </p>`,
         `
         <p>
-          <vxe-switch v-model="value13" open-icon="fa fa-check" close-icon="fa fa-close"></vxe-switch>
-          <vxe-switch v-model="value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="fa fa-bell" close-icon="fa fa-bell-slash"></vxe-switch>
+          <vxe-switch v-model="value13" open-icon="vxe-icon-square-checked" close-icon="vxe-icon-square-close"></vxe-switch>
+          <vxe-switch v-model="value14" open-label="app.body.label.on" close-label="app.body.label.off" open-icon="vxe-icon-bell-fill" close-icon="vxe-icon-bell"></vxe-switch>
           <vxe-switch v-model="value15" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch1"></vxe-switch>
           <vxe-switch v-model="value16" open-label="app.body.label.on" close-label="app.body.label.off" class="my-switch2"></vxe-switch>
           <vxe-switch v-model="value17" open-label="ON" close-label="OFF" class="my-switch3"></vxe-switch>

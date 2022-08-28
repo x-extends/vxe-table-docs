@@ -43,10 +43,10 @@
         <template #default="{ row }">
           <span>
             <template v-if="row.children && row.children.length">
-              <i class="tree-node-icon fa" :class="$refs.xTree2.isTreeExpandByRow(row) ? 'fa-folder-open-o' : 'fa-folder-o'"></i>
+              <i class="tree-node-icon" :class="$refs.xTree2.isTreeExpandByRow(row) ? 'vxe-icon-folder-open' : 'vxe-icon-folder'"></i>
             </template>
             <template v-else>
-              <i class="tree-node-icon fa fa-file-o"></i>
+              <i class="tree-node-icon vxe-icon-file-txt"></i>
             </template>
             <span>{{ row.name }}</span>
           </span>
@@ -118,8 +118,8 @@ export default defineComponent({
         transform: true,
         rowField: 'id',
         parentField: 'parentId',
-        iconOpen: 'fa fa-minus-square-o',
-        iconClose: 'fa fa-plus-square-o'
+        iconOpen: 'vxe-icon-square-minus',
+        iconClose: 'vxe-icon-square-plus'
       } as VxeTablePropTypes.TreeConfig
     })
 
@@ -156,8 +156,8 @@ export default defineComponent({
       ],
       tableTreeConfig: {
         transform: true,
-        iconOpen: 'fa fa-minus-circle',
-        iconClose: 'fa fa-plus-circle'
+        iconOpen: 'vxe-icon-square-minus',
+        iconClose: 'vxe-icon-square-plus'
       } as VxeTablePropTypes.TreeConfig
     })
 
@@ -260,8 +260,8 @@ export default defineComponent({
                 transform: true,
                 rowField: 'id',
                 parentField: 'parentId',
-                iconOpen: 'fa fa-minus-square-o',
-                iconClose: 'fa fa-plus-square-o'
+                iconOpen: 'vxe-icon-square-minus',
+                iconClose: 'vxe-icon-square-plus'
               } as VxeTablePropTypes.TreeConfig
             })
 
@@ -292,10 +292,10 @@ export default defineComponent({
             <template #default="{ row }">
               <span>
                 <template v-if="row.children && row.children.length">
-                  <i class="tree-node-icon fa" :class="$refs.xTree2.isTreeExpandByRow(row) ? 'fa-folder-open-o' : 'fa-folder-o'"></i>
+                  <i class="tree-node-icon" :class="$refs.xTree2.isTreeExpandByRow(row) ? 'vxe-icon-folder-open' : 'vxe-icon-folder'"></i>
                 </template>
                 <template v-else>
-                  <i class="tree-node-icon fa fa-file-o"></i>
+                  <i class="tree-node-icon vxe-icon-file-txt"></i>
                 </template>
                 <span>{{ row.name }}</span>
               </span>
@@ -335,8 +335,8 @@ export default defineComponent({
               ],
               tableTreeConfig: {
                 transform: true,
-                iconOpen: 'fa fa-minus-circle',
-                iconClose: 'fa fa-plus-circle'
+                iconOpen: 'vxe-icon-square-minus',
+                iconClose: 'vxe-icon-square-plus'
               } as VxeTablePropTypes.TreeConfig
             })
 

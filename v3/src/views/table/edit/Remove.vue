@@ -9,7 +9,7 @@
         <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
         <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
         <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
-        <vxe-button icon="fa fa-save" @click="saveEvent">保存</vxe-button>
+        <vxe-button icon="vxe-icon-save" @click="saveEvent">保存</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -70,7 +70,7 @@ export default {
             <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
             <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
             <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
-            <vxe-button icon="fa fa-save" @click="saveEvent">保存</vxe-button>
+            <vxe-button icon="vxe-icon-save" @click="saveEvent">保存</vxe-button>
           </template>
         </vxe-toolbar>
 

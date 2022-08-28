@@ -25,9 +25,9 @@
       <div slot="source">
         <p>
           <vxe-input v-model="value200" placeholder="可清除" clearable></vxe-input>
-          <vxe-input v-model="value201" placeholder="带图标" prefix-icon="fa fa-user" suffix-icon="fa fa-search" clearable></vxe-input>
-          <vxe-input v-model="value202" placeholder="只读的" suffix-icon="fa fa-search" readonly></vxe-input>
-          <vxe-input v-model="value203" placeholder="禁用的" prefix-icon="fa fa-user-o" disabled></vxe-input>
+          <vxe-input v-model="value201" placeholder="带图标" prefix-icon="vxe-icon-user" suffix-icon="vxe-icon-search" clearable></vxe-input>
+          <vxe-input v-model="value202" placeholder="只读的" suffix-icon="vxe-icon-search" readonly></vxe-input>
+          <vxe-input v-model="value203" placeholder="禁用的" prefix-icon="vxe-icon-user-fill" disabled></vxe-input>
         </p>
       </div>
       <pre slot="highlight"><pre-code class="xml">{{ demoCodes[1] }}</pre-code></pre>
@@ -192,12 +192,12 @@
         <p>
           <vxe-input v-model="value600" placeholder="自定义前缀图标">
             <template #prefix>
-              <i class="fa fa-search my-red"></i>
+              <i class="vxe-icon-search my-red"></i>
             </template>
           </vxe-input>
           <vxe-input v-model="value601" placeholder="自定义后缀图标">
             <template #suffix>
-              <i class="fa fa-search my-green"></i>
+              <i class="vxe-icon-search my-green"></i>
             </template>
           </vxe-input>
           <vxe-input v-model="value602" class="my-domain" placeholder="自定义前缀模板">
@@ -207,7 +207,7 @@
           </vxe-input>
           <vxe-input v-model="value603" class="my-search" placeholder="自定义后缀模板">
             <template #suffix>
-              <i class="fa fa-search"></i>
+              <i class="vxe-icon-search"></i>
             </template>
           </vxe-input>
         </p>
@@ -387,9 +387,9 @@ export default {
 
         <p>
           <vxe-input v-model="value200" placeholder="可清除" clearable></vxe-input>
-          <vxe-input v-model="value201" placeholder="带图标" prefix-icon="fa fa-user" suffix-icon="fa fa-search" clearable></vxe-input>
-          <vxe-input v-model="value202" placeholder="只读的" suffix-icon="fa fa-search" readonly></vxe-input>
-          <vxe-input v-model="value203" placeholder="禁用的" prefix-icon="fa fa-user-o" disabled></vxe-input>
+          <vxe-input v-model="value201" placeholder="带图标" prefix-icon="vxe-icon-user" suffix-icon="vxe-icon-search" clearable></vxe-input>
+          <vxe-input v-model="value202" placeholder="只读的" suffix-icon="vxe-icon-search" readonly></vxe-input>
+          <vxe-input v-model="value203" placeholder="禁用的" prefix-icon="vxe-icon-user-fill" disabled></vxe-input>
         </p>
 
         export default {
@@ -725,12 +725,12 @@ export default {
         <p>
           <vxe-input v-model="value600" placeholder="自定义前缀图标">
             <template #prefix>
-              <i class="fa fa-search my-red"></i>
+              <i class="vxe-icon-search my-red"></i>
             </template>
           </vxe-input>
           <vxe-input v-model="value601" placeholder="自定义后缀图标">
             <template #suffix>
-              <i class="fa fa-search my-green"></i>
+              <i class="vxe-icon-search my-green"></i>
             </template>
           </vxe-input>
           <vxe-input v-model="value602" class="my-domain" placeholder="自定义前缀模板">
@@ -740,7 +740,7 @@ export default {
           </vxe-input>
           <vxe-input v-model="value603" class="my-search" placeholder="自定义后缀模板">
             <template #suffix>
-              <i class="fa fa-search"></i>
+              <i class="vxe-icon-search"></i>
             </template>
           </vxe-input>
         </p>

@@ -66,17 +66,17 @@
         <p>
           <vxe-toolbar perfect>
             <template #buttons>
-              <vxe-button type="text" icon="fa fa-plus" content="新增"></vxe-button>
-              <vxe-button type="text" icon="fa fa-trash-o" content="删除"></vxe-button>
-              <vxe-button type="text" icon="fa fa-save" content="保存"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-square-plus" content="新增"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-delete" content="删除"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-save" content="保存"></vxe-button>
             </template>
           </vxe-toolbar>
 
           <vxe-toolbar perfect>
             <template #buttons>
-              <vxe-button icon="fa fa-plus" status="perfect" content="新增"></vxe-button>
-              <vxe-button icon="fa fa-trash-o" status="perfect" content="删除"></vxe-button>
-              <vxe-button icon="fa fa-save" status="perfect" content="保存"></vxe-button>
+              <vxe-button icon="vxe-icon-square-plus" status="perfect" content="新增"></vxe-button>
+              <vxe-button icon="vxe-icon-delete" status="perfect" content="删除"></vxe-button>
+              <vxe-button icon="vxe-icon-save" status="perfect" content="保存"></vxe-button>
             </template>
           </vxe-toolbar>
 
@@ -189,17 +189,17 @@ export default {
         <p>
           <vxe-toolbar perfect>
             <template #buttons>
-              <vxe-button type="text" icon="fa fa-plus" content="新增"></vxe-button>
-              <vxe-button type="text" icon="fa fa-trash-o" content="删除"></vxe-button>
-              <vxe-button type="text" icon="fa fa-save" content="保存"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-square-plus" content="新增"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-delete" content="删除"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-save" content="保存"></vxe-button>
             </template>
           </vxe-toolbar>
 
           <vxe-toolbar perfect>
             <template #buttons>
-              <vxe-button icon="fa fa-plus" status="perfect" content="新增"></vxe-button>
-              <vxe-button icon="fa fa-trash-o" status="perfect" content="删除"></vxe-button>
-              <vxe-button icon="fa fa-save" status="perfect" content="保存"></vxe-button>
+              <vxe-button icon="vxe-icon-square-plus" status="perfect" content="新增"></vxe-button>
+              <vxe-button icon="vxe-icon-delete" status="perfect" content="删除"></vxe-button>
+              <vxe-button icon="vxe-icon-save" status="perfect" content="保存"></vxe-button>
             </template>
           </vxe-toolbar>
 

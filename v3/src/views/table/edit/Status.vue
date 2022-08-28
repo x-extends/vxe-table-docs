@@ -8,7 +8,7 @@
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button icon="fa fa-plus" @click="insertEvent">新增</vxe-button>
+        <vxe-button icon="vxe-icon-square-plus" @click="insertEvent">新增</vxe-button>
         <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
         <vxe-button @click="getInsertEvent">获取新增</vxe-button>
         <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
@@ -24,7 +24,7 @@
       ref="xTable"
       :loading="loading"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil-square-o'}">
+      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'vxe-icon-edit'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
@@ -84,7 +84,7 @@ export default {
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button icon="fa fa-plus" @click="insertEvent">新增</vxe-button>
+            <vxe-button icon="vxe-icon-square-plus" @click="insertEvent">新增</vxe-button>
             <vxe-button @click="$refs.xTable.removeCheckboxRow()">删除选中</vxe-button>
             <vxe-button @click="getInsertEvent">获取新增</vxe-button>
             <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
@@ -100,7 +100,7 @@ export default {
           ref="xTable"
           :loading="loading"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'fa fa-pencil-square-o'}">
+          :edit-config="{trigger: 'click', mode: 'cell', showStatus: true, icon: 'vxe-icon-edit'}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">

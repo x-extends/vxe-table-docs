@@ -39,7 +39,7 @@
       :show-header="false"
       :data="tableData2"
       :checkbox-config="{labelField: 'name'}"
-      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-caret-down', iconClose: 'fa fa-caret-right'}">
+      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus', iconClose: 'vxe-icon-square-plus'}">
       <vxe-column type="checkbox" tree-node></vxe-column>
     </vxe-table>
 
@@ -61,15 +61,15 @@
       :show-header="false"
       :data="tableData3"
       :checkbox-config="{labelField: 'name'}"
-      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}">
+      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}">
       <vxe-column type="checkbox" tree-node>
         <template #default="{ row }">
           <span>
             <template v-if="row.children && row.children.length">
-              <i class="tree-node-icon fa" :class="$refs.xTree3.isTreeExpandByRow(row) ? 'fa-folder-open-o' : 'fa-folder-o'"></i>
+              <i class="tree-node-icon" :class="$refs.xTree3.isTreeExpandByRow(row) ? 'vxe-icon-folder-open' : 'vxe-icon-folder'"></i>
             </template>
             <template v-else>
-              <i class="tree-node-icon fa fa-file-o"></i>
+              <i class="tree-node-icon vxe-icon-file-txt"></i>
             </template>
             <span>{{ row.name }}</span>
           </span>
@@ -77,10 +77,10 @@
       </vxe-column>
       <vxe-column title="操作" width="140">
         <template #default="{ row }">
-          <vxe-button type="text" icon="fa fa-eye"></vxe-button>
-          <vxe-button type="text" icon="fa fa-edit"></vxe-button>
-          <vxe-button type="text" icon="fa fa-trash-o" @click="removeRowEvent(row)"></vxe-button>
-          <vxe-button type="text" icon="fa fa-id-card-o"></vxe-button>
+          <vxe-button type="text" icon="vxe-icon-setting-fill"></vxe-button>
+          <vxe-button type="text" icon="vxe-icon-edit"></vxe-button>
+          <vxe-button type="text" icon="vxe-icon-delete" @click="removeRowEvent(row)"></vxe-button>
+          <vxe-button type="text" icon="vxe-icon-home-fill"></vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -231,7 +231,7 @@ export default {
           :show-header="false"
           :data="tableData2"
           :checkbox-config="{labelField: 'name'}"
-          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-caret-down', iconClose: 'fa fa-caret-right'}">
+          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus', iconClose: 'vxe-icon-square-plus'}">
           <vxe-column type="checkbox" tree-node></vxe-column>
         </vxe-table>
         `,
@@ -276,15 +276,15 @@ export default {
           :show-header="false"
           :data="tableData3"
           :checkbox-config="{labelField: 'name'}"
-          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'fa fa-minus-square-o', iconClose: 'fa fa-plus-square-o'}">
+          :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}">
           <vxe-column type="checkbox" tree-node>
             <template #default="{ row }">
               <span>
                 <template v-if="row.children && row.children.length">
-                  <i class="tree-node-icon fa" :class="$refs.xTree3.isTreeExpandByRow(row) ? 'fa-folder-open-o' : 'fa-folder-o'"></i>
+                  <i class="tree-node-icon" :class="$refs.xTree3.isTreeExpandByRow(row) ? 'vxe-icon-folder-open' : 'vxe-icon-folder'"></i>
                 </template>
                 <template v-else>
-                  <i class="tree-node-icon fa fa-file-o"></i>
+                  <i class="tree-node-icon vxe-icon-file-txt"></i>
                 </template>
                 <span>{{ row.name }}</span>
               </span>
@@ -292,10 +292,10 @@ export default {
           </vxe-column>
           <vxe-column title="操作" width="140">
             <template #default="{ row }">
-              <vxe-button type="text" icon="fa fa-eye"></vxe-button>
-              <vxe-button type="text" icon="fa fa-edit"></vxe-button>
-              <vxe-button type="text" icon="fa fa-trash-o" @click="removeRowEvent(row)"></vxe-button>
-              <vxe-button type="text" icon="fa fa-id-card-o"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-setting-fill"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-edit"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-delete" @click="removeRowEvent(row)"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-home-fill"></vxe-button>
             </template>
           </vxe-column>
         </vxe-table>

@@ -68,10 +68,10 @@ export default {
         body: {
           options: [
             [
-              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'fa fa-copy', className: 'my-copy-item' }
+              { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-copy', className: 'my-copy-item' }
             ],
             [
-              { code: 'remove', name: '删除', prefixIcon: 'fa fa-trash-o color-red' },
+              { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-delete color-red' },
               {
                 name: '筛选',
                 children: [
@@ -82,11 +82,10 @@ export default {
               {
                 code: 'sort',
                 name: '排序',
-                prefixIcon: 'fa fa-sort color-blue',
                 children: [
                   { code: 'clearSort', name: '清除排序' },
-                  { code: 'sortAsc', name: '升序', prefixIcon: 'fa fa-sort-alpha-asc color-orange' },
-                  { code: 'sortDesc', name: '倒序', prefixIcon: 'fa fa-sort-alpha-desc color-orange' }
+                  { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-sort-alpha-asc' },
+                  { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-sort-alpha-desc' }
                 ]
               },
               { code: 'print', name: '打印', disabled: true }
@@ -147,10 +146,10 @@ export default {
                 body: {
                   options: [
                     [
-                      { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'fa fa-copy', className: 'my-copy-item' }
+                      { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-copy', className: 'my-copy-item' }
                     ],
                     [
-                      { code: 'remove', name: '删除', prefixIcon: 'fa fa-trash-o color-red' },
+                      { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-delete color-red' },
                       {
                         name: '筛选',
                         children: [
@@ -161,11 +160,10 @@ export default {
                       {
                         code: 'sort',
                         name: '排序',
-                        prefixIcon: 'fa fa-sort color-blue',
                         children: [
                           { code: 'clearSort', name: '清除排序' },
-                          { code: 'sortAsc', name: '升序', prefixIcon: 'fa fa-sort-alpha-asc color-orange' },
-                          { code: 'sortDesc', name: '倒序', prefixIcon: 'fa fa-sort-alpha-desc color-orange' }
+                          { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-sort-alpha-asc' },
+                          { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-sort-alpha-desc' }
                         ]
                       },
                       { code: 'print', name: '打印', disabled: true }

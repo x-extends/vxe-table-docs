@@ -4,7 +4,7 @@
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button icon="fa fa-plus" @click="insertEvent()">新增</vxe-button>
+        <vxe-button icon="vxe-icon-square-plus" @click="insertEvent()">新增</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -24,8 +24,8 @@
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
       <vxe-column title="操作" width="100" show-overflow>
         <template #default="{ row }">
-          <vxe-button type="text" icon="fa fa-edit" @click="editEvent(row)"></vxe-button>
-          <vxe-button type="text" icon="fa fa-trash-o" @click="removeEvent(row)"></vxe-button>
+          <vxe-button type="text" icon="vxe-icon-edit" @click="editEvent(row)"></vxe-button>
+          <vxe-button type="text" icon="vxe-icon-delete" @click="removeEvent(row)"></vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -33,7 +33,7 @@
     <vxe-modal v-model="demo1.showEdit" :title="demo1.selectRow ? '编辑&保存' : '新增&保存'" width="800" min-width="600" min-height="300" :loading="demo1.submitLoading" resize destroy-on-close>
       <template #default>
         <vxe-form :data="demo1.formData" :rules="demo1.formRules" title-align="right" title-width="100" @submit="submitEvent">
-          <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{icon: 'fa fa-address-card-o'}"></vxe-form-item>
+          <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{icon: 'vxe-icon-comment'}"></vxe-form-item>
           <vxe-form-item field="name" title="Name" :span="12" :item-render="{}">
             <template #default="{ data }">
               <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
@@ -79,7 +79,7 @@
               </vxe-checkbox-group>
             </template>
           </vxe-form-item>
-          <vxe-form-item title="Other information" title-align="left" :title-width="200" :span="24" :title-prefix="{message: '请填写必填项', icon: 'fa fa-info-circle'}"></vxe-form-item>
+          <vxe-form-item title="Other information" title-align="left" :title-width="200" :span="24" :title-prefix="{message: '请填写必填项', icon: 'vxe-icon-info-circle-fill'}"></vxe-form-item>
           <vxe-form-item field="num" title="Number" :span="12" :item-render="{}">
             <template #default="{ data }">
               <vxe-input v-model="data.num" type="number" placeholder="请输入数值"></vxe-input>
@@ -90,7 +90,7 @@
               <vxe-input v-model="data.date3" type="date" placeholder="请选择日期" transfer></vxe-input>
             </template>
           </vxe-form-item>
-          <vxe-form-item field="address" title="Date" :span="24" :item-render="{}" :title-suffix="{message: '提示信息！！', icon: 'fa fa-question-circle'}">
+          <vxe-form-item field="address" title="Date" :span="24" :item-render="{}" :title-suffix="{message: '提示信息！！', icon: 'vxe-icon-question-circle-fill'}">
             <template #default="{ data }">
               <vxe-textarea v-model="data.address" :autosize="{minRows: 2, maxRows: 4}"></vxe-textarea>
             </template>
@@ -258,7 +258,7 @@ export default defineComponent({
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button icon="fa fa-plus" @click="insertEvent()">新增</vxe-button>
+            <vxe-button icon="vxe-icon-square-plus" @click="insertEvent()">新增</vxe-button>
           </template>
         </vxe-toolbar>
 
@@ -278,8 +278,8 @@ export default defineComponent({
           <vxe-column field="address" title="Address" show-overflow></vxe-column>
           <vxe-column title="操作" width="100" show-overflow>
             <template #default="{ row }">
-              <vxe-button type="text" icon="fa fa-edit" @click="editEvent(row)"></vxe-button>
-              <vxe-button type="text" icon="fa fa-trash-o" @click="removeEvent(row)"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-edit" @click="editEvent(row)"></vxe-button>
+              <vxe-button type="text" icon="vxe-icon-delete" @click="removeEvent(row)"></vxe-button>
             </template>
           </vxe-column>
         </vxe-table>
@@ -287,7 +287,7 @@ export default defineComponent({
         <vxe-modal v-model="demo1.showEdit" :title="demo1.selectRow ? '编辑&保存' : '新增&保存'" width="800" min-width="600" min-height="300" :loading="demo1.submitLoading" resize destroy-on-close>
           <template #default>
             <vxe-form :data="demo1.formData" :rules="demo1.formRules" title-align="right" title-width="100" @submit="submitEvent">
-              <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{icon: 'fa fa-address-card-o'}"></vxe-form-item>
+              <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{icon: 'vxe-icon-comment'}"></vxe-form-item>
               <vxe-form-item field="name" title="Name" :span="12" :item-render="{}">
                 <template #default="{ data }">
                   <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
@@ -333,7 +333,7 @@ export default defineComponent({
                   </vxe-checkbox-group>
                 </template>
               </vxe-form-item>
-              <vxe-form-item title="Other information" title-align="left" :title-width="200" :span="24" :title-prefix="{message: '请填写必填项', icon: 'fa fa-info-circle'}"></vxe-form-item>
+              <vxe-form-item title="Other information" title-align="left" :title-width="200" :span="24" :title-prefix="{message: '请填写必填项', icon: 'vxe-icon-info-circle-fill'}"></vxe-form-item>
               <vxe-form-item field="num" title="Number" :span="12" :item-render="{}">
                 <template #default="{ data }">
                   <vxe-input v-model="data.num" type="number" placeholder="请输入数值"></vxe-input>
@@ -344,7 +344,7 @@ export default defineComponent({
                   <vxe-input v-model="data.date3" type="date" placeholder="请选择日期" transfer></vxe-input>
                 </template>
               </vxe-form-item>
-              <vxe-form-item field="address" title="Date" :span="24" :item-render="{}" :title-suffix="{message: '提示信息！！', icon: 'fa fa-question-circle'}">
+              <vxe-form-item field="address" title="Date" :span="24" :item-render="{}" :title-suffix="{message: '提示信息！！', icon: 'vxe-icon-question-circle-fill'}">
                 <template #default="{ data }">
                   <vxe-textarea v-model="data.address" :autosize="{minRows: 2, maxRows: 4}"></vxe-textarea>
                 </template>

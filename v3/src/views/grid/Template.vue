@@ -20,7 +20,7 @@
       :columns="tableColumn"
       :data="tableData"
       :toolbar-config="tableToolbar"
-      :edit-config="{trigger: 'click', mode: 'cell', icon: 'fa fa-pencil-square-o'}"
+      :edit-config="{trigger: 'click', mode: 'cell', icon: 'vxe-icon-edit'}"
       @checkbox-change="checkboxChangeEvent"
       @checkbox-all="checkboxChangeEvent">
       <!--使用 form 插槽-->
@@ -76,7 +76,7 @@
       <!--使用 top 插槽-->
       <template #top>
         <div class="alert-message">
-          <i class="fa fa-exclamation-circle alert-message-icon"></i>
+          <i class="vxe-icon-info-circle-fill alert-message-icon"></i>
           <span class="alert-message-content">
             <div>自定义模板</div>
           </span>
@@ -144,7 +144,7 @@
       <!--使用 bottom 插槽-->
       <template #bottom>
         <div class="alert-message">
-          <i class="fa fa-exclamation-circle alert-message-icon"></i>
+          <i class="vxe-icon-info-circle-fill alert-message-icon"></i>
           <span class="alert-message-content">
             <div>自定义模板</div>
           </span>
@@ -291,7 +291,7 @@ export default {
           :columns="tableColumn"
           :data="tableData"
           :toolbar-config="tableToolbar"
-          :edit-config="{trigger: 'click', mode: 'cell', icon: 'fa fa-pencil-square-o'}"
+          :edit-config="{trigger: 'click', mode: 'cell', icon: 'vxe-icon-edit'}"
           @checkbox-change="checkboxChangeEvent"
           @checkbox-all="checkboxChangeEvent">
           <!--使用 form 插槽-->
@@ -347,7 +347,7 @@ export default {
           <!--使用 top 插槽-->
           <template #top>
             <div class="alert-message">
-              <i class="fa fa-exclamation-circle alert-message-icon"></i>
+              <i class="vxe-icon-info-circle-fill alert-message-icon"></i>
               <span class="alert-message-content">
                 <div>自定义模板</div>
               </span>
@@ -415,7 +415,7 @@ export default {
           <!--使用 bottom 插槽-->
           <template #bottom>
             <div class="alert-message">
-              <i class="fa fa-exclamation-circle alert-message-icon"></i>
+              <i class="vxe-icon-info-circle-fill alert-message-icon"></i>
               <span class="alert-message-content">
                 <div>自定义模板</div>
               </span>
