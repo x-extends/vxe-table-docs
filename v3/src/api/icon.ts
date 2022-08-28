@@ -15,6 +15,15 @@ const apis = [
         enum: '',
         defVal: '',
         list: []
+      },
+      {
+        name: 'roll',
+        desc: '旋转动画',
+        version: '3.6.0',
+        type: 'boolean',
+        enum: '',
+        defVal: 'false',
+        list: []
       }
     ]
   },

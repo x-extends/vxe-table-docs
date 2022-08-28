@@ -14,7 +14,7 @@
 
       <template #default_version="{ row }">
         <template v-if="row.version === 'pro'">
-          <a class="link pro" :href="pluginApiUrl" target="_blank">pro</a>
+          <a class="link pro" :href="pluginApiUrl" target="_blank">查看pro</a>
         </template>
         <template v-else-if="row.disabled">
           <span class="disabled">已废弃</span>

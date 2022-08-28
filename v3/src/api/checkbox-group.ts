@@ -17,6 +17,15 @@ const apis = [
         list: []
       },
       {
+        name: 'max',
+        desc: '限制最大可选数量，默认无限制',
+        version: '3.6.0',
+        type: 'string, number',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'size',
         descKey: 'app.api.checkbox.desc.size',
         version: '',

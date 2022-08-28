@@ -31,7 +31,7 @@
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0",
-    "vxe-table": "^3.6.0-beta.9",
+    "vxe-table": "^3.6.0-beta.11",
     "vxe-table-plugin-antd": "^1.11.3",
     "vxe-table-plugin-charts": "^1.7.1",
     "vxe-table-plugin-element": "^1.11.3",

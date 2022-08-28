@@ -1618,6 +1618,15 @@ const apis = [
             list: []
           },
           {
+            name: 'height',
+            desc: '展开内容的高度，默认自适应高度',
+            version: '4.3.0',
+            type: 'number',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'trigger',
             desc: '触发方式（注：当多种功能重叠时，会同时触发）',
             version: '',
@@ -2784,6 +2793,32 @@ const apis = [
           //   enum: '',
           //   defVal: '{}, ...[目标渲染的 arguments]',
           //   list: []
+          }
+        ]
+      },
+      {
+        name: 'loading-config',
+        desc: '加载中配置项',
+        version: '4.3.0',
+        type: 'any',
+        enum: '',
+        defVal: '继承 setup.table.loadingConfig',
+        list: [
+          {
+            name: 'icon',
+            desc: '显示图标',
+            version: '',
+            type: 'string',
+            enum: '',
+            defVal: ''
+          },
+          {
+            name: 'text',
+            desc: '显示文字',
+            version: '',
+            type: 'string',
+            enum: '',
+            defVal: ''
           }
         ]
       },

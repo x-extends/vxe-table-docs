@@ -19,7 +19,8 @@
         </p>
       </template>
       <template v-slot:highlight>
-        <pre><pre-code class="xml">{{ demoCodes[0] }}</pre-code><pre-code class="javascript">{{ demoCodes[3] }}</pre-code></pre>
+        <pre><pre-code class="xml">{{ demoCodes[0] }}</pre-code>
+        <pre-code class="javascript">{{ demoCodes[4] }}</pre-code></pre>
       </template>
     </demo-block>
 
@@ -34,7 +35,8 @@
         </p>
       </template>
       <template v-slot:highlight>
-        <pre><pre-code class="xml">{{ demoCodes[1] }}</pre-code><pre-code class="javascript">{{ demoCodes[3] }}</pre-code></pre>
+        <pre><pre-code class="xml">{{ demoCodes[1] }}</pre-code>
+        <pre-code class="javascript">{{ demoCodes[4] }}</pre-code></pre>
       </template>
     </demo-block>
 
@@ -53,7 +55,29 @@
       </template>
       <template v-slot:highlight>
         <pre>
-          <pre-code class="xml">{{ demoCodes[2] }}</pre-code><pre-code class="typescript">{{ demoCodes[3] }}</pre-code>
+          <pre-code class="xml">{{ demoCodes[2] }}</pre-code>
+          <pre-code class="typescript">{{ demoCodes[4] }}</pre-code>
+        </pre>
+      </template>
+    </demo-block>
+
+    <h3>限制最大选择数量</h3>
+    <demo-block>
+      <template v-slot:source>
+        <p>
+          <vxe-checkbox-group v-model="demo1.value20" :max="3">
+            <vxe-checkbox label="1" content="HTML"></vxe-checkbox>
+            <vxe-checkbox label="2" content="CSS"></vxe-checkbox>
+            <vxe-checkbox label="3" content="Javascript"></vxe-checkbox>
+            <vxe-checkbox label="4" content="SASS"></vxe-checkbox>
+            <vxe-checkbox label="5" content="LESS"></vxe-checkbox>
+          </vxe-checkbox-group>
+        </p>
+      </template>
+      <template v-slot:highlight>
+        <pre>
+          <pre-code class="xml">{{ demoCodes[3] }}</pre-code>
+          <pre-code class="typescript">{{ demoCodes[4] }}</pre-code>
         </pre>
       </template>
     </demo-block>
@@ -92,7 +116,8 @@ export default defineComponent({
       value9: true,
       value10: true,
       value11: '1',
-      value12: ['3']
+      value12: ['3'],
+      value20: []
     })
     return {
       demo1,
@@ -119,6 +144,17 @@ export default defineComponent({
         `
         <p>
           <vxe-checkbox-group v-model="demo1.value12">
+            <vxe-checkbox label="1" content="HTML"></vxe-checkbox>
+            <vxe-checkbox label="2" content="CSS"></vxe-checkbox>
+            <vxe-checkbox label="3" content="Javascript"></vxe-checkbox>
+            <vxe-checkbox label="4" content="SASS"></vxe-checkbox>
+            <vxe-checkbox label="5" content="LESS"></vxe-checkbox>
+          </vxe-checkbox-group>
+        </p>
+        `,
+        `
+        <p>
+          <vxe-checkbox-group v-model="demo1.value20" :max="3">
             <vxe-checkbox label="1" content="HTML"></vxe-checkbox>
             <vxe-checkbox label="2" content="CSS"></vxe-checkbox>
             <vxe-checkbox label="3" content="Javascript"></vxe-checkbox>
