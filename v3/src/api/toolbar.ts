@@ -199,6 +199,15 @@ const apis = [
             list: []
           },
           {
+            name: 'code',
+            desc: '刷新方式，query仅查询，reload重置并查询',
+            version: '3.6.1',
+            type: 'string',
+            enum: 'query,reload',
+            defVal: 'reload',
+            list: []
+          },
+          {
             name: 'icon',
             desc: '自定义图标',
             version: '',
