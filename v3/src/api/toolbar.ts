@@ -190,7 +190,17 @@ const apis = [
         defVal: '默认继承 setup.toolbar.refresh',
         list: [
           {
+            name: 'queryMethod',
+            desc: '查询的方法',
+            version: '3.6.1',
+            type: '() => Promise<any>',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'query',
+            disabled: true,
             desc: '查询的方法',
             version: '',
             type: 'Function | Promise<any>',
