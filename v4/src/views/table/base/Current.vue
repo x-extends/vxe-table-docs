@@ -4,7 +4,7 @@
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="$refs.xTable.setCurrentRow(tableData[1])">设置第二行选中</vxe-button>
+        <vxe-button @click="$refs.xTable.setCurrentRow(demo1.tableData[1])">设置第二行选中</vxe-button>
         <vxe-button @click="$refs.xTable.clearCurrentRow()">取消选中</vxe-button>
         <vxe-button @click="getCurrentEvent">获取高亮行</vxe-button>
       </template>
@@ -69,7 +69,7 @@ export default defineComponent({
         `
         <vxe-toolbar>
           <template #buttons>
-            <vxe-button @click="$refs.xTable.setCurrentRow(tableData[1])">设置第二行选中</vxe-button>
+            <vxe-button @click="$refs.xTable.setCurrentRow(demo1.tableData[1])">设置第二行选中</vxe-button>
             <vxe-button @click="$refs.xTable.clearCurrentRow()">取消选中</vxe-button>
             <vxe-button @click="getCurrentEvent">获取高亮行</vxe-button>
           </template>
