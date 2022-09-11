@@ -6,8 +6,6 @@ VXETable.renderer.add('MyLink', {
   renderDefault (renderOpts, params) {
     const { row, column } = params
     const { events = {} } = renderOpts
-    return [
-      <a class="link" onClick={ () => events.click(params) }>{row[column.property]}</a>
-    ]
+    return <a class="link" onClick={ () => events.click(params) }>{row[column.field]}</a>
   }
 })

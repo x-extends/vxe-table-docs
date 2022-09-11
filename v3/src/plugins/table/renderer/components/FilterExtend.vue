@@ -92,7 +92,7 @@ export default {
       const { $table, column } = this.params
       const { fullData } = $table.getTableData()
       const option = column.filters[0]
-      const colValList = Object.keys(XEUtils.groupBy(fullData, column.property))
+      const colValList = Object.keys(XEUtils.groupBy(fullData, column.field))
       this.column = column
       this.option = option
       this.colValList = colValList

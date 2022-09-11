@@ -4,11 +4,9 @@ import { VXETable } from 'vxe-table'
 VXETable.renderer.add('FormItemInput', {
   // 项内容模板
   renderItemContent (renderOpts, params) {
-    const { data, property } = params
+    const { data, field } = params
     const { props } = renderOpts
-    return [
-      <vxe-input v-model={ data[property] } { ...{ props } }></vxe-input>
-    ]
+    return <vxe-input v-model={ data[field] } { ...{ props } }></vxe-input>
   }
 })
 

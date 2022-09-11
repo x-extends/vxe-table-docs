@@ -2,7 +2,7 @@
   <div class="edit-down-table">
     <vxe-pulldown class="edit-down-pulldown" ref="xDown" transfer>
       <template #default>
-        <vxe-input class="edit-down-input" v-model="demo1.row[demo1.column.property]" @keyup="keyupEvent" @click="clickEvent" @suffix-click="suffixClick"></vxe-input>
+        <vxe-input class="edit-down-input" v-model="demo1.row[demo1.column.field]" @keyup="keyupEvent" @click="clickEvent" @suffix-click="suffixClick"></vxe-input>
       </template>
       <template #dropdown>
         <div class="edit-down-wrapper">
@@ -88,7 +88,7 @@ export default defineComponent({
     const keyupEvent = () => {
       const { row, column } = demo1
       if (column) {
-        const cellValue = row[column.property]
+        const cellValue = row[column.field]
         gridOptions.loading = true
         getData().then((data) => {
           gridOptions.loading = false
@@ -123,7 +123,7 @@ export default defineComponent({
       const { row, column } = demo1
       if (column) {
         const $pulldown = xDown.value
-        row[column.property] = params.row.name
+        row[column.field] = params.row.name
         $pulldown.hidePanel()
       }
     }

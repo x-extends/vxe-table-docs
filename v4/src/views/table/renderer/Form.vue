@@ -90,9 +90,7 @@ export default defineComponent({
           // 项显示模板
           renderItemContent (renderOpts, params) {
             const { data, field } = params
-            return [
-              <input v-model={ data[field] } text="text"></input>
-            ]
+            return <input v-model={ data[field] } text="text"></input>
           }
         })
         `,

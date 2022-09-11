@@ -54,9 +54,7 @@ export default {
         VXETable.renderer.add('MyInput', {
           // 可编辑激活模板
           renderEdit (h, renderOpts, { row, column }) {
-            return [
-              <input class="my-cell" text="text" v-model={ row[column.property] } />
-            ]
+            return <input class="my-cell" text="text" v-model={ row[column.property] } />
           },
           // 可编辑显示模板
           renderCell (h, renderOpts, { row, column }) {

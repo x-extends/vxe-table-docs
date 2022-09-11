@@ -8,9 +8,7 @@ import FilterExtend from './components/FilterExtend.vue'
 VXETable.renderer.add('FilterInput', {
   // 筛选模板
   renderFilter (renderOpts, params) {
-    return [
-      <FilterInput params={ params }></FilterInput>
-    ]
+    return <FilterInput params={ params }></FilterInput>
   },
   // 重置数据方法
   filterResetMethod (params) {
@@ -27,7 +25,7 @@ VXETable.renderer.add('FilterInput', {
   filterMethod (params) {
     const { option, row, column } = params
     const { data } = option
-    const cellValue = row[column.property]
+    const cellValue = row[column.field]
     if (cellValue) {
       return cellValue.indexOf(data) > -1
     }
@@ -41,9 +39,7 @@ VXETable.renderer.add('FilterComplex', {
   showFilterFooter: false,
   // 筛选模板
   renderFilter (renderOpts, params) {
-    return [
-      <FilterComplex params={ params }></FilterComplex>
-    ]
+    return <FilterComplex params={ params }></FilterComplex>
   },
   // 重置数据方法
   filterResetMethod (params) {
@@ -55,7 +51,7 @@ VXETable.renderer.add('FilterComplex', {
   // 筛选数据方法
   filterMethod (params) {
     const { option, row, column } = params
-    const cellValue = row[column.property]
+    const cellValue = row[column.field]
     const { name } = option.data
     if (cellValue) {
       return cellValue.indexOf(name) > -1
@@ -70,9 +66,7 @@ VXETable.renderer.add('FilterContent', {
   showFilterFooter: false,
   // 筛选模板
   renderFilter (renderOpts, params) {
-    return [
-      <FilterContent params={ params }></FilterContent>
-    ]
+    return <FilterContent params={ params }></FilterContent>
   },
   // 重置数据方法
   filterResetMethod (params) {
@@ -85,7 +79,7 @@ VXETable.renderer.add('FilterContent', {
   filterMethod (params) {
     const { option, row, column } = params
     const { vals } = option.data
-    const cellValue = row[column.property]
+    const cellValue = row[column.field]
     return vals.includes(cellValue)
   }
 })
@@ -96,9 +90,7 @@ VXETable.renderer.add('FilterExtend', {
   showFilterFooter: false,
   // 筛选模板
   renderFilter (renderOpts, params) {
-    return [
-      <FilterExtend params={ params }></FilterExtend>
-    ]
+    return <FilterExtend params={ params }></FilterExtend>
   },
   // 重置数据方法
   filterResetMethod (params) {
@@ -110,7 +102,7 @@ VXETable.renderer.add('FilterExtend', {
   // 筛选数据方法
   filterMethod (params) {
     const { option, row, column } = params
-    const cellValue = row[column.property]
+    const cellValue = row[column.field]
     const { vals, f1Type, f1Val } = option.data
     if (cellValue) {
       if (f1Type) {

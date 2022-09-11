@@ -1,6 +1,6 @@
 <template>
   <div class="edit-down-modal">
-    <vxe-input class="edit-down-input" v-model="row[column.property]" @keyup="keyupEvent"></vxe-input>
+    <vxe-input class="edit-down-input" v-model="row[column.field]" @keyup="keyupEvent"></vxe-input>
     <vxe-button class="edit-popup-button" status="primary" @click="popupEvent">选择</vxe-button>
     <vxe-modal
       show-footer
@@ -100,7 +100,7 @@ export default {
     },
     keyupEvent () {
       const { row, column } = this
-      const cellValue = row[column.property]
+      const cellValue = row[column.field]
       this.loading = true
       this.getData().then(data => {
         this.loading = false
@@ -114,7 +114,7 @@ export default {
     confirmEvent () {
       const { row, column } = this
       const selectRecords = this.$refs.xGrid.getCheckboxRecords()
-      row[column.property] = `${selectRecords.length}条`
+      row[column.field] = `${selectRecords.length}条`
     }
   }
 }

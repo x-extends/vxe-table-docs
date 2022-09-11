@@ -97,7 +97,7 @@ export default defineComponent({
         const { $table, column } = params
         const { fullData } = $table.getTableData()
         const option = column.filters[0]
-        const colValList = Object.keys(XEUtils.groupBy(fullData, column.property))
+        const colValList = Object.keys(XEUtils.groupBy(fullData, column.field))
         demo1.option = option
         demo1.colValList = colValList
       }

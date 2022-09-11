@@ -62,9 +62,7 @@ export default defineComponent({
         VXETable.renderer.add('FilterInput', {
           // 筛选模板
           renderFilter (renderOpts, params) {
-            return [
-              <filter-input params={ params }></filter-input>
-            ]
+            return <filter-input params={ params }></filter-input>
           },
           // 重置数据方法
           filterResetMethod (params) {

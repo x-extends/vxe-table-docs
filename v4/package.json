@@ -11,11 +11,11 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "highlight.js": "^10.1.1",
-    "vue": "^3.2.37",
+    "vue": "^3.2.39",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2",
-    "vxe-table": "^4.3.3",
+    "vxe-table": "^4.3.5",
     "xe-clipboard": "^1.10.2",
     "xe-utils": "^3.5.6"
   },
@@ -28,7 +28,7 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.2.37",
+    "@vue/compiler-sfc": "^3.2.39",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^7.0.0",
     "eslint": "^6.7.2",

@@ -3,7 +3,7 @@
     <p class="tip">
       虚拟滚动渲染<br>
       大数据不建议使用双向绑定的 <table-api-link name="data"/> 属性，建议使用 <table-api-link prop="loadData"/>/<table-api-link prop="loadColumn"/> 函数<br>
-      <span class="red">(注：如果要启用横向虚拟滚动，不支持分组表头)</span>
+      <span class="green">（性能优化：横向虚拟滚动由列宽决定性能，每一列的列宽越大就越流畅；纵向虚拟滚动由行高决定性能，每一行的高度越高就越流畅）</span>
     </p>
 
     <vxe-grid ref="xGrid" v-bind="gridOptions">

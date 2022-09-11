@@ -67,9 +67,7 @@ export default {
           renderItemContent (h, renderOpts, params) {
             const { data, property } = params
             const props = renderOpts.props || {}
-            return [
-              <vxe-input v-model={ data[property] } { ...{ props } }></vxe-input>
-            ]
+            return <vxe-input v-model={ data[property] } { ...{ props } }></vxe-input>
           }
         })
         `,

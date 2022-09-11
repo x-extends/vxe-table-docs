@@ -55,7 +55,7 @@ export default {
       const { fullData } = $table.getTableData()
       const option = column.filters[0]
       const { vals } = option.data
-      const colValList = Object.keys(XEUtils.groupBy(fullData, column.property)).map(val => {
+      const colValList = Object.keys(XEUtils.groupBy(fullData, column.field)).map(val => {
         return {
           checked: vals.includes(val),
           value: val

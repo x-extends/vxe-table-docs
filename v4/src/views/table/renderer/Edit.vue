@@ -61,9 +61,7 @@ export default defineComponent({
           // 可编辑激活模板
           renderEdit (renderOpts, params) {
             let { row, column } = params
-            return [
-              <input class="my-cell" text="text" v-model={ row[column.field] } />
-            ]
+            return <input class="my-cell" text="text" v-model={ row[column.field] } />
           },
           // 可编辑显示模板
           renderCell (renderOpts, params) {

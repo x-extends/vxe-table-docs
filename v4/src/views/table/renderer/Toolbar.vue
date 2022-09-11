@@ -101,13 +101,11 @@ export default defineComponent({
           renderToolbarButton (renderOpts, params) {
             const { events = {} } = renderOpts
             const { button } = params
-            return [
-              <vxe-button circle icon="vxe-icon-question-circle-fill" onClick={
-                () => {
-                  events.click(button)
-                }
-              }></vxe-button>
-            ]
+            return <vxe-button circle icon="vxe-icon-question-circle-fill" onClick={
+              () => {
+                events.click(button)
+              }
+            }></vxe-button>
           }
         })
 
@@ -115,13 +113,11 @@ export default defineComponent({
         VXETable.renderer.add('ToolbarToolPrint', {
           renderToolbarTool (renderOpts, params) {
             const { $table } = params
-            return [
-              <vxe-button circle icon="vxe-icon-question-circle-fill" onClick={
-                () => {
-                  $table.print()
-                }
-              }></vxe-button>
-            ]
+            return <vxe-button circle icon="vxe-icon-question-circle-fill" onClick={
+              () => {
+                $table.print()
+              }
+            }></vxe-button>
           }
         })
         `,

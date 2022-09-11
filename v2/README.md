@@ -1,1 +1,1 @@
-# vxe-table v2 在线文档
+# vxe-table v2 版本已停止维护

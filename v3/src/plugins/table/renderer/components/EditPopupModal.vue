@@ -1,6 +1,6 @@
 <template>
   <div class="edit-popup-modal">
-    <vxe-input class="edit-popup-input" v-model="row[column.property]" placeholder="请选择"></vxe-input>
+    <vxe-input class="edit-popup-input" v-model="row[column.field]" placeholder="请选择"></vxe-input>
     <vxe-button class="edit-popup-button" type="text" @click="popupEvent"></vxe-button>
     <vxe-modal
       show-footer
@@ -95,7 +95,7 @@ export default {
     confirmEvent () {
       const { row, column } = this
       const selectRecords = this.$refs.xGrid.getCheckboxRecords()
-      row[column.property] = `${selectRecords.length}条`
+      row[column.field] = `${selectRecords.length}条`
     }
   }
 }

@@ -2918,7 +2918,7 @@ const apis = [
           },
           {
             name: 'gt',
-            desc: '指定大于指定列时自动启动横向虚拟滚动，如果为 0 则总是启用；如果需要关闭，可以设置 enabled 为 false（注：启用横向虚拟滚动之后将不能支持分组表头）',
+            desc: '指定大于指定列时自动启动横向虚拟滚动，如果为 0 则总是启用；如果需要关闭，可以设置 enabled 为 false',
             version: '',
             type: 'number',
             enum: '',

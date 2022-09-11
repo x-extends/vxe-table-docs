@@ -5,13 +5,11 @@ VXETable.renderer.add('ToolbarButtonDownload', {
   renderToolbarButton (renderOpts, params) {
     const { events = {} } = renderOpts
     const { button } = params
-    return [
-      <vxe-button circle onClick={
-        () => {
-          events.click(button)
-        }
-      }></vxe-button>
-    ]
+    return <vxe-button circle onClick={
+      () => {
+        events.click(button)
+      }
+    }></vxe-button>
   }
 })
 
@@ -19,12 +17,10 @@ VXETable.renderer.add('ToolbarButtonDownload', {
 VXETable.renderer.add('ToolbarToolPrint', {
   renderToolbarTool (renderOpts, params) {
     const { $table } = params
-    return [
-      <vxe-button circle onClick={
-        () => {
-          $table.print()
-        }
-      }></vxe-button>
-    ]
+    return <vxe-button circle onClick={
+      () => {
+        $table.print()
+      }
+    }></vxe-button>
   }
 })
