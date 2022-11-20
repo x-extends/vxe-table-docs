@@ -98,6 +98,15 @@ const apis = [
         defVal: '继承 table.column-config.minWidth',
         list: []
       },
+      // {
+      //   name: 'max-width',
+      //   descKey: 'app.api.tableColumn.desc.maxWidth',
+      //   version: '',
+      //   type: 'number | string',
+      //   enum: 'px, %',
+      //   defVal: '继承 table.column-config.maxWidth',
+      //   list: []
+      // },
       {
         name: 'resizable',
         descKey: 'app.api.tableColumn.desc.resizable',

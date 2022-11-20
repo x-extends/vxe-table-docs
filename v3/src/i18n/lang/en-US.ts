@@ -182,7 +182,7 @@ export default {
         badLineHeight: 'Dynamic row height with virtual scroll',
         badNonsupport: 'Unsupported',
 
-        module: 'Modules',
+        module: 'Components',
         button: 'Button',
         input: 'Input',
         textarea: 'Textarea',

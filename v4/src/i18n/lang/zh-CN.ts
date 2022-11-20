@@ -181,7 +181,7 @@ export default {
         badLineHeight: '动态行高与虚拟滚动的取舍',
         badNonsupport: '不被支持的用法',
 
-        module: '功能模块',
+        module: '功能组件',
         button: '按钮',
         input: '输入框',
         textarea: '文本域',

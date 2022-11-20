@@ -993,6 +993,15 @@ const apis = [
             enum: 'auto, px, %',
             defVal: '',
             list: []
+          // },
+          // {
+          //   name: 'maxWidth',
+          //   desc: '每一列的最大宽度',
+          //   version: '',
+          //   type: 'number, string',
+          //   enum: 'auto, px, %',
+          //   defVal: '',
+          //   list: []
           }
         ]
       },
@@ -1067,6 +1076,15 @@ const apis = [
             enum: '',
             defVal: 'auto',
             list: []
+          // },
+          // {
+          //   name: 'maxWidth',
+          //   desc: '列宽拖动的最大宽度',
+          //   version: '',
+          //   type: 'number | string | (({ $table, column, columnIndex, cell }) => number | string)',
+          //   enum: '',
+          //   defVal: 'auto',
+          //   list: []
           }
         ]
       },
