@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="tip">分组表头</p>
+    <p class="tip">分组表头（同时支持横向,纵向的虚拟滚动）</p>
 
     <vxe-table
       border
