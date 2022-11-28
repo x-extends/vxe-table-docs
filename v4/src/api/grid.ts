@@ -408,6 +408,24 @@ const apis = [
     defVal: '',
     list: [
       {
+        name: 'empty',
+        desc: '自定义空数据时显示模板',
+        version: '',
+        type: '',
+        enum: '',
+        defVal: '{}',
+        list: []
+      },
+      {
+        name: 'loading',
+        desc: '自定义加载中模板',
+        version: '4.3.7',
+        type: '',
+        enum: '',
+        defVal: '{}',
+        list: []
+      },
+      {
         name: 'form',
         desc: '表单模板',
         version: '',

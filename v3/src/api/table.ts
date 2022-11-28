@@ -3100,6 +3100,15 @@ const apis = [
         enum: '',
         defVal: '{}',
         list: []
+      },
+      {
+        name: 'loading',
+        desc: '自定义加载中模板',
+        version: '3.6.9',
+        type: '',
+        enum: '',
+        defVal: '{}',
+        list: []
       }
     ]
   },

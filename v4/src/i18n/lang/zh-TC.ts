@@ -468,7 +468,7 @@ export default {
 
           params: '自定义参数（可以用来存放一些自定义的数据）',
 
-          empty: '空数据时显示的文本内容',
+          empty: '自定义空数据时显示模板',
 
           currentChange: '只对 row-config.isCurrent 有效，当手动选中行并且值发生改变时触发的事件',
           radioChange: '只对 type=radio 有效，当手动勾选并且值发生改变时触发的事件',
