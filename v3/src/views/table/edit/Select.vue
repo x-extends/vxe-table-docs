@@ -149,11 +149,12 @@ export default {
             formatGroupSex (value) {
               let label = ''
               this.sexGriupList.find(group => {
-                group.options.find(item => {
+                return group.options.find(item => {
                   if (item.value === value) {
                     label = item.label
                     return true
                   }
+                  return false
                 })
               })
               return label
@@ -168,11 +169,12 @@ export default {
     formatGroupSex (value) {
       let label = ''
       this.sexGriupList.find(group => {
-        group.options.find(item => {
+        return group.options.find(item => {
           if (item.value === value) {
             label = item.label
             return true
           }
+          return false
         })
       })
       return label

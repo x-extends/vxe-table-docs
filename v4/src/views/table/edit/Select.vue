@@ -79,11 +79,12 @@ export default defineComponent({
     const formatGroupSex = (value: any) => {
       let label = ''
       demo1.sexGriupList.find(group => {
-        group.options.find(item => {
+        return group.options.find(item => {
           if (item.value === value) {
             label = item.label
             return true
           }
+          return false
         })
       })
       return label
@@ -157,11 +158,12 @@ export default defineComponent({
             const formatGroupSex = (value: any) => {
               let label = ''
               demo1.sexGriupList.find(group => {
-                group.options.find(item => {
+                return group.options.find(item => {
                   if (item.value === value) {
                     label = item.label
                     return true
                   }
+                  return false
                 })
               })
               return label

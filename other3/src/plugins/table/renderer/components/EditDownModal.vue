@@ -129,7 +129,7 @@ export default {
   width: auto;
   flex-grow: 1;
 }
-::v-deep .edit-down-input .vxe-input--inner {
+:deep(.edit-down-input .vxe-input--inner) {
   border-radius: 4px 0 0 4px;
 }
 .edit-popup-button.vxe-button {

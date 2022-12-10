@@ -208,7 +208,7 @@ export default defineComponent({
         // 插入一条数据并触发校验
         const errMap = await $table.validate(newRow)
         if (errMap) {
-
+          // 校验失败
         }
       }
     }
@@ -445,7 +445,7 @@ export default defineComponent({
               // 插入一条数据并触发校验
               const errMap = await $table.validate(newRow)
               if (errMap) {
-
+                // 校验失败
               }
             }
 

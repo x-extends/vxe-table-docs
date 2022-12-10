@@ -1023,7 +1023,7 @@ export default {
   height: 34px;
   width: 300px;
 }
-::v-deep .my-domain.vxe-input .vxe-input--prefix {
+:deep(.my-domain.vxe-input .vxe-input--prefix) {
   width: 60px;
   height: 32px;
   top: 1px;
@@ -1031,7 +1031,7 @@ export default {
   border-right: 1px solid #dcdfe6;
   background-color: #f5f7fa;
 }
-::v-deep .my-domain.vxe-input .vxe-input--inner {
+:deep(.my-domain.vxe-input .vxe-input--inner) {
   padding-left: 72px;
   border: 1px solid #dcdfe6;
 }
@@ -1039,7 +1039,7 @@ export default {
   height: 34px;
   width: 300px;
 }
-::v-deep .my-search.vxe-input .vxe-input--suffix {
+:deep(.my-search.vxe-input .vxe-input--suffix) {
   width: 60px;
   height: 32px;
   top: 1px;
@@ -1048,7 +1048,7 @@ export default {
   background-color: #f5f7fa;
   cursor: pointer;
 }
-::v-deep .my-search.vxe-input .vxe-input--inner {
+:deep(.my-search.vxe-input .vxe-input--inner) {
   padding-right: 72px;
   border: 1px solid #dcdfe6;
 }

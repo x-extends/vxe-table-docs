@@ -1,5 +1,6 @@
 const gulp = require('gulp')
 const del = require('del')
+const replace = require('gulp-replace')
 const rename = require('gulp-rename')
 
 gulp.task('move_docs_static', () => {
@@ -66,9 +67,26 @@ gulp.task('copy_docs_index', gulp.parallel('copy_v1_docs', 'copy_v2_docs', 'copy
     .pipe(gulp.dest('v4/dist/v4'))
 }))
 
-gulp.task('build_docs', gulp.series('build_v4_docs', 'copy_docs_index', 'move_docs_latest', () => {
+const unicodeRE = /[^\x00-\xff]/g
+const contentRE = /(?<!-)content\s*:\s*([^;}]+)/g
+
+gulp.task('build_css_unicode', () => {
+  return gulp.src([
+    'v4/dist/**/**.css'
+  ])
+    .pipe(replace(contentRE, (u) => {
+      return u.replace(unicodeRE, (m) => {
+        return '\\' + m.charCodeAt(0).toString(16)
+      })
+    }))
+    .pipe(gulp.dest('docs'))
+})
+
+gulp.task('build_all_docs', gulp.series('build_v4_docs', 'copy_docs_index', 'move_docs_latest', () => {
   return gulp.src([
     'v4/dist/**'
   ])
     .pipe(gulp.dest('docs'))
 }))
+
+gulp.task('build_docs', gulp.series('build_all_docs', 'build_css_unicode'))
