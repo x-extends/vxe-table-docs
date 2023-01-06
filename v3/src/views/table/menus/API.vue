@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>{{ $t('app.aside.nav.menus') }}</h1>
-    <p class="tip">将右键菜单注册成全局可复用的</p>
+    <p class="tip">
+      将右键菜单注册成全局可复用的<br>
+      <span class="red">（注：高级功能难度较高，不适合非前端和初级前端使用）</span>
+    </p>
     <vxe-table
       resizable
       :row-config="{isCurrent: true, isHover: true}"

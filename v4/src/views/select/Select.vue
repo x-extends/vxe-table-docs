@@ -645,7 +645,16 @@ export default defineComponent({
                 { label: '1111', value: '11', disabled: false }
               ],
               value45: null,
-              list45: []
+              list45: [],
+              value46: [],
+              list46: [
+                { label: '1111', value: '1' },
+                { label: '2222', value: '2' },
+                { label: '3333', value: '3', slots: { default: 'opt3' } },
+                { label: '4444', value: '4', slots: { default: 'opt4' } },
+                { label: '5555', value: '5', slots: { default: 'opt5' } },
+                { label: '6666', value: '6' }
+              ]
             })
             return {
               demo1

@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>{{ $t('app.aside.nav.interceptor') }}</h1>
-    <p class="tip">通过内置事件拦截器可以很容易的处理表格事件行为与第三方组件的兼容性；比如这些插件 <a class="link" href="https://www.npmjs.com/package/vxe-table-plugin-element" target="_blank">vxe-table-plugin-element</a></p>
+    <p class="tip">
+      通过内置事件拦截器可以很容易的处理表格事件行为与第三方组件的兼容性；比如这些插件 <a class="link" href="https://www.npmjs.com/package/vxe-table-plugin-element" target="_blank">vxe-table-plugin-element</a><br>
+      <span class="red">（注：高级功能难度极高，不适合非前端和初级前端使用，一旦封装出错，将会全局影响功能）</span>
+    </p>
     <vxe-table
       resizable
       class="api-table"

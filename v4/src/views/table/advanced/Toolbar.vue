@@ -2,7 +2,8 @@
   <div>
     <p class="tip">
       使用自带的工具栏 <toolbar-api-link name="vxe-toolbar"/>，配合模板可以非常简单的实现强大的功能<br>
-      支持显示/隐藏列、列宽拖动状态的保存功能，还可以配合 <table-api-link prop="custom"/> 事件实现显示/隐藏列的服务端保存
+      支持显示/隐藏列、列宽拖动状态的保存功能，还可以配合 <table-api-link prop="custom"/> 事件实现显示/隐藏列的服务端保存<br>
+      <span class="green">小提示：需要使用 <table-api-link prop="connect"/> 方法关联表格后才能使用相关功能</span>
     </p>
 
     <vxe-toolbar ref="xToolbar1" custom print></vxe-toolbar>
