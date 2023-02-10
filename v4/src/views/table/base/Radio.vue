@@ -36,7 +36,7 @@
     </pre>
 
     <p class="tip">
-      还可以通过 <table-api-link prop="checkMethod"/> 方法控制 checkbox 是否允许用户手动选中，还可以配置 <table-api-link prop="labelField"/> 列显示属性
+      还可以通过 <table-api-link prop="checkMethod"/> 方法控制 checkbox 是否允许用户手动选中，如果被禁用，可以调用 <table-api-link prop="setRadioRow"/> 方法手动设置
     </p>
 
     <vxe-toolbar>

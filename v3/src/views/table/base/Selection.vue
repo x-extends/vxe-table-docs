@@ -33,12 +33,12 @@
     </pre>
 
     <p class="tip">
-      还可以通过 <table-api-link prop="checkMethod"/> 方法控制 checkbox 是否允许用户手动勾选，还可以配置 <table-api-link prop="visibleMethod"/> 是否显示复选框<br>
+      还可以通过 <table-api-link prop="checkMethod"/> 方法控制 checkbox 是否允许用户手动勾选，还可以配置 <table-api-link prop="visibleMethod"/> 是否显示复选框，如果被禁用，可以调用 <table-api-link prop="setCheckboxRow"/> 方法手动设置<br>
     </p>
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="$refs.xTable2.toggleCheckboxRow(tableData2[0])">设置第一行选中（如果被禁用，不可选中）</vxe-button>
+        <vxe-button @click="$refs.xTable2.toggleCheckboxRow(tableData2[0])">设置第一行选中</vxe-button>
         <vxe-button @click="$refs.xTable2.toggleCheckboxRow(tableData2[1])">切换第二行选中</vxe-button>
         <vxe-button @click="$refs.xTable2.setCheckboxRow([tableData2[2], tableData2[3]], true)">设置第三、四行选中</vxe-button>
         <vxe-button @click="$refs.xTable2.setAllCheckboxRow(true)">设置所有行选中</vxe-button>

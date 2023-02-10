@@ -561,6 +561,33 @@ const apis = [
         list: []
       },
       {
+        name: 'proxy-query',
+        desc: '只对 proxy-config.ajax.query 配置时有效，当手动点击查询时会触发该事件',
+        version: '3.6.10',
+        type: '',
+        enum: '',
+        defVal: '{ status: true, isReload, isInited }',
+        list: []
+      },
+      {
+        name: 'proxy-delete',
+        desc: '只对 proxy-config.ajax.delete 配置时有效，当手动点击删除时会触发该事件',
+        version: '3.6.10',
+        type: '',
+        enum: '',
+        defVal: '{ status: true }',
+        list: []
+      },
+      {
+        name: 'proxy-save',
+        desc: '只对 proxy-config.ajax.save 配置时有效，当手动点击保存时会触发该事件',
+        version: '3.6.10',
+        type: '',
+        enum: '',
+        defVal: '{ status: true }',
+        list: []
+      },
+      {
         name: 'toolbar-button-click',
         desc: '只对 toolbar.buttons 配置时有效，当左侧按钮被点击时会后触发该事件',
         version: '',

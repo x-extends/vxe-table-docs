@@ -36,12 +36,12 @@
     </pre>
 
     <p class="tip">
-      还可以通过 <table-api-link prop="checkMethod"/> 方法控制 checkbox 是否允许用户手动选中，还可以配置 <table-api-link prop="labelField"/> 列显示属性
+      还可以通过 <table-api-link prop="checkMethod"/> 方法控制 checkbox 是否允许用户手动选中，如果被禁用，可以调用 <table-api-link prop="setRadioRow"/> 方法手动设置
     </p>
 
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="$refs.xTable2.setRadioRow(tableData[0])">设置第一行选中（如果被禁用，不可选中）</vxe-button>
+        <vxe-button @click="$refs.xTable2.setRadioRow(tableData[0])">设置第一行选中</vxe-button>
         <vxe-button @click="$refs.xTable2.setRadioRow(tableData[1])">设置第二行选中</vxe-button>
         <vxe-button @click="$refs.xTable2.clearRadioRow()">清除所有行选中</vxe-button>
       </template>
