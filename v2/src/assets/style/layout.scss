@@ -405,8 +405,8 @@ body,
       overflow: auto;
       &:not(.full) {
         & > .page-view {
-          padding: 15px 10% 15px 10%;
-          min-width: 800px;
+          padding: 15px 300px 15px 40px;
+          min-width: 600px;
         }
       }
       &.full {
@@ -417,7 +417,7 @@ body,
         & > .page-view {
           flex-grow: 1;
           overflow: auto;
-          padding: 15px 25px 0 25px;
+          padding: 15px 300px 0 40px;
         }
       }
       & > .page-view {

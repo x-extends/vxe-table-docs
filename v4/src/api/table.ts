@@ -2399,6 +2399,15 @@ const apis = [
             list: []
           },
           {
+            name: 'isShift',
+            desc: '如果功能被支持，用于 mouse-config.area，开启同时按住方向键以活动区域为起始，向指定方向延伸单元格区域',
+            version: 'pro',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
             name: 'isEdit',
             desc: '开启任意键进入编辑（功能键除外）',
             version: '',
@@ -4273,6 +4282,15 @@ const apis = [
         desc: '如果功能被支持，用于 mouse-config.area，用于获取区域中的活动单元格',
         version: 'pro',
         type: '{column: ColumnConfig, row: any}',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'updateCellAreas()',
+        desc: '如果功能被支持，用于 mouse-config.area，更新已选区域的单元格样式',
+        version: 'pro',
+        type: '',
         enum: '',
         defVal: '',
         list: []
