@@ -8,6 +8,7 @@ import './assets/style/index.scss'
 import './plugins'
 
 import PreCode from './components/PreCode.vue'
+import CodeLight from './components/CodeLight.vue'
 import GridAPILink from './components/GridAPILink.vue'
 import TableAPILink from './components/TableAPILink.vue'
 import TableColumnAPILink from './components/TableColumnAPILink.vue'
@@ -20,7 +21,8 @@ import VXETable from 'vxe-table'
 
 const app = createApp(App)
 
-app.component(PreCode.name, PreCode)
+app.component('PreCode', PreCode)
+app.component('CodeLight', CodeLight)
 app.component(GridAPILink.name, GridAPILink)
 app.component(TableAPILink.name, TableAPILink)
 app.component(TableColumnAPILink.name, TableColumnAPILink)

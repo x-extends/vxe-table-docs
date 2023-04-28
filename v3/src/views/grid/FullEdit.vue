@@ -8,7 +8,13 @@
       由 <grid-api-link name="vxe-grid"/> 代理数据转换，只需要配置好数据源即可；非常简单就可以渲染一个表格，从重复写冗余的代码中解放出来
     </p>
 
-    <vxe-grid ref='xGrid' v-bind="gridOptions"></vxe-grid>
+    <vxe-grid
+      ref='xGrid'
+      v-bind="gridOptions"
+      @proxy-query="proxyQueryEvent"
+      @proxy-delete="proxyDeleteEvent"
+      @proxy-save="proxySaveEvent">
+    </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -200,7 +206,13 @@ export default {
       },
       demoCodes: [
         `
-        <vxe-grid ref='xGrid' v-bind="gridOptions"></vxe-grid>
+        <vxe-grid
+          ref='xGrid'
+          v-bind="gridOptions"
+          @proxy-query="proxyQueryEvent"
+          @proxy-delete="proxyDeleteEvent"
+          @proxy-save="proxySaveEvent">
+        </vxe-grid>
         `,
         `
         import { mapState } from 'vuex'
@@ -517,6 +529,15 @@ export default {
         return false
       }
       return true
+    },
+    proxyQueryEvent () {
+      console.log('数据代理查询事件')
+    },
+    proxyDeleteEvent () {
+      console.log('数据代理删除事件')
+    },
+    proxySaveEvent () {
+      console.log('数据代理保存事件')
     },
     // 自定义服务端导入
     importMethod ({ file }) {

@@ -286,7 +286,9 @@ export default {
       button: {
         viewCode: 'View code',
         runDemo: 'Run demo',
-        showCode: 'Show demo',
+        copyCode: 'Copy code',
+        showCode: 'Show code',
+        hideCode: 'Hide code',
         refresh: 'Refresh',
         insert: 'Insert',
         save: 'Save',
@@ -326,7 +328,7 @@ export default {
       other: {
         v1: 'v1+ (vue 2.6+ End of life) ~ 2020-04 Stop',
         v2: 'v2+ (vue 2.6+ End of life) ~ 2021-12 Stop',
-        v3: 'v3+ (vue 2.6+ Stable)',
+        v3: 'v+ (vue 2.6+ Stable)',
         v3d5: '3.5+ (vue 2.6+ Sticky)',
         v4: 'v4+ (vue 3.2+ Latest)',
         v4d5: '4.5+ (vue 3.2+ Sticky)',
@@ -471,7 +473,6 @@ export default {
           params: '自定义参数（可以用来存放一些自定义的数据）',
 
           empty: 'Text content displayed when empty data',
-
           currentChange: 'Only valid for row-config.isCurrent, the event that fires when the row is manually selected and the value changes',
           radioChange: 'Only works for type=radio, the event that is triggered when the value is manually checked and changed',
           selectChange: 'Obsolete, please use "checkbox-change"',

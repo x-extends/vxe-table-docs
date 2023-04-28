@@ -284,7 +284,9 @@ export default {
       button: {
         viewCode: '查看代码',
         runDemo: '在线运行',
+        copyCode: '复制代码',
         showCode: '显示代码',
+        hideCode: '隐藏代码',
         refresh: '刷新',
         insert: '新增',
         save: '保存',

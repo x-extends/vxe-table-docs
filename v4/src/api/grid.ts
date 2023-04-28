@@ -541,7 +541,7 @@ const apis = [
         version: '4.3.10',
         type: '',
         enum: '',
-        defVal: '{ status: true, isReload, isInited }',
+        defVal: '{ status, isReload, isInited }',
         list: []
       },
       {
@@ -550,7 +550,7 @@ const apis = [
         version: '4.3.10',
         type: '',
         enum: '',
-        defVal: '{ status: true }',
+        defVal: '{ status }',
         list: []
       },
       {
@@ -559,7 +559,7 @@ const apis = [
         version: '4.3.10',
         type: '',
         enum: '',
-        defVal: '{ status: true }',
+        defVal: '{ status }',
         list: []
       },
       {

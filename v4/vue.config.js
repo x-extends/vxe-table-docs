@@ -9,6 +9,8 @@ if (process.env.NODE_ENV === 'production') {
   }
 }
 
+process.env.VUE_APP_DATE_NOW = Date.now()
+
 module.exports = {
   publicPath,
   assetsDir: 'static',
@@ -18,7 +20,7 @@ module.exports = {
       entry: 'src/main.ts',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'vxe-table v4',
+      title: 'vxe-table v4'
     }
   },
   configureWebpack: {

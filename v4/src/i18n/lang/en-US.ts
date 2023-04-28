@@ -286,7 +286,9 @@ export default {
       button: {
         viewCode: 'View code',
         runDemo: 'Run demo',
-        showCode: 'Show demo',
+        copyCode: 'Copy code',
+        showCode: 'Show code',
+        hideCode: 'Hide code',
         refresh: 'Refresh',
         insert: 'Insert',
         save: 'Save',

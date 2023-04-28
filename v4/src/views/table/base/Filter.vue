@@ -203,7 +203,6 @@ export default defineComponent({
             return {
               xTable1,
               demo1,
-              filterNameMethod,
               filterAgeMethod,
               filterVisibleEvent,
               filterChangeEvent

@@ -8,6 +8,26 @@ import './assets/style/index.scss'
 import './plugins'
 import XEUtils from 'xe-utils'
 
+import TableAPILink from './components/TableAPILink.vue'
+import TableColumnAPILink from './components/TableColumnAPILink.vue'
+import PagerAPILink from './components/PagerAPILink.vue'
+import ToolbarAPILink from './components/ToolbarAPILink.vue'
+import GridAPILink from './components/GridAPILink.vue'
+import VirtualTreeAPILink from './components/VirtualTreeAPILink.vue'
+import PreCode from './components/PreCode.vue'
+import CodeLight from './components/CodeLight.vue'
+import DemoBlock from './components/DemoBlock.vue'
+
+Vue.component(TableAPILink.name, TableAPILink)
+Vue.component(TableColumnAPILink.name, TableColumnAPILink)
+Vue.component(PagerAPILink.name, PagerAPILink)
+Vue.component(ToolbarAPILink.name, ToolbarAPILink)
+Vue.component(GridAPILink.name, GridAPILink)
+Vue.component(VirtualTreeAPILink.name, VirtualTreeAPILink)
+Vue.component(PreCode.name, PreCode)
+Vue.component(CodeLight.name, CodeLight)
+Vue.component(DemoBlock.name, DemoBlock)
+
 // **************** （注意：该全局变量仅用于开发环境调试） ****************
 if (process.env.NODE_ENV === 'development') {
   (window as any).XEUtils = XEUtils

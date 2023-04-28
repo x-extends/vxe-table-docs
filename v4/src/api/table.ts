@@ -1061,6 +1061,25 @@ const apis = [
         ]
       },
       {
+        name: 'resize-config',
+        desc: '响应式布局配置项',
+        version: '4.3.11',
+        type: 'Object',
+        enum: '',
+        defVal: '继承 setup.table.resizeConfig',
+        list: [
+          {
+            name: 'refreshDelay',
+            desc: '只对 auto-resize 有效，刷新延时，当父容器发生变化时，至少多少毫秒刷新布局',
+            version: '',
+            type: 'number',
+            enum: '',
+            defVal: '250',
+            list: []
+          }
+        ]
+      },
+      {
         name: 'resizable-config',
         descKey: 'app.api.table.desc.resizableConfig',
         version: '',
@@ -3643,6 +3662,24 @@ const apis = [
         list: []
       },
       {
+        name: 'cell-area-selection-all-start',
+        desc: '只对 mouse-config.area 配置时有效，按快捷键全选所有单元格开始时会触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ $event }',
+        list: []
+      },
+      {
+        name: 'cell-area-selection-all-end',
+        desc: '只对 mouse-config.area 配置时有效，按快捷键全选所有单元格结束时会触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ rows, cols, $event }',
+        list: []
+      },
+      {
         name: 'cell-area-arrows-start',
         desc: '只对 mouse-config.area 配置时有效，通过 Shift 键向指定方向移动选取区域开始时会触发该事件',
         version: 'pro',
@@ -4961,6 +4998,24 @@ const apis = [
         desc: '显示指定列',
         version: '',
         type: 'Promise<any>',
+        enum: '',
+        defVal: 'fieldOrColumn: string | ColumnConfig',
+        list: []
+      },
+      {
+        name: 'setColumnWidth(fieldOrColumn, width)',
+        desc: '设置列宽',
+        version: '4.3.12',
+        type: 'Promise<any>',
+        enum: 'px, %',
+        defVal: 'fieldOrColumn: string | ColumnConfig, width: number | string',
+        list: []
+      },
+      {
+        name: 'getColumnWidth(fieldOrColumn)',
+        desc: '获取列宽',
+        version: '4.3.12',
+        type: 'number',
         enum: '',
         defVal: 'fieldOrColumn: string | ColumnConfig',
         list: []

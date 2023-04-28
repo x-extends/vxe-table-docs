@@ -1061,6 +1061,25 @@ const apis = [
         ]
       },
       {
+        name: 'resize-config',
+        desc: '响应式布局配置项',
+        version: '3.6.12',
+        type: 'Object',
+        enum: '',
+        defVal: '继承 setup.table.resizeConfig',
+        list: [
+          {
+            name: 'refreshDelay',
+            desc: '只对 auto-resize 有效，刷新延时，当父容器发生变化时，至少多少毫秒刷新布局',
+            version: '',
+            type: 'number',
+            enum: '',
+            defVal: '250',
+            list: []
+          }
+        ]
+      },
+      {
         name: 'resizable-config',
         descKey: 'app.api.table.desc.resizableConfig',
         version: '3.0.20',
@@ -3581,7 +3600,7 @@ const apis = [
       },
       {
         name: 'cell-area-selection-start',
-        desc: '只对 mouse-config.area 配置时有效，在单元格区域选取开始时会触发该事件',
+        desc: '只对 mouse-config.area 配置时有效，鼠标在单元格区域选取开始时会触发该事件',
         version: 'pro',
         type: '',
         enum: '',
@@ -3590,7 +3609,7 @@ const apis = [
       },
       {
         name: 'cell-area-selection-drag',
-        desc: '只对 mouse-config.area 配置时有效，在单元格区域选取过程中持续触发该事件',
+        desc: '只对 mouse-config.area 配置时有效，鼠标在单元格区域选取过程中持续触发该事件',
         version: 'pro',
         type: '',
         enum: '',
@@ -3599,7 +3618,7 @@ const apis = [
       },
       {
         name: 'cell-area-selection-end',
-        desc: '只对 mouse-config.area 配置时有效，在单元格区域选取结束时会触发该事件',
+        desc: '只对 mouse-config.area 配置时有效，鼠标在单元格区域选取结束时会触发该事件',
         version: 'pro',
         type: '',
         enum: '',
@@ -3608,7 +3627,7 @@ const apis = [
       },
       {
         name: 'cell-area-extension-start',
-        desc: '只对 mouse-config.extension 配置时有效，在单元格区域扩展开始时会触发该事件',
+        desc: '只对 mouse-config.extension 配置时有效，鼠标在单元格区域扩展开始时会触发该事件',
         version: 'pro',
         type: '',
         enum: '',
@@ -3617,7 +3636,7 @@ const apis = [
       },
       {
         name: 'cell-area-extension-drag',
-        desc: '只对 mouse-config.extension 配置时有效，在单元格区域扩展过程中持续触发该事件',
+        desc: '只对 mouse-config.extension 配置时有效，鼠标在单元格区域扩展过程中持续触发该事件',
         version: 'pro',
         type: '',
         enum: '',
@@ -3631,6 +3650,24 @@ const apis = [
         type: '',
         enum: '',
         defVal: '{ rows, cols, targetRows, targetCols, $event }',
+        list: []
+      },
+      {
+        name: 'cell-area-selection-all-start',
+        desc: '只对 mouse-config.area 配置时有效，按快捷键全选所有单元格开始时会触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ $event }',
+        list: []
+      },
+      {
+        name: 'cell-area-selection-all-end',
+        desc: '只对 mouse-config.area 配置时有效，按快捷键全选所有单元格结束时会触发该事件',
+        version: 'pro',
+        type: '',
+        enum: '',
+        defVal: '{ rows, cols, $event }',
         list: []
       },
       {
@@ -4962,6 +4999,24 @@ const apis = [
         desc: '显示指定列',
         version: '',
         type: 'Promise<any>',
+        enum: '',
+        defVal: 'fieldOrColumn: string | ColumnConfig',
+        list: []
+      },
+      {
+        name: 'setColumnWidth(fieldOrColumn, width)',
+        desc: '设置列宽',
+        version: '3.6.12',
+        type: 'Promise<any>',
+        enum: 'px, %',
+        defVal: 'fieldOrColumn: string | ColumnConfig, width: number | string',
+        list: []
+      },
+      {
+        name: 'getColumnWidth(fieldOrColumn)',
+        desc: '获取列宽',
+        version: '3.6.12',
+        type: 'number',
         enum: '',
         defVal: 'fieldOrColumn: string | ColumnConfig',
         list: []

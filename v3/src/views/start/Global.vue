@@ -32,6 +32,9 @@ export default {
           //   border: false,
           //   round: false,
           //   emptyText: '暂无数据',
+          //   resizeConfig: {
+          //     refreshDelay: 250
+          //   },
           //   rowConfig: {
           //     keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
           //   },

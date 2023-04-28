@@ -10,7 +10,7 @@
     </pre>
 
     <p class="warn">
-      😱不支持数组直接改变数据源<br>
+      😱如果是直接改变数据源方式，仅做数组长度监听，支持数据源增删数据时自动响应，如果长度未发生变化（建议使用 xx = [] 重新赋值方式）<br>
       <span class="green">（注：自带 CRUD 功能不受影响，insert、remove ...等用法保持一致）</span>
     </p>
 
@@ -44,12 +44,9 @@ export default defineComponent({
 
         const tableData = ref([])
 
-        // 错误：将不会被响应 push、splice、unshift ...等所有方法都将无效
+        // 支持 push、splice、unshift ...等相关方法
         tableData.value.push({ name: 'test1' })
-        // 正确：
-        tableData.value = [...tableData.value, { name: 'test1' }]
-        // 正确：
-        tableData.value = tableData.value.concat([{ name: 'test1' }])
+        tableData.value.unshift({ name: 'test1' })
         `,
         `
         import { defineComponent, reactive } from 'vue'
@@ -58,12 +55,9 @@ export default defineComponent({
           tableData: []
         })
 
-        // 错误：将不会被响应 push、splice、unshift ...等所有方法都将无效
+        // 支持 push、splice、unshift ...等相关方法
+        state.tableData.push({ name: 'test1' })
         state.tableData.unshift({ name: 'test1' })
-        // 正确：
-        state.tableData = [{ name: 'test1' }, ...state.tableData]
-        // 正确：
-        state.tableData = [{ name: 'test1' }].concat(state.tableData)
         `
       ]
     }

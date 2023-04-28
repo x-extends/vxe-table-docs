@@ -8,7 +8,7 @@
       由 <grid-api-link name="vxe-grid"/> 代理数据转换，只需要配置好数据源即可；非常简单就可以渲染一个表格，从重复写冗余的代码中解放出来
     </p>
 
-    <vxe-grid ref='xGrid' v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref='xGrid' v-bind="gridOptions" v-on="gridEvent"></vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
 
@@ -22,7 +22,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
 import { useStore } from 'vuex'
-import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 export default defineComponent({
@@ -287,6 +287,18 @@ export default defineComponent({
       }
     })
 
+    const gridEvent: VxeGridListeners = {
+      proxyQuery () {
+        console.log('数据代理查询事件')
+      },
+      proxyDelete () {
+        console.log('数据代理删除事件')
+      },
+      proxySave () {
+        console.log('数据代理保存事件')
+      }
+    }
+
     onMounted(() => {
       const sexList = [
         { label: '女', value: '0' },
@@ -310,20 +322,21 @@ export default defineComponent({
     return {
       xGrid,
       gridOptions,
+      gridEvent,
       demoCodes: [
         `
-        <vxe-grid ref='xGrid' v-bind="gridOptions"></vxe-grid>
+        <vxe-grid ref='xGrid' v-bind="gridOptions" v-on="gridEvent"></vxe-grid>
         `,
         `
         import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
         import { useStore } from 'vuex'
-        import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
+        import { VXETable, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-table'
         import XEUtils from 'xe-utils'
 
         export default defineComponent({
           setup () {
-          const store = useStore()
-          const serveApiUrl = computed(() => store.state.serveApiUrl)
+            const store = useStore()
+            const serveApiUrl = computed(() => store.state.serveApiUrl)
 
             const xGrid = ref<VxeGridInstance>()
 
@@ -433,7 +446,7 @@ export default defineComponent({
                     return fetch(\`\${serveApiUrl.value}/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
                   }
                 }
-                      },
+              },
               columns: [
                 { type: 'checkbox', title: 'ID', width: 120 },
                 { field: 'name', title: 'Name', sortable: true, titlePrefix: { message: '名称必须填写！' }, editRender: { name: 'input', attrs: { placeholder: '请输入名称' } } },
@@ -577,6 +590,18 @@ export default defineComponent({
               }
             })
 
+            const gridEvent: VxeGridListeners = {
+              proxyQuery () {
+                console.log('数据代理查询事件')
+              },
+              proxyDelete () {
+                console.log('数据代理删除事件')
+              },
+              proxySave () {
+                console.log('数据代理保存事件')
+              }
+            }
+
             onMounted(() => {
               const sexList = [
                 { label: '女', value: '0' },
@@ -599,7 +624,8 @@ export default defineComponent({
 
             return {
               xGrid,
-              gridOptions
+              gridOptions,
+              gridEvent
             }
           }
         }
