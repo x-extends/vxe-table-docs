@@ -93,11 +93,28 @@ watch(() => props.content, (val) => {
 </script>
 
 <style lang="scss" scoped>
+.code-light {
+  margin: 60px 0;
+  border: 1px solid #e8eaec;
+  ::v-deep(.tip) {
+    margin: 0;
+  }
+}
+.example-tip {
+  padding: 30px 30px 0 30px;
+}
+.example-demo {
+  margin: 30px;
+}
 .example-btns {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  margin-top: 15px;
+  height: 60px;
+  border-top: 1px dashed #f0f0f0;
+}
+.example-code-warpper {
+  padding: 0 30px;
+  margin: 0;
 }
 </style>
