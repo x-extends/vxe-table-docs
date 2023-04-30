@@ -21,14 +21,14 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
-import { useStore } from 'vuex'
+import { useAppStore } from '@/store/app'
 import { VXETable, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 export default defineComponent({
   setup () {
-    const store = useStore()
-    const serveApiUrl = computed(() => store.state.serveApiUrl)
+    const appStore = useAppStore()
+    const serveApiUrl = computed(() => appStore.serveApiUrl)
 
     const xGrid = ref<VxeGridInstance>()
 
@@ -329,14 +329,14 @@ export default defineComponent({
         `,
         `
         import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
-        import { useStore } from 'vuex'
+        import { useAppStore } from '@/store/app'
         import { VXETable, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-table'
         import XEUtils from 'xe-utils'
 
         export default defineComponent({
           setup () {
-            const store = useStore()
-            const serveApiUrl = computed(() => store.state.serveApiUrl)
+            const appStore = useAppStore()
+            const serveApiUrl = computed(() => appStore.serveApiUrl)
 
             const xGrid = ref<VxeGridInstance>()
 

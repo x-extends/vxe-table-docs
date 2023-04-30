@@ -122,7 +122,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, nextTick, reactive, watch } from 'vue'
-import { useStore } from 'vuex'
+import { useAppStore } from '@/store/app'
 import i18n from './i18n'
 import router from './router'
 import XEUtils from 'xe-utils'
@@ -130,11 +130,11 @@ import XEUtils from 'xe-utils'
 
 export default defineComponent({
   setup () {
-    const store = useStore()
-    const docsVersion = computed(() => store.state.docsVersion)
-    const baseApiUrl = computed(() => store.state.baseApiUrl)
-    const pluginApiUrl = computed(() => store.state.pluginApiUrl)
-    const serveApiUrl = computed(() => store.state.serveApiUrl)
+    const appStore = useAppStore()
+    const docsVersion = computed(() => appStore.docsVersion)
+    const baseApiUrl = computed(() => appStore.baseApiUrl)
+    const pluginApiUrl = computed(() => appStore.pluginApiUrl)
+    const serveApiUrl = computed(() => appStore.serveApiUrl)
 
     const showExtendPlugin = location.href.indexOf('vxetable.cn') > -1
 
@@ -2144,7 +2144,7 @@ export default defineComponent({
           appData.apiLoading = true
           appData.disabledPlugin = dp
           appData.showPlugin = sp
-          store.commit('setSupportQQ', ss)
+          appStore.setSupportQQ(ss)
           const stableVersionList = data[`v${appData.version}StableList`].map(value => ({ value, label: value }))
           const betaVersionList = data[`v${appData.version}BetaList`].map(value => ({ value, label: value }))
           appData.stableVersionList = stableVersionList

@@ -36,14 +36,14 @@
 
 <script lang="ts">
 import { defineComponent, computed, ref } from 'vue'
-import { useStore } from 'vuex'
+import { useAppStore } from '@/store/app'
 
 export default defineComponent({
   setup () {
-    const store = useStore()
-    const baseApiUrl = computed(() => store.state.baseApiUrl)
-    const pluginApiUrl = computed(() => store.state.pluginApiUrl)
-    const showSupportQQ = computed(() => store.state.showSupportQQ)
+    const appStore = useAppStore()
+    const baseApiUrl = computed(() => appStore.baseApiUrl)
+    const pluginApiUrl = computed(() => appStore.pluginApiUrl)
+    const showSupportQQ = computed(() => appStore.showSupportQQ)
 
     const supportAuthor = ref('1')
     return {

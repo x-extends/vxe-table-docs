@@ -37,7 +37,7 @@
 <script lang="ts">
 import { computed, defineComponent, nextTick, reactive, watch, ref } from 'vue'
 import { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
-import { useStore } from 'vuex'
+import { useAppStore } from '@/store/app'
 import i18n from '../../i18n'
 import router from '../../router'
 import XEUtils from 'xe-utils'
@@ -126,9 +126,9 @@ import pulldownAPI from '../../api/pulldown'
 
 export default defineComponent({
   setup () {
-    const store = useStore()
-    const docsVersion = computed(() => store.state.docsVersion)
-    const pluginApiUrl = computed(() => store.state.pluginApiUrl)
+    const appStore = useAppStore()
+    const docsVersion = computed(() => appStore.docsVersion)
+    const pluginApiUrl = computed(() => appStore.pluginApiUrl)
 
     const q = (router.currentRoute.value.query.q || router.currentRoute.value.query.filterName) as string
 

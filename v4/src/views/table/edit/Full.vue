@@ -71,13 +71,13 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref, nextTick, computed } from 'vue'
-import { useStore } from 'vuex'
+import { useAppStore } from '@/store/app'
 import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const store = useStore()
-    const serveApiUrl = computed(() => store.state.serveApiUrl)
+    const appStore = useAppStore()
+    const serveApiUrl = computed(() => appStore.serveApiUrl)
 
     const xToolbar = ref<VxeToolbarInstance>()
     const xTable = ref<VxeTableInstance>()
@@ -281,12 +281,12 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref, nextTick, computed } from 'vue'
-        import { useStore } from 'vuex'
+        import { useAppStore } from '@/store/app'
         import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
 
         export default defineComponent({
           setup () {
-            const store = useStore()
+            const appStore = useAppStore()
             const serveApiUrl = computed(() => store.state.serveApiUrl)
 
             const xToolbar = ref<VxeToolbarInstance>()

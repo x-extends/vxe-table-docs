@@ -1,20 +1,5 @@
-import { createStore } from 'vuex'
+import { createPinia } from 'pinia'
 
-export default createStore({
-  state: {
-    docsVersion: '4',
-    baseApiUrl: process.env.VUE_APP_MAIN_URL,
-    pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
-    serveApiUrl: 'https://api.vxetable.cn/demo',
-    showSupportQQ: false
-  },
-  mutations: {
-    setSupportQQ (state, visible) {
-      state.showSupportQQ = !!visible
-    }
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+const pinia = createPinia()
+
+export default pinia
