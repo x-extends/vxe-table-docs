@@ -44,7 +44,7 @@ const buildCode = () => {
   nextTick(() => {
     const blockEl = codeRef.value
     if (blockEl) {
-      hljs.highlightBlock(blockEl)
+      hljs.highlightElement(blockEl)
     }
   })
 }
@@ -58,7 +58,7 @@ const loadCode = () => {
       loading.value = false
     } else {
       loading.value = true
-      fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => response.text()).then(text => {
+      return fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => response.text()).then(text => {
         codeText.value = text || ''
         codeMaps[compPath] = codeText.value
         buildCode()
@@ -71,6 +71,7 @@ const loadCode = () => {
     buildCode()
     loading.value = false
   }
+  return Promise.resolve()
 }
 
 const toggleVisible = () => {
@@ -81,8 +82,16 @@ const toggleVisible = () => {
 }
 
 const copyCode = () => {
-  if (XEClipboard.copy(codeText.value)) {
-    VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+  if (codeText.value) {
+    if (XEClipboard.copy(codeText.value)) {
+      VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+    }
+  } else {
+    loadCode().then(() => {
+      if (XEClipboard.copy(codeText.value)) {
+        VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+      }
+    })
   }
 }
 
@@ -96,6 +105,7 @@ watch(() => props.content, (val) => {
 .code-light {
   margin: 60px 0;
   border: 1px solid #e8eaec;
+  border-radius: 4px;
   ::v-deep(.tip) {
     margin: 0;
   }

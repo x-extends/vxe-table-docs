@@ -5,13 +5,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, computed } from 'vue'
-import { useAppStore } from '@/store/app'
+import { onMounted, reactive, ref } from 'vue'
 import { VXETable, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
-const appStore = useAppStore()
-const serveApiUrl = computed(() => appStore.serveApiUrl)
+const serveApiUrl = 'https://api.vxetable.cn/demo'
 
 const xGrid = ref<VxeGridInstance>()
 
@@ -78,20 +76,20 @@ const gridOptions = reactive<VxeGridProps>({
       { code: 'mark_cancel', name: '删除/取消' },
       { code: 'save', name: 'app.body.button.save', status: 'success' }
     ],
-    refresh: true,
-    import: true,
-    export: true,
-    print: true,
-    zoom: true,
-    custom: true
+    refresh: true, // 显示刷新按钮
+    import: true, // 显示导入按钮
+    export: true, // 显示导出按钮
+    print: true, // 显示打印按钮
+    zoom: true, // 显示全屏按钮
+    custom: true // 显示自定义列按钮
   },
   proxyConfig: {
     seq: true, // 启用动态序号代理，每一页的序号会根据当前页数变化
     sort: true, // 启用排序代理，当点击排序时会自动触发 query 行为
     filter: true, // 启用筛选代理，当点击筛选时会自动触发 query 行为
     form: true, // 启用表单代理，当点击表单提交按钮时会自动触发 reload 行为
-    // 对应响应结果 { result: [], page: { total: 100 } }
     props: {
+      // 对应响应结果 Promise<{ result: [], page: { total: 100 } }>
       result: 'result', // 配置响应结果列表字段
       total: 'page.total' // 配置响应结果总页数字段
     },
@@ -110,15 +108,15 @@ const gridOptions = reactive<VxeGridProps>({
         filters.forEach(({ field, values }) => {
           queryParams[field] = values.join(',')
         })
-        return fetch(`${serveApiUrl.value}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
+        return fetch(`${serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
       },
       // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
       delete: ({ body }) => {
-        return fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
+        return fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
       },
       // 当点击工具栏保存按钮或者手动提交指令 save 时会被触发
       save: ({ body }) => {
-        return fetch(`${serveApiUrl.value}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
+        return fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
       }
     }
   },
@@ -157,8 +155,7 @@ const gridOptions = reactive<VxeGridProps>({
       formatter ({ cellValue }) {
         return cellValue ? `￥${XEUtils.commafy(XEUtils.toNumber(cellValue), { digits: 2 })}` : ''
       },
-      editRender:
-           { name: '$input', props: { type: 'float', digits: 2, placeholder: '请输入数值' } }
+      editRender: { name: '$input', props: { type: 'float', digits: 2, placeholder: '请输入数值' } }
     },
     {
       field: 'updateDate',
@@ -190,7 +187,7 @@ const gridOptions = reactive<VxeGridProps>({
       const $grid = xGrid.value
       const formBody = new FormData()
       formBody.append('file', file)
-      return fetch(`${serveApiUrl.value}/api/pub/import`, { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
+      return fetch(`${serveApiUrl}/api/pub/import`, { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
         VXETable.modal.message({ content: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
         // 导入完成，刷新表格
         if ($grid) {
@@ -227,11 +224,11 @@ const gridOptions = reactive<VxeGridProps>({
           })
         }
         // 开始服务端导出
-        return fetch(`${serveApiUrl.value}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
+        return fetch(`${serveApiUrl}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
           if (data.id) {
             VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
             // 读取路径，请求文件
-            fetch(`${serveApiUrl.value}/api/pub/export/download/${data.id}`).then(response => {
+            fetch(`${serveApiUrl}/api/pub/export/download/${data.id}`).then(response => {
               response.blob().then(blob => {
                 // 开始下载
                 VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })
