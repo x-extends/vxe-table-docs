@@ -214,7 +214,7 @@ const TableScrollKeepAliveTable3 = () => import('../views/table/scroll/keepAlive
 
 const TableEditPopupForm = () => import('../views/table/edit/PopupForm.vue')
 const TableEditManual = () => import('../views/table/edit/Manual.vue')
-const TableEditClick = () => import('../views/table/edit/Click.vue')
+const TableEditClick = () => import('../views/table/edit/click/Example.vue')
 const TableEditDBLClick = () => import('../views/table/edit/DBLClick.vue')
 const TableEditSelect = () => import('../views/table/edit/Select.vue')
 const TableAutoClearManual = () => import('../views/table/edit/AutoClear.vue')
