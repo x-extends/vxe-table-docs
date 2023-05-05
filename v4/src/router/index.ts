@@ -212,7 +212,7 @@ const TableScrollKeepAliveTable3 = () => import('../views/table/scroll/keepAlive
 // const TableVirtualTreeTemplate = () => import('../views/table/virtual-tree/Template.vue')
 // const TableVirtualTreeBig = () => import('../views/table/virtual-tree/Big.vue')
 
-const TableEditPopupForm = () => import('../views/table/edit/PopupForm.vue')
+const TableEditPopupForm = () => import('../views/table/edit/popupForm/Example.vue')
 const TableEditManual = () => import('../views/table/edit/Manual.vue')
 const TableEditClick = () => import('../views/table/edit/click/Example.vue')
 const TableEditDBLClick = () => import('../views/table/edit/DBLClick.vue')
@@ -245,7 +245,7 @@ const TableEditUniqueSelect = () => import('../views/table/edit/UniqueSelect.vue
 const TableEditCascadingSelect = () => import('../views/table/edit/CascadingSelect.vue')
 const TableEditEvents = () => import('../views/table/edit/Events.vue')
 const TableEditTemplate = () => import('../views/table/edit/Template.vue')
-const TableEditFull = () => import('../views/table/edit/Full.vue')
+const TableEditFull = () => import('../views/table/edit/full/Example.vue')
 
 const ModuleIcon = () => import('../views/icon/Icon.vue')
 const ModuleButton = () => import('../views/button/Button.vue')
