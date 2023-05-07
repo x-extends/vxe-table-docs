@@ -4,6 +4,7 @@
       默认的渲染 <table-column-api-link prop="cell-render"/>，查看 <a class="link" href="https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/plugins/table/renderer" target="_blank">示例的源码</a><span class="red">（具体请自行实现，该示例仅供参考）</span><br>
       配置参数：<br>
       cellClassName: string | (params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) => string 单元格单项className<br>
+      cellStyle: {[name: string]: string} | (params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) => {[name: string]: string} 单元格单样式<br>
       renderHeader (h, renderOpts, params: { column, columnIndex, columnIndex, $rowIndex, $table }) 表头单元格显示内容<br>
       renderDefault (h, renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) 单元格显示默认内容<br>
       renderFooter (h, renderOpts, params: { column, columnIndex, $columnIndex, $rowIndex, _columnIndex, items, $table }) 表尾单元格显示内容<br>

@@ -290,6 +290,24 @@ const apis = [
         enum: '',
         defVal: '{ $event }',
         list: []
+      },
+      {
+        name: 'focus',
+        desc: '在输入框聚焦时触发该事件',
+        version: '4.3.14',
+        type: '',
+        enum: '',
+        defVal: '{ $event }',
+        list: []
+      },
+      {
+        name: 'blur',
+        desc: '在输入框失焦时触发该事件',
+        version: '4.3.14',
+        type: '',
+        enum: '',
+        defVal: '{ $event }',
+        list: []
       }
     ]
   },

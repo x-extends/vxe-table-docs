@@ -1,11 +1,17 @@
 <template>
   <div class="code-light">
     <div class="example-tip">
-      <slot name="tip"></slot>
+      <p class="tip">
+        <slot name="tip"></slot>
+      </p>
     </div>
 
     <div class="example-demo">
       <DemoCode />
+    </div>
+
+    <div class="example-describe">
+      <slot name="describe"></slot>
     </div>
 
     <div class="example-code">
@@ -114,6 +120,10 @@ watch(() => props.content, (val) => {
   padding: 30px 30px 0 30px;
 }
 .example-demo {
+  margin: 30px;
+}
+
+.example-describe {
   margin: 30px;
 }
 .example-btns {

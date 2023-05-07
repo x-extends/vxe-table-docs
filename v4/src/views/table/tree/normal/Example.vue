@@ -2,21 +2,21 @@
   <div>
     <CodeLight path="table/tree/normal/Demo1">
       <template #tip>
-        <p class="tip">
+        <div>
           普通树
-        </p>
+        </div>
       </template>
     </CodeLight>
 
     <CodeLight path="table/tree/normal/Demo2">
       <template #tip>
-        <p class="tip">带连接线</p>
+        <div>带连接线</div>
       </template>
     </CodeLight>
 
     <CodeLight path="table/tree/normal/Demo3">
       <template #tip>
-        <p class="tip">更多功能</p>
+        <div>更多功能</div>
       </template>
     </CodeLight>
   </div>

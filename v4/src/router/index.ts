@@ -169,13 +169,13 @@ const TableTreeEdit = () => import('../views/table/tree/Edit.vue')
 // const TableTreeEditForceRowValid = () => import('../views/table/tree/ForceRowValid.vue')
 const TableTreeTemplate = () => import('../views/table/tree/Template.vue')
 
-const TableScroll = () => import('../views/table/scroll/Scroll.vue')
+const TableScrollBasic = () => import('../views/table/scroll/basic/Example.vue')
 const TableScrollMode = () => import('../views/table/scroll/Mode.vue')
 const TableScrollRows = () => import('../views/table/scroll/ScrollRows.vue')
 const TableScrollFullRows = () => import('../views/table/scroll/ScrollFullRows.vue')
 const TableScrollCols = () => import('../views/table/scroll/ScrollCols.vue')
 const TableScrollFullCols = () => import('../views/table/scroll/ScrollFullCols.vue')
-const TableScrollTree = () => import('../views/table/scroll/Tree.vue')
+const TableScrollTree = () => import('../views/table/scroll/tree/Example.vue')
 const TableScrollLazyTree = () => import('../views/table/scroll/LazyTree.vue')
 // const TableScrollHighlight = () => import('../views/table/scroll/Highlight.vue')
 const TableScrollKeyboard = () => import('../views/table/scroll/Keyboard.vue')
@@ -1162,7 +1162,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/table/scroll/scroll',
     name: 'TableScroll',
-    component: TableScroll
+    component: TableScrollBasic
   },
   {
     path: '/table/scroll/mode',
