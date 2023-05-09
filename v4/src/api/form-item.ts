@@ -239,7 +239,7 @@ const apis = [
           },
           {
             name: 'props',
-            desc: '渲染的参数（请查看目标渲染的 Props）',
+            desc: '渲染的参数（请查看自定义的 Props）',
             version: '',
             type: 'any',
             enum: '',
@@ -248,7 +248,7 @@ const apis = [
           },
           // {
           //   name: 'attrs',
-          //   desc: '渲染的属性（请查看目标渲染的 Attribute）',
+          //   desc: '渲染的属性（请查看自定义的 Attribute）',
           //   version: '',
           //   type: 'any',
           //   enum: '',
@@ -293,11 +293,11 @@ const apis = [
           },
           {
             name: 'events',
-            desc: '渲染组件的事件（请查看目标渲染的 Events）',
+            desc: '渲染组件的事件（请查看自定义的 Events）',
             version: '',
             type: 'any',
             enum: '',
-            defVal: '{data, property}, ...[目标渲染的 arguments]',
+            defVal: '{data, property}, ...[自定义的 arguments]',
             list: []
           },
           {

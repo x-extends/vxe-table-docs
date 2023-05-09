@@ -16,32 +16,34 @@
 
     <div class="example-code">
       <div class="example-btns">
-        <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button type="text" :loading="loading" :icon="showCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showCode ? 'app.body.button.hideCode' : 'app.body.button.showCode') }}</vxe-button>
+        <vxe-tooltip :content="$t('app.body.button.fixDocTip')">
+          <vxe-button type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
+        </vxe-tooltip>
+        <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
+        <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
-      <pre class="example-code-warpper" v-show="showCode">
-        <code ref="codeRef">{{ codeText }}</code>
+      <pre class="example-code-warpper" v-show="showTsCode">
+        <code ref="codeRef">{{ tsCodeText }}</code>
       </pre>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, defineProps, watch, defineAsyncComponent } from 'vue'
+import { nextTick, ref, defineProps, defineAsyncComponent } from 'vue'
 import { codeMaps } from '@/common/cache'
 import { VXETable } from 'vxe-table'
 import hljs from 'highlight.js'
 import XEClipboard from 'xe-clipboard'
 
 const props = defineProps({
-  path: String,
-  content: String
+  path: String
 })
 
 const codeRef = ref<HTMLElement>()
-const codeText = ref(props.content || '')
+const tsCodeText = ref('')
 
-const showCode = ref(false)
+const showTsCode = ref(false)
 const loading = ref(false)
 
 const DemoCode = defineAsyncComponent(() => import(`@/views/${props.path}`))
@@ -59,21 +61,26 @@ const loadCode = () => {
   const compPath = props.path
   if (compPath) {
     if (codeMaps[compPath]) {
-      codeText.value = codeMaps[compPath]
+      tsCodeText.value = codeMaps[compPath]
       buildCode()
       loading.value = false
     } else {
       loading.value = true
-      return fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => response.text()).then(text => {
-        codeText.value = text || ''
-        codeMaps[compPath] = codeText.value
+      return fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+        if (response.status >= 200 && response.status < 400) {
+          return response.text()
+        }
+        return '暂无示例'
+      }).then(text => {
+        tsCodeText.value = text || ''
+        codeMaps[compPath] = tsCodeText.value
         buildCode()
         loading.value = false
       }).catch(() => {
         loading.value = false
       })
     }
-  } else if (codeText.value) {
+  } else if (tsCodeText.value) {
     buildCode()
     loading.value = false
   }
@@ -81,30 +88,33 @@ const loadCode = () => {
 }
 
 const toggleVisible = () => {
-  showCode.value = !showCode.value
-  if (showCode.value) {
+  showTsCode.value = !showTsCode.value
+  if (showTsCode.value) {
     loadCode()
   }
 }
 
 const copyCode = () => {
-  if (codeText.value) {
-    if (XEClipboard.copy(codeText.value)) {
+  let codeContent = ''
+  if (showTsCode.value) {
+    codeContent = tsCodeText.value
+  }
+  if (codeContent) {
+    if (XEClipboard.copy(codeContent)) {
       VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
     }
   } else {
     loadCode().then(() => {
-      if (XEClipboard.copy(codeText.value)) {
+      if (XEClipboard.copy(codeContent)) {
         VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
       }
     })
   }
 }
 
-watch(() => props.content, (val) => {
-  codeText.value = val || ''
-  buildCode()
-})
+const openDocs = () => {
+  open(`https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/views/${props.path}.vue`)
+}
 </script>
 
 <style lang="scss" scoped>

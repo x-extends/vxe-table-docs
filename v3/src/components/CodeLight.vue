@@ -10,11 +10,14 @@
 
     <div class="example-code">
       <div class="example-btns">
-        <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button type="text" :loading="loading" :icon="showCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showCode ? 'app.body.button.hideCode' : 'app.body.button.showCode') }}</vxe-button>
+        <vxe-tooltip :content="$t('app.body.button.fixDocTip')">
+          <vxe-button type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
+        </vxe-tooltip>
+        <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
+        <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
-      <pre class="example-code-warpper" v-show="showCode">
-        <code ref="codeRef">{{ codeText }}</code>
+      <pre class="example-code-warpper" v-show="showTsCode">
+        <code ref="codeRef">{{ tsCodeText }}</code>
       </pre>
     </div>
   </div>
@@ -30,48 +33,43 @@ import AsyncDemo from './AsyncDemo.vue'
 export default {
   name: 'CodeLight',
   props: {
-    path: String,
-    content: String
+    path: String
   },
   components: {
     AsyncDemo
   },
   data () {
     return {
-      codeText: '',
-      showCode: false,
+      tsCodeText: '',
+      showTsCode: false,
       loading: false
     }
-  },
-  watch: {
-    content (val) {
-      this.codeText = val || ''
-      this.buildCode()
-    }
-  },
-  created () {
-    this.codeText = this.content || ''
   },
   methods: {
     loadCode () {
       const compPath = this.path
       if (compPath) {
         if (codeMaps[compPath]) {
-          this.codeText = codeMaps[compPath]
+          this.tsCodeText = codeMaps[compPath]
           this.buildCode()
           this.loading = false
         } else {
           this.loading = true
-          return fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => response.text()).then(text => {
-            this.codeText = text || ''
-            codeMaps[compPath] = this.codeText
+          return fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+            if (response.status >= 200 && response.status < 400) {
+              return response.text()
+            }
+            return '暂无示例'
+          }).then(text => {
+            this.tsCodeText = text || ''
+            codeMaps[compPath] = this.tsCodeText
             this.buildCode()
             this.loading = false
           }).catch(() => {
             this.loading = false
           })
         }
-      } else if (this.codeText) {
+      } else if (this.tsCodeText) {
         this.buildCode()
         this.loading = false
       }
@@ -86,23 +84,26 @@ export default {
       })
     },
     toggleVisible () {
-      this.showCode = !this.showCode
-      if (this.showCode) {
+      this.showTsCode = !this.showTsCode
+      if (this.showTsCode) {
         this.loadCode()
       }
     },
     copyCode  () {
-      if (this.codeText) {
-        if (XEClipboard.copy(this.codeText)) {
+      if (this.tsCodeText) {
+        if (XEClipboard.copy(this.tsCodeText)) {
           VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
         }
       } else {
         this.loadCode().then(() => {
-          if (XEClipboard.copy(this.codeText)) {
+          if (XEClipboard.copy(this.tsCodeText)) {
             VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
           }
         })
       }
+    },
+    openDocs  () {
+      open(`https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/views/${this.path}.vue`)
     }
   }
 }

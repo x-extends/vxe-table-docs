@@ -52,7 +52,7 @@ export default {
         dynamic: '使用 v-for 动态实现',
         sortIcon: '自定义排序图标',
         customSort: '自定义列头排序',
-        multiSort: '多字段组合排序',
+        multiSort: '多字段排序',
         manualFilter: '筛选高级用法',
         filterIcon: '自定义筛选图标',
         customFilter: '自定义列头筛选',
