@@ -115,7 +115,7 @@ export default {
         customIcon: 'More customizations',
         expandTreeLazy: 'Tree expansion line lazy load',
         treeSearch: 'Deep to search',
-        treeSort: 'Deep sort',
+        treeSort: 'Tree sort',
         groupSummary: 'Group summary',
         groupSummaryCount: 'Group summary total',
         edit: 'Editable',

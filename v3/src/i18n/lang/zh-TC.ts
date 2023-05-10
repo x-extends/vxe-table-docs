@@ -114,7 +114,7 @@ export default {
         customIcon: '更多自定义',
         expandTreeLazy: '树形展开行懒加载',
         treeSearch: '深层查找',
-        treeSort: '深层排序',
+        treeSort: '树排序',
         groupSummary: '分组汇总',
         groupSummaryCount: '分组汇总合计',
         edit: '可编辑',
