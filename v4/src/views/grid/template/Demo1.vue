@@ -95,7 +95,7 @@
       <template #num1_header="{ column }">
         <span>
           <i>@</i>
-          <span style="color: red;" @click="headerClickEvent">{{ column.title }}</span>
+          <span style="color: red;">{{ column.title }}</span>
         </span>
       </template>
 
@@ -196,10 +196,6 @@ interface RowVO {
 
 const xGrid = ref<VxeGridInstance>()
 
-const addressClickEvent = (row: any) => {
-  VXETable.modal.alert(`address点击事件：${row.address}`)
-}
-
 const demo1 = reactive({
   searchVal1: '',
   searchVal2: '',
@@ -283,7 +279,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         // 使用渲染函数
         default: ({ row }) => {
           return [
-            <span style="color: blue" onClick={ () => addressClickEvent(row) }>自定义模板内容</span>
+            <span style="color: blue">自定义模板内容： { row.address }</span>
           ]
         }
       }
@@ -308,11 +304,8 @@ const searchEvent = () => {
   VXETable.modal.alert('查询')
 }
 
-const headerClickEvent = () => {
-  VXETable.modal.alert('头部点击事件')
-}
-
 const changeFilterEvent = (event: Event, option: any, $panel: any) => {
+  // 手动触发筛选
   $panel.changeOption(event, !!option.data, option)
 }
 

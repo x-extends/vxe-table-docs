@@ -103,7 +103,7 @@ export default {
       }
     },
     openDocs  () {
-      open(`https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/views/${this.path}.vue`)
+      open(`https://github.com/x-extends/vxe-table-docs/tree/main/v3/src/views/${this.path}.vue`)
     }
   }
 }
