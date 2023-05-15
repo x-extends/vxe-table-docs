@@ -23,7 +23,7 @@
         <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
       <pre class="example-code-warpper" v-show="showTsCode">
-        <code ref="codeRef">{{ tsCodeText }}</code>
+        <code class="html" ref="codeRef">{{ tsCodeText }}</code>
       </pre>
     </div>
   </div>
