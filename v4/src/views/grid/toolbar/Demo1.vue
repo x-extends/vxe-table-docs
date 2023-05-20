@@ -31,7 +31,7 @@ interface RowVO {
   address: string
 }
 
-const xGrid = ref<VxeGridInstance>()
+const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -101,7 +101,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const gridEvents: VxeGridListeners = {
+const gridEvents: VxeGridListeners<RowVO> = {
   toolbarButtonClick ({ code }) {
     const $grid = xGrid.value
     if ($grid) {

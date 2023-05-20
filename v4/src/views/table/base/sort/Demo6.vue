@@ -65,7 +65,7 @@ const findList = (field?: VxeColumnPropTypes.Field, order?: VxeTablePropTypes.So
   })
 }
 
-const sortChangeEvent: VxeTableEvents.SortChange = ({ field, order }) => {
+const sortChangeEvent: VxeTableEvents.SortChange<RowVO> = ({ field, order }) => {
   findList(field, order)
 }
 

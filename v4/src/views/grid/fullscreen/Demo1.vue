@@ -24,7 +24,7 @@ interface RowVO {
   address: string
 }
 
-const xGrid = ref<VxeGridInstance>()
+const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const findList = (): Promise<{
   page: {
@@ -55,27 +55,6 @@ const findList = (): Promise<{
   })
 }
 
-const maximizeEvent = () => {
-  const $grid = xGrid.value
-  if ($grid) {
-    $grid.maximize()
-  }
-}
-
-const revertEvent = () => {
-  const $grid = xGrid.value
-  if ($grid) {
-    $grid.revert()
-  }
-}
-
-const zoomEvent = () => {
-  const $grid = xGrid.value
-  if ($grid) {
-    $grid.zoom()
-  }
-}
-
 const meanNum = (list: any[], field: string) => {
   let count = 0
   list.forEach(item => {
@@ -84,7 +63,7 @@ const meanNum = (list: any[], field: string) => {
   return count / list.length
 }
 
-const gridOptions = reactive<VxeGridProps>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
   showFooter: true,
@@ -140,4 +119,25 @@ const gridOptions = reactive<VxeGridProps>({
     return [sums]
   }
 })
+
+const maximizeEvent = () => {
+  const $grid = xGrid.value
+  if ($grid) {
+    $grid.maximize()
+  }
+}
+
+const revertEvent = () => {
+  const $grid = xGrid.value
+  if ($grid) {
+    $grid.revert()
+  }
+}
+
+const zoomEvent = () => {
+  const $grid = xGrid.value
+  if ($grid) {
+    $grid.zoom()
+  }
+}
 </script>

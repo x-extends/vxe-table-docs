@@ -8,11 +8,15 @@
 import { ref, reactive } from 'vue'
 import { VxeGridInstance, VxeTableDefines, VxeGridPropTypes, VxeGridProps } from 'vxe-table'
 
-const xGrid = ref<VxeGridInstance>()
+interface RowVO {
+  [key: string]: any
+}
+
+const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const footerData = ref<string[][]>([])
 
-const gridOptions = reactive<VxeGridProps>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
   showHeaderOverflow: true,

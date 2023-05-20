@@ -90,7 +90,7 @@ interface RowVO {
 
 const loading = ref(false)
 
-const xTable = ref<VxeTableInstance>()
+const xTable = ref<VxeTableInstance<RowVO>>()
 
 const mockList = (size: number) => {
   const list: RowVO[] = []

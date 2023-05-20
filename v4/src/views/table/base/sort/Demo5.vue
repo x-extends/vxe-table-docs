@@ -43,7 +43,7 @@ const tableData = ref<RowVO[]>([
   { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, num: '5000', num2: '5000', address: 'test abc' }
 ])
 
-const sortChangeEvent: VxeTableEvents.SortChange = ({ field, order }) => {
+const sortChangeEvent: VxeTableEvents.SortChange<RowVO> = ({ field, order }) => {
   console.info(field, order)
 }
 </script>

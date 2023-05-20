@@ -13,7 +13,7 @@
       height="300"
       :column-config="{resizable: true}"
       :row-config="{isHover: true}"
-      :data="demo1.tableData"
+      :data="tableData"
       @cell-dblclick="cellDBLClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -28,9 +28,9 @@
       </vxe-column>
     </vxe-table>
 
-    <vxe-modal v-model="demo1.showEdit" :title="demo1.selectRow ? '编辑&保存' : '新增&保存'" width="800" min-width="600" min-height="300" :loading="demo1.submitLoading" resize destroy-on-close>
+    <vxe-modal v-model="showEdit" :title="selectRow ? '编辑&保存' : '新增&保存'" width="800" min-width="600" min-height="300" :loading="submitLoading" resize destroy-on-close>
       <template #default>
-        <vxe-form :data="demo1.formData" :rules="demo1.formRules" title-align="right" title-width="100" @submit="submitEvent">
+        <vxe-form :data="formData" :rules="formRules" title-align="right" title-width="100" @submit="submitEvent">
           <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{icon: 'vxe-icon-comment'}"></vxe-form-item>
           <vxe-form-item field="name" title="Name" :span="12" :item-render="{}">
             <template #default="{ data }">
@@ -50,7 +50,7 @@
           <vxe-form-item field="sex" title="Sex" :span="12" :item-render="{}">
             <template #default="{ data }">
               <vxe-select v-model="data.sex" transfer>
-                <vxe-option v-for="item in demo1.sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
+                <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
               </vxe-select>
             </template>
           </vxe-form-item>
@@ -127,45 +127,46 @@ interface RowVO {
   checkedList: any[]
 }
 
-const demo1 = reactive({
-  submitLoading: false,
-  tableData: [] as RowVO[],
-  selectRow: null as RowVO | null,
-  showEdit: false,
-  formData: {
-    name: '',
-    nickname: '',
-    role: '',
-    sex: '',
-    age: 0,
-    num: 0,
-    checkedList: [] as any[],
-    flag1: false,
-    date3: '',
-    address: ''
-  },
-  sexList: [
-    { label: '女', value: '0' },
-    { label: '男', value: '1' }
-  ],
-  formRules: {
-    name: [
-      { required: true, message: '请输入名称' },
-      { min: 3, max: 5, message: '长度在 3 到 5 个字符' }
-    ],
-    nickname: [
-      { required: true, message: '请输入昵称' }
-    ],
-    sex: [
-      { required: true, message: '请选择性别' }
-    ]
-  } as VxeFormPropTypes.Rules
+const xTable = ref<VxeTableInstance<RowVO>>()
+
+const formData = reactive({
+  name: '',
+  nickname: '',
+  role: '',
+  sex: '',
+  age: 0,
+  num: 0,
+  checkedList: [] as any[],
+  flag1: false,
+  date3: '',
+  address: ''
 })
 
-const xTable = ref<VxeTableInstance>()
+const submitLoading = ref(false)
+const showEdit = ref(false)
+const selectRow = ref<RowVO | null>()
+const tableData = ref<RowVO[]>([])
 
-const formatterSex: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
-  const item = demo1.sexList.find(item => item.value === cellValue)
+const sexList = ref([
+  { label: '女', value: '0' },
+  { label: '男', value: '1' }
+])
+
+const formRules = reactive<VxeFormPropTypes.Rules>({
+  name: [
+    { required: true, message: '请输入名称' },
+    { min: 3, max: 5, message: '长度在 3 到 5 个字符' }
+  ],
+  nickname: [
+    { required: true, message: '请输入昵称' }
+  ],
+  sex: [
+    { required: true, message: '请选择性别' }
+  ]
+})
+
+const formatterSex: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
+  const item = sexList.value.find(item => item.value === cellValue)
   return item ? item.label : ''
 }
 
@@ -174,7 +175,7 @@ const visibleMethod: VxeFormItemPropTypes.VisibleMethod = ({ data }) => {
 }
 
 const insertEvent = () => {
-  demo1.formData = {
+  Object.assign(formData, {
     name: '',
     nickname: '',
     role: '',
@@ -185,33 +186,22 @@ const insertEvent = () => {
     flag1: false,
     date3: '',
     address: ''
-  }
-  demo1.selectRow = null
-  demo1.showEdit = true
+  })
+  selectRow.value = null
+  showEdit.value = true
 }
 
 const editEvent = (row: RowVO) => {
-  demo1.formData = {
-    name: row.name,
-    nickname: row.nickname,
-    role: row.role,
-    sex: row.sex,
-    age: row.age,
-    num: row.num,
-    checkedList: row.checkedList,
-    flag1: row.flag1,
-    date3: row.date3,
-    address: row.address
-  }
-  demo1.selectRow = row
-  demo1.showEdit = true
+  Object.assign(formData, row)
+  selectRow.value = row
+  showEdit.value = true
 }
 
-const cellDBLClickEvent: VxeTableEvents.CellDblclick = ({ row }) => {
+const cellDBLClickEvent: VxeTableEvents.CellDblclick<RowVO> = ({ row }) => {
   editEvent(row)
 }
 
-const removeEvent = async (row: any) => {
+const removeEvent = async (row: RowVO) => {
   const type = await VXETable.modal.confirm('您确定要删除该数据?')
   if (type === 'confirm') {
     const $table = xTable.value
@@ -222,25 +212,25 @@ const removeEvent = async (row: any) => {
 }
 
 const submitEvent = () => {
-  demo1.submitLoading = true
+  submitLoading.value = true
   setTimeout(() => {
     const $table = xTable.value
     if ($table) {
-      demo1.submitLoading = false
-      demo1.showEdit = false
-      if (demo1.selectRow) {
+      submitLoading.value = false
+      showEdit.value = false
+      if (selectRow.value) {
         VXETable.modal.message({ content: '保存成功', status: 'success' })
-        Object.assign(demo1.selectRow, demo1.formData)
+        Object.assign(selectRow.value, formData)
       } else {
         VXETable.modal.message({ content: '新增成功', status: 'success' })
-        $table.insert(demo1.formData)
+        $table.insert({ ...formData })
       }
     }
   }, 500)
 }
 
 setTimeout(() => {
-  const list = [
+  const list: RowVO[] = [
     { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num: 40, num1: 40, age: 28, flag1: false, address: 'Shenzhen', date3: '', date12: '', date13: '', checkedList: [] },
     { id: 10002, name: 'Test2', nickname: 'T2', role: 'Designer', sex: '1', sex2: ['0', '1'], num: 40, num1: 20, age: 22, flag1: false, address: 'Guangzhou', date3: '', date12: '', date13: '2020-08-20', checkedList: [] },
     { id: 10003, name: 'Test3', nickname: 'T3', role: 'Test', sex: '0', sex2: ['1'], num: 4, num1: 200, age: 32, flag1: true, address: 'Shanghai', date3: '', date12: '2020-09-10', date13: '', checkedList: [] },
@@ -249,6 +239,6 @@ setTimeout(() => {
     { id: 10004, name: 'Test6', nickname: 'T6', role: 'Designer', sex: '1', sex2: ['1'], num: 5, num1: 30, age: 28, flag1: false, address: 'BeiJing', date3: '', date12: '', date13: '2020-09-04', checkedList: [] },
     { id: 10004, name: 'Test7', nickname: 'T7', role: 'Designer', sex: '1', sex2: ['1'], num: 40, num1: 30, age: 30, flag1: false, address: 'BeiJing', date3: '', date12: '', date13: '2020-04-10', checkedList: [] }
   ]
-  demo1.tableData = list
+  tableData.value = list
 }, 100)
 </script>

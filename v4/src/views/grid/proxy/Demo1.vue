@@ -39,7 +39,7 @@ const findList = () => {
   })
 }
 
-const gridOptions = reactive<VxeGridProps>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 400,
   columnConfig: {

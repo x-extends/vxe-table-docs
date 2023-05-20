@@ -83,7 +83,7 @@ const sexList2 = ref([
   { label: '女', value: '0' }
 ])
 
-const formatSex = (value: any) => {
+const formatSex = (value: string) => {
   if (value === '1') {
     return '男'
   }

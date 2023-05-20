@@ -54,7 +54,7 @@ interface RowVO {
   sex: string
 }
 
-const xTable = ref<VxeTableInstance>()
+const xTable = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const mergeCells = ref<VxeTablePropTypes.MergeCells>([

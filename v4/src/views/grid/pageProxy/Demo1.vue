@@ -52,7 +52,7 @@ const findPageList = (currentPage: number, pageSize: number) => {
   })
 }
 
-const gridOptions = reactive<VxeGridProps>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 530,
   rowConfig: {

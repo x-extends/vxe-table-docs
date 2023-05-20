@@ -23,7 +23,15 @@
 import { ref } from 'vue'
 import { VxeTablePropTypes } from 'vxe-table'
 
-const tableData = ref([
+interface RowVO {
+  name: string
+  role: string
+  date: string
+  rate: number
+  address: string
+}
+
+const tableData = ref<RowVO[]>([
   { name: 'Test1', role: '前端', date: '内容显示原生 title', rate: 5, address: 'address1' },
   { name: '内容超出隐藏，不显示提示信息xxxxxxxxxxxxxxxxxxx', role: '后端', date: '2020-02-22', rate: 2, address: 'address2\ntooltip文本换行\n换行xx' },
   { name: 'Test3', role: '内容超出一行显示为 tooltip xxxxxxxxxxxxxx', date: '2020-01-01', rate: 0, address: 'address3\ntooltip文本换行\n换行xx' },
@@ -31,7 +39,7 @@ const tableData = ref([
   { name: 'Test5', role: '前端', date: '2020-01-20', rate: 3, address: 'address5\ntooltip文本换行\n换行xx' }
 ])
 
-const footerMethod: VxeTablePropTypes.FooterMethod = ({ columns }) => {
+const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns }) => {
   const footerData = [
     columns.map((column, columnIndex) => {
       if (columnIndex === 0) {

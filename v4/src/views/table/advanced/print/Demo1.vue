@@ -79,7 +79,7 @@ const printConfig = reactive<VxeTablePropTypes.PrintConfig>({
     `
 })
 
-const xTable = ref<VxeTableInstance>()
+const xTable = ref<VxeTableInstance<RowVO>>()
 
 const printEvent1: VxeButtonEvents.Click = () => {
   const $table = xTable.value
@@ -104,7 +104,7 @@ const printEvent2: VxeButtonEvents.Click = () => {
   }
 }
 
-const meanNum = (list: any[], field: string) => {
+const meanNum = (list: RowVO[], field: string) => {
   let count = 0
   list.forEach(item => {
     count += Number(item[field])
@@ -112,7 +112,7 @@ const meanNum = (list: any[], field: string) => {
   return count / list.length
 }
 
-const sumNum = (list: any[], field: string) => {
+const sumNum = (list: RowVO[], field: string) => {
   let count = 0
   list.forEach(item => {
     count += Number(item[field])
@@ -120,7 +120,7 @@ const sumNum = (list: any[], field: string) => {
   return count
 }
 
-const footerMethod: VxeTablePropTypes.FooterMethod = ({ columns, data }) => {
+const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) => {
   const footerData = [
     columns.map((column, columnIndex) => {
       if (columnIndex === 0) {

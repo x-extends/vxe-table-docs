@@ -118,7 +118,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   }
 })
 
-const gridEvents: VxeGridListeners = {
+const gridEvents: VxeGridListeners<RowVO> = {
   headerCellClick (params) {
     const { column } = params
     console.log(`表头单元格点击${column.title}`)

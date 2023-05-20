@@ -43,7 +43,7 @@ interface RowVO {
   date: string
 }
 
-const xTable = ref<VxeTableInstance>()
+const xTable = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },

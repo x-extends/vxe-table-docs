@@ -66,7 +66,7 @@ const getPinYin = (str: string) => {
   }).join('')
 }
 
-const sortConfig = ref<VxeTablePropTypes.SortConfig>({
+const sortConfig = ref<VxeTablePropTypes.SortConfig<RowVO>>({
   sortMethod ({ data, sortList }) {
     const sortItem = sortList[0]
     // 取出第一个排序的列

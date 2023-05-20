@@ -28,8 +28,17 @@
 import { ref, onMounted } from 'vue'
 import { VxeColumnPropTypes } from 'vxe-table'
 
+interface RowVO {
+  id: number
+  name: string
+  role: string
+  sex: string
+  age: number
+  address: string
+}
+
 const loading = ref(false)
-const tableData = ref<any[]>([])
+const tableData = ref<RowVO[]>([])
 const sexList = ref([
   {
     label: '女',
@@ -41,12 +50,12 @@ const sexList = ref([
   }
 ])
 
-const formatterSex: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
+const formatterSex: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
   const item = sexList.value.find(item => item.value === cellValue)
   return item ? item.label : ''
 }
 
-const filterAgeMethod: VxeColumnPropTypes.FilterMethod = ({ value, row }) => {
+const filterAgeMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ value, row }) => {
   return row.age >= value
 }
 

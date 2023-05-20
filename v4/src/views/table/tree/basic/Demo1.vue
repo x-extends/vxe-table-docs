@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -36,7 +36,7 @@ interface RowVO {
   date: string
 }
 
-const xTreeRef = ref<VxeTableInstance>()
+const xTreeRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'Test1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -59,7 +59,7 @@ const tableData = ref<RowVO[]>([
   { id: 24577, parentId: 24555, name: 'Test18', type: 'js', size: 1024, date: '2021-06-01' }
 ])
 
-const toggleExpandChangeEvent = (params: any) => {
+const toggleExpandChangeEvent: VxeTableEvents.ToggleTreeExpand = (params) => {
   const $table = xTreeRef.value
   if ($table) {
     const { row, expanded } = params

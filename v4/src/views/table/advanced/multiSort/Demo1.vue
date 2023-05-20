@@ -55,7 +55,7 @@ const tableData = ref<RowVO[]>([
   { name: '小明', role: '测试', age: 29, num: 7 }
 ])
 
-const sortChangeEvent: VxeTableEvents.SortChange = ({ sortList }) => {
+const sortChangeEvent: VxeTableEvents.SortChange<RowVO> = ({ sortList }) => {
   console.info(sortList.map((item) => `${item.field},${item.order}`).join('; '))
 }
 </script>

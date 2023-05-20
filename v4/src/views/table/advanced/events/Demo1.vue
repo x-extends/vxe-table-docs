@@ -56,51 +56,51 @@ const tableData = ref<RowVO[]>([
   { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
 ])
 
-const headerCellClickEvent: VxeTableEvents.HeaderCellClick = ({ column }) => {
+const headerCellClickEvent: VxeTableEvents.HeaderCellClick<RowVO> = ({ column }) => {
   console.log(`表头单元格点击${column.title}`)
 }
 
-const headerCellDblclickEvent: VxeTableEvents.HeaderCellDblclick = ({ column }) => {
+const headerCellDblclickEvent: VxeTableEvents.HeaderCellDblclick<RowVO> = ({ column }) => {
   console.log(`表头单元格双击${column.title}`)
 }
 
-const headerCellContextMenuEvent: VxeTableEvents.HeaderCellMenu = ({ column }) => {
+const headerCellContextMenuEvent: VxeTableEvents.HeaderCellMenu<RowVO> = ({ column }) => {
   console.log(`表头单元格右键 ${column.title}`)
 }
 
-const cellClickEvent: VxeTableEvents.CellClick = ({ column }) => {
+const cellClickEvent: VxeTableEvents.CellClick<RowVO> = ({ column }) => {
   console.log(`单元格点击${column.title}`)
 }
 
-const cellDBLClickEvent: VxeTableEvents.CellDblclick = ({ column }) => {
+const cellDBLClickEvent: VxeTableEvents.CellDblclick<RowVO> = ({ column }) => {
   console.log(`单元格双击${column.title}`)
 }
 
-const cellMouseenterEvent: VxeTableEvents.CellMouseenter = ({ column }) => {
+const cellMouseenterEvent: VxeTableEvents.CellMouseenter<RowVO> = ({ column }) => {
   console.log(`单元格鼠标进入${column.title}`)
 }
 
-const cellMouseleaveEvent: VxeTableEvents.CellMouseleave = ({ column }) => {
+const cellMouseleaveEvent: VxeTableEvents.CellMouseleave<RowVO> = ({ column }) => {
   console.log(`单元格鼠标离开${column.title}`)
 }
 
-const cellContextMenuEvent: VxeTableEvents.CellMenu = ({ row }) => {
+const cellContextMenuEvent: VxeTableEvents.CellMenu<RowVO> = ({ row }) => {
   console.log(`单元格右键行 ${row.name}`)
 }
 
-const footerCellClickEvent: VxeTableEvents.FooterCellClick = ({ column }) => {
+const footerCellClickEvent: VxeTableEvents.FooterCellClick<RowVO> = ({ column }) => {
   console.log(`表尾单元格点击${column.title}`)
 }
 
-const footerCellDblclickEvent: VxeTableEvents.FooterCellDblclick = ({ column }) => {
+const footerCellDblclickEvent: VxeTableEvents.FooterCellDblclick<RowVO> = ({ column }) => {
   console.log(`表尾单元格双击${column.title}`)
 }
 
-const footerCellContextMenuEvent: VxeTableEvents.FooterCellMenu = ({ column }) => {
+const footerCellContextMenuEvent: VxeTableEvents.FooterCellMenu<RowVO> = ({ column }) => {
   console.log(`表尾单元格右键 ${column.title}`)
 }
 
-const scrollEvent: VxeTableEvents.Scroll = ({ scrollTop, scrollLeft, scrollWidth, scrollHeight, bodyWidth, bodyHeight }) => {
+const scrollEvent: VxeTableEvents.Scroll<RowVO> = ({ scrollTop, scrollLeft, scrollWidth, scrollHeight, bodyWidth, bodyHeight }) => {
   let xStatus = ''
   if (scrollLeft <= 0) {
     xStatus = '左侧'

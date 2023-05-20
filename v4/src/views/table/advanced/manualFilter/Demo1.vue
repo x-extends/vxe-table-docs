@@ -5,9 +5,9 @@
         <vxe-button @click="filterNameEvent">筛选 Name</vxe-button>
         <vxe-button @click="filterAgeEvent">筛选 Age</vxe-button>
         <vxe-button @click="updateNameFilterEvent">更改 Name 的筛选条件</vxe-button>
-        <vxe-button @click="$refs.xTable.clearFilter($refs.xTable.getColumnByField('age'))">清除 Age 的筛选条件</vxe-button>
-        <vxe-button @click="clearFilterEvent()">清除所有的筛选条件</vxe-button>
-        <vxe-button @click="$refs.xTable.openFilter('age')">弹出筛选面板</vxe-button>
+        <vxe-button @click="clearFilterEvent1">清除 Age 的筛选条件</vxe-button>
+        <vxe-button @click="clearFilterEvent2()">清除所有的筛选条件</vxe-button>
+        <vxe-button @click="openFilterEvent">弹出筛选面板</vxe-button>
         <vxe-button @click="closeFilterEvent">关闭筛选面板</vxe-button>
       </template>
     </vxe-toolbar>
@@ -72,7 +72,7 @@ const loading = ref(false)
 const tableData = ref<RowVO[]>([])
 const roleList = ref(['', 'Develop', 'PM', 'Test'])
 
-const xTable = ref<VxeTableInstance>()
+const xTable = ref<VxeTableInstance<RowVO>>()
 
 const findList = () => {
   loading.value = true
@@ -96,19 +96,19 @@ const findList = () => {
   })
 }
 
-const filterNameMethod: VxeColumnPropTypes.FilterMethod = ({ value, row }) => {
+const filterNameMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ value, row }) => {
   return XEUtils.toValueString(row.name).toLowerCase().indexOf(value) > -1
 }
 
-const filterRoleMethod: VxeColumnPropTypes.FilterMethod = ({ option, row }) => {
+const filterRoleMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ option, row }) => {
   return row.role === option.data
 }
 
-const filterAgeMethod: VxeColumnPropTypes.FilterMethod = ({ option, row }) => {
+const filterAgeMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ option, row }) => {
   return row.age === Number(option.data)
 }
 
-const filterAgeRecoverMethod: VxeColumnPropTypes.FilterRecoverMethod = ({ option }) => {
+const filterAgeRecoverMethod: VxeColumnPropTypes.FilterRecoverMethod<RowVO> = ({ option }) => {
   // 如果是自定义筛选模板，当为点击确认时，该选项将被恢复为默认值
   option.data = ''
 }
@@ -161,7 +161,14 @@ const filterAgeEvent: VxeButtonEvents.Click = () => {
   }
 }
 
-const clearFilterEvent = () => {
+const clearFilterEvent1 = () => {
+  const $table = xTable.value
+  if ($table) {
+    $table.clearFilter($table.getColumnByField('age'))
+  }
+}
+
+const clearFilterEvent2 = () => {
   const $table = xTable.value
   if ($table) {
     $table.clearFilter()
@@ -172,6 +179,13 @@ const closeFilterEvent = () => {
   const $table = xTable.value
   if ($table) {
     $table.closeFilter()
+  }
+}
+
+const openFilterEvent = () => {
+  const $table = xTable.value
+  if ($table) {
+    $table.openFilter('age')
   }
 }
 

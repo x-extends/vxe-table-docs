@@ -50,7 +50,7 @@ interface RowVO {
   address: string
 }
 
-const xGrid = ref<VxeGridInstance>()
+const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -112,7 +112,7 @@ const findList = () => {
   }, 300)
 }
 
-const gridEvents: VxeGridListeners = {
+const gridEvents: VxeGridListeners<RowVO> = {
   pageChange ({ currentPage, pageSize }) {
     if (gridOptions.pagerConfig) {
       gridOptions.pagerConfig.currentPage = currentPage

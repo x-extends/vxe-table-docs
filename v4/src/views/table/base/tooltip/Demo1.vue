@@ -24,7 +24,16 @@
 import { ref, reactive } from 'vue'
 import { VxeTablePropTypes } from 'vxe-table'
 
-const tableData = ref([
+interface RowVO {
+  name: string
+  role: string
+  date: string
+  rate: number
+  address: string
+  content: string
+}
+
+const tableData = ref<RowVO[]>([
   { name: 'Test1', role: '前端', date: '2020-02-28', rate: 5, address: 'address1', content: 'xxxxx1<br>换行换行11111111111' },
   { name: 'Test2', role: '后端', date: '2020-02-22', rate: 2, address: 'address2\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行2' },
   { name: 'Test3', role: '前端', date: '2020-01-01', rate: 0, address: 'address3\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行<br>3333' },
@@ -32,7 +41,7 @@ const tableData = ref([
   { name: 'Test5', role: '前端', date: '2020-01-20', rate: 3, address: 'address5\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行55' }
 ])
 
-const tooltipConfig = reactive<VxeTablePropTypes.TooltipConfig>({
+const tooltipConfig = reactive<VxeTablePropTypes.TooltipConfig<RowVO>>({
   showAll: true,
   enterable: true,
   contentMethod: ({ type, column, row, items, _columnIndex }) => {
@@ -54,7 +63,7 @@ const tooltipConfig = reactive<VxeTablePropTypes.TooltipConfig>({
   }
 })
 
-const footerMethod: VxeTablePropTypes.FooterMethod = ({ columns }) => {
+const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns }) => {
   const footerData = [
     columns.map((column, columnIndex) => {
       if (columnIndex === 0) {

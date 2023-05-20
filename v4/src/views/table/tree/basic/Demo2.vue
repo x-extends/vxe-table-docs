@@ -36,7 +36,7 @@ interface RowVO {
   children?: RowVO[]
 }
 
-const xTreeRef = ref<VxeTableInstance>()
+const xTreeRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 1000, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },

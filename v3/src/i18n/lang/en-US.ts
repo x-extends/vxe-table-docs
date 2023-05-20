@@ -514,7 +514,7 @@ export default {
       },
       tableColumn: {
         desc: {
-          type: 'The type of the column',
+          type: 'The type of the column（部分功能需要设置 column-config.useKey | row-config.useKey）',
           index: 'Obsolete, please use "seq"',
           seq: 'Sequence number',
           selection: 'Obsolete, please use "checkbox"',

@@ -54,11 +54,11 @@ const tableData = ref<RowVO[]>([
   { name: '小明111111', role: '测试', num: 7, num1: 5783537, num2: '5783537' }
 ])
 
-const formatterNum: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
+const formatterNum: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
   return XEUtils.commafy(Number(cellValue), { digits: 2 })
 }
 
-const sortNameMethod: VxeColumnPropTypes.SortBy = ({ row }) => {
+const sortNameMethod: VxeColumnPropTypes.SortBy<RowVO> = ({ row }) => {
   // 按名称长度进行排序
   return row.name.length
 }

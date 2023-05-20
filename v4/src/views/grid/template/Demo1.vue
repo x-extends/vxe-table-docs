@@ -194,7 +194,7 @@ interface RowVO {
   html3: string
 }
 
-const xGrid = ref<VxeGridInstance>()
+const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const demo1 = reactive({
   searchVal1: '',

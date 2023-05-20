@@ -8,7 +8,11 @@
 import { reactive } from 'vue'
 import { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
 
-const gridOptions = reactive<VxeGridProps>({
+interface RowVO {
+  [key: string]: any
+}
+
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
   height: 400,

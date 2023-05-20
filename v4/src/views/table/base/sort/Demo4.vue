@@ -2,7 +2,7 @@
   <div>
     <vxe-toolbar>
       <template #buttons>
-        按点击先后顺序排序：<vxe-switch v-model="isChronological4"></vxe-switch>
+        按点击先后顺序排序：<vxe-switch v-model="isChronological"></vxe-switch>
       </template>
     </vxe-toolbar>
 
@@ -10,8 +10,8 @@
       border
       height="300"
       :row-config="{isHover: true}"
-      :sort-config="{multiple: true, chronological: isChronological4}"
-      :data="tableData4"
+      :sort-config="{multiple: true, chronological: isChronological}"
+      :data="tableData"
       @sort-change="sortChangeEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -25,9 +25,15 @@
 import { ref } from 'vue'
 import { VxeTableEvents } from 'vxe-table'
 
-const isChronological4 = ref(false)
+interface RowVO {
+  name: string
+  role: string
+  num: number
+}
 
-const tableData4 = ref([
+const isChronological = ref(false)
+
+const tableData = ref<RowVO[]>([
   { name: '小红', role: '前端', num: 7 },
   { name: '老王', role: '后端', num: 6 },
   { name: '小红', role: '后端', num: 1 },
@@ -50,7 +56,7 @@ const tableData4 = ref([
   { name: '小明', role: '测试', num: 7 }
 ])
 
-const sortChangeEvent: VxeTableEvents.SortChange = ({ sortList }) => {
+const sortChangeEvent: VxeTableEvents.SortChange<RowVO> = ({ sortList }) => {
   console.info(sortList.map((item) => `${item.field},${item.order}`).join('; '))
 }
 </script>

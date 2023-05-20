@@ -41,7 +41,7 @@ const tableData = ref<RowVO[]>([
   { id: 10008, name: 'Test8', nickname: 'T8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
 ])
 
-const filterNameMethod: VxeColumnPropTypes.FilterMethod = ({ value, row }) => {
+const filterNameMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ value, row }) => {
   return row.id >= value
 }
 </script>

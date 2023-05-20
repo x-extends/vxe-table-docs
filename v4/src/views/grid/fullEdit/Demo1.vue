@@ -9,11 +9,15 @@ import { onMounted, reactive, ref } from 'vue'
 import { VXETable, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
+interface RowVO {
+  [key: string]: any
+}
+
 const serveApiUrl = 'https://api.vxetable.cn/demo'
 
-const xGrid = ref<VxeGridInstance>()
+const xGrid = ref<VxeGridInstance<RowVO>>()
 
-const gridOptions = reactive<VxeGridProps>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showHeaderOverflow: true,
   showOverflow: true,
@@ -267,7 +271,7 @@ const gridOptions = reactive<VxeGridProps>({
   }
 })
 
-const gridEvent: VxeGridListeners = {
+const gridEvent: VxeGridListeners<RowVO> = {
   proxyQuery () {
     console.log('数据代理查询事件')
   },

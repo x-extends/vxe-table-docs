@@ -82,7 +82,7 @@ interface RowVO {
 const showDetails = ref(false)
 const selectRow = ref<RowVO | null>(null)
 
-const xGrid = ref<VxeGridInstance>()
+const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,

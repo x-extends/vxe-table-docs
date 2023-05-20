@@ -55,7 +55,7 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance>()
+const xTable = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 26, address: 'test abc' },
@@ -68,7 +68,7 @@ const tableData = ref<RowVO[]>([
   { id: 10008, name: 'Test8', nickname: 'T8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
 ])
 
-const headerCellClickEvent: VxeTableEvents.HeaderCellClick = ({ column, triggerResizable, triggerSort, triggerFilter }) => {
+const headerCellClickEvent: VxeTableEvents.HeaderCellClick<RowVO> = ({ column, triggerResizable, triggerSort, triggerFilter }) => {
   const $table = xTable.value
   if ($table) {
     // 如果触发了列的其他功能按钮
@@ -84,11 +84,11 @@ const headerCellClickEvent: VxeTableEvents.HeaderCellClick = ({ column, triggerR
   }
 }
 
-const formatAmount: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
+const formatAmount: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
   return XEUtils.commafy(XEUtils.toNumber(cellValue))
 }
 
-const filterNameMethod: VxeColumnPropTypes.FilterMethod = ({ value, row }) => {
+const filterNameMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ value, row }) => {
   return row.id >= value
 }
 </script>

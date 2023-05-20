@@ -35,15 +35,19 @@ import { reactive, ref } from 'vue'
 import { VxeGridInstance, VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
+interface RowVO {
+  [key: string]: any
+}
+
 const serveApiUrl = 'https://api.vxetable.cn/demo'
 
-const xGrid = ref<VxeGridInstance>()
+const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const formData = reactive({
   name: ''
 })
 
-const gridOptions = reactive<VxeGridProps>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: 'inner',
   height: 548,

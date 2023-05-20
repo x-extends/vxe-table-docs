@@ -61,7 +61,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref, nextTick } from 'vue'
-import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
+import { VXETable, VxeTablePropTypes, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -80,12 +80,12 @@ interface RowVO {
 const serveApiUrl = 'https://api.vxetable.cn/demo'
 
 const xToolbar = ref<VxeToolbarInstance>()
-const xTable = ref<VxeTableInstance>()
+const xTable = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
 
-const validRules = reactive({
+const validRules = reactive<VxeTablePropTypes.EditRules<RowVO>>({
   name: [
     { required: true, message: '名称必须填写' }
   ]
@@ -96,7 +96,7 @@ const sexList = ref([
   { label: '女', value: '0' }
 ])
 
-const formatSex = (value: any) => {
+const formatSex = (value: string) => {
   if (value === '1') {
     return '男'
   }
@@ -149,14 +149,14 @@ const deleteSelectEvent = async () => {
   }
 }
 
-const removeRowEvent = async (row: any) => {
+const removeRowEvent = async (row: RowVO) => {
   const $table = xTable.value
   if ($table) {
     await $table.remove(row)
   }
 }
 
-const deleteRowEvent = async (row: any) => {
+const deleteRowEvent = async (row: RowVO) => {
   const type = await VXETable.modal.confirm('您确定要删除该数据?')
   if (type !== 'confirm') {
     return
@@ -186,10 +186,8 @@ const saveEvent = async () => {
       await fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
       await loadList()
       VXETable.modal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
-    } catch (e: any) {
-      if (e && e.message) {
-        VXETable.modal.message({ content: e.message, status: 'error' })
-      }
+    } catch (e) {
+      VXETable.modal.message({ content: '操作失败', status: 'error' })
     }
     loading.value = false
   }

@@ -91,7 +91,7 @@ const sexList1 = ref([
   { label: '女', value: '0' }
 ])
 
-const formatSex = (value: any) => {
+const formatSex = (value: string) => {
   if (value === '1') {
     return '男'
   }
@@ -101,7 +101,7 @@ const formatSex = (value: any) => {
   return ''
 }
 
-const formatMultiSex = (values: any[]) => {
+const formatMultiSex = (values: string[]) => {
   if (values) {
     return values.map(val => formatSex(val)).join(',')
   }

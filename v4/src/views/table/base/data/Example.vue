@@ -12,10 +12,10 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="table/base/data/Demo3">
+    <!-- <CodeLight path="table/base/data/Demo3">
       <template #tip>
         <div>二维数组结构，适用场景较少<span class="red">（缺点局限性比较大，需要手动指定 <table-api-link prop="row-config"/>.<table-api-link prop="keyField"/> 唯一主键）</span></div>
       </template>
-    </CodeLight>
+    </CodeLight> -->
   </div>
 </template>

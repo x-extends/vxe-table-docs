@@ -33,7 +33,20 @@ interface RowVO {
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
 
-const treeConfig = reactive<VxeTablePropTypes.TreeConfig>({
+// 模拟后台
+const fetchChildListApi = (parentRow: RowVO) => {
+  return new Promise<RowVO[]>(resolve => {
+    setTimeout(() => {
+      const childs = [
+        { id: parentRow.id + 1000000, parentId: parentRow.id, name: parentRow.name + 'Test111111111111', type: 'mp4', size: 0, date: '2021-10-03', hasChild: true },
+        { id: parentRow.id + 1500000, parentId: parentRow.id, name: parentRow.name + 'Test222222222222', type: 'mp3', size: 0, date: '2021-07-09', hasChild: false }
+      ]
+      resolve(childs)
+    }, 500)
+  })
+}
+
+const treeConfig = reactive<VxeTablePropTypes.TreeConfig<RowVO>>({
   lazy: true,
   transform: true,
   hasChild: 'hasChild',
@@ -42,15 +55,7 @@ const treeConfig = reactive<VxeTablePropTypes.TreeConfig>({
   iconClose: 'vxe-icon-folder',
   loadMethod ({ row }) {
     // 异步加载子节点
-    return new Promise(resolve => {
-      setTimeout(() => {
-        const childs = [
-          { id: row.id + 100000, parentId: row.id, name: row.name + 'Test45', type: 'mp4', size: 0, date: '2021-10-03', hasChild: true },
-          { id: row.id + 150000, parentId: row.id, name: row.name + 'Test56', type: 'mp3', size: 0, date: '2021-07-09', hasChild: false }
-        ]
-        resolve(childs)
-      }, 500)
-    })
+    return fetchChildListApi(row)
   }
 })
 

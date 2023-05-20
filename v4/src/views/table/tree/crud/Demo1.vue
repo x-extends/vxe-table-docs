@@ -66,7 +66,7 @@ interface RowVO {
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
 
-const xTable = ref<VxeTableInstance>()
+const xTable = ref<VxeTableInstance<RowVO>>()
 const xToolbar = ref<VxeToolbarInstance>()
 
 const findList = () => {
@@ -109,7 +109,7 @@ const searchMethod = () => {
   return Promise.resolve()
 }
 
-const insertRow = async (currRow: any, locat: string) => {
+const insertRow = async (currRow: RowVO, locat: string) => {
   const $table = xTable.value
   if ($table) {
     const date = new Date()
@@ -149,7 +149,7 @@ const insertRow = async (currRow: any, locat: string) => {
   }
 }
 
-const removeRow = async (row: any) => {
+const removeRow = async (row: RowVO) => {
   const $table = xTable.value
   if ($table) {
     await $table.remove(row)
