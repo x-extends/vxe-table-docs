@@ -3,7 +3,7 @@
     <CodeLight path="table/base/sort/Demo1">
       <template #tip>
         <div>
-          通过给需要排序功能的列加上 <table-api-link prop="sortable"/> 属性可以支持排序，还可以通过设置 <table-column-api-link prop="sort-by"/> 指定字段进行排序<br>
+          通过给需要排序功能的列加上 <table-column-api-link prop="sortable"/> 属性可以支持排序，还可以通过设置 <table-column-api-link prop="sort-by"/> 指定字段进行排序<br>
           如果该列的值为字符串类型，但实际是数值，可以设置 <table-column-api-link prop="sort-type"/>=number|string 按指定类型进行排序，默认 auto 自动转换数值<br>
           如果是自定义排序，可以通过 <table-api-link prop="sort-config"/>.<table-api-link prop="sortMethod"/> 实现自定义排序<br>
           如果是服务端排序，只需加上 <table-api-link prop="sort-config"/>.<table-api-link prop="remote"/> 和 <table-api-link prop="sort-change"/> 事件就可以实现<br>
