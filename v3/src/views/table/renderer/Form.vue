@@ -5,8 +5,10 @@
       配置参数：<br>
       itemClassName: string | (params: { data, property, $form }) => string 表单项className<br>
       itemStyle: {[name: string]: string} | (params: { data, field, $form }) => {[name: string]: string} 表单项样式<br>
-      itemContentClassName: string | (params: { data, property, $form }) => string 表单项className<br>
-      itemContentStyle: {[name: string]: string} | (params: { data, field, $form }) => {[name: string]: string} 表单项样式<br>
+      itemContentClassName: string | (params: { data, property, $form }) => string 表单项内容className<br>
+      itemContentStyle: {[name: string]: string} | (params: { data, field, $form }) => {[name: string]: string} 表单项内容样式<br>
+      itemTitleClassName: string | (params: { data, property, $form }) => string 表单项标题className<br>
+      itemTitleStyle: {[name: string]: string} | (params: { data, field, $form }) => {[name: string]: string} 表单项标题样式<br>
       renderItemTitle (h, renderOpts, params: { data, property, $form }) 表单项标题<br>
       renderItemContent (h, renderOpts, params: { data, property, $form }) 表单项内容<br>
       itemVisibleMethod (params: { data, property }) 表单项可视函数<br>

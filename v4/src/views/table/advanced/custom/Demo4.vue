@@ -8,7 +8,7 @@
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" width="200">
         <template #header>
-          <i :class="collapsable1 ? 'vxe-icon-question-circle-fill' : 'vxe-icon-question-circle-fill'" @click="collapsable1Event"></i>
+          <i :class="collapsable1 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="collapsable1Event"></i>
           <span>Name</span>
         </template>
       </vxe-column>
@@ -16,7 +16,7 @@
       <vxe-column field="sex" title="Sex" :visible="false" width="200"></vxe-column>
       <vxe-column field="age" title="Age" width="200">
         <template #header>
-          <i :class="collapsable2 ? 'vxe-icon-question-circle-fill' : 'vxe-icon-question-circle-fill'" @click="collapsable2Event"></i>
+          <i :class="collapsable2 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="collapsable2Event"></i>
           <span>Age</span>
         </template>
       </vxe-column>

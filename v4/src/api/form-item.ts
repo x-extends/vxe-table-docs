@@ -140,10 +140,37 @@ const apis = [
         list: []
       },
       {
+        name: 'show-title',
+        desc: '是否显示标题',
+        version: '4.4.0',
+        type: 'boolean',
+        enum: '',
+        defVal: 'true',
+        list: []
+      },
+      {
         name: 'class-name',
         desc: '给表单项附加 className',
         version: '',
         type: 'string, ({ field, data }) => string',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'content-class-name',
+        desc: '给表单项内容附加 className',
+        version: '4.4.0',
+        type: 'string, ({ field, data }) => string',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'content-style',
+        desc: '给表单项内容附加样式',
+        version: '4.4.0',
+        type: '{ [name: string]: string }, ({ field, data }) => string',
         enum: '',
         defVal: '',
         list: []
