@@ -318,9 +318,9 @@ export default {
       other: {
         v1: '1.0+ (vue 2.6+ End of life) ~ 2020-04 Stop',
         v2: '2.0+ (vue 2.6+ End of life) ~ 2021-12 Stop',
-        v3: '3.2+ (vue 2.6+ Stable)',
+        v3: 'v+ (vue 2.6+ LTS)',
         v3d5: '3.5+ (vue 2.6+ Sticky)',
-        v4: '4.0+ (vue 3.2+ Latest)',
+        v4: 'v4+ (vue 3.2+ Current)',
         v4d5: '4.5+ (vue 3.2+ Sticky)',
         plan: {
           v1: 'v1 Based on vue2.6+, Support for all major browsers',

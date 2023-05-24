@@ -308,7 +308,7 @@ export default {
         createTime: '創建時間',
         updateTime: '更新時間',
         stableVersion: '穩定版',
-        latestVersion: '最新版'
+        latestVersion: '嚐鮮版'
       },
       valid: {
         rName: '名稱必須填寫'
@@ -320,9 +320,9 @@ export default {
       other: {
         v1: 'v1+ (vue 2.6+ 停止维护) ~ 2020-04 停止更新',
         v2: 'v2+ (vue 2.6+ 停止维护) ~ 2021-12 停止更新',
-        v3: 'v3+ (vue 2.6+ 稳定版)',
+        v3: 'v3+ (vue 2.6+ 長期維護版)',
         v3d5: '3.5+ (vue 2.6+ 粘性表格)',
-        v4: 'v4+ (vue 3.2+ 最新版)',
+        v4: 'v4+ (vue 3.2+ 最新穩定版)',
         v4d5: '4.5+ (vue 3.2+ 粘性表格)',
         plan: {
           v1: 'v1 基於 vue2.6+，支持所有主流的瀏覽器，實現表格的一切實用的功能',
