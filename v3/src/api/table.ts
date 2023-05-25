@@ -2300,6 +2300,15 @@ const apis = [
         defVal: '继承 setup.table.areaConfig',
         list: [
           {
+            name: 'multiple',
+            desc: '只对 mouse-config.area 启用后有效，启用多区域选取功能',
+            version: 'pro',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
             name: 'selectCellByHeader',
             desc: '只对 mouse-config.area 启用后有效，点击列头是否选取当前列的所有单元格',
             version: 'pro',

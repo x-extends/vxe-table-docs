@@ -24,13 +24,14 @@
       </div>
       <pre class="example-code-warpper" v-show="showTsCode">
         <code class="html" ref="codeRef">{{ tsCodeText }}</code>
+        <!-- <code class="javascript" ref="extraRef">{{ tsCodeText }}</code> -->
       </pre>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, defineProps, defineAsyncComponent } from 'vue'
+import { nextTick, ref, defineAsyncComponent } from 'vue'
 import { codeMaps } from '@/common/cache'
 import { VXETable } from 'vxe-table'
 import hljs from 'highlight.js'
@@ -41,6 +42,7 @@ const props = defineProps({
 })
 
 const codeRef = ref<HTMLElement>()
+// const extraRef = ref<HTMLElement>()
 const tsCodeText = ref('')
 
 const showTsCode = ref(false)
@@ -54,6 +56,10 @@ const buildCode = () => {
     if (blockEl) {
       hljs.highlightElement(blockEl)
     }
+    // const jsRef = extraRef.value
+    // if (jsRef) {
+    //   hljs.highlightElement(jsRef)
+    // }
   })
 }
 
