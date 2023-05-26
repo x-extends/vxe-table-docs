@@ -22,33 +22,53 @@
         <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
         <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
-      <pre class="example-code-warpper" v-show="showTsCode">
-        <code class="html" ref="codeRef">{{ tsCodeText }}</code>
-        <!-- <code class="javascript" ref="extraRef">{{ tsCodeText }}</code> -->
-      </pre>
+      <div class="example-code-warpper" v-show="showTsCode">
+        <pre v-for="(item, index) in importCodes" :key="index">
+          <code class="javascript" ref="importRef">{{ item.text }}</code>
+          <div class="example-code-title">{{ item.name }}</div>
+        </pre>
+        <pre>
+          <code class="html" ref="codeRef">{{ tsCodeText }}</code>
+          <div class="example-code-title">{{ getFileName(`${path}.vue`) }}</div>
+        </pre>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, defineAsyncComponent } from 'vue'
+import { nextTick, ref, defineAsyncComponent, PropType } from 'vue'
 import { codeMaps } from '@/common/cache'
 import { VXETable } from 'vxe-table'
 import hljs from 'highlight.js'
 import XEClipboard from 'xe-clipboard'
 
 const props = defineProps({
-  path: String
+  path: String,
+  extraImports: {
+    type: Array as PropType<string[]>,
+    defalt: () => []
+  }
 })
 
 const codeRef = ref<HTMLElement>()
-// const extraRef = ref<HTMLElement>()
+const importRef = ref<HTMLElement>()
 const tsCodeText = ref('')
 
 const showTsCode = ref(false)
 const loading = ref(false)
 
+const importCodes = ref<{
+  path: string
+  name: string
+  text: string
+}[]>([])
+
 const DemoCode = defineAsyncComponent(() => import(`@/views/${props.path}`))
+
+const getFileName = (path: string) => {
+  return path.split('/').slice(-1)[0]
+}
 
 const buildCode = () => {
   nextTick(() => {
@@ -56,10 +76,12 @@ const buildCode = () => {
     if (blockEl) {
       hljs.highlightElement(blockEl)
     }
-    // const jsRef = extraRef.value
-    // if (jsRef) {
-    //   hljs.highlightElement(jsRef)
-    // }
+    const impsRefs: any = importRef.value
+    if (impsRefs) {
+      impsRefs.forEach((el) => {
+        hljs.highlightElement(el)
+      })
+    }
   })
 }
 
@@ -72,14 +94,35 @@ const loadCode = () => {
       loading.value = false
     } else {
       loading.value = true
-      return fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
-        if (response.status >= 200 && response.status < 400) {
-          return response.text()
-        }
-        return '暂无示例'
-      }).then(text => {
-        tsCodeText.value = text || ''
+      Promise.all([
+        fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+          if (response.status >= 200 && response.status < 400) {
+            return response.text()
+          }
+          return '暂无示例'
+        }),
+        ...(props.extraImports?.map(impPath => {
+          return fetch(`${process.env.BASE_URL}example/${impPath}.ts?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+            if (response.status >= 200 && response.status < 400) {
+              return response.text().then(text => {
+                return {
+                  path: `${impPath}.ts`,
+                  name: getFileName(`${impPath}.ts`),
+                  text
+                }
+              })
+            }
+            return {
+              path: `${impPath}.ts`,
+              name: getFileName(`${impPath}.ts`),
+              text: ''
+            }
+          })
+        }) || [])
+      ]).then(([text1, ...impTexts]) => {
+        tsCodeText.value = text1 || ''
         codeMaps[compPath] = tsCodeText.value
+        importCodes.value = impTexts
         buildCode()
         loading.value = false
       }).catch(() => {
@@ -152,5 +195,14 @@ const openDocs = () => {
 .example-code-warpper {
   padding: 0 30px;
   margin: 0;
+  pre {
+    position: relative;
+  }
+}
+.example-code-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
 }
 </style>

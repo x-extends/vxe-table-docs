@@ -9,7 +9,7 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="table/base/format/Demo2">
+    <CodeLight path="table/base/format/Demo2" :extraImports="['table/base/format/demo2.format']">
       <template #tip>
         <div>
           全局格式化内容，使用 <router-link class="link" :to="{name: 'FormatsAPI'}">formats</router-link> 添加格式函数，单元格会在渲染的时候自动调用<br>
