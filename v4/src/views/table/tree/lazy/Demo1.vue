@@ -1,13 +1,11 @@
 <template>
   <div>
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button @click="expandEvent1">切换第二行展开</vxe-button>
-        <vxe-button @click="expandEvent2">设置第二、四行展开</vxe-button>
-        <vxe-button @click="expandEvent3">展开所有</vxe-button>
-        <vxe-button @click="expandEvent4">关闭所有</vxe-button>
-      </template>
-    </vxe-toolbar>
+    <p>
+      <vxe-button @click="expandEvent1">切换第二行展开</vxe-button>
+      <vxe-button @click="expandEvent2">设置第二、四行展开</vxe-button>
+      <vxe-button @click="expandEvent3">展开所有</vxe-button>
+      <vxe-button @click="expandEvent4">关闭所有</vxe-button>
+    </p>
 
     <vxe-table
       border

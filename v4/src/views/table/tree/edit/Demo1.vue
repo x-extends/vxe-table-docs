@@ -1,8 +1,8 @@
 <template>
   <div>
     <p>
-      <vxe-button @click="getTreeRadioEvent">获取选中</vxe-button>
-      <vxe-button @click="getTreeExpansionEvent">获取已展开</vxe-button>
+      <vxe-button @click="toggleExpandEvent">切换第一个</vxe-button>
+      <vxe-button @click="setExpandEvent">展开第三个</vxe-button>
       <vxe-button @click="expandAllEvent">展开所有</vxe-button>
       <vxe-button @click="claseExpandEvent">关闭所有</vxe-button>
     </p>
@@ -10,18 +10,39 @@
     <vxe-table
       show-overflow
       ref="xTreeRef"
-      :show-header="false"
-      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
-      :radio-config="{labelField: 'name'}"
+      :column-config="{resizable: true}"
+      :tree-config="{transform: true}"
+      :edit-config="{trigger: 'click', mode: 'row'}"
+      :checkbox-config="{labelField: 'id'}"
       :data="tableData">
-      <vxe-column type="radio" tree-node></vxe-column>
+      <vxe-column type="checkbox" title="ID" tree-node></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="size" title="Size" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.size" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="type" title="Type" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.type" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+        </template>
+      </vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance } from 'vxe-table'
+import { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -55,19 +76,17 @@ const tableData = ref<RowVO[]>([
   { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
 ])
 
-const getTreeRadioEvent = () => {
+const toggleExpandEvent = () => {
   const $table = xTreeRef.value
   if ($table) {
-    const selectRow = $table.getRadioRecord()
-    VXETable.modal.alert(selectRow ? selectRow.name : null)
+    $table.toggleTreeExpand(tableData.value[1])
   }
 }
 
-const getTreeExpansionEvent = () => {
+const setExpandEvent = () => {
   const $table = xTreeRef.value
   if ($table) {
-    const treeExpandRecords = $table.getTreeExpandRecords()
-    VXETable.modal.alert(`${treeExpandRecords.length}`)
+    $table.setTreeExpand(tableData.value[8], true)
   }
 }
 

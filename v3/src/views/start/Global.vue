@@ -89,6 +89,9 @@ export default {
           //   customConfig: {
           //    storage: false
           //   },
+          //   area-config: {
+          //     multiple: false
+          //   },
           //   scrollX: {
           //     gt: 60
           //   },

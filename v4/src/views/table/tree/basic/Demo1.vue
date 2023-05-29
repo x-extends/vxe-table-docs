@@ -1,12 +1,10 @@
 <template>
   <div>
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button @click="getTreeExpansionEvent">获取已展开</vxe-button>
-        <vxe-button @click="expandAllEvent">展开所有</vxe-button>
-        <vxe-button @click="claseExpandEvent">关闭所有</vxe-button>
-      </template>
-    </vxe-toolbar>
+    <p>
+      <vxe-button @click="getTreeExpansionEvent">获取已展开</vxe-button>
+      <vxe-button @click="expandAllEvent">展开所有</vxe-button>
+      <vxe-button @click="claseExpandEvent">关闭所有</vxe-button>
+    </p>
 
     <vxe-table
       border="inner"
