@@ -38,7 +38,7 @@
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="showExtendPlugin && appData.apiLoading && appData.showPlugin">
             <a v-if="appData.disabledPlugin" class="link support" :href="pluginApiUrl" target="_blank">💡插件</a>
-            <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">插件</a>
+            <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="updatingEvent">插件</a>
           </template>
         </div>
       </div>
@@ -126,7 +126,7 @@ import { useAppStore } from '@/store/app'
 import i18n from './i18n'
 import router from './router'
 import XEUtils from 'xe-utils'
-// import VXETable from 'vxe-table'
+import VXETable from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -150,7 +150,7 @@ export default defineComponent({
       selectStableVersion: null,
       stableVersionList: [] as any[],
       usedJSHeapSize: '0',
-      sponsorList: [],
+      sponsorList: [] as any[],
       apiLoading: false,
       showPlugin: false,
       disabledPlugin: false,
@@ -2207,6 +2207,10 @@ export default defineComponent({
       }
     }
 
+    const updatingEvent = () => {
+      VXETable.modal.alert('维护中...', '维护中')
+    }
+
     const linkEvent = (item: any) => {
       if (!item.disabled) {
         item.expand = !item.expand
@@ -2418,6 +2422,7 @@ export default defineComponent({
 
       searchEvent,
       clickEvent,
+      updatingEvent,
       linkEvent,
       vChangeEvent
     }

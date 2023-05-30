@@ -13,7 +13,7 @@
     </vxe-toolbar>
 
     <vxe-table
-      ref="xTable1"
+      ref="tableRef"
       border
       auto-resize
       :data="tableData"
@@ -71,7 +71,7 @@ interface RowVO {
   address: string
 }
 
-const xTable1 = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc test abc test abc test abc test abc test abc test abc test abc' },
@@ -94,7 +94,7 @@ const ageFixed = ref<VxeColumnPropTypes.Fixed>()
 const toggleSeqFixed = () => {
   seqFixed.value = seqFixed.value ? null : 'left'
   nextTick(() => {
-    const $table = xTable1.value
+    const $table = tableRef.value
     if ($table) {
       $table.refreshColumn()
     }
@@ -104,7 +104,7 @@ const toggleSeqFixed = () => {
 const toggleExpandFixed = () => {
   expandFixed.value = expandFixed.value ? null : 'left'
   nextTick(() => {
-    const $table = xTable1.value
+    const $table = tableRef.value
     if ($table) {
       $table.refreshColumn()
     }
@@ -114,7 +114,7 @@ const toggleExpandFixed = () => {
 const toggleAgeFixed = () => {
   ageFixed.value = ageFixed.value ? null : 'right'
   nextTick(() => {
-    const $table = xTable1.value
+    const $table = tableRef.value
     if ($table) {
       $table.refreshColumn()
     }
@@ -122,28 +122,28 @@ const toggleAgeFixed = () => {
 }
 
 const expandEvent1 = () => {
-  const $table = xTable1.value
+  const $table = tableRef.value
   if ($table) {
     $table.toggleRowExpand(tableData.value[1])
   }
 }
 
 const expandEvent2 = () => {
-  const $table = xTable1.value
+  const $table = tableRef.value
   if ($table) {
     $table.setRowExpand([tableData.value[2], tableData.value[3]], true)
   }
 }
 
 const expandAllEvent = () => {
-  const $table = xTable1.value
+  const $table = tableRef.value
   if ($table) {
     $table.setAllRowExpand(true)
   }
 }
 
 const clearExpandEvent = () => {
-  const $table = xTable1.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearRowExpand()
   }
