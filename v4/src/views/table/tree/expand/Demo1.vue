@@ -1,48 +1,38 @@
 <template>
   <div>
-    <p>
-      <vxe-button @click="toggleExpandEvent">切换第一个</vxe-button>
-      <vxe-button @click="setExpandEvent">展开第三个</vxe-button>
-      <vxe-button @click="expandAllEvent">展开所有</vxe-button>
-      <vxe-button @click="claseExpandEvent">关闭所有</vxe-button>
-    </p>
-
     <vxe-table
-      show-overflow
-      ref="tableRef"
+      border
       :column-config="{resizable: true}"
       :tree-config="{transform: true}"
-      :edit-config="{trigger: 'click', mode: 'row'}"
-      :checkbox-config="{labelField: 'id'}"
       :data="tableData">
-      <vxe-column type="checkbox" title="ID" tree-node></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.name" type="text"></vxe-input>
+      <vxe-column field="name" title="Name" tree-node></vxe-column>
+      <vxe-column type="expand" title="Details" width="80">
+        <template #content="{ row }">
+          <ul class="expand-wrapper">
+            <li>
+              <span>ID：</span>
+              <span>{{ row.id }}</span>
+            </li>
+            <li>
+              <span>Name：</span>
+              <span>{{ row.name }}</span>
+            </li>
+            <li>
+              <span>Date</span>
+              <span>{{ row.date }}</span>
+            </li>
+          </ul>
         </template>
       </vxe-column>
-      <vxe-column field="size" title="Size" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.size" type="text"></vxe-input>
-        </template>
-      </vxe-column>
-      <vxe-column field="type" title="Type" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.type" type="text"></vxe-input>
-        </template>
-      </vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
-        </template>
-      </vxe-column>
+      <vxe-column field="size" title="Size"></vxe-column>
+      <vxe-column field="type" title="Type"></vxe-column>
+      <vxe-column field="date" title="Date"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -52,8 +42,6 @@ interface RowVO {
   size: number
   date: string
 }
-
-const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -75,32 +63,4 @@ const tableData = ref<RowVO[]>([
   { id: 24566, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' },
   { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
 ])
-
-const toggleExpandEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.toggleTreeExpand(tableData.value[1])
-  }
-}
-
-const setExpandEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.setTreeExpand(tableData.value[8], true)
-  }
-}
-
-const expandAllEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.setAllTreeExpand(true)
-  }
-}
-
-const claseExpandEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.clearTreeExpand()
-  }
-}
 </script>

@@ -1,48 +1,28 @@
 <template>
   <div>
-    <p>
-      <vxe-button @click="toggleExpandEvent">切换第一个</vxe-button>
-      <vxe-button @click="setExpandEvent">展开第三个</vxe-button>
-      <vxe-button @click="expandAllEvent">展开所有</vxe-button>
-      <vxe-button @click="claseExpandEvent">关闭所有</vxe-button>
-    </p>
-
     <vxe-table
-      show-overflow
-      ref="tableRef"
+      ref="xTree3"
+      :row-config="{isCurrent: true}"
       :column-config="{resizable: true}"
       :tree-config="{transform: true}"
-      :edit-config="{trigger: 'click', mode: 'row'}"
-      :checkbox-config="{labelField: 'id'}"
-      :data="tableData">
-      <vxe-column type="checkbox" title="ID" tree-node></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.name" type="text"></vxe-input>
+      :radio-config="{labelField: 'name', trigger: 'row'}"
+      :data="tableData"
+      @current-change="currentChangeEvent">
+      <vxe-column type="radio" width="400" tree-node>
+        <template #header>
+          <vxe-button type="text" @click="clearCurrentRowEvent" :disabled="!selectRow">取消</vxe-button>
         </template>
       </vxe-column>
-      <vxe-column field="size" title="Size" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.size" type="text"></vxe-input>
-        </template>
-      </vxe-column>
-      <vxe-column field="type" title="Type" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.type" type="text"></vxe-input>
-        </template>
-      </vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
-        </template>
-      </vxe-column>
+      <vxe-column field="size" title="Size"></vxe-column>
+      <vxe-column field="type" title="Type"></vxe-column>
+      <vxe-column field="date" title="Date"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeTableInstance } from 'vxe-table'
+import { VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -52,8 +32,7 @@ interface RowVO {
   size: number
   date: string
 }
-
-const tableRef = ref<VxeTableInstance<RowVO>>()
+const xTree3 = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -76,31 +55,18 @@ const tableData = ref<RowVO[]>([
   { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
 ])
 
-const toggleExpandEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.toggleTreeExpand(tableData.value[1])
-  }
+const selectRow = ref<RowVO | null>()
+
+const currentChangeEvent: VxeTableEvents.CurrentChange<RowVO> = ({ row }) => {
+  selectRow.value = row
 }
 
-const setExpandEvent = () => {
-  const $table = tableRef.value
+const clearCurrentRowEvent = () => {
+  const $table = xTree3.value
   if ($table) {
-    $table.setTreeExpand(tableData.value[8], true)
-  }
-}
-
-const expandAllEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.setAllTreeExpand(true)
-  }
-}
-
-const claseExpandEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.clearTreeExpand()
+    selectRow.value = null
+    $table.clearRadioRow()
+    $table.clearCurrentRow()
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       height="300"
       :print-config="{}"
       :loading="loading"
@@ -22,7 +22,7 @@
         <vxe-toolbar
           custom
           print
-          ref="xToolbar"
+          ref="toolbarRef"
           :buttons="toolbarButtons"
           :refresh="{query: findList}">
         </vxe-toolbar>
@@ -45,8 +45,8 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
-const xToolbar = ref<VxeToolbarInstance>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
+const toolbarRef = ref<VxeToolbarInstance>()
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
@@ -83,7 +83,7 @@ const findList = () => {
 }
 
 const toolbarCustomEvent: VxeTableEvents.Custom<RowVO> = (params) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const visibleColumn = $table.getColumns()
     switch (params.type) {
@@ -105,8 +105,8 @@ const toolbarCustomEvent: VxeTableEvents.Custom<RowVO> = (params) => {
 
 nextTick(() => {
   // 将表格和工具栏进行关联
-  const $table = xTable.value
-  const $toolbar = xToolbar.value
+  const $table = tableRef.value
+  const $toolbar = toolbarRef.value
   if ($table && $toolbar) {
     $table.connect($toolbar)
   }

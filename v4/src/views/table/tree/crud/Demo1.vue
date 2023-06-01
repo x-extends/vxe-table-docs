@@ -12,7 +12,7 @@
     <vxe-table
       show-overflow
       keep-source
-      ref="xTable"
+      ref="tableRef"
       :row-config="{keyField: 'id'}"
       :column-config="{resizable: true}"
       :print-config="{}"
@@ -66,7 +66,7 @@ interface RowVO {
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 const xToolbar = ref<VxeToolbarInstance>()
 
 const findList = () => {
@@ -100,7 +100,7 @@ const findList = () => {
 }
 
 const searchMethod = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     // 清除所有状态
     $table.clearAll()
@@ -110,7 +110,7 @@ const searchMethod = () => {
 }
 
 const insertRow = async (currRow: RowVO, locat: string) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const date = new Date()
     // 如果 null 则插入到目标节点顶部
@@ -150,14 +150,14 @@ const insertRow = async (currRow: RowVO, locat: string) => {
 }
 
 const removeRow = async (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     await $table.remove(row)
   }
 }
 
 const insertEvent = async () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const date = new Date()
     const record = {
@@ -172,7 +172,7 @@ const insertEvent = async () => {
 }
 
 const getInsertEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
     VXETable.modal.alert(`新增：${insertRecords.length}`)
@@ -180,7 +180,7 @@ const getInsertEvent = () => {
 }
 
 const getRemoveEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
     VXETable.modal.alert(removeRecords.length)
@@ -188,7 +188,7 @@ const getRemoveEvent = () => {
 }
 
 const getUpdateEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
     VXETable.modal.alert(`更新：${updateRecords.length}`)
@@ -197,7 +197,7 @@ const getUpdateEvent = () => {
 
 nextTick(() => {
   // 将表格和工具栏进行关联
-  const $table = xTable.value
+  const $table = tableRef.value
   const $toolbar = xToolbar.value
   if ($table && $toolbar) {
     $table.connect($toolbar)

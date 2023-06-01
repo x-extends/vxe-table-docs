@@ -1,11 +1,11 @@
 <template>
   <div>
-    <vxe-toolbar ref="xToolbar" custom print></vxe-toolbar>
+    <vxe-toolbar ref="toolbarRef" custom print></vxe-toolbar>
 
     <vxe-table
       border
       height="300"
-      ref="xTable"
+      ref="tableRef"
       :print-config="{}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -37,8 +37,8 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
-const xToolbar = ref<VxeToolbarInstance>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
+const toolbarRef = ref<VxeToolbarInstance>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -53,8 +53,8 @@ const tableData = ref<RowVO[]>([
 
 nextTick(() => {
   // 将表格和工具栏进行关联
-  const $table = xTable.value
-  const $toolbar = xToolbar.value
+  const $table = tableRef.value
+  const $toolbar = toolbarRef.value
   if ($table && $toolbar) {
     $table.connect($toolbar)
   }
