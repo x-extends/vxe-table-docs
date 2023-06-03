@@ -4,6 +4,12 @@
 
     <!--将表单放在工具栏中-->
     <template #toolbar_buttons>
+      <vxe-button @click="triggerProxy('query')">刷新当前</vxe-button>
+      <vxe-button @click="triggerProxy('reload')">重置条件并重载</vxe-button>
+      <vxe-button @click="triggerProxy('mark_cancel')">删除/取消</vxe-button>
+    </template>
+
+    <template #toolbar_tools>
       <vxe-form :data="formData" @submit="searchEvent" @reset="resetEvent">
         <vxe-form-item field="name">
           <template #default>
@@ -128,7 +134,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     print: true,
     custom: true,
     slots: {
-      buttons: 'toolbar_buttons'
+      buttons: 'toolbar_buttons',
+      tools: 'toolbar_tools'
     }
   },
   columns: [
@@ -181,6 +188,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     }
   ]
 })
+
+const triggerProxy = (code: string) => {
+  const $grid = xGrid.value
+  if ($grid) {
+    $grid.commitProxy(code)
+  }
+}
 
 const searchEvent = () => {
   const $grid = xGrid.value

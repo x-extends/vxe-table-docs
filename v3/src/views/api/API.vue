@@ -133,10 +133,12 @@ export default {
           }
         },
         rowConfig: {
+          useKey: true,
           isHover: true,
           isCurrent: true
         },
         columnConfig: {
+          useKey: true,
           resizable: true,
           isHover: true,
           isCurrent: true

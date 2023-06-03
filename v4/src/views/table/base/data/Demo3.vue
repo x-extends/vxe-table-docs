@@ -1,7 +1,8 @@
 <template>
   <div>
     <vxe-table
-      :row-config="{keyField: '0'}"
+      :row-config="{useKey: true, keyField: '0'}"
+      :column-config="{useKey: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="1" title="Name"></vxe-column>

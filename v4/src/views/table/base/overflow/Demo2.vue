@@ -5,7 +5,8 @@
       show-footer
       show-header-overflow
       height="500"
-      :row-config="{isHover: true}"
+      :row-config="{useKey: true, isHover: true}"
+      :column-config="{useKey: true}"
       :footer-method="footerMethod"
       :data="tableData"
       :tooltip-config="tooltipConfig">

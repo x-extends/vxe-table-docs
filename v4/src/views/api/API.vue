@@ -386,11 +386,13 @@ export default defineComponent({
         }
       },
       rowConfig: {
+        useKey: true,
         keyField: 'id',
         isHover: true,
         isCurrent: true
       },
       columnConfig: {
+        useKey: true,
         resizable: true,
         isHover: true,
         isCurrent: true

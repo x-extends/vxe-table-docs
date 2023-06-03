@@ -2,6 +2,8 @@
   <div>
     <vxe-table
       show-footer
+      :row-config="{useKey: true}"
+      :column-config="{useKey: true}"
       :footer-method="footerMethod"
       :tooltip-config="tooltipConfig"
       :data="tableData">
