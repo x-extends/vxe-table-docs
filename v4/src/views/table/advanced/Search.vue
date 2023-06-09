@@ -11,6 +11,8 @@
     <vxe-table
       border
       height="300"
+      :column-config="{useKey: true}"
+      :row-config="{useKey: true}"
       :data="demo1.list">
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" type="html"></vxe-column>
@@ -44,6 +46,8 @@
     <vxe-table
       ref="xTree"
       max-height="400"
+      :column-config="{useKey: true}"
+      :row-config="{useKey: true}"
       :tree-config="{}"
       :data="demo2.list">
       <vxe-column type="seq" width="220" title="序号" tree-node></vxe-column>

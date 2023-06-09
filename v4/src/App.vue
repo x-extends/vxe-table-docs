@@ -789,12 +789,12 @@ export default defineComponent({
                 name: 'TableCustomStorage'
               }
             },
-            {
-              label: 'app.aside.nav.customlWidthStorage',
-              locat: {
-                name: 'TableCustomlWidthStorage'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.customlWidthStorage',
+            //   locat: {
+            //     name: 'TableCustomlWidthStorage'
+            //   }
+            // },
             {
               label: 'app.aside.nav.search',
               locat: {

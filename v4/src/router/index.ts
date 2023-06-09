@@ -90,8 +90,8 @@ const TableDetails = () => import('../views/table/advanced/Details.vue')
 // const TablePopupEdit = () => import('../views/table/advanced/PopupEdit.vue')
 const TableToolbar = () => import('../views/table/advanced/toolbar/Example.vue')
 const TableCustom = () => import('../views/table/advanced/custom/Example.vue')
-const TableCustomStorage = () => import('../views/table/advanced/CustomStorage.vue')
-const TableCustomlWidthStorage = () => import('../views/table/advanced/CustomlWidthStorage.vue')
+const TableCustomStorage = () => import('../views/table/advanced/customStorage/Example.vue')
+// const TableCustomlWidthStorage = () => import('../views/table/advanced/CustomlWidthStorage.vue')
 // const TableForm = () => import('../views/table/advanced/Form.vue')
 // const TablePage = () => import('../views/table/advanced/Page.vue')
 // const TablePageIcon = () => import('../views/table/advanced/PageIcon.vue')
@@ -258,9 +258,9 @@ const ModulePager = () => import('../views/pager/Pager.vue')
 const ModuleModal = () => import('../views/modal/Modal.vue')
 const ModuleTooltip = () => import('../views/tooltip/Tooltip.vue')
 const ModuleToolbar = () => import('../views/toolbar/Toolbar.vue')
-const ModuleForm = () => import('../views/form/Form.vue')
+const ModuleForm = () => import('../views/form/Example.vue')
 const ModuleSwitch = () => import('../views/switch/Switch.vue')
-const ModuleList = () => import('../views/list/List.vue')
+const ModuleList = () => import('../views/list/Example.vue')
 const ModulePulldown = () => import('../views/pulldown/Pulldown.vue')
 const ModuleFile = () => import('../views/file/File.vue')
 const ModulePrint = () => import('../views/print/Print.vue')
@@ -717,11 +717,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'TableCustomStorage',
     component: TableCustomStorage
   },
-  {
-    path: '/table/advanced/customlWidthStorage',
-    name: 'TableCustomlWidthStorage',
-    component: TableCustomlWidthStorage
-  },
+  // {
+  //   path: '/table/advanced/customlWidthStorage',
+  //   name: 'TableCustomlWidthStorage',
+  //   component: TableCustomlWidthStorage
+  // },
   // {
   //   path: '/table/advanced/form',
   //   name: 'TableForm',

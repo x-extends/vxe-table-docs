@@ -28,7 +28,7 @@
       <div>最后这样按需引入模块，就可以减小体积了</div>
       <pre-code class="typescript">
         import { App, createApp } = 'vue'
-        import 'xe-utils'
+        import XEUtils from 'xe-utils'
         import {
           // 全局对象
           VXETable,
@@ -146,7 +146,7 @@
       <div>最后这样按需引入模块，就可以减小体积了</div>
       <pre-code class="typescript">
         import { App, createApp } = 'vue'
-        import 'xe-utils'
+        import XEUtils from 'xe-utils'
         import {
           // 核心
           VXETable,

@@ -2896,7 +2896,7 @@ const apis = [
             list: [
               {
                 name: 'visible',
-                desc: '启用显示/隐藏列状态',
+                desc: '启用显示/隐藏列状态缓存',
                 version: '',
                 type: 'boolean',
                 enum: '',
@@ -2905,8 +2905,26 @@ const apis = [
               },
               {
                 name: 'resizable',
-                desc: '启用列宽状态',
+                desc: '启用列宽状态缓存',
                 version: '',
+                type: 'boolean',
+                enum: '',
+                defVal: '',
+                list: []
+              },
+              // {
+              //   name: 'order',
+              //   desc: '启用列顺序缓存',
+              //   version: '',
+              //   type: 'boolean',
+              //   enum: '',
+              //   defVal: '',
+              //   list: []
+              // },
+              {
+                name: 'fixed',
+                desc: '启用固定列状态缓存',
+                version: '3.6.14',
                 type: 'boolean',
                 enum: '',
                 defVal: '',
@@ -4992,6 +5010,24 @@ const apis = [
         type: 'Promise<any>',
         enum: '',
         defVal: 'slotParams: { row, column }',
+        list: []
+      },
+      {
+        name: 'setColumnFixed(fieldOrColumn, fixed)',
+        desc: '设置指定列为固定列',
+        version: '3.6.14',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'fieldOrColumn: string | ColumnConfig, fixed: string',
+        list: []
+      },
+      {
+        name: 'clearColumnFixed(fieldOrColumn)',
+        desc: '取消指定的固定列',
+        version: '3.6.14',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'fieldOrColumn: string | ColumnConfig',
         list: []
       },
       {
