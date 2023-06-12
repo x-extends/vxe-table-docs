@@ -618,13 +618,13 @@ export default defineComponent({
               },
               keywords: ['自定义插槽']
             },
-            {
-              label: 'app.aside.nav.dynamic',
-              // demoUrl: 'https://jsrun.pro/SIWKp/edit',
-              locat: {
-                name: 'TableDynamic'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.dynamic',
+            //   // demoUrl: 'https://jsrun.pro/SIWKp/edit',
+            //   locat: {
+            //     name: 'TableDynamic'
+            //   }
+            // },
             {
               label: 'app.aside.nav.customCheckbox',
               locat: {
