@@ -1,10 +1,10 @@
 <template>
   <div>
     <p>
-      <vxe-button type="text" content="默认尺寸"></vxe-button>
-      <vxe-button type="text" size="medium" content="中等尺寸"></vxe-button>
-      <vxe-button type="text" size="small" content="小型尺寸"></vxe-button>
-      <vxe-button type="text" size="mini" content="超小尺寸"></vxe-button>
+      <vxe-button type="text">默认尺寸</vxe-button>
+      <vxe-button type="text" size="medium">中等尺寸</vxe-button>
+      <vxe-button type="text" size="small">小型尺寸</vxe-button>
+      <vxe-button type="text" size="mini">超小尺寸</vxe-button>
     </p>
     <p>
       <vxe-button content="默认尺寸"></vxe-button>

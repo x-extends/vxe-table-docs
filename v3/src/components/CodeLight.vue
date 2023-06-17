@@ -1,11 +1,17 @@
 <template>
   <div class="code-light">
     <div class="example-tip">
-      <slot name="tip"></slot>
+      <p class="tip">
+        <slot name="tip"></slot>
+      </p>
     </div>
 
     <div class="example-demo">
       <AsyncDemo :path="path" :key="path" />
+    </div>
+
+    <div class="example-describe">
+      <slot name="describe"></slot>
     </div>
 
     <div class="example-code">
@@ -16,9 +22,16 @@
         <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
         <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
-      <pre class="example-code-warpper" v-show="showTsCode">
-        <code ref="codeRef">{{ tsCodeText }}</code>
-      </pre>
+      <div class="example-code-warpper" v-show="showTsCode">
+        <pre v-for="(item, index) in importCodes" :key="index">
+          <code class="javascript" ref="importRef">{{ item.text }}</code>
+          <div class="example-code-title">{{ item.name }}</div>
+        </pre>
+        <pre>
+          <code class="html" ref="codeRef">{{ tsCodeText }}</code>
+          <div class="example-code-title">{{ getFileName(`${path}.vue`) }}</div>
+        </pre>
+      </div>
     </div>
   </div>
 </template>
@@ -33,7 +46,8 @@ import AsyncDemo from './AsyncDemo.vue'
 export default {
   name: 'CodeLight',
   props: {
-    path: String
+    path: String,
+    extraImports: Array
   },
   components: {
     AsyncDemo
@@ -42,7 +56,8 @@ export default {
     return {
       tsCodeText: '',
       showTsCode: false,
-      loading: false
+      loading: false,
+      importCodes: []
     }
   },
   methods: {
@@ -55,14 +70,35 @@ export default {
           this.loading = false
         } else {
           this.loading = true
-          return fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
-            if (response.status >= 200 && response.status < 400) {
-              return response.text()
-            }
-            return '暂无示例'
-          }).then(text => {
-            this.tsCodeText = text || ''
+          Promise.all([
+            fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+              if (response.status >= 200 && response.status < 400) {
+                return response.text()
+              }
+              return '暂无示例'
+            }),
+            ...(this.extraImports?.map(impPath => {
+              return fetch(`${process.env.BASE_URL}example/${impPath}.ts?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+                if (response.status >= 200 && response.status < 400) {
+                  return response.text().then(text => {
+                    return {
+                      path: `${impPath}.ts`,
+                      name: this.getFileName(`${impPath}.ts`),
+                      text
+                    }
+                  })
+                }
+                return {
+                  path: `${impPath}.ts`,
+                  name: this.getFileName(`${impPath}.ts`),
+                  text: ''
+                }
+              })
+            }) || [])
+          ]).then(([text1, ...impTexts]) => {
+            this.tsCodeText = text1 || ''
             codeMaps[compPath] = this.tsCodeText
+            this.importCodes = impTexts
             this.buildCode()
             this.loading = false
           }).catch(() => {
@@ -74,6 +110,9 @@ export default {
         this.loading = false
       }
       return Promise.resolve()
+    },
+    getFileName  (path) {
+      return path.split('/').slice(-1)[0]
     },
     buildCode () {
       this.$nextTick(() => {
