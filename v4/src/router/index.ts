@@ -262,7 +262,7 @@ const ModuleForm = () => import('../views/form/Example.vue')
 const ModuleSwitch = () => import('../views/switch/Example.vue')
 const ModuleList = () => import('../views/list/Example.vue')
 const ModulePulldown = () => import('../views/pulldown/Pulldown.vue')
-const ModuleFile = () => import('../views/file/File.vue')
+const ModuleFile = () => import('../views/file/Example.vue')
 const ModulePrint = () => import('../views/print/Example.vue')
 
 const VXEAPI = () => import('../views/api/API.vue')
