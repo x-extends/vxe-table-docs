@@ -20,7 +20,7 @@
           <vxe-button type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
+        <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
       </div>
       <div class="example-code-warpper" v-show="showTsCode">
         <pre v-for="(item, index) in importCodes" :key="index">
@@ -163,6 +163,10 @@ export default {
 .example-demo {
   margin: 30px;
 }
+
+.example-describe {
+  margin: 30px;
+}
 .example-btns {
   display: flex;
   align-items: center;
@@ -173,5 +177,14 @@ export default {
 .example-code-warpper {
   padding: 0 30px;
   margin: 0;
+  pre {
+    position: relative;
+  }
+}
+.example-code-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
 }
 </style>
