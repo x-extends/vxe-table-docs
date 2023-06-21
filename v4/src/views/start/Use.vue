@@ -27,7 +27,7 @@
       </pre-code>
       <div>最后这样按需引入模块，就可以减小体积了</div>
       <pre-code class="typescript">
-        import { App, createApp } = 'vue'
+        import { App, createApp } from 'vue'
         import XEUtils from 'xe-utils'
         import {
           // 全局对象
@@ -72,6 +72,7 @@
           Table
         } from 'vxe-table'
         import zhCN from 'vxe-table/es/locale/lang/zh-CN'
+        import 'vxe-table/styles/cssvar.scss'
 
         // 按需加载的方式默认是不带国际化的，自定义国际化需要自行解析占位符 '{0}'，例如：
         VXETable.setup({
@@ -192,6 +193,7 @@
           Table
         } from 'vxe-table'
         import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
+        import 'vxe-table/styles/cssvar.scss'
 
         // 按需加载的方式默认是不带国际化的，自定义国际化需要自行解析占位符 '{0}'，例如：
         VXETable.setup({
