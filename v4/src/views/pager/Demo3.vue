@@ -3,9 +3,9 @@
     <vxe-pager
       perfect
       align="left"
-      v-model:current-page="pageVO.currentPage"
-      v-model:page-size="pageVO.pageSize"
-      :total="pageVO.total"
+      v-model:current-page="pageVO1.currentPage"
+      v-model:page-size="pageVO1.pageSize"
+      :total="pageVO1.total"
       :page-sizes="[10, 20, 100, {label: '大量数据', value: 1000}, {label: '全量数据', value: -1}]"
       :layouts="['PrevJump', 'PrevPage', 'Number', 'NextPage', 'NextJump', 'Sizes', 'FullJump', 'Total']">
       <template #left>
@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 
-const pageVO = reactive({
+const pageVO1 = reactive({
   currentPage: 1,
   pageSize: 30,
   total: 8

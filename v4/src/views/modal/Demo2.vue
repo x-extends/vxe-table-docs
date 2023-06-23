@@ -1,0 +1,21 @@
+<template>
+  <div>
+    <vxe-button content="基本提示框" @click="openAlert({ content: '基本提示框', title: '标题1' })"></vxe-button>
+    <vxe-button content="info" @click="openAlert({ content: 'info 提示框', status: 'info' })"></vxe-button>
+    <vxe-button content="warning" @click="openAlert({ content: 'warning 提示框', status: 'warning' })"></vxe-button>
+    <vxe-button content="question" @click="openAlert({ content: 'question 提示框', status: 'question' })"></vxe-button>
+    <vxe-button content="success" @click="openAlert({ content: 'success 提示框', status: 'success' })"></vxe-button>
+    <vxe-button content="error" @click="openAlert({ content: 'error 提示框', title:'app.body.msg.error', status: 'error' })"></vxe-button>
+    <vxe-button content="loading" @click="openAlert({ content: 'loading 提示框', status: 'loading' })"></vxe-button>
+    <vxe-button content="自定义图标" @click="openAlert({ content: 'iconStatus 自定义图标', status:'error', iconStatus: 'vxe-icon-question-circle-fill' })"></vxe-button>
+    <vxe-button content="禁止拖动" @click="openAlert({ content: '禁止按住头部进行拖动', draggable: false })"></vxe-button>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { VXETable, VxeModalDefines } from 'vxe-table'
+
+const openAlert = (options: VxeModalDefines.ModalOptions) => {
+  VXETable.modal.alert(options)
+}
+</script>

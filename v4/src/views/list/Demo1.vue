@@ -62,34 +62,12 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .my-list {
   border: 1px solid #e8eaec;
 }
 .my-list .my-list-item {
   height: 28px;
   padding-left: 15px;
-}
-.my-ul-list {
-  border: 1px solid #e8eaec;
-}
-.my-ul-list li {
-  height: 40px;
-}
-.my-table-list {
-  border: 1px solid #e8eaec;
-}
-.my-table-list table {
-  width: 100%;
-  text-align: center;
-}
-.my-table-list .my-tr {
-  height: 32px;
-}
-.my-table-list .my-tr:hover {
-  background-color: #f5f7fa;
-}
-.my-table-list td {
-  border-right: 1px solid #e8eaec;
 }
 </style>

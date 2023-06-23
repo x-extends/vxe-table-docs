@@ -10,8 +10,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const val1 = ref(false)
+const val1 = ref(true)
 const val2 = ref(false)
-const val3 = ref(false)
+const val3 = ref(true)
 const val4 = ref(false)
 </script>

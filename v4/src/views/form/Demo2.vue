@@ -2,7 +2,7 @@
   <div>
     <vxe-form
       title-colon
-      ref="xForm"
+      ref="formRef"
       title-align="right"
       title-width="100"
       :data="formData"
@@ -69,7 +69,7 @@ interface FormDataVO {
   address: string
 }
 
-const xForm = ref<VxeFormInstance>()
+const formRef = ref<VxeFormInstance>()
 
 const loading = ref(false)
 
@@ -107,7 +107,7 @@ const formRules = ref<VxeFormPropTypes.Rules>({
 })
 
 const changeEvent = (params: any) => {
-  const $form = xForm.value
+  const $form = formRef.value
   if ($form) {
     $form.updateStatus(params)
   }

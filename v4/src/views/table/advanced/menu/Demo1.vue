@@ -53,10 +53,10 @@ const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
   body: {
     options: [
       [
-        { code: 'copy', name: 'app.body.label.copy', prefixIcon: 'vxe-icon-question-circle-fill', className: 'my-copy-item' }
+        { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-copy', className: 'my-copy-item' }
       ],
       [
-        { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-question-circle-fill color-red' },
+        { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-delete-fill color-red' },
         {
           name: '筛选',
           children: [
@@ -67,11 +67,11 @@ const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
         {
           code: 'sort',
           name: '排序',
-          prefixIcon: 'vxe-icon-question-circle-fill color-blue',
+          prefixIcon: 'vxe-icon-sort color-blue',
           children: [
             { code: 'clearSort', name: '清除排序' },
-            { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' },
-            { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-question-circle-fill color-orange' }
+            { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-sort-alpha-asc color-orange' },
+            { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-sort-alpha-desc color-orange' }
           ]
         },
         { code: 'print', name: '打印', disabled: true }
@@ -124,3 +124,25 @@ const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) 
   ]
 }
 </script>
+
+<style lang="scss">
+.my-menus {
+  background-color: #F8F8F9;
+}
+.my-menus .vxe-ctxmenu--link {
+  width: 200px;
+}
+.my-copy-item {
+  font-weight: 700;
+  font-style: oblique;
+}
+.color-red {
+  color: red;
+}
+.color-blue {
+  color: blue;
+}
+.color-orange {
+  color: orange;
+}
+</style>

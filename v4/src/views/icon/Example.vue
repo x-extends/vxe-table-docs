@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="icon/Demo1">
       <template #tip>
-        <div>图标，基础用法</div>
+        <div>图标。查看 <router-link class="link" :to="{name: 'VXEAPI', params: {name: 'icon'}}">API</router-link></div>
       </template>
     </CodeLight>
 

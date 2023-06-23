@@ -15,7 +15,7 @@ import XEUtils from 'xe-utils'
 const val1 = ref('')
 const val2 = ref('')
 const val3 = ref('2020-10-01')
-const val4 = ref('2020-10-0')
+const val4 = ref('2020-10-01')
 
 // 渲染日期小圆点
 const noticeMaps: Record<string, VxeInputDefines.DateFestivalInfo> = {
