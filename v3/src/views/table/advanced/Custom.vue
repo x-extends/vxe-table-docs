@@ -2,7 +2,6 @@
   <div>
     <p class="tip">
       通过 <table-column-api-link prop="visible"/> 属性设置默认是否显示，也可以通过函数式调用 <table-api-link prop="showColumn"/>、<table-api-link prop="hideColumn"/> 操作列的显示/隐藏<br>
-      还可以通过动态修改列的 visible 属性，可以实现远程读取配置后控制是否显示，最后调用 <table-api-link prop="refreshColumn"/> 刷新列
     </p>
 
     <vxe-toolbar>
@@ -378,6 +377,7 @@ export default {
       // 将指定列设置为隐藏状态
       this.columns2.forEach(column => {
         if (['name'].includes(column.property)) {
+          // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
           column.visible = false
         }
       })
@@ -394,6 +394,7 @@ export default {
       const xTable4 = this.$refs.xTable4
       fields.forEach(field => {
         const column = xTable4.getColumnByField(field)
+        // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
         column.visible = this.collapsable1
       })
       xTable4.refreshColumn()
@@ -404,6 +405,7 @@ export default {
       const xTable4 = this.$refs.xTable4
       fields.forEach(field => {
         const column = xTable4.getColumnByField(field)
+        // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
         column.visible = this.collapsable2
       })
       xTable4.refreshColumn()

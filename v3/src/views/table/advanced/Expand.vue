@@ -410,21 +410,12 @@ export default {
   methods: {
     toggleSeqFixed () {
       this.seqFixed = this.seqFixed ? null : 'left'
-      this.$nextTick(() => {
-        this.$refs.xTable.refreshColumn()
-      })
     },
     toggleExpandFixed () {
       this.expandFixed = this.expandFixed ? null : 'left'
-      this.$nextTick(() => {
-        this.$refs.xTable.refreshColumn()
-      })
     },
     toggleAgeFixed () {
       this.ageFixed = this.ageFixed ? null : 'right'
-      this.$nextTick(() => {
-        this.$refs.xTable.refreshColumn()
-      })
     },
     toggleExpandChangeEvent ({ expanded }) {
       console.log('行展开事件' + expanded)

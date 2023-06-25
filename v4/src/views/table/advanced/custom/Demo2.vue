@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      <vxe-checkbox v-model="column.visible" v-for="(column,index) in tableColumn" :key="index" @change="refreshColEvent">{{ column.title }}</vxe-checkbox>
+      <vxe-checkbox v-model="column.visible" v-for="(column,index) in columns" :key="index" @change="refreshColEvent">{{ column.title }}</vxe-checkbox>
     </p>
 
     <vxe-table
@@ -35,7 +35,7 @@ interface RowVO {
 const xTable = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
-const tableColumn = ref<VxeTableDefines.ColumnInfo<RowVO>[]>([])
+const columns = ref<VxeTableDefines.ColumnInfo<RowVO>[]>([])
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
   { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
@@ -54,17 +54,20 @@ const refreshColEvent = () => {
   }
 }
 
+// 模拟异步
 setTimeout(() => {
   nextTick(() => {
     // 获取所有列配置
     const $table = xTable.value
     if ($table) {
       loading.value = true
-      tableColumn.value = $table.getColumns()
+      columns.value = $table.getColumns()
+      // 模拟异步
       setTimeout(() => {
         // 将指定列设置为隐藏状态
-        tableColumn.value.forEach(column => {
+        columns.value.forEach(column => {
           if (['name'].includes(column.field)) {
+            // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
             column.visible = false
           }
         })

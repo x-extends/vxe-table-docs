@@ -8,7 +8,7 @@
       <vxe-column type="seq" width="140" tree-node></vxe-column>
       <vxe-column field="name" title="名称"></vxe-column>
       <vxe-column field="size" title="大小" width="140"></vxe-column>
-      <vxe-column field="type" title="类型" width="140" :filters="[]"></vxe-column>
+      <vxe-column field="type" title="类型" width="140" :filters="typeList"></vxe-column>
       <vxe-column field="date" title="修改日期" width="260"></vxe-column>
     </vxe-table>
   </div>
@@ -53,16 +53,17 @@ const tableData = ref<RowVO[]>([
   { id: 24573, parentId: 24577, name: 'Test788', type: 'mp4', size: 1024, date: '2021-06-01' }
 ])
 
+const typeList = ref<{
+  label: string
+  value: string
+}[]>([])
+
 // 异步更新筛选条件
 setTimeout(() => {
-  const $table = tableRef.value
-  if ($table) {
-    const typeList = [
-      { label: 'js', value: 'js' },
-      { label: 'mp3', value: 'mp3' },
-      { label: 'avi', value: 'avi' }
-    ]
-    $table.setFilter('type', typeList)
-  }
+  typeList.value = [
+    { label: 'js', value: 'js' },
+    { label: 'mp3', value: 'mp3' },
+    { label: 'avi', value: 'avi' }
+  ]
 }, 500)
 </script>

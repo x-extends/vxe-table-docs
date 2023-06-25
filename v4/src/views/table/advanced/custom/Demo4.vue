@@ -62,6 +62,7 @@ const collapsable1Event = () => {
     fields.forEach(field => {
       const column = $table.getColumnByField(field)
       if (column) {
+        // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
         column.visible = collapsable1.value
       }
     })
@@ -77,6 +78,7 @@ const collapsable2Event = () => {
     fields.forEach(field => {
       const column = $table.getColumnByField(field)
       if (column) {
+        // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
         column.visible = collapsable2.value
       }
     })

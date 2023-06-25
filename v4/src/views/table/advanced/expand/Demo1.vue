@@ -59,7 +59,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, nextTick } from 'vue'
+import { ref } from 'vue'
 import { VxeTableInstance, VxeColumnPropTypes, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
@@ -74,10 +74,10 @@ interface RowVO {
 const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
-  { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc test abc test abc test abc test abc test abc test abc test abc' },
+  { id: 10001, name: 'Test1', role: 'DevelopDevelopDevelop', sex: 'Man', age: 28, address: 'test abc test abc test abc test abc test abc test abc test abc test abc' },
   { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
   { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-  { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 36, address: 'Guangzhou test abc test abc test abc test abc test abc test abc test abc' },
+  { id: 10004, name: 'Test4', role: 'DesignerDesignerDesignerDesigner', sex: 'Women', age: 36, address: 'Guangzhou test abc test abc test abc test abc test abc test abc test abc' },
   { id: 10005, name: 'Test5', role: 'Develop', sex: 'Women', age: 24, address: 'Shanghai' },
   { id: 10006, name: 'Test6', role: 'Designer', sex: 'Man', age: 34, address: 'test abc' }
 ])
@@ -93,32 +93,14 @@ const ageFixed = ref<VxeColumnPropTypes.Fixed>()
 
 const toggleSeqFixed = () => {
   seqFixed.value = seqFixed.value ? null : 'left'
-  nextTick(() => {
-    const $table = tableRef.value
-    if ($table) {
-      $table.refreshColumn()
-    }
-  })
 }
 
 const toggleExpandFixed = () => {
   expandFixed.value = expandFixed.value ? null : 'left'
-  nextTick(() => {
-    const $table = tableRef.value
-    if ($table) {
-      $table.refreshColumn()
-    }
-  })
 }
 
 const toggleAgeFixed = () => {
   ageFixed.value = ageFixed.value ? null : 'right'
-  nextTick(() => {
-    const $table = tableRef.value
-    if ($table) {
-      $table.refreshColumn()
-    }
-  })
 }
 
 const expandEvent1 = () => {

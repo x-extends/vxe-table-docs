@@ -1,15 +1,14 @@
 <template>
   <div>
     <p>
-      <vxe-button @click="toggleFixedColumn(0, 'left')">切换第一列固定</vxe-button>
-      <vxe-button @click="toggleFixedColumn(1, 'left')">切换第二列固定</vxe-button>
-      <vxe-button @click="toggleFixedColumn(4, 'right')">切换第五列固定</vxe-button>
-      <vxe-button @click="toggleFixedColumn(5, 'right')">切换第六列固定</vxe-button>
+      <vxe-button @click="toggleFixedColumn('col0', 'left')">切换第一列固定</vxe-button>
+      <vxe-button @click="toggleFixedColumn('col1', 'left')">切换第二列固定</vxe-button>
+      <vxe-button @click="toggleFixedColumn('col4', 'right')">切换第五列固定</vxe-button>
+      <vxe-button @click="toggleFixedColumn('col5', 'right')">切换第六列固定</vxe-button>
     </p>
 
     <vxe-table
       border
-      ref="tableRef"
       height="300"
       show-overflow
       :row-config="{isHover: true}"
@@ -31,7 +30,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
+import { VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -41,8 +40,6 @@ interface RowVO {
   age: number
   address: string
 }
-
-const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -70,20 +67,11 @@ const tableData = ref<RowVO[]>([
 const colFixeds = reactive<Record<string, VxeColumnPropTypes.Fixed>>({
   col0: '',
   col1: '',
-  col2: '',
-  col3: ''
+  col4: '',
+  col5: ''
 })
 
-const toggleFixedColumn = (index: number, type: VxeColumnPropTypes.Fixed) => {
-  const $table = tableRef.value
-  if ($table) {
-    const tableColumns = $table.getColumns()
-    const fxColumn = tableColumns[index]
-    if (fxColumn) {
-      fxColumn.fixed = fxColumn.fixed ? null : type
-    }
-    // 刷新列
-    $table.refreshColumn()
-  }
+const toggleFixedColumn = (prop: string, type: VxeColumnPropTypes.Fixed) => {
+  colFixeds[prop] = colFixeds[prop] ? null : type
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      <vxe-checkbox v-model="column.visible" v-for="(column,index) in tableColumn" :key="index">{{ column.title }}</vxe-checkbox>
+      <vxe-checkbox v-model="column.visible" v-for="(column,index) in columns" :key="index">{{ column.title }}</vxe-checkbox>
       <vxe-button @click="refreshColEvent">刷新列信息</vxe-button>
       <vxe-button @click="resetColEvent">重置自定义列</vxe-button>
     </p>
@@ -43,7 +43,7 @@ interface RowVO {
 const xTable = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
-const tableColumn = ref<VxeTableDefines.ColumnInfo<RowVO>[]>([])
+const columns = ref<VxeTableDefines.ColumnInfo<RowVO>[]>([])
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
   { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
@@ -75,7 +75,7 @@ setTimeout(() => {
     const $table = xTable.value
     if ($table) {
       loading.value = true
-      tableColumn.value = $table.getColumns()
+      columns.value = $table.getColumns()
       setTimeout(() => {
         loading.value = false
       }, 800)

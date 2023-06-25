@@ -218,9 +218,9 @@ export default {
       const groupFixed = column.fixed ? null : type
       // 将分组整体设置固定列
       XEUtils.eachTree([column], column => {
+        // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
         column.fixed = groupFixed
       })
-      // 刷新列
       xTable.refreshColumn()
     }
   }

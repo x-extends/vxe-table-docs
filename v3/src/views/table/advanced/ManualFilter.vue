@@ -26,12 +26,7 @@
       :loading="loading"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column
-        field="name"
-        title="Name"
-        sortable
-        :filters="[{ label: '包含 6', value: '6' }, { label: '包含 4', value: '4' }]"
-        :filter-method="filterNameMethod"></vxe-column>
+      <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
       <vxe-column
         field="role"
         title="Role"
@@ -79,6 +74,10 @@ export default {
       loading: false,
       tableData: [],
       roleList: ['', 'Develop', 'PM', 'Test'],
+      nameOptions: [
+        { label: '包含 6', value: '6' },
+        { label: '包含 4', value: '4' }
+      ],
       demoCodes: [
         `
         <vxe-toolbar>
@@ -266,18 +265,13 @@ export default {
       return row.age === Number(option.data)
     },
     updateNameFilterEvent () {
-      const xTable = this.$refs.xTable
-      const column = xTable.getColumnByField('name')
-      // 修改筛选列表，并默认设置为选中状态
-      xTable.setFilter(column, [
-        { label: '包含 0', value: '0' },
-        { label: '包含 1', value: '1' },
+      this.nameOptions = [
+        { label: '包含 0', value: '0', checked: false },
+        { label: '包含 1', value: '1', checked: false },
         { label: '包含 2', value: '2', checked: true },
-        { label: '包含 3', value: '3' },
-        { label: '包含 4', value: '4' }
-      ])
-      // 修改条件之后，需要手动调用 updateData 处理表格数据
-      xTable.updateData()
+        { label: '包含 3', value: '3', checked: false },
+        { label: '包含 4', value: '4', checked: false }
+      ]
     },
     filterNameEvent () {
       const xTable = this.$refs.xTable
@@ -285,7 +279,7 @@ export default {
       // 修改第二个选项为勾选状态
       const option = column.filters[1]
       option.checked = true
-      // 修改条件之后，需要手动调用 updateData 处理表格数据
+      // 如果是直接修复筛选条件，则需要手动调用 updateData 处理表格数据
       xTable.updateData()
     },
     filterAgeEvent () {
@@ -295,7 +289,7 @@ export default {
       const option = column.filters[0]
       option.data = '32'
       option.checked = true
-      // 修改条件之后，需要手动调用 updateData 处理表格数据
+      // 如果是直接修复筛选条件，则需要手动调用 updateData 处理表格数据
       xTable.updateData()
     },
     filterAgeRecoverMethod ({ option }) {

@@ -12,7 +12,7 @@
       @filter-visible="filterVisibleEvent"
       @filter-change="filterChangeEvent">
       <vxe-column field="id" title="ID"></vxe-column>
-      <vxe-column field="name" title="Name" sortable :filters="[]" :filter-method="filterNameMethod"></vxe-column>
+      <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
       <vxe-column field="sex" title="Sex" sortable :filters="[{label: 'Man', value: '1'}, {label: 'Woman', value: '0'}]" :filter-multiple="false"></vxe-column>
       <vxe-column field="age" title="Age" :filters="[{ data: '' }]" :filter-method="filterAgeMethod">
         <template #filter="{ $panel, column }">
@@ -48,6 +48,11 @@ const tableData = ref<RowVO[]>([
   { id: 10006, name: 'Test6', role: 'Designer', sex: '0', age: 28, address: 'Shanghai' }
 ])
 
+const nameOptions = ref<{
+  label: string
+  value: number
+}[]>([])
+
 const filterNameMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ value, row }) => {
   return row.id >= value
 }
@@ -65,15 +70,9 @@ const filterChangeEvent: VxeTableEvents.FilterChange<RowVO> = ({ column }) => {
 }
 
 const updateNameFilterOpts = () => {
-  const $table = xTable1.value
-  if ($table) {
-    const nameColumn = $table.getColumnByField('name')
-    if (nameColumn) {
-      $table.setFilter(nameColumn, [
-        { label: 'id大于10002', value: 10002 },
-        { label: 'id大于10003', value: 10003 }
-      ])
-    }
-  }
+  nameOptions.value = [
+    { label: 'id大于10002', value: 10002 },
+    { label: 'id大于10003', value: 10003 }
+  ]
 }
 </script>

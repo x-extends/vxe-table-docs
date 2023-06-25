@@ -77,8 +77,6 @@ const toggleFixedColumn = (field: string, type: VxeColumnPropTypes.Fixed) => {
       XEUtils.eachTree([column], column => {
         column.fixed = groupFixed
       })
-      // 刷新列
-      $table.refreshColumn()
     }
   }
 }
