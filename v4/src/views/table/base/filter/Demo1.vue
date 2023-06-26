@@ -13,8 +13,8 @@
       @filter-change="filterChangeEvent">
       <vxe-column field="id" title="ID"></vxe-column>
       <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
-      <vxe-column field="sex" title="Sex" sortable :filters="[{label: 'Man', value: '1'}, {label: 'Woman', value: '0'}]" :filter-multiple="false"></vxe-column>
-      <vxe-column field="age" title="Age" :filters="[{ data: '' }]" :filter-method="filterAgeMethod">
+      <vxe-column field="sex" title="Sex" sortable :filters="sexOptions" :filter-multiple="false"></vxe-column>
+      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod">
         <template #filter="{ $panel, column }">
           <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)">
         </template>
@@ -52,6 +52,15 @@ const nameOptions = ref<{
   label: string
   value: number
 }[]>([])
+
+const sexOptions = ref([
+  { label: 'Man', value: '1' },
+  { label: 'Woman', value: '0' }
+])
+
+const ageOptions = ref([
+  { data: '' }
+])
 
 const filterNameMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ value, row }) => {
   return row.id >= value

@@ -12,13 +12,8 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column type="checkbox" title="ID" width="140"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
-      <vxe-column field="sex" title="Sex" :filters="sexList" :filter-multiple="false" :formatter="formatterSex"></vxe-column>
-      <vxe-column
-        field="age"
-        title="Age"
-        sortable
-        :filters="[{label: '大于16岁', value: 16}, {label: '大于26岁', value: 26}, {label: '大于30岁', value: 30}]"
-        :filter-method="filterAgeMethod"></vxe-column>
+      <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-multiple="false" :formatter="formatterSex"></vxe-column>
+      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod" sortable></vxe-column>
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
     </vxe-table>
   </div>
@@ -39,7 +34,7 @@ interface RowVO {
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
-const sexList = ref([
+const sexOptions = ref([
   {
     label: '女',
     value: '0'
@@ -50,8 +45,14 @@ const sexList = ref([
   }
 ])
 
+const ageOptions = ref([
+  { label: '大于16岁', value: 16 },
+  { label: '大于26岁', value: 26 },
+  { label: '大于30岁', value: 30 }
+])
+
 const formatterSex: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
-  const item = sexList.value.find(item => item.value === cellValue)
+  const item = sexOptions.value.find(item => item.value === cellValue)
   return item ? item.label : ''
 }
 

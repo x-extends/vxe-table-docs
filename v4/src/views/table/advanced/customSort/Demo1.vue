@@ -11,7 +11,7 @@
       :sort-config="{showIcon: false}"
       @header-cell-click="headerCellClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" sortable :filters="[{label: 'id大于10', value: 10}, {label: 'id大于40', value: 40}]" :filter-method="filterNameMethod">
+      <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod">
         <template #header="{ column }">
           <span>{{ column.title }}</span>
           <span class="custom-sort" :class="{'is-order': column.order}">
@@ -66,6 +66,11 @@ const tableData = ref<RowVO[]>([
   { id: 10006, name: 'Test6', nickname: 'T6', role: 'Designer', sex: 'Women', age: 21, address: 'test abc' },
   { id: 10007, name: 'Test7', nickname: 'T7', role: 'Test', sex: 'Man', age: 42, address: 'test abc' },
   { id: 10008, name: 'Test8', nickname: 'T8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
+])
+
+const nameOptions = ref([
+  { label: 'id大于10', value: 10 },
+  { label: 'id大于40', value: 40 }
 ])
 
 const headerCellClickEvent: VxeTableEvents.HeaderCellClick<RowVO> = ({ column, triggerResizable, triggerSort, triggerFilter }) => {

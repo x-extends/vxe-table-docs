@@ -17,7 +17,7 @@
           <vxe-input v-model="row.role" type="text" @change="roleChangeEvent({ column })"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="nickname" title="Nickname" :filters="[{ data: '' }]" :filter-render="{}" :edit-render="{}">
+      <vxe-column field="nickname" title="Nickname" :filters="nicknameOptions" :filter-render="{}" :edit-render="{}">
         <template #filter="{ column, $panel }">
           <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="enterFilterEvent({ column, $panel })">
         </template>
@@ -63,6 +63,10 @@ const tableData = ref<RowVO[]>([
   { id: 10004, name: 'Test4', role: 'Designer', sex: '1', age: 23, address: 'test abc' },
   { id: 10005, name: 'Test5', role: 'Develop', sex: '1', age: 30, address: 'Shanghai' },
   { id: 10006, name: 'Test6', role: 'Designer', sex: '1', age: 21, address: 'test abc' }
+])
+
+const nicknameOptions = ref([
+  { data: '' }
 ])
 
 const sexList = ref([

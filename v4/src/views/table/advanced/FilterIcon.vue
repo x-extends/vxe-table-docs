@@ -11,8 +11,8 @@
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="Role" :filters="[{label: '前端', value: '前端'}, {label: '后端', value: '后端'}]"></vxe-column>
-      <vxe-column field="sex" title="Sex" sortable :filter-multiple="false" :filters="[{label: 'Man', value: '1'}, {label: 'Woman', value: '0'}]"></vxe-column>
+      <vxe-column field="role" title="Role" :filters="roleOptions"></vxe-column>
+      <vxe-column field="sex" title="Sex" sortable :filter-multiple="false" :filters="sexOptions"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address" sortable></vxe-column>
     </vxe-table>
@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, ref, reactive } from 'vue'
 
 export default defineComponent({
   setup () {
@@ -35,6 +35,16 @@ export default defineComponent({
       loading: false,
       tableData: [] as any[]
     })
+
+    const roleOptions = ref([
+      { label: '前端', value: '前端' },
+      { label: '后端', value: '后端' }
+    ])
+
+    const sexOptions = ref([
+      { label: 'Man', value: '1' },
+      { label: 'Woman', value: '0' }
+    ])
 
     const findList = (): Promise<void> => {
       demo1.loading = true
@@ -60,25 +70,27 @@ export default defineComponent({
 
     return {
       demo1,
+      roleOptions,
+      sexOptions,
       demoCodes: [
         `
         <vxe-table
           border
           height="400"
-          :row-config="{isHover: true}"
+          :row-config="{isCurrent: true, isHover: true}"
           :filter-config="{iconNone: 'vxe-icon-question-circle-fill', iconMatch: 'vxe-icon-question-circle-fill'}"
           :loading="demo1.loading"
           :data="demo1.tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>
-          <vxe-column field="role" title="Role" :filters="[{label: '前端', value: '前端'}, {label: '后端', value: '后端'}]"></vxe-column>
-          <vxe-column field="sex" title="Sex" sortable :filter-multiple="false" :filters="[{label: 'Man', value: '1'}, {label: 'Woman', value: '0'}]"></vxe-column>
+          <vxe-column field="role" title="Role" :filters="roleOptions"></vxe-column>
+          <vxe-column field="sex" title="Sex" sortable :filter-multiple="false" :filters="sexOptions"></vxe-column>
           <vxe-column field="age" title="Age"></vxe-column>
           <vxe-column field="address" title="Address" sortable></vxe-column>
         </vxe-table>
         `,
         `
-        import { defineComponent, reactive } from 'vue'
+        import { defineComponent, ref, reactive } from 'vue'
 
         export default defineComponent({
           setup () {
@@ -86,6 +98,16 @@ export default defineComponent({
               loading: false,
               tableData: [] as any[]
             })
+
+            const roleOptions = ref([
+              { label: '前端', value: '前端' },
+              { label: '后端', value: '后端' }
+            ])
+
+            const sexOptions = ref([
+              { label: 'Man', value: '1' },
+              { label: 'Woman', value: '0' }
+            ])
 
             const findList = (): Promise<void> => {
               demo1.loading = true
@@ -110,7 +132,9 @@ export default defineComponent({
             findList()
 
             return {
-              demo1
+              demo1,
+              roleOptions,
+              sexOptions
             }
           }
         })

@@ -10,7 +10,7 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="key" title="Key"></vxe-column>
       <vxe-column field="content" title="Translate"></vxe-column>
-      <vxe-column field="language" title="Language" :filters="[{label: '中文', value: 'zh_CN' }, {label: 'English', value: 'en_US'}]"></vxe-column>
+      <vxe-column field="language" title="Language" :filters="languageOptions"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -39,6 +39,11 @@ const tableData = ref<RowVO[]>([
   { id: 10010, key: 'app.label.address', content: 'Address', language: 'en_US' },
   { id: 10011, key: 'app.label.nickname', content: '昵称', language: 'zh_CN' },
   { id: 10012, key: 'app.label.nickname', content: 'Nickname', language: 'en_US' }
+])
+
+const languageOptions = ref([
+  { label: '中文', value: 'zh_CN' },
+  { label: 'English', value: 'en_US' }
 ])
 
 // 通用行合并函数（将相同多列数据合并为一行）

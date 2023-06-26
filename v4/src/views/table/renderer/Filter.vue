@@ -20,10 +20,10 @@
       height="400"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="文本筛选" :filters="[{data: null}]" :filter-render="{name: 'FilterInput'}"></vxe-column>
-      <vxe-column field="role" title="实现条件的筛选" :filters="[{data: {type: 'has', name: ''}}]" :filter-render="{name: 'FilterComplex'}"></vxe-column>
-      <vxe-column field="age" title="实现内容的筛选" :filters="[{data: {vals: [], sVal: ''}}]" :filter-render="{name: 'FilterContent'}"></vxe-column>
-      <vxe-column field="address" title="实现复杂的筛选" sortable :filters="[{data: {vals: [], sVal: '', fMenu: '', f1Type:'', f1Val: '', fMode: 'and', f2Type: '', f2Val: ''}}]" :filter-render="{name: 'FilterExtend'}"></vxe-column>
+      <vxe-column field="name" title="文本筛选" :filters="nameOptions" :filter-render="{name: 'FilterInput'}"></vxe-column>
+      <vxe-column field="role" title="实现条件的筛选" :filters="roleOptions" :filter-render="{name: 'FilterComplex'}"></vxe-column>
+      <vxe-column field="age" title="实现内容的筛选" :filters="ageOptions" :filter-render="{name: 'FilterContent'}"></vxe-column>
+      <vxe-column field="address" title="实现复杂的筛选" sortable :filters="addressOptions" :filter-render="{name: 'FilterExtend'}"></vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -52,8 +52,28 @@ export default defineComponent({
       { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: '35', address: 'Shenzhen' }
     ])
 
+    const nameOptions = ref([
+      { data: null }
+    ])
+
+    const roleOptions = ref([
+      { data: { type: 'has', name: '' } }
+    ])
+
+    const ageOptions = ref([
+      { data: { vals: [], sVal: '' } }
+    ])
+
+    const addressOptions = ref([
+      { data: { vals: [], sVal: '', fMenu: '', f1Type: '', f1Val: '', fMode: 'and', f2Type: '', f2Val: '' } }
+    ])
+
     return {
       tableData,
+      nameOptions,
+      roleOptions,
+      ageOptions,
+      addressOptions,
       demoCodes: [
         `
         import VXETable from 'vxe-table'
@@ -93,10 +113,10 @@ export default defineComponent({
           height="400"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="文本筛选" :filters="[{data: null}]" :filter-render="{name: 'FilterInput'}"></vxe-column>
-          <vxe-column field="role" title="实现条件的筛选" :filters="[{data: {type: 'has', name: ''}}]" :filter-render="{name: 'FilterComplex'}"></vxe-column>
-          <vxe-column field="age" title="实现内容的筛选" :filters="[{data: {vals: [], sVal: ''}}]" :filter-render="{name: 'FilterContent'}"></vxe-column>
-          <vxe-column field="address" title="实现复杂的筛选" sortable :filters="[{data: {vals: [], sVal: '', fMenu: '', f1Type:'', f1Val: '', fMode: 'and', f2Type: '', f2Val: ''}}]" :filter-render="{name: 'FilterExtend'}"></vxe-column>
+          <vxe-column field="name" title="文本筛选" :filters="nameOptions" :filter-render="{name: 'FilterInput'}"></vxe-column>
+          <vxe-column field="role" title="实现条件的筛选" :filters="roleOptions" :filter-render="{name: 'FilterComplex'}"></vxe-column>
+          <vxe-column field="age" title="实现内容的筛选" :filters="ageOptions" :filter-render="{name: 'FilterContent'}"></vxe-column>
+          <vxe-column field="address" title="实现复杂的筛选" sortable :filters="addressOptions" :filter-render="{name: 'FilterExtend'}"></vxe-column>
         </vxe-table>
         `,
         `
@@ -115,8 +135,28 @@ export default defineComponent({
               { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: '35', address: 'Shenzhen' }
             ])
 
+            const nameOptions = ref([
+              { data: null }
+            ])
+
+            const roleOptions = ref([
+              { data: { type: 'has', name: '' } }
+            ])
+
+            const ageOptions = ref([
+              { data: { vals: [], sVal: '' } }
+            ])
+
+            const addressOptions = ref([
+              { data: { vals: [], sVal: '', fMenu: '', f1Type: '', f1Val: '', fMode: 'and', f2Type: '', f2Val: '' } }
+            ])
+
             return {
-              tableData
+              tableData,
+              nameOptions,
+              roleOptions,
+              ageOptions,
+              addressOptions
             }
           }
         })

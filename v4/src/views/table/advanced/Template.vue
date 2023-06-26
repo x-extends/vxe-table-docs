@@ -55,7 +55,7 @@
           <a href="https://github.com/x-extends/vxe-table" target="_black">我是超链接：{{ row.name }}</a>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="app.body.label.sex" :filters="[{data: ''}]" :filter-method="filterSexMethod">
+      <vxe-column field="sex" title="app.body.label.sex" :filters="sexOptions" :filter-method="filterSexMethod">
         <template #header>
           <span style="color: red;">自定义头部</span>
         </template>
@@ -194,6 +194,10 @@ export default defineComponent({
       }
     })
 
+    const sexOptions = ref([
+      { data: '' }
+    ])
+
     const xTable = ref<VxeTableInstance>()
 
     const formatDate = (value: any) => {
@@ -256,6 +260,7 @@ export default defineComponent({
     return {
       demo1,
       xTable,
+      sexOptions,
       formatDate,
       filterSexMethod,
       changeFilterEvent,
@@ -313,7 +318,7 @@ export default defineComponent({
               <a href="https://github.com/x-extends/vxe-table" target="_black">我是超链接：{{ row.name }}</a>
             </template>
           </vxe-column>
-          <vxe-column field="sex" title="app.body.label.sex" :filters="[{data: ''}]" :filter-method="filterSexMethod">
+          <vxe-column field="sex" title="app.body.label.sex" :filters="sexOptions" :filter-method="filterSexMethod">
             <template #header>
               <span style="color: red;">自定义头部</span>
             </template>
@@ -442,6 +447,10 @@ export default defineComponent({
               }
             })
 
+            const sexOptions = ref([
+              { data: '' }
+            ])
+
             const xTable = ref<VxeTableInstance>()
 
             const formatDate = (value: any) => {
@@ -500,6 +509,7 @@ export default defineComponent({
             return {
               demo1,
               xTable,
+              sexOptions,
               formatDate,
               filterSexMethod,
               changeFilterEvent,

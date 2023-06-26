@@ -21,25 +21,15 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
-      <vxe-column
-        field="role"
-        title="Role"
-        sortable
-        :filters="[{ data: '' }]"
-        :filter-method="filterRoleMethod">
+      <vxe-column field="role" title="Role" :filters="roleOptions" :filter-method="filterRoleMethod" sortable>
         <template #filter="{ $panel, column }">
           <select class="my-select" v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="$panel.changeOption($event, !!option.data, option)">
             <option v-for="(label, cIndex) in roleList" :key="cIndex" :value="label">{{ label }}</option>
           </select>
         </template>
       </vxe-column>
-      <vxe-column
-        field="sex"
-        title="Sex"
-        sortable
-        :filter-multiple="false"
-        :filters="[{label: 'Man', value: 'Man'}, {label: 'Women', value: 'Women'}]"></vxe-column>
-      <vxe-column field="age" title="Age" :filters="[{ data: '' }]" :filter-method="filterAgeMethod" :filter-recover-method="filterAgeRecoverMethod">
+      <vxe-column field="sex" title="Sex" :filter-multiple="false" :filters="sexOptions" sortable></vxe-column>
+      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod" :filter-recover-method="filterAgeRecoverMethod">
         <template #filter="{ $panel, column }">
           <input class="my-input" type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="$panel.confirmFilter()" placeholder="按回车确认筛选">
         </template>
@@ -72,6 +62,19 @@ const roleList = ref(['', 'Develop', 'PM', 'Test'])
 const nameOptions = ref([
   { label: '包含 6', value: '6', checked: false },
   { label: '包含 4', value: '4', checked: false }
+])
+
+const roleOptions = ref([
+  { data: '' }
+])
+
+const sexOptions = ref([
+  { label: 'Man', value: 'Man' },
+  { label: 'Women', value: 'Women' }
+])
+
+const ageOptions = ref([
+  { data: '' }
 ])
 
 const findList = () => {
