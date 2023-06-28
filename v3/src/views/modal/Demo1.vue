@@ -13,6 +13,10 @@
       <vxe-button content="自定义图标" @click="openMessage({ content: 'iconStatus 自定义图标', status:'success', iconStatus: 'vxe-icon-question-circle-fill' })"></vxe-button>
       <vxe-button content="不允许重复点击" @click="openMessage({ content: '不允许重复点击', id: 'unique1' })"></vxe-button>
     </p>
+    <p>
+      <vxe-button content="打开不自动关闭" @click="openMessage({ id: 'myMsg1', content: '如果需要手动关闭，通过传id来实现', status:'loading', duration: -1 })"></vxe-button>
+      <vxe-button content="手动关闭" @click="closeMessage('myMsg1')"></vxe-button>
+    </p>
   </div>
 </template>
 
@@ -23,6 +27,9 @@ export default {
   methods: {
     openMessage (options) {
       VXETable.modal.message(options)
+    },
+    closeMessage  (id) {
+      VXETable.modal.close(id)
     }
   }
 }
