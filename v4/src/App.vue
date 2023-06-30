@@ -737,26 +737,30 @@ export default defineComponent({
               // demoUrl: 'https://jsrun.pro/VjXKp/edit',
               locat: {
                 name: 'TableMenu'
-              }
+              },
+              keywords: ['menu-config']
             },
             {
               label: 'app.aside.nav.menuPrivilege',
               locat: {
                 name: 'TableMenuPrivilege'
-              }
+              },
+              keywords: ['menu-config']
             },
             {
               label: 'app.aside.nav.expandRow',
               // demoUrl: 'https://jsrun.pro/eRXKp/edit',
               locat: {
                 name: 'TableExpand'
-              }
+              },
+              keywords: ['expand-config']
             },
             {
               label: 'app.aside.nav.expandRowIcon',
               locat: {
                 name: 'TableExpandIcon'
-              }
+              },
+              keywords: ['expand-config']
             },
             // {
             //   label: 'app.aside.nav.expandRowLazy',
@@ -774,20 +778,23 @@ export default defineComponent({
               label: 'app.aside.nav.toolbar',
               locat: {
                 name: 'TableToolbar'
-              }
+              },
+              keywords: ['toolbar']
             },
             {
               label: 'app.aside.nav.customs',
               // demoUrl: 'https://jsrun.pro/PrXKp/edit',
               locat: {
                 name: 'TableCustom'
-              }
+              },
+              keywords: ['custom-config']
             },
             {
               label: 'app.aside.nav.customStorage',
               locat: {
                 name: 'TableCustomStorage'
-              }
+              },
+              keywords: ['custom-config', 'storage']
             },
             // {
             //   label: 'app.aside.nav.customlWidthStorage',
