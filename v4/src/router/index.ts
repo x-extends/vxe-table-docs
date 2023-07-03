@@ -221,7 +221,7 @@ const TableAutoClearManual = () => import('../views/table/edit/autoClear/Example
 const TableEditCellPlaceholder = () => import('../views/table/edit/CellPlaceholder.vue')
 const TableEditInsert = () => import('../views/table/edit/insert/Example.vue')
 const TableEditRemove = () => import('../views/table/edit/remove/Example.vue')
-const TableEditRevert = () => import('../views/table/edit/Revert.vue')
+const TableEditRevert = () => import('../views/table/edit/revert/Example.vue')
 const TableEditStatus = () => import('../views/table/edit/status/Example.vue')
 // const TableEditCellDisable = () => import('../views/table/edit/CellDisable.vue')
 // const TableEditRowDisable = () => import('../views/table/edit/RowDisable.vue')
