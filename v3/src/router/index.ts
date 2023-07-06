@@ -54,7 +54,7 @@ const TableEmpty = () => import('../views/table/base/Empty.vue')
 const TableLoading = () => import('../views/table/base/Loading.vue')
 const TableFormat = () => import('../views/table/base/Format.vue')
 const TableData = () => import('../views/table/base/Data.vue')
-const TableHTML = () => import('../views/table/base/HTML.vue')
+const TableHTML = () => import('../views/table/base/html/Example.vue')
 const TableFull = () => import('../views/table/base/Full.vue')
 
 const TableEvent = () => import('../views/table/advanced/Event.vue')
