@@ -408,6 +408,15 @@ const apis = [
         ]
       },
       {
+        name: 'header-export-method',
+        desc: '自定义表头单元格数据导出方法，返回自定义的标题',
+        version: '3.6.17',
+        type: '({ column }) => string',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'export-method',
         desc: '自定义单元格数据导出方法，该方法 Function({ row, column }) 的返回值将会被导出',
         version: '',
@@ -878,7 +887,7 @@ const apis = [
       },
       {
         name: 'col-id',
-        desc: '自定义列的唯一主键（注：99%的场景不应该设置，操作不正确将导致出现问题）',
+        desc: '自定义列的唯一主键（注：列主键必须确保唯一，操作不正确将导致出现问题）',
         version: '',
         type: 'string | number',
         enum: '',

@@ -280,6 +280,33 @@ const apis = [
             enum: '',
             defVal: '',
             list: []
+          },
+          {
+            name: 'allowFixed',
+            desc: '是否允许自定义固定列',
+            version: '3.7.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'confirmButtonText',
+            desc: '确定按钮的文本内容',
+            version: '3.7.0',
+            type: 'string',
+            enum: '',
+            defVal: '确定',
+            list: []
+          },
+          {
+            name: 'resetButtonText',
+            desc: '重置按钮的文本内容',
+            version: '3.7.0',
+            type: 'string',
+            enum: '',
+            defVal: '重置',
+            list: []
           }
         ]
       },

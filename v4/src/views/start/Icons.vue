@@ -75,6 +75,10 @@
             TOOLBAR_TOOLS_FULLSCREEN: 'vxe-icon-fullscreen',
             TOOLBAR_TOOLS_MINIMIZE: 'vxe-icon-minimize',
             TOOLBAR_TOOLS_CUSTOM: 'vxe-icon-custom-column',
+            TOOLBAR_TOOLS_FIXED_LEFT: 'vxe-icon-fixed-left',
+            TOOLBAR_TOOLS_FIXED_LEFT_ACTIVED: 'vxe-icon-fixed-left-fill',
+            TOOLBAR_TOOLS_FIXED_RIGHT: 'vxe-icon-fixed-right',
+            TOOLBAR_TOOLS_FIXED_RIGHT_ACTIVED: 'vxe-icon-fixed-right-fill',
 
             // form
             FORM_PREFIX: 'vxe-icon-question-circle-fill',

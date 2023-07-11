@@ -381,21 +381,21 @@ const apis = [
         list: []
       },
       {
-        name: 'validate(callback)',
-        desc: '对表单进行校验，参数为一个回调函数。该回调函数会在校验结束后被调用 callback(errMap)。若不传入回调函数，则会返回一个 promise',
+        name: 'validate()',
+        desc: '对表单进行校验',
         version: '',
         type: 'Promise<ErrMap>',
         enum: '',
-        defVal: 'callback?: Function',
+        defVal: '',
         list: []
       },
       {
         name: 'validateField(fieldOrItem, callback)',
-        desc: '对表单指定项进行校验，参数为一个回调函数。该回调函数会在校验结束后被调用 callback(errMap)。若不传入回调函数，则会返回一个 promise',
+        desc: '对表单指定项进行校验，支持同时校验多个字段',
         version: '3.3.12',
         type: 'Promise<ErrMap>',
         enum: '',
-        defVal: 'fieldOrItem: string | ItemInfo, callback?: Function',
+        defVal: 'fieldOrItem: string | ItemInfo',
         list: []
       },
       {

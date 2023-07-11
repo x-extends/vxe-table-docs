@@ -993,6 +993,15 @@ const apis = [
             enum: 'auto, px, %',
             defVal: '',
             list: []
+          },
+          {
+            name: 'maxFixedSize',
+            desc: '固定列最大数量（如果是分组，则一个分组算一个',
+            version: '4.5.0',
+            type: 'number',
+            enum: '',
+            defVal: '4',
+            list: []
             // },
             // {
             //   name: 'maxWidth',
@@ -5139,21 +5148,21 @@ const apis = [
         list: []
       },
       {
-        name: 'validate(rows, callback)',
-        desc: '快速校验，如果存在记录不通过的记录，则返回不再继续校验（异步校验除外）；如果第一个参数为 true 则校验当前表格数据，如果指定 row 或 rows 则校验指定行或多行，如果不指定数据，则默认只校验临时变动的数据，例如新增或修改。该回调函数会在校验结束后被调用 callback(errMap)。若不传入回调函数，则会返回一个 promise',
+        name: 'validate(rows)',
+        desc: '快速校验，如果存在记录不通过的记录，则返回不再继续校验（异步校验除外）；如果第一个参数为 true 则校验当前表格数据，如果指定 row 或 rows 则校验指定行或多行，如果不指定数据，则默认只校验临时变动的数据，例如新增或修改',
         version: '',
         type: 'Promise<ErrMap>',
         enum: '',
-        defVal: 'rows?: boolean | Row | Row[], callback?: callback?: (errMap) => void',
+        defVal: 'rows?: boolean | Row | Row[]',
         list: []
       },
       {
-        name: 'fullValidate(rows, callback)',
+        name: 'fullValidate(rows)',
         desc: '完整校验，和 validate 的区别就是默认校验当前表格数据并且给有效数据中的每一行进行校验',
         version: '',
         type: 'Promise<ErrMap>',
         enum: '',
-        defVal: 'rows?: boolean | Row | Row[] | ((errMap) => void), callback?: callback?: (errMap) => void',
+        defVal: 'rows?: boolean | Row | Row[]',
         list: []
       },
       {
