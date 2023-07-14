@@ -411,14 +411,14 @@ const apis = [
         name: 'header-export-method',
         desc: '自定义表头单元格数据导出方法，返回自定义的标题',
         version: '3.6.17',
-        type: '({ column }) => string',
+        type: '({ column, options }) => string',
         enum: '',
         defVal: '',
         list: []
       },
       {
         name: 'export-method',
-        desc: '自定义单元格数据导出方法，该方法 Function({ row, column }) 的返回值将会被导出',
+        desc: '自定义单元格数据导出方法，该方法 Function({ row, column, options }) 的返回值将会被导出',
         version: '',
         type: 'Function',
         enum: '',
@@ -427,7 +427,7 @@ const apis = [
       },
       {
         name: 'footer-export-method',
-        desc: '自定义表尾单元格数据导出方法，该方法 Function({ items, _columnIndex }) 的返回值将会被导出',
+        desc: '自定义表尾单元格数据导出方法，该方法 Function({ items, _columnIndex, options }) 的返回值将会被导出',
         version: '',
         type: 'Function',
         enum: '',

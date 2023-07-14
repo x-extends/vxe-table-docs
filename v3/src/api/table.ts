@@ -1002,15 +1002,42 @@ const apis = [
             enum: '',
             defVal: '4',
             list: []
-            // },
-            // {
-            //   name: 'maxWidth',
-            //   desc: '每一列的最大宽度',
-            //   version: '',
-            //   type: 'number, string',
-            //   enum: 'auto, px, %',
-            //   defVal: '',
-            //   list: []
+          },
+          // {
+          //   name: 'maxWidth',
+          //   desc: '每一列的最大宽度',
+          //   version: '',
+          //   type: 'number, string',
+          //   enum: 'auto, px, %',
+          //   defVal: '',
+          //   list: []
+          // },
+          {
+            name: 'header-export-method',
+            desc: '每一列的自定义表头单元格数据导出方法，返回自定义的标题',
+            version: '3.7.0',
+            type: '({ column, options }) => string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'export-method',
+            desc: '每一列的自定义单元格数据导出方法，返回自定义的值',
+            version: '3.7.0',
+            type: '({ row, column, options }) => string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'footer-export-method',
+            desc: '每一列的自定义表尾单元格数据导出方法，返回自定义的值',
+            version: '3.7.0',
+            type: '({ items, _columnIndex, options }) => string',
+            enum: '',
+            defVal: '',
+            list: []
           }
         ]
       },

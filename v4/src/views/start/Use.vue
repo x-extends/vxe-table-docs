@@ -154,9 +154,6 @@
           VXETable,
 
           // 表格功能
-          Header,
-          // Footer,
-          // Icon,
           // Filter,
           // Edit,
           // Menu,
@@ -165,6 +162,7 @@
           // Validator,
 
           // 可选组件
+          Icon,
           Column,
           // Colgroup,
           // Grid,
@@ -194,6 +192,7 @@
           Table
         } from 'vxe-table'
         import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
+        import 'vxe-table/styles/variable.scss'
         import 'vxe-table/styles/cssvar.scss'
 
         // 按需加载的方式默认是不带国际化的，自定义国际化需要自行解析占位符 '{0}'，例如：
@@ -203,10 +202,7 @@
 
         function useTable (app: App) {
           // 表格功能
-          app.use(Header)
-          // .use(Footer)
-          // .use(Icon)
-          // .use(Filter)
+          // app.use(Filter)
           // .use(Edit)
           // .use(Menu)
           // .use(Export)
@@ -214,6 +210,7 @@
           // .use(Validator)
 
           // 可选组件
+          app.use(Icon)
           .use(Column)
           // .use(Colgroup)
           // .use(Grid)
