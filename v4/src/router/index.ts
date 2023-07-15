@@ -59,7 +59,7 @@ const TableHTML = () => import('../views/table/base/html/Example.vue')
 const TableFull = () => import('../views/table/base/full/Example.vue')
 
 const TableEvent = () => import('../views/table/advanced/events/Example.vue')
-const TableTemplate = () => import('../views/table/advanced/Template.vue')
+const TableTemplate = () => import('../views/table/advanced/template/Example.vue')
 const TableDynamic = () => import('../views/table/advanced/dynamic/Example.vue')
 const TableCustomCheckbox = () => import('../views/table/advanced/customCheckbox/Example.vue')
 const TableCustomRadio = () => import('../views/table/advanced/customRadio/Example.vue')

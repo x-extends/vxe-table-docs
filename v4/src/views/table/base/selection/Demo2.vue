@@ -10,7 +10,7 @@
 
     <vxe-table
       border
-      ref="xTable2"
+      ref="tableRef"
       :data="tableData"
       :checkbox-config="checkboxConfig">
       <vxe-column type="checkbox" title="All"></vxe-column>
