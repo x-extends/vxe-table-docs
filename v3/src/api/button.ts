@@ -44,10 +44,19 @@ const apis = [
         list: []
       },
       {
-        name: 'className',
-        desc: '附加 className',
+        name: 'class-name',
+        desc: '给展示容器附加 className',
         version: '3.2.9',
-        type: 'string',
+        type: 'string | (({}) => string)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'popup-class-name',
+        desc: '给下拉容器附加 className',
+        version: '3.7.0',
+        type: 'string | (({}) => string)',
         enum: '',
         defVal: '',
         list: []

@@ -15,6 +15,16 @@ module.exports = {
   publicPath,
   assetsDir: 'static',
   productionSourceMap: false,
+  devServer: {
+    proxy: {
+      '/resource/': {
+        target: 'https://vxetable.cn',
+        pathRewrite: {
+          '^/resource/': '/resource/'
+        }
+      }
+    }
+  },
   pages: {
     index: {
       entry: 'src/main.ts',

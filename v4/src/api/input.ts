@@ -543,6 +543,15 @@ const apis = [
         enum: '',
         defVal: '',
         list: []
+      },
+      {
+        name: 'select()',
+        desc: '使输入框选中内容',
+        version: '4.5.0',
+        type: 'Promise',
+        enum: '',
+        defVal: '',
+        list: []
       }
     ]
   }

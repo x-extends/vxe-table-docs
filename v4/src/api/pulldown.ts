@@ -26,6 +26,24 @@ const apis = [
         list: []
       },
       {
+        name: 'class-name',
+        desc: '给展示容器附加 className',
+        version: '4.5.0',
+        type: 'string | (({}) => string)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'popup-class-name',
+        desc: '给下拉容器附加 className',
+        version: '4.5.0',
+        type: 'string | (({}) => string)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'disabled',
         descKey: 'app.api.pulldown.desc.disabled',
         version: '',

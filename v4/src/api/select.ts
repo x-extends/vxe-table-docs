@@ -72,8 +72,17 @@ const apis = [
       },
       {
         name: 'class-name',
-        desc: '给下拉框附加 className',
+        desc: '给选择器附加 className',
         version: '4.0.7',
+        type: 'string | (({}) => string)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'popup-class-name',
+        desc: '给下拉容器附加 className',
+        version: '4.5.0',
         type: 'string | (({}) => string)',
         enum: '',
         defVal: '',
@@ -366,7 +375,7 @@ const apis = [
       },
       {
         name: 'focus()',
-        desc: '使下拉框获取焦点',
+        desc: '使选择器获取焦点',
         version: '',
         type: 'Promise',
         enum: '',
@@ -375,7 +384,7 @@ const apis = [
       },
       {
         name: 'blur()',
-        desc: '使下拉框失去焦点',
+        desc: '使选择器失去焦点',
         version: '',
         type: 'Promise',
         enum: '',

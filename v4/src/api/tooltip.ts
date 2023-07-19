@@ -44,6 +44,15 @@ const apis = [
         list: []
       },
       {
+        name: 'popup-class-name',
+        desc: '给下拉容器附加 className',
+        version: '4.5.0',
+        type: 'string | (({}) => string)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'zIndex',
         descKey: 'app.api.tooltip.desc.zIndex',
         version: '',
