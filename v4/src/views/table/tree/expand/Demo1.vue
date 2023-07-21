@@ -1,7 +1,15 @@
 <template>
   <div>
+    <p>
+      <vxe-button @click="expandAllTreeEvent">展开所有树</vxe-button>
+      <vxe-button @click="claseExpandTreeEvent">关闭所有树展开</vxe-button>
+      <vxe-button @click="expandAllRowEvent">展开所有行</vxe-button>
+      <vxe-button @click="clearExpandRowEvent">关闭所有行展开</vxe-button>
+    </p>
+
     <vxe-table
       border
+      ref="tableRef"
       :column-config="{resizable: true}"
       :tree-config="{transform: true}"
       :data="tableData">
@@ -33,6 +41,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -42,6 +51,8 @@ interface RowVO {
   size: number
   date: string
 }
+
+const tableRef = ref<VxeTableInstance>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -63,4 +74,33 @@ const tableData = ref<RowVO[]>([
   { id: 24566, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' },
   { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
 ])
+
+const expandAllTreeEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.setAllTreeExpand(true)
+  }
+}
+
+const claseExpandTreeEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.clearTreeExpand()
+  }
+}
+
+const expandAllRowEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.setAllRowExpand(true)
+  }
+}
+
+const clearExpandRowEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.clearRowExpand()
+  }
+}
+
 </script>

@@ -5,11 +5,11 @@ VXETable.renderer.add('ToolbarButtonDownload', {
   renderToolbarButton (renderOpts, params) {
     const { events = {} } = renderOpts
     const { button } = params
-    return <vxe-button circle onClick={
+    return <vxe-button onClick={
       () => {
         events.click(button)
       }
-    }></vxe-button>
+    }>下载</vxe-button>
   }
 })
 
