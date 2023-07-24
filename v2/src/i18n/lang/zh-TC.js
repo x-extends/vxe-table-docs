@@ -429,7 +429,7 @@ export default {
           remoteFilter: '即将废弃，请使用 filter-config.remote',
           columnWidth: '所有列宽度',
           columnMinWidth: '所有最小列宽度；会自动将剩余空间按比例分配',
-          columnKey: '是否需要为每一列的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+          columnKey: '是否需要为每一列的 VNode 设置 key 属性',
           rowKey: '是否需要为每一行的 VNode 设置 key 属性（非特殊情况下没必要设置）',
           rowId: '自定义行数据唯一主键的字段名（行数据必须要有唯一主键，默认自动生成）',
           keepSource: '保持原始值的状态，被某些功能所依赖，比如编辑状态、还原数据等（开启后影响性能，具体取决于数据量）',

@@ -76,7 +76,7 @@ const apis = [
         version: '',
         type: 'string',
         enum: '',
-        defVal: '',
+        defVal: '请输入',
         list: []
       },
       {

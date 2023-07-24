@@ -9,19 +9,20 @@ const StartGlobal = () => import('../views/start/Global.vue')
 const StartTheme = () => import('../views/start/Theme.vue')
 const StartI18n = () => import('../views/start/I18n.vue')
 
-const RendererAPI = () => import('../views/table/renderer/API.vue')
-const RendererFilter = () => import('../views/table/renderer/Filter.vue')
-const RendererDefault = () => import('../views/table/renderer/Default.vue')
-const RendererEdit = () => import('../views/table/renderer/Edit.vue')
-const RendererExpand = () => import('../views/table/renderer/Expand.vue')
-const RendererToolbar = () => import('../views/table/renderer/Toolbar.vue')
-const RendererForm = () => import('../views/table/renderer/Form.vue')
-const RendererEmpty = () => import('../views/table/renderer/Empty.vue')
+const RendererAPI = () => import('../views/global/renderer/API.vue')
+const RendererFilter = () => import('../views/global/renderer/Filter.vue')
+const RendererDefault = () => import('../views/global/renderer/Default.vue')
+const RendererEdit = () => import('../views/global/renderer/Edit.vue')
+const RendererExpand = () => import('../views/global/renderer/Expand.vue')
+const RendererToolbar = () => import('../views/global/renderer/Toolbar.vue')
+const RendererForm = () => import('../views/global/renderer/Form.vue')
+const RendererEmpty = () => import('../views/global/renderer/Empty.vue')
 
-const CommandsAPI = () => import('../views/table/commands/API.vue')
-const MenusAPI = () => import('../views/table/menus/API.vue')
-const InterceptorAPI = () => import('../views/table/interceptor/API.vue')
-const FormatsAPI = () => import('../views/table/formats/API.vue')
+const CommandsAPI = () => import('../views/global/commands/Example.vue')
+const MenusAPI = () => import('../views/global/menus/Example.vue')
+const InterceptorAPI = () => import('../views/global/interceptor/API.vue')
+const FormatsAPI = () => import('../views/global/formats/Example.vue')
+const ValidatorsAPI = () => import('../views/global/validators/Example.vue')
 
 const TableBasic = () => import('../views/table/base/basic/Example.vue')
 const TableSize = () => import('../views/table/base/size/Example.vue')
@@ -38,8 +39,9 @@ const TableScrollStyle = () => import('../views/table/base/scrollStyle/Example.v
 const TableHeader = () => import('../views/table/base/header/Example.vue')
 const TableHeaderHighlight = () => import('../views/table/base/headerHighlight/Example.vue')
 const TableResizable = () => import('../views/table/base/resizable/Example.vue')
-const TableMaxHeight = () => import('../views/table/base/maxHeight/Example.vue')
+const TableMinHeight = () => import('../views/table/base/minHeight/Example.vue')
 const TableHeight = () => import('../views/table/base/height/Example.vue')
+const TableMaxHeight = () => import('../views/table/base/maxHeight/Example.vue')
 const TableRowHeight = () => import('../views/table/base/rowHeight/Example.vue')
 const TableAutoHeight = () => import('../views/table/base/autoHeight/Example.vue')
 const TableFixed = () => import('../views/table/base/fixed/Example.vue')
@@ -378,6 +380,11 @@ const routes: Array<RouteRecordRaw> = [
     component: MenusAPI
   },
   {
+    path: '/table/validators/api',
+    name: 'ValidatorsAPI',
+    component: ValidatorsAPI
+  },
+  {
     path: '/table/interceptor/api',
     name: 'InterceptorAPI',
     component: InterceptorAPI
@@ -456,6 +463,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/table/base/resizable',
     name: 'TableResizable',
     component: TableResizable
+  },
+  {
+    path: '/table/base/minHeight',
+    name: 'TableMinHeight',
+    component: TableMinHeight
   },
   {
     path: '/table/base/maxHeight',

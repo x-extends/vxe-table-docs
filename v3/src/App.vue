@@ -457,7 +457,14 @@ export default {
               keywords: ['resizable']
             },
             {
-              label: 'app.aside.nav.fluidHeight',
+              label: 'app.aside.nav.minHeight',
+              locat: {
+                name: 'TableMinHeight'
+              },
+              keywords: ['min-height']
+            },
+            {
+              label: 'app.aside.nav.maxHeight',
               demoUrl: 'https://jsrun.pro/smXKp/edit',
               locat: {
                 name: 'TableMaxHeight'
@@ -1687,7 +1694,7 @@ export default {
           expand: false,
           children: [
             {
-              label: 'app.aside.nav.plugin',
+              label: 'app.aside.nav.demo',
               url: '/other3/',
               keywords: ['plugin']
             }
@@ -1732,6 +1739,20 @@ export default {
                 name: 'MenusAPI'
               },
               keywords: ['menus']
+            }
+          ]
+        },
+        {
+          label: 'app.aside.nav.validators',
+          value: 'validators',
+          expand: false,
+          children: [
+            {
+              label: 'app.aside.nav.api',
+              locat: {
+                name: 'ValidatorsAPI'
+              },
+              keywords: ['validators']
             }
           ]
         },

@@ -13,7 +13,7 @@
       ref="tableRef"
       :loading="loading"
       :tree-config="{transform: true}"
-      :scroll-y="{gt: 20}"
+      :scroll-y="{enabled: true, gt: 20}"
       :data="tableData">
       <vxe-column type="seq" width="200" tree-node></vxe-column>
       <vxe-column field="id" title="Id"></vxe-column>

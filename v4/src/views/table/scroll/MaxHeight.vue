@@ -8,7 +8,8 @@
       ref="xTable1"
       max-height="400"
       :column-config="{resizable: true}"
-      :loading="demo1.loading">
+      :loading="demo1.loading"
+      :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200"></vxe-column>
@@ -35,7 +36,8 @@
       ref="xTable2"
       max-height="400"
       :column-config="{resizable: true}"
-      :loading="demo2.loading">
+      :loading="demo2.loading"
+      :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200"></vxe-column>

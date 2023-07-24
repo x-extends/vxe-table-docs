@@ -36,9 +36,9 @@ setTimeout(() => {
   gridOptions.columns = [
     { type: 'seq', width: 50 },
     { field: 'name', title: 'Name' },
-    { field: 'sex', title: 'Sex', showHeaderOverflow: true },
+    { field: 'sex', title: 'Sex' },
     { field: 'role', title: 'Role' },
-    { field: 'address', title: 'Address', showOverflow: true }
+    { field: 'address', title: 'Address' }
   ]
   // 数据列表
   gridOptions.data = [

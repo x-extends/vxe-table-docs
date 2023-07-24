@@ -98,6 +98,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       buttons: 'toolbar_buttons'
     }
   },
+  scrollY: {
+    enabled: true
+  },
   editConfig: {
     trigger: 'click',
     mode: 'cell'

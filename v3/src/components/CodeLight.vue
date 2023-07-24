@@ -20,17 +20,25 @@
           <vxe-button type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
+        <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
       <div class="example-code-warpper" v-show="showTsCode">
-        <pre v-for="(item, index) in importCodes" :key="index">
-          <code class="javascript" ref="importRef">{{ item.text }}</code>
-          <div class="example-code-title">{{ item.name }}</div>
-        </pre>
-        <pre>
-          <code class="html" ref="codeRef">{{ tsCodeText }}</code>
-          <div class="example-code-title">{{ getFileName(`${path}.vue`) }}</div>
-        </pre>
+        <div v-for="(item, index) in importCodes" :key="index" class="example-code-item">
+          <div class="example-code-file">
+            <a class="link" :href="`${compDir}/${item.name}`" title="点击查看" target="_blank">{{ item.name }}</a>
+          </div>
+          <pre>
+            <code class="javascript" ref="importRef">{{ item.text }}</code>
+          </pre>
+        </div>
+        <div class="example-code-item">
+          <div class="example-code-file">
+            <a class="link" :href="`${compDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank">{{ getFileName(`${path}.vue`) }}</a>
+          </div>
+          <pre>
+            <code class="html" ref="codeRef">{{ tsCodeText }}</code>
+          </pre>
+        </div>
       </div>
     </div>
   </div>
@@ -42,6 +50,8 @@ import { VXETable } from 'vxe-table'
 import hljs from 'highlight.js'
 import XEClipboard from 'xe-clipboard'
 import AsyncDemo from './AsyncDemo.vue'
+
+const gitBaseUrl = 'https://github.com/x-extends/vxe-table-docs/tree/main/v3'
 
 export default {
   name: 'CodeLight',
@@ -58,6 +68,12 @@ export default {
       showTsCode: false,
       loading: false,
       importCodes: []
+    }
+  },
+  computed: {
+    compDir () {
+      const paths = this.path?.split('/') || []
+      return `${gitBaseUrl}/src/views/${paths.slice(0, paths.length - 1).join('/')}`
     }
   },
   methods: {
@@ -142,7 +158,7 @@ export default {
       }
     },
     openDocs  () {
-      open(`https://github.com/x-extends/vxe-table-docs/tree/main/v3/src/views/${this.path}.vue`)
+      open(`${gitBaseUrl}/src/views/${this.path}.vue`)
     }
   }
 }
@@ -178,13 +194,21 @@ export default {
   padding: 0 30px;
   margin: 0;
   pre {
-    position: relative;
+    margin: 0;
+    padding: 0;
   }
 }
-.example-code-title {
+.example-code-item {
+  display: block;
+  position: relative;
+}
+.example-code-file {
   position: absolute;
   top: 0;
   left: 0;
   font-size: 12px;
+  .link {
+    color: #666666;
+  }
 }
 </style>

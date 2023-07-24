@@ -34,8 +34,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 50 },
     { field: 'name', title: 'name' },
-    { field: 'sex', title: 'sex', showHeaderOverflow: true },
-    { field: 'address', title: 'Address', showOverflow: true }
+    { field: 'sex', title: 'sex' },
+    { field: 'address', title: 'Address' }
   ],
   toolbarConfig: {
     slots: {

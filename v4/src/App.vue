@@ -452,7 +452,15 @@ export default defineComponent({
               keywords: ['resizable']
             },
             {
-              label: 'app.aside.nav.fluidHeight',
+              label: 'app.aside.nav.minHeight',
+              // demoUrl: 'https://jsrun.pro/smXKp/edit',
+              locat: {
+                name: 'TableMinHeight'
+              },
+              keywords: ['min-height']
+            },
+            {
+              label: 'app.aside.nav.maxHeight',
               // demoUrl: 'https://jsrun.pro/smXKp/edit',
               locat: {
                 name: 'TableMaxHeight'
@@ -1767,7 +1775,7 @@ export default defineComponent({
           expand: false,
           children: [
             {
-              label: 'app.aside.nav.plugin',
+              label: 'app.aside.nav.demo',
               url: '/other4/',
               keywords: ['plugin']
             }
@@ -1812,6 +1820,20 @@ export default defineComponent({
                 name: 'MenusAPI'
               },
               keywords: ['menus']
+            }
+          ]
+        },
+        {
+          label: 'app.aside.nav.validators',
+          value: 'validators',
+          expand: false,
+          children: [
+            {
+              label: 'app.aside.nav.api',
+              locat: {
+                name: 'ValidatorsAPI'
+              },
+              keywords: ['validators']
             }
           ]
         },

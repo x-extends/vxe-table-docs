@@ -23,21 +23,29 @@
         <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
       <div class="example-code-warpper" v-show="showTsCode">
-        <pre v-for="(item, index) in importCodes" :key="index">
-          <code class="javascript" ref="importRef">{{ item.text }}</code>
-          <div class="example-code-title">{{ item.name }}</div>
-        </pre>
-        <pre>
-          <code class="html" ref="codeRef">{{ tsCodeText }}</code>
-          <div class="example-code-title">{{ getFileName(`${path}.vue`) }}</div>
-        </pre>
+        <div v-for="(item, index) in importCodes" :key="index" class="example-code-item">
+          <div class="example-code-file">
+            <a class="link" :href="`${compDir}/${item.name}`" title="点击查看" target="_blank">{{ item.name }}</a>
+          </div>
+          <pre>
+            <code class="javascript" ref="importRef">{{ item.text }}</code>
+          </pre>
+        </div>
+        <div class="example-code-item">
+          <div class="example-code-file">
+            <a class="link" :href="`${compDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank">{{ getFileName(`${path}.vue`) }}</a>
+          </div>
+          <pre>
+            <code class="html" ref="codeRef">{{ tsCodeText }}</code>
+          </pre>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, defineAsyncComponent, PropType } from 'vue'
+import { nextTick, ref, computed, defineAsyncComponent, PropType } from 'vue'
 import { codeMaps } from '@/common/cache'
 import { VXETable } from 'vxe-table'
 import hljs from 'highlight.js'
@@ -55,6 +63,8 @@ const codeRef = ref<HTMLElement>()
 const importRef = ref<HTMLElement>()
 const tsCodeText = ref('')
 
+const gitBaseUrl = 'https://github.com/x-extends/vxe-table-docs/tree/main/v4'
+
 const showTsCode = ref(false)
 const loading = ref(false)
 
@@ -65,6 +75,11 @@ const importCodes = ref<{
 }[]>([])
 
 const DemoCode = defineAsyncComponent(() => import(`@/views/${props.path}`))
+
+const compDir = computed(() => {
+  const paths = props.path?.split('/') || []
+  return `${gitBaseUrl}/src/views/${paths.slice(0, paths.length - 1).join('/')}`
+})
 
 const getFileName = (path: string) => {
   return path.split('/').slice(-1)[0]
@@ -162,7 +177,7 @@ const copyCode = () => {
 }
 
 const openDocs = () => {
-  open(`https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/views/${props.path}.vue`)
+  open(`${gitBaseUrl}/src/views/${props.path}.vue`)
 }
 </script>
 
@@ -196,13 +211,21 @@ const openDocs = () => {
   padding: 0 30px;
   margin: 0;
   pre {
-    position: relative;
+    margin: 0;
+    padding: 0;
   }
 }
-.example-code-title {
+.example-code-item {
+  display: block;
+  position: relative;
+}
+.example-code-file {
   position: absolute;
   top: 0;
   left: 0;
   font-size: 12px;
+  .link {
+    color: #666666;
+  }
 }
 </style>

@@ -4,23 +4,20 @@
       border
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="date" title="转日期" width="180" formatter="formatDate2"></vxe-column>
-      <vxe-column field="time" title="转日期格式" width="140" :formatter="['formatDate2', 'yyyy-MM-dd']"></vxe-column>
-      <vxe-column field="amount" title="格式化金额" formatter="formatAmount3"></vxe-column>
-      <vxe-column field="bankCard" title="银行卡" width="180" formatter="formatBankcard4"></vxe-column>
+      <vxe-column field="date" title="转日期" width="180" formatter="formatDate"></vxe-column>
+      <vxe-column field="time" title="转日期格式" width="140" :formatter="['formatDate', 'yyyy-MM-dd']"></vxe-column>
+      <vxe-column field="amount" title="格式化金额" formatter="formatAmount"></vxe-column>
+      <vxe-column field="bankCard" title="银行卡" width="180" formatter="formatBankcard"></vxe-column>
       <vxe-column field="num7" title="数值"></vxe-column>
-      <vxe-column field="num8" title="截取2位数" formatter="formatCutNumber5"></vxe-column>
-      <vxe-column field="num9" title="四舍五入2位数" formatter="formatFixedNumber6"></vxe-column>
-      <vxe-column field="sex" title="格式化性别" formatter="formatSex7"></vxe-column>
+      <vxe-column field="num8" title="截取2位数" formatter="formatCutNumber"></vxe-column>
+      <vxe-column field="num9" title="四舍五入2位数" formatter="formatFixedNumber"></vxe-column>
+      <vxe-column field="sex" title="格式化性别" formatter="formatSex"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-
-// 在 main.ts 中全局引入
-import './demo2.format'
 
 interface RowVO {
   id: number

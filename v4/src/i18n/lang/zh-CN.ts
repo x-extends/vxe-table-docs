@@ -11,6 +11,8 @@ export default {
         theme: '全局主题',
         i18n: '国际化',
 
+        demo: '示例',
+
         icon: '图标',
         basics: '基础表格',
         base: '基础',
@@ -34,6 +36,8 @@ export default {
         height: '固定表头',
         fixed: '固定列',
         fullFixed: '固定表头和列',
+        minHeight: '最小高度',
+        maxHeight: '最大高度',
         group: '表头分组',
         merge: '合并行或列',
         seq: '序号',
@@ -204,7 +208,7 @@ export default {
         sortablejsColumn: 'sortablejs -> 列拖拽',
         xlsxRender: 'xlsx -> 导入与导出',
 
-        plugin: '扩展插件库',
+        plugin: '(扩展) 插件库',
         elementPlugin: 'plugin-element 基本配置',
         elementFilterPlugin: 'plugin-element 筛选配置',
         elementPluginMore: 'plugin-element 更多配置',
@@ -224,9 +228,10 @@ export default {
         treeRowPlugin: 'plugin-virtual-tree 虚拟树',
         treeColPlugin: 'plugin-virtual-tree 横向与纵向',
 
-        formats: '(全局复用) 格式化',
-        commands: '(全局复用) 指令注册',
-        menus: '(全局复用) 右键菜单',
+        formats: '(全局) 格式化',
+        commands: '(全局) 指令注册',
+        menus: '(全局) 右键菜单',
+        validators: '(全局) 校验器',
 
         renderer: '(高级用法) 渲染器',
         rendererFilter: '筛选渲染',
@@ -284,7 +289,7 @@ export default {
       button: {
         viewCode: '查看代码',
         runDemo: '在线运行',
-        fixDocs: '完善示例',
+        fixDocs: '发现错误',
         fixDocTip: '如果该文档存在错误或者不详细，可以通过提交 PR 方式帮助完善文档！',
         copyCode: '复制代码',
         showCode: '显示代码',
@@ -439,7 +444,7 @@ export default {
           remoteFilter: '即将废弃，请使用 filter-config.remote',
           columnWidth: '所有列宽度',
           columnMinWidth: '所有最小列宽度；会自动将剩余空间按比例分配',
-          columnKey: '是否需要为每一列的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+          columnKey: '是否需要为每一列的 VNode 设置 key 属性',
           rowKey: '是否需要为每一行的 VNode 设置 key 属性（非特殊情况下没必要设置）',
           rowId: '自定义行数据唯一主键的字段名（行数据必须要有唯一主键，默认自动生成）',
           keepSource: '保持原始值的状态，被某些功能所依赖，比如编辑状态、还原数据等（开启后影响性能，具体取决于数据量）',
@@ -469,7 +474,7 @@ export default {
           editRules: '校验规则配置项',
           emptyText: '空数据时显示的内容',
           emptyRender: '空内容渲染配置项，empty-render 的优先级大于 empty-text',
-          customConfig: '自定义列配置项',
+          customConfig: '个性化信息配置项',
           optimization: '即将废弃',
 
           params: '自定义参数（可以用来存放一些自定义的数据）',

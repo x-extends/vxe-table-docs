@@ -5,7 +5,8 @@
       show-overflow
       height="400"
       :row-config="{isHover: true}"
-      :data="tableData">
+      :data="tableData"
+      :scroll-y="{enabled: true}">
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>

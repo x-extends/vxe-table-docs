@@ -510,6 +510,15 @@ const apis = [
         list: []
       },
       {
+        name: 'min-height',
+        desc: '表格最小高度',
+        version: '4.5.0',
+        type: 'number | string',
+        enum: '%, px',
+        defVal: '默认 144，继承 setup.table.minHeight',
+        list: []
+      },
+      {
         name: 'max-height',
         descKey: 'app.api.table.desc.maxHeight',
         version: '',
@@ -942,7 +951,7 @@ const apis = [
         list: [
           {
             name: 'useKey',
-            desc: '是否需要为每一列的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+            desc: '是否需要为每一列的 VNode 设置 key 属性',
             version: '4.2.0',
             type: 'boolean',
             enum: '',
@@ -996,7 +1005,7 @@ const apis = [
           },
           {
             name: 'maxFixedSize',
-            desc: '固定列最大数量（如果是分组，则一个分组算一个）',
+            desc: '固定列允许设置的最大数量（如果是分组，则一个分组算一个）',
             version: '4.5.0',
             type: 'number',
             enum: '',
@@ -1051,7 +1060,7 @@ const apis = [
         list: [
           {
             name: 'useKey',
-            desc: '是否需要为每一行的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+            desc: '是否需要为每一行的 VNode 设置 key 属性',
             version: '4.2.0',
             type: 'boolean',
             enum: '',
@@ -2636,7 +2645,7 @@ const apis = [
           },
           {
             name: 'autoClear',
-            desc: '当点击非编辑列之后，是否自动清除单元格的激活状态',
+            desc: '当点击表格之外或者非编辑列之后，是否自动清除单元格的激活状态',
             version: '',
             type: 'boolean',
             enum: '',
@@ -2691,6 +2700,15 @@ const apis = [
             list: []
           },
           {
+            name: 'autoClear',
+            desc: '当点击表格之外或者其他列之后，是否自动清除单元格的校验消息',
+            version: '4.5.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
             name: 'showMessage',
             desc: '是否显示错误显示',
             version: '',
@@ -2699,10 +2717,19 @@ const apis = [
             defVal: 'true',
             list: []
           },
+          {
+            name: 'msgMode',
+            desc: '校验消息提示方式',
+            version: '4.5.0',
+            type: 'string',
+            enum: 'single（单个提示），full（全量提示）',
+            defVal: 'single',
+            list: []
+          },
           // {
           //   name: 'message',
           //   abandoned: true,
-          //   desc: '校验提示框的方式',
+          //   desc: '只对 msgMode=single 有效，校验提示框的方式',
           //   version: '',
           //   type: 'string',
           //   enum: 'default（如果不设置高度，则默认第一行使用 tooltip，之后使用 inline）, none（关闭提示）, inline（强制使用内联的提示）, tooltip（强制使用 tooltip 提示）',
@@ -2712,7 +2739,7 @@ const apis = [
           {
             name: 'maxWidth',
             abandoned: true,
-            desc: '校验提示框的最大宽度（对于某些特殊场景可能会用到）',
+            desc: '校验提示框的最大宽度',
             version: '',
             type: 'string | number',
             enum: '',

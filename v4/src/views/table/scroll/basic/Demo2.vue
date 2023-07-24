@@ -8,8 +8,8 @@
       show-footer
       height="400"
       :footer-method="footerMethod"
-      :scroll-x="{gt: 10}"
-      :scroll-y="{gt: 100}"
+      :scroll-x="{enabled: true, gt: 10}"
+      :scroll-y="{enabled: true, gt: 100}"
       :data="tableData">
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" width="150" sortable></vxe-column>

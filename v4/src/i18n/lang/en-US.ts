@@ -11,6 +11,8 @@ export default {
         theme: 'Global theme',
         i18n: 'Internationalization',
 
+        demo: 'Demo',
+
         icon: 'Icon',
         basics: 'Basic table',
         base: 'Basics table',
@@ -35,6 +37,8 @@ export default {
         visible: '默认是否显示',
         fixed: 'Table with fixed column',
         fullFixed: 'Table with fixed columns and header ',
+        minHeight: 'Min height',
+        maxHeight: 'Min height',
         group: 'Grouping table head',
         merge: 'Merge rows or columns',
         seq: 'Table sequence',
@@ -205,7 +209,7 @@ export default {
         sortablejsColumn: 'sortablejs -> column moving',
         xlsxRender: 'xlsx -> Import and export',
 
-        plugin: 'Extension plug-in library',
+        plugin: '(Extension) plug-in library',
         elementPlugin: 'plugin-element Basic config',
         elementFilterPlugin: 'plugin-element Filter config',
         elementPluginMore: 'plugin-element More config',
@@ -226,11 +230,12 @@ export default {
         treeRowPlugin: 'plugin-virtual-tree Virtual tree',
         treeColPlugin: 'plugin-virtual-tree Horizontal and vertical',
 
-        formats: '(全局复用) Formatter',
-        commands: '(全局复用) Command register',
-        menus: '(全局复用) Context menu',
+        formats: '(Global) Formatter',
+        commands: '(Global) Command register',
+        menus: '(Global) Context menu',
+        validators: '(Global) Validator',
 
-        renderer: '(高级用法) VxeRenderer',
+        renderer: '(Advanced) VxeRenderer',
         rendererFilter: 'Filter renderer',
         rendererDefault: 'Cell renderer',
         rendererEdit: 'Edit renderer',
@@ -239,7 +244,7 @@ export default {
         rendererForm: 'Form renderer',
         rendererEmpty: 'No data renderer',
 
-        interceptor: '(高级用法) Event interceptor',
+        interceptor: '(Advanced) Event interceptor',
 
         optimize: 'Optimization and suggestion',
         optimizeScroller: 'Virtual rolling optimization',
@@ -286,7 +291,7 @@ export default {
       button: {
         viewCode: 'View code',
         runDemo: 'Run demo',
-        fixDocs: 'Improve example',
+        fixDocs: 'Fix',
         fixDocTip: 'If the document has errors or is not detailed, you can help improve it by submitting PR!',
         copyCode: 'Copy code',
         showCode: 'Show code',

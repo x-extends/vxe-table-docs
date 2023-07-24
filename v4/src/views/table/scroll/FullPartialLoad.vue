@@ -49,6 +49,9 @@ export default defineComponent({
       rowConfig: {
         keyField: 'id'
       },
+      scrollY: {
+        enabled: true
+      },
       checkboxConfig: {
         checkField: 'checked',
         labelField: 'id'

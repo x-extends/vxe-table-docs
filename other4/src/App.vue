@@ -572,17 +572,17 @@ export default defineComponent({
           }
         }, 3000)
       } else {
-        setTimeout(() => {
-          if (location.href.indexOf('vxetable.cn') === -1) {
-            VXETable.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
-              confirmButtonText: '点击跳转'
-            }).then(type => {
-              if (type === 'confirm') {
-                location.href = 'https://vxetable.cn'
-              }
-            })
-          }
-        })
+        // setTimeout(() => {
+        //   if (location.href.indexOf('vxetable.cn') === -1) {
+        //     VXETable.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
+        //       confirmButtonText: '点击跳转'
+        //     }).then(type => {
+        //       if (type === 'confirm') {
+        //         location.href = 'https://vxetable.cn'
+        //       }
+        //     })
+        //   }
+        // })
       }
       init()
     })

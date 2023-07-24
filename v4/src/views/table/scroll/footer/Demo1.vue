@@ -24,6 +24,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showFooter: true,
   height: 500,
   loading: false,
+  scrollY: {
+    enabled: true
+  },
   rowConfig: {
     keyField: 'id'
   },

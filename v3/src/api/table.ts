@@ -510,12 +510,21 @@ const apis = [
         list: []
       },
       {
+        name: 'min-height',
+        desc: '表格最小高度',
+        version: '3.7.0',
+        type: 'number | string',
+        enum: '%, px',
+        defVal: '默认 144，继承 setup.table.minHeight',
+        list: []
+      },
+      {
         name: 'max-height',
         descKey: 'app.api.table.desc.maxHeight',
         version: '',
         type: 'number | string',
         enum: '%, px',
-        defVal: '',
+        defVal: 'e',
         list: []
       },
       {
@@ -942,7 +951,7 @@ const apis = [
         list: [
           {
             name: 'useKey',
-            desc: '是否需要为每一列的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+            desc: '是否需要为每一列的 VNode 设置 key 属性',
             version: '3.5.0',
             type: 'boolean',
             enum: '',
@@ -996,7 +1005,7 @@ const apis = [
           },
           {
             name: 'maxFixedSize',
-            desc: '固定列最大数量（如果是分组，则一个分组算一个',
+            desc: '固定列允许设置的最大数量（如果是分组，则一个分组算一个',
             version: '4.5.0',
             type: 'number',
             enum: '',
@@ -1051,7 +1060,7 @@ const apis = [
         list: [
           {
             name: 'useKey',
-            desc: '是否需要为每一行的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+            desc: '是否需要为每一行的 VNode 设置 key 属性',
             version: '3.5.0',
             type: 'boolean',
             enum: '',

@@ -170,7 +170,7 @@ const apis = [
         list: [
           {
             name: 'useKey',
-            desc: '是否需要为每一选项的 VNode 设置 key 属性（非特殊情况下不需要使用）',
+            desc: '是否需要为每一选项的 VNode 设置 key 属性',
             version: '',
             type: 'boolean',
             enum: '',

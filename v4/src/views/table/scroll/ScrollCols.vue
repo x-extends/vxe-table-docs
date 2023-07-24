@@ -51,6 +51,12 @@ export default defineComponent({
       },
       checkboxConfig: {
         checkField: 'checked'
+      },
+      scrollY: {
+        enabled: true
+      },
+      scrollX: {
+        enabled: true
       }
     } as VxeGridProps)
 
