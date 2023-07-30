@@ -295,13 +295,6 @@ export default defineComponent({
               keywords: ['toolbar']
             },
             {
-              label: 'app.aside.nav.form',
-              locat: {
-                name: 'ModuleForm'
-              },
-              keywords: ['form', 'form-item', 'form-gather']
-            },
-            {
               label: 'app.aside.nav.list',
               locat: {
                 name: 'ModuleList'
@@ -328,6 +321,41 @@ export default defineComponent({
                 name: 'ModulePrint'
               },
               keywords: ['print', '$XPrint']
+            }
+          ]
+        },
+        {
+          label: 'app.aside.nav.form',
+          value: 'form',
+          expand: false,
+          children: [
+            {
+              label: 'app.aside.nav.baseForm',
+              locat: {
+                name: 'FormBasics'
+              },
+              keywords: ['form', 'form-item', 'form-gather']
+            },
+            {
+              label: 'app.aside.nav.customLayout',
+              locat: {
+                name: 'FormCustomLayout'
+              },
+              keywords: ['custom-layout']
+            },
+            {
+              label: 'app.aside.nav.formValid',
+              locat: {
+                name: 'FormValid'
+              },
+              keywords: ['rulest']
+            },
+            {
+              label: 'app.aside.nav.configForm',
+              locat: {
+                name: 'FormConfig'
+              },
+              keywords: ['form']
             }
           ]
         },

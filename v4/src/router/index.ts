@@ -249,6 +249,11 @@ const TableEditEvents = () => import('../views/table/edit/events/Example.vue')
 const TableEditTemplate = () => import('../views/table/edit/Template.vue')
 const TableEditFull = () => import('../views/table/edit/full/Example.vue')
 
+const FormBasics = () => import('../views/form/basics/Example.vue')
+const FormConfig = () => import('../views/form/config/Example.vue')
+const FormCustomLayout = () => import('../views/form/customLayout/Example.vue')
+const FormValid = () => import('../views/form/valid/Example.vue')
+
 const ModuleIcon = () => import('../views/icon/Example.vue')
 const ModuleButton = () => import('../views/button/Example.vue')
 const ModuleRadio = () => import('../views/radio/Example.vue')
@@ -260,7 +265,6 @@ const ModulePager = () => import('../views/pager/Example.vue')
 const ModuleModal = () => import('../views/modal/Example.vue')
 const ModuleTooltip = () => import('../views/tooltip/Example.vue')
 const ModuleToolbar = () => import('../views/toolbar/Example.vue')
-const ModuleForm = () => import('../views/form/Example.vue')
 const ModuleSwitch = () => import('../views/switch/Example.vue')
 const ModuleList = () => import('../views/list/Example.vue')
 const ModulePulldown = () => import('../views/pulldown/Example.vue')
@@ -1483,6 +1487,26 @@ const routes: Array<RouteRecordRaw> = [
     component: TableEditFull
   },
   {
+    path: '/form/basics',
+    name: 'FormBasics',
+    component: FormBasics
+  },
+  {
+    path: '/form/config',
+    name: 'FormConfig',
+    component: FormConfig
+  },
+  {
+    path: '/form/valid',
+    name: 'FormValid',
+    component: FormValid
+  },
+  {
+    path: '/form/customLayout',
+    name: 'FormCustomLayout',
+    component: FormCustomLayout
+  },
+  {
     path: '/table/module/icon',
     name: 'ModuleIcon',
     component: ModuleIcon
@@ -1536,11 +1560,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/table/module/toolbar',
     name: 'ModuleToolbar',
     component: ModuleToolbar
-  },
-  {
-    path: '/table/module/form',
-    name: 'ModuleForm',
-    component: ModuleForm
   },
   {
     path: '/table/module/switch',

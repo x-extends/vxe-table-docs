@@ -62,6 +62,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   pagerConfig: {
+    enabled: true,
     total: 0,
     currentPage: 1,
     pageSize: 10,

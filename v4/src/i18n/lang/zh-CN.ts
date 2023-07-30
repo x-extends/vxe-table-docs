@@ -13,6 +13,11 @@ export default {
 
         demo: '示例',
 
+        baseForm: '基础表单',
+        customLayout: '自定义布局',
+        formValid: '表单校验',
+        configForm: '配置式表单',
+
         icon: '图标',
         basics: '基础表格',
         base: '基础',

@@ -13,6 +13,11 @@ export default {
 
         demo: 'Demo',
 
+        baseForm: 'Basics form',
+        customLayout: 'Custom layout',
+        formValid: 'Validate form',
+        configForm: 'Configuration form',
+
         icon: 'Icon',
         basics: 'Basic table',
         base: 'Basics table',

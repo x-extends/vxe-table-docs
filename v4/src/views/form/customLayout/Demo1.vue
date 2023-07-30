@@ -13,7 +13,7 @@
             <vxe-input v-model="data.nickname" placeholder="请输入昵称" clearable></vxe-input>
           </template>
         </vxe-form-item>
-        <vxe-form-item title="性别" field="sex" :item-render="{}" :title-prefix="{ message: '左边图标', icon: 'vxe-icon-question-circle-fill' }" :title-suffix="{ message: '右边图标', icon: 'vxe-icon-question-circle-fill' }">
+        <vxe-form-item title="性别" field="sex" :item-render="{}" :title-prefix="{ message: '左边图标', icon: 'vxe-icon-user-fill' }" :title-suffix="{ message: '右边图标', icon: 'vxe-icon-warning-triangle' }">
           <template #title>
             <span style="color: red;">标题</span>
           </template>
@@ -24,7 +24,7 @@
             </vxe-select>
           </template>
         </vxe-form-item>
-        <vxe-form-item title="年龄" field="age" :item-render="{}" :title-suffix="{ message: '右边图标', icon: 'vxe-icon-question-circle-fill' }">
+        <vxe-form-item title="年龄" field="age" :item-render="{}" :title-suffix="{ message: '右边图标', icon: 'vxe-icon-setting-fill' }">
           <template #default="{ data }">
             <vxe-input v-model="data.age" type="integer" placeholder="请输入年龄" clearable></vxe-input>
           </template>
@@ -35,7 +35,7 @@
           </template>
         </vxe-form-item>
         <div>
-          <vxe-checkbox v-model="collapseStatus" content="查看更多" :checked-value="false" :unchecked-value="true"></vxe-checkbox>
+          <vxe-checkbox v-model="collapseStatus" content="自定义展开/收起" :checked-value="false" :unchecked-value="true"></vxe-checkbox>
         </div>
         <vxe-form-item title="日期" field="date" :item-render="{}" folding>
           <template #default="{ data }">
@@ -54,7 +54,7 @@
         <div>
           <vxe-form-item align="center" collapse-node>
             <template #default>
-              <vxe-button status="primary" content="手动提交方式" @click="searchEvent"></vxe-button>
+              <vxe-button status="primary" content="提交" @click="searchEvent"></vxe-button>
               <vxe-button content="重置" @click="resetEvent"></vxe-button>
             </template>
           </vxe-form-item>
