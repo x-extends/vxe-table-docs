@@ -16,7 +16,7 @@
       resizable
       keep-source
       ref="xTable"
-      row-id="id"
+      :row-config="{keyField: 'id'}"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       :tree-config="{transform: true, lazy: true, hasChild: 'hasChild', loadMethod: loadChildrenMethod}"
       :data="tableData">

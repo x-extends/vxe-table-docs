@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="tip">
-      树表格的懒加载，通过配置 <table-api-link prop="row-id"/> 和 <table-api-link prop="tree-config"/>={<table-api-link prop="lazy"/>, <table-api-link prop="loadMethod"/>} 加载方法来开启树形懒加载<br>
+      树表格的懒加载，通过配置 <table-api-link prop="row-config"/>.<table-api-link prop="keyField"/> 和 <table-api-link prop="tree-config"/>={<table-api-link prop="lazy"/>, <table-api-link prop="loadMethod"/>} 加载方法来开启树形懒加载<br>
       当启用懒加载后，必须通过 <table-api-link prop="hasChild"/> 属性来标识是否存在子节点，从而控制该节点是否允许被点击<br>
       <span class="red">（注：懒加载启用后一次只允许异步加载一层根节点）</span>
     </p>
@@ -19,7 +19,7 @@
       border
       resizable
       ref="xTree"
-      row-id="id"
+      :row-config="{keyField: 'id'}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', lazy: true, hasChild: 'hasChild', loadMethod: loadChildrenMethod}"
       :data="tableData1">
       <vxe-column type="seq" width="60"></vxe-column>
@@ -41,8 +41,8 @@
     <vxe-table
       border
       resizable
-      row-id="id"
       :loading="loading2"
+      :row-config="{keyField: 'id'}"
       :checkbox-config="{labelField: 'name'}"
       :tree-config="{transform: true, lazy: true, hasChild: 'hasChild', expandRowKeys: defaultExpandRowKeys, loadMethod: loadChildrenMethod, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
       :data="tableData2">

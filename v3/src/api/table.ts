@@ -1401,7 +1401,7 @@ const apis = [
           },
           {
             name: 'reserve',
-            desc: '是否保留勾选状态，例如：数据被刷新或者分页之后还保留之前选中的状态（需要有 row-id）',
+            desc: '是否保留勾选状态，例如：数据被刷新或者分页之后还保留之前选中的状态（需要有 row-config.keyField）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1419,7 +1419,7 @@ const apis = [
           },
           {
             name: 'checkRowKey',
-            desc: '默认选中指定行（只会在初始化时被触发一次，需要有 row-id）',
+            desc: '默认选中指定行（只会在初始化时被触发一次，需要有 row-config.keyField）',
             version: '',
             type: 'string',
             enum: '',
@@ -1510,7 +1510,7 @@ const apis = [
           },
           {
             name: 'checkRowKeys',
-            desc: '默认勾选指定行（只会在初始化时被触发一次，需要有 row-id）',
+            desc: '默认勾选指定行（只会在初始化时被触发一次，需要有 row-config.keyField）',
             version: '',
             type: 'string[]',
             enum: '',
@@ -1573,7 +1573,7 @@ const apis = [
           },
           {
             name: 'reserve',
-            desc: '是否保留勾选状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前选中的状态（需要有 row-id）',
+            desc: '是否保留勾选状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前选中的状态（需要有 row-config.keyField）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1683,7 +1683,7 @@ const apis = [
           },
           {
             name: 'expandRowKeys',
-            desc: '默认展开指定行（只会在初始化时被触发一次，需要有 row-id）',
+            desc: '默认展开指定行（只会在初始化时被触发一次，需要有 row-config.keyField）',
             version: '',
             type: 'string[]',
             enum: '',
@@ -1755,7 +1755,7 @@ const apis = [
           },
           {
             name: 'reserve',
-            desc: '是否保留展开状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前展开的状态（需要有 row-id）',
+            desc: '是否保留展开状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前展开的状态（需要有 row-config.keyField）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1819,7 +1819,7 @@ const apis = [
           },
           {
             name: 'rowField',
-            desc: '树节点的字段名',
+            desc: '用于 tree-config.transform，树节点的字段名',
             version: '3.3.16',
             type: 'string',
             enum: '',
@@ -1828,7 +1828,7 @@ const apis = [
           },
           {
             name: 'parentField',
-            desc: '树父节点的字段名',
+            desc: '用于 tree-config.transform，树父节点的字段名',
             version: '3.3.16',
             type: 'string',
             enum: '',
@@ -1836,8 +1836,18 @@ const apis = [
             list: []
           },
           {
-            name: 'children',
+            name: 'childrenField',
             desc: '树子节点的字段名',
+            version: '3.7.0',
+            type: 'string',
+            enum: '',
+            defVal: 'children',
+            list: []
+          },
+          {
+            name: 'children',
+            abandoned: true,
+            desc: '已废弃，请使用 childrenField',
             version: '',
             type: 'string',
             enum: '',
@@ -1854,8 +1864,18 @@ const apis = [
             list: []
           },
           {
-            name: 'line',
+            name: 'showLine',
             desc: '树节点的连接线（启用连接线会降低渲染性能）',
+            version: '3.7.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'line',
+            abandoned: true,
+            desc: '已废弃，请使用 showLine',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1873,7 +1893,7 @@ const apis = [
           },
           {
             name: 'expandRowKeys',
-            desc: '默认展开指定树节点（只会在初始化时被触发一次，需要有 row-id）',
+            desc: '默认展开指定树节点（只会在初始化时被触发一次，需要有 row-config.keyField）',
             version: '',
             type: 'string[]',
             enum: '',
@@ -1900,7 +1920,7 @@ const apis = [
           },
           {
             name: 'lazy',
-            desc: '是否使用懒加载（启用后只有指定 hasChild 的节点才允许被点击）',
+            desc: '是否使用懒加载（启用后只有指定 hasChild 字段的节点才允许被点击）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1908,8 +1928,18 @@ const apis = [
             list: []
           },
           {
-            name: 'hasChild',
+            name: 'hasChildField',
             desc: '只对 lazy 启用后有效，标识是否存在子节点，从而控制是否允许被点击',
+            version: '3.7.0',
+            type: 'string',
+            enum: '',
+            defVal: 'hasChild',
+            list: []
+          },
+          {
+            name: 'hasChild',
+            abandoned: true,
+            desc: '已废弃，请使用 hasChildField',
             version: '',
             type: 'string',
             enum: '',
@@ -1936,7 +1966,7 @@ const apis = [
           },
           {
             name: 'reserve',
-            desc: '是否保留展开状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前展开的状态（需要有 row-id）',
+            desc: '是否保留展开状态，对于某些场景可能会用到，比如数据被刷新之后还保留之前展开的状态（需要有 row-config.keyField）',
             version: '',
             type: 'boolean',
             enum: '',

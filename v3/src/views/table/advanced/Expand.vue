@@ -69,11 +69,11 @@
       <pre-code class="css">{{ demoCodes[2] }}</pre-code>
     </pre>
 
-    <p class="tip">默认展开指定行，通过 <table-api-link prop="expandRowKeys"/> 参数设置默认展开行，指定默认值需要有 <table-api-link prop="row-id"/></p>
+    <p class="tip">默认展开指定行，通过 <table-api-link prop="expandRowKeys"/> 参数设置默认展开行，指定默认值需要有 <table-api-link prop="row-config"/>.<table-api-link prop="keyField"/></p>
 
     <vxe-table
       border
-      row-id="id"
+      :row-config="{keyField: 'id'}"
       :expand-config="{expandRowKeys: ['10003']}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>

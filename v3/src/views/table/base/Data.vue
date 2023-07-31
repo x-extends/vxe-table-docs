@@ -38,7 +38,7 @@
       <pre-code class="javascript">{{ demoCodes[3] }}</pre-code>
     </pre>
 
-    <!-- <p class="tip">二维数组结构，适用场景较少<span class="red">（缺点局限性比较大，需要手动指定 <table-api-link prop="row-id"/> 唯一主键）</span></p>
+    <!-- <p class="tip">二维数组结构，适用场景较少<span class="red">（缺点局限性比较大，需要手动指定 <table-api-link prop="row-config"/>.<table-api-link prop="keyField"/> 唯一主键）</span></p>
 
     <vxe-table
       row-id="0"

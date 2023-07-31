@@ -69,7 +69,7 @@ const sumNum = (list: RowVO[], field: string) => {
   return XEUtils.round(count, 2)
 }
 
-const footerMethod: VxeTablePropTypes.FooterMethod = ({ columns, data }) => {
+const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) => {
   // 返回一个二维数组的表尾合计
   const footData = [
     columns.map((column: any, columnIndex: any) => {

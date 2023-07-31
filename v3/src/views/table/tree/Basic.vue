@@ -3,7 +3,7 @@
     <p class="tip">
       树表格，通过配置 <table-api-link prop="tree-config"/> 和指定列 <table-column-api-link prop="tree-node"/> 属性来开启树表格，<br>
       设置 <table-api-link prop="transform"/> 开启自动将列表转成树结构，通过 <table-api-link prop="rowField"/> 和 <table-api-link prop="parentField"/>指定字段名<br>
-      通过 <table-api-link prop="row-id"/> 指定主键，还可以通过 <table-api-link prop="trigger"/> 指定触发方式<br>
+      通过 <table-api-link prop="row-config"/>.<table-api-link prop="keyField"/> 指定主键，还可以通过 <table-api-link prop="trigger"/> 指定触发方式<br>
     </p>
 
     <vxe-toolbar>
@@ -38,7 +38,7 @@
 
     <vxe-table
       resizable
-      row-id="id"
+      :row-config="{keyField: 'id'}"
       :tree-config="{transform: true, expandRowKeys: defaultExpandKeys}"
       :data="tableData2">
       <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
@@ -59,7 +59,7 @@
     <vxe-table
       border
       show-overflow
-      row-id="id"
+      :row-config="{keyField: 'id'}"
       :data="tableData3"
       :tree-config="{transform: true, expandAll: true}">
       <vxe-column type="seq" width="180" title="序号" tree-node></vxe-column>

@@ -67,14 +67,14 @@
     </pre>
 
     <p class="tip">
-      默认选中，通过指定 <table-api-link prop="checkRowKey"/> 设置默认选中的行，指定默认值需要有 <table-api-link prop="row-id"/><br>
+      默认选中，通过指定 <table-api-link prop="checkRowKey"/> 设置默认选中的行，指定默认值需要有 <table-api-link prop="row-config"/>.<table-api-link prop="keyField"/><br>
       <span class="red">（注：默认行为只会在 reload 之后触发一次）</span>
     </p>
 
     <vxe-table
       border
       height="300"
-      row-id="id"
+      :row-config="{keyField: 'id'}"
       :data="tableData"
       :radio-config="{checkRowKey: defaultSelecteRow}">
       <vxe-column type="radio" width="60"></vxe-column>

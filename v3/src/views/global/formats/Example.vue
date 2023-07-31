@@ -33,10 +33,10 @@ export default {
           desc: '添加一个',
           type: '',
           enum: '',
-          defVal: 'code: string, options: { formatMethod }',
+          defVal: 'code: string, options: { cellFormatMethod }',
           list: [
             {
-              name: 'formatMethod',
+              name: 'cellFormatMethod',
               desc: '格式化方法',
               type: '',
               enum: '',
@@ -50,7 +50,7 @@ export default {
           desc: '添加多个',
           type: '',
           enum: '',
-          defVal: 'opts: { [code: string]: { formatMethod } }',
+          defVal: 'opts: { [code: string]: { cellFormatMethod } }',
           list: []
         },
         {

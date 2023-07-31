@@ -1819,7 +1819,7 @@ const apis = [
           },
           {
             name: 'rowField',
-            desc: '树节点的字段名',
+            desc: '用于 tree-config.transform，树节点的字段名',
             version: '4.1.3',
             type: 'string',
             enum: '',
@@ -1828,7 +1828,7 @@ const apis = [
           },
           {
             name: 'parentField',
-            desc: '树父节点的字段名',
+            desc: '用于 tree-config.transform，树父节点的字段名',
             version: '4.1.3',
             type: 'string',
             enum: '',
@@ -1836,8 +1836,18 @@ const apis = [
             list: []
           },
           {
-            name: 'children',
+            name: 'childrenField',
             desc: '树子节点的字段名',
+            version: '3.7.0',
+            type: 'string',
+            enum: '',
+            defVal: 'children',
+            list: []
+          },
+          {
+            name: 'children',
+            abandoned: true,
+            desc: '已废弃，请使用 childrenField',
             version: '',
             type: 'string',
             enum: '',
@@ -1854,8 +1864,18 @@ const apis = [
             list: []
           },
           {
-            name: 'line',
+            name: 'showLine',
             desc: '树节点的连接线（启用连接线会降低渲染性能）',
+            version: '4.5.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'line',
+            abandoned: true,
+            desc: '已废弃，请使用 showLine',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1900,7 +1920,7 @@ const apis = [
           },
           {
             name: 'lazy',
-            desc: '是否使用懒加载（启用后只有指定 hasChild 的节点才允许被点击）',
+            desc: '是否使用懒加载（启用后只有指定 hasChild 字段的节点才允许被点击）',
             version: '',
             type: 'boolean',
             enum: '',
@@ -1908,8 +1928,18 @@ const apis = [
             list: []
           },
           {
-            name: 'hasChild',
+            name: 'hasChildField',
             desc: '只对 lazy 启用后有效，标识是否存在子节点，从而控制是否允许被点击',
+            version: '4.5.0',
+            type: 'string',
+            enum: '',
+            defVal: 'hasChild',
+            list: []
+          },
+          {
+            name: 'hasChild',
+            abandoned: true,
+            desc: '已废弃，请使用 hasChildField',
             version: '',
             type: 'string',
             enum: '',

@@ -4,8 +4,7 @@
       <vxe-button @click="insertEvent">新增</vxe-button>
       <vxe-button @click="removeSelectEvent()">删除选中</vxe-button>
       <vxe-button @click="validEvent">快速校验</vxe-button>
-      <vxe-button @click="fullValidEvent">完整快速校验</vxe-button>
-      <vxe-button @click="validAllEvent">全量数据校验</vxe-button>
+      <vxe-button @click="fullValidEvent">快速全量校验</vxe-button>
       <vxe-button @click="selectValidEvent">选中行校验</vxe-button>
       <vxe-button @click="getSelectEvent">获取选中</vxe-button>
       <vxe-button @click="getInsertEvent">获取新增</vxe-button>
@@ -148,7 +147,7 @@ const validEvent = async () => {
 const fullValidEvent = async () => {
   const $table = tableRef.value
   if ($table) {
-    const errMap = await $table.fullValidate()
+    const errMap = await $table.validate(true)
     if (errMap) {
       const msgList: string[] = []
       Object.values(errMap).forEach((errList: any) => {
@@ -173,18 +172,6 @@ const fullValidEvent = async () => {
           }
         }
       })
-    } else {
-      VXETable.modal.message({ status: 'success', content: '校验成功！' })
-    }
-  }
-}
-
-const validAllEvent = async () => {
-  const $table = tableRef.value
-  if ($table) {
-    const errMap = await $table.validate(true)
-    if (errMap) {
-      VXETable.modal.message({ status: 'error', content: '校验不通过！' })
     } else {
       VXETable.modal.message({ status: 'success', content: '校验成功！' })
     }
