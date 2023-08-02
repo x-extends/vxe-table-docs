@@ -1,11 +1,18 @@
 <template>
   <div>
+    <p>
+      <vxe-button @click="expandAllEvent()">展开所有</vxe-button>
+      <vxe-button @click="claseExpandEvent()">关闭所有</vxe-button>
+    </p>
+
     <vxe-table
-      :row-config="{keyField: 'id'}"
+      border
+      ref="tableRef"
+      :max-height="400"
       :column-config="{resizable: true}"
-      :tree-config="{transform: true, expandRowKeys: defaultExpandKeys}"
+      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData">
-      <vxe-column field="name" title="Name" tree-node></vxe-column>
+      <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>
       <vxe-column field="date" title="Date"></vxe-column>
@@ -15,6 +22,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -25,7 +33,7 @@ interface RowVO {
   date: string
 }
 
-const defaultExpandKeys = ref([24300])
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -47,4 +55,18 @@ const tableData = ref<RowVO[]>([
   { id: 24566, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' },
   { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
 ])
+
+const expandAllEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.setAllTreeExpand(true)
+  }
+}
+
+const claseExpandEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.clearTreeExpand()
+  }
+}
 </script>

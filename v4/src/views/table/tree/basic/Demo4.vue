@@ -7,7 +7,7 @@
       :data="tableData"
       :tree-config="{transform: true, expandAll: true}">
       <vxe-column type="seq" width="180" title="序号" tree-node></vxe-column>
-      <vxe-column field="name" title="app.body.label.name"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
       <vxe-colgroup title="基本信息">
         <vxe-column field="size" title="Size11"></vxe-column>
         <vxe-column field="type" title="Type22"></vxe-column>

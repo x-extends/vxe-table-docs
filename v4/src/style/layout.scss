@@ -171,7 +171,7 @@ body,
     width: 70px;
   }
   .version-switch {
-    width: 180px;
+    width: 200px;
   }
   .donation,
   .support {
@@ -283,6 +283,7 @@ body,
       margin: 0;
       padding: 0;
       .nav-link {
+        position: relative;
         display: block;
         height: 40px;
         line-height: 40px;
@@ -341,6 +342,16 @@ body,
       color: #444;
       cursor: pointer;
       text-decoration: none;
+      &.is-new {
+        &::after {
+          content: "尝鲜版";
+          position: absolute;
+          font-size: 12px;
+          line-height: 20px;
+          width: 20px;
+          color: red;
+        }
+      }
     }
     .is-warn {
       .nav-link {

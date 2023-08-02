@@ -340,17 +340,17 @@ export default {
         copyToClipboard: 'Copied to clipboard'
       },
       other: {
-        v1: 'v1+ (vue 2.6+ End of life) ~ 2020-04 Stop',
-        v2: 'v2+ (vue 2.6+ End of life) ~ 2021-12 Stop',
-        v3: 'v+ (vue 2.6+ LTS)',
-        v3d5: '3.5+ (vue 2.6+ Sticky)',
-        v4: 'v4+ (vue 3.2+ Current)',
-        v4d5: '4.5+ (vue 3.2+ Sticky)',
+        v1: 'v1+ (vue 2.6 < 3 End of life) ~ 2020-04 Stop',
+        v2: 'v2+ (vue 2.6 < 3 End of life) ~ 2021-12 Stop',
+        v3: 'v+ (vue 2.6 < 3 LTS)',
+        v3d5: '3.5+ (vue 2.6 < 3 Sticky)',
+        v4: 'v4+ (vue 3.2 < 4 Current)',
+        v4d5: '4.5+ (vue 3.2 < 4 Sticky)',
         plan: {
-          v1: 'v1 Based on vue2.6+, Support for all major browsers',
-          v2: 'v2 Based on vue2.6+, Support for all major browsers',
+          v1: 'v1 Based on vue2.6 < 3, Support for all major browsers',
+          v2: 'v2 Based on vue2.6 < 3, Support for all major browsers',
           v3: 'v3 Support for modern browsers and partial compatibility with IE11 to improve rendering performance',
-          v4: 'v4 Based on vue3.2+, Only supports modern browsers, not IE'
+          v4: 'v4 Based on vue3.2 < 4, Only supports modern browsers, not IE'
         },
         compatibility: 'Compatibility',
         releases: 'Releases',

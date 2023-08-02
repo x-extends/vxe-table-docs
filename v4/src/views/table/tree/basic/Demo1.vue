@@ -8,12 +8,12 @@
 
     <vxe-table
       border="inner"
-      ref="xTreeRef"
+      ref="tableRef"
       :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData"
       @toggle-tree-expand="toggleExpandChangeEvent">
-      <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
+      <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>
       <vxe-column field="date" title="Date"></vxe-column>
@@ -34,7 +34,7 @@ interface RowVO {
   date: string
 }
 
-const xTreeRef = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'Test1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -58,7 +58,7 @@ const tableData = ref<RowVO[]>([
 ])
 
 const toggleExpandChangeEvent: VxeTableEvents.ToggleTreeExpand = (params) => {
-  const $table = xTreeRef.value
+  const $table = tableRef.value
   if ($table) {
     const { row, expanded } = params
     console.log('节点展开事件', expanded, '获取父节点：', $table.getParentRow(row))
@@ -66,7 +66,7 @@ const toggleExpandChangeEvent: VxeTableEvents.ToggleTreeExpand = (params) => {
 }
 
 const getTreeExpansionEvent = () => {
-  const $table = xTreeRef.value
+  const $table = tableRef.value
   if ($table) {
     const treeExpandRecords = $table.getTreeExpandRecords()
     VXETable.modal.alert(treeExpandRecords.length)
@@ -74,14 +74,14 @@ const getTreeExpansionEvent = () => {
 }
 
 const expandAllEvent = () => {
-  const $table = xTreeRef.value
+  const $table = tableRef.value
   if ($table) {
     $table.setAllTreeExpand(true)
   }
 }
 
 const claseExpandEvent = () => {
-  const $table = xTreeRef.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearTreeExpand()
   }

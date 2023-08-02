@@ -76,7 +76,7 @@
                   </router-link>
                 </li> -->
                 <li v-for="(item, index) in appData.apiList" :key="index" :class="{expand: item.expand}">
-                  <a class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{disabled: item.disabled, active: pageKey === item.value}">
+                  <a class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{'is-new': item.isNew, disabled: item.disabled, active: pageKey === item.value}">
                     <i class="vxe-icon-arrow-right nav-link-icon"></i>
                     <span v-html="item.label"></span>
                   </a>
@@ -107,9 +107,9 @@
             </template>
             <router-view/>
           </div>
-          <div class="footer-link">
-              <router-link v-if="currentLink.preLink" class="pre-link" :to="currentLink.preLink.locat" >{{currentLink.preLink.label}}</router-link>
-              <router-link v-if="currentLink.nextLink" class="next-link" :to="currentLink.nextLink.locat">{{currentLink.nextLink.label}}</router-link>
+          <div v-if="currentLink.preLink || currentLink.nextLink" class="footer-link">
+            <router-link v-if="currentLink.preLink" class="pre-link" :to="currentLink.preLink.locat" >{{currentLink.preLink.label}}</router-link>
+            <router-link v-if="currentLink.nextLink" class="next-link" :to="currentLink.nextLink.locat">{{currentLink.nextLink.label}}</router-link>
           </div>
           <footer class="page-footer">
             <div><a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号-1</a></div>
@@ -1855,6 +1855,7 @@ export default defineComponent({
           label: 'app.aside.nav.validators',
           value: 'validators',
           expand: false,
+          isNew: true,
           children: [
             {
               label: 'app.aside.nav.api',
