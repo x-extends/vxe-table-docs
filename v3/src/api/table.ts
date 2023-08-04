@@ -1588,6 +1588,15 @@ const apis = [
             enum: '',
             defVal: 'false',
             list: []
+          },
+          {
+            name: 'isShiftKey',
+            desc: '开启复选框指定行选择功能（启用后通过鼠标点击和 shift 键选取指定范围的行）',
+            version: '3.7',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
           }
         ]
       },

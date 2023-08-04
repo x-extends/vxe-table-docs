@@ -26,6 +26,13 @@ import { ref } from 'vue'
 import { VxeTablePropTypes, VxeColumnProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
+interface ChildVO {
+  name: string
+  role: string
+  age: number
+  sex: string
+}
+
 interface RowVO {
   id: number
   parentId: number | null
@@ -34,12 +41,7 @@ interface RowVO {
   size: number
   date: string
   childCols?: VxeColumnProps[]
-  childData?: {
-    name: string
-    role: string
-    age: number
-    sex: string
-  }[]
+  childData?: ChildVO[]
 }
 
 const tableData = ref<RowVO[]>([
@@ -63,33 +65,44 @@ const tableData = ref<RowVO[]>([
   { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01', childCols: [], childData: [] }
 ])
 
+// 模拟后台接口
+const getColumnApi = () => {
+  return new Promise<VxeColumnProps[]>(resolve => {
+    const data: VxeColumnProps[] = XEUtils.sample([
+      { type: 'seq', title: 'Sequence' },
+      { field: 'name', title: 'Name' },
+      { field: 'role', title: 'Role' },
+      { field: 'age', title: 'Age' },
+      { field: 'sex', title: 'Sex' }
+    ], XEUtils.random(3, 5))
+    setTimeout(() => {
+      resolve(data)
+    }, 300)
+  })
+}
+
+// 模拟后台接口
+const getDataApi = () => {
+  return new Promise<ChildVO[]>(resolve => {
+    const data: ChildVO[] = XEUtils.sample([
+      { name: 'TEST1', role: 'Develop', age: 20, sex: '女' },
+      { name: 'TEST2', role: 'Develop', age: 22, sex: '女' },
+      { name: 'TEST3', role: 'Develop', age: 24, sex: '男' },
+      { name: 'TEST4', role: 'Develop', age: 26, sex: '女' },
+      { name: 'TEST5', role: 'Develop', age: 28, sex: '男' },
+      { name: 'TEST6', role: 'Develop', age: 30, sex: '男' }
+    ], XEUtils.random(0, 4))
+    setTimeout(() => {
+      resolve(data)
+    }, 250)
+  })
+}
+
 const tableExpand = ref<VxeTablePropTypes.ExpandConfig<RowVO>>({
   lazy: true,
-  loadMethod ({ row }) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        // 随机生成列
-        const childCols: VxeColumnProps[] = XEUtils.sample([
-          { type: 'seq', title: 'Sequence' },
-          { field: 'name', title: 'Name' },
-          { field: 'role', title: 'Role' },
-          { field: 'age', title: 'Age' },
-          { field: 'sex', title: 'Sex' }
-        ], XEUtils.random(3, 5))
-        // 随机生成数据
-        const childData = XEUtils.sample([
-          { name: 'TEST1', role: 'Develop', age: 20, sex: '女' },
-          { name: 'TEST2', role: 'Develop', age: 22, sex: '女' },
-          { name: 'TEST3', role: 'Develop', age: 24, sex: '男' },
-          { name: 'TEST4', role: 'Develop', age: 26, sex: '女' },
-          { name: 'TEST5', role: 'Develop', age: 28, sex: '男' },
-          { name: 'TEST6', role: 'Develop', age: 30, sex: '男' }
-        ], XEUtils.random(0, 4))
-        row.childCols = childCols
-        row.childData = childData
-        resolve()
-      }, 500)
-    })
+  async loadMethod ({ row }) {
+    row.childCols = await getColumnApi()
+    row.childData = await getDataApi()
   }
 })
 </script>
