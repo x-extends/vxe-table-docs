@@ -56,7 +56,8 @@
       :edit-rules="validRules"
       :mouse-config="{selected: true}"
       :edit-config="{trigger: 'dblclick', mode: 'cell', showStatus: true}"
-      :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}">
+      :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}"
+      :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200" :edit-render="{autofocus: '.vxe-input--inner'}">
@@ -184,7 +185,8 @@ export default {
           :edit-rules="validRules"
           :mouse-config="{selected: true}"
           :edit-config="{trigger: 'dblclick', mode: 'cell', showStatus: true}"
-          :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}">
+          :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}
+          :scroll-y="{enabled: true}"">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>
           <vxe-column field="name" title="Name" sortable width="200" :edit-render="{autofocus: '.vxe-input--inner'}">

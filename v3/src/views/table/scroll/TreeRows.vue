@@ -17,7 +17,8 @@
       :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
       :checkbox-config="{labelField: 'name'}"
       :tree-config="{children: 'children'}"
-      :columns="tableColumn">
+      :columns="tableColumn"
+      :scroll-y="{enabled: true}">
       <template #toolbar_buttons>
         <vxe-button @click="loadData(1000)">加载1k节点</vxe-button>
         <vxe-button @click="loadData(5000)">加载5k节点</vxe-button>
@@ -63,7 +64,8 @@ export default {
           :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
           :checkbox-config="{labelField: 'name'}"
           :tree-config="{children: 'children'}"
-          :columns="tableColumn">
+          :columns="tableColumn"
+          :scroll-y="{enabled: true}">
           <template #toolbar_buttons>
             <vxe-button @click="loadData(1000)">加载1k节点</vxe-button>
             <vxe-button @click="loadData(5000)">加载5k节点</vxe-button>

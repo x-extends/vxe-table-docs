@@ -13,7 +13,7 @@
       ref="tableRef"
       :row-config="{isHover: true}"
       :data="tableData"
-      :checkbox-config="{checkField: 'checked', trigger: 'row'}">
+      :checkbox-config="{checkField: 'checked'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

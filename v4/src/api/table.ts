@@ -3088,7 +3088,7 @@ const apis = [
             version: '',
             type: 'boolean',
             enum: '',
-            defVal: 'true',
+            defVal: 'false',
             list: []
           },
           {
@@ -3134,7 +3134,7 @@ const apis = [
             version: '',
             type: 'boolean',
             enum: '',
-            defVal: 'true',
+            defVal: 'false',
             list: []
           },
           {

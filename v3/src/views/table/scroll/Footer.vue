@@ -13,7 +13,8 @@
       :row-config="{keyField: 'id'}"
       :footer-method="footerMethod"
       :checkbox-config="{checkField: 'checked', labelField: 'id'}"
-      :loading="loading">
+      :loading="loading"
+      :scroll-y="{enabled: true}">
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -46,7 +47,8 @@ export default {
           row-id="id"
           :footer-method="footerMethod"
           :checkbox-config="{checkField: 'checked', labelField: 'id'}"
-          :loading="loading">
+          :loading="loading"
+          :scroll-y="{enabled: true}">
         </vxe-grid>
 
         `,

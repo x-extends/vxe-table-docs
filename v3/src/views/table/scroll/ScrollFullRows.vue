@@ -31,7 +31,8 @@
       :row-config="{isCurrent: true, isHover: true}"
       :export-config="{}"
       :loading="loading"
-      :checkbox-config="{checkField: 'checked'}">
+      :checkbox-config="{checkField: 'checked'}"
+      :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column type="seq" width="100" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200"></vxe-column>
@@ -110,7 +111,8 @@ export default {
           :row-config="{isCurrent: true, isHover: true}"
           :export-config="{}"
           :loading="loading"
-          :checkbox-config="{checkField: 'checked'}">
+          :checkbox-config="{checkField: 'checked'}"
+          :scroll-y="{enabled: true}">
           <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
           <vxe-column type="seq" width="100" fixed="left"></vxe-column>
           <vxe-column field="name" title="Name" sortable width="200"></vxe-column>

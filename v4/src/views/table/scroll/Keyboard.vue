@@ -55,7 +55,6 @@
       :loading="demo1.loading"
       :edit-rules="demo1.validRules"
       :mouse-config="{selected: true}"
-      :checkbox-config="{checkField: 'checked'}"
       :edit-config="{trigger: 'dblclick', mode: 'cell', showStatus: true}"
       :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}"
       :scroll-y="{enabled: true}">
@@ -337,7 +336,6 @@ export default defineComponent({
           :loading="demo1.loading"
           :edit-rules="demo1.validRules"
           :mouse-config="{selected: true}"
-          :checkbox-config="{checkField: 'checked'}"
           :edit-config="{trigger: 'dblclick', mode: 'cell', showStatus: true}"
           :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>

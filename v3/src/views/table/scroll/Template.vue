@@ -14,7 +14,8 @@
       :loading="loading"
       :toolbar-config="tableToolbar"
       :columns="tableColumn"
-      :edit-config="{trigger: 'click', mode: 'cell'}">
+      :edit-config="{trigger: 'click', mode: 'cell'}"
+      :scroll-y="{enabled: true}">
       <template #name_header>
         <div class="first-col">
           <div class="first-col-top">名称</div>
@@ -148,7 +149,8 @@ export default {
           :loading="loading"
           :toolbar-config="tableToolbar"
           :columns="tableColumn"
-          :edit-config="{trigger: 'click', mode: 'cell'}">
+          :edit-config="{trigger: 'click', mode: 'cell'}"
+          :scroll-y="{enabled: true}">
           <template #name_header>
             <div class="first-col">
               <div class="first-col-top">名称</div>

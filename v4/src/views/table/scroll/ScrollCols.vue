@@ -49,9 +49,6 @@ export default defineComponent({
           buttons: 'toolbar_buttons'
         }
       },
-      checkboxConfig: {
-        checkField: 'checked'
-      },
       scrollY: {
         enabled: true
       },
@@ -231,9 +228,6 @@ export default defineComponent({
                 slots: {
                   buttons: 'toolbar_buttons'
                 }
-              },
-              checkboxConfig: {
-                checkField: 'checked'
               }
             } as VxeGridProps)
 

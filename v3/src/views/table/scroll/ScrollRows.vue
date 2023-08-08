@@ -28,7 +28,8 @@
       height="700"
       :export-config="{}"
       :sort-config="{trigger: 'cell'}"
-      :loading="loading">
+      :loading="loading"
+      :scroll-y="{enabled: true}">
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200"></vxe-column>
       <vxe-column field="id" title="ID" width="200"></vxe-column>
@@ -90,7 +91,8 @@ export default {
           height="700"
           :export-config="{}"
           :sort-config="{trigger: 'cell'}"
-          :loading="loading">
+          :loading="loading"
+          :scroll-y="{enabled: true}">
           <vxe-column type="seq" width="100"></vxe-column>
           <vxe-column field="name" title="Name" sortable width="200"></vxe-column>
           <vxe-column field="id" title="ID" width="200"></vxe-column>

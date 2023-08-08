@@ -22,7 +22,6 @@
       :row-config="{keyField: 'id'}"
       :column-config="{resizable: true}"
       :loading="demo1.loading"
-      :checkbox-config="{checkField: 'checked'}"
       :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
@@ -115,8 +114,7 @@ export default defineComponent({
           height="500"
           :row-config="{keyField: 'id'}"
           :column-config="{resizable: true}"
-          :loading="demo1.loading"
-          :checkbox-config="{checkField: 'checked'}">
+          :loading="demo1.loading">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>
           <vxe-column field="name" title="Name" sortable></vxe-column>

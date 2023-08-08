@@ -53,7 +53,6 @@ export default defineComponent({
         enabled: true
       },
       checkboxConfig: {
-        checkField: 'checked',
         labelField: 'id'
       },
       loading: false
@@ -229,7 +228,6 @@ export default defineComponent({
                 keyField: 'id'
               },
               checkboxConfig: {
-                checkField: 'checked',
                 labelField: 'id'
               },
               loading: false

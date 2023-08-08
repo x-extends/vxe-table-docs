@@ -8,7 +8,8 @@
       show-overflow
       ref="xTable1"
       max-height="400"
-      :loading="loading">
+      :loading="loading"
+      :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200"></vxe-column>
@@ -35,7 +36,8 @@
       show-overflow
       ref="xTable2"
       max-height="400"
-      :loading="loading">
+      :loading="loading"
+      :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200"></vxe-column>
@@ -68,7 +70,8 @@ export default {
           show-overflow
           ref="xTable"
           max-height="400"
-          :loading="loading">
+          :loading="loading"
+          :scroll-y="{enabled: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>
           <vxe-column field="name" title="Name" sortable width="200"></vxe-column>
@@ -129,7 +132,8 @@ export default {
           show-overflow
           ref="xTable"
           max-height="400"
-          :loading="loading">
+          :loading="loading"
+          :scroll-y="{enabled: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>
           <vxe-column field="name" title="Name" sortable width="200"></vxe-column>

@@ -21,7 +21,8 @@
       show-overflow
       height="500"
       :row-config="{keyField: 'id'}"
-      :loading="loading">
+      :loading="loading"
+      :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
@@ -66,7 +67,8 @@ export default {
           show-overflow
           height="500"
           row-id="id"
-          :loading="loading">
+          :loading="loading"
+          :scroll-y="{enabled: true}">
           <vxe-column type="checkbox" width="60"></vxe-column>
           <vxe-column type="seq" width="100"></vxe-column>
           <vxe-column field="name" title="Name" sortable></vxe-column>

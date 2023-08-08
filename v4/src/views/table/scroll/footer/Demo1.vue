@@ -31,7 +31,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     keyField: 'id'
   },
   checkboxConfig: {
-    checkField: 'checked',
     labelField: 'id'
   },
   footerMethod () {

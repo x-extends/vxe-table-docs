@@ -30,7 +30,8 @@
       height="500"
       :row-config="{keyField: 'id'}"
       :checkbox-config="{checkField: 'checked', labelField: 'id'}"
-      :loading="loading">
+      :loading="loading"
+      :scroll-y="{enabled: true}">
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -77,7 +78,8 @@ export default {
           height="500"
           row-id="id"
           :checkbox-config="{checkField: 'checked', labelField: 'id'}"
-          :loading="loading">
+          :loading="loading"
+          :scroll-y="{enabled: true}">
         </vxe-grid>
         `,
         `

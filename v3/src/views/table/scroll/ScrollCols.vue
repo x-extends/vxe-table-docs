@@ -15,7 +15,8 @@
       height="500"
       :loading="loading"
       :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
-      :checkbox-config="{checkField: 'checked'}">
+      :checkbox-config="{checkField: 'checked'}"
+      :scroll-y="{enabled: true}">
       <template #toolbar_buttons>
         <vxe-button @click="loadColumnAndData(1000, 20)">1k列20条</vxe-button>
         <vxe-button @click="loadColumnAndData(1000, 100)">1k列100条</vxe-button>
@@ -53,7 +54,8 @@ export default {
           height="500"
           :loading="loading"
           :toolbar-config="{slots: {buttons: 'toolbar_buttons'}}"
-          :checkbox-config="{checkField: 'checked'}">
+          :checkbox-config="{checkField: 'checked'}"
+          :scroll-y="{enabled: true}">
           <template #toolbar_buttons>
             <vxe-button @click="loadColumnAndData(1000, 20)">1k列20条</vxe-button>
             <vxe-button @click="loadColumnAndData(1000, 100)">1k列100条</vxe-button>
