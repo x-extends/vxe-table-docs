@@ -20,7 +20,7 @@
 
     <CodeLight path="table/base/selection/Demo4">
       <template #tip>
-        <div>使用 <table-api-link prop="checkField"/> 属性绑定方式</div>
+        <div>使用 <table-api-link prop="checkField"/> 和 <table-api-link prop="indeterminateField"/> 属性绑定方式</div>
       </template>
     </CodeLight>
 

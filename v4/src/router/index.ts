@@ -178,7 +178,7 @@ const TableScrollFullRows = () => import('../views/table/scroll/ScrollFullRows.v
 const TableScrollCols = () => import('../views/table/scroll/ScrollCols.vue')
 const TableScrollFullCols = () => import('../views/table/scroll/ScrollFullCols.vue')
 const TableScrollTree = () => import('../views/table/scroll/tree/Example.vue')
-const TableScrollLazyTree = () => import('../views/table/scroll/LazyTree.vue')
+const TableScrollLazyTree = () => import('../views/table/scroll/lazyTree/Example.vue')
 // const TableScrollHighlight = () => import('../views/table/scroll/Highlight.vue')
 const TableScrollKeyboard = () => import('../views/table/scroll/Keyboard.vue')
 const TableScrollMaxHeight = () => import('../views/table/scroll/maxHeight/Example.vue')

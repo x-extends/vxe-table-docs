@@ -1483,8 +1483,19 @@ const apis = [
           },
           {
             name: 'checkField',
-            desc: '绑定选中属性，如果设置了该属性渲染速度更快（建议数据量大时使用，行数据中必须存在该字段，否则无效）',
+            abandoned: true,
+            desc: '绑定选中属性（行数据中必须存在该字段，否则无效）',
             version: '',
+            type: 'string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'indeterminateField',
+            abandoned: true,
+            desc: '绑定半选属性（行数据中必须存在该字段，否则无效）',
+            version: '3.7.0',
             type: 'string',
             enum: '',
             defVal: '',
@@ -5353,7 +5364,7 @@ const apis = [
             desc: '支持选取的文件类型',
             version: '',
             type: 'Array',
-            enum: '',
+            enum: 'csv, html, xml, txt',
             defVal: '[\'csv\', \'html\', \'xml\', \'txt\']',
             list: []
           },

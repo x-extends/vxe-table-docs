@@ -35,7 +35,6 @@
       :column-config="{resizable: true}"
       :export-config="{}"
       :loading="loading"
-      :checkbox-config="{checkField: 'checked'}"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       :scroll-y="{enabled: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>

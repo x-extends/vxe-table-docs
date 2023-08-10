@@ -9,16 +9,16 @@
 
     <vxe-table
       border
-      class="checkbox-table"
       ref="tableRef"
       :row-config="{isHover: true}"
+      :tree-config="{}"
       :data="tableData"
-      :checkbox-config="{checkField: 'checked'}">
+      :checkbox-config="{checkField: 'isChecked', halfField: 'isIndeterminate'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="address" title="Address" show-overflow></vxe-column>
+      <vxe-column field="name" title="Name" tree-node></vxe-column>
+      <vxe-column field="type" title="Type"></vxe-column>
+      <vxe-column field="size" title="Size"></vxe-column>
+      <vxe-column field="date" title="Date"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -30,21 +30,47 @@ import { VxeTableInstance } from 'vxe-table'
 interface RowVO {
   id: number
   name: string
-  role: string
-  sex: string
-  age: number
-  address: string
-  checked: boolean
+  type: string
+  size: number
+  date: string,
+  isChecked: boolean
+  isIndeterminate: boolean
+  children?: RowVO[]
 }
 
 const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
-  { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc', checked: false },
-  { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou', checked: false },
-  { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai', checked: false },
-  { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 23, address: 'test abc', checked: false },
-  { id: 10005, name: 'Test5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai', checked: false }
+  { id: 1000, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01', isChecked: false, isIndeterminate: false },
+  {
+    id: 1005,
+    name: 'Test2',
+    type: 'mp4',
+    size: 0,
+    date: '2021-04-01',
+    isChecked: false,
+    isIndeterminate: false,
+    children: [
+      { id: 24300, name: 'Test3', type: 'avi', size: 1024, date: '2020-03-01', isChecked: false, isIndeterminate: false },
+      { id: 20045, name: 'test abc4', type: 'html', size: 600, date: '2021-04-01', isChecked: false, isIndeterminate: false },
+      {
+        id: 10053,
+        name: 'test abc96',
+        type: 'avi',
+        size: 0,
+        date: '2021-04-01',
+        isChecked: false,
+        isIndeterminate: false,
+        children: [
+          { id: 24330, name: 'test abc5', type: 'txt', size: 25, date: '2021-10-01', isChecked: false, isIndeterminate: false },
+          { id: 21011, name: 'Test6', type: 'pdf', size: 512, date: '2020-01-01', isChecked: false, isIndeterminate: false },
+          { id: 22200, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01', isChecked: false, isIndeterminate: false }
+        ]
+      }
+    ]
+  },
+  { id: 23666, name: 'Test8', type: 'xlsx', size: 2048, date: '2020-11-01', isChecked: false, isIndeterminate: false },
+  { id: 24555, name: 'test abc9', type: 'avi', size: 224, date: '2020-10-01', isChecked: false, isIndeterminate: false }
 ])
 
 const toggleSelectRow = (row: RowVO) => {
