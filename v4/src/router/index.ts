@@ -234,7 +234,7 @@ const TableEditCellValid = () => import('../views/table/edit/cellValid/Example.v
 const TableEditRowValid = () => import('../views/table/edit/RowValid.vue')
 // const TableEditForceCellValid = () => import('../views/table/edit/ForceCellValid.vue')
 // const TableEditForceRowValid = () => import('../views/table/edit/ForceRowValid.vue')
-const TableEditFooter = () => import('../views/table/edit/Footer.vue')
+const TableEditFooter = () => import('../views/table/edit/footer/Example.vue')
 const TableEditFooterImmediately = () => import('../views/table/edit/FooterImmediately.vue')
 const TableEditExpand = () => import('../views/table/edit/expand/Example.vue')
 const TableEditMenu = () => import('../views/table/edit/menu/Example.vue')
