@@ -246,7 +246,7 @@ const TableEditDataCount = () => import('../views/table/edit/DataCount.vue')
 const TableEditUniqueSelect = () => import('../views/table/edit/UniqueSelect.vue')
 const TableEditCascadingSelect = () => import('../views/table/edit/CascadingSelect.vue')
 const TableEditEvents = () => import('../views/table/edit/events/Example.vue')
-const TableEditTemplate = () => import('../views/table/edit/Template.vue')
+const TableEditTemplate = () => import('../views/table/edit/template/Example.vue')
 const TableEditFull = () => import('../views/table/edit/full/Example.vue')
 
 const FormBasics = () => import('../views/form/basics/Example.vue')
