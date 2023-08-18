@@ -6,6 +6,7 @@
       height="500"
       :column-config="{resizable: true}"
       :scroll-x="{enabled: true, gt: 0}"
+      :scroll-y="{enabled: true, gt: 0}"
       :loading="loading"
       :data="tableData">
       <vxe-column type="seq" title="序号" width="100"></vxe-column>

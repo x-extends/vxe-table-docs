@@ -1483,7 +1483,6 @@ const apis = [
           },
           {
             name: 'checkField',
-            abandoned: true,
             desc: '绑定选中属性（行数据中必须存在该字段，否则无效）',
             version: '',
             type: 'string',
@@ -1493,7 +1492,6 @@ const apis = [
           },
           {
             name: 'indeterminateField',
-            abandoned: true,
             desc: '绑定半选属性（行数据中必须存在该字段，否则无效）',
             version: '4.5.0',
             type: 'string',

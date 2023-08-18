@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid ref="xGrid" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ interface RowVO {
   [key: string]: any
 }
 
-const xGrid = ref<VxeGridInstance<RowVO>>()
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const footerData = ref<string[][]>([])
 
@@ -24,6 +24,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showFooter: true,
   height: 500,
   loading: false,
+  scrollX: {
+    enabled: true
+  },
   scrollY: {
     enabled: true
   },
@@ -90,21 +93,21 @@ const init = async () => {
   gridOptions.loading = true
   await Promise.all([
     findColumnList(200).then(columns => {
-      const $grid = xGrid.value
+      const $grid = gridRef.value
       if ($grid) {
         tableColumn = columns
         $grid.loadColumn(columns)
       }
     }),
     findDataList(600).then(data => {
-      const $grid = xGrid.value
+      const $grid = gridRef.value
       if ($grid) {
         $grid.loadData(data)
       }
     })
   ])
 
-  const $grid = xGrid.value
+  const $grid = gridRef.value
   gridOptions.loading = false
 
   // 计算表尾数据

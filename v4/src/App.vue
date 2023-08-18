@@ -1855,7 +1855,7 @@ export default defineComponent({
           label: 'app.aside.nav.validators',
           value: 'validators',
           expand: false,
-          isNew: true,
+          // isNew: true,
           children: [
             {
               label: 'app.aside.nav.api',

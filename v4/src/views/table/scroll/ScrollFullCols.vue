@@ -77,10 +77,12 @@ export default defineComponent({
         labelField: 'nickname'
       },
       scrollY: {
-        enabled: true
+        enabled: true,
+        gt: 0
       },
       scrollX: {
-        enabled: true
+        enabled: true,
+        gt: 0
       }
     } as VxeGridProps)
 

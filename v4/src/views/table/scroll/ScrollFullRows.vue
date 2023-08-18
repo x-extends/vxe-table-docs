@@ -34,7 +34,7 @@
       :export-config="{}"
       :loading="demo1.loading"
       :sort-config="{trigger: 'cell'}"
-      :scroll-y="{enabled: true}">
+      :scroll-y="{enabled: true, gt: 0}">
       <vxe-column type="seq" width="100" fixed="left"></vxe-column>
       <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column field="attr0" title="Attr0" width="200" sortable></vxe-column>

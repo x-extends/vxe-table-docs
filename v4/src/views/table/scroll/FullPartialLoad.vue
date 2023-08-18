@@ -49,6 +49,9 @@ export default defineComponent({
       rowConfig: {
         keyField: 'id'
       },
+      scrollX: {
+        enabled: true
+      },
       scrollY: {
         enabled: true
       },
