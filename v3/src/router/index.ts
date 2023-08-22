@@ -154,7 +154,7 @@ const TableTreeGroupSummary = () => import('../views/table/tree/GroupSummary.vue
 const TableTreeGroupSummaryCount = () => import('../views/table/tree/GroupSummaryCount.vue')
 const TableTreeExpand = () => import('../views/table/tree/Expand.vue')
 const TableTreeExpandLazy = () => import('../views/table/tree/ExpandLazy.vue')
-const TableTreeCRUD = () => import('../views/table/tree/CRUD.vue')
+const TableTreeCRUD = () => import('../views/table/tree/crud/Example.vue')
 const TableTreeInsert = () => import('../views/table/tree/Insert.vue')
 const TableTreeMenu = () => import('../views/table/tree/Menu.vue')
 const TableTreeSpan = () => import('../views/table/tree/Span.vue')

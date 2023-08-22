@@ -59,7 +59,7 @@ const getTreeRadioEvent = () => {
   const $table = xTreeRef.value
   if ($table) {
     const selectRow = $table.getRadioRecord()
-    VXETable.modal.alert(selectRow ? selectRow.name : null)
+    VXETable.modal.alert(selectRow ? selectRow.name : '')
   }
 }
 

@@ -3993,6 +3993,15 @@ const apis = [
         list: []
       },
       {
+        name: 'insertNextAt(records, row)',
+        desc: '往表格插入临时数据，从指定位置的下一行插入一行或多行；第二个参数：row 指定位置、null从第一行插入、-1 从最后插入',
+        version: '3.7.0',
+        type: 'Promise<{row, rows}>',
+        enum: '',
+        defVal: 'records: object | Array<object>, row?: Row | -1 | 0',
+        list: []
+      },
+      {
         name: 'revertData(rows, field)',
         desc: '只对 keep-source 开启有效，还原指定行 row 或者整个表格的数据',
         version: '',

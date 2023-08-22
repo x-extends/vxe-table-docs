@@ -37,7 +37,7 @@
     "vxe-table-plugin-renderer": "^3.0.2",
     "vxe-table-plugin-shortcut-key": "^3.0.2",
     "xe-clipboard": "^1.10.2",
-    "xe-utils": "^3.5.11",
+    "xe-utils": "^3.5.12",
     "xlsx": "^0.18.2"
   },
   "devDependencies": {

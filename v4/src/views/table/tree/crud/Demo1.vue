@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-toolbar ref="xToolbar" :refresh="{queryMethod: searchMethod}" export print custom>
+    <vxe-toolbar ref="toolbarRef" :refresh="{queryMethod: searchMethod}" export print custom>
       <template #buttons>
         <vxe-button @click="insertEvent">新增</vxe-button>
         <vxe-button @click="getInsertEvent">获取新增</vxe-button>
@@ -23,14 +23,9 @@
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" tree-node></vxe-column>
-      <vxe-column field="size" title="Size" :edit-render="{}">
+      <vxe-column field="size" title="Size" width="100" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-input v-model="row.size" type="text"></vxe-input>
-        </template>
-      </vxe-column>
-      <vxe-column field="type" title="Type" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-input v-model="row.type" type="text"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="date" title="Date" :edit-render="{}">
@@ -38,12 +33,13 @@
           <vxe-input v-model="row.date" type="date" transfer></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column title="操作" width="500">
+      <vxe-column title="操作" width="640">
         <template #default="{ row }">
-          <vxe-button type="text" status="primary" @click="insertRow(row, 'current')">插入节点</vxe-button>
-          <vxe-button type="text" status="primary" @click="insertRow(row, 'top')">顶部插入节点</vxe-button>
+          <vxe-button type="text" status="primary" @click="insertRow(row, 'current')">当前位置插入节点</vxe-button>
+          <vxe-button type="text" status="primary" @click="insertNextRow(row, 'current')">下一行位置插入新节点</vxe-button>
+          <vxe-button type="text" status="primary" @click="insertRow(row, 'top')">顶部插入子节点</vxe-button>
           <vxe-button type="text" status="primary" @click="insertRow(row, 'bottom')">尾部插入子节点</vxe-button>
-          <vxe-button type="text" status="primary" @click="removeRow(row)">删除节点</vxe-button>
+          <vxe-button type="text" status="danger" @click="removeRow(row)">删除节点</vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -67,7 +63,7 @@ const loading = ref(false)
 const tableData = ref<RowVO[]>([])
 
 const tableRef = ref<VxeTableInstance<RowVO>>()
-const xToolbar = ref<VxeToolbarInstance>()
+const toolbarRef = ref<VxeToolbarInstance>()
 
 const findList = () => {
   loading.value = true
@@ -116,10 +112,11 @@ const insertRow = async (currRow: RowVO, locat: string) => {
     // 如果 null 则插入到目标节点顶部
     // 如果 -1 则插入到目标节点底部
     // 如果 row 则有插入到效的目标节点该行的位置
+    const rid = Date.now()
     if (locat === 'current') {
       const record = {
-        name: '新数据',
-        id: Date.now(),
+        name: `新数据${rid}`,
+        id: rid,
         parentId: currRow.parentId, // 父节点必须与当前行一致
         date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
       }
@@ -127,8 +124,8 @@ const insertRow = async (currRow: RowVO, locat: string) => {
       await $table.setEditRow(newRow) // 插入子节点
     } else if (locat === 'top') {
       const record = {
-        name: '新数据',
-        id: Date.now(),
+        name: `新数据${rid}`,
+        id: rid,
         parentId: currRow.id, // 需要指定父节点，自动插入该节点中
         date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
       }
@@ -137,13 +134,34 @@ const insertRow = async (currRow: RowVO, locat: string) => {
       await $table.setEditRow(newRow) // 插入子节点
     } else if (locat === 'bottom') {
       const record = {
-        name: '新数据',
-        id: Date.now(),
+        name: `新数据${rid}`,
+        id: rid,
         parentId: currRow.id, // 需要指定父节点，自动插入该节点中
         date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
       }
       const { row: newRow } = await $table.insertAt(record, -1)
       await $table.setTreeExpand(currRow, true) // 将父节点展开
+      await $table.setEditRow(newRow) // 插入子节点
+    }
+  }
+}
+
+const insertNextRow = async (currRow: RowVO, locat: string) => {
+  const $table = tableRef.value
+  if ($table) {
+    const date = new Date()
+    // 如果 null 则插入到目标节点顶部
+    // 如果 -1 则插入到目标节点底部
+    // 如果 row 则有插入到效的目标节点该行的位置
+    const rid = Date.now()
+    if (locat === 'current') {
+      const record = {
+        name: `新数据${rid}`,
+        id: rid,
+        parentId: currRow.parentId, // 父节点必须与当前行一致
+        date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+      }
+      const { row: newRow } = await $table.insertNextAt(record, currRow)
       await $table.setEditRow(newRow) // 插入子节点
     }
   }
@@ -160,9 +178,10 @@ const insertEvent = async () => {
   const $table = tableRef.value
   if ($table) {
     const date = new Date()
+    const rid = Date.now()
     const record = {
-      name: '新数据',
-      id: Date.now(),
+      name: `新数据${rid}`,
+      id: rid,
       parentId: null,
       date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     }
@@ -198,7 +217,7 @@ const getUpdateEvent = () => {
 nextTick(() => {
   // 将表格和工具栏进行关联
   const $table = tableRef.value
-  const $toolbar = xToolbar.value
+  const $toolbar = toolbarRef.value
   if ($table && $toolbar) {
     $table.connect($toolbar)
   }

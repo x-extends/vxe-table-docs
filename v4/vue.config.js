@@ -17,6 +17,12 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     proxy: {
+      '/example/': {
+        target: 'https://vxetable.cn',
+        pathRewrite: {
+          '^/example/': '/example/'
+        }
+      },
       '/resource/': {
         target: 'https://vxetable.cn',
         pathRewrite: {

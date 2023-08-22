@@ -17,13 +17,14 @@
     <div class="example-code">
       <div class="example-btns">
         <vxe-tooltip :content="$t('app.body.button.fixDocTip')">
-          <vxe-button type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
+          <vxe-button class="example-btn" type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
-        <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
+        <vxe-button class="example-btn" type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showJsCode && !showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
+        <vxe-button class="example-btn" type="text" :loading="jsLoading" :disabled="showTsCode" :icon="showJsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleJsVisible">{{ $t(showJsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
+        <vxe-button class="example-btn" type="text" :loading="tsLoading" :disabled="showJsCode" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleTsVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
-      <div class="example-code-warpper" v-show="showTsCode">
-        <div v-for="(item, index) in importCodes" :key="index" class="example-code-item">
+      <div class="example-code-warpper" v-show="showJsCode">
+        <div v-for="(item, index) in importJsCodes" :key="index" class="example-code-item">
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${item.name}`" title="点击查看" target="_blank">{{ item.name }}</a>
           </div>
@@ -36,7 +37,25 @@
             <a class="link" :href="`${compDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank">{{ getFileName(`${path}.vue`) }}</a>
           </div>
           <pre>
-            <code class="html" ref="codeRef">{{ tsCodeText }}</code>
+            <code class="html" ref="codeJsRef">{{ jsCodeText }}</code>
+          </pre>
+        </div>
+      </div>
+      <div class="example-code-warpper" v-show="showTsCode">
+        <div v-for="(item, index) in importTsCodes" :key="index" class="example-code-item">
+          <div class="example-code-file">
+            <a class="link" :href="`${compDir}/${item.name}`" title="点击查看" target="_blank">{{ item.name }}</a>
+          </div>
+          <pre>
+            <code class="javascript" ref="importRef">{{ item.text }}</code>
+          </pre>
+        </div>
+        <div class="example-code-item">
+          <div class="example-code-file">
+            <a class="link" :href="`${compDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank">{{ getFileName(`${path}.vue`) }}</a>
+          </div>
+          <pre>
+            <code class="html" ref="codeTsRef">{{ tsCodeText }}</code>
           </pre>
         </div>
       </div>
@@ -46,7 +65,7 @@
 
 <script lang="ts" setup>
 import { nextTick, ref, computed, defineAsyncComponent, PropType } from 'vue'
-import { codeMaps } from '@/common/cache'
+import { codeJsMaps, codeTsMaps } from '@/common/cache'
 import { VXETable } from 'vxe-table'
 import hljs from 'highlight.js'
 import XEClipboard from 'xe-clipboard'
@@ -59,16 +78,25 @@ const props = defineProps({
   }
 })
 
-const codeRef = ref<HTMLElement>()
+const codeJsRef = ref<HTMLElement>()
+const codeTsRef = ref<HTMLElement>()
 const importRef = ref<HTMLElement>()
+const jsCodeText = ref('')
 const tsCodeText = ref('')
 
 const gitBaseUrl = 'https://github.com/x-extends/vxe-table-docs/tree/main/v4'
 
+const showJsCode = ref(false)
 const showTsCode = ref(false)
-const loading = ref(false)
+const jsLoading = ref(false)
+const tsLoading = ref(false)
 
-const importCodes = ref<{
+const importTsCodes = ref<{
+  path: string
+  name: string
+  text: string
+}[]>([])
+const importJsCodes = ref<{
   path: string
   name: string
   text: string
@@ -87,7 +115,7 @@ const getFileName = (path: string) => {
 
 const buildCode = () => {
   nextTick(() => {
-    const blockEl = codeRef.value
+    const blockEl = showJsCode.value ? codeJsRef.value : codeTsRef.value
     if (blockEl) {
       hljs.highlightElement(blockEl)
     }
@@ -100,24 +128,75 @@ const buildCode = () => {
   })
 }
 
-const loadCode = () => {
+const loadJsCode = () => {
   const compPath = props.path
   if (compPath) {
-    if (codeMaps[compPath]) {
-      tsCodeText.value = codeMaps[compPath]
+    if (codeJsMaps[compPath]) {
+      jsCodeText.value = codeJsMaps[compPath]
       buildCode()
-      loading.value = false
+      jsLoading.value = false
     } else {
-      loading.value = true
+      jsLoading.value = true
       Promise.all([
-        fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+        fetch(`${process.env.BASE_URL}example/js/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
           if (response.status >= 200 && response.status < 400) {
             return response.text()
           }
           return '暂无示例'
         }),
         ...(props.extraImports?.map(impPath => {
-          return fetch(`${process.env.BASE_URL}example/${impPath}.ts?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+          return fetch(`${process.env.BASE_URL}example/js/${impPath}.js?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+            if (response.status >= 200 && response.status < 400) {
+              return response.text().then(text => {
+                return {
+                  path: `${impPath}.js`,
+                  name: getFileName(`${impPath}.js`),
+                  text
+                }
+              })
+            }
+            return {
+              path: `${impPath}.js`,
+              name: getFileName(`${impPath}.js`),
+              text: ''
+            }
+          })
+        }) || [])
+      ]).then(([text1, ...impTexts]) => {
+        jsCodeText.value = text1 || ''
+        codeJsMaps[compPath] = jsCodeText.value
+        importJsCodes.value = impTexts || '暂无'
+        buildCode()
+        jsLoading.value = false
+      }).catch(() => {
+        jsLoading.value = false
+      })
+    }
+  } else if (jsCodeText.value) {
+    buildCode()
+    jsLoading.value = false
+  }
+  return Promise.resolve()
+}
+
+const loadTsCode = () => {
+  const compPath = props.path
+  if (compPath) {
+    if (codeTsMaps[compPath]) {
+      tsCodeText.value = codeTsMaps[compPath]
+      buildCode()
+      tsLoading.value = false
+    } else {
+      tsLoading.value = true
+      Promise.all([
+        fetch(`${process.env.BASE_URL}example/ts/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+          if (response.status >= 200 && response.status < 400) {
+            return response.text()
+          }
+          return '暂无示例'
+        }),
+        ...(props.extraImports?.map(impPath => {
+          return fetch(`${process.env.BASE_URL}example/ts/${impPath}.ts?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
             if (response.status >= 200 && response.status < 400) {
               return response.text().then(text => {
                 return {
@@ -136,43 +215,48 @@ const loadCode = () => {
         }) || [])
       ]).then(([text1, ...impTexts]) => {
         tsCodeText.value = text1 || ''
-        codeMaps[compPath] = tsCodeText.value
-        importCodes.value = impTexts || '暂无'
+        codeTsMaps[compPath] = tsCodeText.value
+        importTsCodes.value = impTexts || '暂无'
         buildCode()
-        loading.value = false
+        tsLoading.value = false
       }).catch(() => {
-        loading.value = false
+        tsLoading.value = false
       })
     }
   } else if (tsCodeText.value) {
     buildCode()
-    loading.value = false
+    tsLoading.value = false
   }
   return Promise.resolve()
 }
 
-const toggleVisible = () => {
+const toggleJsVisible = () => {
+  showTsCode.value = false
+  showJsCode.value = !showJsCode.value
+  if (showJsCode.value) {
+    loadJsCode()
+  }
+}
+
+const toggleTsVisible = () => {
+  showJsCode.value = false
   showTsCode.value = !showTsCode.value
   if (showTsCode.value) {
-    loadCode()
+    loadTsCode()
   }
 }
 
 const copyCode = () => {
   let codeContent = ''
-  if (showTsCode.value) {
+  if (showJsCode.value) {
+    codeContent = jsCodeText.value
+  } else if (showTsCode.value) {
     codeContent = tsCodeText.value
   }
   if (codeContent) {
     if (XEClipboard.copy(codeContent)) {
       VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
     }
-  } else {
-    loadCode().then(() => {
-      if (XEClipboard.copy(codeContent)) {
-        VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
-      }
-    })
   }
 }
 
@@ -206,6 +290,9 @@ const openDocs = () => {
   justify-content: center;
   height: 60px;
   border-top: 1px dashed #f0f0f0;
+  .example-btn {
+    min-width: 100px;
+  }
 }
 .example-code-warpper {
   padding: 0 30px;

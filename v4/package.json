@@ -5,9 +5,10 @@
   "scripts": {
     "update": "npm install --legacy-peer-deps",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --no-module && gulp build_examples",
-    "build:main": "vue-cli-service build --no-module && gulp build_examples",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build --no-module && gulp build_examples && npm run format:examples",
+    "build:main": "vue-cli-service build --no-module && gulp build_examples && npm run format:examples",
+    "lint": "vue-cli-service lint",
+    "format:examples": "eslint --fix dist/v4/example/**/*.{js,ts,vue}"
   },
   "dependencies": {
     "core-js": "^3.8.3",
@@ -17,9 +18,9 @@
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2",
-    "vxe-table": "^4.5.1",
+    "vxe-table": "^4.5.5",
     "xe-clipboard": "^1.10.2",
-    "xe-utils": "^3.5.11"
+    "xe-utils": "^3.5.12"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
@@ -38,6 +39,9 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^8.0.3",
     "gulp": "4.0.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-typescript": "^5.0.1",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
     "typescript": "~4.5.5"
