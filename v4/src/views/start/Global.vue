@@ -95,10 +95,12 @@ export default defineComponent({
           //     multiple: false
           //   },
           //   scrollX: {
-          //     gt: 60
+          //     enabled: false, // 是否默认开启横向虚拟滚动
+          //     gt: 60 // 当列大于指定数量时自动触发启用虚拟滚动
           //   },
           //   scrollY: {
-          //     gt: 100
+          //     enabled: false, // 是否默认开启纵向虚拟滚动
+          //     gt: 100 // 当数据大于指定数量时自动触发启用虚拟滚动
           //   },
           //   loading: {
           //     icon: 'vxe-icon-spinner roll',

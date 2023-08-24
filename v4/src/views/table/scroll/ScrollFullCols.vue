@@ -264,6 +264,14 @@ export default defineComponent({
               },
               checkboxConfig: {
                 labelField: 'nickname'
+              },
+              scrollY: {
+                enabled: true,
+                gt: 0
+              },
+              scrollX: {
+                enabled: true,
+                gt: 0
               }
             } as VxeGridProps)
 

@@ -228,6 +228,12 @@ export default defineComponent({
                 slots: {
                   buttons: 'toolbar_buttons'
                 }
+              },
+              scrollY: {
+                enabled: true
+              },
+              scrollX: {
+                enabled: true
               }
             } as VxeGridProps)
 
