@@ -4,7 +4,8 @@
       虚拟滚动<span class="orange">（最大可以支撑 5w 列、30w 行）</span><br>
       高性能的虚拟渲染，设置 <table-api-link prop="scroll-x"/>={ <table-api-link prop="enabled"/>, <table-api-link prop="gt"/> } | <table-api-link prop="scroll-y"/>={ <table-api-link prop="enabled"/>, <table-api-link prop="gt"/> } 和 <table-api-link prop="height"/>、<table-api-link prop="max-height"/> 来开启虚拟滚动， 会根据触发规则 <table-api-link prop="gt"/> 来启用虚拟渲染。虚拟滚动启用后只会渲染指定范围内的可视区数据，其他的数据将被卷去收起，当滚动到可视区时才被渲染出来<br>
       <span class="red">（注：启用虚拟滚动后：<table-api-link prop="show-overflow"/>，<table-api-link prop="show-header-overflow"/>，<table-api-link prop="show-footer-overflow"/> 参数将根据不同场景各自触发生效，无法取消；如果需要支持，需将虚拟滚动关闭）</span><br>
-      <span class="green">（性能优化：横向虚拟滚动由列宽决定性能，每一列的列宽越大就越流畅；纵向虚拟滚动由行高决定性能，每一行的高度越高就越流畅）</span>
+      <span class="green">（性能优化：横向虚拟滚动由列宽决定性能，每一列的列宽越大就越流畅；纵向虚拟滚动由行高决定性能，每一行的高度越高就越流畅）</span><br>
+      <span class="red">v3.7+默认关闭虚拟滚动，需手动 <table-api-link prop="enabled"/> 开启或者 <router-link class="link" :to="{name: 'StartGlobal'}">setup</router-link> 全局开启</span>
     </p>
 
     <vxe-table
