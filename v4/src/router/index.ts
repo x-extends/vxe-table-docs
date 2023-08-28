@@ -173,10 +173,10 @@ const TableTreeTemplate = () => import('../views/table/tree/template/Example.vue
 
 const TableScrollBasic = () => import('../views/table/scroll/basic/Example.vue')
 const TableScrollMode = () => import('../views/table/scroll/mode/Example.vue')
-const TableScrollRows = () => import('../views/table/scroll/ScrollRows.vue')
-const TableScrollFullRows = () => import('../views/table/scroll/ScrollFullRows.vue')
+const TableScrollRows = () => import('../views/table/scroll/scrollRows/Example.vue')
+const TableScrollFullRows = () => import('../views/table/scroll/scrollFullRows/Example.vue')
 const TableScrollCols = () => import('../views/table/scroll/scrollCols/Example.vue')
-const TableScrollFullCols = () => import('../views/table/scroll/ScrollFullCols.vue')
+const TableScrollFullCols = () => import('../views/table/scroll/scrollFullCols/Example.vue')
 const TableScrollTree = () => import('../views/table/scroll/tree/Example.vue')
 const TableScrollLazyTree = () => import('../views/table/scroll/lazyTree/Example.vue')
 // const TableScrollHighlight = () => import('../views/table/scroll/Highlight.vue')

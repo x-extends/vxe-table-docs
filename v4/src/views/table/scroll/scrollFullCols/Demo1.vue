@@ -2,12 +2,17 @@
   <div>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #toolbar_buttons>
-        <vxe-button @click="loadColumnAndData(1000, 20)">1k列20条</vxe-button>
-        <vxe-button @click="loadColumnAndData(1000, 100)">1k列100条</vxe-button>
-        <vxe-button @click="loadColumnAndData(5000, 500)">5k列500条</vxe-button>
-        <vxe-button @click="loadColumnAndData(10000, 10000)">1w列1w条</vxe-button>
-        <vxe-button @click="loadColumnAndData(50000, 100000)">5w列10w条</vxe-button>
-        <vxe-button @click="loadColumnAndData(100000, 30000)">10w列30w条</vxe-button>
+        <vxe-button @click="loadColumnAndData(50, 20)">50列20条</vxe-button>
+        <vxe-button @click="loadColumnAndData(100, 50)">100列50条</vxe-button>
+        <vxe-button @click="loadColumnAndData(200, 100)">200列100条</vxe-button>
+        <vxe-button @click="loadColumnAndData(1000, 5000)">1k列5k条</vxe-button>
+        <vxe-button @click="loadColumnAndData(5000, 10000)">5k列1w条</vxe-button>
+        <vxe-button @click="loadColumnAndData(10000, 100000)">1w列10w条</vxe-button>
+        <vxe-button @click="loadColumnAndData(50000, 200000)">5w列20w条</vxe-button>
+        <vxe-button @click="loadColumnAndData(100000, 50000)">10w列5w条</vxe-button>
+        <vxe-button @click="setAllSelectRow(true)">所有选中</vxe-button>
+        <vxe-button @click="clearSelectRow()">清除选中</vxe-button>
+        <vxe-button @click="getSelectEvent">获取选中</vxe-button>
       </template>
     </vxe-grid>
   </div>
@@ -23,10 +28,15 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  showHeaderOverflow: true,
   showOverflow: true,
-  height: 500,
+  showHeaderOverflow: true,
+  height: 600,
   loading: false,
+  rowConfig: {
+    useKey: true,
+    isHover: true,
+    isCurrent: true
+  },
   columnConfig: {
     resizable: true
   },
@@ -35,11 +45,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       buttons: 'toolbar_buttons'
     }
   },
+  checkboxConfig: {
+    labelField: 'nickname'
+  },
   scrollY: {
-    enabled: true
+    enabled: true,
+    gt: 0
   },
   scrollX: {
-    enabled: true
+    enabled: true,
+    gt: 0
   }
 })
 
@@ -56,8 +71,10 @@ const mockColumns = (colSize: number) => {
         for (let i = currSize; i < colSize; i++) {
           columnList.push({
             field: 'attr' + i,
-            title: 'Attr' + i,
-            width: 140
+            title: i === 0 ? '' : 'Attr' + i,
+            width: i === 0 ? 60 : 140,
+            type: i === 0 ? 'checkbox' : null,
+            fixed: i < 1 ? 'left' : null
           })
         }
       }
@@ -100,31 +117,14 @@ const mockList = (rowSize: number) => {
             attr104: 'attr104_row_' + i,
             attr106: 'attr106_row_' + i,
             attr107: 'attr107_row_' + i,
-            attr200: 'attr200_row_' + i,
-            attr201: 'attr201_row_' + i,
-            attr202: 'attr202_row_' + i,
-            attr203: 'attr203_row_' + i,
-            attr204: 'attr204_row_' + i,
-            attr205: 'attr205_row_' + i,
-            attr300: 'attr300_row_' + i,
-            attr301: 'attr301_row_' + i,
-            attr302: 'attr302_row_' + i,
-            attr303: 'attr303_row_' + i,
-            attr304: 'attr304_row_' + i,
-            attr305: 'attr305_row_' + i,
-            attr400: 'attr400_row_' + i,
+            attr400: 'attr100_row_' + i,
             attr401: 'attr401_row_' + i,
             attr402: 'attr402_row_' + i,
             attr403: 'attr403_row_' + i,
             attr404: 'attr404_row_' + i,
             attr405: 'attr405_row_' + i,
             attr406: 'attr405_row_' + i,
-            attr407: 'attr407_row_' + i,
-            attr595: 'attr495_row_' + i,
-            attr596: 'attr496_row_' + i,
-            attr597: 'attr497_row_' + i,
-            attr598: 'attr498_row_' + i,
-            attr599: 'attr499_row_' + i,
+            attr407: 'attr405_row_' + i,
             attr1000: 'attr100_row_' + i,
             attr1001: 'attr1001_row_' + i,
             attr1002: 'attr1002_row_' + i,
@@ -174,7 +174,29 @@ const loadColumnAndData = (colSize: number, rowSize: number) => {
   })
 }
 
+const getSelectEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const selectRecords = $grid.getCheckboxRecords()
+    VXETable.modal.alert(`${selectRecords.length}`)
+  }
+}
+
+const setAllSelectRow = (checked: boolean) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.setAllCheckboxRow(checked)
+  }
+}
+
+const clearSelectRow = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.clearCheckboxRow()
+  }
+}
+
 nextTick(() => {
-  loadColumnAndData(600, 10)
+  loadColumnAndData(20, 10)
 })
 </script>

@@ -1673,12 +1673,12 @@ export default defineComponent({
             //     name: 'TableScrollKeepAliveTable1'
             //   }
             // },
-            {
-              label: 'app.aside.nav.scrollMode',
-              locat: {
-                name: 'TableScrollMode'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.scrollMode',
+            //   locat: {
+            //     name: 'TableScrollMode'
+            //   }
+            // },
             {
               label: 'app.aside.nav.scrollRows',
               locat: {
