@@ -154,7 +154,7 @@ const apis = [
       },
       {
         name: 'countMethod',
-        desc: '自定义字数计算方法',
+        desc: '只对 showWordCount 有效，自定义字数计算方法',
         version: '4.0.18',
         type: '({ value }) => number',
         enum: '',

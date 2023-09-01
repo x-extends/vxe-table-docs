@@ -215,6 +215,24 @@ const apis = [
         list: []
       },
       {
+        name: 'showWordCount',
+        desc: '只对 type=text|search 有效，是否显示字数统计',
+        version: '4.5.8',
+        type: 'boolean',
+        enum: '',
+        defVal: 'false',
+        list: []
+      },
+      {
+        name: 'countMethod',
+        desc: '只对 showWordCount 有效，自定义字数计算方法',
+        version: '4.5.8',
+        type: 'boolean',
+        enum: '',
+        defVal: 'false',
+        list: []
+      },
+      {
         name: 'start-date',
         abandoned: true,
         desc: '只对 type=date|datetime|week|month|quarter|year 有效，设置面板起始日期',
