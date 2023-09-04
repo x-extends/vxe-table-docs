@@ -3,7 +3,7 @@ const del = require('del')
 const replace = require('gulp-replace')
 const rename = require('gulp-rename')
 
-const ggScript = `<script>!function(){var e=3e3,t=null,E=decodeURIComponent(["%E5","%BD%9","3%E","5%8","9%8D%","E7%8E","%AF%E","5%A2%","83%E4","%B8%8D%E","6%94%","AF%E6%8C","%81%","E8%AE","%BF%","E9%97","%AE%","EF%BC%8","C%E5%B","B%","BA%E8%","AE%AE","%E6%9B%","B4%E6%9","6%B0%","E6%B5%8","F%E8%","A7%88","%E5%","99%A","8%E9%8","7%8D%","E8%A","F%95%EF","%BC%81"].join(""));function n(e){e&&e.textContent!==E&&(e.innerHTML='<h1 style="text-align: center;width: 100%;padding: 2em;">'+E+"</h1>")}!function E(){var o=document.querySelector(".pagead-right"),r=document.querySelector(".page-container"),c=document.querySelector(".pagead-right .wwads-cn"),a=document.querySelector(".pagead-right .wwads-img");o||n(r),c||n(r),a||n(r),c&&a?clearTimeout(t):t=setTimeout(E,e+=200)}()}();</script>`
+const ggScript = `<script>!function(){function e(e){e&&e.textContent!==o&&(e.innerHTML='<h1 style="text-align: center;width: 100%;padding: 2em;">'+o+"</h1>")}function t(){var o=document.querySelector(".pagead-right"),r=document.querySelector(".page-container"),c=document.querySelector(".pagead-right .wwads-cn"),a=document.querySelector(".pagead-right .wwads-img");o||e(r),c||e(r),a||e(r),c&&a?clearTimeout(n):(E+=200,n=setTimeout(t,E))}var E=3e3,n=null,o=decodeURIComponent(["%E5%","BD%93%E","5%89","%8D%E","7%8E%A","F%E5%","A2%83","%E4%B8","%8D%E6%9","4%AF","%E6%8C","%81%","E8%AE","%BF%E9%","97%A","E%EF%","BC%8C","%E5","%BB%","BA%E8","%AE%AE","%E6","%9B%","B4%E","6%8","D%A","2%E6%B","5%8F%","E8","%A7%8","8%E5%","99%","A8%","E8%AF%","95%E","8%AF","%95%EF","%BC%81"].join(""));t()}();</script>`
 
 gulp.task('move_docs_static', () => {
   return gulp.src([
