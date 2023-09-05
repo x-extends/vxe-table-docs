@@ -1,7 +1,9 @@
 .DS_Store
 .history
 docs
+plugins
 node_modules
+*.zip
 
 # local env files
 .env.local

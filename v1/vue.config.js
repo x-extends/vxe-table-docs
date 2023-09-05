@@ -1,17 +1,18 @@
-const version = 1
+const { defineConfig } = require('@vue/cli-service')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+
 let publicPath = '/'
 if (process.env.NODE_ENV === 'production') {
-  publicPath = `/vxe-table/v${version}/`
+  publicPath = `/vxe-table/v${process.env.VUE_APP_VXE_VERSION}/`
   if (process.env.npm_lifecycle_event === 'build:main') {
-    publicPath = `/v${version}/`
+    publicPath = `/v${process.env.VUE_APP_VXE_VERSION}/`
     process.env.VUE_APP_CDN_URL = '/umd/'
     process.env.VUE_APP_MAIN_URL = '/'
   }
 }
 
-module.exports = {
+module.exports = defineConfig({
   publicPath,
-  outputDir: '../v4/public/v1',
   assetsDir: 'static',
   productionSourceMap: false,
   pages: {
@@ -19,13 +20,16 @@ module.exports = {
       entry: 'src/main.js',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'vxe-table v1',
+      title: `vxe-table v${process.env.VUE_APP_VXE_VERSION}`
     }
   },
   configureWebpack: {
     performance: {
       hints: false
     },
+    plugins: [
+      new NodePolyfillPlugin()
+    ],
     externals: {
       'highlight.js': 'hljs',
       'jsbarcode': 'JsBarcode',
@@ -39,4 +43,4 @@ module.exports = {
     config.plugins.delete('prefetch')
     config.plugins.delete('preload')
   }
-}
+})

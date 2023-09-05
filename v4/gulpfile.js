@@ -68,7 +68,7 @@ gulp.task('handle_vue_tstojs', gulp.series('handle_vue_tmpltojs', () => {
       }
       return text
     }))
-    .pipe(gulp.dest('dist/v4/example/js'))
+    .pipe(gulp.dest('dist/example/js'))
 }))
 
 gulp.task('handle_tstojs', () => {
@@ -95,7 +95,7 @@ gulp.task('handle_tstojs', () => {
         'scripthost'
       ]
     }))
-    .pipe(gulp.dest('dist/v4/example/js'))
+    .pipe(gulp.dest('dist/example/js'))
 })
 
 gulp.task('build_vue_tstojs', gulp.series('handle_vue_tstojs', 'handle_tstojs', () => {
@@ -109,5 +109,5 @@ gulp.task('build_examples', gulp.series('build_vue_tstojs', () => {
     'src/views/**/Demo*.vue',
     'src/views/**/demo*.ts'
   ])
-    .pipe(gulp.dest('dist/v4/example/ts'))
+    .pipe(gulp.dest('dist/example/ts'))
 }))

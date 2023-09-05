@@ -1,9 +1,8 @@
-const version = 4
 let publicPath = '/'
 if (process.env.NODE_ENV === 'production') {
-  publicPath = `/vxe-table/other${version}/`
+  publicPath = `/vxe-table/other${process.env.VUE_APP_VXE_VERSION}/`
   if (process.env.npm_lifecycle_event === 'build:main') {
-    publicPath = `/other${version}/`
+    publicPath = `/other${process.env.VUE_APP_VXE_VERSION}/`
     process.env.VUE_APP_CDN_URL = '/umd/'
     process.env.VUE_APP_MAIN_URL = '/'
   }
@@ -11,7 +10,6 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   publicPath,
-  outputDir: '../v4/public/other4',
   assetsDir: 'static',
   productionSourceMap: false,
   pages: {
@@ -19,7 +17,7 @@ module.exports = {
       entry: 'src/main.ts',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'vxe-table v4 集成第三方',
+      title: `vxe-table v${process.env.VUE_APP_VXE_VERSION} 集成第三方`,
     }
   },
   configureWebpack: {

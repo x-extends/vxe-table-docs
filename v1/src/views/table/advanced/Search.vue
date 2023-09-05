@@ -188,10 +188,6 @@ export default {
                     item[key] = XEUtils.toString(item[key]).replace(filterRE, match => \`<span class="keyword-lighten">\${match}</span>\`)
                   })
                 }, options)
-                // 搜索之后默认展开所有子节点
-                this.$nextTick(() => {
-                  this.$refs.xTree.setAllTreeExpand(true)
-                })
                 return rest
               }
               return this.tableData
@@ -239,10 +235,6 @@ export default {
             item[key] = XEUtils.toString(item[key]).replace(filterRE, match => `<span class="keyword-lighten">${match}</span>`)
           })
         }, options)
-        // 搜索之后默认展开所有子节点
-        this.$nextTick(() => {
-          this.$refs.xTree.setAllTreeExpand(true)
-        })
         return rest
       }
       return this.tableData2
