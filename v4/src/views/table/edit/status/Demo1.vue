@@ -1,15 +1,13 @@
 <template>
   <div>
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button @click="insertEvent">新增</vxe-button>
-        <vxe-button @click="removeSelectRowEvent">删除选中</vxe-button>
-        <vxe-button @click="getInsertEvent">获取新增</vxe-button>
-        <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
-        <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
-        <vxe-button @click="saveEvent">保存</vxe-button>
-      </template>
-    </vxe-toolbar>
+    <p>
+      <vxe-button @click="insertEvent">新增</vxe-button>
+      <vxe-button @click="removeSelectRowEvent">删除选中</vxe-button>
+      <vxe-button @click="getInsertEvent">获取新增</vxe-button>
+      <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
+      <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
+      <vxe-button @click="saveEvent">保存</vxe-button>
+    </p>
 
     <vxe-table
       border
