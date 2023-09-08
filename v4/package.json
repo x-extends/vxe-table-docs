@@ -8,7 +8,7 @@
     "build": "vue-cli-service build --no-module && gulp build_examples && npm run format:examples",
     "build:main": "vue-cli-service build --no-module && gulp build_examples && npm run format:examples",
     "lint": "vue-cli-service lint",
-    "format:examples": "eslint --fix dist/v4/example/**/*.{js,ts,vue}"
+    "format:examples": "eslint --fix dist/example/**/*.{js,ts,vue}"
   },
   "dependencies": {
     "core-js": "^3.8.3",
