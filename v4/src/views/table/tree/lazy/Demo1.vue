@@ -9,7 +9,7 @@
 
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       :row-config="{keyField: 'id'}"
       :column-config="{resizable: true}"
       :tree-config="treeConfig"
@@ -37,7 +37,7 @@ interface RowVO {
   hasChild?: boolean
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -72,28 +72,28 @@ const treeConfig = reactive<VxeTablePropTypes.TreeConfig<RowVO>>({
 })
 
 const expandEvent1 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.toggleTreeExpand(tableData.value[1])
   }
 }
 
 const expandEvent2 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.setTreeExpand([tableData.value[1], tableData.value[3]], true)
   }
 }
 
 const expandEvent3 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.setAllTreeExpand(true)
   }
 }
 
 const expandEvent4 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearTreeExpand()
   }
