@@ -14,7 +14,7 @@
 
       <template #default_version="{ row }">
         <template v-if="row.version === 'pro'">
-          <a class="link pro" :href="pluginApiUrl" target="_blank">查看pro</a>
+          <a class="link pro" :href="pluginApiUrl" target="_blank">查看插件</a>
         </template>
         <template v-else-if="row.disabled">
           <span class="disabled">已废弃</span>
@@ -201,7 +201,7 @@ export default {
               } else if (row.abandoned) {
                 return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
               } else if (row.version === 'pro') {
-                return '该参数属于 pro 扩展插件的功能'
+                return '该参数属于扩展插件的功能'
               }
             }
             return ''

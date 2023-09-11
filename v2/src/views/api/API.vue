@@ -37,10 +37,7 @@
       <vxe-table-column field="defVal" :title="$t('app.api.title.defVal')" type="html" min-width="160" :title-help="{message: '部分参数可支持全局设置，具体请查阅相关说明'}"></vxe-table-column>
       <vxe-table-column field="version" :title="$t('app.api.title.version')" width="120" :title-help="{message: '该文档与最新版本保持同步，如果遇到参数无效时，需要检查当前使用的版本号是否支持该参数'}">
         <template v-slot="{ row }">
-          <template v-if="row.version === 'pro'">
-            <a class="link pro" :href="pluginApiUrl" target="_blank">pro</a>
-          </template>
-           <template v-else-if="row.disabled">
+           <template v-if="row.disabled">
             <span class="disabled">已废弃</span>
           </template>
            <template v-else-if="row.abandoned">
@@ -357,8 +354,6 @@ export default {
           return '该参数已经被废弃了，除非不打算更新版本，否则不应该被使用'
         } else if (row.abandoned) {
           return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
-        } else if (row.version === 'pro') {
-          return '该参数属于 pro 扩展插件的功能'
         }
       }
       return ''
