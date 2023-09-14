@@ -15,6 +15,7 @@ export default {
 
         baseForm: 'Basics form',
         customLayout: 'Custom layout',
+        formVertical: 'Vertical layout',
         formValid: 'Validate form',
         configForm: 'Configuration form',
 

@@ -344,6 +344,13 @@ export default defineComponent({
               keywords: ['custom-layout']
             },
             {
+              label: 'app.aside.nav.formVertical',
+              locat: {
+                name: 'FormVertical'
+              },
+              keywords: ['vertical']
+            },
+            {
               label: 'app.aside.nav.formValid',
               locat: {
                 name: 'FormValid'

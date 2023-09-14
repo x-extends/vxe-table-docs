@@ -252,6 +252,7 @@ const TableEditFull = () => import('../views/table/edit/full/Example.vue')
 const FormBasics = () => import('../views/form/basics/Example.vue')
 const FormConfig = () => import('../views/form/config/Example.vue')
 const FormCustomLayout = () => import('../views/form/customLayout/Example.vue')
+const FormVertical = () => import('../views/form/vertical/Example.vue')
 const FormValid = () => import('../views/form/valid/Example.vue')
 
 const ModuleIcon = () => import('../views/icon/Example.vue')
@@ -1495,6 +1496,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/form/config',
     name: 'FormConfig',
     component: FormConfig
+  },
+  {
+    path: '/form/vertical',
+    name: 'FormVertical',
+    component: FormVertical
   },
   {
     path: '/form/valid',

@@ -15,6 +15,7 @@ export default {
 
         baseForm: '基础表单',
         customLayout: '自定义布局',
+        formVertical: '上下布局',
         formValid: '表单校验',
         configForm: '配置式表单',
 

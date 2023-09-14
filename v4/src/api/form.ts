@@ -112,6 +112,15 @@ const apis = [
         list: []
       },
       {
+        name: 'vertical',
+        desc: '所有项使用垂直布局',
+        version: '4.5.10',
+        type: 'boolean',
+        enum: '',
+        defVal: 'false',
+        list: []
+      },
+      {
         name: 'class-name',
         desc: '给表单附加 className',
         version: '4.0.9',

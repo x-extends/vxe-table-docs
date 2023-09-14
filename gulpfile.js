@@ -52,6 +52,9 @@ gulp.task('copy_other3_docs', () => {
 
 gulp.task('copy_other3_index', gulp.series('copy_other3_docs', () => {
   return gulp.src('other3/dist/index.html')
+    .pipe(replace('</head>', `${adScript}${adCheckScript}</head>`))
+    .pipe(replace('</body>', `${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/other3'))
     .pipe(rename({
       basename: '404'
     }))
@@ -65,6 +68,9 @@ gulp.task('copy_other4_docs', () => {
 
 gulp.task('copy_other4_index', gulp.series('copy_other4_docs', () => {
   return gulp.src('other4/dist/index.html')
+    .pipe(replace('</head>', `${adScript}${adCheckScript}</head>`))
+    .pipe(replace('</body>', `${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/other4'))
     .pipe(rename({
       basename: '404'
     }))
