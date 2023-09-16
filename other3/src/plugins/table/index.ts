@@ -11,6 +11,7 @@ import VXETablePluginMenus from 'vxe-table-plugin-menus'
 import VXETablePluginExportPDF from 'vxe-table-plugin-export-pdf'
 import VXETablePluginRenderer from 'vxe-table-plugin-renderer'
 // import VXETablePluginShortcutKey from 'vxe-table-plugin-shortcut-key'
+import VXETablePluginValidator from 'vxe-table-plugin-validator'
 import 'vxe-table-plugin-element/dist/style.css'
 import 'vxe-table-plugin-iview/dist/style.css'
 import 'vxe-table-plugin-antd/dist/style.css'
@@ -39,6 +40,7 @@ VXETable.use(VXETablePluginMenus)
 VXETable.use(VXETablePluginExportPDF)
 VXETable.use(VXETablePluginRenderer)
 // VXETable.use(VXETablePluginShortcutKey)
+VXETable.use(VXETablePluginValidator)
 
 if (!XEUtils.browse().msie) {
   const exceljs = document.createElement('script')
