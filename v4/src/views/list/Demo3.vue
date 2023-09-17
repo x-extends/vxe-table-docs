@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-list class="my-list" height="200" :data="list">
+    <vxe-list class="my-list" height="200" :data="list" :scroll-y="{enabled: true}">
       <template #default="{ items }">
         <div class="my-list-item" v-for="(item, index) in items" :key="index">
           <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" height="28">

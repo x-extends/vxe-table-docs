@@ -9,7 +9,7 @@
       <vxe-button @click="loadData(500000)">加载50w条</vxe-button>
     </p>
 
-    <vxe-list height="240" class="my-list" :loading="loading" :data="list">
+    <vxe-list height="240" class="my-list" :loading="loading" :data="list" :scroll-y="{enabled: true}">
       <template #default="{ items }">
         <div class="my-list-item" v-for="(item, index) in items" :key="index">{{ item.label }}</div>
       </template>
