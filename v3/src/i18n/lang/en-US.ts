@@ -12,6 +12,7 @@ export default {
         i18n: 'Internationalization',
 
         demo: 'Demo',
+        linkPlugin: '查看',
 
         baseForm: 'Basics form',
         customLayout: 'Custom layout',
@@ -207,10 +208,10 @@ export default {
         readFile: 'Read file',
 
         other: 'Integrated third party Library',
-        elementRender: 'element-ui -> Custom Templates',
+        elementRender: 'element-plus -> Custom Templates',
         iviewRender: 'iview -> Custom Templates',
         antd: 'ant-design-vue -> Custom Templates',
-        elementUpload: 'element-ui -> Uploader',
+        elementUpload: 'element-plus -> Uploader',
         sortablejsRow: 'sortablejs -> Row drag',
         sortablejsColumn: 'sortablejs -> column moving',
         xlsxRender: 'xlsx -> Import and export',
@@ -350,7 +351,7 @@ export default {
         plan: {
           v1: 'v1 Based on vue2.6, Support for all major browsers',
           v2: 'v2 Based on vue2.6, Support for all major browsers',
-          v3: 'v3 Based on vue2.6,Support for modern browsers and partial compatibility with IE11 to improve rendering performance',
+          v3: 'v3 Based on vue2.6, Support for modern browsers and partial compatibility with IE11 to improve rendering performance',
           v4: 'v4 Based on vue3.x, Only supports modern browsers, not IE'
         },
         compatibility: 'Compatibility',
@@ -553,7 +554,7 @@ export default {
           footerClassName: 'Append a className to the cell in the footer, It could be a function',
           formatter: 'A way to format the display content',
           indexMethod: 'Obsolete, please use "seqMethod"',
-          seqMethod: '数据排序，Only valid for type=seq, custom indexing method',
+          seqMethod: 'Only valid for type=seq, custom indexing method',
           sortable: '数据排序，Whether column sorting is allowed',
           sortBy: '数据排序，Only valid for sortable, 指定排序的字段（当值 formatter 格式化后，可以设置该字段，使用值进行排序）',
           sortType: '数据排序，排序的字段类型，比如字符串转数值等',

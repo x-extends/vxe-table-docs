@@ -6,11 +6,15 @@
       </p>
     </div>
 
+    <div v-if="$slots.use" class="example-use">
+      <slot name="use"></slot>
+    </div>
+
     <div class="example-demo">
       <AsyncDemo :path="path" :key="path" />
     </div>
 
-    <div class="example-describe">
+    <div v-if="$slots.describe" class="example-describe">
       <slot name="describe"></slot>
     </div>
 
@@ -19,25 +23,21 @@
         <vxe-tooltip :content="$t('app.body.button.fixDocTip')">
           <vxe-button type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
-        <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button type="text" :loading="loading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
+        <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showJsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
+        <vxe-button type="text" :loading="loading" :icon="showJsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showJsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
       </div>
-      <div class="example-code-warpper" v-show="showTsCode">
+      <div class="example-code-warpper" v-show="showJsCode">
         <div v-for="(item, index) in importCodes" :key="index" class="example-code-item">
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${item.name}`" title="点击查看" target="_blank">{{ item.name }}</a>
           </div>
-          <pre>
-            <code class="javascript" ref="importRef">{{ item.text }}</code>
-          </pre>
+          <CodeRender language="javascript" :code="item.text"></CodeRender>
         </div>
         <div class="example-code-item">
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank">{{ getFileName(`${path}.vue`) }}</a>
           </div>
-          <pre>
-            <code class="html" ref="codeRef">{{ tsCodeText }}</code>
-          </pre>
+          <CodeRender language="html" :code="jsCodeText"></CodeRender>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@ import hljs from 'highlight.js'
 import XEClipboard from 'xe-clipboard'
 import AsyncDemo from './AsyncDemo.vue'
 
-const gitBaseUrl = 'https://github.com/x-extends/vxe-table-docs/tree/main/v3'
+const gitBaseUrl = 'https://github.com/x-extends/vxe-table-docs/tree/main/other3'
 
 export default {
   name: 'CodeLight',
@@ -64,8 +64,8 @@ export default {
   },
   data () {
     return {
-      tsCodeText: '',
-      showTsCode: false,
+      jsCodeText: '',
+      showJsCode: false,
       loading: false,
       importCodes: []
     }
@@ -77,24 +77,24 @@ export default {
     }
   },
   methods: {
-    loadCode () {
+    loadJsCode () {
       const compPath = this.path
       if (compPath) {
         if (codeMaps[compPath]) {
-          this.tsCodeText = codeMaps[compPath]
+          this.jsCodeText = codeMaps[compPath]
           this.buildCode()
           this.loading = false
         } else {
           this.loading = true
           Promise.all([
-            fetch(`${process.env.BASE_URL}example/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+            fetch(`${process.env.BASE_URL}example/js/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
               if (response.status >= 200 && response.status < 400) {
                 return response.text()
               }
               return '暂无示例'
             }),
             ...(this.extraImports?.map(impPath => {
-              return fetch(`${process.env.BASE_URL}example/${impPath}.ts?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+              return fetch(`${process.env.BASE_URL}example/js/${impPath}.ts?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
                 if (response.status >= 200 && response.status < 400) {
                   return response.text().then(text => {
                     return {
@@ -112,8 +112,8 @@ export default {
               })
             }) || [])
           ]).then(([text1, ...impTexts]) => {
-            this.tsCodeText = text1 || ''
-            codeMaps[compPath] = this.tsCodeText
+            this.jsCodeText = text1 || ''
+            codeMaps[compPath] = this.jsCodeText
             this.importCodes = impTexts || '暂无'
             this.buildCode()
             this.loading = false
@@ -121,7 +121,7 @@ export default {
             this.loading = false
           })
         }
-      } else if (this.tsCodeText) {
+      } else if (this.jsCodeText) {
         this.buildCode()
         this.loading = false
       }
@@ -139,19 +139,19 @@ export default {
       })
     },
     toggleVisible () {
-      this.showTsCode = !this.showTsCode
-      if (this.showTsCode) {
-        this.loadCode()
+      this.showJsCode = !this.showJsCode
+      if (this.showJsCode) {
+        this.loadJsCode()
       }
     },
     copyCode  () {
-      if (this.tsCodeText) {
-        if (XEClipboard.copy(this.tsCodeText)) {
+      if (this.jsCodeText) {
+        if (XEClipboard.copy(this.jsCodeText)) {
           VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
         }
       } else {
-        this.loadCode().then(() => {
-          if (XEClipboard.copy(this.tsCodeText)) {
+        this.loadJsCode().then(() => {
+          if (XEClipboard.copy(this.jsCodeText)) {
             VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
           }
         })
@@ -174,6 +174,9 @@ export default {
   }
 }
 .example-tip {
+  padding: 30px 30px 0 30px;
+}
+.example-use {
   padding: 30px 30px 0 30px;
 }
 .example-demo {

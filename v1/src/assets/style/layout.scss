@@ -383,12 +383,38 @@ body,
     overflow: auto;
     padding: 15px 0 25px 0;
     & > .content {
-      position: relative;
-      margin: 0 auto;
-      padding: 0 25px 0 25px;
+      flex-grow: 1;
+      width: 100%;
+      overflow: auto;
       &:not(.full) {
-        max-width: 1200px;
-        min-width: 800px;
+        & > .page-view {
+          padding: 15px 300px 15px 40px;
+          min-width: 600px;
+        }
+      }
+      &.full {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow: hidden;
+        & > .page-view {
+          flex-grow: 1;
+          overflow: auto;
+          padding: 15px 300px 0 40px;
+        }
+      }
+      & > .page-view {
+        width: 100%;
+        position: relative;
+        margin: 0 auto;
+      }
+      & > .page-footer {
+        flex-shrink: 0;
+        text-align: center;
+        line-height: 30px;
+        .link {
+          color: #000;
+        }
       }
     }
     .full {

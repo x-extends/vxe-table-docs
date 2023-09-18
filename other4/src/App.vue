@@ -116,7 +116,6 @@ import { useStore } from 'vuex'
 import i18n from './i18n'
 import router from './router'
 import XEUtils from 'xe-utils'
-import VXETable from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -148,6 +147,12 @@ export default defineComponent({
           value: 'module',
           expand: false,
           children: [
+            {
+              label: 'app.aside.nav.print',
+              locat: {
+                name: 'TableOtherPrint'
+              }
+            },
             {
               label: '使用第三方图标',
               locat: {
@@ -287,12 +292,6 @@ export default defineComponent({
           value: 'other',
           expand: false,
           children: [
-            {
-              label: 'app.aside.nav.print',
-              locat: {
-                name: 'TableOtherPrint'
-              }
-            },
             {
               label: 'app.aside.nav.elementRender',
               locat: {

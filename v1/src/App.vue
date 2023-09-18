@@ -89,10 +89,15 @@
       </div>
       <div class="body">
         <div class="content" :class="{full: ['VXEAPI', 'Donation', 'Run'].includes($route.name)}">
-          <template v-if="!/\/start|\/module|\/api/.test($route.path)">
-            <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank"><i class="fa fa-bug"></i>{{ $t('app.body.button.runDemo') }}</a>
-          </template>
-          <router-view/>
+          <div class="page-view">
+            <template v-if="!/\/start|\/module|\/api/.test($route.path)">
+              <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank"><i class="fa fa-bug"></i>{{ $t('app.body.button.runDemo') }}</a>
+            </template>
+            <router-view/>
+          </div>
+          <footer class="page-footer">
+            <div><a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号</a></div>
+          </footer>
         </div>
       </div>
     </div>

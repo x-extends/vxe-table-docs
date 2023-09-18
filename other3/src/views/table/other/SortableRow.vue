@@ -17,7 +17,7 @@
       <vxe-column width="60">
         <template #default>
           <span class="drag-btn">
-            <i class="vxe-icon-edit"></i>
+            <i class="fa fa-arrows"></i>
           </span>
         </template>
         <template #header>
@@ -89,7 +89,7 @@ export default {
             default: () => {
               return [
                 <span class="drag-btn">
-                  <i class="vxe-icon-edit"></i>
+                  <i class="fa fa-arrows"></i>
                 </span>
               ]
             },
@@ -147,7 +147,7 @@ export default {
           <vxe-column width="60">
             <template #default>
               <span class="drag-btn">
-                <i class="vxe-icon-edit"></i>
+                <i class="fa fa-arrows"></i>
               </span>
             </template>
             <template #header>
@@ -268,7 +268,7 @@ export default {
                     default: () => {
                       return [
                         <span class="drag-btn">
-                          <i class="vxe-icon-menu"></i>
+                          <i class="fa fa-arrows"></i>
                         </span>
                       ]
                     },

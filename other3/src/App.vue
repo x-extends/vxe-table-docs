@@ -139,7 +139,6 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import XEUtils from 'xe-utils'
-import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -166,6 +165,12 @@ export default {
           value: 'module',
           expand: false,
           children: [
+            {
+              label: 'app.aside.nav.print',
+              locat: {
+                name: 'TableOtherPrint'
+              }
+            },
             {
               label: '使用第三方图标',
               locat: {
@@ -298,12 +303,6 @@ export default {
           value: 'other',
           expand: false,
           children: [
-            {
-              label: 'app.aside.nav.print',
-              locat: {
-                name: 'TableOtherPrint'
-              }
-            },
             {
               label: 'app.aside.nav.elementRender',
               locat: {

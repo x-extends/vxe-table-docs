@@ -12,7 +12,7 @@
       :column-config="{resizable: true}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="ElInput" width="100" :filters="[{data: ''}]" :filter-render="{name: 'ElInput', props: {placeholder: '请输入名称'}}"></vxe-column>
+      <vxe-column field="name" title="ElInput" width="100" :filters="nameOptions" :filter-render="{name: 'ElInput', props: {placeholder: '请输入名称'}}"></vxe-column>
       <vxe-column field="age" title="ElInputNumber" sortable width="180" :filters="[{data: 0}]" :filter-render="{name: 'ElInputNumber', props: {min: 0, max: 100}}"></vxe-column>
       <vxe-column field="role" title="ElAutocomplete" width="160" :filters="[{data: ''}]" :filter-render="{name: 'ElAutocomplete', props: {fetchSuggestions: roleFetchSuggestions, placeholder: '请输入角色名称'}}"></vxe-column>
       <vxe-column field="sex" title="ElSelect" width="100" :formatter="formatterSex" :filters="[{data: null}]" :filter-render="{name: 'ElSelect', options: sexList, props: {placeholder: '请选择'}}"></vxe-column>
@@ -47,6 +47,9 @@ export default {
         { id: 10008, name: 'Test8', nickname: 'T8', role: 'Develop', sex: '1', sex1: [], region: [], age: 35, date: '', date1: '', date2: '', date3: '', date4: [], date5: '', date7: '', color1: '', tree1: '', tree2: [], rate: 2, rate1: 14, flag: false, address: 'Shenzhen' },
         { id: 10009, name: 'Test9', nickname: 'T9', role: 'Test', sex: '1', sex1: ['0'], region: [], age: 24, date: '', date1: '', date2: '', date3: '', date4: [], date5: '', date7: '', color1: '', tree1: '', tree2: [], rate: 3, rate1: 52, flag: false, address: 'Shenzhen' },
         { id: 100010, name: 'Test10', nickname: 'T10', role: 'Develop', sex: '1', sex1: [], region: [], age: 20, date: '', date1: '', date2: '', date3: '', date4: [], date5: '', date7: '', color1: '', tree1: '', tree2: [], rate: 4, rate1: 83, flag: false, address: 'Guangzhou' }
+      ],
+      nameOptions: [
+        { data: '' }
       ],
       sexList: [
         { label: '', value: '' },

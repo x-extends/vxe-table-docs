@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
-const TableOtherPrint = () => import('../views/table/other/Print.vue')
 const TableOtherElement = () => import('../views/table/other/Element.vue')
 // const TableOtherIview = () => import('../views/table/other/Iview.vue')
 const TableOtherAntd = () => import('../views/table/other/Antd.vue')
@@ -19,13 +18,14 @@ const TablePluginAntdFilter = () => import('../views/table/plugin/AntdFilter.vue
 const TablePluginAntdPage = () => import('../views/table/plugin/AntdPage.vue')
 // const TablePluginShortcutKey = () => import('../views/table/plugin/ShortcutKey.vue')
 // const TablePluginCharts = () => import('../views/table/plugin/Charts.vue')
-const TablePluginExportXLSX = () => import('../views/table/plugin/ExportXLSX.vue')
-const TablePluginExportPDF = () => import('../views/table/plugin/ExportPDF.vue')
-const TablePluginRenderer = () => import('../views/table/plugin/Renderer.vue')
-const TablePluginMenus = () => import('../views/table/plugin/Menus.vue')
+const TablePluginExportXLSX = () => import('../views/table/plugin/export-xlsx/Example.vue')
+const TablePluginExportPDF = () => import('../views/table/plugin/export-pdf/Example.vue')
+const TablePluginRenderer = () => import('../views/table/plugin/renderer/Example.vue')
+const TablePluginMenus = () => import('../views/table/plugin/menu/Example.vue')
 // const TablePluginTreeRows = () => import('../views/table/plugin/TreeRows'
 // const TablePluginTreeCols = () => import('../views/table/plugin/TreeCols'
 
+const TableOtherPrint = () => import('../views/table/other/Print.vue')
 const ModuleButton = () => import('../views/button/Button.vue')
 
 const Donation = () => import('../views/api/Donation.vue')
@@ -42,11 +42,6 @@ const routes: Array<RouteRecordRaw> = [
     redirect: {
       name: 'TablePluginExportXLSX'
     }
-  },
-  {
-    path: '/table/other/print',
-    name: 'TableOtherPrint',
-    component: TableOtherPrint
   },
   {
     path: '/table/other/element',
@@ -167,6 +162,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/donation/api',
     name: 'Donation',
     component: Donation
+  },
+  {
+    path: '/table/module/print',
+    name: 'TableOtherPrint',
+    component: TableOtherPrint
   },
   {
     path: '/table/module/button',

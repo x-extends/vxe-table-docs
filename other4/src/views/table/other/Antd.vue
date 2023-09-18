@@ -171,11 +171,13 @@ export default defineComponent({
     }
 
     const handleSearch = (value: any) => {
-      demo1.searchOptions = !value ? [] : [
-        { value },
-        { value: value + value },
-        { value: value + value + value }
-      ]
+      demo1.searchOptions = !value
+        ? []
+        : [
+            { value },
+            { value: value + value },
+            { value: value + value + value }
+          ]
     }
 
     const createStateFilter = (queryString: string) => {

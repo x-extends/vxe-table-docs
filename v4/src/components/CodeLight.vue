@@ -6,11 +6,15 @@
       </p>
     </div>
 
+    <div v-if="$slots.use" class="example-use">
+      <slot name="use"></slot>
+    </div>
+
     <div class="example-demo">
       <DemoCode />
     </div>
 
-    <div class="example-describe">
+    <div v-if="$slots.describe" class="example-describe">
       <slot name="describe"></slot>
     </div>
 
@@ -28,17 +32,13 @@
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${item.name}`" title="点击查看" target="_blank">{{ item.name }}</a>
           </div>
-          <pre>
-            <code class="javascript" ref="importRef">{{ item.text }}</code>
-          </pre>
+          <CodeRender language="javascript" :code="item.text"></CodeRender>
         </div>
         <div class="example-code-item">
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank">{{ getFileName(`${path}.vue`) }}</a>
           </div>
-          <pre>
-            <code class="html" ref="codeJsRef">{{ jsCodeText }}</code>
-          </pre>
+          <CodeRender language="html" :code="jsCodeText"></CodeRender>
         </div>
       </div>
       <div class="example-code-warpper" v-show="showTsCode">
@@ -46,17 +46,13 @@
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${item.name}`" title="点击查看" target="_blank">{{ item.name }}</a>
           </div>
-          <pre>
-            <code class="javascript" ref="importRef">{{ item.text }}</code>
-          </pre>
+          <CodeRender language="javascript" :code="item.text"></CodeRender>
         </div>
         <div class="example-code-item">
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank">{{ getFileName(`${path}.vue`) }}</a>
           </div>
-          <pre>
-            <code class="html" ref="codeTsRef">{{ tsCodeText }}</code>
-          </pre>
+          <CodeRender language="html" :code="tsCodeText"></CodeRender>
         </div>
       </div>
     </div>
@@ -64,10 +60,9 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, computed, defineAsyncComponent, PropType } from 'vue'
+import { ref, computed, defineAsyncComponent, PropType } from 'vue'
 import { codeJsMaps, codeTsMaps } from '@/common/cache'
 import { VXETable } from 'vxe-table'
-import hljs from 'highlight.js'
 import XEClipboard from 'xe-clipboard'
 
 const props = defineProps({
@@ -78,9 +73,6 @@ const props = defineProps({
   }
 })
 
-const codeJsRef = ref<HTMLElement>()
-const codeTsRef = ref<HTMLElement>()
-const importRef = ref<HTMLElement>()
 const jsCodeText = ref('')
 const tsCodeText = ref('')
 
@@ -113,27 +105,11 @@ const getFileName = (path: string) => {
   return path.split('/').slice(-1)[0]
 }
 
-const buildCode = () => {
-  nextTick(() => {
-    const blockEl = showJsCode.value ? codeJsRef.value : codeTsRef.value
-    if (blockEl) {
-      hljs.highlightElement(blockEl)
-    }
-    const impsRefs: any = importRef.value
-    if (impsRefs) {
-      impsRefs.forEach((el) => {
-        hljs.highlightElement(el)
-      })
-    }
-  })
-}
-
 const loadJsCode = () => {
   const compPath = props.path
   if (compPath) {
     if (codeJsMaps[compPath]) {
       jsCodeText.value = codeJsMaps[compPath]
-      buildCode()
       jsLoading.value = false
     } else {
       jsLoading.value = true
@@ -166,14 +142,12 @@ const loadJsCode = () => {
         jsCodeText.value = text1 || ''
         codeJsMaps[compPath] = jsCodeText.value
         importJsCodes.value = impTexts || '暂无'
-        buildCode()
         jsLoading.value = false
       }).catch(() => {
         jsLoading.value = false
       })
     }
   } else if (jsCodeText.value) {
-    buildCode()
     jsLoading.value = false
   }
   return Promise.resolve()
@@ -184,7 +158,6 @@ const loadTsCode = () => {
   if (compPath) {
     if (codeTsMaps[compPath]) {
       tsCodeText.value = codeTsMaps[compPath]
-      buildCode()
       tsLoading.value = false
     } else {
       tsLoading.value = true
@@ -217,14 +190,12 @@ const loadTsCode = () => {
         tsCodeText.value = text1 || ''
         codeTsMaps[compPath] = tsCodeText.value
         importTsCodes.value = impTexts || '暂无'
-        buildCode()
         tsLoading.value = false
       }).catch(() => {
         tsLoading.value = false
       })
     }
   } else if (tsCodeText.value) {
-    buildCode()
     tsLoading.value = false
   }
   return Promise.resolve()
@@ -275,6 +246,9 @@ const openDocs = () => {
   }
 }
 .example-tip {
+  padding: 30px 30px 0 30px;
+}
+.example-use {
   padding: 30px 30px 0 30px;
 }
 .example-demo {

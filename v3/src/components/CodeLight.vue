@@ -6,11 +6,15 @@
       </p>
     </div>
 
+    <div v-if="$slots.use" class="example-use">
+      <slot name="use"></slot>
+    </div>
+
     <div class="example-demo">
       <AsyncDemo :path="path" :key="path" />
     </div>
 
-    <div class="example-describe">
+    <div v-if="$slots.describe" class="example-describe">
       <slot name="describe"></slot>
     </div>
 
@@ -27,17 +31,13 @@
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${item.name}`" title="点击查看" target="_blank">{{ item.name }}</a>
           </div>
-          <pre>
-            <code class="javascript" ref="importRef">{{ item.text }}</code>
-          </pre>
+          <CodeRender language="javascript" :code="item.text"></CodeRender>
         </div>
         <div class="example-code-item">
           <div class="example-code-file">
             <a class="link" :href="`${compDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank">{{ getFileName(`${path}.vue`) }}</a>
           </div>
-          <pre>
-            <code class="html" ref="codeRef">{{ jsCodeText }}</code>
-          </pre>
+          <CodeRender language="html" :code="jsCodeText"></CodeRender>
         </div>
       </div>
     </div>
@@ -174,6 +174,9 @@ export default {
   }
 }
 .example-tip {
+  padding: 30px 30px 0 30px;
+}
+.example-use {
   padding: 30px 30px 0 30px;
 }
 .example-demo {

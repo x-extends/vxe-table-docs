@@ -361,11 +361,13 @@ export default {
       return labels.join(' / ')
     },
     handleSearch (value) {
-      this.dataSource = !value ? [] : [
-        value,
-        value + value,
-        value + value + value
-      ]
+      this.dataSource = !value
+        ? []
+        : [
+            value,
+            value + value,
+            value + value + value
+          ]
     },
     onSelect (value) {
       console.log('onSelect', value)

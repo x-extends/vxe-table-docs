@@ -11,6 +11,15 @@ export default {
         theme: 'Global theme',
         i18n: 'Internationalization',
 
+        demo: 'Demo',
+        linkPlugin: '查看',
+
+        baseForm: 'Basics form',
+        customLayout: 'Custom layout',
+        formVertical: 'Vertical layout',
+        formValid: 'Validate form',
+        configForm: 'Configuration form',
+
         icon: 'Icon',
         basics: 'Basic table',
         base: 'Basics table',
@@ -35,6 +44,8 @@ export default {
         visible: '默认是否显示',
         fixed: 'Table with fixed column',
         fullFixed: 'Table with fixed columns and header ',
+        minHeight: 'Min height',
+        maxHeight: 'Min height',
         group: 'Grouping table head',
         merge: 'Merge rows or columns',
         seq: 'Table sequence',
@@ -115,7 +126,7 @@ export default {
         customIcon: 'More customizations',
         expandTreeLazy: 'Tree expansion line lazy load',
         treeSearch: 'Deep to search',
-        treeSort: 'Deep sort',
+        treeSort: 'Tree sort',
         groupSummary: 'Group summary',
         groupSummaryCount: 'Group summary total',
         edit: 'Editable',
@@ -182,7 +193,7 @@ export default {
         badLineHeight: 'Dynamic row height with virtual scroll',
         badNonsupport: 'Unsupported',
 
-        module: 'Modules',
+        module: 'Components',
         button: 'Button',
         input: 'Input',
         textarea: 'Textarea',
@@ -205,7 +216,7 @@ export default {
         sortablejsColumn: 'sortablejs -> column moving',
         xlsxRender: 'xlsx -> Import and export',
 
-        plugin: 'Extension plug-in library',
+        plugin: '(Extension) plug-in library',
         elementPlugin: 'plugin-element Basic config',
         elementFilterPlugin: 'plugin-element Filter config',
         elementPluginMore: 'plugin-element More config',
@@ -226,11 +237,12 @@ export default {
         treeRowPlugin: 'plugin-virtual-tree Virtual tree',
         treeColPlugin: 'plugin-virtual-tree Horizontal and vertical',
 
-        formats: '(全局复用) Formatter',
-        commands: '(全局复用) Command register',
-        menus: '(全局复用) Context menu',
+        formats: '(Global) Formatter',
+        commands: '(Global) Command register',
+        menus: '(Global) Context menu',
+        validators: '(Global) Validator',
 
-        renderer: '(高级用法) VxeRenderer',
+        renderer: '(Advanced) VxeRenderer',
         rendererFilter: 'Filter renderer',
         rendererDefault: 'Cell renderer',
         rendererEdit: 'Edit renderer',
@@ -239,7 +251,7 @@ export default {
         rendererForm: 'Form renderer',
         rendererEmpty: 'No data renderer',
 
-        interceptor: '(高级用法) Event interceptor',
+        interceptor: '(Advanced) Event interceptor',
 
         optimize: 'Optimization and suggestion',
         optimizeScroller: 'Virtual rolling optimization',
@@ -272,7 +284,8 @@ export default {
         vxeFormGather: 'vxe-form-gather',
         vxeSwitch: 'vxe-switch',
         vxeList: 'vxe-list',
-        vxePulldown: 'vxe-pulldown'
+        vxePulldown: 'vxe-pulldown',
+        vxeIcon: 'vxe-icon'
       }
     },
     header: {
@@ -285,7 +298,13 @@ export default {
       button: {
         viewCode: 'View code',
         runDemo: 'Run demo',
-        showCode: 'Show demo',
+        fixDocs: 'Fix',
+        fixDocTip: 'If the document has errors or is not detailed, you can help improve it by submitting PR!',
+        copyCode: 'Copy code',
+        showCode: 'Show code',
+        showTsCode: 'Show TS',
+        showJsCode: 'Show JS',
+        hideCode: 'Hide code',
         refresh: 'Refresh',
         insert: 'Insert',
         save: 'Save',
@@ -323,17 +342,17 @@ export default {
         copyToClipboard: 'Copied to clipboard'
       },
       other: {
-        v1: 'v1+ (vue 2.6+ End of life) ~ 2020-04 Stop',
-        v2: 'v2+ (vue 2.6+ End of life) ~ 2021-12 Stop',
-        v3: 'v+ (vue 2.6+ Stable)',
-        v3d5: '3.5+ (vue 2.6+ Sticky)',
-        v4: 'v4+ (vue 3.0+ Latest)',
-        v4d5: '4.5+ (vue 3.0+ Sticky)',
+        v1: 'v1+ (vue 2.6 End of life) ~ 2020-04 Stop',
+        v2: 'v2+ (vue 2.6 End of life) ~ 2021-12 Stop',
+        v3: 'v+ (vue 2.6 LTS)',
+        v3d5: '3.5+ (vue 2.6 Sticky)',
+        v4: 'v4+ (vue 3.x Current)',
+        v4d5: '4.5+ (vue 3.x Sticky)',
         plan: {
-          v1: 'v1 Based on vue2.6+, Support for all major browsers',
-          v2: 'v2 Based on vue2.6+, Support for all major browsers',
-          v3: 'v3 Support for modern browsers and partial compatibility with IE11 to improve rendering performance',
-          v4: 'v4 Based on vue3.0+, Only supports modern browsers, not IE'
+          v1: 'v1 Based on vue2.6, Support for all major browsers',
+          v2: 'v2 Based on vue2.6, Support for all major browsers',
+          v3: 'v3 Based on vue2.6, Support for modern browsers and partial compatibility with IE11 to improve rendering performance',
+          v4: 'v4 Based on vue3.x, Only supports modern browsers, not IE'
         },
         compatibility: 'Compatibility',
         releases: 'Releases',
@@ -470,8 +489,7 @@ export default {
           params: '自定义参数（可以用来存放一些自定义的数据）',
 
           empty: 'Text content displayed when empty data',
-
-          currentChange: 'Only valid for highlightCurrentRow, the event that fires when the row is manually selected and the value changes',
+          currentChange: 'Only valid for row-config.isCurrent, the event that fires when the row is manually selected and the value changes',
           radioChange: 'Only works for type=radio, the event that is triggered when the value is manually checked and changed',
           selectChange: 'Obsolete, please use "checkbox-change"',
           checkboxChange: 'Only valid for type=checkbox, events that are triggered when checked manually and the value changes',
@@ -508,7 +526,7 @@ export default {
       },
       tableColumn: {
         desc: {
-          type: 'The type of the column',
+          type: 'The type of the column（部分功能需要设置 column-config.useKey | row-config.useKey）',
           index: 'Obsolete, please use "seq"',
           seq: 'Sequence number',
           selection: 'Obsolete, please use "checkbox"',
@@ -537,17 +555,17 @@ export default {
           formatter: 'A way to format the display content',
           indexMethod: 'Obsolete, please use "seqMethod"',
           seqMethod: 'Only valid for type=seq, custom indexing method',
-          sortable: 'Whether column sorting is allowed',
-          sortBy: 'Only valid for sortable, 指定排序的字段（当值 formatter 格式化后，可以设置该字段，使用值进行排序）',
-          sortType: '排序的字段类型，比如字符串转数值等',
-          sortMethod: 'Only valid for sortable, the sorting method of the column, whose return value is used to determine the collation of the row',
-          remoteSort: 'Whether to use remote sorting',
-          filters: 'Configure filter conditions(note: filtering can only be used for lists, if it is a tree, filter the root node)',
-          filterMultiple: 'Works only for filters, filtering whether multiple selections are allowed',
-          filterMethod: 'Valid only for filters, the filter method for the column, whose return value is used to determine whether the row is displayed',
-          filterResetMethod: '只对 filters 有效，自定义筛选重置方法',
-          filterRecoverMethod: '只对 filters 有效，自定义筛选复原方法（使用自定义筛选时可能会用到）',
-          filterRender: 'Filter renderer config',
+          sortable: '数据排序，Whether column sorting is allowed',
+          sortBy: '数据排序，Only valid for sortable, 指定排序的字段（当值 formatter 格式化后，可以设置该字段，使用值进行排序）',
+          sortType: '数据排序，排序的字段类型，比如字符串转数值等',
+          sortMethod: '数据排序，Only valid for sortable, the sorting method of the column, whose return value is used to determine the collation of the row',
+          remoteSort: '数据排序，Whether to use remote sorting',
+          filters: '数据筛选，Configure filter conditions(note: filtering can only be used for lists, if it is a tree, filter the root node)',
+          filterMultiple: '数据筛选，Works only for filters, filtering whether multiple selections are allowed',
+          filterMethod: '数据筛选，Valid only for filters, the filter method for the column, whose return value is used to determine whether the row is displayed',
+          filterResetMethod: '数据筛选，只对 filters 有效，自定义筛选重置方法',
+          filterRecoverMethod: '数据筛选，只对 filters 有效，自定义筛选复原方法（使用自定义筛选时可能会用到）',
+          filterRender: '数据筛选，Filter renderer config',
           treeNode: 'Only valid for tree-config configuration, specified as the tree node',
           columnKey: 'Obsolete, please use "table.column-key"',
           cellType: 'Cell value type',
@@ -690,7 +708,7 @@ export default {
           position: 'Only valid for type=modal. The default position of the window can be set to center display',
           zIndex: 'Custom style z-index (may be used for special situations, such as occlusion)',
           showTitleOverflow: 'Set the title content to appear as an ellipsis when it is too long',
-          fullscreen: 'Default maximized display',
+          fullscreen: '窗口打开时自动最大化显示',
           draggable: 'Whether to enable window dragging',
           dblclickZoom: 'It is only valid for type=modal. Is it allowed to enlarge or restore the window by double-clicking the head',
           remember: 'The memory function will remember the last operation state and restore the window state when the window is opened again',

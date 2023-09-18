@@ -16,6 +16,8 @@ import GridAPILink from './components/GridAPILink.vue'
 import VirtualTreeAPILink from './components/VirtualTreeAPILink.vue'
 import PreCode from './components/PreCode.vue'
 import CodeLight from './components/CodeLight.vue'
+import CodeRender from './components/CodeRender.vue'
+import CodeList from './components/CodeList.vue'
 import DemoBlock from './components/DemoBlock.vue'
 
 Vue.component(TableAPILink.name, TableAPILink)
@@ -25,7 +27,9 @@ Vue.component(ToolbarAPILink.name, ToolbarAPILink)
 Vue.component(GridAPILink.name, GridAPILink)
 Vue.component(VirtualTreeAPILink.name, VirtualTreeAPILink)
 Vue.component(PreCode.name, PreCode)
-Vue.component(CodeLight.name, CodeLight)
+Vue.component('CodeLight', CodeLight)
+Vue.component('CodeRender', CodeRender)
+Vue.component('CodeList', CodeList)
 Vue.component(DemoBlock.name, DemoBlock)
 
 // **************** （注意：该全局变量仅用于开发环境调试） ****************

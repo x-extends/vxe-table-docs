@@ -1694,7 +1694,7 @@ export default {
           expand: false,
           children: [
             {
-              label: 'app.aside.nav.demo',
+              label: 'app.aside.nav.linkPlugin',
               url: '/other3/',
               keywords: ['plugin']
             }

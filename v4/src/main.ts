@@ -9,6 +9,8 @@ import './plugins'
 
 import PreCode from './components/PreCode.vue'
 import CodeLight from './components/CodeLight.vue'
+import CodeList from './components/CodeList.vue'
+import CodeRender from './components/CodeRender.vue'
 import GridAPILink from './components/GridAPILink.vue'
 import TableAPILink from './components/TableAPILink.vue'
 import TableColumnAPILink from './components/TableColumnAPILink.vue'
@@ -23,6 +25,8 @@ const app = createApp(App)
 
 app.component('PreCode', PreCode)
 app.component('CodeLight', CodeLight)
+app.component('CodeList', CodeList)
+app.component('CodeRender', CodeRender)
 app.component(GridAPILink.name, GridAPILink)
 app.component(TableAPILink.name, TableAPILink)
 app.component(TableColumnAPILink.name, TableColumnAPILink)

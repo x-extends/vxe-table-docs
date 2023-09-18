@@ -12,6 +12,7 @@ export default {
         i18n: '國際化',
 
         demo: '示例',
+        linkPlugin: '查看',
 
         baseForm: '基础表单',
         customLayout: '自定义布局',

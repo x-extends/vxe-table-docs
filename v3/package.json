@@ -12,12 +12,12 @@
   "dependencies": {
     "codemirror": "^5.53.2",
     "core-js": "^3.8.3",
-    "highlight.js": "^10.1.1",
-    "vue": "^2.7.10",
+    "highlight.js": "^11.8.0",
+    "vue": "^2.7.14",
     "vue-i18n": "^8.26.7",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0",
-    "vxe-table": "^3.7.0",
+    "vxe-table": "^3.7.2",
     "xe-clipboard": "^1.10.2",
     "xe-utils": "^3.5.13"
   },
@@ -41,6 +41,6 @@
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
     "typescript": "~4.5.5",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.14"
   }
 }

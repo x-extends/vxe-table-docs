@@ -12,6 +12,7 @@ export default {
         i18n: 'Internationalization',
 
         demo: 'Demo',
+        linkPlugin: '查看',
 
         baseForm: 'Basics form',
         customLayout: 'Custom layout',

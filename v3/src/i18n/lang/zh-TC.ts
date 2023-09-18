@@ -12,6 +12,7 @@ export default {
         i18n: '國際化',
 
         demo: '示例',
+        linkPlugin: '查看',
 
         baseForm: '基础表单',
         customLayout: '自定义布局',
@@ -206,10 +207,10 @@ export default {
         readFile: '读取文件',
 
         other: '集成協力廠商庫',
-        elementRender: 'element-ui -> 自定义渲染',
+        elementRender: 'element-plus -> 自定义渲染',
         iviewRender: 'iview -> 自定义渲染',
         antd: 'ant-design-vue -> 自定义渲染',
-        elementUpload: 'element-ui -> 附件上传',
+        elementUpload: 'element-plus -> 附件上传',
         sortablejsRow: 'sortablejs -> 行拖拽',
         sortablejsColumn: 'sortablejs -> 列拖拽',
         xlsxRender: 'xlsx -> 导入与导出',
@@ -349,7 +350,7 @@ export default {
           v1: 'v1 基於 vue2.6，支持所有主流的瀏覽器，實現表格的一切實用的功能',
           v2: 'v2 基於 vue2.6，支持所有主流的瀏覽器，同時兼具功能與效能',
           v3: 'v3 基於 vue2.6，支持現代瀏覽器並部分相容IE11，提升渲染效能',
-          v4: 'v4 基於 vue3.x，只支持現代瀏覽器，不支持IE'
+          v4: 'v4 基於 vue3.2，只支持現代瀏覽器，不支持IE'
         },
         compatibility: '相容性變動',
         releases: '更新日誌',
@@ -552,7 +553,7 @@ export default {
           footerClassName: '给表尾的单元格附加 classNam',
           formatter: '格式化显示内容',
           indexMethod: '即将废弃，请使用 seqMethod',
-          seqMethod: '数据排序，只对 type=seq 有效，自定义索引方法',
+          seqMethod: '只对 type=seq 有效，自定义索引方法',
           sortable: '数据排序，是否允许列排序',
           sortBy: '数据排序，只对 sortable 有效，指定排序的字段（当值 formatter 格式化后，可以设置该字段，使用值进行排序）',
           sortType: '数据排序，排序的字段类型，比如字符串转数值等',
@@ -561,7 +562,7 @@ export default {
           filters: '数据筛选，配置筛选条件（注：筛选只能用于列表，如果是树结构则过滤根节点）',
           filterMultiple: '数据筛选，只对 filters 有效，筛选是否允许多选',
           filterMethod: '数据筛选，只对 filters 有效，列的筛选方法，该方法的返回值用来决定该行是否显示',
-          filterResetMethod: '只数据筛选，对 filters 有效，自定义筛选重置方法',
+          filterResetMethod: '数据筛选，只对 filters 有效，自定义筛选重置方法',
           filterRecoverMethod: '数据筛选，只对 filters 有效，自定义筛选复原方法（使用自定义筛选时可能会用到）',
           filterRender: '数据筛选，筛选渲染器配置项',
           treeNode: '只对 tree-config 配置时有效，指定为树节点',

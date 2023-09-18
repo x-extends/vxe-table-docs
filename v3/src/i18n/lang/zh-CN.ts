@@ -12,6 +12,7 @@ export default {
         i18n: '国际化',
 
         demo: '示例',
+        linkPlugin: '查看',
 
         baseForm: '基础表单',
         customLayout: '自定义布局',
@@ -206,10 +207,10 @@ export default {
         readFile: '读取文件',
 
         other: '集成第三方库',
-        elementRender: 'element-ui -> 自定义渲染',
+        elementRender: 'element-plus -> 自定义渲染',
         iviewRender: 'iview -> 自定义渲染',
         antd: 'ant-design-vue -> 自定义渲染',
-        elementUpload: 'element-ui -> 附件上传',
+        elementUpload: 'element-plus -> 附件上传',
         sortablejsRow: 'sortablejs -> 行拖拽',
         sortablejsColumn: 'sortablejs -> 列拖拽',
         xlsxRender: 'xlsx -> 导入与导出',
@@ -552,7 +553,7 @@ export default {
           footerClassName: '给表尾的单元格附加 className',
           formatter: '格式化显示内容',
           indexMethod: '即将废弃，请使用 seqMethod',
-          seqMethod: '数据排序，只对 type=seq 有效，自定义索引方法',
+          seqMethod: '只对 type=seq 有效，自定义索引方法',
           sortable: '数据排序，是否允许列排序',
           sortBy: '数据排序，只对 sortable 有效，指定排序的字段（当值 formatter 格式化后，可以设置该字段，使用值进行排序）',
           sortType: '数据排序，排序的字段类型，比如字符串转数值等',

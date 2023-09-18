@@ -84,6 +84,9 @@ gulp.task('copy_v1_docs', () => {
 
 gulp.task('copy_v1_index', gulp.series('copy_v1_docs', () => {
   return gulp.src('v1/dist/index.html')
+  .pipe(replace('</head>', `${adScript}${adCheckScript}</head>`))
+  .pipe(replace('</body>', `${adTmplScript}</body>`))
+  .pipe(gulp.dest('_temp/v1'))
     .pipe(rename({
       basename: '404'
     }))

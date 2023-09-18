@@ -9,6 +9,14 @@ import './assets/style/index.scss'
 import './plugins'
 import XEUtils from 'xe-utils'
 
+import CodeLight from './components/CodeLight.vue'
+import CodeRender from './components/CodeRender.vue'
+import CodeList from './components/CodeList.vue'
+
+Vue.component('CodeLight', CodeLight)
+Vue.component('CodeRender', CodeRender)
+Vue.component('CodeList', CodeList)
+
 // **************** （注意：该全局变量仅用于开发环境调试） ****************
 if (process.env.NODE_ENV === 'development') {
   (window as any).XEUtils = XEUtils

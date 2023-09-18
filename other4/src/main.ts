@@ -9,10 +9,12 @@ import './assets/style/index.scss'
 import './plugins'
 
 import PreCode from './components/PreCode.vue'
+import CodeLight from './components/CodeLight.vue'
+import CodeRender from './components/CodeRender.vue'
+import CodeList from './components/CodeList.vue'
 import DemoBlock from './components/DemoBlock.vue'
 
 import Antd from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css'
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -22,6 +24,9 @@ import VXETable from 'vxe-table'
 const app = createApp(App)
 
 app.component(PreCode.name, PreCode)
+app.component('CodeLight', CodeLight)
+app.component('CodeRender', CodeRender)
+app.component('CodeList', CodeList)
 app.component(DemoBlock.name, DemoBlock)
 
 app.use(VXETable)

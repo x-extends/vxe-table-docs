@@ -1810,7 +1810,7 @@ export default defineComponent({
           expand: false,
           children: [
             {
-              label: 'app.aside.nav.demo',
+              label: 'app.aside.nav.linkPlugin',
               url: '/other4/',
               keywords: ['plugin']
             }

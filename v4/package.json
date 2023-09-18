@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "highlight.js": "^11.7.0",
+    "highlight.js": "^11.8.0",
     "pinia": "^2.0.35",
     "vue": "^3.3.4",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2",
-    "vxe-table": "^4.5.10",
+    "vxe-table": "^4.5.11",
     "xe-clipboard": "^1.10.2",
     "xe-utils": "^3.5.13"
   },
