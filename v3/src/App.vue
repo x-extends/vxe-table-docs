@@ -1746,7 +1746,6 @@ export default {
           label: 'app.aside.nav.validators',
           value: 'validators',
           expand: false,
-          isNew: true,
           children: [
             {
               label: 'app.aside.nav.api',

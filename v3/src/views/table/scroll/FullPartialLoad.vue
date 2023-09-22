@@ -31,6 +31,7 @@
       :row-config="{keyField: 'id'}"
       :checkbox-config="{checkField: 'checked', labelField: 'id'}"
       :loading="loading"
+      :scroll-x="{enabled: true}"
       :scroll-y="{enabled: true}">
     </vxe-grid>
 
@@ -79,6 +80,7 @@ export default {
           row-id="id"
           :checkbox-config="{checkField: 'checked', labelField: 'id'}"
           :loading="loading"
+          :scroll-x="{enabled: true}"
           :scroll-y="{enabled: true}">
         </vxe-grid>
         `,

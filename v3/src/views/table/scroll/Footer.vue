@@ -14,7 +14,8 @@
       :footer-method="footerMethod"
       :checkbox-config="{checkField: 'checked', labelField: 'id'}"
       :loading="loading"
-      :scroll-y="{enabled: true}">
+      :scroll-x="{enabled: true, gt: 0}"
+      :scroll-y="{enabled: true, gt: 0}">
     </vxe-grid>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -48,7 +49,8 @@ export default {
           :footer-method="footerMethod"
           :checkbox-config="{checkField: 'checked', labelField: 'id'}"
           :loading="loading"
-          :scroll-y="{enabled: true}">
+          :scroll-x="{enabled: true, gt: 0}"
+          :scroll-y="{enabled: true, gt: 0}">
         </vxe-grid>
 
         `,
