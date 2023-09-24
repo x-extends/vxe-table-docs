@@ -62,7 +62,7 @@
 
     <CodeLight path="modal/Demo11">
       <template #tip>
-        <div>自定义模板</div>
+        <div>自定义模板，如果在不使用内部功能情况下需要显示底部，需要设置 show-footer</div>
       </template>
     </CodeLight>
   </div>
