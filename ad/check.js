@@ -1,4 +1,4 @@
-var msg = decodeURIComponent(['%E5%', 'BD%93%E', '5%89', '%8D%E', '7%8E%A', 'F%E5%', 'A2%83', '%E4%B8', '%8D%E6%9', '4%AF', '%E6%8C', '%81%', 'E8%AE', '%BF%E9%', '97%A', 'E%EF%', 'BC%8C', '%E5', '%BB%', 'BA%E8', '%AE%AE', '%E6', '%9B%', 'B4%E', '6%8', 'D%A', '2%E6%B', '5%8F%', 'E8', '%A7%8', '8%E5%', '99%', 'A8%', 'E8%AF%', '95%E', '8%AF', '%95%EF', '%BC%81'].join(''))
+var msg = decodeURIComponent('%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83%E4%B8%8D%E6%94%AF%E6%8C%81%E8%AE%BF%E9%97%AE%EF%BC%8C%E8%AF%B7%E6%A3%80%E6%9F%A5%E7%BD%91%E7%BB%9C%E6%88%96%E6%9B%B4%E6%8D%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%95%E8%AF%95%EF%BC%81')
 function updateMsg (bEl) {
   if (bEl) {
     if (bEl.textContent !== msg) {
