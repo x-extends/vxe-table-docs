@@ -16,7 +16,6 @@ import TableAPILink from './components/TableAPILink.vue'
 import TableColumnAPILink from './components/TableColumnAPILink.vue'
 import ToolbarAPILink from './components/ToolbarAPILink.vue'
 import PagerAPILink from './components/PagerAPILink.vue'
-// import VirtualTreeAPILink from './components/VirtualTreeAPILink.vue'
 import DemoBlock from './components/DemoBlock.vue'
 
 import VXETable from 'vxe-table'
@@ -32,7 +31,6 @@ app.component(TableAPILink.name, TableAPILink)
 app.component(TableColumnAPILink.name, TableColumnAPILink)
 app.component(ToolbarAPILink.name, ToolbarAPILink)
 app.component(PagerAPILink.name, PagerAPILink)
-// app.component(VirtualTreeAPILink.name, VirtualTreeAPILink)
 app.component(DemoBlock.name, DemoBlock)
 
 app.use(VXETable)
