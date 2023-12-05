@@ -31,7 +31,7 @@
     "vxe-table-plugin-virtual-tree": "0.6.7",
     "xe-ajax": "^4.0.5",
     "xe-clipboard": "^1.10.2",
-    "xe-utils": "^3.5.13",
+    "xe-utils": "^3.5.14",
     "xlsx": "^0.16.5"
   },
   "devDependencies": {

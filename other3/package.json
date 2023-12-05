@@ -42,7 +42,7 @@
     "vxe-table-plugin-shortcut-key": "^1.5.2",
     "vxe-table-plugin-validator": "^1.0.1",
     "xe-clipboard": "^1.10.2",
-    "xe-utils": "^3.5.13",
+    "xe-utils": "^3.5.14",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

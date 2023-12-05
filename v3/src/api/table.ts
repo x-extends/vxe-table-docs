@@ -4564,8 +4564,18 @@ const apis = [
       },
       {
         name: 'isExpandByRow(row)',
-        desc: '用于 expand-config，判断行是否为展开状态',
+        abandoned: true,
+        desc: '已废弃，请使用 isRowExpandByRow',
         version: '',
+        type: 'Boolean',
+        enum: '',
+        defVal: 'row',
+        list: []
+      },
+      {
+        name: 'isRowExpandByRow(row)',
+        desc: '用于 expand-config，判断行是否为展开状态',
+        version: '3.7.7',
         type: 'Boolean',
         enum: '',
         defVal: 'row',
@@ -4636,26 +4646,17 @@ const apis = [
         list: []
       },
       {
-        name: 'setEditRow(row)',
+        name: 'setEditRow(row；默认激活第一列，可以指定列 fieldOrColumn)',
         desc: '用于 edit-config，激活行编辑并激活第一个单元格',
         version: '3.5.7',
         type: 'Promise<any>',
         enum: '',
-        defVal: 'row: Row',
+        defVal: 'row: Row, fieldOrColumn?: string | ColumnInfo',
         list: []
       },
       {
         name: 'setActiveCell(row, fieldOrColumn)',
         abandoned: true,
-        desc: '用于 edit-config，激活单元格编辑',
-        version: '',
-        type: 'Promise<any>',
-        enum: '',
-        defVal: 'row: Row, fieldOrColumn: string | ColumnInfo',
-        list: []
-      },
-      {
-        name: 'setActiveCell(row, fieldOrColumn)',
         desc: '请使用 setEditCell',
         version: '',
         type: 'Promise<any>',
@@ -4665,8 +4666,17 @@ const apis = [
       },
       {
         name: 'setEditCell(row, fieldOrColumn)',
-        desc: '用于 mouse-config.selected，选中指定的单元格',
+        desc: '用于 edit-config，激活单元格编辑',
         version: '3.5.7',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'row: Row, fieldOrColumn: string | ColumnInfo',
+        list: []
+      },
+      {
+        name: 'setSelectCell(row, fieldOrColumn)',
+        desc: '用于 mouse-config.selected，选中指定的单元格',
+        version: '',
         type: 'Promise<any>',
         enum: '',
         defVal: 'row: Row, fieldOrColumn: string | ColumnInfo',

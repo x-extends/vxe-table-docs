@@ -4581,8 +4581,18 @@ const apis = [
       },
       {
         name: 'isExpandByRow(row)',
-        desc: '用于 expand-config，判断行是否为展开状态',
+        abandoned: true,
+        desc: '已废弃，请使用 isRowExpandByRow',
         version: '',
+        type: 'boolean',
+        enum: '',
+        defVal: 'row',
+        list: []
+      },
+      {
+        name: 'isRowExpandByRow(row)',
+        desc: '用于 expand-config，判断行是否为展开状态',
+        version: '4.5.14',
         type: 'boolean',
         enum: '',
         defVal: 'row',
@@ -4653,12 +4663,12 @@ const apis = [
         list: []
       },
       {
-        name: 'setEditRow(row)',
-        desc: '用于 edit-config，激活行编辑并激活第一个单元格',
+        name: 'setEditRow(row, fieldOrColumn)',
+        desc: '用于 edit-config，激活行编辑并激活第一个单元格；默认激活第一列，可以指定列 fieldOrColumn',
         version: '4.2.4',
         type: 'Promise<any>',
         enum: '',
-        defVal: 'row: Row',
+        defVal: 'row: Row, fieldOrColumn?: string | ColumnInfo',
         list: []
       },
       {

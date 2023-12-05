@@ -72,57 +72,57 @@ import switchAPI from '../../api/switch'
 import listAPI from '../../api/list'
 import pulldownAPI from '../../api/pulldown'
 
-// declare global {
-//   interface Window {
-//     attributes: any;
-//     tags: any;
-//   }
-// }
+declare global {
+  interface Window {
+    attributes: any;
+    tags: any;
+  }
+}
 
-// const attributes: any = window.attributes = {}
-// const tags: any = window.tags = {}
+const attributes: any = window.attributes = {}
+const tags: any = window.tags = {}
 
-// const tagMaps = [
-//   ['vxe-icon', iconAPI, { description: '图标' }],
-//   ['vxe-table', tableAPI, { subtags: ['vxe-colgroup', 'vxe-column'], description: '基础表格' }],
-//   ['vxe-colgroup', colgroupAPI, { subtags: ['vxe-column'], description: '基础表格 - 分组列' }],
-//   ['vxe-column', columnAPI, { description: '基础表格 - 列' }],
-//   ['vxe-grid', gridAPI, { description: '高级表格' }],
-//   ['vxe-toolbar', toolbarAPI, { description: '工具栏' }],
-//   ['vxe-pager', pagerAPI, { description: '分页' }],
-//   ['vxe-radio', radioAPI, { description: '单选框' }],
-//   ['vxe-radio-group', radioGroupAPI, { subtags: ['vxe-radio', 'vxe-radio-button'], description: '单选组' }],
-//   ['vxe-radio-button', radioButtonAPI, { description: '单选按钮' }],
-//   ['vxe-checkbox', checkboxAPI, { description: '复选框' }],
-//   ['vxe-checkbox-group', checkboxGroupAPI, { subtags: ['vxe-checkbox'], description: '复选组' }],
-//   ['vxe-switch', switchAPI, { description: '开关按钮' }],
-//   ['vxe-input', inputAPI, { description: '输入框' }],
-//   ['vxe-select', selectAPI, { subtags: ['vxe-optgroup', 'vxe-option'], description: '下拉框' }],
-//   ['vxe-optgroup', optgroupAPI, { subtags: ['vxe-option'], description: '下拉框 - 分组' }],
-//   ['vxe-option', optionAPI, { description: '下拉框 - 选项' }],
-//   ['vxe-button', buttonAPI, { description: '按钮' }],
-//   ['vxe-tooltip', tooltipAPI, { description: '工具提示' }],
-//   ['vxe-modal', modalAPI, { description: '弹窗' }],
-//   ['vxe-form', formAPI, { subtags: ['vxe-form-item'], description: '表单' }],
-//   ['vxe-form-item', formItemAPI, { description: '表单 - 项' }],
-//   ['vxe-form-gather', formGatherAPI, { description: '表单 - 项集合' }],
-//   ['vxe-list', listAPI, { description: '列表' }],
-//   ['vxe-pulldown', pulldownAPI, { description: '下拉容器' }]
-// ]
+const tagMaps = [
+  ['vxe-icon', iconAPI, { description: '图标' }],
+  ['vxe-table', tableAPI, { subtags: ['vxe-colgroup', 'vxe-column'], description: '基础表格' }],
+  ['vxe-colgroup', colgroupAPI, { subtags: ['vxe-column'], description: '基础表格 - 分组列' }],
+  ['vxe-column', columnAPI, { description: '基础表格 - 列' }],
+  ['vxe-grid', gridAPI, { description: '高级表格' }],
+  ['vxe-toolbar', toolbarAPI, { description: '工具栏' }],
+  ['vxe-pager', pagerAPI, { description: '分页' }],
+  ['vxe-radio', radioAPI, { description: '单选框' }],
+  ['vxe-radio-group', radioGroupAPI, { subtags: ['vxe-radio', 'vxe-radio-button'], description: '单选组' }],
+  ['vxe-radio-button', radioButtonAPI, { description: '单选按钮' }],
+  ['vxe-checkbox', checkboxAPI, { description: '复选框' }],
+  ['vxe-checkbox-group', checkboxGroupAPI, { subtags: ['vxe-checkbox'], description: '复选组' }],
+  ['vxe-switch', switchAPI, { description: '开关按钮' }],
+  ['vxe-input', inputAPI, { description: '输入框' }],
+  ['vxe-select', selectAPI, { subtags: ['vxe-optgroup', 'vxe-option'], description: '下拉框' }],
+  ['vxe-optgroup', optgroupAPI, { subtags: ['vxe-option'], description: '下拉框 - 分组' }],
+  ['vxe-option', optionAPI, { description: '下拉框 - 选项' }],
+  ['vxe-button', buttonAPI, { description: '按钮' }],
+  ['vxe-tooltip', tooltipAPI, { description: '工具提示' }],
+  ['vxe-modal', modalAPI, { description: '弹窗' }],
+  ['vxe-form', formAPI, { subtags: ['vxe-form-item'], description: '表单' }],
+  ['vxe-form-item', formItemAPI, { description: '表单 - 项' }],
+  ['vxe-form-gather', formGatherAPI, { description: '表单 - 项集合' }],
+  ['vxe-list', listAPI, { description: '列表' }],
+  ['vxe-pulldown', pulldownAPI, { description: '下拉容器' }]
+]
 
-// tagMaps.forEach(confs => {
-//   const props = confs[1].find((item: any) => item.name === 'Props').list
-//   const keys: any[] = []
-//   props.forEach((item: any) => {
-//     const name = XEUtils.kebabCase(item.name)
-//     attributes[`${confs[0]}/${name}`] = {
-//       type: XEUtils.toValueString(item.type).toLowerCase(),
-//       description: item.descKey ? i18n.global.t(item.descKey) : item.desc
-//     }
-//     keys.push(name)
-//   })
-//   tags[confs[0]] = Object.assign({ attributes: keys }, confs[2])
-// })
+tagMaps.forEach(confs => {
+  const props = confs[1].find((item: any) => item.name === 'Props').list
+  const keys: any[] = []
+  props.forEach((item: any) => {
+    const name = XEUtils.kebabCase(item.name)
+    attributes[`${confs[0]}/${name}`] = {
+      type: XEUtils.toValueString(item.type).toLowerCase(),
+      description: item.descKey ? i18n.global.t(item.descKey) : item.desc
+    }
+    keys.push(name)
+  })
+  tags[confs[0]] = Object.assign({ attributes: keys }, confs[2])
+})
 
 export default defineComponent({
   setup () {

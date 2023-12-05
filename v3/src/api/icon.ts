@@ -17,6 +17,15 @@ const apis = [
         list: []
       },
       {
+        name: 'status',
+        desc: '状态颜色',
+        version: '3.7.7',
+        type: 'string',
+        enum: 'perfect, primary, success, info, warning, danger',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'roll',
         desc: '旋转动画',
         version: '3.6.0',

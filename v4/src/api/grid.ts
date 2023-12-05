@@ -324,7 +324,7 @@ const apis = [
                 name: 'delete',
                 desc: '删除方法，提交的参数 { removeRecords }',
                 version: '',
-                type: '({ body }) => Promise<any>',
+                type: '({ body, form }) => Promise<any>',
                 enum: '',
                 defVal: '',
                 list: []
@@ -333,7 +333,7 @@ const apis = [
               //   name: 'beforeDelete',
               //   desc: '删除之前触发该方法，delete 参数将失效',
               //   version: '',
-              //   type: '({ body }) => Promise<any>',
+              //   type: '({ body, form }) => Promise<any>',
               //   enum: '',
               //   defVal: '',
               //   list: []
@@ -342,16 +342,16 @@ const apis = [
               //   name: 'afterDelete',
               //   desc: '删除之后触发该方法',
               //   version: '',
-              //   type: '({ body }) => Promise<any>',
+              //   type: '({ body, form }) => Promise<any>',
               //   enum: '',
               //   defVal: '',
               //   list: []
               // },
               {
                 name: 'save',
-                desc: '保存方法',
+                desc: '保存方法，body 参数 { insertRecords, updateRecords, removeRecords, pendingRecords }',
                 version: '',
-                type: '({ body: { insertRecords: any[], updateRecords: any[], removeRecords: any[], pendingRecords: any[] } }) => Promise<any>',
+                type: '({ body, form }) => Promise<any>',
                 enum: '',
                 defVal: '',
                 list: []
@@ -360,7 +360,7 @@ const apis = [
               //   name: 'beforeSave',
               //   desc: '保存之前触发该方法，save 参数将失效',
               //   version: '',
-              //   type: '({ body: { insertRecords: any[], updateRecords: any[], removeRecords: any[], pendingRecords: any[] } }) => Promise<any>',
+              //   type: '({ body, form }) => Promise<any>',
               //   enum: '',
               //   defVal: '',
               //   list: []
@@ -369,7 +369,7 @@ const apis = [
               //   name: 'afterSave',
               //   desc: '保存之后触发该方法',
               //   version: '',
-              //   type: '({ body: { insertRecords: any[], updateRecords: any[], removeRecords: any[], pendingRecords: any[] } }) => Promise<any>',
+              //   type: '({ body, form }) => Promise<any>',
               //   enum: '',
               //   defVal: '',
               //   list: []
@@ -407,24 +407,6 @@ const apis = [
     enum: '',
     defVal: '',
     list: [
-      {
-        name: 'empty',
-        desc: '自定义空数据时显示模板',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: '{}',
-        list: []
-      },
-      {
-        name: 'loading',
-        desc: '自定义加载中模板',
-        version: '4.3.7',
-        type: '',
-        enum: '',
-        defVal: '{}',
-        list: []
-      },
       {
         name: 'form',
         desc: '表单模板',

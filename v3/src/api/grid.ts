@@ -347,7 +347,7 @@ const apis = [
               // },
               {
                 name: 'delete',
-                desc: '删除方法 Function({ body }, ...arguments)，提交的参数 { removeRecords }',
+                desc: '删除方法 Function({ body, form }, ...arguments)，提交的参数 { removeRecords }',
                 version: '',
                 type: 'Function / Promise<any>',
                 enum: '',
@@ -356,7 +356,7 @@ const apis = [
               },
               // {
               //   name: 'beforeDelete',
-              //   desc: '删除之前触发该 Function({ body }, ...arguments) 方法，delete 参数将失效',
+              //   desc: '删除之前触发该 Function({ body, form }, ...arguments) 方法，delete 参数将失效',
               //   version: '',
               //   type: 'Function / Promise<any>',
               //   enum: '',
@@ -365,7 +365,7 @@ const apis = [
               // },
               // {
               //   name: 'afterDelete',
-              //   desc: '删除之后触发该 Function({ body }, ...arguments) 方法',
+              //   desc: '删除之后触发该 Function({ body, form }, ...arguments) 方法',
               //   version: '',
               //   type: 'Function',
               //   enum: '',
@@ -374,7 +374,7 @@ const apis = [
               // },
               {
                 name: 'save',
-                desc: '保存方法 Function({ body }, ...arguments)，提交的参数 { insertRecords, updateRecords, removeRecords, pendingRecords}',
+                desc: '保存方法 Function({ body, form }, ...arguments)，body 参数 { insertRecords, updateRecords, removeRecords, pendingRecords }',
                 version: '',
                 type: 'Function / Promise<any>',
                 enum: '',
@@ -383,7 +383,7 @@ const apis = [
               // },
               // {
               //   name: 'beforeSave',
-              //   desc: '保存之前触发该 Function({ body }, ...arguments) 方法，save 参数将失效',
+              //   desc: '保存之前触发该 Function({ body, form }, ...arguments) 方法，save 参数将失效',
               //   version: '',
               //   type: 'Function / Promise<any>',
               //   enum: '',
@@ -392,7 +392,7 @@ const apis = [
               // },
               // {
               //   name: 'afterSave',
-              //   desc: '保存之后触发该 Function({ body }, ...arguments) 方法',
+              //   desc: '保存之后触发该 Function({ body, form }, ...arguments) 方法',
               //   version: '',
               //   type: 'Function',
               //   enum: '',
@@ -432,24 +432,6 @@ const apis = [
     enum: '',
     defVal: '',
     list: [
-      {
-        name: 'empty',
-        desc: '自定义空数据时显示模板',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: '{}',
-        list: []
-      },
-      {
-        name: 'loading',
-        desc: '自定义加载中模板',
-        version: '3.6.9',
-        type: '',
-        enum: '',
-        defVal: '{}',
-        list: []
-      },
       {
         name: 'form',
         desc: '表单模板',
