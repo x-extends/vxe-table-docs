@@ -17,6 +17,7 @@ module.exports = defineConfig({
   assetsDir: 'static',
   productionSourceMap: false,
   devServer: {
+    port: 8084,
     proxy: {
       '/example/': {
         target: 'https://vxetable.cn',

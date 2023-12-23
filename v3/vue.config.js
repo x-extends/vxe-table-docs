@@ -16,6 +16,23 @@ module.exports = defineConfig({
   publicPath,
   assetsDir: 'static',
   productionSourceMap: false,
+  devServer: {
+    port: 8083,
+    proxy: {
+      '/example/': {
+        target: 'https://vxetable.cn',
+        pathRewrite: {
+          '^/example/': '/example/'
+        }
+      },
+      '/resource/': {
+        target: 'https://vxetable.cn',
+        pathRewrite: {
+          '^/resource/': '/resource/'
+        }
+      }
+    }
+  },
   pages: {
     index: {
       entry: 'src/main.ts',

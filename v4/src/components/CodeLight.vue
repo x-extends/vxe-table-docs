@@ -24,8 +24,8 @@
           <vxe-button class="example-btn" type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button class="example-btn" type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showJsCode && !showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button class="example-btn" type="text" :loading="jsLoading" :disabled="showTsCode" :icon="showJsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleJsVisible">{{ $t(showJsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
-        <vxe-button class="example-btn" type="text" :loading="tsLoading" :disabled="showJsCode" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleTsVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
+        <vxe-button class="example-btn" type="text" :loading="jsLoading" :icon="showJsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleJsVisible">{{ $t(showJsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
+        <vxe-button class="example-btn" type="text" :loading="tsLoading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleTsVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
       <div class="example-code-warpper" v-show="showJsCode">
         <div v-for="(item, index) in importJsCodes" :key="index" class="example-code-item">
