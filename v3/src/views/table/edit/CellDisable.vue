@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="tip">
-      设置 <table-api-link prop="edit-config"/> 的 <table-api-link prop="activeMethod"/> 方法判断单元格是否禁用<br>
+      设置 <table-api-link prop="edit-config"/> 的 <table-api-link prop="beforeEditMethod"/> 方法判断单元格是否禁用<br>
       <span class="red">（具体请自行实现，该示例仅供参考）</span>
     </p>
 
@@ -9,7 +9,7 @@
       border
       show-overflow
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', activeMethod: activeCellMethod}"
+      :edit-config="{trigger: 'click', mode: 'cell', beforeEditMethod: activeCellMethod}"
       @edit-disabled="editDisabledEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
@@ -113,7 +113,7 @@ export default {
           border
           show-overflow
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'cell', activeMethod: activeCellMethod}"
+          :edit-config="{trigger: 'click', mode: 'cell', beforeEditMethod: activeCellMethod}"
           @edit-disabled="editDisabledEvent">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">

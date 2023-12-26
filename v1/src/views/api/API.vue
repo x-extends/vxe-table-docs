@@ -95,7 +95,7 @@ import pulldownAPI from '../../api/pulldown'
 //   ['vxe-table', tableAPI, { subtags: ['vxe-colgroup', 'vxe-table-colgroup', 'vxe-column', 'vxe-table-column'], description: '基础表格' }],
 //   ['vxe-column', tableColumnAPI, { description: '基础表格 - 列' }],
 //   ['vxe-table-column', tableColumnAPI, { description: '基础表格 - 列' }],
-//   ['vxe-grid', gridAPI, { description: '高级表格' }],
+//   ['vxe-grid', gridAPI, { description: '配置式表格' }],
 //   ['vxe-toolbar', toolbarAPI, { description: '工具栏' }],
 //   ['vxe-pager', pagerAPI, { description: '分页' }],
 //   ['vxe-radio', radioAPI, { description: '单选框' }],

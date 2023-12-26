@@ -1,13 +1,13 @@
 <template>
   <div>
-    <p class="tip">设置 <table-api-link prop="edit-config"/> 的 <table-api-link prop="activeMethod"/> 方法判断单元格是否禁用，例如：限制第二行不允许编辑</p>
+    <p class="tip">设置 <table-api-link prop="edit-config"/> 的 <table-api-link prop="beforeEditMethod"/> 方法判断单元格是否禁用，例如：限制第二行不允许编辑</p>
 
     <vxe-table
       border
       show-overflow
       height="400"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'row', activeMethod: activeRowMethod}"
+      :edit-config="{trigger: 'click', mode: 'row', beforeEditMethod: activeRowMethod}"
       @edit-disabled="editDisabledEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
@@ -117,7 +117,7 @@ export default {
           show-overflow
           height="400"
           :data="tableData"
-          :edit-config="{trigger: 'click', mode: 'row', activeMethod: activeRowMethod}"
+          :edit-config="{trigger: 'click', mode: 'row', beforeEditMethod: activeRowMethod}"
           @edit-disabled="editDisabledEvent">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">

@@ -265,11 +265,38 @@ const apis = [
     list: [
       {
         name: 'prefix',
-        desc: '前缀图标模板',
+        desc: '自定义前缀图标模板',
         version: '4.0.14',
         type: '',
         enum: '',
-        defVal: '',
+        defVal: '{}',
+        list: []
+      },
+      {
+        name: 'header',
+        desc: '自定义弹窗容器头部模板',
+        version: '4.5.17',
+        type: '',
+        enum: '',
+        defVal: '{}',
+        list: []
+      },
+      {
+        name: 'option',
+        desc: '自定义弹窗容器选项模板',
+        version: '4.5.17',
+        type: '',
+        enum: '',
+        defVal: '{ option }',
+        list: []
+      },
+      {
+        name: 'footer',
+        desc: '自定义弹窗容器底部模板',
+        version: '4.5.17',
+        type: '',
+        enum: '',
+        defVal: '{}',
         list: []
       }
     ]

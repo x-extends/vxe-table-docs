@@ -24,7 +24,7 @@
           <vxe-button type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showJsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button type="text" :loading="loading" :icon="showJsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showJsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
+        <vxe-button type="text" :loading="loading" :status="showJsCode ? 'primary' : ''" :icon="showJsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleVisible">{{ $t(showJsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
       </div>
       <div class="example-code-warpper" v-show="showJsCode">
         <div v-for="(item, index) in importCodes" :key="index" class="example-code-item">

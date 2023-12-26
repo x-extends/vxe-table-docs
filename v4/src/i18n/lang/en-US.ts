@@ -167,6 +167,7 @@ export default {
         cellPlaceholder: 'Cell placeholder',
         insert: 'Insert',
         delete: 'Delete',
+        pending: 'Mark for deletion',
         revert: 'Revert',
         status: 'Cell status',
         partialUpdate: 'Partial update',

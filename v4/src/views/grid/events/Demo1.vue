@@ -1,31 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" v-on="gridEvents">
-      <template #name_edit="{ row, column }">
-        <vxe-input v-model="row.name" @change="nameChangeEvent({ column })"></vxe-input>
-      </template>
-      <template #role_edit="{ row, column }">
-        <vxe-input v-model="row.role" @change="roleChangeEvent({ column })"></vxe-input>
-      </template>
-      <template #age_edit="{ row, column }">
-        <vxe-input v-model="row.age" @focus="ageFocusEvent({ column })"></vxe-input>
-      </template>
-      <template #age_filter="{ column, $panel }">
-        <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="enterFilterEvent({ column, $panel })">
-      </template>
-      <template #sex_default="{ row }">
-        <span>{{ formatSex(row.sex) }}</span>
-      </template>
-      <template #sex_edit="{ row, column }">
-        <vxe-select v-model="row.sex" transfer @change="sexChangeEvent({ column })">
-          <vxe-option value="1" label="男"></vxe-option>
-          <vxe-option value="0" label="女"></vxe-option>
-        </vxe-select>
-      </template>
-      <template #date_edit="{ row, column }">
-        <vxe-input v-model="row.date" type="date" transfer @change="dateChangeEvent({ column })"></vxe-input>
-      </template>
-    </vxe-grid>
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
@@ -62,7 +37,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   stripe: true,
   showFooter: true,
-  height: 500,
+  height: 400,
   tooltipConfig: {},
   exportConfig: {},
   menuConfig: {},
@@ -80,11 +55,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 60 },
-    { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
-    { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
-    { field: 'age', title: 'Age', filters: [{ data: '' }], editRender: {}, slots: { filter: 'age_filter', edit: 'age_edit' } },
-    { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
-    { field: 'date', title: 'Date', editRender: {}, slots: { edit: 'date_edit' } }
+    { field: 'name', title: 'Name', editRender: { name: '$input' } },
+    { field: 'role', title: 'Role', editRender: { name: '$input' } },
+    { field: 'age', title: 'Age', editRender: { name: '$input' } },
+    { field: 'sex', title: 'Sex', editRender: { name: '$input' } },
+    { field: 'date', title: 'Date', editRender: { name: '$input' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, date: '2021-03-13' },
@@ -168,42 +143,7 @@ const gridEvents: VxeGridListeners<RowVO> = {
     console.log(`表格全屏 type=${params.type}`)
   },
   custom (params) {
-    console.log(`表格自定义列表 type=${params.type}`)
+    console.log(`表格自定义列 type=${params.type}`)
   }
-}
-
-const formatSex = (value: any) => {
-  if (value === '1') {
-    return '男'
-  }
-  if (value === '0') {
-    return '女'
-  }
-  return ''
-}
-
-const enterFilterEvent = ({ $panel }: any) => {
-  console.log('筛选回车事件')
-  $panel.confirmFilter()
-}
-
-const nameChangeEvent = ({ column }: any) => {
-  console.log(`${column.title} 触发 input 事件`)
-}
-
-const roleChangeEvent = ({ column }: any) => {
-  console.log(`${column.title} 触发 input 事件`)
-}
-
-const ageFocusEvent = ({ column }: any) => {
-  console.log(`${column.title} 触发 focus 事件`)
-}
-
-const sexChangeEvent = ({ column }: any) => {
-  console.log(`${column.title} 触发 change 事件`)
-}
-
-const dateChangeEvent = ({ column }: any) => {
-  console.log(`${column.title} 触发 change 事件`)
 }
 </script>

@@ -99,12 +99,30 @@ const apis = [
         list: []
       },
       {
+        name: 'header',
+        desc: '自定义弹窗容器头部模板',
+        version: '3.7.7',
+        type: '',
+        enum: '',
+        defVal: '{}',
+        list: []
+      },
+      {
         name: 'dropdown',
         desc: '下拉面板显示的内容',
         version: '',
         type: '',
         enum: '',
         defVal: '',
+        list: []
+      },
+      {
+        name: 'footer',
+        desc: '自定义弹窗容器底部模板',
+        version: '3.7.7',
+        type: '',
+        enum: '',
+        defVal: '{}',
         list: []
       }
     ]

@@ -269,7 +269,34 @@ const apis = [
         version: '3.2.20',
         type: '',
         enum: '',
-        defVal: '',
+        defVal: '{}',
+        list: []
+      },
+      {
+        name: 'header',
+        desc: '自定义弹窗容器头部模板',
+        version: '3.7.7',
+        type: '',
+        enum: '',
+        defVal: '{}',
+        list: []
+      },
+      {
+        name: 'option',
+        desc: '自定义弹窗容器选项模板',
+        version: '3.7.7',
+        type: '',
+        enum: '',
+        defVal: '{ option }',
+        list: []
+      },
+      {
+        name: 'footer',
+        desc: '自定义弹窗容器底部模板',
+        version: '3.7.7',
+        type: '',
+        enum: '',
+        defVal: '{}',
         list: []
       }
     ]

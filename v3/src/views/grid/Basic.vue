@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="tip">
-      <grid-api-link name="vxe-grid"/> 高级表格：一个包含表单、工具栏、基础表格、分页...等全功能的组件。完全配置式，常用于低/零代码平台<br>
+      <grid-api-link name="vxe-grid"/> 配置式表格：一个包含表单、工具栏、基础表格、分页...等全功能的组件。完全配置式，常用于低代码平台<br>
     </p>
 
     <vxe-grid v-bind="gridOptions1">

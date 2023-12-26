@@ -1162,8 +1162,8 @@ const apis = [
         list: [
           {
             name: 'startIndex',
-            abandoned: true,
-            desc: '请使用 seqMethod',
+            disabled: true,
+            desc: '已废弃，请使用 seqMethod',
             version: '',
             type: 'number',
             enum: '',
@@ -1864,7 +1864,7 @@ const apis = [
           },
           {
             name: 'children',
-            abandoned: true,
+            disabled: true,
             desc: '已废弃，请使用 childrenField',
             version: '',
             type: 'string',
@@ -1892,7 +1892,7 @@ const apis = [
           },
           {
             name: 'line',
-            abandoned: true,
+            disabled: true,
             desc: '已废弃，请使用 showLine',
             version: '',
             type: 'boolean',
@@ -1956,7 +1956,7 @@ const apis = [
           },
           {
             name: 'hasChild',
-            abandoned: true,
+            disabled: true,
             desc: '已废弃，请使用 hasChildField',
             version: '',
             type: 'string',
@@ -2702,8 +2702,8 @@ const apis = [
           },
           {
             name: 'activeMethod',
-            abandoned: true,
-            desc: '请使用 beforeEditMethod',
+            disabled: true,
+            desc: '已废弃，请使用 beforeEditMethod',
             version: '',
             type: '({ row, rowIndex, column, columnIndex }) => boolean',
             enum: '',
@@ -3594,8 +3594,18 @@ const apis = [
       },
       {
         name: 'edit-actived',
-        descKey: 'app.api.table.desc.editActived',
+        disabled: true,
+        desc: '已废弃，使用 edit-activated',
         version: '',
+        type: '',
+        enum: '',
+        defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex }',
+        list: []
+      },
+      {
+        name: 'edit-activated',
+        descKey: 'app.api.table.desc.editActived',
+        version: '4.5.17',
         type: '',
         enum: '',
         defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex }',
@@ -4426,8 +4436,8 @@ const apis = [
       },
       {
         name: 'getActiveRecord()',
-        abandoned: true,
-        desc: '请使用 getEditRecord',
+        disabled: true,
+        desc: '已废弃，请使用 getEditRecord',
         version: '',
         type: '{row,rowIndex,$rowIndex,column,columnIndex,$columnIndex}',
         enum: '',
@@ -4499,8 +4509,8 @@ const apis = [
       },
       {
         name: 'isActiveByRow(row)',
-        abandoned: true,
-        desc: '请使用 isEditByRow',
+        disabled: true,
+        desc: '已废弃，请使用 isEditByRow',
         version: '',
         type: 'boolean',
         enum: '',
@@ -4581,7 +4591,7 @@ const apis = [
       },
       {
         name: 'isExpandByRow(row)',
-        abandoned: true,
+        disabled: true,
         desc: '已废弃，请使用 isRowExpandByRow',
         version: '',
         type: 'boolean',
@@ -4654,8 +4664,8 @@ const apis = [
       },
       {
         name: 'setActiveRow(row)',
-        abandoned: true,
-        desc: '请使用 setEditRow',
+        disabled: true,
+        desc: '已废弃，请使用 setEditRow',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4673,8 +4683,8 @@ const apis = [
       },
       {
         name: 'setActiveCell(row, fieldOrColumn)',
-        abandoned: true,
-        desc: '请使用 setEditCell',
+        disabled: true,
+        desc: '已废弃， 请使用 setEditCell',
         version: '',
         type: 'Promise<any>',
         enum: '',
@@ -4980,8 +4990,8 @@ const apis = [
       },
       {
         name: 'clearActived()',
-        abandoned: true,
-        desc: '请使用 clearEdit',
+        disabled: true,
+        desc: '已废弃，请使用 clearEdit',
         version: '',
         type: 'Promise<any>',
         enum: '',

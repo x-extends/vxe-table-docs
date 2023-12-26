@@ -209,6 +209,7 @@ const TableAutoClearManual = () => import('../views/table/edit/AutoClear.vue')
 const TableEditCellPlaceholder = () => import('../views/table/edit/CellPlaceholder.vue')
 const TableEditInsert = () => import('../views/table/edit/Insert.vue')
 const TableEditRemove = () => import('../views/table/edit/Remove.vue')
+const TableEditPending = () => import('../views/table/edit/pending/Example.vue')
 const TableEditRevert = () => import('../views/table/edit/Revert.vue')
 const TableEditStatus = () => import('../views/table/edit/Status.vue')
 const TableEditCellDisable = () => import('../views/table/edit/CellDisable.vue')
@@ -216,7 +217,7 @@ const TableEditRowDisable = () => import('../views/table/edit/RowDisable.vue')
 const TableEditHighlightCell = () => import('../views/table/edit/HighlightCell.vue')
 const TableEditKeyboard = () => import('../views/table/edit/Keyboard.vue')
 const TableEditKeyboardEdit = () => import('../views/table/edit/KeyboardEdit.vue')
-const TableEditCellValid = () => import('../views/table/edit/CellValid.vue')
+const TableEditCellValid = () => import('../views/table/edit/cellValid/Example.vue')
 const TableEditRowValid = () => import('../views/table/edit/RowValid.vue')
 const TableEditForceCellValid = () => import('../views/table/edit/ForceCellValid.vue')
 const TableEditForceRowValid = () => import('../views/table/edit/ForceRowValid.vue')
@@ -235,6 +236,12 @@ const TableEditEvents = () => import('../views/table/edit/Events.vue')
 const TableEditTemplate = () => import('../views/table/edit/Template.vue')
 const TableEditFull = () => import('../views/table/edit/Full.vue')
 
+const FormBasics = () => import('../views/form/basics/Example.vue')
+const FormConfig = () => import('../views/form/config/Example.vue')
+const FormCustomLayout = () => import('../views/form/customLayout/Example.vue')
+const FormVertical = () => import('../views/form/vertical/Example.vue')
+const FormValid = () => import('../views/form/valid/Example.vue')
+
 const ModuleIcon = () => import('../views/icon/Example.vue')
 const ModuleButton = () => import('../views/button/Example.vue')
 const ModuleRadio = () => import('../views/radio/Example.vue')
@@ -246,7 +253,6 @@ const ModulePager = () => import('../views/pager/Example.vue')
 const ModuleModal = () => import('../views/modal/Example.vue')
 const ModuleTooltip = () => import('../views/tooltip/Example.vue')
 const ModuleToolbar = () => import('../views/toolbar/Example.vue')
-const ModuleForm = () => import('../views/form/Example.vue')
 const ModuleSwitch = () => import('../views/switch/Example.vue')
 const ModuleList = () => import('../views/list/Example.vue')
 const ModulePulldown = () => import('../views/pulldown/Example.vue')
@@ -1279,6 +1285,11 @@ export default new Router({
       component: TableEditRemove
     },
     {
+      path: '/table/edit/pending',
+      name: 'TableEditPending',
+      component: TableEditPending
+    },
+    {
       path: '/table/edit/revert',
       name: 'TableEditRevert',
       component: TableEditRevert
@@ -1404,6 +1415,31 @@ export default new Router({
       component: TableEditFull
     },
     {
+      path: '/form/basics',
+      name: 'FormBasics',
+      component: FormBasics
+    },
+    {
+      path: '/form/config',
+      name: 'FormConfig',
+      component: FormConfig
+    },
+    {
+      path: '/form/vertical',
+      name: 'FormVertical',
+      component: FormVertical
+    },
+    {
+      path: '/form/valid',
+      name: 'FormValid',
+      component: FormValid
+    },
+    {
+      path: '/form/customLayout',
+      name: 'FormCustomLayout',
+      component: FormCustomLayout
+    },
+    {
       path: '/table/module/icon',
       name: 'ModuleIcon',
       component: ModuleIcon
@@ -1457,11 +1493,6 @@ export default new Router({
       path: '/table/module/toolbar',
       name: 'ModuleToolbar',
       component: ModuleToolbar
-    },
-    {
-      path: '/table/module/form',
-      name: 'ModuleForm',
-      component: ModuleForm
     },
     {
       path: '/table/module/switch',

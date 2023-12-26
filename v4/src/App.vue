@@ -699,15 +699,21 @@ export default defineComponent({
               }
             },
             {
-              label: 'app.aside.nav.manualFilter',
-              locat: {
-                name: 'TableManualFilter'
-              }
-            },
-            {
               label: 'app.aside.nav.filterIcon',
               locat: {
                 name: 'TableFilterIcon'
+              }
+            },
+            {
+              label: 'app.aside.nav.customFilter',
+              locat: {
+                name: 'TableCustomFilter'
+              }
+            },
+            {
+              label: 'app.aside.nav.manualFilter',
+              locat: {
+                name: 'TableManualFilter'
               }
             },
             {
@@ -1189,6 +1195,13 @@ export default defineComponent({
               keywords: ['remove']
             },
             {
+              label: 'app.aside.nav.pending',
+              locat: {
+                name: 'TableEditPending'
+              },
+              keywords: ['pending']
+            },
+            {
               label: 'app.aside.nav.revert',
               locat: {
                 name: 'TableEditRevert'
@@ -1367,6 +1380,12 @@ export default defineComponent({
               label: 'app.aside.nav.events',
               locat: {
                 name: 'GridEvents'
+              }
+            },
+            {
+              label: 'app.aside.nav.customFilter',
+              locat: {
+                name: 'GridCustomFilter'
               }
             },
             {

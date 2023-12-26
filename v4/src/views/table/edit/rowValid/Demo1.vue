@@ -4,10 +4,7 @@
       <template #buttons>
         <vxe-button @click="insertEvent">新增</vxe-button>
         <vxe-button @click="removeSelectEvent()">删除选中</vxe-button>
-        <vxe-button @click="validEvent">快速校验</vxe-button>
-        <vxe-button @click="fullValidEvent">完整快速校验</vxe-button>
-        <vxe-button @click="validAllEvent">全量数据校验</vxe-button>
-        <vxe-button @click="selectValidEvent">选中行校验</vxe-button>
+        <vxe-button @click="validEvent">快速校验变动数据</vxe-button>
         <vxe-button @click="getSelectEvent">获取选中</vxe-button>
         <vxe-button @click="getInsertEvent">获取新增</vxe-button>
         <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
@@ -66,10 +63,10 @@ const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
-  { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, address: 'Guangzhou' },
-  { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, address: 'Shanghai' },
-  { id: 10004, name: 'Test4', role: 'Designer', sex: '1', age: 23, address: 'test abc' },
-  { id: 10005, name: 'Test5', role: 'Develop', sex: '1', age: 30, address: 'Shanghai' },
+  { id: 10002, name: '', role: 'Test', sex: '1', age: 22, address: 'Guangzhou' },
+  { id: 10003, name: 'Test3', role: 'PM', sex: '', age: 32, address: 'Shanghai' },
+  { id: 10004, name: '', role: '', sex: '1', age: 23, address: 'test abc' },
+  { id: 10005, name: 'Test5', role: '', sex: '', age: 30, address: 'Shanghai' },
   { id: 10006, name: 'Test6', role: 'Designer', sex: '1', age: 21, address: 'test abc' }
 ])
 
@@ -106,52 +103,6 @@ const validEvent = async () => {
   }
 }
 
-const fullValidEvent = async () => {
-  const $table = tableRef.value
-  if ($table) {
-    const errMap = await $table.fullValidate()
-    if (errMap) {
-      const msgList: string[] = []
-      Object.values(errMap).forEach((errList) => {
-        errList.forEach((params) => {
-          const { rowIndex, column, rules } = params
-          rules.forEach((rule) => {
-            msgList.push(`第 ${rowIndex + 1} 行 ${column.title} 校验错误：${rule.message}`)
-          })
-        })
-      })
-      VXETable.modal.message({
-        status: 'error',
-        slots: {
-          default () {
-            return (
-              <div class="red" style="max-height: 400px;overflow: auto;">
-                  {
-                    msgList.map(msg => <div>{ msg }</div>)
-                  }
-                </div>
-            )
-          }
-        }
-      })
-    } else {
-      VXETable.modal.message({ status: 'success', message: '校验成功！' })
-    }
-  }
-}
-
-const validAllEvent = async () => {
-  const $table = tableRef.value
-  if ($table) {
-    const errMap = await $table.validate(true)
-    if (errMap) {
-      VXETable.modal.message({ status: 'error', message: '校验不通过！' })
-    } else {
-      VXETable.modal.message({ status: 'success', message: '校验成功！' })
-    }
-  }
-}
-
 const changeCellEvent = (params: any) => {
   const $table = tableRef.value
   if ($table) {
@@ -163,23 +114,6 @@ const removeSelectEvent = () => {
   const $table = tableRef.value
   if ($table) {
     $table.removeCheckboxRow()
-  }
-}
-
-const selectValidEvent = async () => {
-  const $table = tableRef.value
-  if ($table) {
-    const selectRecords = $table.getCheckboxRecords()
-    if (selectRecords.length > 0) {
-      const errMap = await $table.validate(selectRecords)
-      if (errMap) {
-        VXETable.modal.message({ status: 'error', message: '校验不通过！' })
-      } else {
-        VXETable.modal.message({ status: 'success', message: '校验成功！' })
-      }
-    } else {
-      VXETable.modal.message({ status: 'warning', message: '未选中数据！' })
-    }
   }
 }
 

@@ -1,11 +1,19 @@
 <template>
   <div>
-    <vxe-pulldown ref="pulldownRef" transfer>
+    <vxe-pulldown ref="pulldownRef" popup-class-name="my-dropdown4" transfer>
+      <template #header>
+        <div class="my-headdown4">
+          <vxe-button type="text" status="primary">按钮1</vxe-button>
+          <vxe-button type="text" status="danger">按钮2</vxe-button>
+        </div>
+      </template>
+
       <template #default>
         <vxe-input v-model="searchName" suffix-icon="vxe-icon-table" placeholder="实现下拉分页表格" @keyup="keyupEvent" @focus="focusEvent" @suffix-click="suffixClick"></vxe-input>
       </template>
+
       <template #dropdown>
-        <div class="my-dropdown4">
+        <div class="my-bodydown4">
           <vxe-grid
             border
             auto-resize
@@ -18,6 +26,12 @@
             @cell-click="cellClickEvent"
             @page-change="pageChangeEvent">
           </vxe-grid>
+        </div>
+      </template>
+
+      <template #footer>
+        <div class="my-footdown4">
+          <vxe-button type="text" status="primary">底部</vxe-button>
         </div>
       </template>
     </vxe-pulldown>
@@ -106,11 +120,17 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .my-dropdown4 {
-  width: 600px;
-  height: 300px;
   background-color: #fff;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+  .my-bodydown4 {
+    width: 600px;
+    height: 300px;
+  }
+
+  .my-footdown4 {
+    border-top: 1px solid #e8eaec;
+  }
 }
 </style>

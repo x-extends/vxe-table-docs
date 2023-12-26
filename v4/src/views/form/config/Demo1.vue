@@ -72,7 +72,7 @@ const formItems = ref<VxeFormPropTypes.Items>([
     itemRender: {
       name: '$buttons',
       children: [
-        { props: { type: 'submit', content: '配置式表单', status: 'primary' } },
+        { props: { type: 'submit', content: '提交', status: 'primary' } },
         { props: { type: 'reset', content: '重置' } }
       ]
     }

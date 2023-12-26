@@ -6,7 +6,7 @@
       border
       height="400"
       :row-config="{isCurrent: true, isHover: true}"
-      :filter-config="{iconNone: 'vxe-icon-question-circle-fill', iconMatch: 'vxe-icon-question-circle-fill'}"
+      :filter-config="{iconNone: 'vxe-icon-swap-up', iconMatch: 'vxe-icon-swap-down'}"
       :loading="demo1.loading"
       :data="demo1.tableData">
       <vxe-column type="seq" width="60"></vxe-column>

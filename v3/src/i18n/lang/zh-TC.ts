@@ -166,6 +166,7 @@ export default {
         cellPlaceholder: '单元格占位符',
         insert: '插入数据',
         delete: '删除数据',
+        pending: '标记为删除',
         revert: '还原数据',
         status: '数据状态',
         partialUpdate: '局部更新',

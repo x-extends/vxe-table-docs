@@ -3,7 +3,7 @@
     <CodeLight path="grid/basic/Demo1">
       <template #tip>
         <div>
-          <grid-api-link name="vxe-grid"/> 高级表格：一个包含表单、工具栏、基础表格、分页...等全功能的组件。完全配置式，常用于低/零代码平台<br>
+          <grid-api-link name="vxe-grid"/> 配置式表格：一个包含表单、工具栏、基础表格、分页...等全功能的组件。完全配置式，常用于低代码平台<br>
         </div>
       </template>
     </CodeLight>

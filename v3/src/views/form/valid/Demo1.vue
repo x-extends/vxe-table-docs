@@ -48,7 +48,7 @@
       </vxe-form-gather>
       <vxe-form-item align="center" span="24">
         <template #default>
-          <vxe-button type="submit" status="primary" content="基本表单"></vxe-button>
+          <vxe-button type="submit" status="primary" content="提交"></vxe-button>
           <vxe-button type="reset" content="重置"></vxe-button>
         </template>
       </vxe-form-item>

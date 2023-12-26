@@ -8,5 +8,11 @@
         </div>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/events/Demo2">
+      <template #tip>
+        <div>插槽/渲染事件绑定</div>
+      </template>
+    </CodeLight>
   </div>
 </template>

@@ -337,6 +337,48 @@ export default {
           ]
         },
         {
+          label: 'app.aside.nav.form',
+          value: 'form',
+          expand: false,
+          children: [
+            {
+              label: 'app.aside.nav.baseForm',
+              locat: {
+                name: 'FormBasics'
+              },
+              keywords: ['form', 'form-item', 'form-gather']
+            },
+            {
+              label: 'app.aside.nav.customLayout',
+              locat: {
+                name: 'FormCustomLayout'
+              },
+              keywords: ['custom-layout']
+            },
+            {
+              label: 'app.aside.nav.formVertical',
+              locat: {
+                name: 'FormVertical'
+              },
+              keywords: ['vertical']
+            },
+            {
+              label: 'app.aside.nav.formValid',
+              locat: {
+                name: 'FormValid'
+              },
+              keywords: ['rulest']
+            },
+            {
+              label: 'app.aside.nav.configForm',
+              locat: {
+                name: 'FormConfig'
+              },
+              keywords: ['form']
+            }
+          ]
+        },
+        {
           label: 'app.aside.nav.basics',
           value: 'base',
           expand: false,
@@ -1156,6 +1198,13 @@ export default {
                 name: 'TableEditRemove'
               },
               keywords: ['remove']
+            },
+            {
+              label: 'app.aside.nav.pending',
+              locat: {
+                name: 'TableEditPending'
+              },
+              keywords: ['pending']
             },
             {
               label: 'app.aside.nav.revert',

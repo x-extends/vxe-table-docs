@@ -70,6 +70,7 @@ const TableCustomSort = () => import('../views/table/advanced/customSort/Example
 const TableMultiSort = () => import('../views/table/advanced/multiSort/Example.vue')
 const TableManualFilter = () => import('../views/table/advanced/manualFilter/Example.vue')
 const TableFilterIcon = () => import('../views/table/advanced/FilterIcon.vue')
+const TableCustomFilter = () => import('../views/table/advanced/customFilter/Example.vue')
 const TableSpan = () => import('../views/table/advanced/span/Example.vue')
 const TableSpanRow = () => import('../views/table/advanced/SpanRow.vue')
 const TableMergeCell = () => import('../views/table/advanced/mergeCell/Example.vue')
@@ -108,6 +109,7 @@ const TableKeepAliveTable3 = () => import('../views/table/advanced/keepAlives/Ta
 const GridBasic = () => import('../views/grid/basic/Example.vue')
 const GridEvents = () => import('../views/grid/events/Example.vue')
 const GridGroup = () => import('../views/grid/group/Example.vue')
+const GridCustomFilter = () => import('../views/grid/customFilter/Example.vue')
 const GridReverse = () => import('../views/grid/reverse/Example.vue')
 const GridTemplate = () => import('../views/grid/template/Example.vue')
 const GridFooter = () => import('../views/grid/footer/Example.vue')
@@ -223,6 +225,7 @@ const TableAutoClearManual = () => import('../views/table/edit/autoClear/Example
 const TableEditCellPlaceholder = () => import('../views/table/edit/CellPlaceholder.vue')
 const TableEditInsert = () => import('../views/table/edit/insert/Example.vue')
 const TableEditRemove = () => import('../views/table/edit/remove/Example.vue')
+const TableEditPending = () => import('../views/table/edit/pending/Example.vue')
 const TableEditRevert = () => import('../views/table/edit/revert/Example.vue')
 const TableEditStatus = () => import('../views/table/edit/status/Example.vue')
 // const TableEditCellDisable = () => import('../views/table/edit/CellDisable.vue')
@@ -618,6 +621,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/table/advanced/filterIcon',
     name: 'TableFilterIcon',
     component: TableFilterIcon
+  },
+  {
+    path: '/table/advanced/customFilter',
+    name: 'TableCustomFilter',
+    component: TableCustomFilter
   },
   {
     path: '/table/advanced/span',
@@ -1021,6 +1029,11 @@ const routes: Array<RouteRecordRaw> = [
     component: GridEvents
   },
   {
+    path: '/table/grid/customFilter',
+    name: 'GridCustomFilter',
+    component: GridCustomFilter
+  },
+  {
     path: '/table/grid/group',
     name: 'GridGroup',
     component: GridGroup
@@ -1361,6 +1374,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/table/edit/remove',
     name: 'TableEditRemove',
     component: TableEditRemove
+  },
+  {
+    path: '/table/edit/pending',
+    name: 'TableEditPending',
+    component: TableEditPending
   },
   {
     path: '/table/edit/revert',

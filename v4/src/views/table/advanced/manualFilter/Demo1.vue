@@ -14,7 +14,7 @@
 
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       height="400"
       :row-config="{isHover: true}"
       :loading="loading"
@@ -53,27 +53,27 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
 const roleList = ref(['', 'Develop', 'PM', 'Test'])
 
-const nameOptions = ref([
+const nameOptions = ref<VxeColumnPropTypes.Filters>([
   { label: '包含 6', value: '6', checked: false },
   { label: '包含 4', value: '4', checked: false }
 ])
 
-const roleOptions = ref([
+const roleOptions = ref<VxeColumnPropTypes.Filters>([
   { data: '' }
 ])
 
-const sexOptions = ref([
+const sexOptions = ref<VxeColumnPropTypes.Filters>([
   { label: 'Man', value: 'Man' },
   { label: 'Women', value: 'Women' }
 ])
 
-const ageOptions = ref([
+const ageOptions = ref<VxeColumnPropTypes.Filters>([
   { data: '' }
 ])
 
@@ -128,7 +128,7 @@ const updateNameFilterEvent: VxeButtonEvents.Click = () => {
 }
 
 const filterNameEvent: VxeButtonEvents.Click = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const column = $table.getColumnByField('name')
     if (column) {
@@ -142,7 +142,7 @@ const filterNameEvent: VxeButtonEvents.Click = () => {
 }
 
 const filterAgeEvent: VxeButtonEvents.Click = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const column = $table.getColumnByField('age')
     if (column) {
@@ -157,28 +157,28 @@ const filterAgeEvent: VxeButtonEvents.Click = () => {
 }
 
 const clearFilterEvent1 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearFilter($table.getColumnByField('age'))
   }
 }
 
 const clearFilterEvent2 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearFilter()
   }
 }
 
 const closeFilterEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.closeFilter()
   }
 }
 
 const openFilterEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.openFilter('age')
   }

@@ -58,6 +58,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   pagerConfig: {
     enabled: true,
+    // currentPage: 1,
     pageSize: 10,
     pageSizes: [5, 10, 15, 20, 50, 100, 200, 500, 1000]
   },
