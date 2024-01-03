@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="<%= BASE_URL %>logo.png">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="https://vxetable.cn/umd/highlightjs@11.4.0/atom-one-dark.min.css">
+    <link rel="stylesheet" href="<%= VUE_APP_CDN_URL %>highlightjs@11.4.0/atom-one-dark.min.css">
   </head>
   <body>
     <noscript>
@@ -15,6 +15,6 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script type="text/javascript" src="<%= VUE_APP_CDN_URL %>babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
-    <script type="text/javascript" src="https://vxetable.cn/umd/highlightjs@11.4.0/highlight.min.js"></script>
+    <script type="text/javascript" src="<%= VUE_APP_CDN_URL %>highlightjs@11.4.0/highlight.min.js"></script>
   </body>
 </html>
