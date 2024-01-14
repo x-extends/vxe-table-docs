@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="table/base/border/Demo1">
       <template #tip>
-        <div>通过设置 <table-api-link prop="border"/>=false|default 默认显示边框</div>
+        <div>通过设置 <table-api-link prop="border"/>=false|default 显示默认边框</div>
       </template>
     </CodeLight>
 
@@ -26,7 +26,7 @@
 
     <CodeLight path="table/base/border/Demo5">
       <template #tip>
-        <div>通过设置 <table-api-link prop="border"/>=inner 显示内边框</div>
+        <div>通过设置 <table-api-link prop="border"/>=none 隐藏边框</div>
       </template>
     </CodeLight>
   </div>
