@@ -1352,6 +1352,24 @@ const apis = [
             enum: '',
             defVal: '',
             list: []
+          },
+          {
+            name: 'confirmButtonText',
+            desc: '自定义确认按钮文本',
+            version: '4.5.19',
+            type: 'string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'resetButtonText',
+            desc: '自定义重置按钮文本',
+            version: '4.5.19',
+            type: 'string',
+            enum: '',
+            defVal: '',
+            list: []
           }
         ]
       },

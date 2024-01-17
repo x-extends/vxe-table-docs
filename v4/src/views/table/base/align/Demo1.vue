@@ -1,6 +1,9 @@
 <template>
   <div>
     <vxe-table
+      border
+      header-align="center"
+      align="left"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>

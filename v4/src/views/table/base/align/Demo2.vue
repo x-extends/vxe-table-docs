@@ -2,15 +2,11 @@
   <div>
     <vxe-table
       border
-      show-header-overflow
-      show-overflow
-      :row-config="{isHover: true}"
       :data="tableData">
-      <vxe-column type="seq" title="序号" width="60"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="address" title="Address"></vxe-column>
+      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column field="name" title="整列居中" align="center"></vxe-column>
+      <vxe-column field="sex" title="头部居中" header-align="center"></vxe-column>
+      <vxe-column field="age" title="头部居中，内容居右" header-align="center" align="right"></vxe-column>
     </vxe-table>
   </div>
 </template>

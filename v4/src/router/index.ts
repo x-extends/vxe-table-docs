@@ -26,6 +26,7 @@ const ValidatorsAPI = () => import('../views/global/validators/Example.vue')
 
 const TableBasic = () => import('../views/table/base/basic/Example.vue')
 const TableSize = () => import('../views/table/base/size/Example.vue')
+const TableAlign = () => import('../views/table/base/align/Example.vue')
 const TableAutoBreak = () => import('../views/table/base/autoBreak/Example.vue')
 const TableWidth = () => import('../views/table/base/width/Example.vue')
 const TableOverflow = () => import('../views/table/base/overflow/Example.vue')
@@ -406,6 +407,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/table/base/size',
     name: 'TableSize',
     component: TableSize
+  },
+  {
+    path: '/table/base/align',
+    name: 'TableAlign',
+    component: TableAlign
   },
   {
     path: '/table/base/autoBreak',

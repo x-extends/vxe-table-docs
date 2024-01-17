@@ -11,6 +11,8 @@ export default {
         theme: '全局主题',
         i18n: '国际化',
 
+        extendCellArea: '区域选取',
+
         demo: '示例',
         linkPlugin: '查看',
 
@@ -20,10 +22,12 @@ export default {
         formValid: '表单校验',
         configForm: '配置式表单',
 
+        table: '基础表格',
         icon: '图标',
         basics: '基础表格',
         base: '基础',
         size: '尺寸',
+        align: '对齐方式',
         autoBreak: '自动换行',
         width: '列宽',
         ellipsis: '单元格溢出省略号',
@@ -122,7 +126,7 @@ export default {
 
         tree: '树形表格',
         treeNormal: '普通树',
-        customIcon: '更多自定义',
+        customIcon: '自定义图标',
         expandTreeLazy: '树形展开行懒加载',
         treeSearch: '深层查找',
         treeSort: '树排序',
@@ -255,6 +259,17 @@ export default {
         optimize: '优化建议',
         optimizeScroller: '虚拟滚动优化',
         optimizeEdit: '可编辑优化',
+
+        singleArea: '单区域选取',
+        multiArea: '多重区域选取',
+        areaExtension: '拖动扩展区域',
+        areaFixed: '固定列选取',
+        areaKeypad: '按键导航',
+        areaClip: '复制与粘贴',
+        areaMerge: '合并区域',
+        areaFNR: '查找与替换',
+        areaMenu: '右键菜单操作',
+        areaEcharts: '集成 echarts 图表渲染',
 
         api: 'API',
         vxeTable: 'vxe-table',

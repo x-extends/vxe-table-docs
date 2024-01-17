@@ -32,6 +32,7 @@ export default {
           //   stripe: false,
           //   border: false,
           //   round: false,
+          //   minHeight: 144,
           //   emptyText: '暂无数据',
           //   resizeConfig: {
           //     refreshDelay: 250

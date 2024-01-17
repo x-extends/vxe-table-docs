@@ -4,7 +4,7 @@
     <p class="tip">{{ $t('app.body.demo.start.i18n.i18nTitle') }}</p>
     <pre>
       <pre-code class="shell">
-        npm install vxe-table xe-utils vue-i18n
+        npm install vxe-table vue-i18n
       </pre-code>
       <div>src/i18n/index.ts</div>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>

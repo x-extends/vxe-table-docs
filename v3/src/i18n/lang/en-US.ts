@@ -11,6 +11,8 @@ export default {
         theme: 'Global theme',
         i18n: 'Internationalization',
 
+        extendCellArea: 'Region selection',
+
         demo: 'Demo',
         linkPlugin: '查看',
 
@@ -20,9 +22,11 @@ export default {
         formValid: 'Validate form',
         configForm: 'Configuration form',
 
+        table: 'Basics table',
         icon: 'Icon',
         basics: 'Basic table',
         base: 'Basics table',
+        align: 'Align',
         autoBreak: 'Word wrap',
         size: 'Size',
         ellipsis: 'Cell overflow ellipsis',
@@ -123,7 +127,7 @@ export default {
 
         tree: 'Tree table',
         treeNormal: 'Normal tree',
-        customIcon: 'More customizations',
+        customIcon: 'Custom icon',
         expandTreeLazy: 'Tree expansion line lazy load',
         treeSearch: 'Deep to search',
         treeSort: 'Tree sort',
@@ -257,6 +261,17 @@ export default {
         optimize: 'Optimization and suggestion',
         optimizeScroller: 'Virtual rolling optimization',
         optimizeEdit: 'Editable optimization',
+
+        singleArea: 'Single region selection',
+        multiArea: 'Multiple region selection',
+        areaExtension: 'Drag to extend area',
+        areaFixed: 'Fixed column selection',
+        areaKeypad: 'Key navigation',
+        areaClip: 'Copy and paste',
+        areaMerge: 'Merge area',
+        areaFNR: 'Find and replace',
+        areaMenu: 'Right click menu operation',
+        areaEcharts: 'Integrated echarts chart rendering',
 
         api: 'API',
         vxeTable: 'vxe-table',

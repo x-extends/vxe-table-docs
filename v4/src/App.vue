@@ -403,6 +403,13 @@ export default defineComponent({
               keywords: ['width', 'min-width']
             },
             {
+              label: 'app.aside.nav.align',
+              locat: {
+                name: 'TableAlign'
+              },
+              keywords: ['align']
+            },
+            {
               label: 'app.aside.nav.autoBreak',
               locat: {
                 name: 'TableAutoBreak'
