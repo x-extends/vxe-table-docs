@@ -129,6 +129,7 @@ const GridFullscreen = () => import('../views/grid/Fullscreen.vue')
 const GridMenu = () => import('../views/grid/Menu.vue')
 const GridSpan = () => import('../views/grid/Span.vue')
 const GridUpload = () => import('../views/grid/Upload.vue')
+const GridLayout = () => import('../views/grid/layout/Example.vue')
 const GridTree = () => import('../views/grid/Tree.vue')
 const GridTreeLazy = () => import('../views/grid/TreeLazy.vue')
 const GridTreeLazyEdit = () => import('../views/grid/TreeLazyEdit.vue')
@@ -1046,6 +1047,11 @@ export default new Router({
       path: '/table/grid/upload',
       name: 'GridUpload',
       component: GridUpload
+    },
+    {
+      path: '/table/grid/layout',
+      name: 'GridLayout',
+      component: GridLayout
     },
     {
       path: '/table/grid/tree',

@@ -48,6 +48,21 @@ gulp.task('build_plugins_docs', gulp.series('copy_plugins_docs', () => {
     .pipe(gulp.dest('docs/plugins'))
 }))
 
+gulp.task('copy_pluginDocs_docs', () => {
+  return gulp.src('pluginDocs/**')
+    .pipe(gulp.dest('docs/pluginDocs'))
+})
+
+gulp.task('build_pluginDocs_docs', gulp.series('copy_pluginDocs_docs', () => {
+  return gulp.src('pluginDocs/index.html')
+    .pipe(replace('</head>', `${hmScript}</head>`))
+    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
+    .pipe(replace('</body>', `${adTmplScript}</body>`))
+    .pipe(gulp.dest('docs/pluginDocs'))
+}))
+
+gulp.task('build_vxe_docs', gulp.series('copy_plugins_docs', 'build_pluginDocs_docs'))
+
 gulp.task('copy_other3_docs', () => {
   return gulp.src('other3/dist/**')
     .pipe(gulp.dest('_temp/other3'))

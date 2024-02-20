@@ -63,5 +63,13 @@
         </div>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/template/Demo9">
+      <template #tip>
+        <div>
+          校验提示模板，使用插槽 <table-column-api-link prop="valid"/> 来自定义模板
+        </div>
+      </template>
+    </CodeLight>
   </div>
 </template>

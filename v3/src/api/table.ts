@@ -2793,6 +2793,15 @@ const apis = [
             enum: '',
             defVal: '320',
             list: []
+          },
+          {
+            name: 'className',
+            desc: '给校验提示框附加 calss',
+            version: '3.7.9',
+            type: 'string | ((params) => {})',
+            enum: '',
+            defVal: '',
+            list: []
           }
         ]
       },
@@ -4074,15 +4083,15 @@ const apis = [
         defVal: '',
         list: []
       },
-      // {
-      //   name: 'removeInsertRow()',
-      //   desc: '删除新增的临时数据',
-      //   version: '',
-      //   type: 'Promise<{row, rows}>',
-      //   enum: '',
-      //   defVal: '3.3.15',
-      //   list: []
-      // },
+      {
+        name: 'removeInsertRow()',
+        desc: '删除新增的临时数据',
+        version: '3.3.15',
+        type: 'Promise<{row, rows}>',
+        enum: '',
+        defVal: '',
+        list: []
+      },
       {
         name: 'removeMergeCells(merges)',
         desc: '取消单元格的临时合并状态，如果为数组，则取消多个合并',

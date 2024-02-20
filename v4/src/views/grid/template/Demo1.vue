@@ -37,7 +37,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 60 },
     { field: 'name', title: 'Name', slots: { default: 'name_default' } },
-    { field: 'sex', title: 'Sex', slots: { default: 'sex_default' } },
+    {
+      field: 'sex',
+      title: 'Sex',
+      slots: {
+        default: 'sex_default'
+      }
+    },
     { field: 'num', title: 'Number' },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address', slots: { default: 'address_default' } }

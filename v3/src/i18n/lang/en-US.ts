@@ -265,13 +265,22 @@ export default {
         singleArea: 'Single region selection',
         multiArea: 'Multiple region selection',
         areaExtension: 'Drag to extend area',
+        areaExtendCalcFill: 'Extended area autofill',
         areaFixed: 'Fixed column selection',
         areaKeypad: 'Key navigation',
         areaClip: 'Copy and paste',
         areaMerge: 'Merge area',
         areaFNR: 'Find and replace',
-        areaMenu: 'Right click menu operation',
-        areaEcharts: 'Integrated echarts chart rendering',
+        areaMenu: 'Right click menu',
+        areaEdit: 'Editable',
+        areaScroll: 'Virtual scroll',
+        areaChart: 'Simplex chart',
+        areaEcharts: 'Integrated echarts chart',
+        areaBasicsEcharts: 'Basic chart',
+        areaExceljs: 'Integrated exceljs import and export',
+        areaExportExceljs: 'Export xlsx',
+        areaJspdf: 'Integrate jspdf import and export',
+        areaExportJspdf: 'Export pdf',
 
         api: 'API',
         vxeTable: 'vxe-table',
@@ -307,7 +316,9 @@ export default {
     header: {
       label: {
         donation: '支持我们',
-        support: '付费插件'
+        support: '付费插件',
+        extendPlugin: 'Extended plug-in',
+        purchaseAuthorization: 'Purchase authorization'
       }
     },
     body: {
@@ -607,6 +618,7 @@ export default {
       },
       grid: {
         desc: {
+          layouts: '自定义布局',
           formConfig: 'Form config',
           toolbar: 'Obsolete, please use "toolbar-config"',
           toolbarConfig: 'Toolbar config',

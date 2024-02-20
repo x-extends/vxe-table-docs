@@ -30,7 +30,7 @@ const apis = [
         descKey: 'app.api.pager.desc.layouts',
         version: '',
         type: 'string[]',
-        enum: 'PrevJump, PrevPage, Number, JumpNumber, NextPage, NextJump, Sizes, Jump, FullJump, PageCount, Total',
+        enum: 'Home, PrevJump, PrevPage, Number, JumpNumber, NextPage, NextJump, End, Sizes, Jump, FullJump, PageCount, Total',
         defVal: '默认 [PrevJump, PrevPage, Jump, PageCount, NextPage, NextJump, Sizes, Total]，继承 setup.pager.layouts',
         list: []
       },

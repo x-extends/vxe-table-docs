@@ -260,16 +260,25 @@ export default {
         optimizeScroller: '虚拟滚动优化',
         optimizeEdit: '可编辑优化',
 
-        singleArea: '单区域选取',
+        singleArea: '单个区域选取',
         multiArea: '多重区域选取',
         areaExtension: '拖动扩展区域',
+        areaExtendCalcFill: '扩展区域自动填充',
         areaFixed: '固定列选取',
         areaKeypad: '按键导航',
         areaClip: '复制与粘贴',
         areaMerge: '合并区域',
         areaFNR: '查找与替换',
-        areaMenu: '右键菜单操作',
-        areaEcharts: '集成 echarts 图表渲染',
+        areaMenu: '右键菜单',
+        areaEdit: '可编辑',
+        areaScroll: '虚拟滚动',
+        areaChart: '简单图表',
+        areaEcharts: '集成 echarts 图表',
+        areaBasicsEcharts: '基础图表',
+        areaExceljs: '集成 exceljs 导入导出',
+        areaExportExceljs: '导出 xlsx',
+        areaJspdf: '集成 jspdf 导入导出',
+        areaExportJspdf: '导出 pdf',
 
         api: 'API',
         vxeTable: 'vxe-table',
@@ -305,7 +314,9 @@ export default {
     header: {
       label: {
         donation: '支持我们',
-        support: '付费插件'
+        support: '付费插件',
+        extendPlugin: '扩展插件',
+        purchaseAuthorization: '获取授权'
       }
     },
     body: {
@@ -606,6 +617,7 @@ export default {
       },
       grid: {
         desc: {
+          layouts: '自定义布局',
           formConfig: '表单配置项',
           toolbar: '即将废弃，请使用 toolbar-config',
           toolbarConfig: '工具栏配置',

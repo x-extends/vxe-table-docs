@@ -396,6 +396,15 @@ const apis = [
             list: []
           }
         ]
+      },
+      {
+        name: 'layouts',
+        descKey: 'app.api.grid.desc.layouts',
+        version: '4.5.19',
+        type: 'string[]',
+        enum: 'Form, Toolbar, Top, Table, Bottom, Pager',
+        defVal: '默认 Form, Toolbar, Top, Table, Bottom, Pager，继承 setup.grid.layouts',
+        list: []
       }
     ]
   },

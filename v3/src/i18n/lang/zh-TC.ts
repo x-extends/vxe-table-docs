@@ -260,16 +260,25 @@ export default {
         optimizeScroller: '虚拟滚动优化',
         optimizeEdit: '可编辑优化',
 
-        singleArea: '单区域选取',
-        multiArea: '多重区域选取',
-        areaExtension: '拖动扩展区域',
-        areaFixed: '固定列选取',
-        areaKeypad: '按键导航',
-        areaClip: '复制与粘贴',
-        areaMerge: '合并区域',
-        areaFNR: '查找与替换',
-        areaMenu: '右键菜单操作',
-        areaEcharts: '集成 echarts 图表渲染',
+        singleArea: '單個區域選取',
+        multiArea: '多重區域選取',
+        areaExtension: '拖動擴展區域',
+        areaExtendCalcFill: '擴展區域自動填充',
+        areaFixed: '固定列選取',
+        areaKeypad: '按鍵導航',
+        areaClip: '複製與粘貼',
+        areaMerge: '合併區域',
+        areaFNR: '查找與替換',
+        areaMenu: '右鍵菜單',
+        areaEdit: '可編輯',
+        areaScroll: '虛擬滾動',
+        areaChart: '簡單圖表',
+        areaEcharts: '集成 echarts 圖表',
+        areaBasicsEcharts: '基礎圖表',
+        areaExceljs: '集成 exceljs 導入導出',
+        areaExportExceljs: '導出 xlsx',
+        areaJspdf: '集成 jspdf 導入導出',
+        areaExportJspdf: '導出 pdf',
 
         api: 'API',
         vxeTable: 'vxe-table',
@@ -305,7 +314,9 @@ export default {
     header: {
       label: {
         donation: '支持我们',
-        support: '付费插件'
+        support: '付费插件',
+        extendPlugin: '擴展插件',
+        purchaseAuthorization: '獲取授權'
       }
     },
     body: {
@@ -606,6 +617,7 @@ export default {
       },
       grid: {
         desc: {
+          layouts: '自定义布局',
           formConfig: '表单配置项',
           toolbar: '即将废弃，请使用 toolbar-config',
           toolbarConfig: '工具栏配置',

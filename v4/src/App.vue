@@ -37,8 +37,11 @@
           </vxe-select>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="showExtendPlugin && appData.apiLoading && appData.showPlugin">
-            <a v-if="appData.disabledPlugin" class="link support" :href="pluginApiUrl" target="_blank">💡插件</a>
-            <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="updatingEvent">插件</a>
+            <template v-if="appData.disabledPlugin">
+              <a class="link support" :href="pluginDocsUrl" target="_blank">{{ $t('app.header.label.extendPlugin') }}</a>
+              <a class="link support" :href="pluginApiUrl" target="_blank">{{ $t('app.header.label.purchaseAuthorization') }}</a>
+            </template>
+            <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="updatingEvent">{{ $t('app.header.label.extendPlugin') }}</a>
           </template>
         </div>
       </div>
@@ -133,6 +136,7 @@ export default defineComponent({
     const appStore = useAppStore()
     const docsVersion = computed(() => appStore.docsVersion)
     const baseApiUrl = computed(() => appStore.baseApiUrl)
+    const pluginDocsUrl = computed(() => appStore.pluginDocsUrl)
     const pluginApiUrl = computed(() => appStore.pluginApiUrl)
     const serveApiUrl = computed(() => appStore.serveApiUrl)
 
@@ -1522,6 +1526,13 @@ export default defineComponent({
             //     name: 'GridUpload'
             //   }
             // },
+            {
+              label: 'app.aside.nav.customLayout',
+              locat: {
+                name: 'GridLayout'
+              },
+              keywords: ['layouts', '自定义布局']
+            },
             // {
             //   label: 'app.aside.nav.baseTree',
             //   locat: {
@@ -2499,6 +2510,7 @@ export default defineComponent({
 
     return {
       baseApiUrl,
+      pluginDocsUrl,
       pluginApiUrl,
 
       showExtendPlugin,

@@ -19,7 +19,7 @@ const codeConfs = ref([
   {
     title: '安装',
     language: 'shell',
-    content: 'npm install vxe-table@legacy vxe-table-plugin-export-pdf@legacy'
+    content: 'npm install vxe-table@legacy vxe-table-plugin-export-pdf@legacy jspdf'
   },
   {
     title: '使用',
@@ -28,10 +28,25 @@ const codeConfs = ref([
     // ...
     import VXETable from 'vxe-table'
     import VXETablePluginExportPDF from 'vxe-table-plugin-export-pdf'
+    import { jsPDF } from 'jspdf'
     // ...
 
-    // 支持中文字体
-    // VXETablePluginExportPDF.setup({
+    // 方式1：NPM 安装，注入 jsPDF 对象
+    VXETable.use(VXETablePluginExportPDF, {
+      jsPDF,
+    //  fontName: 'SourceHanSans-Normal',
+    //   fonts: [
+    //     {
+    //       // Font name
+    //       fontName: 'SourceHanSans-Normal',
+    //       // Font library url
+    //       fontUrl: 'https://cdn.jsdelivr.net/npm/vxe-table-plugin-export-pdf/fonts/source-han-sans-normal.js'
+    //     }
+    //   ]
+    })
+
+    // 方式2：CDN 安装，只要确保 window.jsPDF 存在即可
+    VXETable.use(VXETablePluginExportPDF, {
     //   fontName: 'SourceHanSans-Normal',
     //   fonts: [
     //     {
@@ -42,8 +57,6 @@ const codeConfs = ref([
     //     }
     //   ]
     // })
-
-    VXETable.use(VXETablePluginExportPDF)
     `
   }
 ])

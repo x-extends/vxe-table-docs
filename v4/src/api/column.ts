@@ -980,7 +980,7 @@ const apis = [
         enum: '',
         defVal: '{row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex}',
         list: []
-      // },
+      },
       // {
       //   name: 'icon',
       //   desc: '只对 type=expand 或 tree-node 有效，自定义图标模板',
@@ -989,6 +989,15 @@ const apis = [
       //   enum: '',
       //   defVal: '{row,rowIndex,$rowIndex,column,columnIndex,$columnIndex}',
       //   list: []
+      // },
+      {
+        name: 'valid',
+        desc: '只对 edit-rules 与 edit-render 启用时有效，自定义校验提示模板',
+        version: '4.5.20',
+        type: '',
+        enum: '',
+        defVal: '{row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, rule, content}',
+        list: []
       }
     ]
   },

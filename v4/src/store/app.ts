@@ -5,6 +5,7 @@ export const useAppStore = defineStore('app', {
     return {
       docsVersion: '4',
       baseApiUrl: process.env.VUE_APP_MAIN_URL,
+      pluginDocsUrl: `${process.env.VUE_APP_MAIN_URL}pluginDocs/`,
       pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
       serveApiUrl: 'https://api.vxetable.cn/demo',
       showSupportQQ: false

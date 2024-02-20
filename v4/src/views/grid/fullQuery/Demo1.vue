@@ -2,36 +2,36 @@
   <div>
     <vxe-grid ref="xGrid" v-bind="gridOptions">
 
-    <!--将表单放在工具栏中-->
-    <template #toolbar_buttons>
-      <vxe-button @click="triggerProxy('query')">刷新当前</vxe-button>
-      <vxe-button @click="triggerProxy('reload')">重置条件并重载</vxe-button>
-      <vxe-button @click="triggerProxy('mark_cancel')">删除/取消</vxe-button>
-    </template>
+      <!--将表单放在工具栏中-->
+      <template #toolbar_buttons>
+        <vxe-button @click="triggerProxy('query')">刷新当前</vxe-button>
+        <vxe-button @click="triggerProxy('reload')">重置条件并重载</vxe-button>
+        <vxe-button @click="triggerProxy('mark_cancel')">删除/取消</vxe-button>
+      </template>
 
-    <template #toolbar_tools>
-      <vxe-form :data="formData" @submit="searchEvent" @reset="resetEvent">
-        <vxe-form-item field="name">
-          <template #default>
-            <vxe-input v-model="formData.name" type="text" placeholder="请输入名称"></vxe-input>
-          </template>
-        </vxe-form-item>
-        <vxe-form-item>
-          <template #default>
-            <vxe-button type="submit" status="primary" content="查询"></vxe-button>
-            <vxe-button type="reset" content="重置"></vxe-button>
-          </template>
-        </vxe-form-item>
-      </vxe-form>
-    </template>
+      <template #toolbar_tools>
+        <vxe-form :data="formData" @submit="searchEvent" @reset="resetEvent">
+          <vxe-form-item field="name">
+            <template #default>
+              <vxe-input v-model="formData.name" type="text" placeholder="请输入名称"></vxe-input>
+            </template>
+          </vxe-form-item>
+          <vxe-form-item>
+            <template #default>
+              <vxe-button type="submit" status="primary" content="查询"></vxe-button>
+              <vxe-button type="reset" content="重置"></vxe-button>
+            </template>
+          </vxe-form-item>
+        </vxe-form>
+      </template>
 
-    <!--自定义空数据模板-->
-    <template #empty>
-      <span style="color: red;">
-        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">
-        <p>没有更多数据了！</p>
-      </span>
-    </template>
+      <!--自定义空数据模板-->
+      <template #empty>
+        <span style="color: red;">
+          <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">
+          <p>没有更多数据了！</p>
+        </span>
+      </template>
     </vxe-grid>
   </div>
 </template>

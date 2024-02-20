@@ -12,7 +12,7 @@
       v-model:current-page="pageVO2.currentPage"
       v-model:page-size="pageVO2.pageSize"
       :total="pageVO2.total"
-      :layouts="['PrevJump', 'PrevPage', 'JumpNumber', 'NextPage', 'NextJump', 'Sizes', 'FullJump', 'Total']">
+      :layouts="['Home', 'PrevJump', 'PrevPage', 'JumpNumber', 'NextPage', 'NextJump', 'End', 'Sizes', 'FullJump', 'Total']">
     </vxe-pager>
   </div>
 </template>

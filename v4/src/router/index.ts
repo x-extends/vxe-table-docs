@@ -132,6 +132,7 @@ const GridFullscreen = () => import('../views/grid/fullscreen/Example.vue')
 const GridMenu = () => import('../views/grid/menu/Example.vue')
 // const GridSpan = () => import('../views/grid/span/Example.vue')
 // const GridUpload = () => import('../views/grid/Upload.vue')
+const GridLayout = () => import('../views/grid/layout/Example.vue')
 // const GridTree = () => import('../views/grid/Tree.vue')
 // const GridTreeLazy = () => import('../views/grid/TreeLazy.vue')
 // const GridTreeLazyEdit = () => import('../views/grid/TreeLazyEdit.vue')
@@ -1144,6 +1145,11 @@ const routes: Array<RouteRecordRaw> = [
   //   name: 'GridUpload',
   //   component: GridUpload
   // },
+  {
+    path: '/table/grid/layout',
+    name: 'GridLayout',
+    component: GridLayout
+  },
   // {
   //   path: '/table/grid/tree',
   //   name: 'GridTree',

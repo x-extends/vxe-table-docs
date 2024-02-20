@@ -18,7 +18,7 @@
     "update:all": "npm run update:other3 && npm run update:other4 && npm run update:v1 && npm run update:v2 && npm run update:v3 && npm run update:v4",
     "build:all": "npm run build:other3 && npm run build:other4 && npm run build:v1 && npm run build:v2 && npm run build:v3 && npm run build:v4",
     "build:docs": "gulp build_docs && npm run build:zip",
-    "build:plugins": "gulp build_docs && gulp build_plugins_docs && npm run build:zip",
+    "build:vxe": "gulp build_docs && gulp build_vxe_docs && npm run build:zip",
     "build:zip": "gulp build_zip"
   },
   "devDependencies": {

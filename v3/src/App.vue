@@ -37,8 +37,11 @@
           </vxe-select>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="apiLoading && showPlugin">
-            <a v-if="disabledPlugin" class="link support" :href="pluginApiUrl" target="_blank">💡插件</a>
-            <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">插件</a>
+            <template v-if="disabledPlugin">
+              <a class="link support" :href="pluginDocsUrl" target="_blank">{{ $t('app.header.label.extendPlugin') }}</a>
+              <a class="link support" :href="pluginApiUrl" target="_blank">{{ $t('app.header.label.purchaseAuthorization') }}</a>
+            </template>
+            <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">{{ $t('app.header.label.extendPlugin') }}</a>
           </template>
         </div>
       </div>
@@ -1515,6 +1518,13 @@ export default {
               }
             },
             {
+              label: 'app.aside.nav.customLayout',
+              locat: {
+                name: 'GridLayout'
+              },
+              keywords: ['layouts', '自定义布局']
+            },
+            {
               label: 'app.aside.nav.baseTree',
               locat: {
                 name: 'GridTree'
@@ -2137,6 +2147,7 @@ export default {
     ...mapState([
       'docsVersion',
       'baseApiUrl',
+      'pluginDocsUrl',
       'pluginApiUrl',
       'serveApiUrl'
     ]),

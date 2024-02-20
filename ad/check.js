@@ -69,4 +69,7 @@ function checkHide () {
   }
   hdTimeout = setTimeout(checkHide, hdDelay)
 }
-hdTimeout = setTimeout(checkHide, hdDelay)
+// 不定期检查
+if ([1].includes(new Date().getDay())) {
+  hdTimeout = setTimeout(checkHide, hdDelay)
+}
