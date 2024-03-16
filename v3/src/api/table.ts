@@ -1281,6 +1281,15 @@ const apis = [
             list: []
           },
           {
+            name: 'iconLayout',
+            desc: '图标布局方式，支持纵向和横向',
+            version: '3.7.9',
+            type: 'string',
+            enum: 'vertical,horizontal',
+            defVal: 'vertical',
+            list: []
+          },
+          {
             name: 'iconAsc',
             desc: '自定义升序的图标',
             version: '',

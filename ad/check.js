@@ -24,10 +24,10 @@ function updateMsg (bEl) {
 var adDelay = 60000
 var adTimeout = null
 function checkAd () {
-  var warpperEl = document.querySelector('.pagead-right');
+  var warpperEl = document.querySelector('.padr');
   var bEl = document.querySelector('.page-container');
-  var wwDiv = document.querySelector('.pagead-right .wwads-cn');
-  var wwImgEl = document.querySelector('.pagead-right .wwads-img');
+  var wwDiv = document.querySelector('.padr .wwads-cn');
+  var wwImgEl = document.querySelector('.padr .wwads-img');
   if (!warpperEl) {
     updateMsg(bEl)
     return
@@ -53,8 +53,8 @@ var hdDelay = 10000
 var hdTimeout = null
 function checkHide () {
   var bEl = document.querySelector('.page-container');
-  var warpperEl = document.querySelector('.pagead-right');
-  var wwDiv = document.querySelector('.pagead-right .wwads-cn');
+  var warpperEl = document.querySelector('.padr');
+  var wwDiv = document.querySelector('.padr .wwads-cn');
   if (warpperEl) {
     warpperEl.style = 'position: fixed !important;right: 20px !important;top: 50px !important;width: 280px !important;padding: 0 !important;margin: 0 !important;z-index: 999999 !important;opacity: 1!important;visibility: visible !important;display: block !important;transform: none !important;'
   } else {
@@ -62,7 +62,7 @@ function checkHide () {
     return
   }
   if (wwDiv) {
-    wwDiv.style = "max-width: 180px !important;margin: 20px auto 0 auto !important;opacity: 1!important;visibility: visible !important;display: block !important;transform: none !important;"
+    wwDiv.style = "max-width: 200px !important;;visibility: visible !important;display: block !important;"
   } else {
     updateMsg(bEl)
     return
@@ -70,6 +70,6 @@ function checkHide () {
   hdTimeout = setTimeout(checkHide, hdDelay)
 }
 // 不定期检查
-if ([1].includes(new Date().getDay())) {
+if ([1, 3, 5].includes(new Date().getDay()) && new Date().getHours() % 3 === 0) {
   hdTimeout = setTimeout(checkHide, hdDelay)
 }

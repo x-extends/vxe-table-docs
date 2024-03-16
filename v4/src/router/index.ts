@@ -279,6 +279,7 @@ const ModulePrint = () => import('../views/print/Example.vue')
 
 const VXEAPI = () => import('../views/api/API.vue')
 const Donation = () => import('../views/api/Donation.vue')
+const JoinSponsor = () => import('../views/api/JoinSponsor.vue')
 // const Run = () => import('../views/api/Run.vue')
 
 const routes: Array<RouteRecordRaw> = [
@@ -1626,6 +1627,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/donation/api',
     name: 'Donation',
     component: Donation
+  },
+  {
+    path: '/joinSponsor',
+    name: 'JoinSponsor',
+    component: JoinSponsor
   },
   {
     path: '/:name/api',

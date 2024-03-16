@@ -62,14 +62,6 @@
           <vxe-input clearable v-model="appData.filterName" type="search" class="search-input" :placeholder="$t('app.body.search.searchPlaceholder')" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
         </div>
         <div class="body">
-          <div class="sponsors" v-if="appData.sponsorList.length">
-            <h4 class="title">赞助商</h4>
-            <div v-for="(item, index) in appData.sponsorList" :key="index">
-              <a :href="item.url" :title="item.title" target="_blank">
-                <img :src="item.img" :style="{width: item.width, height: item.height}">
-              </a>
-            </div>
-          </div>
           <div class="docs">
             <template v-if="appData.apiList.length">
               <ul class="nav-menu">
@@ -119,6 +111,7 @@
           </footer>
         </div>
       </div>
+      <div class="page-pendant"></div>
     </div>
   </div>
 </template>
@@ -154,7 +147,6 @@ export default defineComponent({
       selectStableVersion: null,
       stableVersionList: [] as any[],
       usedJSHeapSize: '0',
-      sponsorList: [] as any[],
       apiLoading: false,
       showPlugin: false,
       disabledPlugin: false,
@@ -2447,14 +2439,6 @@ export default defineComponent({
       }
     }
 
-    const loadSponsors = () => {
-      fetch(`${serveApiUrl.value}/api/npm/versions/vxe-table`, { method: 'GET' })
-        .then(response => response.json())
-        .then(data => {
-          appData.sponsorList = data
-        })
-    }
-
     const loadList = () => {
       appData.tableData = XEUtils.clone(appData.tableList, true)
       XEUtils.eachTree(appData.tableData, (item: any) => {
@@ -2466,7 +2450,6 @@ export default defineComponent({
     const init = () => {
       getVersion()
       loadList()
-      loadSponsors()
       setTimeout(() => defaultExpand(), 1500)
     }
 

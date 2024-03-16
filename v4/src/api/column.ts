@@ -510,6 +510,43 @@ const apis = [
         ]
       },
       {
+        name: 'title-suffix',
+        desc: '标题后缀图标配置项',
+        version: '4.5.21',
+        type: 'any',
+        enum: '',
+        defVal: '',
+        list: [
+          {
+            name: 'content',
+            desc: '提示消息（支持开启国际化）',
+            version: '',
+            type: 'string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'useHTML',
+            desc: '是否显示为HTML标签（动态渲染任意 HTML 是非常危险的，很容易导致 XSS 攻击，请确保内容是可信的）',
+            version: '',
+            type: 'string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'icon',
+            desc: '自定义图标',
+            version: '',
+            type: 'string',
+            enum: '',
+            defVal: '',
+            list: []
+          }
+        ]
+      },
+      {
         name: 'cell-type',
         descKey: 'app.api.tableColumn.desc.cellType',
         version: '',

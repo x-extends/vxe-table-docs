@@ -8,14 +8,10 @@
       :tooltip-config="tooltipConfig"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="名称" :title-help="{message: '自定义帮助提示信息'}"></vxe-column>
-      <vxe-column field="role" title="角色" :title-help="{message: '自定义图标', icon: 'vxe-icon-question-circle-fill'}"></vxe-column>
-      <vxe-column field="date" title="Date"></vxe-column>
-      <vxe-column field="rate" title="Rate">
-        <template #header>
-          <span>自定义标题</span>
-        </template>
-      </vxe-column>
+      <vxe-column field="name" title="名称" :title-prefix="{message: '自定义前缀'}"></vxe-column>
+      <vxe-column field="role" title="角色" :title-prefix="{message: '自定义前缀图标', icon: 'vxe-icon-question-circle-fill'}"></vxe-column>
+      <vxe-column field="date" title="Date" :title-suffix="{message: '自定义后缀'}"></vxe-column>
+      <vxe-column field="rate" title="Rate" :title-suffix="{message: '自定义后缀图标', icon: 'vxe-icon-question-circle-fill'}"></vxe-column>
       <vxe-column field="address" title="Address" width="160"></vxe-column>
       <vxe-column type="html" field="content" title="Content" width="200"></vxe-column>
     </vxe-table>
