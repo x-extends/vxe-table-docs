@@ -17,8 +17,7 @@
     "vue": "^3.4.21",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11",
-    "vuex": "^4.0.2",
-    "vxe-table": "^4.5.21-beta.2",
+    "vxe-table": "^4.5.22-beta.1",
     "xe-clipboard": "^1.10.2"
   },
   "devDependencies": {
@@ -28,7 +27,6 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-typescript": "~5.0.0",
-    "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-standard": "^6.1.0",
     "@vue/eslint-config-typescript": "^9.1.0",

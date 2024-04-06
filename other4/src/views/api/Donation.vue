@@ -9,37 +9,29 @@
         <span>👀{{ $t('app.body.other.releases') }}</span>
       </a>
     </div>
-    <!-- <div class="desc">
-      <div class="title">
-        <span style="vertical-align: middle;padding-left: 0.4em;">🔥{{ $t('app.body.label.plan') }}</span>
-      </div>
-      <ul class="plan">
-        <li><i class="fa fa-battery-4"></i>{{ $t('app.body.other.plan.v1') }}</li>
-        <li><i class="fa fa-battery-4"></i>{{ $t('app.body.other.plan.v2') }}</li>
-        <li><i class="fa fa-battery-4"></i>{{ $t('app.body.other.plan.v3') }}</li>
-        <li><i class="fa fa-battery-3"></i>{{ $t('app.body.other.plan.v4') }}</li>
-      </ul>
-    </div> -->
     <div class="content" style="padding-top: 50px">
-      <div style="float: left;padding-left: 5em;">
+      <div style="float: left;">
         <div style="padding: 15px 0;">
           <div style="font-size: 22px;font-weight: 700;">QQ交流群</div>
-          <div style="padding-top: 15px;">该群供大家交流問題，如果群人数已满，将会不定期剔除不活跃的，<br>如果有 bug 建议通过 <a class="link" href="https://github.com/x-extends/vxe-table">issues</a> 反馈</div>
+          <div style="padding-top: 15px;">该群供大家交流問題，如果群人数已满，将会不定期剔除不活跃的，<br>如果有 bug 请准备好 <a class="link" href="https://vxetable.cn/issues.html" target="_blank">复现链接</a> 并通过提交 <a class="link" href="https://github.com/x-extends/vxe-table/issues" target="_blank">issues</a> 反馈</div>
         </div>
-        <img :src="`${baseApiUrl}static/donation/qq.png`">
+        <img :src="`${baseApiUrl}static/donation/qq1.png`">
+        <img :src="`${baseApiUrl}static/donation/qq2.png`">
       </div>
-      <div style="float: right;padding-right: 5em;">
+      <div style="float: right;">
         <div style="padding: 15px 0;width: 500px;">
           <vxe-radio-group v-model="supportAuthor">
-            <vxe-radio label="1" content="支持作者"></vxe-radio>
-            <vxe-radio label="2" content="赞助作者" v-if="showSupportQQ"></vxe-radio>
+            <vxe-radio label="1" content="关于 vxe-table"></vxe-radio>
+            <vxe-radio label="2" content="赞助作者"></vxe-radio>
           </vxe-radio-group>
           <div style="padding-top: 15px;">
-            <span v-if="supportAuthor === '1'">如果该项目帮助了您，请作者喝杯咖啡吧</span>
-            <a v-else class="link" :href="`${pluginApiUrl}#/support`" target="_blank">点击赞助作者并加入支官方持群</a>
+            <span v-if="supportAuthor === '1'">vxe-table 是 <a class="link" href="https://github.com/x-extends/vxe-table/blob/master/LICENSE" target="_blank">MIT</a> 开源的，使用完全免费。</span>
           </div>
         </div>
-        <img v-if="supportAuthor === '1'" :src="`${baseApiUrl}static/donation/pay.jpg`">
+        <div v-if="supportAuthor === '2'">
+          <div>如果该项目帮助了您，请作者喝杯咖啡吧</div>
+          <img :src="`${baseApiUrl}static/donation/pay.jpg`">
+        </div>
       </div>
     </div>
   </div>
@@ -47,20 +39,18 @@
 
 <script lang="ts">
 import { defineComponent, computed, ref } from 'vue'
-import { useStore } from 'vuex'
+import { useAppStore } from '@/store/app'
 
 export default defineComponent({
   setup () {
-    const store = useStore()
-    const baseApiUrl = computed(() => store.state.baseApiUrl)
-    const pluginApiUrl = computed(() => store.state.pluginApiUrl)
-    const showSupportQQ = computed(() => store.state.showSupportQQ)
+    const appStore = useAppStore()
+    const baseApiUrl = computed(() => appStore.baseApiUrl)
+    const pluginApiUrl = computed(() => appStore.pluginApiUrl)
 
     const supportAuthor = ref('1')
     return {
       baseApiUrl,
       pluginApiUrl,
-      showSupportQQ,
       supportAuthor
     }
   }

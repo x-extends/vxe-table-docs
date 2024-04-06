@@ -70,7 +70,7 @@ gulp.task('build_pluginDocs_docs', gulp.series('copy_pluginDocs_docs', () => {
     .pipe(gulp.dest('docs/pluginDocs'))
 }))
 
-gulp.task('build_vxe_docs', gulp.series('copy_plugins_docs', 'build_pluginDocs_docs'))
+gulp.task('build_vxe_docs', gulp.series('build_plugins_docs', 'build_pluginDocs_docs'))
 
 gulp.task('copy_other3_docs', () => {
   return gulp.src('other3/dist/**')

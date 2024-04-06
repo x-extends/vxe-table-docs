@@ -17,12 +17,21 @@ const apis = [
         list: []
       },
       {
+        name: 'mode',
+        descKey: 'app.api.button.desc.mode',
+        version: '3.7.10',
+        type: 'string',
+        enum: 'text,button',
+        defVal: 'button',
+        list: []
+      },
+      {
         name: 'type',
         descKey: 'app.api.button.desc.type',
         version: '',
         type: 'string',
-        enum: 'text,submit,reset,button',
-        defVal: 'button',
+        enum: 'submit,reset',
+        defVal: '',
         list: []
       },
       {

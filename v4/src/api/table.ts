@@ -819,6 +819,15 @@ const apis = [
         list: []
       },
       {
+        name: 'footer-data',
+        descKey: 'app.api.table.desc.footerData',
+        version: '4.5.22',
+        type: 'any[]',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'footer-method',
         descKey: 'app.api.table.desc.footerMethod',
         version: '',
@@ -2132,7 +2141,7 @@ const apis = [
       {
         name: 'clip-config',
         descKey: 'app.api.table.desc.clipConfig',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'any',
         enum: '',
         defVal: '继承 setup.table.clipConfig',
@@ -2140,7 +2149,7 @@ const apis = [
           {
             name: 'isCopy',
             desc: '是否启用复制功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -2149,7 +2158,7 @@ const apis = [
           {
             name: 'isCut',
             desc: '是否启用剪贴功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -2158,7 +2167,7 @@ const apis = [
           {
             name: 'isPaste',
             desc: '是否启用粘贴功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -2167,7 +2176,7 @@ const apis = [
           {
             name: 'isFillPaste',
             desc: '是否填充粘贴，如果启用了，当被选取的粘贴单元格与粘贴单元格的行与列数量不匹配时，会将内容强制粘贴所选的单元格',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2176,7 +2185,7 @@ const apis = [
           {
             name: 'isRowIncrement',
             desc: '是否启用行自增，当粘贴的行数超出表格时自动插入新行',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2185,7 +2194,7 @@ const apis = [
           {
             name: 'isColumnIncrement',
             desc: '是否启用列自增，当粘贴的列数超出表格时自动插入新列（需要注意自增的列自字段是否定义，否则将无法响应）',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2194,7 +2203,7 @@ const apis = [
           {
             name: 'copyMethod',
             desc: '重写单元格复制取值的方法，将单元格复制到剪贴板',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isCut, row, column, cellValue }) => string',
             enum: '',
             defVal: '',
@@ -2203,7 +2212,7 @@ const apis = [
           {
             name: 'beforeCopyMethod',
             desc: '自定义单元格复制取值之前的方法，可以通过返回 false 阻止复制行为',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isCut, activeArea, targetAreas }) => boolean',
             enum: '',
             defVal: '',
@@ -2212,7 +2221,7 @@ const apis = [
           {
             name: 'afterCopyMethod',
             desc: '自定义单元格复制到剪贴板之后的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isCut, targetAreas }) => void',
             enum: '',
             defVal: '',
@@ -2221,7 +2230,7 @@ const apis = [
           {
             name: 'cutMethod',
             desc: '重写单元格剪贴值清除的方法，将剪贴单元格的值清除',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ row, column, cellValue }) => void',
             enum: '',
             defVal: '',
@@ -2230,7 +2239,7 @@ const apis = [
           {
             name: 'beforeCutMethod',
             desc: '自定义单元格剪贴值清除之前的方法，可以通过返回 false 阻止清除行为',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ cutAreas, activeArea, currentAreas }) => boolean',
             enum: '',
             defVal: '',
@@ -2239,7 +2248,7 @@ const apis = [
           {
             name: 'afterCutMethod',
             desc: '自定义单元格剪贴值清除之后的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ cutAreas, currentAreas }) => void',
             enum: '',
             defVal: '',
@@ -2248,7 +2257,7 @@ const apis = [
           {
             name: 'pasteMethod',
             desc: '重写单元格粘贴赋值的方法，从剪贴板赋值到单元格',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isCut, row, column, cellValue }) => void',
             enum: '',
             defVal: '',
@@ -2257,7 +2266,7 @@ const apis = [
           {
             name: 'beforePasteMethod',
             desc: '自定义单元格粘贴赋值之前的方法，可以通过返回 false 阻止复制行为',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isCut, activeArea, cutAreas, currentAreas, targetAreas, cellValues, pasteCells }) => boolean',
             enum: '',
             defVal: '',
@@ -2266,7 +2275,7 @@ const apis = [
           {
             name: 'afterPasteMethod',
             desc: '自定义单元格粘贴赋值之后的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isCut, cutAreas, currentAreas, targetAreas, cellValues, pasteCells, insertRows, insertColumns }) => void',
             enum: '',
             defVal: '',
@@ -2275,7 +2284,7 @@ const apis = [
           {
             name: 'createRowsMethod',
             desc: '只对 isRowIncrement 有效，自定义创建自增行数据的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isCut, cutAreas, currentAreas, targetAreas, cellValues, pasteCells, insertRows }) => any[]',
             enum: '',
             defVal: '',
@@ -2284,7 +2293,7 @@ const apis = [
           {
             name: 'createColumnsMethod',
             desc: '只对 isColumnIncrement 有效，自定义创建自增列配置的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isCut, cutAreas, currentAreas, targetAreas, cellValues, pasteCells, insertColumns }) => any[]',
             enum: '',
             defVal: '',
@@ -2295,7 +2304,7 @@ const apis = [
       {
         name: 'fnr-config',
         descKey: 'app.api.table.desc.fnrConfig',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'any',
         enum: '',
         defVal: '继承 setup.table.fnrConfig',
@@ -2303,7 +2312,7 @@ const apis = [
           {
             name: 'isFind',
             desc: '是否启用查找功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -2312,7 +2321,7 @@ const apis = [
           {
             name: 'findMethod',
             desc: '自定义单元格查找方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ cellValue, isWhole, isRE, isSensitive, findValue: findCellValue, findRE }) => boolean',
             enum: '',
             defVal: '',
@@ -2321,7 +2330,7 @@ const apis = [
           {
             name: 'beforeFindMethod',
             desc: '自定义单元格查找之前的方法，可以通过返回 false 阻止查找行为',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isAll, findValue }) => boolean',
             enum: '',
             defVal: '',
@@ -2330,7 +2339,7 @@ const apis = [
           {
             name: 'afterFindMethod',
             desc: '自定义单元格查找之后的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isAll, findValue, result }) => void',
             enum: '',
             defVal: '',
@@ -2339,7 +2348,7 @@ const apis = [
           {
             name: 'isReplace',
             desc: '是否启用替换功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -2348,7 +2357,7 @@ const apis = [
           {
             name: 'replaceMethod',
             desc: '自定义单元格替换方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ row, column, cellValue }) => void',
             enum: '',
             defVal: '',
@@ -2357,7 +2366,7 @@ const apis = [
           {
             name: 'beforeReplaceMethod',
             desc: '自定义单元格替换之前的方法，可以通过返回 false 阻止替换行为',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isAll, findValue, replaceValue }) => boolean',
             enum: '',
             defVal: '',
@@ -2366,7 +2375,7 @@ const apis = [
           {
             name: 'afterReplaceMethod',
             desc: '自定义单元格替换之后的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ isAll, findValue, replaceValue, result }) => void',
             enum: '',
             defVal: '',
@@ -2394,7 +2403,7 @@ const apis = [
           {
             name: 'area',
             desc: '如果功能被支持，则开启鼠标左键单元格区域选取功能，非连续的区域，同时按住 鼠标左键 + Ctrl 键，用鼠标逐一选取',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2403,7 +2412,7 @@ const apis = [
           {
             name: 'extension',
             desc: '只对 area 启用后有效，是否开启区域扩展选取功能，开启后可以通过鼠标左键按住区域内右下角扩展按钮，将区域横向或纵向扩大（支持扩大区域并复制值）',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -2414,7 +2423,7 @@ const apis = [
       {
         name: 'area-config',
         descKey: 'app.api.table.desc.areaConfig',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'any',
         enum: '',
         defVal: '继承 setup.table.areaConfig',
@@ -2422,7 +2431,7 @@ const apis = [
           {
             name: 'multiple',
             desc: '只对 mouse-config.area 启用后有效，启用多区域选取功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2431,7 +2440,7 @@ const apis = [
           {
             name: 'selectCellByHeader',
             desc: '只对 mouse-config.area 启用后有效，点击列头是否选取当前列的所有单元格',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -2440,7 +2449,7 @@ const apis = [
           {
             name: 'extendByCopy',
             desc: '只对 mouse-config.extension 启用后有效，将被选取区域的值复制到扩展区域中（同时按住 shift 键可取消值复制功能）',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -2449,7 +2458,7 @@ const apis = [
           {
             name: 'extendByCalc',
             desc: '只对 mouse-config.extension 启用后有效，当选取大于两行或两列时，自动识别最近两行或两列数据运算规则进行计算（同时按住 ctrl 键可取消值自动识别数字功能）',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2458,7 +2467,7 @@ const apis = [
           {
             name: 'extendCalcMethod',
             desc: '只对 extendByCalc 启用后有效，重写单元格扩展区域计算值的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ rows, cols, targetValues, targetRows, targetCols, extendRows, extendCols, direction }) => any[][]',
             enum: '',
             defVal: '',
@@ -2467,7 +2476,7 @@ const apis = [
           {
             name: 'extendSetMethod',
             desc: '只对 extendByCopy | extendByCalc 启用后有效，重写单元格扩展区域赋值的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ cellValue, row, column, rows, cols, targetValues, targetRows, targetCols, extendRows, extendCols, direction }) => void',
             enum: '',
             defVal: '',
@@ -2476,7 +2485,7 @@ const apis = [
           {
             name: 'beforeExtendSetMethod',
             desc: '只对 extendByCopy | extendByCalc 启用后有效，自定义单元格扩展区域赋值之前的方法，可以通过返回 false 阻止扩展区域赋值行为',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '({ rows, cols, targetValues, targetRows, targetCols, extendRows, extendCols, direction }) => boolean',
             enum: '',
             defVal: '',
@@ -2485,7 +2494,7 @@ const apis = [
           {
             name: 'afterExtendSetMethod',
             desc: '只对 extendByCopy | extendByCalc 启用后有效，自定义单元格扩展区域赋值之后的方法',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: '(params: { rows, cols, targetValues, targetRows, targetCols, extendValues, extendRows, extendCols, direction }) => void',
             enum: '',
             defVal: '',
@@ -2521,7 +2530,7 @@ const apis = [
           },
           {
             name: 'isDel',
-            desc: '开启删除键功能',
+            desc: '开启删除键功能，用于 edit-config.mode 和 column.editRender 编辑模式',
             version: '',
             type: 'boolean',
             enum: '',
@@ -2549,7 +2558,7 @@ const apis = [
           {
             name: 'isShift',
             desc: '如果功能被支持，用于 mouse-config.area，开启同时按住方向键以活动区域为起始，向指定方向延伸单元格区域',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2557,7 +2566,7 @@ const apis = [
           },
           {
             name: 'isEdit',
-            desc: '开启任意键进入编辑（功能键除外）',
+            desc: '开启任意键进入编辑（功能键除外），用于 edit-config.mode 和 column.editRender 编辑模式',
             version: '',
             type: 'boolean',
             enum: '',
@@ -2567,7 +2576,7 @@ const apis = [
           {
             name: 'isMerge',
             desc: '如果功能被支持，用于 mouse-config.area，开启合并和取消合并功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2576,7 +2585,7 @@ const apis = [
           {
             name: 'isClip',
             desc: '如果功能被支持，用于 mouse-config.area，开启复制、剪贴、粘贴功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2585,7 +2594,7 @@ const apis = [
           {
             name: 'isFNR',
             desc: '如果功能被支持，用于 mouse-config.area，开启查找和替换功能',
-            version: 'pro',
+            version: 'extend-cell-area',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -3686,16 +3695,34 @@ const apis = [
       {
         name: 'open-fnr',
         desc: '只对 keyboard-config.isFNR 配置时有效，在查找与替换弹框被打开时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ tab, $event }',
         list: []
       },
       {
+        name: 'hide-fnr',
+        desc: '只对 keyboard-config.isFNR 配置时有效，在查找与替换弹框被隐藏时会触发该事件',
+        version: 'extend-cell-area',
+        type: '',
+        enum: '',
+        defVal: '{ tab }',
+        list: []
+      },
+      {
+        name: 'show-fnr',
+        desc: '只对 keyboard-config.isFNR 配置时有效，在查找与替换弹框被打显示时会触发该事件',
+        version: 'extend-cell-area',
+        type: '',
+        enum: '',
+        defVal: '{ tab }',
+        list: []
+      },
+      {
         name: 'fnr-change',
         desc: '只对 keyboard-config.isFNR 配置时有效，在查找与替换弹框的 Tab 页被切换时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ tab, $event }',
@@ -3704,7 +3731,7 @@ const apis = [
       {
         name: 'fnr-find',
         desc: '只对 keyboard-config.isFNR 配置时有效，在点击查找时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ findValue, row, column, $event }',
@@ -3713,7 +3740,7 @@ const apis = [
       {
         name: 'fnr-find-all',
         desc: '只对 keyboard-config.isFNR 配置时有效，在点击查找所有时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ findValue, result, $event }',
@@ -3722,7 +3749,7 @@ const apis = [
       {
         name: 'fnr-replace',
         desc: '只对 keyboard-config.isFNR 配置时有效，在点击替换时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ findValue, replaceValue, row, column, $event }',
@@ -3731,7 +3758,7 @@ const apis = [
       {
         name: 'fnr-replace-all',
         desc: '只对 keyboard-config.isFNR 配置时有效，在点击替换所有时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ findValue, replaceValue, result, $event }',
@@ -3740,7 +3767,7 @@ const apis = [
       {
         name: 'cell-area-copy',
         desc: '只对 keyboard-config.isClip 配置时有效，在单元格被复制时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ status, targetAreas, cellValues, $event }',
@@ -3749,7 +3776,7 @@ const apis = [
       {
         name: 'cell-area-cut',
         desc: '只对 keyboard-config.isClip 配置时有效，在单元格被剪贴时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ status, targetAreas, cellValues, $event }',
@@ -3758,7 +3785,7 @@ const apis = [
       {
         name: 'cell-area-paste',
         desc: '只对 keyboard-config.isClip 配置时有效，在单元格被粘贴时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ status, targetAreas, $event }',
@@ -3767,7 +3794,7 @@ const apis = [
       {
         name: 'cell-area-merge',
         desc: '只对 keyboard-config.isMerge 配置时有效，在单元格临时合并、取消时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ status, targetAreas, $event }',
@@ -3776,7 +3803,7 @@ const apis = [
       {
         name: 'clear-cell-area-merge',
         desc: '只对 keyboard-config.isMerge 配置时有效，用户点击单元格取消时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ mergeCells, $event }',
@@ -3785,7 +3812,7 @@ const apis = [
       {
         name: 'header-cell-area-selection',
         desc: '只对 area-config.selectCellByHeader 配置时有效，点击列头选取当前列的所有单元格时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, targetRows, targetCols, $event }',
@@ -3794,7 +3821,7 @@ const apis = [
       {
         name: 'cell-area-selection-start',
         desc: '只对 mouse-config.area 配置时有效，在单元格区域选取开始时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, $event }',
@@ -3803,7 +3830,7 @@ const apis = [
       {
         name: 'cell-area-selection-drag',
         desc: '只对 mouse-config.area 配置时有效，在单元格区域选取过程中持续触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ rows, cols, $event }',
@@ -3812,7 +3839,7 @@ const apis = [
       {
         name: 'cell-area-selection-end',
         desc: '只对 mouse-config.area 配置时有效，在单元格区域选取结束时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ rows, cols, $event }',
@@ -3821,7 +3848,7 @@ const apis = [
       {
         name: 'cell-area-extension-start',
         desc: '只对 mouse-config.extension 配置时有效，在单元格区域扩展开始时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, cell, $event }',
@@ -3830,7 +3857,7 @@ const apis = [
       {
         name: 'cell-area-extension-drag',
         desc: '只对 mouse-config.extension 配置时有效，在单元格区域扩展过程中持续触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ rows, cols, targetRows, targetCols, $event }',
@@ -3839,7 +3866,7 @@ const apis = [
       {
         name: 'cell-area-extension-end',
         desc: '只对 mouse-config.extension 配置时有效，在单元格区域扩展结束时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ rows, cols, targetRows, targetCols, $event }',
@@ -3848,7 +3875,7 @@ const apis = [
       {
         name: 'cell-area-selection-all-start',
         desc: '只对 mouse-config.area 配置时有效，按快捷键全选所有单元格开始时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ $event }',
@@ -3857,7 +3884,7 @@ const apis = [
       {
         name: 'cell-area-selection-all-end',
         desc: '只对 mouse-config.area 配置时有效，按快捷键全选所有单元格结束时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ rows, cols, $event }',
@@ -3866,7 +3893,7 @@ const apis = [
       {
         name: 'cell-area-arrows-start',
         desc: '只对 mouse-config.area 配置时有效，通过 Shift 键向指定方向移动选取区域开始时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ rows, cols, targetRows, targetCols, isLeft, isUp, isRight, isDown, $event }',
@@ -3875,7 +3902,7 @@ const apis = [
       {
         name: 'cell-area-arrows-end',
         desc: '只对 mouse-config.area 配置时有效，通过 Shift 键向指定方向移动选取区域结束时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ rows, cols, targetRows, targetCols, isLeft, isUp, isRight, isDown, $event }',
@@ -3884,7 +3911,7 @@ const apis = [
       {
         name: 'active-cell-change-start',
         desc: '只对 mouse-config.area 与 keyboard-config.isArrow|isEnter|isTab 配置时有效，通过按键或鼠标切换活动单元格开始时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ row, column, activeArea, isTab, isEnter, isLeft, isUp, isRight, isDown, $event }',
@@ -3893,7 +3920,7 @@ const apis = [
       {
         name: 'active-cell-change-end',
         desc: '只对 mouse-config.area 与 keyboard-config.isArrow|isEnter|isTab 配置时有效，通过按键或鼠标切换活动单元格结束时会触发该事件',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '{ row, column, activeArea, beforeActiveArea, isTab, isEnter, isLeft, isUp, isRight, isDown, $event }',
@@ -4501,7 +4528,7 @@ const apis = [
       {
         name: 'getCellAreas()',
         desc: '如果功能被支持，用于 mouse-config.area，用于获取鼠标选择的所有区域',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'Array<{cols: ColumnConfig[], rows: any[]}>',
         enum: '',
         defVal: '',
@@ -4510,7 +4537,7 @@ const apis = [
       {
         name: 'getActiveCellArea()',
         desc: '如果功能被支持，用于 mouse-config.area，用于获取区域中的活动单元格',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '{column: ColumnConfig, row: any}',
         enum: '',
         defVal: '',
@@ -4519,7 +4546,7 @@ const apis = [
       {
         name: 'updateCellAreas()',
         desc: '如果功能被支持，用于 mouse-config.area，更新已选区域的单元格样式',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: '',
         enum: '',
         defVal: '',
@@ -4528,7 +4555,7 @@ const apis = [
       // {
       //   name: 'getCopyCellAreas()',
       //   desc: '如果功能被支持，用于 mouse-config.area，用于获取被标记为复制状态的区域',
-      //   version: 'pro',
+      //   version: 'extend-cell-area',
       //   type: '{cols: ColumnConfig[], rows: any[]}',
       //   enum: '',
       //   defVal: '',
@@ -4748,7 +4775,7 @@ const apis = [
       {
         name: 'setCellAreas(areaConfigs, activeArea)',
         desc: '如果功能被支持，用于 mouse-config.area，选择指定区域的单元格（示例：setCellAreas([{ startRow, endRow, startColumn, endColumn }])）',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'Promise<any>',
         enum: '',
         defVal: 'areaConfigs: CellAreaConfig[], activeArea?: { area?: CellAreaConfig, row: Row, column: ColumnInfo }',
@@ -5054,7 +5081,7 @@ const apis = [
       {
         name: 'clearCellAreas(area)',
         desc: '如果功能被支持，用于 mouse-config.area，用于清除鼠标选择的区域，可以指定清除的区域',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'Promise<any>',
         enum: '',
         defVal: 'area?: any',
@@ -5063,7 +5090,7 @@ const apis = [
       {
         name: 'clearCopyCellArea()',
         desc: '如果功能被支持，用于 mouse-config.area，手动清除标记为复制粘贴的区域',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'Promise<any>',
         enum: '',
         defVal: '',
@@ -5163,7 +5190,7 @@ const apis = [
       {
         name: 'closeFNR()',
         desc: '手动关闭查找与替换窗口',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'Promise<any>',
         enum: '',
         defVal: '',
@@ -5462,7 +5489,7 @@ const apis = [
       {
         name: 'openFind()',
         desc: '如果功能被支持，用于 mouse-config.area，打开单元格查找功能',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'Promise<any>',
         enum: '',
         defVal: '',
@@ -5471,10 +5498,19 @@ const apis = [
       {
         name: 'openReplace()',
         desc: '如果功能被支持，用于 mouse-config.area，打开单元格替换功能',
-        version: 'pro',
+        version: 'extend-cell-area',
         type: 'Promise<any>',
         enum: '',
         defVal: '',
+        list: []
+      },
+      {
+        name: 'openFNR(options)',
+        desc: '如果功能被支持，用于 mouse-config.area，打开单元格查找与替换功能，type 可以指定默认页签',
+        version: 'extend-cell-area',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: '{type: \'find\' | \'replace\'}',
         list: []
       },
       {

@@ -318,7 +318,7 @@ export default {
         donation: '支持我们',
         support: '付费插件',
         extendPlugin: 'Extended plug-in',
-        purchaseAuthorization: 'Purchase authorization'
+        purchaseAuthorization: 'Plug-in authorization'
       }
     },
     body: {
@@ -465,6 +465,7 @@ export default {
           headerRowStyle: 'Append styles to header rows',
           footerRowStyle: 'Attach a style to the end of a table',
           showFooter: 'Whether to display table footer',
+          footerData: 'Footer data',
           footerMethod: 'The data method at table footer, return a two-dimensional array',
           mergeCells: '临时合并指定的单元格 (不能用于展开行，不建议用于固定列、树形结构)',
           mergeFooterItems: '临时合并表尾 (不能用于展开行，不建议用于固定列、树形结构)',
@@ -695,6 +696,7 @@ export default {
         desc: {
           content: 'Content (support internationalization)',
           type: 'Type',
+          mode: 'Mode',
           size: 'Size',
           name: 'To identify this item',
           icon: 'button icon',

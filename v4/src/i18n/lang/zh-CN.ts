@@ -316,7 +316,7 @@ export default {
         donation: '支持我们',
         support: '付费插件',
         extendPlugin: '扩展插件',
-        purchaseAuthorization: '获取授权'
+        purchaseAuthorization: '插件授权'
       }
     },
     body: {
@@ -463,6 +463,7 @@ export default {
           headerRowStyle: '给表头行附加样式',
           footerRowStyle: '给表尾行附加样式',
           showFooter: '是否显示表尾',
+          footerData: '表尾数据',
           footerMethod: '表尾的数据获取方法，返回一个二维数组',
           mergeCells: '临时合并指定的单元格 (不能用于展开行，不建议用于固定列、树形结构)',
           mergeFooterItems: '临时合并表尾 (不能用于展开行，不建议用于固定列、树形结构)',
@@ -694,6 +695,7 @@ export default {
         desc: {
           content: '内容（支持开启国际化）',
           type: '类型',
+          mode: '模式',
           size: '尺寸',
           name: '用来标识这一项',
           icon: '前缀图标',

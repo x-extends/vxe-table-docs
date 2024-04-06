@@ -13,7 +13,7 @@
       </template>
 
       <template #default_version="{ row }">
-        <template v-if="row.version === 'pro'">
+        <template v-if="row.version === 'extend-cell-area'">
           <a class="link pro" :href="pluginApiUrl" target="_blank">查看插件</a>
         </template>
         <template v-else-if="row.disabled">
@@ -174,7 +174,7 @@ export default defineComponent({
       if (filterName) {
         const options = { children: 'list' }
         if (/pro/i.test(filterName)) {
-          const rest = XEUtils.searchTree(apiData.tableData, item => item.version === 'pro', options)
+          const rest = XEUtils.searchTree(apiData.tableData, item => item.version === 'extend-cell-area', options)
           gridOptions.data = rest
         } else {
           const filterRE = new RegExp(`${filterName}|${XEUtils.camelCase(filterName)}|${XEUtils.kebabCase(filterName)}`, 'i')
@@ -382,7 +382,7 @@ export default defineComponent({
       loading: false,
       cellClassName ({ row, column }) {
         return {
-          'api-pro': row.version === 'pro',
+          'api-pro': row.version === 'extend-cell-area',
           'api-disabled': row.disabled,
           'api-abandoned': row.abandoned,
           'disabled-line-through': (row.disabled) && column.field === 'name'
@@ -405,7 +405,7 @@ export default defineComponent({
         checkMethod: checkColumnMethod
       },
       treeConfig: {
-        children: 'list',
+        childrenField: 'list',
         expandRowKeys: []
       },
       menuConfig: {
@@ -457,7 +457,7 @@ export default defineComponent({
               return '该参数已经被废弃了，除非不打算更新版本，否则不应该被使用'
             } else if (row.abandoned) {
               return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
-            } else if (row.version === 'pro') {
+            } else if (row.version === 'extend-cell-area') {
               return '该参数属于扩展插件的功能'
             }
           }
