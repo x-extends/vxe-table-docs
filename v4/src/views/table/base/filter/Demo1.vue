@@ -6,7 +6,6 @@
 
     <vxe-table
       border
-      ref="xTable1"
       :row-config="{isHover: true}"
       :data="tableData"
       @filter-visible="filterVisibleEvent"
@@ -26,7 +25,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeTableInstance, VxeTableEvents, VxeColumnPropTypes } from 'vxe-table'
+import { VxeTableEvents, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -36,8 +35,6 @@ interface RowVO {
   age: number
   address: string
 }
-
-const xTable1 = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
