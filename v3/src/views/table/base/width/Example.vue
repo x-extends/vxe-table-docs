@@ -11,7 +11,7 @@
 
     <CodeLight path="table/base/width/Demo2">
       <template #tip>
-        <div>部分固定列宽，其余自适应</div>
+        <div>部分固定列宽，其余自动分配剩余空间</div>
       </template>
     </CodeLight>
 

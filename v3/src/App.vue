@@ -294,13 +294,6 @@ export default {
               keywords: ['toolbar']
             },
             {
-              label: 'app.aside.nav.form',
-              locat: {
-                name: 'ModuleForm'
-              },
-              keywords: ['form', 'form-item', 'form-gather']
-            },
-            {
               label: 'app.aside.nav.list',
               locat: {
                 name: 'ModuleList'
@@ -546,6 +539,13 @@ export default {
               keywords: ['fixed']
             },
             {
+              label: 'app.aside.nav.footer',
+              locat: {
+                name: 'TableFooter'
+              },
+              keywords: ['footer-data', 'summation']
+            },
+            {
               label: 'app.aside.nav.group',
               demoUrl: 'https://jsrun.pro/7rXKp/edit',
               locat: {
@@ -743,9 +743,8 @@ export default {
             },
             {
               label: 'app.aside.nav.footer',
-              demoUrl: 'https://jsrun.pro/dmXKp/edit',
               locat: {
-                name: 'TableFooter'
+                name: 'TableCustomFooter'
               }
             },
             {

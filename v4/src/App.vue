@@ -544,6 +544,13 @@ export default defineComponent({
               keywords: ['fixed']
             },
             {
+              label: 'app.aside.nav.footer',
+              locat: {
+                name: 'TableFooter'
+              },
+              keywords: ['footer-data', 'summation']
+            },
+            {
               label: 'app.aside.nav.group',
               // demoUrl: 'https://jsrun.pro/7rXKp/edit',
               locat: {
@@ -740,9 +747,8 @@ export default defineComponent({
             },
             {
               label: 'app.aside.nav.footer',
-              demoUrl: 'https://jsrun.pro/dmXKp/edit',
               locat: {
-                name: 'TableFooter'
+                name: 'TableCustomFooter'
               }
             },
             {

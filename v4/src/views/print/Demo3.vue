@@ -9,9 +9,6 @@ import { VXETable } from 'vxe-table'
 
 // 打印样式
 const printStyle = `
-.page-1 {
-  height: 1000px;
-}
 .page-2 {
   padding: 15px 0;
 }
@@ -69,7 +66,7 @@ const printStyle = `
 `
 // 打印模板
 const printTmpl = `
-<div class="page-1">
+<div class="vxe-page-break-after page-1">
   <div class="fill-row number">
     <span class="fill-title">编号：</span>
     <span class="fill-empty"></span>
@@ -113,7 +110,7 @@ const printTmpl = `
   </div>
 </div>
 
-<div class="page-2">
+<div class="vxe-page-break-after page-1">
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;甲乙双方根据《中国人民共和国劳动合同法》等法律、法规、规章的规定，在平等、自愿、协商一致的基础上，同意订立本劳动合同，共同遵守本合同所列条款。</p>
   <h2>一：合同类型的期限</h2>
   <div class="list-desc">

@@ -961,11 +961,11 @@ const apis = [
       },
       {
         name: 'footer',
-        desc: '自定义表尾内容的模板',
+        desc: '自定义表尾内容的模板（只有传 footerData 才有对应参数 row, rowIndex, $rowIndex）',
         version: '',
         type: '',
         enum: '',
-        defVal: '{column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items}',
+        defVal: '{row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items}',
         list: []
       },
       {

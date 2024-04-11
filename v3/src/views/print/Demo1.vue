@@ -26,7 +26,17 @@
 <script>
 // 打印样式
 const printStyle = `
-.title {
+.vxe-table th {
+  color: red;
+}
+.vxe-table td {
+  color: green;
+}
+.vxe-table, .vxe-table th, .vxe-table td {
+  border-color: blue;
+}
+
+.my-title {
   text-align: center;
 }
 .my-list-row {
@@ -51,9 +61,10 @@ const printStyle = `
   text-align: right;
 }
 `
+
 // 打印顶部内容模板
 const topHtml = `
-<h1 class="title">出货单据</h1>
+<h1 class="my-title">出货单据</h1>
 <div class="my-top">
   <div class="my-list-row">
     <div class="my-list-col">商品名称：vxe-table</div>

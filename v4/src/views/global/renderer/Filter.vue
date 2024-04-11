@@ -5,7 +5,7 @@
       配置参数：<br>
       filterClassName: string | (params: { column, $table }) => string 筛选容器className<br>
       showFilterFooter: 是否显示底部按钮<br>
-      renderFilter (params: { column, columnIndex, columnIndex, $panel }) 内容<br>
+      renderFilter (params: { column, columnIndex, $columnIndex, _columnIndex, $panel }) 内容<br>
       filterMethod (params: { value, option, cellValue, row, column, $table }) 筛选数据函数<br>
       filterResetMethod (params: { options, column }) 筛选重置函数<br>
       filterRecoverMethod (params: { option, column }) 筛选复原函数<br>

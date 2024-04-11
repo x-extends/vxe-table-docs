@@ -47,6 +47,7 @@ const TableRowHeight = () => import('../views/table/base/rowHeight/Example.vue')
 const TableAutoHeight = () => import('../views/table/base/autoHeight/Example.vue')
 const TableFixed = () => import('../views/table/base/fixed/Example.vue')
 const TableFixedFull = () => import('../views/table/base/fixedFull/Example.vue')
+const TableFooter = () => import('../views/table/base/footer/Example.vue')
 const TableGroup = () => import('../views/table/base/group/Example.vue')
 const TableSeq = () => import('../views/table/base/seq/Example.vue')
 const TableCurrent = () => import('../views/table/base/current/Example.vue')
@@ -75,7 +76,7 @@ const TableCustomFilter = () => import('../views/table/advanced/customFilter/Exa
 const TableSpan = () => import('../views/table/advanced/span/Example.vue')
 const TableSpanRow = () => import('../views/table/advanced/SpanRow.vue')
 const TableMergeCell = () => import('../views/table/advanced/mergeCell/Example.vue')
-const TableFooter = () => import('../views/table/advanced/footer/Example.vue')
+const TableCustomFooter = () => import('../views/table/advanced/customFooter/Example.vue')
 const TableFooterSpan = () => import('../views/table/advanced/FooterSpan.vue')
 const TableFooterMaxHeight = () => import('../views/table/advanced/maxHeight/Example.vue')
 const TableImport = () => import('../views/table/advanced/import/Example.vue')
@@ -516,6 +517,11 @@ const routes: Array<RouteRecordRaw> = [
     component: TableFixedFull
   },
   {
+    path: '/table/base/footer',
+    name: 'TableFooter',
+    component: TableFooter
+  },
+  {
     path: '/table/base/group',
     name: 'TableGroup',
     component: TableGroup
@@ -651,9 +657,9 @@ const routes: Array<RouteRecordRaw> = [
     component: TableMergeCell
   },
   {
-    path: '/table/advanced/footer',
-    name: 'TableFooter',
-    component: TableFooter
+    path: '/table/advanced/customFooter',
+    name: 'TableCustomFooter',
+    component: TableCustomFooter
   },
   {
     path: '/table/advanced/footerSpan',

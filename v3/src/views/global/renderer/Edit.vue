@@ -4,12 +4,12 @@
       可编辑渲染 <table-column-api-link prop="edit-render"/>，查看 <a class="link" href="https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/plugins/table/renderer" target="_blank">示例的源码</a><span class="red">（具体请自行实现，该示例仅供参考）</span><br>
       配置参数：<br>
       autofocus 自动聚焦的类名<br>
-      renderHeader (h, renderOpts, params: { column, columnIndex, columnIndex, $rowIndex, $table }) 表头单元格显示内容<br>
-      renderEdit (h, renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) 单元格-编辑内容<br>
-      renderCell (h, renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) 单元格-显示内容<br>
-      renderFooter (h, renderOpts, params: { column, columnIndex, $columnIndex, $rowIndex, _columnIndex, items, $table }) 表尾单元格显示内容<br>
+      renderHeader (h, renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $rowIndex, $table }) 表头单元格显示内容<br>
+      renderEdit (h, renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) 单元格-编辑内容<br>
+      renderCell (h, renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) 单元格-显示内容<br>
+      renderFooter (h, renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items, itemIndex, $table }) 表尾单元格显示内容<br>
       exportMethod (params: { row, column }) 单元格导出函数<br>
-      footerExportMethod (params: { items, _columnIndex }) 表尾单元格导出函数<br>
+      footerExportMethod (params: { items, itemIndex, row, column, _columnIndex }) 表尾单元格导出函数<br>
     </p>
 
     <vxe-table
