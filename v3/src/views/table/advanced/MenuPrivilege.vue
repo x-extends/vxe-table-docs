@@ -209,8 +209,8 @@ export default {
             visibleMethod ({ options, column }) {
               // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
               // 显示之前处理按钮的操作权限
-              const isDisabled = !column || column.property !== 'name'
-              const isVisible = column && column.property === 'age'
+              const isDisabled = !column || column.field !== 'name'
+              const isVisible = column && column.field === 'age'
               options.forEach(list => {
                 list.forEach(item => {
                   if (column) {
@@ -219,7 +219,7 @@ export default {
                       item.disabled = isDisabled
                     }
                     if (['details'].includes(item.code)) {
-                      item.visible = column.property === 'name'
+                      item.visible = column.field === 'name'
                     } else if (['clear', 'filter'].includes(item.code)) {
                       item.visible = isVisible
                     }
@@ -240,7 +240,7 @@ export default {
                 case 'copy':
                   // 示例
                   if (row && column) {
-                    if (XEClipboard.copy(row[column.property])) {
+                    if (XEClipboard.copy(row[column.field])) {
                       VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                     }
                   }
@@ -262,8 +262,8 @@ export default {
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age', 'rate'].includes(column.property)) {
-                    return parseInt(this.meanNum(data, column.property))
+                  if (['age', 'rate'].includes(column.field)) {
+                    return parseInt(this.meanNum(data, column.field))
                   }
                   return null
                 })
@@ -285,8 +285,8 @@ export default {
     visibleMethod ({ options, column }) {
       // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
       // 显示之前处理按钮的操作权限
-      const isDisabled = !column || column.property !== 'name'
-      const isVisible = column && column.property === 'age'
+      const isDisabled = !column || column.field !== 'name'
+      const isVisible = column && column.field === 'age'
       options.forEach(list => {
         list.forEach(item => {
           if (column) {
@@ -295,7 +295,7 @@ export default {
               item.disabled = isDisabled
             }
             if (['details'].includes(item.code)) {
-              item.visible = column.property === 'name'
+              item.visible = column.field === 'name'
             } else if (['clear', 'filter'].includes(item.code)) {
               item.visible = isVisible
             }
@@ -316,7 +316,7 @@ export default {
         case 'copy':
           // 示例
           if (row && column) {
-            if (XEClipboard.copy(row[column.property])) {
+            if (XEClipboard.copy(row[column.field])) {
               VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
             }
           }
@@ -338,8 +338,8 @@ export default {
           if (columnIndex === 0) {
             return '平均'
           }
-          if (['age', 'rate'].includes(column.property)) {
-            return parseInt(this.meanNum(data, column.property))
+          if (['age', 'rate'].includes(column.field)) {
+            return parseInt(this.meanNum(data, column.field))
           }
           return null
         })

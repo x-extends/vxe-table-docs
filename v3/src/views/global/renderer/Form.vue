@@ -3,16 +3,16 @@
     <p class="tip">
       表单-项渲染 <grid-api-link prop="itemRender"/>，查看 <a class="link" href="https://github.com/x-extends/vxe-table-docs/tree/main/v4/src/plugins/table/renderer" target="_blank">示例的源码</a><span class="red">（具体请自行实现，该示例仅供参考）</span><br>
       配置参数：<br>
-      itemClassName: string | (params: { data, property, $form }) => string 表单项className<br>
+      itemClassName: string | (params: { data, field, $form }) => string 表单项className<br>
       itemStyle: {[name: string]: string} | (params: { data, field, $form }) => {[name: string]: string} 表单项样式<br>
-      itemContentClassName: string | (params: { data, property, $form }) => string 表单项内容className<br>
+      itemContentClassName: string | (params: { data, field, $form }) => string 表单项内容className<br>
       itemContentStyle: {[name: string]: string} | (params: { data, field, $form }) => {[name: string]: string} 表单项内容样式<br>
-      itemTitleClassName: string | (params: { data, property, $form }) => string 表单项标题className<br>
+      itemTitleClassName: string | (params: { data, field, $form }) => string 表单项标题className<br>
       itemTitleStyle: {[name: string]: string} | (params: { data, field, $form }) => {[name: string]: string} 表单项标题样式<br>
-      renderItemTitle (h, renderOpts, params: { data, property, $form }) 表单项标题<br>
-      renderItemContent (h, renderOpts, params: { data, property, $form }) 表单项内容<br>
-      itemVisibleMethod (params: { data, property }) 表单项可视函数<br>
-      itemResetMethod (params: { data, property }) 表单项重置函数<br>
+      renderItemTitle (h, renderOpts, params: { data, field, $form }) 表单项标题<br>
+      renderItemContent (h, renderOpts, params: { data, field, $form }) 表单项内容<br>
+      itemVisibleMethod (params: { data, field }) 表单项可视函数<br>
+      itemResetMethod (params: { data, field }) 表单项重置函数<br>
     </p>
 
     <vxe-grid
@@ -70,9 +70,9 @@ export default {
         VXETable.renderer.add('FormItemInput', {
           // 项内容模板
           renderItemContent (h, renderOpts, params) {
-            const { data, property } = params
+            const { data, field } = params
             const props = renderOpts.props || {}
-            return <vxe-input v-model={ data[property] } { ...{ props } }></vxe-input>
+            return <vxe-input v-model={ data[field] } { ...{ props } }></vxe-input>
           }
         })
         `,

@@ -74,7 +74,7 @@ export default {
           // 筛选方法
           filterMethod ({ option, row, column }) {
             const { data } = option
-            const cellValue = row[column.property]
+            const cellValue = row[column.field]
             if (cellValue) {
               return cellValue.indexOf(data) > -1
             }

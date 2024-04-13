@@ -384,10 +384,10 @@ export default {
             customSortMethod ({ data, sortList }) {
               const sortItem = sortList[0]
               // 取出第一个排序的列
-              const { property, order } = sortItem
+              const { field, order } = sortItem
               let list = []
               if (order === 'asc' || order === 'desc') {
-                if (property === 'name') {
+                if (field === 'name') {
                   // 例如：实现中英文混排，按照字母排序
                   list = data.sort((a, b) => {
                     return this.getPinYin(a.name).localeCompare(this.getPinYin(b.name))
@@ -455,7 +455,7 @@ export default {
           },
           methods: {
             sortChangeEvent3 ({ sortList }) {
-              console.info(sortList.map((item) => \`\${item.property},\${item.order}\`).join('; '))
+              console.info(sortList.map((item) => \`\${item.field},\${item.order}\`).join('; '))
             }
           }
         }
@@ -494,8 +494,8 @@ export default {
             }
           },
           methods: {
-            sortChangeEvent4 ({ column, property, order }) {
-              console.info(property, order)
+            sortChangeEvent4 ({ column, field, order }) {
+              console.info(field, order)
             }
           }
         }
@@ -512,10 +512,10 @@ export default {
       return row.name.length
     },
     sortChangeEvent3 ({ sortList }) {
-      console.info(sortList.map((item) => `${item.property},${item.order}`).join('; '))
+      console.info(sortList.map((item) => `${item.field},${item.order}`).join('; '))
     },
-    sortChangeEvent4 ({ property, order }) {
-      console.info(property, order)
+    sortChangeEvent4 ({ field, order }) {
+      console.info(field, order)
     },
     getPinYin (str) {
       return str.split('').map(char => {
@@ -536,10 +536,10 @@ export default {
     customSortMethod ({ data, sortList }) {
       const sortItem = sortList[0]
       // 取出第一个排序的列
-      const { property, order } = sortItem
+      const { field, order } = sortItem
       let list = []
       if (order === 'asc' || order === 'desc') {
-        if (property === 'name') {
+        if (field === 'name') {
           // 例如：实现中英文混排，按照字母排序
           list = data.sort((a, b) => {
             return this.getPinYin(a.name).localeCompare(this.getPinYin(b.name))

@@ -224,7 +224,7 @@ const apis = [
             name: 'validator',
             desc: '自定义校验方法，返回一个 Error 或者 Promise<new Error("提示消息")>',
             version: '',
-            type: '({ itemValue, rule, rules, data, property }) => Error | Promise<any>',
+            type: '({ itemValue, rule, rules, data, field }) => Error | Promise<any>',
             enum: '',
             defVal: '',
             list: []
@@ -422,7 +422,7 @@ const apis = [
         version: '',
         type: 'Promise',
         enum: '',
-        defVal: 'slotParams: { property }',
+        defVal: 'slotParams: { field }',
         list: []
       },
       {

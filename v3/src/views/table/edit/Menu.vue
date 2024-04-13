@@ -228,7 +228,7 @@ export default {
                   $table.resetColumn()
                   break
                 case 'copy':
-                  if (XEClipboard.copy(row[column.property])) {
+                  if (XEClipboard.copy(row[column.field])) {
                     VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                   }
                   break
@@ -323,7 +323,7 @@ export default {
           $table.resetColumn()
           break
         case 'copy':
-          if (XEClipboard.copy(row[column.property])) {
+          if (XEClipboard.copy(row[column.field])) {
             VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
           }
           break

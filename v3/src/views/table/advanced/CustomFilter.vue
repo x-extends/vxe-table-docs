@@ -132,19 +132,19 @@ export default {
             },
             customStringFilterMethod ({ option, row, column }) {
               if (option.data) {
-                return XEUtils.toValueString(row[column.property]).toLowerCase().indexOf(option.data) > -1
+                return XEUtils.toValueString(row[column.field]).toLowerCase().indexOf(option.data) > -1
               }
               return true
             },
             customDateFilterMethod ({ option, row, column }) {
               if (option.data) {
-                return XEUtils.isDateSame(row[column.property], option.data, 'yyyy-MM-dd')
+                return XEUtils.isDateSame(row[column.field], option.data, 'yyyy-MM-dd')
               }
               return true
             },
             customEqualFilterMethod ({ option, row, column }) {
               if (option.data) {
-                return row[column.property] === option.data
+                return row[column.field] === option.data
               }
               return true
             },
@@ -190,19 +190,19 @@ export default {
     },
     customStringFilterMethod ({ option, row, column }) {
       if (option.data) {
-        return XEUtils.toValueString(row[column.property]).toLowerCase().indexOf(option.data) > -1
+        return XEUtils.toValueString(row[column.field]).toLowerCase().indexOf(option.data) > -1
       }
       return true
     },
     customDateFilterMethod ({ option, row, column }) {
       if (option.data) {
-        return XEUtils.isDateSame(row[column.property], option.data, 'yyyy-MM-dd')
+        return XEUtils.isDateSame(row[column.field], option.data, 'yyyy-MM-dd')
       }
       return true
     },
     customEqualFilterMethod ({ option, row, column }) {
       if (option.data) {
-        return row[column.property] === option.data
+        return row[column.field] === option.data
       }
       return true
     },

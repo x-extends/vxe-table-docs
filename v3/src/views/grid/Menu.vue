@@ -173,8 +173,8 @@ export default {
             visibleMethod ({ type, options, column }) {
               // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
               // 显示之前处理按钮的操作权限
-              let isDisabled = !column || column.property !== 'name'
-              let isVisible = column && column.property === 'age'
+              let isDisabled = !column || column.field !== 'name'
+              let isVisible = column && column.field === 'age'
               options.forEach(list => {
                 list.forEach(item => {
                   if (['copy'].includes(item.code)) {
@@ -196,13 +196,13 @@ export default {
               switch (menu.code) {
                 case 'copy':
                   if (row && column) {
-                    if (XEClipboard.copy(row[column.property])) {
+                    if (XEClipboard.copy(row[column.field])) {
                       VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                     }
                   }
                   break
                 case 'clear':
-                  $grid.clearData(row, column.property)
+                  $grid.clearData(row, column.field)
                   break
                 case 'myPrint':
                   $grid.print()
@@ -232,8 +232,8 @@ export default {
     visibleMethod ({ options, column }) {
       // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
       // 显示之前处理按钮的操作权限
-      const isDisabled = !column || column.property !== 'name'
-      const isVisible = column && column.property === 'age'
+      const isDisabled = !column || column.field !== 'name'
+      const isVisible = column && column.field === 'age'
       options.forEach(list => {
         list.forEach(item => {
           if (['copy'].includes(item.code)) {
@@ -255,13 +255,13 @@ export default {
       switch (menu.code) {
         case 'copy':
           if (row && column) {
-            if (XEClipboard.copy(row[column.property])) {
+            if (XEClipboard.copy(row[column.field])) {
               VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
             }
           }
           break
         case 'clear':
-          $grid.clearData(row, column.property)
+          $grid.clearData(row, column.field)
           break
         case 'myPrint':
           $grid.print()

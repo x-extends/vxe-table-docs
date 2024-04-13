@@ -581,8 +581,8 @@ export default {
                 columns.map((column, index) => {
                   if (index === 0) {
                     return '平均'
-                  } else if (['num1', 'age'].includes(column.property)) {
-                    return this.sumNum(data, column.property)
+                  } else if (['num1', 'age'].includes(column.field)) {
+                    return this.sumNum(data, column.field)
                   }
                   return null
                 })
@@ -693,8 +693,8 @@ export default {
         columns.map((column, index) => {
           if (index === 0) {
             return '平均'
-          } else if (['num1', 'age'].includes(column.property)) {
-            return this.sumNum(data, column.property)
+          } else if (['num1', 'age'].includes(column.field)) {
+            return this.sumNum(data, column.field)
           }
           return null
         })

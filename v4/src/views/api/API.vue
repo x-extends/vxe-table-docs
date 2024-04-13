@@ -63,6 +63,7 @@ import optgroupAPI from '../../api/optgroup'
 import optionAPI from '../../api/option'
 import textareaAPI from '../../api/textarea'
 import buttonAPI from '../../api/button'
+import buttonGroupAPI from '../../api/button-group'
 import tooltipAPI from '../../api/tooltip'
 import modalAPI from '../../api/modal'
 import formAPI from '../../api/form'
@@ -102,6 +103,7 @@ if (process.env.NODE_ENV === 'development') {
     ['vxe-optgroup', optgroupAPI, { subtags: ['vxe-option'], description: '下拉框 - 分组' }],
     ['vxe-option', optionAPI, { description: '下拉框 - 选项' }],
     ['vxe-button', buttonAPI, { description: '按钮' }],
+    ['vxe-button-group', buttonGroupAPI, { description: '按钮组' }],
     ['vxe-tooltip', tooltipAPI, { description: '工具提示' }],
     ['vxe-modal', modalAPI, { description: '弹窗' }],
     ['vxe-form', formAPI, { subtags: ['vxe-form-item'], description: '表单' }],
@@ -269,6 +271,9 @@ export default defineComponent({
               break
             case 'button':
               apis = buttonAPI
+              break
+            case 'button-group':
+              apis = buttonGroupAPI
               break
             case 'tooltip':
               apis = tooltipAPI

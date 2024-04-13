@@ -54,12 +54,12 @@ export default {
         VXETable.renderer.add('MyInput', {
           // 可编辑激活模板
           renderEdit (h, renderOpts, { row, column }) {
-            return <input class="my-cell" text="text" v-model={ row[column.property] } />
+            return <input class="my-cell" text="text" v-model={ row[column.field] } />
           },
           // 可编辑显示模板
           renderCell (h, renderOpts, { row, column }) {
             return [
-              <span>{ row[column.property] }</span>
+              <span>{ row[column.field] }</span>
             ]
           },
           // 导出模板，例如导出插槽中自定义的内容

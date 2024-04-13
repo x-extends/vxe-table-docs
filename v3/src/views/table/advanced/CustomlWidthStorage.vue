@@ -100,7 +100,7 @@ export default {
           },
           methods: {
             checkColumnMethod ({ column }) {
-              if (column.property === 'role') {
+              if (column.field === 'role') {
                 return false
               }
               return true
@@ -128,7 +128,7 @@ export default {
   },
   methods: {
     checkColumnMethod ({ column }) {
-      if (column.property === 'role') {
+      if (column.field === 'role') {
         return false
       }
       return true

@@ -46,7 +46,7 @@ export default {
               desc: '表单项校验',
               type: '',
               enum: '',
-              defVal: '({ itemValue, rule, rules, data, property }) => Error | Promise<any>',
+              defVal: '({ itemValue, rule, rules, data, field }) => Error | Promise<any>',
               list: []
             },
             {

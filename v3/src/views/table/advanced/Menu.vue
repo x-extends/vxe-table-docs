@@ -186,7 +186,7 @@ export default {
                 case 'copy':
                   // 示例
                   if (row && column) {
-                    if (XEClipboard.copy(row[column.property])) {
+                    if (XEClipboard.copy(row[column.field])) {
                       VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
                     }
                   }
@@ -208,8 +208,8 @@ export default {
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age', 'rate'].includes(column.property)) {
-                    return parseInt(this.meanNum(data, column.property))
+                  if (['age', 'rate'].includes(column.field)) {
+                    return parseInt(this.meanNum(data, column.field))
                   }
                   return null
                 })
@@ -248,7 +248,7 @@ export default {
         case 'copy':
           // 示例
           if (row && column) {
-            if (XEClipboard.copy(row[column.property])) {
+            if (XEClipboard.copy(row[column.field])) {
               VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
             }
           }
@@ -270,8 +270,8 @@ export default {
           if (columnIndex === 0) {
             return '平均'
           }
-          if (['age', 'rate'].includes(column.property)) {
-            return parseInt(this.meanNum(data, column.property))
+          if (['age', 'rate'].includes(column.field)) {
+            return parseInt(this.meanNum(data, column.field))
           }
           return null
         })

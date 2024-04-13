@@ -131,9 +131,9 @@ export default {
                 if (column.order === 'desc') {
                   this.$refs.xTable.clearSort()
                 } else if (column.order === 'asc') {
-                  this.$refs.xTable.sort(column.property, 'desc')
+                  this.$refs.xTable.sort(column.field, 'desc')
                 } else {
-                  this.$refs.xTable.sort(column.property, 'asc')
+                  this.$refs.xTable.sort(column.field, 'asc')
                 }
               }
             },
@@ -164,9 +164,9 @@ export default {
         if (column.order === 'desc') {
           this.$refs.xTable.clearSort()
         } else if (column.order === 'asc') {
-          this.$refs.xTable.sort(column.property, 'desc')
+          this.$refs.xTable.sort(column.field, 'desc')
         } else {
-          this.$refs.xTable.sort(column.property, 'asc')
+          this.$refs.xTable.sort(column.field, 'asc')
         }
       }
     },

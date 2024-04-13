@@ -145,7 +145,7 @@ export default {
                 { value: '2', label: '失败' },
                 { value: '3', label: '拒接' }
               ]
-              const cellValue = row[column.property]
+              const cellValue = row[column.field]
               const item = rest.find(item => item.value === cellValue)
               return [
                 <span style={ `color:${cellValue === '1' ? 'green' : 'red'}` }>{ item ? item.label : '' }</span>

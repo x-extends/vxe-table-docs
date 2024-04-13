@@ -244,15 +244,15 @@ export default {
             // 通用行合并函数（将相同多列数据合并为一行）
             mergeRowMethod ({ row, _rowIndex, column, visibleData }) {
               const fields = ['key']
-              const cellValue = row[column.property]
-              if (cellValue && fields.includes(column.property)) {
+              const cellValue = row[column.field]
+              if (cellValue && fields.includes(column.field)) {
                 const prevRow = visibleData[_rowIndex - 1]
                 let nextRow = visibleData[_rowIndex + 1]
-                if (prevRow && prevRow[column.property] === cellValue) {
+                if (prevRow && prevRow[column.field] === cellValue) {
                   return { rowspan: 0, colspan: 0 }
                 } else {
                   let countRowspan = 1
-                  while (nextRow && nextRow[column.property] === cellValue) {
+                  while (nextRow && nextRow[column.field] === cellValue) {
                     nextRow = visibleData[++countRowspan + _rowIndex]
                   }
                   if (countRowspan > 1) {
@@ -280,15 +280,15 @@ export default {
     // 通用行合并函数（将相同多列数据合并为一行）
     mergeRowMethod ({ row, _rowIndex, column, visibleData }) {
       const fields = ['key']
-      const cellValue = row[column.property]
-      if (cellValue && fields.includes(column.property)) {
+      const cellValue = row[column.field]
+      if (cellValue && fields.includes(column.field)) {
         const prevRow = visibleData[_rowIndex - 1]
         let nextRow = visibleData[_rowIndex + 1]
-        if (prevRow && prevRow[column.property] === cellValue) {
+        if (prevRow && prevRow[column.field] === cellValue) {
           return { rowspan: 0, colspan: 0 }
         } else {
           let countRowspan = 1
-          while (nextRow && nextRow[column.property] === cellValue) {
+          while (nextRow && nextRow[column.field] === cellValue) {
             nextRow = visibleData[++countRowspan + _rowIndex]
           }
           if (countRowspan > 1) {

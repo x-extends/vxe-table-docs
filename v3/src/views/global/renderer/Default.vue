@@ -53,7 +53,7 @@ export default {
           renderDefault (h, renderOpts, params) {
             let { row, column } = params
             let { events } = renderOpts
-            return <a class="my-link" onClick={ () => events.click(params) }>{row[column.property]}</a>
+            return <a class="my-link" onClick={ () => events.click(params) }>{row[column.field]}</a>
           },
           // 导出模板，例如导出插槽中自定义的内容
           exportMethod (params) {

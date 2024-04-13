@@ -272,7 +272,7 @@ export default {
                   if (columnIndex === 0) {
                     return \`合计 (\${this.sumNum(data, 'num')}人)\`
                   }
-                  switch (column.property) {
+                  switch (column.field) {
                     case 'level':
                       return \`总共 \${Math.floor(this.meanNum(data, 'level'))}\`
                     case 'age':
@@ -473,7 +473,7 @@ export default {
           if (columnIndex === 0) {
             return `合计 (${this.sumNum(data, 'num')}人)`
           }
-          switch (column.property) {
+          switch (column.field) {
             case 'level':
               return `总共 ${Math.floor(this.meanNum(data, 'level'))}`
             case 'age':

@@ -234,7 +234,7 @@ export default {
             setTimeout(() => {
               // 将指定列设置为隐藏状态
               this.columns2.forEach(column => {
-                if (['name'].includes(column.property)) {
+                if (['name'].includes(column.field)) {
                   column.visible = false
                 }
               })
@@ -376,7 +376,7 @@ export default {
     setTimeout(() => {
       // 将指定列设置为隐藏状态
       this.columns2.forEach(column => {
-        if (['name'].includes(column.property)) {
+        if (['name'].includes(column.field)) {
           // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
           column.visible = false
         }

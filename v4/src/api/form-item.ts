@@ -333,7 +333,7 @@ const apis = [
             version: '',
             type: 'any',
             enum: '',
-            defVal: '{data, property}, ...[自定义的 arguments]',
+            defVal: '{data, field}, ...[自定义的 arguments]',
             list: []
           },
           {
@@ -372,7 +372,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ data, property }',
+        defVal: '{ data, field }',
         list: []
       },
       {
@@ -381,7 +381,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ data, property }',
+        defVal: '{ data, field }',
         list: []
       }
     ]

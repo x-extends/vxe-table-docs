@@ -186,8 +186,8 @@ export default {
                 if (columnIndex === 0) {
                   sums.push('和值')
                 } else {
-                  if (column.property === 'rate') {
-                    sums.push(this.sumNum(data, column.property))
+                  if (column.field === 'rate') {
+                    sums.push(this.sumNum(data, column.field))
                   } else {
                     sums.push('-')
                   }
@@ -216,8 +216,8 @@ export default {
         if (columnIndex === 0) {
           sums.push('和值')
         } else {
-          if (column.property === 'rate') {
-            sums.push(this.sumNum(data, column.property))
+          if (column.field === 'rate') {
+            sums.push(this.sumNum(data, column.field))
           } else {
             sums.push('-')
           }

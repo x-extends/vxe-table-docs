@@ -107,7 +107,7 @@ export default {
           },
           methods: {
             sortChangeEvent ({ sortList }) {
-              console.info(sortList.map((item) => \`\${item.property},\${item.order}\`).join('; '))
+              console.info(sortList.map((item) => \`\${item.field},\${item.order}\`).join('; '))
             }
           }
         }
@@ -117,7 +117,7 @@ export default {
   },
   methods: {
     sortChangeEvent ({ sortList }) {
-      console.info(sortList.map((item) => `${item.property},${item.order}`).join('; '))
+      console.info(sortList.map((item) => `${item.field},${item.order}`).join('; '))
     }
   }
 }

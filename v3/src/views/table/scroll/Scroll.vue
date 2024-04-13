@@ -245,12 +245,12 @@ export default {
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  switch (column.property) {
+                  switch (column.field) {
                     case 'age':
                     case 'rate':
                     case 'num':
                     case 'num2':
-                      return parseInt(XEUtils.mean(data, column.property))
+                      return parseInt(XEUtils.mean(data, column.field))
                   }
                   return '无'
                 })
@@ -305,12 +305,12 @@ export default {
           if (columnIndex === 0) {
             return '平均'
           }
-          switch (column.property) {
+          switch (column.field) {
             case 'age':
             case 'rate':
             case 'num':
             case 'num2':
-              return parseInt(XEUtils.mean(data, column.property))
+              return parseInt(XEUtils.mean(data, column.field))
           }
           return '无'
         })

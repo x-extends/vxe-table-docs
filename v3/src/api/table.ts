@@ -1239,7 +1239,7 @@ const apis = [
             name: 'sortMethod',
             desc: '全局排序方法，当触发排序时会调用该函数返回排序后的列表',
             version: '',
-            type: '({ data, column, property, order }) => any[]',
+            type: '({ data, column, field, order }) => any[]',
             enum: '',
             defVal: '',
             list: []
@@ -3517,7 +3517,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ column, property, order, sortBy, sortList, $event }',
+        defVal: '{ column, field, order, sortBy, sortList, $event }',
         list: []
       },
       {
@@ -3535,7 +3535,7 @@ const apis = [
         version: '3.3.16',
         type: '',
         enum: '',
-        defVal: '{ column, property, visible, filterList, $event }',
+        defVal: '{ column, field, visible, filterList, $event }',
         list: []
       },
       {
@@ -3544,7 +3544,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ column, property, values, datas, filterList, $event }',
+        defVal: '{ column, field, values, datas, filterList, $event }',
         list: []
       },
       {

@@ -355,7 +355,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'String',
-            enum: 'input, textarea, select, $input, $textarea, $select',
+            enum: 'input, textarea, select, VxeInput, VxeTextarea, VxeSelect',
             defVal: '',
             list: []
           },
@@ -569,7 +569,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'string',
-            enum: '$button, $buttons, $switch',
+            enum: 'VxeButton, VxeButtonGroup, VxeSwitch',
             defVal: '',
             list: []
           },
@@ -670,7 +670,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'string',
-            enum: 'input, textarea, select, $input, $select, $switch',
+            enum: 'input, textarea, select, VxeInput, VxeSelect, VxeSwitch',
             defVal: '',
             list: []
           },
@@ -825,7 +825,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'string',
-            enum: 'input, textarea, select, $input, $textarea, $select',
+            enum: '',
             defVal: '',
             list: []
           },
@@ -889,7 +889,7 @@ const apis = [
             version: '',
             type: 'any',
             enum: '',
-            defVal: '{data, property}, ...[自定义的 arguments]',
+            defVal: '{data, field}, ...[自定义的 arguments]',
             list: []
           // },
           // {
@@ -899,7 +899,7 @@ const apis = [
           //   version: '',
           //   type: 'any',
           //   enum: '',
-          //   defVal: '{data, property}, ...[自定义的 arguments]',
+          //   defVal: '{data, field}, ...[自定义的 arguments]',
           //   list: []
           }
         ]

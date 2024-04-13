@@ -274,7 +274,7 @@ export default {
               this.$refs.xTable2.exportData({
                 type: 'csv',
                 columnFilterMethod ({ column }) {
-                  return ['name', 'sex'].includes(column.property)
+                  return ['name', 'sex'].includes(column.field)
                 }
               })
             }
@@ -338,8 +338,8 @@ export default {
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age'].includes(column.property)) {
-                    return this.meanNum(data, column.property)
+                  if (['age'].includes(column.field)) {
+                    return this.meanNum(data, column.field)
                   }
                   return null
                 })
@@ -451,8 +451,8 @@ export default {
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age'].includes(column.property)) {
-                    return this.meanNum(data, column.property)
+                  if (['age'].includes(column.field)) {
+                    return this.meanNum(data, column.field)
                   }
                   return null
                 })
@@ -558,8 +558,8 @@ export default {
           if (columnIndex === 0) {
             return '平均'
           }
-          if (['age'].includes(column.property)) {
-            return this.meanNum(data, column.property)
+          if (['age'].includes(column.field)) {
+            return this.meanNum(data, column.field)
           }
           return null
         })
@@ -581,7 +581,7 @@ export default {
       this.$refs.xTable2.exportData({
         type: 'csv',
         columnFilterMethod ({ column }) {
-          return ['name', 'sex'].includes(column.property)
+          return ['name', 'sex'].includes(column.field)
         }
       })
     },

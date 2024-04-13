@@ -174,8 +174,8 @@ export default {
                   if (columnIndex === 0) {
                     return '平均'
                   }
-                  if (['age'].includes(column.property)) {
-                    return this.meanNum(data, column.property)
+                  if (['age'].includes(column.field)) {
+                    return this.meanNum(data, column.field)
                   }
                   return null
                 }),
@@ -183,8 +183,8 @@ export default {
                   if (columnIndex === 0) {
                     return '和值'
                   }
-                  if (['age'].includes(column.property)) {
-                    return this.sumNum(data, column.property)
+                  if (['age'].includes(column.field)) {
+                    return this.sumNum(data, column.field)
                   }
                   return null
                 })
@@ -253,8 +253,8 @@ export default {
           if (columnIndex === 0) {
             return '平均'
           }
-          if (['age'].includes(column.property)) {
-            return this.meanNum(data, column.property)
+          if (['age'].includes(column.field)) {
+            return this.meanNum(data, column.field)
           }
           return null
         }),
@@ -262,8 +262,8 @@ export default {
           if (columnIndex === 0) {
             return '和值'
           }
-          if (['age'].includes(column.property)) {
-            return this.sumNum(data, column.property)
+          if (['age'].includes(column.field)) {
+            return this.sumNum(data, column.field)
           }
           return null
         })

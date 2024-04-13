@@ -391,8 +391,8 @@ export default {
             footerMethod ({ columns, data }) {
               return [
                 columns.map(column => {
-                  if (['num'].includes(column.property)) {
-                    return this.sumNum(data, column.property)
+                  if (['num'].includes(column.field)) {
+                    return this.sumNum(data, column.field)
                   }
                   return null
                 })
@@ -473,8 +473,8 @@ export default {
     footerMethod ({ columns, data }) {
       return [
         columns.map(column => {
-          if (['num'].includes(column.property)) {
-            return this.sumNum(data, column.property)
+          if (['num'].includes(column.field)) {
+            return this.sumNum(data, column.field)
           }
           return null
         })

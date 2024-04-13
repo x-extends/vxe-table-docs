@@ -772,7 +772,7 @@ export default {
           titleOverflow: '标题内容过长时显示为省略号',
           folding: 'Default folding',
           visible: '默认是否显示',
-          visibleMethod: 'The return value of this method Function({data, property}) determines whether the item is displayed',
+          visibleMethod: 'The return value of this method Function({data, field}) determines whether the item is displayed',
           collapseNode: 'Collapse node',
           titlePrefix: 'Title prefix config',
           titleSuffix: 'Title suffix config',

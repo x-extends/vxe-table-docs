@@ -260,7 +260,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'string',
-            enum: 'input, textarea, select, $input, $textarea, $select, $button, $buttons, $radio, $checkbox, $switch',
+            enum: 'input, textarea, select, VxeInput, VxeTextarea, VxeSelect, VxeButton, VxeButtonGroup, VxeRadio, VxeRadioGroup, VxeCheckbox, VxeCheckboxGroup, VxeSwitch',
             defVal: '',
             list: []
           },
@@ -333,7 +333,7 @@ const apis = [
             version: '',
             type: 'any',
             enum: '',
-            defVal: '{data, property}, ...[自定义的 arguments]',
+            defVal: '{data, field}, ...[自定义的 arguments]',
             list: []
           },
           {
@@ -372,7 +372,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ item, data, property }',
+        defVal: '{ item, data, field }',
         list: []
       },
       {
@@ -381,7 +381,7 @@ const apis = [
         version: '2.9.27',
         type: '',
         enum: '',
-        defVal: '{ item, data, property }',
+        defVal: '{ item, data, field }',
         list: []
       }
     ]

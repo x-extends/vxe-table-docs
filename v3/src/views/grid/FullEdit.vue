@@ -116,12 +116,12 @@ export default {
               // 处理排序条件
               const firstSort = sorts[0]
               if (firstSort) {
-                queryParams.sort = firstSort.property
+                queryParams.sort = firstSort.field
                 queryParams.order = firstSort.order
               }
               // 处理筛选条件
-              filters.forEach(({ property, values }) => {
-                queryParams[property] = values.join(',')
+              filters.forEach(({ field, values }) => {
+                queryParams[field] = values.join(',')
               })
               return fetch(`${this.serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams).then(response => response.json())
             },
@@ -305,12 +305,12 @@ export default {
                       // 处理排序条件
                       const firstSort = sorts[0]
                       if (firstSort) {
-                        queryParams.sort = firstSort.property
+                        queryParams.sort = firstSort.field
                         queryParams.order = firstSort.order
                       }
                       // 处理筛选条件
-                      filters.forEach(({ property, values }) => {
-                        queryParams[property] = values.join(',')
+                      filters.forEach(({ field, values }) => {
+                        queryParams[field] = values.join(',')
                       })
                       return fetch(\`\${this.serveApiUrl}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams).then(response => response.json())
                     },
@@ -429,7 +429,7 @@ export default {
               return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
             },
             checkColumnMethod ({ column }) {
-              if (['nickname', 'role'].includes(column.property)) {
+              if (['nickname', 'role'].includes(column.field)) {
                 return false
               }
               return true
@@ -464,7 +464,7 @@ export default {
                 ids: options.mode === 'selected' ? options.data.map(item => item.id) : [],
                 fields: options.columns.map(column => {
                   return {
-                    field: column.property,
+                    field: column.field,
                     title: column.title
                   }
                 })
@@ -525,7 +525,7 @@ export default {
       return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
     },
     checkColumnMethod ({ column }) {
-      if (['nickname', 'role'].includes(column.property)) {
+      if (['nickname', 'role'].includes(column.field)) {
         return false
       }
       return true
@@ -569,7 +569,7 @@ export default {
         ids: options.mode === 'selected' ? options.data.map(item => item.id) : [],
         fields: options.columns.map(column => {
           return {
-            field: column.property,
+            field: column.field,
             title: column.title
           }
         })
