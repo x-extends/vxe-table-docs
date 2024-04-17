@@ -70,37 +70,47 @@ export default {
       ],
       xRenderList: [
         {
-          name: '$button',
+          name: 'VxeButton',
           compName: 'button',
           desc: '功能模块-按钮'
         },
         {
-          name: '$buttons',
-          compName: 'button',
-          desc: '功能模块-按钮列表'
+          name: 'VxeButtonGroup',
+          compName: 'button-group',
+          desc: '功能模块-按钮组'
         },
         {
-          name: '$input',
+          name: 'VxeInput',
           compName: 'input',
           desc: '功能模块-输入框'
         },
         {
-          name: '$select',
+          name: 'VxeSelect',
           compName: 'select',
           desc: '功能模块-下拉框'
         },
         {
-          name: '$radio',
+          name: 'VxeRadio',
           compName: 'radio',
-          desc: '功能模块-复选框列表'
+          desc: '功能模块-单选框'
         },
         {
-          name: '$checkbox',
+          name: 'VxeRadioGroup',
+          compName: 'radio-group',
+          desc: '功能模块-单选框组'
+        },
+        {
+          name: 'VxeCheckbox',
+          compName: 'checkbox-group',
+          desc: '功能模块-复选框'
+        },
+        {
+          name: 'VxeCheckboxGroup',
           compName: 'checkbox',
-          desc: '功能模块-复选框列表'
+          desc: '功能模块-复选框组'
         },
         {
-          name: '$switch',
+          name: 'VxeSwitch',
           compName: 'switch',
           desc: '功能模块-开关'
         }

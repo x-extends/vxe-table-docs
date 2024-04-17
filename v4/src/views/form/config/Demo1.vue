@@ -48,14 +48,14 @@ const formItems = ref<VxeFormPropTypes.Items>([
     title: '左侧',
     span: 12,
     children: [
-      { field: 'name', title: '名称', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-      { field: 'sex', title: '性别', span: 8, itemRender: { name: '$select', options: [{ value: '0', label: '女' }, { value: '1', label: '男' }], props: { placeholder: '请选择性别' } } },
-      { field: 'role', title: '角色', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入角色' } } },
-      { field: 'age', title: '年龄', span: 24, itemRender: { name: '$input', props: { type: 'number', placeholder: '请输入年龄' } } },
-      { field: 'val1', title: '复选框-组', span: 12, itemRender: { name: '$checkbox', options: [{ label: '爬山', value: '11' }, { label: '健身', value: '22' }] } },
-      { field: 'val2', title: '复选框', span: 12, itemRender: { name: '$checkbox' } },
-      { field: 'val3', title: '单选框', span: 12, itemRender: { name: '$radio', options: [{ label: '是', value: 'Y' }, { label: '否', value: 'N' }] } },
-      { field: 'flag', title: '开关', span: 24, itemRender: { name: '$switch', props: { openLabel: '是', closeLabel: '否' } } },
+      { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput', props: { placeholder: '请输入名称' } } },
+      { field: 'sex', title: '性别', span: 8, itemRender: { name: 'VxeSelect', options: [{ value: '0', label: '女' }, { value: '1', label: '男' }], props: { placeholder: '请选择性别' } } },
+      { field: 'role', title: '角色', span: 8, itemRender: { name: 'VxeInput', props: { placeholder: '请输入角色' } } },
+      { field: 'age', title: '年龄', span: 24, itemRender: { name: 'VxeInput', props: { type: 'number', placeholder: '请输入年龄' } } },
+      { field: 'val1', title: '复选框-组', span: 12, itemRender: { name: 'VxeCheckboxGroup', options: [{ label: '爬山', value: '11' }, { label: '健身', value: '22' }] } },
+      { field: 'val2', title: '复选框', span: 12, itemRender: { name: 'VxeCheckbox' } },
+      { field: 'val3', title: '单选框', span: 12, itemRender: { name: 'VxeRadioGroup', options: [{ label: '是', value: 'Y' }, { label: '否', value: 'N' }] } },
+      { field: 'flag', title: '开关', span: 24, itemRender: { name: 'VxeSwitch', props: { openLabel: '是', closeLabel: '否' } } },
       { field: 'region', title: '地区', span: 24, itemRender: {}, slots: { default: 'myregion' } }
     ]
   },
@@ -63,7 +63,7 @@ const formItems = ref<VxeFormPropTypes.Items>([
     title: '右侧',
     span: 12,
     children: [
-      { field: 'nickname', title: '昵称', span: 24, itemRender: { name: '$input', props: { placeholder: '请输入昵称' } } }
+      { field: 'nickname', title: '昵称', span: 24, itemRender: { name: 'VxeInput', props: { placeholder: '请输入昵称' } } }
     ]
   },
   {

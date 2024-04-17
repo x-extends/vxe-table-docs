@@ -55,7 +55,7 @@ const apis = [
       {
         name: 'class-name',
         desc: '给展示容器附加 className',
-        version: '4.0.7',
+        version: '',
         type: 'string | (({}) => string)',
         enum: '',
         defVal: '',
@@ -86,7 +86,7 @@ const apis = [
         version: '',
         type: '',
         enum: '',
-        defVal: '{ $event }',
+        defVal: '{ option, name, $event }',
         list: []
       }
     ]

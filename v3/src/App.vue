@@ -39,7 +39,7 @@
           <template v-if="apiLoading && showPlugin">
             <template v-if="disabledPlugin">
               <a class="link support" :href="pluginDocsUrl" target="_blank">{{ $t('app.header.label.extendPlugin') }}</a>
-              <a class="link support" :href="pluginApiUrl" target="_blank">{{ $t('app.header.label.purchaseAuthorization') }}</a>
+              <!-- <a class="link support" :href="pluginApiUrl" target="_blank">{{ $t('app.header.label.purchaseAuthorization') }}</a> -->
             </template>
             <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">{{ $t('app.header.label.extendPlugin') }}</a>
           </template>
@@ -2053,6 +2053,15 @@ export default {
                 name: 'VXEAPI',
                 params: {
                   name: 'button'
+                }
+              }
+            },
+            {
+              label: 'app.aside.nav.vxeButtonGroup',
+              locat: {
+                name: 'VXEAPI',
+                params: {
+                  name: 'button-group'
                 }
               }
             },

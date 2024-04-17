@@ -300,6 +300,7 @@ export default {
         vxeOptgroup: 'vxe-optgroup',
         vxeOption: 'vxe-option',
         vxeButton: 'vxe-button',
+        vxeButtonGroup: 'vxe-button-group',
         vxeTooltip: 'vxe-tooltip',
         vxeModal: 'vxe-modal',
         vxeForm: 'vxe-form',

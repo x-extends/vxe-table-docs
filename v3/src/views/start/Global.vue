@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.global') }}</h2>
+    <p class="tip">旧版本使用 setup({})</p>
     <pre>
       <pre-code class="javascript">{{ demoCodes[0] }}</pre-code>
     </pre>
@@ -15,7 +16,6 @@ export default {
         `
         import VXETable from 'vxe-table'
 
-        // 旧版本使用 setup()
         VXETable.config({
           // size: null, // 全局尺寸
           // zIndex: 999, // 全局 zIndex 起始值，如果项目的的 z-index 样式值过大时就需要跟随设置更大，避免被遮挡；新版本可以使用 dom-zindex 共享配置

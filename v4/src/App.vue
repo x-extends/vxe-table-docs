@@ -39,7 +39,7 @@
           <template v-if="showExtendPlugin && appData.apiLoading && appData.showPlugin">
             <template v-if="appData.disabledPlugin">
               <a class="link support" :href="pluginDocsUrl" target="_blank">{{ $t('app.header.label.extendPlugin') }}</a>
-              <a class="link support" :href="pluginApiUrl" target="_blank">{{ $t('app.header.label.purchaseAuthorization') }}</a>
+              <!-- <a class="link support" :href="pluginApiUrl" target="_blank">{{ $t('app.header.label.purchaseAuthorization') }}</a> -->
             </template>
             <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="updatingEvent">{{ $t('app.header.label.extendPlugin') }}</a>
           </template>
@@ -168,12 +168,12 @@ export default defineComponent({
                 name: 'StartUse'
               }
             },
-            {
-              label: 'app.aside.nav.quick',
-              locat: {
-                name: 'StartQuick'
-              }
-            },
+            // {
+            //   label: 'app.aside.nav.quick',
+            //   locat: {
+            //     name: 'StartQuick'
+            //   }
+            // },
             {
               label: 'app.aside.nav.global',
               locat: {
@@ -191,6 +191,12 @@ export default defineComponent({
               label: 'app.aside.nav.theme',
               locat: {
                 name: 'StartTheme'
+              }
+            },
+            {
+              label: 'app.aside.nav.useZindex',
+              locat: {
+                name: 'StartUseZindex'
               }
             },
             {
@@ -2160,6 +2166,15 @@ export default defineComponent({
               }
             },
             {
+              label: 'app.aside.nav.vxeButtonGroup',
+              locat: {
+                name: 'VXEAPI',
+                params: {
+                  name: 'button-group'
+                }
+              }
+            },
+            {
               label: 'app.aside.nav.vxeModal',
               locat: {
                 name: 'VXEAPI',
@@ -2425,7 +2440,7 @@ export default defineComponent({
 
     const showOperBtn = computed(() => {
       const $route = router.currentRoute.value
-      return XEUtils.isString($route.name) && ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'VXEAPI', 'Donation'].includes($route.name)
+      return XEUtils.isString($route.name) && ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'StartUseZindex', 'VXEAPI', 'Donation'].includes($route.name)
     })
 
     const currentLink = computed(() => {

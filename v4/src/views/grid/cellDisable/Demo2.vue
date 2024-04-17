@@ -1,19 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" @edit-disabled="editDisabledEvent">
-      <template #name_edit="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
-      </template>
-      <template #sex_edit="{ row }">
-        <vxe-input v-model="row.sex"></vxe-input>
-      </template>
-      <template #age_edit="{ row }">
-        <vxe-input v-model="row.age"></vxe-input>
-      </template>
-      <template #address_edit="{ row }">
-        <vxe-input v-model="row.address"></vxe-input>
-      </template>
-    </vxe-grid>
+    <vxe-grid v-bind="gridOptions" @edit-disabled="editDisabledEvent"></vxe-grid>
   </div>
 </template>
 
@@ -46,10 +33,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 50 },
-    { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
-    { field: 'sex', title: 'Sex', editRender: {}, slots: { edit: 'sex_edit' } },
-    { field: 'age', title: 'Age', editRender: {}, slots: { edit: 'age_edit' } },
-    { field: 'address', title: 'Address', editRender: {}, slots: { edit: 'address_edit' } }
+    { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
+    { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
+    { field: 'age', title: 'Age', editRender: { name: 'VxeInput', props: { type: 'integer' } } },
+    { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
   ],
   data: [
     { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },

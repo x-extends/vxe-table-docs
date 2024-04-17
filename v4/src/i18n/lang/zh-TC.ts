@@ -10,6 +10,7 @@ export default {
         icons: '全域圖標',
         theme: '全域主題',
         i18n: '國際化',
+        useZindex: '全局 z-index',
 
         extendCellArea: '区域选取',
 
@@ -300,6 +301,7 @@ export default {
         vxeOptgroup: 'vxe-optgroup',
         vxeOption: 'vxe-option',
         vxeButton: 'vxe-button',
+        vxeButtonGroup: 'vxe-button-group',
         vxeTooltip: 'vxe-tooltip',
         vxeModal: 'vxe-modal',
         vxeForm: 'vxe-form',

@@ -9,6 +9,7 @@ export default {
         global: 'Global props',
         icons: 'Global icon',
         theme: 'Global theme',
+        useZindex: 'Global z-index',
         i18n: 'Internationalization',
 
         extendCellArea: 'Region selection',
@@ -302,6 +303,7 @@ export default {
         vxeOptgroup: 'vxe-optgroup',
         vxeOption: 'vxe-option',
         vxeButton: 'vxe-button',
+        vxeButtonGroup: 'vxe-button-group',
         vxeTooltip: 'vxe-tooltip',
         vxeModal: 'vxe-modal',
         vxeForm: 'vxe-form',
