@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-list class="my-table-list" height="200" :data="list" :scroll-y="{enabled: true, gt: 60, sItem: '.my-tr'}">
+    <vxe-list class="my-table-list" height="200" :data="list" :scroll-y="{enabled: true, gt: 0, sItem: '.my-tr'}">
       <template #default="{ items }">
         <table>
           <tbody>

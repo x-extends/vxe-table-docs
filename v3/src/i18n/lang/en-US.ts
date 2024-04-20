@@ -9,6 +9,7 @@ export default {
         global: 'Global props',
         icons: 'Global icon',
         theme: 'Global theme',
+        useZindex: 'Global z-index',
         i18n: 'Internationalization',
 
         extendCellArea: 'Region selection',
@@ -420,7 +421,7 @@ export default {
         type: 'Type / Return type',
         enum: 'Accepted Values',
         defVal: 'Default / Arguments',
-        version: 'Compatibility',
+        version: 'Supported version',
         props: 'Table Attributes',
         events: 'Table events',
         slots: 'Table slots',

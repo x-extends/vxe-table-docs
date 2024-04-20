@@ -14,7 +14,7 @@
       :merge-footer-items="mergeFooterItems"
       :footer-method="footerMethod"
       :loading="loading"
-      :scroll-y="{enabled: true}">
+      :scroll-y="{enabled: true, gt: 0}">
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200"></vxe-column>
       <vxe-column field="id" title="ID" width="200"></vxe-column>

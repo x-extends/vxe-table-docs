@@ -7,8 +7,7 @@
       :column-config="{resizable: true}"
       :radio-config="{labelField: 'name'}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
-      :data="tableData"
-      :scroll-y="{enabled: false}">
+      :data="tableData">
       <vxe-column type="radio" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

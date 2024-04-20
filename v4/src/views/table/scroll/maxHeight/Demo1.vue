@@ -7,7 +7,7 @@
       max-height="400"
       :column-config="{resizable: true}"
       :loading="loading"
-      :scroll-y="{enabled: true}">
+      :scroll-y="{enabled: true, gt: 0}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200"></vxe-column>

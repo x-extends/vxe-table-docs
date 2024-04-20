@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-list class="my-ul-list" height="200" :data="list" :scroll-y="{enabled: true, sItem: 'li'}">
+    <vxe-list class="my-ul-list" height="200" :data="list" :scroll-y="{enabled: true, gt: 0, sItem: 'li'}">
       <template #default="{ items }">
         <ul>
           <li v-for="(item, index) in items" :key="index">

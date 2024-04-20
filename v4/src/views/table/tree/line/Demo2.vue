@@ -7,8 +7,7 @@
       :column-config="{resizable: true}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-caret-right rotate45', iconClose: 'vxe-icon-caret-right'}"
       :checkbox-config="{labelField: 'name'}"
-      :data="tableData"
-      :scroll-y="{enabled: false}">
+      :data="tableData">
       <vxe-column type="checkbox" title="Name" width="280" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

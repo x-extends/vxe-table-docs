@@ -265,8 +265,18 @@ const apis = [
           },
           {
             name: 'isFooter',
-            desc: '是否显示底部操作按钮',
+            disabled: true,
+            desc: '已废弃，请使用 showFooter',
             version: '',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'showFooter',
+            desc: '是否显示底部操作按钮',
+            version: '3.7.0',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -587,7 +597,7 @@ const apis = [
             desc: '按钮名称（支持开启国际化）',
             version: '',
             type: 'string',
-            enum: '',
+            enum: '内置功能：print,custom,export,import,refresh',
             defVal: '',
             list: []
           },

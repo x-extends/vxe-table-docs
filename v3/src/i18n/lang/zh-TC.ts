@@ -10,6 +10,7 @@ export default {
         icons: '全域圖標',
         theme: '全域主題',
         i18n: '國際化',
+        useZindex: '全局 z-index',
 
         extendCellArea: '区域选取',
 
@@ -418,7 +419,7 @@ export default {
         type: '類型/返回類型',
         enum: '可選值',
         defVal: '預設值/參數',
-        version: '相容性',
+        version: '支持版本',
         props: '參數',
         events: '事件',
         slots: '插槽',

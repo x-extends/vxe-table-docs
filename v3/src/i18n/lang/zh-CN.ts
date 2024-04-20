@@ -9,6 +9,7 @@ export default {
         global: '全局参数',
         icons: '全局图标',
         theme: '全局主题',
+        useZindex: '全局 z-index',
         i18n: '国际化',
 
         extendCellArea: '区域选取',
@@ -418,7 +419,7 @@ export default {
         type: '类型 / 返回类型',
         enum: '可选值',
         defVal: '默认值 / 参数',
-        version: '兼容性',
+        version: '支持版本',
         props: '参数',
         events: '事件',
         slots: '插槽',

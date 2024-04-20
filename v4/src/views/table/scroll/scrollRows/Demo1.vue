@@ -22,7 +22,7 @@
       :export-config="{}"
       :sort-config="{trigger: 'cell'}"
       :loading="loading"
-      :scroll-y="{enabled: true}">
+      :scroll-y="{enabled: true, gt: 0}">
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="attr0" title="Attr0" sortable width="200"></vxe-column>
       <vxe-column field="attr1" title="Attr1" width="200"></vxe-column>

@@ -9,7 +9,7 @@
       :menu-config="menuConfig"
       :tree-config="treeConfig"
       :data="tableData"
-      :scroll-y="{enabled: true}"
+      :scroll-y="{enabled: true, gt: 0}"
       @menu-click="contextMenuClickEvent">
       <vxe-column field="id" title="Id" width="400" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>

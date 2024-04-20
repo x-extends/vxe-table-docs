@@ -3,7 +3,7 @@
     <p class="tip">vxe-table 是 MIT 开源的，使用完全免费。为了使项目能更好的持续维护，您可以通过成为赞助商方式来支持作者。</p>
     <div class="content" style="padding-top: 50px">
       <div class="sponsor-title">* 赞助（1000元/1个月，2500元/3个月）</div>
-      <div class="sponsor-desc">所有页面的右侧展示位（200*100）</div>
+      <div class="sponsor-desc">所有页面的右侧展示位（图片尺寸200*100）</div>
       <div class="sponsor-img">
         <img src="/static/sponsor/right.png" style="max-width: 800px;">
       </div>

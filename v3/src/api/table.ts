@@ -2748,9 +2748,18 @@ const apis = [
           },
           {
             name: 'beforeEditMethod',
-            desc: '该方法的返回值用来决定该单元格是否允许编辑',
+            desc: '自定义编辑之前逻辑，该方法的返回值用来决定该单元格是否允许编辑',
             version: '',
             type: '({ row, rowIndex, column, columnIndex }) => boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'afterEditMethod',
+            desc: '自定义编辑之后逻辑',
+            version: '3.8.0',
+            type: '({ row, rowIndex, column, columnIndex }) => void',
             enum: '',
             defVal: '',
             list: []
@@ -3069,6 +3078,61 @@ const apis = [
                 list: []
               }
             ]
+          },
+          {
+            name: 'trigger',
+            abandoned: true,
+            desc: '触发方式',
+            version: '3.8.0',
+            type: 'string',
+            enum: 'manual,click,hover',
+            defVal: 'click',
+            list: []
+          },
+          {
+            name: 'immediate',
+            desc: '列勾选之后是否实时同步',
+            version: '3.8.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'showFooter',
+            desc: '是否显示底部操作按钮',
+            version: '3.8.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'allowFixed',
+            desc: '是否允许自定义固定列',
+            version: '3.8.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'confirmButtonText',
+            desc: '确定按钮的文本内容',
+            version: '3.8.0',
+            type: 'string',
+            enum: '',
+            defVal: '确定',
+            list: []
+          },
+          {
+            name: 'resetButtonText',
+            desc: '重置按钮的文本内容',
+            version: '3.8.0',
+            type: 'string',
+            enum: '',
+            defVal: '重置',
+            list: []
           },
           {
             name: 'checkMethod',
@@ -4706,6 +4770,24 @@ const apis = [
         type: 'Promise<any>',
         enum: '',
         defVal: 'fieldOrColumn: string | ColumnInfo',
+        list: []
+      },
+      {
+        name: 'openCustom()',
+        desc: '用于 custom-config，手动弹出自定义列面板',
+        version: '3.8.0',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'closeCustom()',
+        desc: '用于 custom-config，手动关闭自定义列面板',
+        version: '3.8.0',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: '',
         list: []
       },
       {

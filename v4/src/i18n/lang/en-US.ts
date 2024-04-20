@@ -421,7 +421,7 @@ export default {
         type: 'Type / Return type',
         enum: 'Accepted Values',
         defVal: 'Default / Arguments',
-        version: 'Compatibility',
+        version: 'Supported version',
         props: 'Table Attributes',
         events: 'Table events',
         slots: 'Table slots',

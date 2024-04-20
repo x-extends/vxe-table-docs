@@ -5,8 +5,7 @@
       :row-config="{isHover: true, useKey: true}"
       :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', line: true}"
-      :data="tableData"
-      :scroll-y="{enabled: false}">
+      :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>
