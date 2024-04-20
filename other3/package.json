@@ -40,7 +40,7 @@
     "vxe-table-plugin-menus": "^3.3.0",
     "vxe-table-plugin-renderer": "^3.3.0",
     "vxe-table-plugin-shortcut-key": "^3.3.0",
-    "vxe-table-plugin-validator": "^3.3.0",
+    "vxe-table-plugin-validator": "^3.0.0",
     "xe-clipboard": "^1.10.2",
     "xlsx": "^0.18.5"
   },
