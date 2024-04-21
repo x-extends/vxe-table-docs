@@ -3097,6 +3097,15 @@ const apis = [
             ]
           },
           {
+            name: 'mode',
+            desc: '操作模式，simple简化模式；popup 弹窗模式',
+            version: '4.6.0',
+            type: 'string',
+            enum: 'simple,popup',
+            defVal: 'simple',
+            list: []
+          },
+          {
             name: 'trigger',
             abandoned: true,
             desc: '触发方式',

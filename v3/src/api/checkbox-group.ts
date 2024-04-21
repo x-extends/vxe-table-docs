@@ -42,6 +42,24 @@ const apis = [
         enum: '',
         defVal: '',
         list: []
+      },
+      {
+        name: 'options',
+        desc: '选项列表',
+        version: '3.8.0',
+        type: '{ value, label }[]',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'option-props',
+        desc: '选项属性参数配置',
+        version: '3.8.0',
+        type: 'any',
+        enum: '',
+        defVal: '{ value, label }',
+        list: []
       }
     ]
   },

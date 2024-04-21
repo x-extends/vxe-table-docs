@@ -26,6 +26,15 @@ const apis = [
         list: []
       },
       {
+        name: 'type',
+        desc: '按钮类型',
+        version: '4.6.0',
+        type: 'string',
+        enum: 'default,button',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'disabled',
         desc: '是否禁用',
         version: '',
@@ -41,6 +50,24 @@ const apis = [
         type: 'boolean',
         enum: '',
         defVal: 'true',
+        list: []
+      },
+      {
+        name: 'options',
+        desc: '选项列表',
+        version: '4.6.0',
+        type: '{ value, label }[]',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'option-props',
+        desc: '选项属性参数配置',
+        version: '4.6.0',
+        type: 'any',
+        enum: '',
+        defVal: '{ value, label }',
         list: []
       }
     ]
