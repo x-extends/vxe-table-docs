@@ -11,19 +11,25 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-const demoCodes = [
-  `
-  import domZindex from 'dom-zindex'
+<script>
+export default {
+  data () {
+    return {
+      demoCodes: [
+        `
+        import domZindex from 'dom-zindex'
 
-  // 设置当前 z-index 起始值
-  domZindex.setCurrent(1000)
+        // 设置当前 z-index 起始值
+        domZindex.setCurrent(1000)
 
-  // 获取当前 z-index 值
-  domZindex.getCurrent() // 1000
+        // 获取当前 z-index 值
+        domZindex.getCurrent() // 1000
 
-  // 计算下一个并返回计算后的 z-index 值
-  domZindex.getNext() // 1001
-  `
-]
+        // 计算下一个并返回计算后的 z-index 值
+        domZindex.getNext() // 1001
+        `
+      ]
+    }
+  }
+}
 </script>

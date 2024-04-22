@@ -17,6 +17,15 @@ const apis = [
         list: []
       },
       {
+        name: 'type',
+        desc: '选项类型',
+        version: '4.6.0',
+        type: 'string',
+        enum: 'default,button',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'size',
         descKey: 'app.api.radio.desc.size',
         version: '',

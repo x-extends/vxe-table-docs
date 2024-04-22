@@ -197,6 +197,12 @@ export default {
               }
             },
             {
+              label: 'app.aside.nav.useZindex',
+              locat: {
+                name: 'StartUseZindex'
+              }
+            },
+            {
               label: 'app.aside.nav.i18n',
               demoUrl: 'https://jsrun.pro/SbfKp/edit',
               locat: {

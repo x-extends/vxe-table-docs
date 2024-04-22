@@ -7,6 +7,7 @@ const StartIcons = () => import('../views/start/Icons.vue')
 const StartGlobal = () => import('../views/start/Global.vue')
 const StartTheme = () => import('../views/start/Theme.vue')
 const StartI18n = () => import('../views/start/I18n.vue')
+const StartUseZindex = () => import('../views/start/UseZindex.vue')
 
 const RendererAPI = () => import('../views/global/renderer/API.vue')
 const RendererFilter = () => import('../views/global/renderer/Filter.vue')
@@ -312,6 +313,11 @@ export default new Router({
       path: '/table/start/i18n',
       name: 'StartI18n',
       component: StartI18n
+    },
+    {
+      path: '/table/start/zindex',
+      name: 'StartUseZindex',
+      component: StartUseZindex
     },
     {
       path: '/table/renderer/api',

@@ -3080,6 +3080,15 @@ const apis = [
             ]
           },
           {
+            name: 'mode',
+            desc: '显示模式，支持简单模式和弹框模式',
+            version: '3.8.0',
+            type: 'string',
+            enum: 'simple,popup',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'trigger',
             abandoned: true,
             desc: '触发方式',
