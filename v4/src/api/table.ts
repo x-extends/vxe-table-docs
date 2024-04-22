@@ -3098,11 +3098,11 @@ const apis = [
           },
           {
             name: 'mode',
-            desc: '显示模式，支持简单模式和弹框模式',
+            desc: '操作模式，simple简化模式；popup 弹窗模式',
             version: '4.6.0',
             type: 'string',
             enum: 'simple,popup',
-            defVal: '',
+            defVal: 'simple',
             list: []
           },
           {

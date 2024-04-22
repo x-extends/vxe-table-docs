@@ -26,6 +26,15 @@ const apis = [
         list: []
       },
       {
+        name: 'title',
+        descKey: '标题',
+        version: '3.8.0',
+        type: 'string',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'type',
         descKey: 'app.api.button.desc.type',
         version: '',

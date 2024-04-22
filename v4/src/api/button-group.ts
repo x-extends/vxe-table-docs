@@ -1,8 +1,13 @@
+import XEUtils from 'xe-utils'
+import buttonAPI from './button'
+
+const buttonProps: any = buttonAPI.find(item => item.name === 'Props')
+
 const apis = [
   {
     name: 'Props',
     descKey: 'app.api.title.props',
-    version: '',
+    version: '4.6.0',
     type: '',
     enum: '',
     defVal: '',
@@ -60,6 +65,20 @@ const apis = [
         enum: '',
         defVal: '',
         list: []
+      },
+      {
+        name: 'options',
+        desc: '按钮列表',
+        version: '4.6.0',
+        type: 'array',
+        enum: '',
+        defVal: '',
+        list: XEUtils.clone(buttonProps, true).list.filter(item => !['popup-class-name', 'placement', 'destroy-on-close', 'transfer'].includes(item.name)).map(item => {
+          return {
+            ...item,
+            version: ''
+          }
+        })
       }
     ]
   },
