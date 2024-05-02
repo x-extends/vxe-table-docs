@@ -1014,7 +1014,7 @@ const apis = [
           },
           {
             name: 'maxFixedSize',
-            desc: '固定列允许设置的最大数量（如果是分组，则一个分组算一个',
+            desc: '冻结列允许设置的最大数量（如果是分组，则一个分组算一个',
             version: '4.5.0',
             type: 'number',
             enum: '',
@@ -2201,6 +2201,24 @@ const apis = [
             list: []
           },
           {
+            name: 'includeFields',
+            desc: '用于指定哪些列允许被复制粘贴',
+            version: 'extend-cell-area',
+            type: 'string[]',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'excludeFields',
+            desc: '用于排除指定列允许不允许被复制粘贴',
+            version: 'extend-cell-area',
+            type: 'string[]',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'copyMethod',
             desc: '重写单元格复制取值的方法，将单元格复制到剪贴板',
             version: 'extend-cell-area',
@@ -2438,6 +2456,24 @@ const apis = [
             list: []
           },
           {
+            name: 'includeFields',
+            desc: '用于指定哪些列允许被选取',
+            version: 'extend-cell-area',
+            type: 'string[]',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'excludeFields',
+            desc: '用于排除指定列允许不允许被选取',
+            version: 'extend-cell-area',
+            type: 'string[]',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'selectCellByHeader',
             desc: '只对 mouse-config.area 启用后有效，点击列头是否选取当前列的所有单元格',
             version: 'extend-cell-area',
@@ -2609,6 +2645,15 @@ const apis = [
             defVal: 'false',
             list: []
           },
+          // {
+          //   name: 'arrowCursorLock',
+          //   desc: '方向键光标锁，开启后将支持全键盘操作，支持在按键切换输入框输入时，默认为非聚焦式输入状态，可以按方向键移动单元格。如果需要移动光标，可以按 F2 键或者鼠标左键点击输入框，切换为聚焦输入状态，就可以用方向键左右移动光标',
+          //   version: 'extend-cell-area',
+          //   type: 'boolean',
+          //   enum: '',
+          //   defVal: 'false',
+          //   list: []
+          // },
           {
             name: 'enterToTab',
             desc: '是否将回车键行为改成 Tab 键行为',
@@ -2749,7 +2794,7 @@ const apis = [
           {
             name: 'beforeEditMethod',
             desc: '自定义编辑之前逻辑，该方法的返回值用来决定该单元格是否允许编辑',
-            version: '',
+            version: '3.5.9',
             type: '({ row, rowIndex, column, columnIndex }) => boolean',
             enum: '',
             defVal: '',
@@ -3059,18 +3104,18 @@ const apis = [
                 defVal: '',
                 list: []
               },
-              // {
-              //   name: 'order',
-              //   desc: '启用列顺序缓存',
-              //   version: '',
-              //   type: 'boolean',
-              //   enum: '',
-              //   defVal: '',
-              //   list: []
-              // },
+              {
+                name: 'sort',
+                desc: '启用列顺序缓存',
+                version: '3.8.3',
+                type: 'boolean',
+                enum: '',
+                defVal: '',
+                list: []
+              },
               {
                 name: 'fixed',
-                desc: '启用固定列状态缓存',
+                desc: '启用冻结列状态缓存',
                 version: '3.6.14',
                 type: 'boolean',
                 enum: '',
@@ -3081,7 +3126,7 @@ const apis = [
           },
           {
             name: 'mode',
-            desc: '操作模式，simple简化模式；popup 弹窗模式',
+            desc: '操作模式，simple简化模式；popup 弹窗模式（只对 trigger=click 有效）',
             version: '3.8.0',
             type: 'string',
             enum: 'simple,popup',
@@ -3118,8 +3163,17 @@ const apis = [
           },
           {
             name: 'allowFixed',
-            desc: '是否允许自定义固定列',
+            desc: '是否允许自定义冻结列',
             version: '3.8.0',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'allowSort',
+            desc: '只对 mode=popup 有效，是否允许自定义排序',
+            version: '3.8.3',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -3147,6 +3201,15 @@ const apis = [
             name: 'checkMethod',
             desc: '自定义列是否允许列选中的方法，该方法的返回值用来决定这一列的 checkbox 是否可以选中',
             version: '',
+            type: '({ column }) => boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'visibleMethod',
+            desc: '自定义列是否的方法，该方法的返回值用来决定这一列是否显示',
+            version: '3.8.0',
             type: '({ column }) => boolean',
             enum: '',
             defVal: '',
@@ -3816,7 +3879,7 @@ const apis = [
         version: 'extend-cell-area',
         type: '',
         enum: '',
-        defVal: '{ status, targetAreas, cellValues, $event }',
+        defVal: '{ status, invalid, targetAreas, cellValues, $event }',
         list: []
       },
       {
@@ -3825,7 +3888,7 @@ const apis = [
         version: 'extend-cell-area',
         type: '',
         enum: '',
-        defVal: '{ status, targetAreas, cellValues, $event }',
+        defVal: '{ status, invalid, targetAreas, cellValues, $event }',
         list: []
       },
       {
@@ -3834,7 +3897,7 @@ const apis = [
         version: 'extend-cell-area',
         type: '',
         enum: '',
-        defVal: '{ status, targetAreas, $event }',
+        defVal: '{ status, invalid, targetAreas, $event }',
         list: []
       },
       {
@@ -3889,6 +3952,15 @@ const apis = [
         type: '',
         enum: '',
         defVal: '{ rows, cols, $event }',
+        list: []
+      },
+      {
+        name: 'cell-area-selection-invalid',
+        desc: '用于 area-config.excludeFields | area-config.includeFields 配置是否禁用，鼠标在单元格区域选取被禁用时会触发该事件',
+        version: 'extend-cell-area',
+        type: '',
+        enum: '',
+        defVal: '{ row, column, $event }',
         list: []
       },
       {
@@ -4482,7 +4554,7 @@ const apis = [
       },
       {
         name: 'getRadioRecord(isFull)',
-        desc: '用于 type=radio，获取当前已选中的行数据（当前列表，如果 isFull=true 则获取全表已选中的数据）',
+        desc: '用于 type=radio，获取当前已选中的行数据，包含当前列表（如果 isFull=true 包含完整列表）',
         version: '',
         type: 'Row',
         enum: '',
@@ -4491,7 +4563,7 @@ const apis = [
       },
       {
         name: 'getRadioReserveRecord(isFull)',
-        desc: '用于 radio-config.reserve，获取已保留选中的行数据（不包含当前列表，如果 isFull=true 则不包含全部列表）',
+        desc: '用于 radio-config.reserve，获取已保留选中的行数据，不包含当前列表（如果 isFull=true 不包含完整列表））',
         version: '',
         type: 'Row',
         enum: '',
@@ -4500,7 +4572,7 @@ const apis = [
       },
       {
         name: 'getCheckboxRecords(isFull)',
-        desc: '用于 type=checkbox，获取当前已选中的行数据（当前列表，如果 isFull=true 则获取全表已选中的数据）',
+        desc: '用于 type=checkbox，获取当前已选中的行数据，包含当前列表（如果 isFull=true 包含完整列表）',
         version: '',
         type: 'Array<Row>',
         enum: '',
@@ -4509,7 +4581,7 @@ const apis = [
       },
       {
         name: 'getCheckboxReserveRecords(isFull)',
-        desc: '用于 checkbox-config.reserve，获取已保留选中的行数据（不包含当前列表，如果 isFull=true 则不包含全部列表）',
+        desc: '用于 checkbox-config.reserve，获取已保留选中的行数据，不包含当前列表（如果 isFull=true不包含完整列表）',
         version: '',
         type: 'Array<Row>',
         enum: '',
@@ -4518,7 +4590,7 @@ const apis = [
       },
       {
         name: 'getCheckboxIndeterminateRecords(isFull)',
-        desc: '用于 tree-config 和 type=checkbox，获取半选状态的行数据（当前列表，如果 isFull=true 则获取全表已选中的数据）',
+        desc: '用于 tree-config 和 type=checkbox，获取半选状态的行数据，包含当前列表（如果 isFull=true 包含完整列表）',
         version: '',
         type: 'Array<Row>',
         enum: '',
@@ -5290,7 +5362,7 @@ const apis = [
       },
       {
         name: 'setColumnFixed(fieldOrColumn, fixed)',
-        desc: '设置指定列为固定列',
+        desc: '设置指定列为冻结列',
         version: '3.6.14',
         type: 'Promise<any>',
         enum: '',
@@ -5299,7 +5371,7 @@ const apis = [
       },
       {
         name: 'clearColumnFixed(fieldOrColumn)',
-        desc: '取消指定的固定列',
+        desc: '取消指定的冻结列',
         version: '3.6.14',
         type: 'Promise<any>',
         enum: '',

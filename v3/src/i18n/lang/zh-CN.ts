@@ -46,8 +46,8 @@ export default {
         rowHeight: '行高',
         resize: '响应式宽高',
         height: '固定表头',
-        fixed: '固定列',
-        fullFixed: '固定表头和列',
+        fixed: '冻结列',
+        fullFixed: '冻结表头和列',
         minHeight: '最小高度',
         maxHeight: '最大高度',
         group: '表头分组',
@@ -696,8 +696,8 @@ export default {
       button: {
         desc: {
           content: '内容（支持开启国际化）',
-          type: '类型',
-          mode: '模式',
+          type: '原生按钮类型',
+          mode: '按钮模式,支持文本和按钮',
           size: '尺寸',
           name: '用来标识这一项',
           icon: '前缀图标',

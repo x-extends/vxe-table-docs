@@ -22,12 +22,12 @@
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="分组1">
-        <vxe-column field="name" title="Name" :edit-render="{name: '$input'}">
+        <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">
           <template #edit="params">
             <vxe-input v-model="params.row.name" type="text" @change="changeCellEvent(params)"></vxe-input>
           </template>
         </vxe-column>
-        <vxe-column field="role" title="Role" :edit-render="{name: '$input'}">
+        <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}">
           <template #edit="params">
             <vxe-input v-model="params.row.role" type="text" @change="changeCellEvent(params)"></vxe-input>
           </template>
@@ -35,17 +35,17 @@
       </vxe-colgroup>
       <vxe-colgroup title="分组2">
         <vxe-colgroup title="分组21">
-          <vxe-column field="sex" title="Sex" :edit-render="{name: '$input'}">
+          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}">
             <template #edit="params">
               <vxe-input v-model="params.row.sex" type="text" @change="changeCellEvent(params)"></vxe-input>
             </template>
           </vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: '$input'}">
+          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}">
             <template #edit="params">
               <vxe-input v-model="params.row.age" type="integer" @change="changeCellEvent(params)"></vxe-input>
             </template>
           </vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input'}">
+          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}">
             <template #edit="params">
               <vxe-input v-model="params.row.date" type="date" transfer @change="changeCellEvent(params)"></vxe-input>
             </template>

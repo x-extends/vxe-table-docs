@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="tip">
-      树表格，固定列
+      树表格，冻结列
     </p>
 
     <vxe-toolbar>

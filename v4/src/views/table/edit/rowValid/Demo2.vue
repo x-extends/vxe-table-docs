@@ -23,10 +23,10 @@
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
       <vxe-column type="checkbox" width="80"></vxe-column>
       <vxe-column type="seq" width="80"></vxe-column>
-      <vxe-column field="name" title="Name" width="400" :edit-render="{name: '$input'}"></vxe-column>
-      <vxe-column field="age" title="Age" width="200" :edit-render="{name: '$input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" width="200" :edit-render="{name: '$input'}"></vxe-column>
-      <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{name: '$input'}"></vxe-column>
+      <vxe-column field="name" title="Name" width="400" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="age" title="Age" width="200" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="sex" title="Sex" width="200" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{name: 'VxeInput'}"></vxe-column>
     </vxe-table>
   </div>
 </template>

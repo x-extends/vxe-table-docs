@@ -4,6 +4,7 @@ export const useAppStore = defineStore('app', {
   state () {
     return {
       docsVersion: '4',
+      serveTY: new Date().getFullYear(),
       baseApiUrl: process.env.VUE_APP_MAIN_URL,
       pluginDocsUrl: `${process.env.VUE_APP_MAIN_URL}pluginDocs/`,
       pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,

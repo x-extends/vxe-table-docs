@@ -80,11 +80,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 60 },
-    { field: 'name', title: 'Name', editRender: { name: '$input' }, slots: { edit: 'name_edit' } },
-    { field: 'role', title: 'Role', editRender: { name: '$input' }, slots: { edit: 'role_edit' } },
-    { field: 'age', title: 'Age', filters: [{ data: '' }], editRender: { name: '$input' }, slots: { filter: 'age_filter', edit: 'age_edit' } },
+    { field: 'name', title: 'Name', editRender: { name: 'VxeInput' }, slots: { edit: 'name_edit' } },
+    { field: 'role', title: 'Role', editRender: { name: 'VxeInput' }, slots: { edit: 'role_edit' } },
+    { field: 'age', title: 'Age', filters: [{ data: '' }], editRender: { name: 'VxeInput' }, slots: { filter: 'age_filter', edit: 'age_edit' } },
     { field: 'sex', title: 'Sex', editRender: {}, slots: { default: 'sex_default', edit: 'sex_edit' } },
-    { field: 'date', title: 'Date', editRender: { name: '$input' }, slots: { edit: 'date_edit' } }
+    { field: 'date', title: 'Date', editRender: { name: 'VxeInput' }, slots: { edit: 'date_edit' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, date: '2021-03-13' },

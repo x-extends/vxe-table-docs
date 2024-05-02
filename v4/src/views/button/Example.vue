@@ -38,6 +38,12 @@
 
     <CodeLight path="button/Demo7">
       <template #tip>
+        <div>按钮组</div>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="button/Demo8">
+      <template #tip>
         <div>下拉按钮</div>
       </template>
 

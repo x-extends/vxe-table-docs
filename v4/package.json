@@ -6,7 +6,6 @@
     "update": "npm install --legacy-peer-deps",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module && gulp build_examples && npm run format:examples",
-    "build:main": "vue-cli-service build --no-module && gulp build_examples && npm run format:examples",
     "lint": "vue-cli-service lint",
     "format:examples": "eslint --fix dist/example/**/*.{js,ts,vue}"
   },
@@ -17,7 +16,7 @@
     "vue": "^3.4.23",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11",
-    "vxe-table": "^4.6.0",
+    "vxe-table": "^4.6.8",
     "xe-clipboard": "^1.10.2"
   },
   "devDependencies": {

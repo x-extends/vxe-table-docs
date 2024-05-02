@@ -70,10 +70,10 @@ const formItems = ref<VxeFormPropTypes.Items>([
     align: 'center',
     span: 24,
     itemRender: {
-      name: '$buttons',
+      name: 'VxeButtonGroup',
       children: [
-        { props: { type: 'submit', content: '提交', status: 'primary' } },
-        { props: { type: 'reset', content: '重置' } }
+        { type: 'submit', content: '提交', status: 'primary' },
+        { type: 'reset', content: '重置' }
       ]
     }
   }

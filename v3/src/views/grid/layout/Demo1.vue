@@ -36,15 +36,15 @@ export default {
         layouts: ['Top', 'Toolbar', 'Form', 'Pager', 'Table', 'Bottom'],
         formConfig: {
           items: [
-            { field: 'name', title: '名称', itemRender: { name: '$input' } },
-            { field: 'email', title: '邮件', itemRender: { name: '$input' } },
-            { field: 'nickname', title: '昵称', itemRender: { name: '$input' } },
+            { field: 'name', title: '名称', itemRender: { name: 'VxeInput' } },
+            { field: 'email', title: '邮件', itemRender: { name: 'VxeInput' } },
+            { field: 'nickname', title: '昵称', itemRender: { name: 'VxeInput' } },
             {
               itemRender: {
-                name: '$buttons',
-                children: [
-                  { props: { type: 'submit', content: '搜索', status: 'primary' } },
-                  { props: { type: 'reset', content: '重置' } }
+                name: 'VxBbuttons',
+                options: [
+                  { type: 'submit', content: '搜索', status: 'primary' },
+                  { type: 'reset', content: '重置' }
                 ]
               }
             }

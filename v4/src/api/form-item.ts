@@ -260,7 +260,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'string',
-            enum: 'input, textarea, select, $input, $textarea, $select, $button, $buttons, $radio, $checkbox, $switch',
+            enum: 'input, textarea, select, VxeInput, VxeTextarea, VxeSelect, VxeButton, VxeButtonGroup, VxeRadio, VxeRadioGroup, VxeCheckbox, VxeCheckboxGroup, VxeSwitch',
             defVal: '',
             list: []
           },

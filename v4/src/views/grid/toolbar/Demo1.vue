@@ -1,19 +1,6 @@
 <template>
   <div>
-    <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents">
-      <template #name_edit="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
-      </template>
-      <template #nickname_edit="{ row }">
-        <vxe-input v-model="row.nickname"></vxe-input>
-      </template>
-      <template #role_edit="{ row }">
-        <vxe-input v-model="row.role"></vxe-input>
-      </template>
-      <template #address_edit="{ row }">
-        <vxe-input v-model="row.address"></vxe-input>
-      </template>
-    </vxe-grid>
+    <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
@@ -36,8 +23,9 @@ const xGrid = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   keepSource: true,
+  showOverflow: true,
   id: 'toolbar_demo_1',
-  height: 530,
+  height: 500,
   printConfig: {},
   importConfig: {},
   exportConfig: {},
@@ -47,31 +35,26 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   customConfig: {
     storage: true
   },
-  editConfig: {
-    trigger: 'click',
-    mode: 'row',
-    showStatus: true
-  },
   columns: [
     { type: 'checkbox', width: 50 },
     { type: 'seq', width: 60 },
-    { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+    { field: 'name', title: 'Name' },
     {
       title: '分类',
       children: [
-        { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
-        { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } }
+        { field: 'nickname', title: 'Nickname' },
+        { field: 'role', title: 'Role' }
       ]
     },
-    { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
+    { field: 'address', title: 'Address' }
   ],
   toolbarConfig: {
     buttons: [
       { code: 'myInsert', name: '新增' },
-      { code: 'mySave', name: 'app.body.button.save', status: 'success' },
-      { code: 'myExport', name: '导出数据', type: 'text', status: 'warning' },
+      { code: 'mySave', name: '保存', status: 'success' },
+      { code: 'myExport', name: '导出', type: 'text', status: 'warning' },
       {
-        name: '禁用按钮',
+        name: '按钮',
         disabled: false,
         dropdowns: [
           { code: 'other1', name: '下拉的按钮1', type: 'text', disabled: false },
@@ -81,7 +64,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       }
     ],
     tools: [
-      { code: 'myPrint', name: '自定义打印' }
+      { code: 'myPrint', name: '打印' }
     ],
     import: true,
     export: true,

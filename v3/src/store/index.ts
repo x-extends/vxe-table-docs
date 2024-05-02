@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     docsVersion: '3',
+    serveTY: new Date().getFullYear(),
     baseApiUrl: process.env.VUE_APP_MAIN_URL,
     pluginDocsUrl: `${process.env.VUE_APP_MAIN_URL}pluginDocs/`,
     pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,

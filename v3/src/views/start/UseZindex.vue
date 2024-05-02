@@ -19,6 +19,9 @@ export default {
         `
         import domZindex from 'dom-zindex'
 
+        // 获取页面中最大的 z-index
+        domZindex.getMax()
+
         // 设置当前 z-index 起始值
         domZindex.setCurrent(1000)
 

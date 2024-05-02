@@ -6,7 +6,6 @@
     "update": "npm install --legacy-peer-deps",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module && gulp build_examples",
-    "build:main": "vue-cli-service build --no-module && gulp build_examples",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -29,10 +28,10 @@
     "vue": "^3.4.23",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11",
-    "vxe-table": "^4.6.0",
-    "vxe-table-plugin-antd": "^4.0.1",
+    "vxe-table": "^4.6.8",
+    "vxe-table-plugin-antd": "^4.0.2",
     "vxe-table-plugin-charts": "^4.0.1",
-    "vxe-table-plugin-element": "^4.0.1",
+    "vxe-table-plugin-element": "^4.0.2",
     "vxe-table-plugin-export-pdf": "^4.0.1",
     "vxe-table-plugin-export-xlsx": "^4.0.1",
     "vxe-table-plugin-menus": "^4.0.3",

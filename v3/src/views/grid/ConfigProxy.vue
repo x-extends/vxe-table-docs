@@ -115,7 +115,7 @@ export default {
             span: 8,
             folding: true,
             itemRender: {
-              name: '$select',
+              name: 'VxeSelect',
               options: [
                 { value: '0', label: '女' },
                 { value: '1', label: '男' }
@@ -125,7 +125,7 @@ export default {
               }
             }
           },
-          { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: '$input', props: { type: 'number', placeholder: '请输入年龄' } } },
+          { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: 'VxeInput', props: { type: 'number', placeholder: '请输入年龄' } } },
           { span: 24, align: 'center', collapseNode: true, itemRender: { name: 'FormItemButtonGroup' } }
         ]
       },
@@ -157,7 +157,7 @@ export default {
           field: 'status',
           title: 'Status',
           editRender: {
-            name: '$select',
+            name: 'VxeSelect',
             options: [
               { value: '1', label: '红' },
               { value: '2', label: '黄' },
@@ -171,7 +171,7 @@ export default {
           field: 'sex',
           title: 'Sex',
           editRender: {
-            name: '$select',
+            name: 'VxeSelect',
             options: [
               { value: '0', label: '女' },
               { value: '1', label: '男' }
@@ -267,7 +267,7 @@ export default {
                     { field: 'role', title: '角色', span: 8, itemRender: { name: 'input', attrs: { placeholder: '请输入角色' } } },
                     { field: 'nickname', title: '昵称', span: 8, itemRender: { name: 'input', attrs: { placeholder: '请输入昵称' } } },
                     // 表单项渲染，自动读取字典配置
-                    { field: 'sex', title: '性别', span: 8, folding: true, itemRender: { name: '$select', options: { dict: 'SEX_ALL' } } },
+                    { field: 'sex', title: '性别', span: 8, folding: true, itemRender: { name: 'VxeSelect', options: { dict: 'SEX_ALL' } } },
                     { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: 'input', attrs: { type: 'number', placeholder: '请输入年龄' } } },
                     { span: 24, align: 'center', collapseNode: true, itemRender: { name: 'FormItemButtonGroup' } }
                   ]
@@ -280,9 +280,9 @@ export default {
                   // 单元格渲染，自动读取字典配置
                   { field: 'type', title: 'Type', cellRender: { name: 'DICT', props: { code: 'OPERATE_STATUS' } } },
                   // 单元格编辑渲染，自动读取字典配置
-                  { field: 'status', title: 'Status', editRender: { name: '$select', options: { dict: 'COLOR_STATUS' } } },
+                  { field: 'status', title: 'Status', editRender: { name: 'VxeSelect', options: { dict: 'COLOR_STATUS' } } },
                   // 单元格编辑渲染，自动请求异步配置
-                  { field: 'sex', title: 'Sex', sortable: true, editRender: { name: '$select', options: { url: '/api/conf/sex/list' } } },
+                  { field: 'sex', title: 'Sex', sortable: true, editRender: { name: 'VxeSelect', options: { url: '/api/conf/sex/list' } } },
                   // 筛选渲染，自动请求异步配置
                   { field: 'role', title: 'Role', sortable: true, width: 200, filters: { url: '/api/conf/role/list' }, filterMultiple: false, editRender: { name: 'input' } },
                   { field: 'describe', title: 'Describe', showOverflow: true, editRender: { name: 'input' } }

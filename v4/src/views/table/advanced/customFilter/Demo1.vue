@@ -10,7 +10,10 @@
       <vxe-colgroup title="名字">
         <vxe-column field="name" :filters="nameOptions" :filter-method="nameFilterMethod">
           <template #header="{ column }">
-            <vxe-input type="text" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="confirmFilterEvent(option)" placeholder="请输入" clearable></vxe-input>
+            <div v-for="(option, index) in column.filters" :key="index">
+              <vxe-input type="text" v-model="option.data" placeholder="请输入" clearable style="display: inline-block;width: 100px;"></vxe-input>
+              <vxe-button @click="confirmFilterEvent(option)" >确认</vxe-button>
+            </div>
           </template>
         </vxe-column>
       </vxe-colgroup>

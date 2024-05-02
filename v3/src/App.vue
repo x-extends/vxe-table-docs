@@ -41,7 +41,7 @@
               <a class="link support" :href="pluginDocsUrl" target="_blank">{{ $t('app.header.label.extendPlugin') }}</a>
               <!-- <a class="link support" :href="pluginApiUrl" target="_blank">{{ $t('app.header.label.purchaseAuthorization') }}</a> -->
             </template>
-            <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="$XModal.alert('维护中...', '维护中')">{{ $t('app.header.label.extendPlugin') }}</a>
+            <a v-else title="维护中" class="link support" style="cursor: no-drop;color: #BFBFBF;background-color:#fff;" @click="updatingEvent">{{ $t('app.header.label.extendPlugin') }}</a>
           </template>
         </div>
       </div>
@@ -109,7 +109,13 @@
             <router-link v-if="currentLink.nextLink" class="next-link" :to="currentLink.nextLink.locat">{{currentLink.nextLink.label}}</router-link>
           </div>
           <footer class="page-footer">
-            <div><a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号-1</a></div>
+            <div>
+              <a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号-1</a>
+              <span style="margin-left: 20px;">
+                <span>©</span>
+                <span><a class="link" :href="baseApiUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
+              </span>
+            </div>
           </footer>
         </div>
       </div>
@@ -139,7 +145,7 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import XEUtils from 'xe-utils'
-// import VXETable from 'vxe-table'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -311,21 +317,21 @@ export default {
               locat: {
                 name: 'ModuleModal'
               },
-              keywords: ['modal', '$XModal']
+              keywords: ['modal']
             },
             {
               label: 'app.aside.nav.file',
               locat: {
                 name: 'ModuleFile'
               },
-              keywords: ['file', '$XReadFile']
+              keywords: ['file']
             },
             {
               label: 'app.aside.nav.print',
               locat: {
                 name: 'ModulePrint'
               },
-              keywords: ['print', '$XPrint']
+              keywords: ['print']
             }
           ]
         },
@@ -2150,6 +2156,7 @@ export default {
   },
   computed: {
     ...mapState([
+      'serveTY',
       'docsVersion',
       'baseApiUrl',
       'pluginDocsUrl',
@@ -2381,6 +2388,9 @@ export default {
           }
         }
       }
+    },
+    updatingEvent  () {
+      VXETable.modal.alert('维护中...', '维护中')
     },
     linkEvent (item) {
       if (!item.disabled) {

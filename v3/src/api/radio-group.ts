@@ -65,7 +65,7 @@ const apis = [
         name: 'options',
         desc: '选项列表',
         version: '3.8.0',
-        type: '{ value, label }[]',
+        type: '{ value, label, disabled }[]',
         enum: '',
         defVal: '',
         list: []
@@ -76,7 +76,7 @@ const apis = [
         version: '3.8.0',
         type: 'any',
         enum: '',
-        defVal: '{ value, label }',
+        defVal: '{ value, label, disabled }',
         list: []
       }
     ]

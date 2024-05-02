@@ -25,9 +25,9 @@ export default {
           email: ''
         },
         items: [
-          { title: '用户名', field: 'name', itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-          { title: '手机号', field: 'mobile', itemRender: { name: '$input' } },
-          { title: '邮箱', field: 'email', itemRender: { name: '$input' } },
+          { title: '用户名', field: 'name', itemRender: { name: 'VxeInput', props: { placeholder: '请输入名称' } } },
+          { title: '手机号', field: 'mobile', itemRender: { name: 'VxeInput' } },
+          { title: '邮箱', field: 'email', itemRender: { name: 'VxeInput' } },
           { slots: { default: 'active' } }
         ],
         rules: {

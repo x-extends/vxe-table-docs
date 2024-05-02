@@ -293,7 +293,7 @@ const apis = [
           },
           {
             name: 'allowFixed',
-            desc: '是否允许自定义固定列',
+            desc: '是否允许自定义冻结列',
             version: '4.5.0',
             type: 'boolean',
             enum: '',

@@ -697,8 +697,8 @@ export default {
       button: {
         desc: {
           content: 'Content (support internationalization)',
-          type: 'Type',
-          mode: 'Mode',
+          type: 'Native button type',
+          mode: 'Button mode, supports text and buttons',
           size: 'Size',
           name: 'To identify this item',
           icon: 'button icon',

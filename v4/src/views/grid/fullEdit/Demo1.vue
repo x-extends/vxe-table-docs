@@ -62,17 +62,31 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     pageSize: 10,
     pageSizes: [5, 10, 15, 20, 50, 100, 200, 500, 1000]
   },
+  validConfig: {
+    msgMode: 'full' // 设置为支持显示多个校验消息
+  },
   formConfig: {
     titleWidth: 100,
     titleAlign: 'right',
     items: [
-      { field: 'name', title: '名称', span: 8, titlePrefix: { message: '名称', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-      { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
-      { field: 'nickname', title: '昵称', span: 8, itemRender: { name: '$input', props: { placeholder: '请输入昵称' } } },
-      { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: '$input', props: { placeholder: '请输入角色' } } },
-      { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: '$select', options: [] } },
-      { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: '$input', props: { type: 'number', min: 1, max: 120, placeholder: '请输入年龄' } } },
-      { span: 24, align: 'center', collapseNode: true, itemRender: { name: '$buttons', children: [{ props: { type: 'submit', content: '搜索', status: 'primary' } }, { props: { type: 'reset', content: '重置' } }] } }
+      { field: 'name', title: '名称', span: 8, titlePrefix: { message: '名称', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: 'VxeInput', props: { placeholder: '请输入名称' } } },
+      { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://vxetable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: 'VxeInput', props: { placeholder: '请输入邮件' } } },
+      { field: 'nickname', title: '昵称', span: 8, itemRender: { name: 'VxeInput', props: { placeholder: '请输入昵称' } } },
+      { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: 'VxeInput', props: { placeholder: '请输入角色' } } },
+      { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: 'VxeSelect', options: [] } },
+      { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: 'VxeInput', props: { type: 'number', min: 1, max: 120, placeholder: '请输入年龄' } } },
+      {
+        span: 24,
+        align: 'center',
+        collapseNode: true,
+        itemRender: {
+          name: 'VxeButtonGroup',
+          children: [
+            { type: 'submit', content: '搜索', status: 'primary' },
+            { type: 'reset', content: '重置' }
+          ]
+        }
+      }
     ]
   },
   toolbarConfig: {
@@ -143,7 +157,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       filterMultiple: false,
       editRender: { name: 'input', attrs: { placeholder: '请输入角色' } }
     },
-    { field: 'email', title: 'Email', width: 160, editRender: { name: '$input', props: { placeholder: '请输入邮件' } } },
+    { field: 'email', title: 'Email', width: 160, editRender: { name: 'VxeInput', props: { placeholder: '请输入邮件' } } },
     { field: 'nickname', title: 'Nickname', editRender: { name: 'input', attrs: { placeholder: '请输入昵称' } } },
     {
       field: 'sex',
@@ -152,16 +166,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         { label: '男', value: '1' },
         { label: '女', value: '0' }
       ],
-      editRender: { name: '$select', options: [], props: { placeholder: '请选择性别' } }
+      editRender: { name: 'VxeSelect', options: [], props: { placeholder: '请选择性别' } }
     },
-    { field: 'age', title: 'Age', visible: false, sortable: true, editRender: { name: '$input', props: { type: 'number', min: 1, max: 120 } } },
+    { field: 'age', title: 'Age', visible: false, sortable: true, editRender: { name: 'VxeInput', props: { type: 'number', min: 1, max: 120 } } },
     {
       field: 'amount',
       title: 'Amount',
       formatter ({ cellValue }) {
         return cellValue ? `￥${XEUtils.commafy(XEUtils.toNumber(cellValue), { digits: 2 })}` : ''
       },
-      editRender: { name: '$input', props: { type: 'float', digits: 2, placeholder: '请输入数值' } }
+      editRender: { name: 'VxeInput', props: { type: 'float', digits: 2, placeholder: '请输入数值' } }
     },
     {
       field: 'updateDate',
@@ -256,7 +270,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   editRules: {
     name: [
-      { required: true, message: 'app.body.valid.rName' },
+      { required: true, message: '名称必填' },
       { min: 3, max: 50, message: '名称长度在 3 到 50 个字符' }
     ],
     email: [

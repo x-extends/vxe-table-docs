@@ -130,7 +130,7 @@ const apis = [
         descKey: 'app.api.tableColumn.desc.fixed',
         version: '',
         type: 'string',
-        enum: 'left（固定左侧）, right（固定右侧）',
+        enum: 'left（冻结左侧）, right（冻结右侧）',
         defVal: '',
         list: []
       },

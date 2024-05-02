@@ -225,7 +225,7 @@ export default {
             },
             saveRowEvent () {
               const $table = this.$refs.xTable
-              $table.clearActived().then(() => {
+              $table.clearEdit().then(() => {
                 this.loading = true
                 setTimeout(() => {
                   this.loading = false
@@ -235,7 +235,7 @@ export default {
             },
             cancelRowEvent (row) {
               const $table = this.$refs.xTable
-              $table.clearActived().then(() => {
+              $table.clearEdit().then(() => {
                 // 还原行数据
                 $table.revertData(row)
               })
@@ -268,7 +268,7 @@ export default {
     },
     saveRowEvent () {
       const $table = this.$refs.xTable
-      $table.clearActived().then(() => {
+      $table.clearEdit().then(() => {
         this.loading = true
         setTimeout(() => {
           this.loading = false
@@ -278,7 +278,7 @@ export default {
     },
     cancelRowEvent (row) {
       const $table = this.$refs.xTable
-      $table.clearActived().then(() => {
+      $table.clearEdit().then(() => {
         // 还原行数据
         $table.revertData(row)
       })

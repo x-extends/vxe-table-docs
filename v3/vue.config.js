@@ -2,12 +2,9 @@ const { defineConfig } = require('@vue/cli-service')
 
 let publicPath = '/'
 if (process.env.NODE_ENV === 'production') {
-  publicPath = `/vxe-table/v${process.env.VUE_APP_VXE_VERSION}/`
-  if (process.env.npm_lifecycle_event === 'build:main') {
-    publicPath = `/v${process.env.VUE_APP_VXE_VERSION}/`
-    process.env.VUE_APP_CDN_URL = '/umd/'
-    process.env.VUE_APP_MAIN_URL = '/'
-  }
+  publicPath = `/v${process.env.VUE_APP_VXE_VERSION}/`
+  process.env.VUE_APP_CDN_URL = '/umd/'
+  process.env.VUE_APP_MAIN_URL = '/'
 }
 
 process.env.VUE_APP_DATE_NOW = Date.now()

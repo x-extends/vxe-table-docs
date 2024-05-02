@@ -23,14 +23,14 @@
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="分组1">
-        <vxe-column field="name" title="Name" :edit-render="{name: '$input'}"></vxe-column>
-        <vxe-column field="role" title="Role" :edit-render="{name: '$input'}"></vxe-column>
+        <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
+        <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="分组2">
         <vxe-colgroup title="分组21">
-          <vxe-column field="sex" title="Sex" :edit-render="{name: '$input'}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: '$input'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input'}"></vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}"></vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}"></vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}"></vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
     </vxe-table>

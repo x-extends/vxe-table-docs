@@ -40,7 +40,7 @@
           </vxe-select>
         </template>
       </vxe-column>
-      <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}">
+      <vxe-column field="date12" title="Date" :edit-render="{name: 'VxeInput', props: {type: 'date'}}">
         <template #edit="{ row }">
           <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
         </template>
@@ -114,7 +114,7 @@ export default {
               </vxe-select>
             </template>
           </vxe-column>
-          <vxe-column field="date12" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}">
+          <vxe-column field="date12" title="Date" :edit-render="{name: 'VxeInput', props: {type: 'date'}}">
             <template #edit="{ row }">
               <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
             </template>

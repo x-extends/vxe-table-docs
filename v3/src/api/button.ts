@@ -22,7 +22,7 @@ const apis = [
         version: '3.7.10',
         type: 'string',
         enum: 'text,button',
-        defVal: 'button',
+        defVal: '默认 button，继承 button-group.mode',
         list: []
       },
       {
@@ -94,7 +94,7 @@ const apis = [
         version: '',
         type: 'boolean',
         enum: '',
-        defVal: 'false',
+        defVal: '默认 false，继承 button-group.round',
         list: []
       },
       {
@@ -103,7 +103,7 @@ const apis = [
         version: '',
         type: 'boolean',
         enum: '',
-        defVal: 'false',
+        defVal: '默认 false，继承 button-group.circle',
         list: []
       },
       {
@@ -112,7 +112,7 @@ const apis = [
         version: '',
         type: 'string',
         enum: 'perfect, primary, success, info, warning, danger',
-        defVal: '',
+        defVal: '继承 button-group.status',
         list: []
       },
       {

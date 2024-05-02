@@ -91,7 +91,8 @@ export default defineComponent({
           //     modes: ['current', 'selected']
           //   },
           //   customConfig: {
-          //    storage: false
+          //    storage: false,
+          //    mode: 'simple' // 默认自定义列方式
           //   },
           //   area-config: {
           //     multiple: false
@@ -191,9 +192,6 @@ export default defineComponent({
           //   },
           //   export: {
           //     types: ['csv', 'html', 'xml', 'txt']
-          //   },
-          //   custom: {
-          //     isFooter: true
           //   },
           //   buttons: [],
           //   tools: []

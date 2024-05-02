@@ -38,11 +38,11 @@ export default {
           ]
         },
         columns: [
-          { field: 'name', title: 'Name', editRender: { name: '$input', props: { placeholder: '请输入名称' } } },
-          { field: 'nickname', title: 'Nickname', editRender: { name: '$input' } },
-          { field: 'mobile', title: 'Mobile', editRender: { name: '$input' } },
-          { field: 'email', title: 'Email', editRender: { name: '$input' } },
-          { field: 'address', title: 'Address', editRender: { name: '$input' } }
+          { field: 'name', title: 'Name', editRender: { name: 'VxeInput', props: { placeholder: '请输入名称' } } },
+          { field: 'nickname', title: 'Nickname', editRender: { name: 'VxeInput' } },
+          { field: 'mobile', title: 'Mobile', editRender: { name: 'VxeInput' } },
+          { field: 'email', title: 'Email', editRender: { name: 'VxeInput' } },
+          { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
         ],
         data: [
           { id: 10001, name: 'Test1', email: 'abcd@163.com', mobile: '', age: 28, address: 'test abc' },

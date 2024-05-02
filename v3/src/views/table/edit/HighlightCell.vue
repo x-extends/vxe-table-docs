@@ -14,10 +14,10 @@
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
       <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="nickname" title="Nickname" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList}"></vxe-column>
-      <vxe-column field="age" title="Age" :edit-render="{name: '$input', props: {type: 'integer'}}"></vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeSelect', options: sexList}"></vxe-column>
+      <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput', props: {type: 'integer'}}"></vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{name: 'textarea'}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput', props: {type: 'date'}}"></vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -61,10 +61,10 @@ export default {
           :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
           <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
           <vxe-column field="nickname" title="Nickname" :edit-render="{name: 'input'}"></vxe-column>
-          <vxe-column field="sex" title="Sex" :edit-render="{name: '$select', options: sexList}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: '$input', props: {type: 'integer'}}"></vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeSelect', options: sexList}"></vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput', props: {type: 'integer'}}"></vxe-column>
           <vxe-column field="address" title="Address" :edit-render="{name: 'textarea'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: '$input', props: {type: 'date'}}"></vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput', props: {type: 'date'}}"></vxe-column>
         </vxe-table>
         `,
         `
