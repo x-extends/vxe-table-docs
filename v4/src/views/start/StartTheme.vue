@@ -13,7 +13,7 @@
       </pre-code>
     </pre>
 
-    <h2>自定义样式</h2>
+    <h2>重写样式，覆盖默认主题样式</h2>
     <p class="tip">修改 css 变量（<a class="link" href="https://github.com/x-extends/vxe-table/blob/master/styles/cssvar.scss" target="_blank">查看所有变量</a>），并引入所有样式</p>
     <pre>
       <pre-code class="scss">

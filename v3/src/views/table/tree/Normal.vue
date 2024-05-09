@@ -15,6 +15,7 @@
 
     <vxe-table
       show-overflow
+      border="outer"
       ref="xTree1"
       :show-header="false"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
@@ -175,6 +176,7 @@ export default {
 
         <vxe-table
           show-overflow
+          border="outer"
           ref="xTree"
           :show-header="false"
           :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"

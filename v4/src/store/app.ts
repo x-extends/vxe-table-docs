@@ -9,6 +9,18 @@ VXETable.config({
 
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
+// 默认情况下，白天和夜间模式自动切换
+// if (!localStorage.getItem('VXE_THEME')) {
+//   const themeInterval = setInterval(() => {
+//     const appStore = useAppStore()
+//     if (localStorage.getItem('VXE_THEME')) {
+//       clearInterval(themeInterval)
+//     } else {
+//       appStore.updateAutoTheme()
+//     }
+//   }, 6000)
+// }
+
 export const useAppStore = defineStore('app', {
   state () {
     return {
@@ -24,13 +36,38 @@ export const useAppStore = defineStore('app', {
   },
   actions: {
     setTheme (name: any) {
-      this.theme = name
+      this.theme = name || 'default'
       VXETable.config({
         theme: name
       })
       document.documentElement.setAttribute('vxe-docs-theme', name)
       localStorage.setItem('VXE_THEME', name)
     },
+    // updateAutoTheme () {
+    //   if (this.theme !== 'dark' && (new Date().getHours() <= 6 || (new Date().getHours() >= 18 && new Date().getMinutes() >= 30))) {
+    //     VXETable.modal.message({
+    //       content: '即将切换为夜间模式'
+    //     }).then(() => {
+    //       const name = 'dark'
+    //       this.theme = name
+    //       VXETable.config({
+    //         theme: name
+    //       })
+    //       document.documentElement.setAttribute('vxe-docs-theme', name)
+    //     })
+    //   } else if (this.theme !== 'default' && (new Date().getHours() > 6 && new Date().getHours() < 18)) {
+    //     VXETable.modal.message({
+    //       content: '即将切换为白天模式'
+    //     }).then(() => {
+    //       const name = 'dark'
+    //       this.theme = name
+    //       VXETable.config({
+    //         theme: name
+    //       })
+    //       document.documentElement.setAttribute('vxe-docs-theme', name)
+    //     })
+    //   }
+    // },
     setSupportQQ (visible: boolean) {
       this.showSupportQQ = !!visible
     }

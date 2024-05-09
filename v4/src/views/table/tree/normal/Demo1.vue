@@ -9,6 +9,7 @@
 
     <vxe-table
       show-overflow
+      border="outer"
       ref="xTreeRef"
       :show-header="false"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"

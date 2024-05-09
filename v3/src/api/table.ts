@@ -2520,6 +2520,15 @@ const apis = [
             list: []
           },
           {
+            name: 'autoClear',
+            desc: '当点击表格之外，是否自动清除单元格的选取状态',
+            version: '3.8.7',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
             name: 'beforeExtendSetMethod',
             desc: '只对 extendByCopy | extendByCalc 启用后有效，自定义单元格扩展区域赋值之前的方法，可以通过返回 false 阻止扩展区域赋值行为',
             version: 'extend-cell-area',
@@ -2803,7 +2812,7 @@ const apis = [
           },
           {
             name: 'afterEditMethod',
-            desc: '自定义编辑之后逻辑',
+            desc: '自定义激活编辑之后逻辑（激活编辑是单元格转为编辑状态之后，并不是指编辑完成）',
             version: '3.8.0',
             type: '({ row, rowIndex, column, columnIndex }) => void',
             enum: '',

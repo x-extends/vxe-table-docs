@@ -2,8 +2,8 @@
   <div>
     <vxe-table
       show-overflow
+      border="outer"
       ref="xTreeRef"
-      border="inner"
       :row-config="{isHover: true, useKey: true}"
       :show-header="false"
       :data="tableData"
