@@ -2,7 +2,7 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #name_default="{ row }">
-        <vxe-button type="text" @click="openDetail(row)">点击{{ row.name }}</vxe-button>
+        <vxe-button mode="text" @click="openDetail(row)">点击{{ row.name }}</vxe-button>
       </template>
 
       <template #sex_default="{ row }">

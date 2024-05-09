@@ -17,7 +17,7 @@
       border
       show-overflow
       keep-source
-      ref="xTable"
+      ref="tableRef"
       max-height="400"
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
@@ -70,7 +70,7 @@ interface RowVO {
   date13: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
@@ -96,7 +96,7 @@ const formatSex = (value: string) => {
 }
 
 const insertEvent = async (row?: RowVO | number) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const record = {
       sex: '1',
@@ -108,21 +108,21 @@ const insertEvent = async (row?: RowVO | number) => {
 }
 
 const setActiveEditRow = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.setEditCell(tableData.value[2], 'name')
   }
 }
 
 const removeSelectRowEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.removeCheckboxRow()
   }
 }
 
 const getInsertEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
     VXETable.modal.alert(`新增：${insertRecords.length}`)
@@ -130,7 +130,7 @@ const getInsertEvent = () => {
 }
 
 const getSelectionEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
     VXETable.modal.alert(`选中：${selectRecords.length}`)
@@ -138,7 +138,7 @@ const getSelectionEvent = () => {
 }
 
 const saveEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
     VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)

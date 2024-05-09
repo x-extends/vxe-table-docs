@@ -77,10 +77,10 @@
       </vxe-column>
       <vxe-column title="操作" width="140">
         <template #default="{ row }">
-          <vxe-button type="text" icon="vxe-icon-setting-fill"></vxe-button>
-          <vxe-button type="text" icon="vxe-icon-edit"></vxe-button>
-          <vxe-button type="text" icon="vxe-icon-delete" @click="removeRowEvent(row)"></vxe-button>
-          <vxe-button type="text" icon="vxe-icon-home-fill"></vxe-button>
+          <vxe-button mode="text" icon="vxe-icon-setting-fill"></vxe-button>
+          <vxe-button mode="text" icon="vxe-icon-edit"></vxe-button>
+          <vxe-button mode="text" icon="vxe-icon-delete" @click="removeRowEvent(row)"></vxe-button>
+          <vxe-button mode="text" icon="vxe-icon-home-fill"></vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -292,10 +292,10 @@ export default {
           </vxe-column>
           <vxe-column title="操作" width="140">
             <template #default="{ row }">
-              <vxe-button type="text" icon="vxe-icon-setting-fill"></vxe-button>
-              <vxe-button type="text" icon="vxe-icon-edit"></vxe-button>
-              <vxe-button type="text" icon="vxe-icon-delete" @click="removeRowEvent(row)"></vxe-button>
-              <vxe-button type="text" icon="vxe-icon-home-fill"></vxe-button>
+              <vxe-button mode="text" icon="vxe-icon-setting-fill"></vxe-button>
+              <vxe-button mode="text" icon="vxe-icon-edit"></vxe-button>
+              <vxe-button mode="text" icon="vxe-icon-delete" @click="removeRowEvent(row)"></vxe-button>
+              <vxe-button mode="text" icon="vxe-icon-home-fill"></vxe-button>
             </template>
           </vxe-column>
         </vxe-table>

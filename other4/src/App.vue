@@ -35,6 +35,7 @@
             <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
             <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
           </vxe-select>
+          <vxe-switch class="link theme" v-model="currTheme" open-value="default" open-label="白天" close-value="dark" close-label="夜间"></vxe-switch>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="appData.apiLoading && appData.showPlugin">
             <a v-if="appData.disabledPlugin" class="link support" :href="pluginApiUrl" target="_blank">💡插件</a>
@@ -59,14 +60,6 @@
           <vxe-input clearable v-model="appData.filterName" type="search" class="search-input" :placeholder="$t('app.body.search.searchPlaceholder')" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
         </div>
         <div class="body">
-          <div class="sponsors" v-if="appData.sponsorList.length">
-            <h4 class="title">赞助商</h4>
-            <div v-for="(item, index) in appData.sponsorList" :key="index">
-              <a :href="item.url" :title="item.title" target="_blank">
-                <img :src="item.img" :style="{width: item.width, height: item.height}">
-              </a>
-            </div>
-          </div>
           <div class="docs">
             <template v-if="appData.apiList.length">
               <ul class="nav-menu">
@@ -143,7 +136,6 @@ const appData = reactive({
   selectStableVersion: null,
   stableVersionList: [] as any[],
   usedJSHeapSize: '0',
-  sponsorList: [],
   apiLoading: false,
   showPlugin: false,
   disabledPlugin: false,
@@ -338,6 +330,15 @@ const appData = reactive({
       ]
     }
   ]
+})
+
+const currTheme = computed({
+  get () {
+    return appStore.theme
+  },
+  set (name) {
+    appStore.setTheme(name)
+  }
 })
 
 const getVersion = () => {
@@ -539,14 +540,6 @@ const defaultExpand = () => {
   }
 }
 
-const loadSponsors = () => {
-  fetch(`${serveApiUrl.value}/api/npm/versions/vxe-table`, { method: 'GET' })
-    .then(response => response.json())
-    .then(data => {
-      appData.sponsorList = data
-    })
-}
-
 const loadList = () => {
   appData.tableData = XEUtils.clone(appData.tableList, true)
   XEUtils.eachTree(appData.tableData, (item: any) => {
@@ -558,7 +551,6 @@ const loadList = () => {
 const init = () => {
   getVersion()
   loadList()
-  loadSponsors()
   setTimeout(() => defaultExpand(), 1500)
 }
 

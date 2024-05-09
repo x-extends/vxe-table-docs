@@ -3,12 +3,10 @@
 body {
   margin: 0;
   padding: 0;
-  color: #000;
+  color: var(--vxe-table-docs-font-color);
   font-size: 14px;
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;
-  &.qingmingjie {
-    filter: grayscale(100%);
-  }
+  background-color: var(--vxe-table-docs-background-color);
   * {
     box-sizing: border-box;
   }
@@ -29,6 +27,7 @@ body {
     font-size: 14px;
   }
 }
+
 .due-to-stop {
   color: red;
 }
@@ -65,20 +64,20 @@ body,
   h2 {
     margin: 30px 0 0.8em;
     padding-bottom: 0.7em;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--vxe-table-docs-layout-border-color);
   }
   p {
     &.tip {
       border-left: 4px solid $themeColor;
       padding: 12px 24px 12px 30px;
       margin: 2em 0;
-      background-color: #f8f8f8;
+      background-color: var( --vxe-table-docs-declare-tip-background-color);
     }
     &.warn {
       border-left: 4px solid red;
       padding: 12px 24px 12px 30px;
       margin: 2em 0;
-      background-color: #f8f8f8;
+      background-color: var( --vxe-table-docs-declare-tip-background-color);
     }
   }
 }
@@ -88,11 +87,9 @@ body,
   height: 48px;
   padding: 0 20px;
   box-sizing: border-box;
-  border-bottom: 1px solid #dcdfe6;
+  border-bottom: 1px solid var(--vxe-table-docs-layout-border-color);
   box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.12);
   display: flex;
-  color: #fff;
-  background-color: #24292e;
   &:after {
     content: "";
     display: block;
@@ -107,9 +104,9 @@ body,
     border-radius: 50%;
   }
   .title {
+    color: var(--vxe-table-docs-font-color);
     padding: 0 0.4em;
     font-weight: 700;
-    color: #fff;
   }
   .left {
     display: flex;
@@ -171,7 +168,10 @@ body,
     width: 70px;
   }
   .version-switch {
-    width: 160px;
+    width: 200px;
+  }
+  .theme-switch {
+    margin-right: 15px;
   }
   .donation,
   .support {
@@ -185,7 +185,7 @@ body,
   }
   .support {
     position: relative;
-    color: #333;
+    color: var(--vxe-table-docs-font-color);
     margin-left: 10px;
     background-color: #f6ca9d;
     &.is-disabled {
@@ -209,36 +209,40 @@ body,
   }
   .desc {
     font-size: 14px;
-    color: #333;
+    color: var(--vxe-table-docs-font-color);
   }
 }
 .page-container {
   display: flex;
   flex-grow: 1;
-  border-bottom: 1px solid #dcdfe6;
+  border-bottom: 1px solid var(--vxe-table-docs-layout-border-color);
   overflow: hidden;
   > .aside {
     position: relative;
-    display: flex;
-    flex-direction: column;
     width: 0;
     flex-shrink: 0;
     user-select: none;
-    padding-top: 10px;
-    border-right: 1px solid #dcdfe6;
-    overflow: hidden;
+    border-right: 1px solid var(--vxe-table-docs-layout-border-color);
     transition: width 0.3s;
+    overflow-y: scroll;
+    overflow-x: hidden;
     &.visible {
-      width: 300px;
+      width: 320px;
     }
     ul {
       padding: 0;
       margin: 0;
     }
     & > .header {
+      position: sticky;
+      top: 0;
+      left: 0;
       flex-shrink: 0;
       text-align: center;
-      width: 300px;
+      padding: 10px 0;
+      width: 320px;
+      background-color: var(--vxe-table-docs-background-color);
+      z-index: 3;
       .version-list {
         font-size: 12px;
         margin-bottom: 10px;
@@ -260,36 +264,27 @@ body,
       }
     }
     & > .body {
-      width: 300px;
+      width: 320px;
       flex-grow: 1;
-      overflow-y: scroll;
-      overflow-x: hidden;
       padding: 0 0 15px 20px;
-      .sponsors {
-        margin-bottom: 10px;
-        .title {
-          color: #4f5959;
-        }
-      }
     }
     .search-nodata {
       text-align: center;
       padding: 20px 0;
     }
     .nav-menu {
-      color: #333;
       text-decoration: none;
       font-size: 17px;
       margin: 0;
       padding: 0;
       .nav-link {
+        position: relative;
         display: block;
         height: 40px;
         line-height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        color: #111;
         &.active {
           font-weight: 700;
         }
@@ -304,6 +299,7 @@ body,
         }
       }
       .nav-link-icon {
+        display: inline-block;
         font-size: 14px;
         margin-right: 5px;
         transition: transform 0.2s ease-in-out;
@@ -337,9 +333,19 @@ body,
       }
     }
     .nav-link {
-      color: #444;
+      color: var(--vxe-table-docs-font-color);
       cursor: pointer;
       text-decoration: none;
+      &.is-new {
+        &::after {
+          content: "尝鲜版";
+          position: absolute;
+          font-size: 12px;
+          line-height: 20px;
+          width: 20px;
+          color: red;
+        }
+      }
     }
     .is-warn {
       .nav-link {
@@ -386,8 +392,8 @@ body,
       user-select: none;
       padding: 0;
       cursor: pointer;
-      border: 1px solid #e4e4e4;
-      background: #ffffff;
+      border: 1px solid var(--vxe-table-docs-layout-border-color);
+      background: var(--vxe-table-docs-background-color);
       &:active {
         outline: 0;
       }
@@ -430,7 +436,30 @@ body,
         text-align: center;
         line-height: 30px;
         .link {
-          color: #000;
+          color: var(--vxe-table-docs-font-color);
+        }
+      }
+      & > .footer-link {
+        a{
+          font-size: 15px;
+          color: var(--vxe-table-docs-font-color);
+          text-decoration: none;
+          &:hover{
+            color: #409eff;
+          }
+        }
+        padding: 40px 120px;
+        .pre-link{
+          float: left;
+          &::before {
+              content: "< ";
+          }
+        }
+        .next-link{
+          float: right;
+          &::after {
+            content: " >";
+          }
         }
       }
     }
@@ -532,7 +561,7 @@ body,
     font-size: 12px;
   }
   .pro {
-    color: #333;
+    color: var(--vxe-table-docs-font-color);
     background-color: #f6ca9d;
   }
   .compatibility {
@@ -621,5 +650,11 @@ body,
   font-size: 12px;
   & > li {
     padding: 0 5px 0 20px;
+  }
+}
+
+.page-view{
+  h3{
+    margin: 55px 0 20px;
   }
 }

@@ -53,14 +53,6 @@
           <vxe-input clearable v-model="filterName" type="search" class="search-input" :placeholder="$t('app.body.search.searchPlaceholder')" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
         </div>
         <div class="body">
-          <div class="sponsors" v-if="sponsorList.length">
-            <h4 class="title">赞助商</h4>
-            <div v-for="(item, index) in sponsorList" :key="index">
-              <a :href="item.url" :title="item.title" target="_blank">
-                <img :src="item.img" :style="{width: item.width, height: item.height}">
-              </a>
-            </div>
-          </div>
           <div class="docs">
             <template v-if="apiList.length">
               <ul class="nav-menu">
@@ -142,7 +134,6 @@ export default {
       version: '',
       usedJSHeapSize: '0',
       newVersionVisible: false,
-      sponsorList: [],
       tableList: [
         {
           label: 'app.aside.nav.start',
@@ -2098,13 +2089,7 @@ export default {
       this.version = this.docsVersion
       this.getVersion()
       this.loadList()
-      this.loadSponsors()
       setTimeout(() => this.defaultExpand(), 1500)
-    },
-    loadSponsors () {
-      XEAjax.get(`${this.serveApiUrl}/api/pub/sponsors`).then(data => {
-        this.sponsorList = data
-      })
     },
     loadList () {
       this.tableData = XEUtils.clone(this.tableList, true)

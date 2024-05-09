@@ -3,7 +3,7 @@
     <vxe-table
       border
       class="my-sort"
-      ref="xTable"
+      ref="tableRef"
       height="300"
       :data="tableData"
       :row-config="{isCurrent: true, isHover: true}"
@@ -55,7 +55,7 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 26, address: 'test abc' },
@@ -74,7 +74,7 @@ const nameOptions = ref([
 ])
 
 const headerCellClickEvent: VxeTableEvents.HeaderCellClick<RowVO> = ({ column, triggerResizable, triggerSort, triggerFilter }) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     // 如果触发了列的其他功能按钮
     if (column.sortable && !(triggerResizable || triggerSort || triggerFilter)) {

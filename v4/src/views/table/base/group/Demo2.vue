@@ -11,7 +11,7 @@
 
     <vxe-table
       border
-      ref="xTable2"
+      ref="tableRef2"
       height="400"
       :data="tableData2">
       <vxe-colgroup field="group0" title="基本信息">
@@ -54,7 +54,7 @@ interface RowVO {
   address: string
 }
 
-const xTable2 = ref<VxeTableInstance<RowVO>>()
+const tableRef2 = ref<VxeTableInstance<RowVO>>()
 
 const tableData2 = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -68,7 +68,7 @@ const tableData2 = ref<RowVO[]>([
 ])
 
 const toggleFixedColumn = (field: string, type: VxeColumnPropTypes.Fixed) => {
-  const $table = xTable2.value
+  const $table = tableRef2.value
   if ($table) {
     const column = $table.getColumnByField(field)
     if (column) {

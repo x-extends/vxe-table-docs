@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VXETable from 'vxe-table'
 
-import './setup'
+import './config'
 import './renderer'
 import './formats'
 import './menus'

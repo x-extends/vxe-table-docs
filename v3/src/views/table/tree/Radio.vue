@@ -52,7 +52,7 @@
       @current-change="currentChangeEvent">
       <vxe-column type="radio" width="400" tree-node>
         <template #header>
-          <vxe-button type="text" @click="clearCurrentRowEvent" :disabled="!selectRow">取消</vxe-button>
+          <vxe-button mode="text" @click="clearCurrentRowEvent" :disabled="!selectRow">取消</vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -224,7 +224,7 @@ export default {
           @current-change="currentChangeEvent">
           <vxe-column type="radio" width="400" tree-node>
             <template #header>
-              <vxe-button type="text" @click="clearCurrentRowEvent" :disabled="!selectRow">取消</vxe-button>
+              <vxe-button mode="text" @click="clearCurrentRowEvent" :disabled="!selectRow">取消</vxe-button>
             </template>
           </vxe-column>
           <vxe-column field="size" title="Size"></vxe-column>

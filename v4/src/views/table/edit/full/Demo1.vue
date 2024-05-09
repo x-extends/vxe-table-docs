@@ -13,7 +13,7 @@
       border
       show-overflow
       keep-source
-      ref="xTable"
+      ref="tableRef"
       height="500"
       :column-config="{resizable: true}"
       :loading="loading"
@@ -80,7 +80,7 @@ interface RowVO {
 const serveApiUrl = 'https://api.vxetable.cn/demo'
 
 const xToolbar = ref<VxeToolbarInstance>()
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
@@ -118,7 +118,7 @@ const loadList = async () => {
 }
 
 const insertEvent = async () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const newRecord = {}
     const { row: newRow } = await $table.insert(newRecord)
@@ -127,7 +127,7 @@ const insertEvent = async () => {
 }
 
 const removeSelectEvent = async () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     await $table.removeCheckboxRow()
   }
@@ -138,7 +138,7 @@ const deleteSelectEvent = async () => {
   if (type !== 'confirm') {
     return
   }
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const checkboxRecords = $table.getCheckboxRecords()
     loading.value = true
@@ -150,7 +150,7 @@ const deleteSelectEvent = async () => {
 }
 
 const removeRowEvent = async (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     await $table.remove(row)
   }
@@ -169,7 +169,7 @@ const deleteRowEvent = async (row: RowVO) => {
 }
 
 const saveEvent = async () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
     if (insertRecords.length <= 0 && removeRecords.length <= 0 && updateRecords.length <= 0) {
@@ -195,7 +195,7 @@ const saveEvent = async () => {
 
 nextTick(() => {
   // 将表格和工具栏进行关联
-  const $table = xTable.value
+  const $table = tableRef.value
   const $toolbar = xToolbar.value
   if ($table && $toolbar) {
     $table.connect($toolbar)

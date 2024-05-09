@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       height="400"
       :data="tableData">
       <vxe-column type="checkbox" width="60">
@@ -43,7 +43,7 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 26, address: 'test abc' },
@@ -57,14 +57,14 @@ const tableData = ref<RowVO[]>([
 ])
 
 const toggleAllCheckboxEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.toggleAllCheckboxRow()
   }
 }
 
 const toggleCheckboxEvent = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.toggleCheckboxRow(row)
   }

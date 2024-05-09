@@ -4,7 +4,7 @@
       border
       keep-source
       show-overflow
-      ref="xTable"
+      ref="tableRef"
       :column-config="{resizable: true}"
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
@@ -62,7 +62,7 @@ interface RowVO {
   date13: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },
@@ -91,7 +91,7 @@ const formatSex = (row: RowVO) => {
 }
 
 const editClosedEvent: VxeTableEvents.EditClosed<RowVO> = ({ row, column }) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const field = column.field
     const cellValue = row[field]

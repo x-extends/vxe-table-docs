@@ -11,7 +11,7 @@
     <vxe-table
       border
       show-footer
-      ref="xTable"
+      ref="tableRef"
       height="500"
       :print-config="printConfig"
       :footer-method="footerMethod"
@@ -79,17 +79,17 @@ const printConfig = reactive<VxeTablePropTypes.PrintConfig>({
     `
 })
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const printEvent1: VxeButtonEvents.Click = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.print()
   }
 }
 
 const printSelectEvent: VxeButtonEvents.Click = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.print({
       data: $table.getCheckboxRecords()
@@ -98,7 +98,7 @@ const printSelectEvent: VxeButtonEvents.Click = () => {
 }
 
 const printEvent2: VxeButtonEvents.Click = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.openPrint()
   }

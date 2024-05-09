@@ -829,6 +829,7 @@ const apis = [
       },
       {
         name: 'footer-method',
+        abandoned: true,
         descKey: 'app.api.table.desc.footerMethod',
         version: '',
         type: '({ columns, data }) => any[][]',
@@ -2645,15 +2646,15 @@ const apis = [
             defVal: 'false',
             list: []
           },
-          // {
-          //   name: 'arrowCursorLock',
-          //   desc: '用于 mouse-config.area，方向键光标锁，开启后将支持全键盘操作，支持在按键切换输入框输入时，默认为非聚焦式输入状态，可以按方向键移动单元格。如果需要移动光标，可以按 F2 键或者鼠标左键点击输入框，切换为聚焦输入状态，就可以用方向键左右移动光标',
-          //   version: 'extend-cell-area',
-          //   type: 'boolean',
-          //   enum: '',
-          //   defVal: 'false',
-          //   list: []
-          // },
+          {
+            name: 'arrowCursorLock',
+            desc: '用于 mouse-config.area 与 edit-config.mode=cell，方向键光标锁，开启后处于非聚焦式编辑状态，将支持在编辑状态中通过方向键切换单元格。（切换为聚焦编辑状态，可以按 F2 键或者鼠标左键点击输入框，就可以用方向键左右移动输入框的光标）',
+            version: 'extend-cell-area',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
           {
             name: 'enterToTab',
             desc: '是否将回车键行为改成 Tab 键行为',

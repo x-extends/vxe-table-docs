@@ -6,7 +6,7 @@
 
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       height="200"
       :loading="loading"
       :data="tableData">
@@ -32,7 +32,7 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const columns = ref<VxeTableDefines.ColumnInfo<RowVO>[]>([])
@@ -48,7 +48,7 @@ const tableData = ref<RowVO[]>([
 ])
 
 const refreshColEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.refreshColumn()
   }
@@ -58,7 +58,7 @@ const refreshColEvent = () => {
 setTimeout(() => {
   nextTick(() => {
     // 获取所有列配置
-    const $table = xTable.value
+    const $table = tableRef.value
     if ($table) {
       loading.value = true
       columns.value = $table.getColumns()

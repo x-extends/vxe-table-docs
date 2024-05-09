@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const StartInstall = () => import('../views/start/Install.vue')
-const StartUse = () => import('../views/start/Use.vue')
-const StartIcons = () => import('../views/start/Icons.vue')
-const StartGlobal = () => import('../views/start/Global.vue')
-const StartTheme = () => import('../views/start/Theme.vue')
-const StartI18n = () => import('../views/start/I18n.vue')
-const StartUseZindex = () => import('../views/start/UseZindex.vue')
+const StartInstall = () => import('../views/start/StartInstall.vue')
+const StartUse = () => import('../views/start/StartUse.vue')
+const StartIcons = () => import('../views/start/StartIcons.vue')
+const StartGlobal = () => import('../views/start/StartGlobal.vue')
+const StartTheme = () => import('../views/start/StartTheme.vue')
+const StartI18n = () => import('../views/start/StartI18n.vue')
+const StartUseZindex = () => import('../views/start/StartUseZindex.vue')
 
 const RendererAPI = () => import('../views/global/renderer/API.vue')
 const RendererFilter = () => import('../views/global/renderer/Filter.vue')

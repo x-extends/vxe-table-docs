@@ -5,7 +5,7 @@
     <vxe-table
       border
       show-overflow
-      ref="xTable"
+      ref="tableRef"
       height="400"
       :loading="demo1.loading">
       <vxe-column type="radio" width="60"></vxe-column>
@@ -23,7 +23,7 @@ import { VxeTableInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
-    const xTable = ref<VxeTableInstance>()
+    const tableRef = ref<VxeTableInstance>()
 
     const mockList = (size: number) => {
       const list: any[] = []
@@ -50,7 +50,7 @@ export default defineComponent({
     setTimeout(() => {
       demo1.loading = false
       nextTick(() => {
-        const $table = xTable.value
+        const $table = tableRef.value
         if ($table) {
           $table.loadData(mockList(600))
         }
@@ -59,7 +59,7 @@ export default defineComponent({
 
     return {
       demo1,
-      xTable
+      tableRef
     }
   }
 })

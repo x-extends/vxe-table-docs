@@ -10,7 +10,7 @@
 
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       height="300"
       :row-config="{isHover: true}"
       :data="tableData">
@@ -40,7 +40,7 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, num: '3.8', num2: '3.8', address: 'test abc' },
@@ -54,14 +54,14 @@ const tableData = ref<RowVO[]>([
 ])
 
 const sortEvent = (field: VxeColumnPropTypes.Field, order: VxeTablePropTypes.SortOrder) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.sort({ field, order })
   }
 }
 
 const clearSortEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearSort()
   }

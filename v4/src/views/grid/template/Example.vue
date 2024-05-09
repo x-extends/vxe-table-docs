@@ -1,9 +1,24 @@
 <template>
   <div>
+    <CodeLight path="grid/template/Demo10">
+      <template #tip>
+        <div>
+          功能模板，支持自定义插槽模板或 JSX 渲染函数
+        </div>
+        <div>
+          <grid-api-link prop="form"/>：自定义表单模板<br>
+          <grid-api-link prop="toolbar"/>：自定义工具栏模板<br>
+          <grid-api-link prop="top"/>：自定义顶部模板<br>
+          <grid-api-link prop="bottom"/>：自定义底部模板<br>
+          <grid-api-link prop="pager"/>：自定义分页模板<br>
+        </div>
+      </template>
+    </CodeLight>
+
     <CodeLight path="grid/template/Demo1">
       <template #tip>
         <div>
-          单元格模板，使用插槽 <table-column-api-link prop="default"/> 来自定义模板（提前格式化（最优） > <table-column-api-link prop="formatter"/>（field值发生变化时） > <table-column-api-link prop="slots"/>（实时））<br>
+          单元格模板，使用插槽 <table-column-api-link prop="default"/> 来自定义模板（提前转换好数据（最优） > <table-column-api-link prop="formatter"/>（field值发生变化时） > <table-column-api-link prop="slots"/>（实时响应））<br>
         </div>
       </template>
     </CodeLight>

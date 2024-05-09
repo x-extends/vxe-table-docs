@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       show-overflow
-      ref="xTable"
+      ref="tableRef"
       size="mini"
       :row-config="{isHover: true, useKey: true}"
       :column-config="{resizable: true}"
@@ -42,7 +42,7 @@ interface RowVO {
   date: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -66,7 +66,7 @@ const tableData = ref<RowVO[]>([
 ])
 
 const hasRowExpand = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     return $table.isTreeExpandByRow(row)
   }

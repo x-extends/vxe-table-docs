@@ -20,7 +20,7 @@
       @radio-change="radioChangeEvent">
       <vxe-column type="radio" width="60">
         <template #header>
-          <vxe-button type="text" @click="clearRadioRowEevnt" :disabled="!selectRow">取消</vxe-button>
+          <vxe-button mode="text" @click="clearRadioRowEevnt" :disabled="!selectRow">取消</vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -197,7 +197,7 @@ export default {
           @radio-change="radioChangeEvent">
           <vxe-column type="radio" width="60">
             <template #header>
-              <vxe-button type="text" @click="clearRadioRowEevnt" :disabled="!selectRow">取消</vxe-button>
+              <vxe-button mode="text" @click="clearRadioRowEevnt" :disabled="!selectRow">取消</vxe-button>
             </template>
           </vxe-column>
           <vxe-column field="sex" title="Sex"></vxe-column>

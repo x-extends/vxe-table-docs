@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       height="200"
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>
@@ -39,7 +39,7 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const collapsable1 = ref(false)
 const collapsable2 = ref(false)
@@ -55,7 +55,7 @@ const tableData = ref<RowVO[]>([
 ])
 
 const collapsable1Event = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const fields = ['role', 'sex']
     collapsable1.value = !collapsable1.value
@@ -71,7 +71,7 @@ const collapsable1Event = () => {
 }
 
 const collapsable2Event = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const fields = ['rate', 'address']
     collapsable2.value = !collapsable2.value

@@ -16,17 +16,17 @@
       :data="tableData">
       <vxe-column field="name" title="Name" width="260" tree-node :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.name" type="text"></vxe-input>
+          <vxe-input v-model="row.name" mode="text"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="size" title="Size" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.size" type="text"></vxe-input>
+          <vxe-input v-model="row.size" mode="text"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="type" title="Type" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.type" type="text"></vxe-input>
+          <vxe-input v-model="row.type" mode="text"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="date" title="Date" :edit-render="{}">

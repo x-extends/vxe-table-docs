@@ -11,7 +11,7 @@
     </p>
 
     <vxe-table
-      ref="xTable"
+      ref="tableRef"
       border
       show-overflow
       height="500"
@@ -48,7 +48,7 @@ const loading = ref(false)
 
 let allData: RowVO[] = []
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const mockList = (size: number) => {
   return new Promise<RowVO[]>(resolve => {
@@ -73,7 +73,7 @@ const mockList = (size: number) => {
 const loadList = (size: number) => {
   loading.value = true
   mockList(size).then(data => {
-    const $table = xTable.value
+    const $table = tableRef.value
     allData = allData.concat(data)// 局部追加并保存所有数据
     if ($table) {
       $table.loadData(allData)
@@ -83,14 +83,14 @@ const loadList = (size: number) => {
 }
 
 const scrollTo1Event = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.scrollTo(null, 4000)
   }
 }
 
 const clearScrollEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearScroll()
   }

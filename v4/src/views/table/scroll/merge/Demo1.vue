@@ -5,7 +5,7 @@
       show-overflow
       show-header-overflow
       show-footer
-      ref="xTable"
+      ref="tableRef"
       height="500"
       :column-config="{resizable: true}"
       :export-config="{}"
@@ -55,7 +55,7 @@ interface RowVO {
   sex: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const mergeCells = ref<VxeTablePropTypes.MergeCells>([
@@ -92,7 +92,7 @@ const loadList = (size: number) => {
   setTimeout(() => {
     const data = mockList(size)
     // 使用函数式加载，阻断 vue 对大数据的监听
-    const $table = xTable.value
+    const $table = tableRef.value
     const startTime = Date.now()
     if ($table) {
       $table.reloadData(data).then(() => {

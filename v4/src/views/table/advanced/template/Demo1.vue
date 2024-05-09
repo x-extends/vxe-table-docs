@@ -4,7 +4,7 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" width="160">
         <template #default="{ row }">
-          <vxe-button type="text" @click="openDetail(row)">点击{{ row.name }}</vxe-button>
+          <vxe-button mode="text" @click="openDetail(row)">点击{{ row.name }}</vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex">

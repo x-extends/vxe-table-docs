@@ -13,7 +13,7 @@
       border
       show-overflow
       keep-source
-      ref="xTable"
+      ref="tableRef"
       :loading="loading"
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
@@ -70,7 +70,7 @@ interface RowVO {
   loading: boolean
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([
@@ -85,7 +85,7 @@ const formatDate: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
 }
 
 const insertEvent = async () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const record = {}
     const { row: newRow } = await $table.insert(record)
@@ -94,28 +94,28 @@ const insertEvent = async () => {
 }
 
 const removeSelectRowEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.removeCheckboxRow()
   }
 }
 
 const hasUpdateStatus = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     return $table.isUpdateByRow(row)
   }
 }
 
 const updateRowStatus = (params: any) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     return $table.updateStatus(params)
   }
 }
 
 const saveUpdateEvent = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     if ($table.isUpdateByRow(row)) {
       row.loading = true
@@ -148,7 +148,7 @@ const saveEvent = () => {
 }
 
 const getInsertEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
     VXETable.modal.alert(`新增：${insertRecords.length}`)
@@ -156,7 +156,7 @@ const getInsertEvent = () => {
 }
 
 const getRemoveEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
     VXETable.modal.alert(`删除：${removeRecords.length}`)
@@ -164,7 +164,7 @@ const getRemoveEvent = () => {
 }
 
 const getUpdateEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
     VXETable.modal.alert(`更新：${updateRecords.length}`)

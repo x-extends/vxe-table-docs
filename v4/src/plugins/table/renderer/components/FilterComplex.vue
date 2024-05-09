@@ -5,7 +5,7 @@
       <vxe-radio v-model="demo1.option.data.type" name="fType" label="eq">等于</vxe-radio>
     </div>
     <div class="my-fc-name">
-      <vxe-input v-model="demo1.option.data.name" type="text" placeholder="请输入名称" @input="changeOptionEvent()"></vxe-input>
+      <vxe-input v-model="demo1.option.data.name" mode="text" placeholder="请输入名称" @input="changeOptionEvent()"></vxe-input>
     </div>
     <div class="my-fc-footer">
       <vxe-button status="primary" @click="confirmEvent">确认</vxe-button>

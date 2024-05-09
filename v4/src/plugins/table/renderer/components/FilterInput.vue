@@ -1,6 +1,6 @@
 <template>
   <div class="my-filter-input">
-    <vxe-input type="text" v-model="demo1.option.data" placeholder="支持回车筛选" @keyup="keyupEvent" @input="changeOptionEvent"></vxe-input>
+    <vxe-input mode="text" v-model="demo1.option.data" placeholder="支持回车筛选" @keyup="keyupEvent" @input="changeOptionEvent"></vxe-input>
   </div>
 </template>
 

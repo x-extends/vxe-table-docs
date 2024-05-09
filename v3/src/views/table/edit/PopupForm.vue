@@ -24,8 +24,8 @@
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
       <vxe-column title="操作" width="100" show-overflow>
         <template #default="{ row }">
-          <vxe-button type="text" icon="vxe-icon-edit" @click="editEvent(row)"></vxe-button>
-          <vxe-button type="text" icon="vxe-icon-delete" @click="removeEvent(row)"></vxe-button>
+          <vxe-button mode="text" icon="vxe-icon-edit" @click="editEvent(row)"></vxe-button>
+          <vxe-button mode="text" icon="vxe-icon-delete" @click="removeEvent(row)"></vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -181,8 +181,8 @@ export default {
           <vxe-column field="address" title="Address" show-overflow></vxe-column>
           <vxe-column title="操作" width="100" show-overflow>
             <template #default="{ row }">
-              <vxe-button type="text" icon="vxe-icon-edit" @click="editEvent(row)"></vxe-button>
-              <vxe-button type="text" icon="vxe-icon-delete" @click="removeEvent(row)"></vxe-button>
+              <vxe-button mode="text" icon="vxe-icon-edit" @click="editEvent(row)"></vxe-button>
+              <vxe-button mode="text" icon="vxe-icon-delete" @click="removeEvent(row)"></vxe-button>
             </template>
           </vxe-column>
         </vxe-table>

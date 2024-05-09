@@ -7,8 +7,8 @@
 
       <template #header>
         <div class="my-headdown4">
-          <vxe-button type="text" status="primary">按钮1</vxe-button>
-          <vxe-button type="text" status="danger">按钮2</vxe-button>
+          <vxe-button mode="text" status="primary">按钮1</vxe-button>
+          <vxe-button mode="text" status="danger">按钮2</vxe-button>
         </div>
       </template>
 
@@ -31,7 +31,7 @@
 
       <template #footer>
         <div class="my-footdown4">
-          <vxe-button type="text" status="primary">底部</vxe-button>
+          <vxe-button mode="text" status="primary">底部</vxe-button>
         </div>
       </template>
     </vxe-pulldown>

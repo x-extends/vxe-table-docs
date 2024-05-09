@@ -1,4 +1,4 @@
-import './setup'
+import './config'
 import './renderer'
 import './formats'
 import './menus'

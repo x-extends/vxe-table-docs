@@ -35,6 +35,7 @@
             <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
             <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
           </vxe-select>
+          <vxe-switch class="link theme" v-model="currTheme" open-value="default" open-label="白天" close-value="dark" close-label="夜间"></vxe-switch>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="showExtendPlugin && appData.apiLoading && appData.showPlugin">
             <template v-if="appData.disabledPlugin">
@@ -65,11 +66,6 @@
           <div class="docs">
             <template v-if="appData.apiList.length">
               <ul class="nav-menu">
-                <!-- <li class="is-warn">
-                  <router-link class="nav-link" :to="{name: 'StartUpgrade'}">
-                    <span>注意事项</span>
-                  </router-link>
-                </li> -->
                 <li v-for="(item, index) in appData.apiList" :key="index" :class="{expand: item.expand}">
                   <a class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{'is-new': item.isNew, disabled: item.disabled, active: pageKey === item.value}">
                     <i class="vxe-icon-arrow-right nav-link-icon"></i>
@@ -2254,6 +2250,15 @@ const appData = reactive({
       ]
     }
   ]
+})
+
+const currTheme = computed({
+  get () {
+    return appStore.theme
+  },
+  set (name) {
+    appStore.setTheme(name)
+  }
 })
 
 const getVersion = () => {

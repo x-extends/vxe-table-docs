@@ -8,7 +8,7 @@
 
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       height="300"
       :data="tableData"
       :radio-config="{highlight: true}"
@@ -16,7 +16,7 @@
       @radio-change="radioChangeEvent">
       <vxe-column type="radio" width="60">
         <template #header>
-          <vxe-button type="text" @click="clearRadioRowEevnt" :disabled="!selectRow">取消</vxe-button>
+          <vxe-button mode="text" @click="clearRadioRowEevnt" :disabled="!selectRow">取消</vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -52,7 +52,7 @@ const tableData = ref<RowVO[]>([
   { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
 ])
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const cellClickEvent: VxeTableEvents.CellClick<RowVO> = () => {
   console.log('单元格点击事件')
@@ -64,14 +64,14 @@ const radioChangeEvent: VxeTableEvents.RadioChange<RowVO> = ({ row }) => {
 }
 
 const setSelectRow = (index: number) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.setRadioRow(tableData.value[index])
   }
 }
 
 const clearRadioRowEevnt = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     selectRow.value = null
     $table.clearRadioRow()
@@ -79,7 +79,7 @@ const clearRadioRowEevnt = () => {
 }
 
 const getRadioEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const currRow = $table.getRadioRecord()
     VXETable.modal.alert(JSON.stringify(currRow))

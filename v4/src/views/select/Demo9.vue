@@ -20,8 +20,8 @@
 
     <vxe-select v-model="val3" placeholder="自定义插槽模板" :options="opts3" multiple clearable>
       <template #header>
-        <vxe-button type="text" status="primary">按钮1</vxe-button>
-        <vxe-button type="text" status="danger">按钮2</vxe-button>
+        <vxe-button mode="text" status="primary">按钮1</vxe-button>
+        <vxe-button mode="text" status="danger">按钮2</vxe-button>
       </template>
 
       <template #option="{ option }">

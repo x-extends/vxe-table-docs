@@ -13,8 +13,8 @@
       <vxe-column field="date" title="Date" width="300"></vxe-column>
       <vxe-column title="操作" fixed="right" width="200">
         <template #default>
-          <vxe-button type="text">按钮1</vxe-button>
-          <vxe-button type="text">按钮2</vxe-button>
+          <vxe-button mode="text">按钮1</vxe-button>
+          <vxe-button mode="text">按钮2</vxe-button>
         </template>
       </vxe-column>
     </vxe-table>

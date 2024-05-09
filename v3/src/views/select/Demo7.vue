@@ -46,8 +46,8 @@
       </template>
 
       <template #header>
-        <vxe-button type="text" status="primary">按钮1</vxe-button>
-        <vxe-button type="text" status="danger">按钮2</vxe-button>
+        <vxe-button mode="text" status="primary">按钮1</vxe-button>
+        <vxe-button mode="text" status="danger">按钮2</vxe-button>
       </template>
 
       <template #option="{ option }">

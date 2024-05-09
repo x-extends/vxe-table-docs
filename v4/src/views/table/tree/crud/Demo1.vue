@@ -25,7 +25,7 @@
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size" width="100" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.size" type="text"></vxe-input>
+          <vxe-input v-model="row.size" mode="text"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="date" title="Date" :edit-render="{}">
@@ -35,11 +35,11 @@
       </vxe-column>
       <vxe-column title="操作" width="640">
         <template #default="{ row }">
-          <vxe-button type="text" status="primary" @click="insertRow(row, 'current')">当前位置插入节点</vxe-button>
-          <vxe-button type="text" status="primary" @click="insertNextRow(row, 'current')">下一行位置插入新节点</vxe-button>
-          <vxe-button type="text" status="primary" @click="insertRow(row, 'top')">顶部插入子节点</vxe-button>
-          <vxe-button type="text" status="primary" @click="insertRow(row, 'bottom')">尾部插入子节点</vxe-button>
-          <vxe-button type="text" status="danger" @click="removeRow(row)">删除节点</vxe-button>
+          <vxe-button mode="text" status="primary" @click="insertRow(row, 'current')">当前位置插入节点</vxe-button>
+          <vxe-button mode="text" status="primary" @click="insertNextRow(row, 'current')">下一行位置插入新节点</vxe-button>
+          <vxe-button mode="text" status="primary" @click="insertRow(row, 'top')">顶部插入子节点</vxe-button>
+          <vxe-button mode="text" status="primary" @click="insertRow(row, 'bottom')">尾部插入子节点</vxe-button>
+          <vxe-button mode="text" status="danger" @click="removeRow(row)">删除节点</vxe-button>
         </template>
       </vxe-column>
     </vxe-table>

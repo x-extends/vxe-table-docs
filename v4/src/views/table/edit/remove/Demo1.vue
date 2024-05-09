@@ -12,7 +12,7 @@
     </vxe-toolbar>
 
     <vxe-table
-      ref="xTable"
+      ref="tableRef"
       border
       show-overflow
       :data="tableData"
@@ -51,7 +51,7 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
@@ -63,7 +63,7 @@ const tableData = ref<RowVO[]>([
 ])
 
 const insertEvent = async (row?: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const record = {
       sex: '1'
@@ -74,14 +74,14 @@ const insertEvent = async (row?: RowVO) => {
 }
 
 const removeSelectRowEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.removeCheckboxRow()
   }
 }
 
 const removeEvent = async (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const type = await VXETable.modal.confirm('您确定要删除该数据?')
     if (type === 'confirm') {
@@ -91,7 +91,7 @@ const removeEvent = async (row: RowVO) => {
 }
 
 const getRemoveEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
     VXETable.modal.alert(removeRecords.length)
@@ -99,7 +99,7 @@ const getRemoveEvent = () => {
 }
 
 const getSelectionEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
     VXETable.modal.alert(selectRecords.length)
@@ -107,7 +107,7 @@ const getSelectionEvent = () => {
 }
 
 const saveEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
     VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)

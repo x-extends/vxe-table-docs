@@ -21,11 +21,11 @@
     <div class="example-code">
       <div class="example-btns">
         <vxe-tooltip :content="$t('app.body.button.fixDocTip')">
-          <vxe-button class="example-btn" type="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
+          <vxe-button class="example-btn" mode="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.body.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
-        <vxe-button class="example-btn" type="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showJsCode && !showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
-        <vxe-button class="example-btn" type="text" :status="showJsCode ? 'primary' : ''" :loading="jsLoading" :icon="showJsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleJsVisible">{{ $t(showJsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
-        <vxe-button class="example-btn" type="text" :status="showTsCode ? 'primary' : ''" :loading="tsLoading" :icon="showTsCode ? 'vxe-icon-arrow-up' : 'vxe-icon-arrow-down'" @click="toggleTsVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showJsCode && !showTsCode">{{ $t('app.body.button.copyCode') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showJsCode ? 'primary' : ''" :loading="jsLoading" :icon="showJsCode ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleJsVisible">{{ $t(showJsCode ? 'app.body.button.hideCode' : 'app.body.button.showJsCode') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showTsCode ? 'primary' : ''" :loading="tsLoading" :icon="showTsCode ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleTsVisible">{{ $t(showTsCode ? 'app.body.button.hideCode' : 'app.body.button.showTsCode') }}</vxe-button>
       </div>
       <div class="example-code-warpper" v-show="showJsCode">
         <div v-for="(item, index) in importJsCodes" :key="index" class="example-code-item">
@@ -239,7 +239,7 @@ const openDocs = () => {
 <style lang="scss" scoped>
 .code-light {
   margin: 60px 0;
-  border: 1px solid #e8eaec;
+  border: 1px solid var(--vxe-table-docs-layout-border-color);
   border-radius: 4px;
   ::v-deep(.tip) {
     margin: 0;
@@ -263,7 +263,7 @@ const openDocs = () => {
   align-items: center;
   justify-content: center;
   height: 60px;
-  border-top: 1px dashed #f0f0f0;
+  border-top: 1px dashed var(--vxe-table-docs-layout-border-color);
   .example-btn {
     min-width: 100px;
   }

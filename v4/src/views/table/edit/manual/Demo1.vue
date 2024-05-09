@@ -3,7 +3,7 @@
     <vxe-table
       border
       show-overflow
-      ref="xTable"
+      ref="tableRef"
       :column-config="{resizable: true}"
       :loading="loading"
       :data="tableData"
@@ -92,7 +92,7 @@ interface RowVO {
   date13: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([
@@ -126,21 +126,21 @@ const formatMultiSex = (values: string[]) => {
 }
 
 const isActiveStatus = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     return $table.isEditByRow(row)
   }
 }
 
 const editRowEvent = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.setEditRow(row)
   }
 }
 
 const saveRowEvent = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearEdit().then(() => {
       loading.value = true
@@ -153,7 +153,7 @@ const saveRowEvent = (row: RowVO) => {
 }
 
 const cancelRowEvent = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearEdit().then(() => {
       // 还原行数据

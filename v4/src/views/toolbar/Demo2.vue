@@ -14,8 +14,8 @@
         </vxe-button>
       </template>
       <template #tools>
-        <vxe-button type="text" icon="vxe-icon-undo" class="tool-btn"></vxe-button>
-        <vxe-button type="text" icon="vxe-icon-funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
+        <vxe-button mode="text" icon="vxe-icon-undo" class="tool-btn"></vxe-button>
+        <vxe-button mode="text" icon="vxe-icon-funnel" class="tool-btn" @click="funnelEvent"></vxe-button>
       </template>
     </vxe-toolbar>
 

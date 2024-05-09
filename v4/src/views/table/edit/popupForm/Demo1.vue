@@ -9,7 +9,7 @@
     <vxe-table
       border
       show-overflow
-      ref="xTable"
+      ref="tableRef"
       height="300"
       :column-config="{resizable: true}"
       :row-config="{isHover: true}"
@@ -22,8 +22,8 @@
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
       <vxe-column title="操作" width="100" show-overflow>
         <template #default="{ row }">
-          <vxe-button type="text" icon="vxe-icon-edit" @click="editEvent(row)"></vxe-button>
-          <vxe-button type="text" icon="vxe-icon-delete" @click="removeEvent(row)"></vxe-button>
+          <vxe-button mode="text" icon="vxe-icon-edit" @click="editEvent(row)"></vxe-button>
+          <vxe-button mode="text" icon="vxe-icon-delete" @click="removeEvent(row)"></vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -127,7 +127,7 @@ interface RowVO {
   checkedList: any[]
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const formData = reactive({
   name: '',
@@ -204,7 +204,7 @@ const cellDBLClickEvent: VxeTableEvents.CellDblclick<RowVO> = ({ row }) => {
 const removeEvent = async (row: RowVO) => {
   const type = await VXETable.modal.confirm('您确定要删除该数据?')
   if (type === 'confirm') {
-    const $table = xTable.value
+    const $table = tableRef.value
     if ($table) {
       $table.remove(row)
     }
@@ -214,7 +214,7 @@ const removeEvent = async (row: RowVO) => {
 const submitEvent = () => {
   submitLoading.value = true
   setTimeout(() => {
-    const $table = xTable.value
+    const $table = tableRef.value
     if ($table) {
       submitLoading.value = false
       showEdit.value = false

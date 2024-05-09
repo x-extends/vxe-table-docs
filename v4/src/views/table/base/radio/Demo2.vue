@@ -8,7 +8,7 @@
 
     <vxe-table
       border
-      ref="xTable"
+      ref="tableRef"
       height="300"
       :radio-config="radioConfig"
       :data="tableData">
@@ -33,7 +33,7 @@ interface RowVO {
   address: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -54,14 +54,14 @@ const radioConfig = reactive<VxeTablePropTypes.RadioConfig<RowVO>>({
 })
 
 const setSelectRow = (index: number) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.setRadioRow(tableData.value[index])
   }
 }
 
 const clearRadioRowEevnt = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.clearRadioRow()
   }

@@ -4,7 +4,7 @@
       border
       show-overflow
       keep-source
-      ref="xTable"
+      ref="tableRef"
       :loading="loading"
       :data="tableData"
       :edit-config="{trigger: 'manual', mode: 'row', autoClear: false, showStatus: true}">
@@ -72,7 +72,7 @@ interface RowVO {
   date13: string
 }
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
@@ -92,21 +92,21 @@ const formatSex = (value: string) => {
 }
 
 const editRowEvent = async (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     await $table.setEditRow(row)
   }
 }
 
 const isActiveStatus = (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     return $table.isEditByRow(row)
   }
 }
 
 const saveRowEvent = async (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     await $table.clearEdit()
     // 重新加载行
@@ -116,7 +116,7 @@ const saveRowEvent = async (row: RowVO) => {
 }
 
 const cancelRowEvent = async (row: RowVO) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     await $table.clearEdit()
     // 还原数据

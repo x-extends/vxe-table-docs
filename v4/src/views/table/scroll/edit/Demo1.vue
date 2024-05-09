@@ -5,19 +5,19 @@
         <vxe-button>
           <template #default>新增操作</template>
           <template #dropdowns>
-            <vxe-button type="text" @click="insertEvent()">从第一行插入</vxe-button>
-            <vxe-button type="text" @click="insertEvent(-1)">从最后插入</vxe-button>
-            <vxe-button type="text" @click="insertActiveEvent1">插入到 100 行</vxe-button>
-            <vxe-button type="text" @click="insertActiveEvent2">插入到 300 行</vxe-button>
+            <vxe-button mode="text" @click="insertEvent()">从第一行插入</vxe-button>
+            <vxe-button mode="text" @click="insertEvent(-1)">从最后插入</vxe-button>
+            <vxe-button mode="text" @click="insertActiveEvent1">插入到 100 行</vxe-button>
+            <vxe-button mode="text" @click="insertActiveEvent2">插入到 300 行</vxe-button>
           </template>
         </vxe-button>
         <vxe-button>
           <template #default>删除操作</template>
           <template #dropdowns>
-            <vxe-button type="text" @click="removeCheckRowEvent">删除选中</vxe-button>
-            <vxe-button type="text" @click="removeRowEvent1">删除第一行</vxe-button>
-            <vxe-button type="text" @click="removeRowEvent2">删除最后一行</vxe-button>
-            <vxe-button type="text" @click="removeRowEvent3">删除第 100 行</vxe-button>
+            <vxe-button mode="text" @click="removeCheckRowEvent">删除选中</vxe-button>
+            <vxe-button mode="text" @click="removeRowEvent1">删除第一行</vxe-button>
+            <vxe-button mode="text" @click="removeRowEvent2">删除最后一行</vxe-button>
+            <vxe-button mode="text" @click="removeRowEvent3">删除第 100 行</vxe-button>
           </template>
         </vxe-button>
         <vxe-button @click="getInsertEvent">获取新增</vxe-button>
@@ -30,7 +30,7 @@
       border
       show-overflow
       keep-source
-      ref="xTable"
+      ref="tableRef"
       height="500"
       :column-config="{resizable: true}"
       :export-config="{}"
@@ -90,7 +90,7 @@ interface RowVO {
 
 const loading = ref(false)
 
-const xTable = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const mockList = (size: number) => {
   const list: RowVO[] = []
@@ -115,7 +115,7 @@ const findList = () => {
     setTimeout(() => {
       const data = mockList(600)
       // 阻断 vue 对大数组的监听，避免 vue 绑定大数据造成短暂的卡顿
-      const $table = xTable.value
+      const $table = tableRef.value
       if ($table) {
         $table.loadData(data)
       }
@@ -126,7 +126,7 @@ const findList = () => {
 }
 
 const insertEvent = (rowOrIndex?: RowVO | number) => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const record = {
       checked: false
@@ -138,49 +138,49 @@ const insertEvent = (rowOrIndex?: RowVO | number) => {
 }
 
 const insertActiveEvent1 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     insertEvent($table.getData(100))
   }
 }
 
 const insertActiveEvent2 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     insertEvent($table.getData(300))
   }
 }
 
 const removeCheckRowEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.removeCheckboxRow()
   }
 }
 
 const removeRowEvent1 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.remove($table.getData(0))
   }
 }
 
 const removeRowEvent2 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.remove($table.getData($table.getData().length - 1))
   }
 }
 
 const removeRowEvent3 = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     $table.remove($table.getData(100))
   }
 }
 
 const getInsertEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
     VXETable.modal.alert(insertRecords.length)
@@ -188,7 +188,7 @@ const getInsertEvent = () => {
 }
 
 const getRemoveEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
     VXETable.modal.alert(removeRecords.length)
@@ -196,7 +196,7 @@ const getRemoveEvent = () => {
 }
 
 const getUpdateEvent = () => {
-  const $table = xTable.value
+  const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
     VXETable.modal.alert(updateRecords.length)

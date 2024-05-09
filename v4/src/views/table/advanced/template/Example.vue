@@ -3,7 +3,7 @@
     <CodeLight path="table/advanced/template/Demo1">
       <template #tip>
         <div>
-          单元格模板，使用插槽 <table-column-api-link prop="default"/> 来自定义模板（提前格式化（最优） > <table-column-api-link prop="formatter"/>（field值发生变化时） > <table-column-api-link prop="slots"/>（实时））<br>
+          单元格模板，使用插槽 <table-column-api-link prop="default"/> 来自定义模板（提前转换好数据（最优） > <table-column-api-link prop="formatter"/>（field值发生变化时） > <table-column-api-link prop="slots"/>（实时响应））<br>
         </div>
       </template>
     </CodeLight>
