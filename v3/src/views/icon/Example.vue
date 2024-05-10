@@ -8,10 +8,17 @@
 
     <div>
       <h2>内置图标集合</h2>
-      <ul class="vxe-row icon-list" title="点击复制内容">
-        <li class="vxe-col--4" v-for="name in iconList" :key="name" @click="copyEvent(name)">
-          <i :class="`${prefixClass}${name}`"></i>
-          <div class="title">{{ prefixClass }}{{ name }}</div>
+      <ul class="icon-list" title="点击复制内容">
+        <li class="icon-item" v-for="name in iconList" :key="name">
+          <div class="icon-title">
+            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(name)">{{ name }}</vxe-button>
+          </div>
+          <div class="icon-preview">
+            <vxe-icon :name="name"></vxe-icon>
+          </div>
+          <div class="icon-name">
+            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(`${prefixClass}${name}`)">{{ prefixClass }}{{ name }}</vxe-button>
+          </div>
         </li>
       </ul>
     </div>
@@ -31,8 +38,8 @@ export default {
   },
   methods: {
     copyEvent (name) {
-      if (XEClipboard.copy(`${this.prefixClass}${name}`)) {
-        VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+      if (XEClipboard.copy(name)) {
+        VXETable.modal.message({ content: `${name} 已复制到剪贴板！`, status: 'success' })
       }
     }
   }
@@ -41,7 +48,9 @@ export default {
 
 <style lang="scss" scoped>
 .icon-list {
-  font-size: 26px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   text-align: center;
   border-top: 1px solid #eee;
   border-left: 1px solid #eee;
@@ -52,25 +61,28 @@ export default {
     content: "";
     clear: both;
   }
-  & > li {
-    height: 100px;
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    width: 12.8%;
+    height: 120px;
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
     cursor: pointer;
-    padding-top: 10px;
-    & > i {
-      color: #606266;
-      border-color: #606266;
+    .icon-title,
+    .icon-name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 0;
+      flex-shrink: 0;
     }
-    &:hover {
-      & > i {
-        color: #5CB6FF;
-        border-color: #5CB6FF;
-      }
-    }
-    .title {
-      font-size: 14px;
-      margin-top: 10px;
+    .icon-preview {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      font-size: 36px;
     }
   }
 }

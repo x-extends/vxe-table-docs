@@ -2,19 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { VXETable } from 'vxe-table'
 
-const currTheme = localStorage.getItem('VXE_THEME') || 'default'
-
-VXETable.config({
-  theme: currTheme
-})
-
-document.documentElement.setAttribute('vxe-docs-theme', currTheme)
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    theme: currTheme,
+    theme: '',
     docsVersion: '3',
     serveTY: new Date().getFullYear(),
     baseApiUrl: process.env.VUE_APP_MAIN_URL,
