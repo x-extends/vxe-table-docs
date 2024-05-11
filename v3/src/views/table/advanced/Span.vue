@@ -69,7 +69,7 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="key" title="Key"></vxe-column>
       <vxe-column field="content" title="Translate"></vxe-column>
-      <vxe-column field="language" title="Language" :filters="[{label: '中文', value: 'zh_CN' }, {label: 'English', value: 'en_US'}]"></vxe-column>
+      <vxe-column field="language" title="Language" :filters="languageOptions"></vxe-column>
     </vxe-table>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>
@@ -87,6 +87,10 @@ export default {
   data () {
     return {
       allAlign: null,
+      languageOptions: [
+        { label: '中文', value: 'zh_CN' },
+        { label: 'English', value: 'en_US' }
+      ],
       tableData: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
         { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
@@ -217,13 +221,17 @@ export default {
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="key" title="Key"></vxe-column>
           <vxe-column field="content" title="Translate"></vxe-column>
-          <vxe-column field="language" title="Language" :filters="[{label: '中文', value: 'zh_CN' }, {label: 'English', value: 'en_US'}]"></vxe-column>
+          <vxe-column field="language" title="Language" :filters="languageOptions"></vxe-column>
         </vxe-table>
         `,
         `
         export default {
           data () {
             return {
+              languageOptions: [
+                { label: '中文', value: 'zh_CN' },
+                { label: 'English', value: 'en_US' }
+              ],
               tableData3: [
                 { id: 10001, key: 'app.label.name', content: '名称', language: 'zh_CN' },
                 { id: 10002, key: 'app.label.name', content: 'Name', language: 'en_US' },

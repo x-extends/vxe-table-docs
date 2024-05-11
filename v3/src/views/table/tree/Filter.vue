@@ -11,7 +11,7 @@
       <vxe-column type="seq" width="140" tree-node></vxe-column>
       <vxe-column field="name" title="名称"></vxe-column>
       <vxe-column field="size" title="大小" width="140"></vxe-column>
-      <vxe-column field="type" title="类型" width="140" :filters="[{label: 'js', value: 'js'}, {label: 'mp3', value: 'mp3'}, {label: 'avi', value: 'avi'}]"></vxe-column>
+      <vxe-column field="type" title="类型" width="140" :filters="typeOptions"></vxe-column>
       <vxe-column field="date" title="修改日期" width="260"></vxe-column>
     </vxe-table>
 
@@ -28,6 +28,11 @@
 export default {
   data () {
     return {
+      typeOptions: [
+        { label: 'js', value: 'js' },
+        { label: 'mp3', value: 'mp3' },
+        { label: 'avi', value: 'avi' }
+      ],
       tableData: [
         { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
         { id: 10050, parentId: null, name: 'Test2', type: 'mp4', size: null, date: '2021-04-01' },
@@ -60,7 +65,7 @@ export default {
           <vxe-column type="seq" width="140" tree-node></vxe-column>
           <vxe-column field="name" title="名称"></vxe-column>
           <vxe-column field="size" title="大小" width="140"></vxe-column>
-          <vxe-column field="type" title="类型" width="140" :filters="[{label: 'js', value: 'js'}, {label: 'mp3', value: 'mp3'}, {label: 'avi', value: 'avi'}]"></vxe-column>
+          <vxe-column field="type" title="类型" width="140" :filters="typeOptions"></vxe-column>
           <vxe-column field="date" title="修改日期" width="260"></vxe-column>
         </vxe-table>
         `,
@@ -68,6 +73,11 @@ export default {
         export default {
           data () {
             return {
+              typeOptions: [
+                { label: 'js', value: 'js' },
+                { label: 'mp3', value: 'mp3' },
+                { label: 'avi', value: 'avi' }
+              ],
               tableData: [
                 { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
                 { id: 10050, parentId: null, name: 'Test2', type: 'mp4', size: null, date: '2021-04-01' },

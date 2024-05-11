@@ -61,7 +61,9 @@ export default {
           field: 'sex',
           title: 'Sex',
           showHeaderOverflow: true,
-          filters: [{ data: '' }],
+          filters: [
+            { data: '' }
+          ],
           filterMethod: this.filterSexMethod,
           editRender: {},
           slots: {
@@ -186,7 +188,9 @@ export default {
                   field: 'sex',
                   title: 'Sex',
                   showHeaderOverflow: true,
-                  filters: [{ data: '' }],
+                  filters: [
+                    { data: '' }
+                  ],
                   filterMethod: this.filterSexMethod,
                   editRender: {},
                   slots: {

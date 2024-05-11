@@ -10,7 +10,7 @@
       :sort-config="{iconAsc: 'vxe-icon-arrow-up', iconDesc: 'vxe-icon-arrow-down'}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" sortable :filters="[{label: 'id大于10', value: 10}, {label: 'id大于40', value: 40}]" :filter-method="filterNameMethod"></vxe-column>
+      <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="age" title="Age" sortable></vxe-column>
       <vxe-column field="address" title="Address" sortable></vxe-column>
@@ -29,6 +29,10 @@
 export default {
   data () {
     return {
+      nameOptions: [
+        { label: 'id大于10', value: 10 },
+        { label: 'id大于40', value: 40 }
+      ],
       tableData: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
         { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
@@ -49,7 +53,7 @@ export default {
           :sort-config="{iconAsc: 'vxe-icon-arrow-up', iconDesc: 'vxe-icon-arrow-down'}"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" sortable :filters="[{label: 'id大于10', value: 10}, {label: 'id大于40', value: 40}]" :filter-method="filterNameMethod"></vxe-column>
+          <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
           <vxe-column field="role" title="Role"></vxe-column>
           <vxe-column field="age" title="Age" sortable></vxe-column>
           <vxe-column field="address" title="Address" sortable></vxe-column>
@@ -59,6 +63,10 @@ export default {
         export default {
           data () {
             return {
+              nameOptions: [
+                { label: 'id大于10', value: 10 },
+                { label: 'id大于40', value: 40 }
+              ],
               tableData: [
                 { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
                 { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },

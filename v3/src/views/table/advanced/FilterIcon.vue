@@ -11,8 +11,8 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="Role" :filters="[{label: '前端', value: '前端'}, {label: '后端', value: '后端'}]"></vxe-column>
-      <vxe-column field="sex" title="Sex" sortable :filter-multiple="false" :filters="[{label: 'Man', value: '1'}, {label: 'Woman', value: '0'}]"></vxe-column>
+      <vxe-column field="role" title="Role" :filters="roleOptions"></vxe-column>
+      <vxe-column field="sex" title="Sex" sortable :filter-multiple="false" :filters="sexOptions"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address" sortable></vxe-column>
     </vxe-table>
@@ -32,6 +32,14 @@ export default {
     return {
       loading: false,
       tableData: [],
+      roleOptions: [
+        { label: '前端', value: '前端' },
+        { label: '后端', value: '后端' }
+      ],
+      sexOptions: [
+        { label: 'Man', value: '1' },
+        { label: 'Woman', value: '0' }
+      ],
       demoCodes: [
         `
         <vxe-table
@@ -43,8 +51,8 @@ export default {
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>
-          <vxe-column field="role" title="Role" :filters="[{label: '前端', value: '前端'}, {label: '后端', value: '后端'}]"></vxe-column>
-          <vxe-column field="sex" title="Sex" sortable :filter-multiple="false" :filters="[{label: 'Man', value: '1'}, {label: 'Woman', value: '0'}]"></vxe-column>
+          <vxe-column field="role" title="Role" :filters="roleOptions"></vxe-column>
+          <vxe-column field="sex" title="Sex" sortable :filter-multiple="false" :filters="sexOptions"></vxe-column>
           <vxe-column field="age" title="Age"></vxe-column>
           <vxe-column field="address" title="Address" sortable></vxe-column>
         </vxe-table>
@@ -54,7 +62,15 @@ export default {
           data () {
             return {
               loading: false,
-              tableData: []
+              tableData: [],
+              roleOptions: [
+                { label: '前端', value: '前端' },
+                { label: '后端', value: '后端' }
+              ],
+              sexOptions: [
+                { label: 'Man', value: '1' },
+                { label: 'Woman', value: '0' }
+              ]
             }
           },
           created () {

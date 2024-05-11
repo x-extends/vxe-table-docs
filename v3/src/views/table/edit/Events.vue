@@ -19,7 +19,7 @@
           <vxe-input v-model="row.role" type="text" @change="roleChangeEvent({ column })"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="nickname" title="Nickname" :filters="[{ data: '' }]" :filter-render="{}" :edit-render="{}">
+      <vxe-column field="nickname" title="Nickname" :filters="nicknameOptions" :filter-render="{}" :edit-render="{}">
         <template #filter="{ column, $panel }">
           <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="enterFilterEvent({ column, $panel })">
         </template>
@@ -57,6 +57,9 @@
 export default {
   data () {
     return {
+      nicknameOptions: [
+        { data: '' }
+      ],
       tableData: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
         { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, address: 'Guangzhou' },
@@ -88,7 +91,7 @@ export default {
               <vxe-input v-model="row.role" type="text" @change="roleChangeEvent({ column })"></vxe-input>
             </template>
           </vxe-column>
-          <vxe-column field="nickname" title="Nickname" :filters="[{ data: '' }]" :filter-render="{}" :edit-render="{}">
+          <vxe-column field="nickname" title="Nickname" :filters="nicknameOptions" :filter-render="{}" :edit-render="{}">
             <template #filter="{ column, $panel }">
               <input type="type" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="enterFilterEvent({ column, $panel })">
             </template>
@@ -117,6 +120,9 @@ export default {
         export default {
           data () {
             return {
+              nicknameOptions: [
+                { data: '' }
+              ],
               tableData: [
                 { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
                 { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, address: 'Guangzhou' },

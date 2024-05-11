@@ -13,7 +13,7 @@
       :sort-config="{showIcon: false}"
       @header-cell-click="headerCellClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" sortable :filters="[{label: 'id大于10', value: 10}, {label: 'id大于40', value: 40}]" :filter-method="filterNameMethod">
+      <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod">
         <template #header="{ column }">
           <span>{{ column.title }}</span>
           <span class="custom-sort" :class="{'is-order': column.order}">
@@ -56,6 +56,10 @@ import XEUtils from 'xe-utils'
 export default {
   data () {
     return {
+      nameOptions: [
+        { label: 'id大于10', value: 10 },
+        { label: 'id大于40', value: 40 }
+      ],
       tableData: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, amount: 888, address: 'test abc' },
         { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, amount: 666, address: 'Guangzhou' },
@@ -79,7 +83,7 @@ export default {
           :sort-config="{showIcon: false}"
           @header-cell-click="headerCellClickEvent">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column field="name" title="Name" sortable :filters="[{label: 'id大于10', value: 10}, {label: 'id大于40', value: 40}]" :filter-method="filterNameMethod">
+          <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod">
             <template #header="{ column }">
               <span>{{ column.title }}</span>
               <span class="custom-sort" :class="{'is-order': column.order}">
@@ -112,6 +116,10 @@ export default {
         export default {
           data () {
             return {
+              nameOptions: [
+                { label: 'id大于10', value: 10 },
+                { label: 'id大于40', value: 40 }
+              ],
               tableData: [
                 { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, amount: 888, address: 'test abc' },
                 { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, amount: 666, address: 'Guangzhou' },

@@ -37,7 +37,15 @@ export default {
         { key: 1, type: 'checkbox', width: 50, fixed: null },
         { key: 2, field: 'name', title: 'Name', width: 200 },
         { key: 3, field: 'nickname', title: 'Nickname', width: 300 },
-        { key: 4, field: 'sex', title: 'Sex', width: 200, filters: [{ value: '1', label: '男' }] },
+        {
+          key: 4,
+          field: 'sex',
+          title: 'Sex',
+          width: 200,
+          filters: [
+            { value: '1', label: '男' }
+          ]
+        },
         { key: 5, field: 'role', title: 'Role', width: 200 },
         { key: 6, field: 'address', title: 'Address', width: 300 }
       ],

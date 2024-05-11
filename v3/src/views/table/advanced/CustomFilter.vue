@@ -11,21 +11,21 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="文本">
-        <vxe-column field="name" :filters="[{data: ''}]" :filter-method="customStringFilterMethod">
+        <vxe-column field="name" :filters="nameOptions" :filter-method="customStringFilterMethod">
           <template #header="{ column }">
             <vxe-input type="text" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="filterEvent(option)" placeholder="请输入" clearable></vxe-input>
           </template>
         </vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="日期">
-        <vxe-column field="date" :filters="[{data: ''}]" :filter-method="customDateFilterMethod">
+        <vxe-column field="date" :filters="dateOptions" :filter-method="customDateFilterMethod">
           <template #header="{ column }">
             <vxe-input type="date" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="filterEvent(option)" placeholder="请选择" clearable transfer></vxe-input>
           </template>
         </vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="下拉框">
-        <vxe-column field="sex" :filters="[{data: ''}]" :filter-method="customEqualFilterMethod" :formatter="formatterSex">
+        <vxe-column field="sex" :filters="sexOptions" :filter-method="customEqualFilterMethod" :formatter="formatterSex">
           <template #header="{ column }">
             <vxe-select v-for="(option, index) in column.filters" :key="index" v-model="option.data" :options="sexList" @change="filterEvent(option)" placeholder="请选择" clearable transfer></vxe-select>
           </template>
@@ -51,6 +51,15 @@ export default {
     return {
       loading: false,
       tableData: [],
+      nameOptions: [
+        { data: '' }
+      ],
+      dateOptions: [
+        { data: '' }
+      ],
+      sexOptions: [
+        { data: '' }
+      ],
       sexList: [
         { label: '女', value: '0' },
         { label: '男', value: '1' }
@@ -66,21 +75,21 @@ export default {
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-colgroup title="文本">
-            <vxe-column field="name" :filters="[{data: ''}]" :filter-method="customStringFilterMethod">
+            <vxe-column field="name" :filters="nameOptions" :filter-method="customStringFilterMethod">
               <template #header="{ column }">
                 <vxe-input type="text" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="filterEvent(option)" placeholder="请输入" clearable></vxe-input>
               </template>
             </vxe-column>
           </vxe-colgroup>
           <vxe-colgroup title="日期">
-            <vxe-column field="date" :filters="[{data: ''}]" :filter-method="customDateFilterMethod">
+            <vxe-column field="date" :filters="dateOptions" :filter-method="customDateFilterMethod">
               <template #header="{ column }">
                 <vxe-input type="date" v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="filterEvent(option)" placeholder="请选择" clearable transfer></vxe-input>
               </template>
             </vxe-column>
           </vxe-colgroup>
           <vxe-colgroup title="下拉框">
-            <vxe-column field="sex" :filters="[{data: ''}]" :filter-method="customEqualFilterMethod" :formatter="formatterSex">
+            <vxe-column field="sex" :filters="sexOptions" :filter-method="customEqualFilterMethod" :formatter="formatterSex">
               <template #header="{ column }">
                 <vxe-select v-for="(option, index) in column.filters" :key="index" v-model="option.data" :options="sexList" @change="filterEvent(option)" placeholder="请选择" clearable transfer></vxe-select>
               </template>
@@ -97,6 +106,15 @@ export default {
             return {
               loading: false,
               tableData: [],
+              nameOptions: [
+                { data: '' }
+              ],
+              dateOptions: [
+                { data: '' }
+              ],
+              sexOptions: [
+                { data: '' }
+              ],
               sexList: [
                 { label: '女', value: '0' },
                 { label: '男', value: '1' }

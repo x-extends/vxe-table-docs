@@ -14,13 +14,8 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column type="checkbox" title="ID" width="140"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
-      <vxe-column field="sex" title="Sex" :filters="sexList" :filter-multiple="false" :formatter="formatterSex"></vxe-column>
-      <vxe-column
-        field="age"
-        title="Age"
-        sortable
-        :filters="[{label: '大于16岁', value: 16}, {label: '大于26岁', value: 26}, {label: '大于30岁', value: 30}]"
-        :filter-method="filterAgeMethod"></vxe-column>
+      <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-multiple="false" :formatter="formatterSex"></vxe-column>
+      <vxe-column field="age" title="Age" sortable :filters="ageOptions" :filter-method="filterAgeMethod"></vxe-column>
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
     </vxe-table>
 
@@ -39,9 +34,14 @@ export default {
     return {
       loading: false,
       tableData: [],
-      sexList: [
+      sexOptions: [
         { label: '女', value: '0' },
         { label: '男', value: '1' }
+      ],
+      ageOptions: [
+        { label: '大于16岁', value: 16 },
+        { label: '大于26岁', value: 26 },
+        { label: '大于30岁', value: 30 }
       ],
       demoCodes: [
         `
@@ -57,13 +57,8 @@ export default {
           <vxe-column type="seq" width="60"></vxe-column>
           <vxe-column type="checkbox" title="ID" width="140"></vxe-column>
           <vxe-column field="name" title="Name" sortable></vxe-column>
-          <vxe-column field="sex" title="Sex" :filters="sexList" :filter-multiple="false" :formatter="formatterSex"></vxe-column>
-          <vxe-column
-            field="age"
-            title="Age"
-            sortable
-            :filters="[{label: '大于16岁', value: 16}, {label: '大于26岁', value: 26}, {label: '大于30岁', value: 30}]"
-            :filter-method="filterAgeMethod"></vxe-column>
+          <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-multiple="false" :formatter="formatterSex"></vxe-column>
+          <vxe-column field="age" title="Age" sortable :filters="ageOptions" :filter-method="filterAgeMethod"></vxe-column>
           <vxe-column field="address" title="Address" show-overflow></vxe-column>
         </vxe-table>
         `,
@@ -73,9 +68,14 @@ export default {
             return {
               loading: false,
               tableData: [],
-              sexList: [
+              sexOptions: [
                 { label: '女', value: '0' },
                 { label: '男', value: '1' }
+              ],
+              ageOptions: [
+                { label: '大于16岁', value: 16 },
+                { label: '大于26岁', value: 26 },
+                { label: '大于30岁', value: 30 }
               ]
             }
           },

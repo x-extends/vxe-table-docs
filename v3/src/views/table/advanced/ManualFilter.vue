@@ -31,7 +31,7 @@
         field="role"
         title="Role"
         sortable
-        :filters="[{ data: '' }]"
+        :filters="roleOptions"
         :filter-method="filterRoleMethod">
         <template #filter="{ $panel, column }">
           <select class="my-select" v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="$panel.changeOption($event, !!option.data, option)">
@@ -44,8 +44,8 @@
         title="Sex"
         sortable
         :filter-multiple="false"
-        :filters="[{label: 'Man', value: '1'}, {label: 'Woman', value: '0'}]"></vxe-column>
-      <vxe-column field="age" title="Age" :filters="[{ data: '' }]" :filter-method="filterAgeMethod" :filter-recover-method="filterAgeRecoverMethod">
+        :filters="sexOptions"></vxe-column>
+      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod" :filter-recover-method="filterAgeRecoverMethod">
         <template #filter="{ $panel, column }">
           <template v-for="(option, index) in column.filters">
             <input class="my-input" type="type" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="$panel.confirmFilter()" placeholder="按回车确认筛选">
@@ -73,6 +73,16 @@ export default {
     return {
       loading: false,
       tableData: [],
+      roleOptions: [
+        { data: '' }
+      ],
+      sexOptions: [
+        { label: 'Man', value: '1' },
+        { label: 'Woman', value: '0' }
+      ],
+      ageOptions: [
+        { data: '' }
+      ],
       roleList: ['', 'Develop', 'PM', 'Test'],
       nameOptions: [
         { label: '包含 6', value: '6' },
@@ -100,17 +110,12 @@ export default {
           :loading="loading"
           :data="tableData">
           <vxe-column type="seq" width="60"></vxe-column>
-          <vxe-column
-            field="name"
-            title="Name"
-            sortable
-            :filters="[{ label: '包含 6', value: '6' }, { label: '包含 4', value: '4' }]"
-            :filter-method="filterNameMethod"></vxe-column>
+          <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
           <vxe-column
             field="role"
             title="Role"
             sortable
-            :filters="[{ data: '' }]"
+            :filters="roleOptions"
             :filter-method="filterRoleMethod">
             <template #filter="{ $panel, column }">
               <select class="my-select" v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="$panel.changeOption($event, !!option.data, option)">
@@ -123,8 +128,8 @@ export default {
             title="Sex"
             sortable
             :filter-multiple="false"
-            :filters="[{label: 'Man', value: '1'}, {label: 'Woman', value: '0'}]"></vxe-column>
-          <vxe-column field="age" title="Age" :filters="[{ data: '' }]" :filter-method="filterAgeMethod" :filter-recover-method="filterAgeRecoverMethod">
+            :filters="sexOptions"></vxe-column>
+          <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod" :filter-recover-method="filterAgeRecoverMethod">
             <template #filter="{ $panel, column }">
               <template v-for="(option, index) in column.filters">
                 <input class="my-input" type="type" :key="index" v-model="option.data" @input="$panel.changeOption($event, !!option.data, option)" @keyup.enter="$panel.confirmFilter()" placeholder="按回车确认筛选">
@@ -142,6 +147,16 @@ export default {
             return {
               loading: false,
               tableData: [],
+              roleOptions: [
+                { data: '' }
+              ],
+              sexOptions: [
+                { label: 'Man', value: '1' },
+                { label: 'Woman', value: '0' }
+              ],
+              ageOptions: [
+                { data: '' }
+              ],
               roleList: ['', 'Develop', 'PM', 'Test']
             }
           },
