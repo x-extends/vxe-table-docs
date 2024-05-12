@@ -25,15 +25,15 @@ const apis = [
         defVal: 'false',
         list: []
       },
-      {
-        name: 'perfect',
-        desc: '配套的样式',
-        version: '',
-        type: 'boolean',
-        enum: '',
-        defVal: '默认 false，继承 setup.toolbar.perfect',
-        list: []
-      },
+      // {
+      //   name: 'perfect',
+      //   desc: '配套的样式',
+      //   version: '',
+      //   type: 'boolean',
+      //   enum: '',
+      //   defVal: '默认 false，继承 setup.toolbar.perfect',
+      //   list: []
+      // },
       {
         name: 'class-name',
         desc: '给工具栏附加 className',

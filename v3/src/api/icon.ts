@@ -21,7 +21,7 @@ const apis = [
         desc: '状态颜色',
         version: '3.7.7',
         type: 'string',
-        enum: 'perfect, primary, success, info, warning, danger',
+        enum: 'primary, success, info, warning, danger',
         defVal: '',
         list: []
       },

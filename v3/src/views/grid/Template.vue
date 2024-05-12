@@ -154,7 +154,6 @@
       <!--自定义插槽 pager 插槽-->
       <template #pager>
         <vxe-pager
-          perfect
           :current-page.sync="tablePage.currentPage"
           :page-size.sync="tablePage.pageSize"
           :total="tablePage.totalResult">
@@ -425,7 +424,6 @@ export default {
           <!--自定义插槽 pager 插槽-->
           <template #pager>
             <vxe-pager
-              perfect
               :current-page.sync="tablePage.currentPage"
               :page-size.sync="tablePage.pageSize"
               :total="tablePage.totalResult">

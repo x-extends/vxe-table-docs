@@ -39,8 +39,7 @@ export default {
   data () {
     return {
       tablePage: {
-        pageSize: 20,
-        perfect: true
+        pageSize: 20
       },
       tableProxy: {
         props: {
@@ -73,7 +72,6 @@ export default {
         }
       },
       tableToolbar: {
-        perfect: true,
         refresh: true,
         zoom: true,
         custom: true,
@@ -119,8 +117,7 @@ export default {
           data () {
             return {
               tablePage: {
-                pageSize: 20,
-                perfect: true
+                pageSize: 20
               },
               tableProxy: {
                 props: {
@@ -151,7 +148,6 @@ export default {
                 }
               },
               tableToolbar: {
-                perfect: true,
                 refresh: true,
                 zoom: true,
                 custom: true,

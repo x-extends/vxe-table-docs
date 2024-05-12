@@ -1,8 +1,8 @@
 .DS_Store
 .history
-docs
-plugins
-pluginDocs
+/docs
+/plugins
+/pluginDocs
 node_modules
 *.zip
 

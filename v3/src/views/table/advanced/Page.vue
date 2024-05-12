@@ -140,7 +140,6 @@
     </vxe-table>
 
     <vxe-pager
-      perfect
       size="mini"
       :loading="loading4"
       :current-page="tablePage4.currentPage"
@@ -458,7 +457,6 @@ export default {
         </vxe-table>
 
         <vxe-pager
-          perfect
           size="mini"
           :loading="loading"
           :current-page="tablePage4.currentPage"

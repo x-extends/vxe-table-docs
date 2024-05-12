@@ -111,7 +111,7 @@ const apis = [
         descKey: 'app.api.button.desc.status',
         version: '',
         type: 'string',
-        enum: 'perfect, primary, success, info, warning, danger',
+        enum: 'primary, success, info, warning, danger',
         defVal: '继承 button-group.status',
         list: []
       },

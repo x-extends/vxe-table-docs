@@ -114,7 +114,6 @@
     </vxe-table>
 
     <vxe-pager
-      perfect
       :current-page.sync="tablePage.currentPage"
       :page-size.sync="tablePage.pageSize"
       :total="tablePage.total"
@@ -294,7 +293,6 @@ export default {
         </vxe-table>
 
         <vxe-pager
-          perfect
           :current-page.sync="tablePage.currentPage"
           :page-size.sync="tablePage.pageSize"
           :total="tablePage.total"

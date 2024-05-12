@@ -1,7 +1,6 @@
 <template>
   <div>
     <vxe-pager
-      perfect
       align="left"
       v-model:current-page="pageVO1.currentPage"
       v-model:page-size="pageVO1.pageSize"

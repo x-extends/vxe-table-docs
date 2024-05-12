@@ -114,10 +114,8 @@ export default {
           //     escRestore: true
           //   },
           //   pagerConfig: {
-          //     perfect: false
           //   },
           //   toolbarConfig: {
-          //     perfect: false
           //   },
           //   proxyConfig: {
           //     autoLoad: true,
@@ -140,7 +138,6 @@ export default {
           // pager: {
           //   size: null,
           //   autoHidden: false,
-          //   perfect: true,
           //   pageSize: 10,
           //   pagerCount: 7,
           //   pageSizes: [10, 15, 20, 50, 100],

@@ -69,7 +69,6 @@
     </vxe-table>
 
     <vxe-pager
-      perfect
       v-model:current-page="pageVO.currentPage"
       v-model:page-size="pageVO.pageSize"
       :total="pageVO.total"

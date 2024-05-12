@@ -96,7 +96,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   pagerConfig: {
     enabled: true,
-    perfect: true,
     pageSize: 15
   },
   editConfig: {
@@ -106,11 +105,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   toolbarConfig: {
     buttons: [
-      { code: 'insert_actived', name: '新增', status: 'perfect', icon: 'vxe-icon-add' },
-      { code: 'mark_cancel', name: 'app.body.button.markCancel', status: 'perfect', icon: 'vxe-icon-delete' },
-      { code: 'save', name: 'app.body.button.save', status: 'perfect', icon: 'vxe-icon-save' }
+      { code: 'insert_actived', name: '新增', icon: 'vxe-icon-add' },
+      { code: 'mark_cancel', name: 'app.body.button.markCancel', icon: 'vxe-icon-delete' },
+      { code: 'save', name: 'app.body.button.save', icon: 'vxe-icon-save' }
     ],
-    perfect: true,
     refresh: {
       icon: 'vxe-icon-refresh',
       iconLoading: 'vxe-icon-refresh roll'

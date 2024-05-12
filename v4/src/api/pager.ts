@@ -106,15 +106,15 @@ const apis = [
         defVal: '默认 false，继承 setup.pager.background',
         list: []
       },
-      {
-        name: 'perfect',
-        desc: '配套的样式',
-        version: '',
-        type: 'boolean',
-        enum: '',
-        defVal: '默认 false，继承 setup.pager.perfect',
-        list: []
-      },
+      // {
+      //   name: 'perfect',
+      //   desc: '配套的样式',
+      //   version: '',
+      //   type: 'boolean',
+      //   enum: '',
+      //   defVal: '默认 false，继承 setup.pager.perfect',
+      //   list: []
+      // },
       {
         name: 'class-name',
         desc: '给分页附加 className',
