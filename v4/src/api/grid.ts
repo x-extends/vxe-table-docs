@@ -214,6 +214,7 @@ const apis = [
           },
           {
             name: 'props',
+            disabled: true,
             desc: '获取的属性配置',
             version: '',
             type: 'any',
@@ -254,6 +255,52 @@ const apis = [
                 type: 'string',
                 enum: '',
                 defVal: 'message',
+                list: []
+              }
+            ]
+          },
+          {
+            name: 'response',
+            desc: '获取响应的值配置',
+            version: '4.6.13',
+            type: 'any',
+            enum: '',
+            defVal: '',
+            list: [
+              {
+                name: 'list',
+                desc: '响应结果中获取数据列表的属性（不分页场景）',
+                version: '',
+                type: 'string | ({ data }) => any[]',
+                enum: '',
+                defVal: '',
+                list: []
+              },
+              {
+                name: 'result',
+                desc: '只对 pager-config 配置了有效，响应结果中获取数据列表的属性（分页场景）',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: 'result | ({ data }) => any[]',
+                list: []
+              },
+              {
+                name: 'total',
+                desc: '只对 pager-config 配置了有效，响应结果中获取分页的属性（分页场景）',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: 'page.total | ({ data }) => number',
+                list: []
+              },
+              {
+                name: 'message',
+                desc: '响应结果中获取提示消息的属性',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: 'message | ({ data }) => string',
                 list: []
               }
             ]
