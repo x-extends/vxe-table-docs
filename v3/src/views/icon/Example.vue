@@ -11,13 +11,13 @@
       <ul class="icon-list" title="点击复制内容">
         <li class="icon-item" v-for="name in iconList" :key="name">
           <div class="icon-title">
-            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(name)">{{ name }}</vxe-button>
+            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(name)" title="点击复制内容">{{ name }}</vxe-button>
           </div>
-          <div class="icon-preview">
+          <div class="icon-preview" @click="copyEvent(`${prefixClass}${name}`)" title="点击复制内容">
             <vxe-icon :name="name"></vxe-icon>
           </div>
           <div class="icon-name">
-            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(`${prefixClass}${name}`)">{{ prefixClass }}{{ name }}</vxe-button>
+            <vxe-button mode="text" status="primary" size="mini" @click="copyEvent(`${prefixClass}${name}`)" title="点击复制内容">{{ prefixClass }}{{ name }}</vxe-button>
           </div>
         </li>
       </ul>
@@ -82,7 +82,7 @@ export default {
       justify-content: center;
       align-items: center;
       flex-grow: 1;
-      font-size: 36px;
+      font-size: 34px;
     }
   }
 }

@@ -12,7 +12,7 @@
       <pre-code class="typescript">
         // ...
         import Components from 'unplugin-vue-components/vite'
-        import VxeTableResolver from '@vxecli/import-unplugin-vue-components'
+        import { VxeTableResolver } from '@vxecli/import-unplugin-vue-components'
 
         export default defineConfig({
           plugins: [
@@ -38,7 +38,7 @@
       <pre-code class="typescript">
         // ...
         import Components from 'unplugin-vue-components/webpack'
-        import VxeTableResolver from '@vxecli/import-unplugin-vue-components'
+        import { VxeTableResolver } from '@vxecli/import-unplugin-vue-components'
 
         export default defineConfig({
           plugins: [
@@ -53,7 +53,7 @@
       </pre-code>
     </pre>
 
-    <p class="tip">
+    <!-- <p class="tip">
       方式3：如果您使用了 vite，借助插件 <a class="link" href="https://www.npmjs.com/package/vite-plugin-style-import" target="_blank">vite-plugin-style-import</a> 可以实现按需加载模块，减少文件体积。
     </p>
     <pre>
@@ -64,7 +64,7 @@
       <pre-code class="typescript">
         // ...
         import { createStyleImportPlugin } from 'vite-plugin-style-import'
-        import VxeTableResolve from '@vxecli/import-vite-plugin-style-import'
+        import { VxeTableResolve } from '@vxecli/import-vite-plugin-style-import'
 
         export default defineConfig({
           plugins: [
@@ -77,7 +77,7 @@
           ]
         })
       </pre-code>
-    </pre>
+    </pre> -->
 
     <h2>使用</h2>
     <p class="tip">
@@ -137,7 +137,7 @@
         import 'vxe-table/styles/cssvar.scss'
 
         // 按需加载的方式默认是不带国际化的，自定义国际化需要自行解析占位符 '{0}'，例如：
-        VXETable.config({
+        VXETable.setConfig({
           i18n: (key, args) => XEUtils.toFormatString(XEUtils.get(zhCN, key), args)
         })
 

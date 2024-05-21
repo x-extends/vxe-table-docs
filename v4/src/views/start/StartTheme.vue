@@ -7,7 +7,7 @@
         import VXETable from 'vxe-table'
 
         // 切换为暗黑主题
-        VXETable.config({
+        VXETable.setConfig({
           theme: 'dark'
         })
       </pre-code>

@@ -72,6 +72,7 @@ import formGatherAPI from '../../api/form-gather'
 import switchAPI from '../../api/switch'
 import listAPI from '../../api/list'
 import pulldownAPI from '../../api/pulldown'
+import drawerAPI from '../../api/drawer'
 
 declare global {
   interface Window {
@@ -110,7 +111,8 @@ if (process.env.NODE_ENV === 'development') {
     ['vxe-form-item', formItemAPI, { description: '表单 - 项' }],
     ['vxe-form-gather', formGatherAPI, { description: '表单 - 项集合' }],
     ['vxe-list', listAPI, { description: '列表' }],
-    ['vxe-pulldown', pulldownAPI, { description: '下拉容器' }]
+    ['vxe-pulldown', pulldownAPI, { description: '下拉容器' }],
+    ['vxe-drawer', drawerAPI, { description: '抽屉' }]
   ]
 
   tagMaps.forEach(confs => {
@@ -298,6 +300,9 @@ export default defineComponent({
               break
             case 'pulldown':
               apis = pulldownAPI
+              break
+            case 'drawer':
+              apis = drawerAPI
               break
           }
           // 生成唯一 id

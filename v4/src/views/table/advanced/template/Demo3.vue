@@ -4,13 +4,13 @@
       border
       show-footer
       :data="tableData"
-      :footer-method="footerMethod">
-      <vxe-column type="seq" width="60"></vxe-column>
+      :footer-data=footerData>
+      <vxe-column field="seq" type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" width="160"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="num" title="Number">
-        <template #footer="{ items, _columnIndex }">
-          <span>￥{{ items[_columnIndex] }}元</span>
+        <template #footer="{ row }">
+          <span style="color: red">￥{{ row.num }}元</span>
         </template>
       </vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -20,8 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { VxeTablePropTypes } from 'vxe-table'
+import { ref, computed } from 'vue'
 
 interface RowVO {
   id: number
@@ -47,16 +46,9 @@ const sumNum = (list: RowVO[], field: string) => {
   return count
 }
 
-const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) => {
+const footerData = computed(() => {
   return [
-    columns.map(column => {
-      if (column.type === 'seq') {
-        return '合计'
-      } else if (['num'].includes(column.field)) {
-        return sumNum(data, column.field)
-      }
-      return '-'
-    })
+    { seq: '合计', num: sumNum(tableData.value, 'num') }
   ]
-}
+})
 </script>

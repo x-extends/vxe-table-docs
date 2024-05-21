@@ -18,7 +18,7 @@ export default new Vuex.Store({
   mutations: {
     setTheme (state, name) {
       state.theme = name
-      VXETable.config({
+      VXETable.setConfig({
         theme: name
       })
       document.documentElement.setAttribute('vxe-docs-theme', name)

@@ -8,16 +8,16 @@
 
     <div>
       <h2>内置图标集合</h2>
-      <ul class="icon-list" title="点击复制内容">
+      <ul class="icon-list">
         <li class="icon-item" v-for="name in iconList" :key="name">
           <div class="icon-title">
-            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(name)">{{ name }}</vxe-button>
+            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(name)" title="点击复制内容">{{ name }}</vxe-button>
           </div>
-          <div class="icon-preview">
+          <div class="icon-preview"  @click="copyEvent(`${prefixClass}${name}`)" title="点击复制内容">
             <vxe-icon :name="name"></vxe-icon>
           </div>
           <div class="icon-name">
-            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(`${prefixClass}${name}`)">{{ prefixClass }}{{ name }}</vxe-button>
+            <vxe-button mode="text" status="info" size="mini" @click="copyEvent(`${prefixClass}${name}`)" title="点击复制内容">{{ prefixClass }}{{ name }}</vxe-button>
           </div>
         </li>
       </ul>
@@ -76,7 +76,7 @@ const copyEvent = (name: string) => {
       justify-content: center;
       align-items: center;
       flex-grow: 1;
-      font-size: 36px;
+      font-size: 34px;
     }
   }
 }

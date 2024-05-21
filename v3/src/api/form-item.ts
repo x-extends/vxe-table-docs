@@ -355,6 +355,15 @@ const apis = [
             list: []
           }
         ]
+      // },
+      // {
+      //   name: 'rules',
+      //   desc: '校验规则',
+      //   version: '3.9.0',
+      //   type: 'VxeFormDefines.FormRule[]',
+      //   enum: '',
+      //   defVal: '',
+      //   list: []
       }
     ]
   },

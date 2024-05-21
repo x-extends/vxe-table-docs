@@ -306,6 +306,7 @@ export default {
         vxeButtonGroup: 'vxe-button-group',
         vxeTooltip: 'vxe-tooltip',
         vxeModal: 'vxe-modal',
+        vxeDrawer: 'vxe-drawer',
         vxeForm: 'vxe-form',
         vxeFormItem: 'vxe-form-item',
         vxeFormGather: 'vxe-form-gather',

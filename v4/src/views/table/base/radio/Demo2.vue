@@ -50,6 +50,9 @@ const radioConfig = reactive<VxeTablePropTypes.RadioConfig<RowVO>>({
   labelField: 'name',
   checkMethod ({ row }) {
     return row.age > 26
+  },
+  visibleMethod ({ row }) {
+    return row.sex === 'Women'
   }
 })
 

@@ -2184,6 +2184,15 @@ const appData = reactive({
             }
           }
         },
+        {
+          label: 'app.aside.nav.vxeDrawer',
+          locat: {
+            name: 'VXEAPI',
+            params: {
+              name: 'drawer'
+            }
+          }
+        },
         // {
         //   label: 'app.aside.nav.vxeTooltip',
         //   locat: {

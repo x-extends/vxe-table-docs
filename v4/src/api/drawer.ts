@@ -35,39 +35,12 @@ const apis = [
         list: []
       },
       {
-        name: 'id',
-        descKey: 'app.api.modal.desc.id',
-        version: '',
-        type: 'string',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
         name: 'title',
         descKey: 'app.api.modal.desc.title',
         version: '',
         type: 'string',
         enum: '',
         defVal: '消息提示',
-        list: []
-      },
-      {
-        name: 'type',
-        descKey: 'app.api.modal.desc.type',
-        version: '',
-        type: 'string',
-        enum: 'alert, confirm, message',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'status',
-        descKey: 'app.api.modal.desc.status',
-        version: '',
-        type: 'string',
-        enum: 'info, success, warning, error, loading',
-        defVal: '',
         list: []
       },
       {
@@ -80,27 +53,8 @@ const apis = [
         list: []
       },
       {
-        name: 'iconStatus',
-        descKey: 'app.api.modal.desc.iconStatus',
-        version: '',
-        type: 'string',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
         name: 'content',
         descKey: 'app.api.modal.desc.content',
-        version: '4.0.10',
-        type: 'string',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'message',
-        abandoned: true,
-        descKey: 'app.api.modal.desc.message',
         version: '',
         type: 'string',
         enum: '',
@@ -110,7 +64,7 @@ const apis = [
       {
         name: 'show-cancel-button',
         desc: '是否显示取消按钮',
-        version: '4.6.14',
+        version: '',
         type: 'boolean',
         enum: '',
         defVal: '默认false（如果 type=confirm 则默认 true）',
@@ -128,7 +82,7 @@ const apis = [
       {
         name: 'show-confirm-button',
         desc: '是否显示取消按钮',
-        version: '4.6.14',
+        version: '',
         type: 'boolean',
         enum: '',
         defVal: '默认false（如果 type=alert|confirm 则默认 true）',
@@ -207,48 +161,12 @@ const apis = [
         list: []
       },
       {
-        name: 'show-zoom',
-        descKey: 'app.api.modal.desc.showZoom',
-        version: '',
-        type: 'Boolean',
-        enum: '',
-        defVal: 'false',
-        list: []
-      },
-      {
         name: 'show-close',
         desc: '是否显示关闭按钮',
-        version: '4.0.14',
+        version: '',
         type: 'Boolean',
         enum: '',
         defVal: 'true',
-        list: []
-      },
-      {
-        name: 'resize',
-        descKey: 'app.api.modal.desc.resize',
-        version: '',
-        type: 'boolean',
-        enum: '',
-        defVal: 'false',
-        list: []
-      },
-      {
-        name: 'margin-size',
-        descKey: 'app.api.modal.desc.marginSize',
-        version: '',
-        type: 'number',
-        enum: '',
-        defVal: '默认 0，继承 setup.modal.marginSize',
-        list: []
-      },
-      {
-        name: 'duration',
-        descKey: 'app.api.modal.desc.duration',
-        version: '',
-        type: 'number | string',
-        enum: '',
-        defVal: '3000',
         list: []
       },
       {
@@ -270,59 +188,13 @@ const apis = [
         list: []
       },
       {
-        name: 'min-width',
-        descKey: 'app.api.modal.desc.minWidth',
-        version: '',
-        type: 'number | string',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'min-height',
-        descKey: 'app.api.modal.desc.minHeight',
-        version: '',
-        type: 'number | string',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'top',
-        descKey: 'app.api.modal.desc.top',
-        version: '',
-        type: 'number | string',
-        enum: '',
-        defVal: '15',
-        list: []
-      },
-      {
         name: 'position',
         descKey: 'app.api.modal.desc.position',
         version: '',
         type: 'any',
-        enum: '',
-        defVal: '',
-        list: [
-          {
-            name: 'top',
-            desc: '距离顶部的偏移',
-            version: '',
-            type: 'number | string',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'left',
-            desc: '距离左侧的偏移',
-            version: '',
-            type: 'number | string',
-            enum: '',
-            defVal: '',
-            list: []
-          }
-        ]
+        enum: 'top,bottom,left,right',
+        defVal: 'right',
+        list: []
       },
       {
         name: 'zIndex',
@@ -352,53 +224,8 @@ const apis = [
         list: []
       },
       {
-        name: 'fullscreen',
-        descKey: 'app.api.modal.desc.fullscreen',
-        version: '',
-        type: 'boolean',
-        enum: '',
-        defVal: 'false',
-        list: []
-      },
-      {
-        name: 'draggable',
-        descKey: 'app.api.modal.desc.draggable',
-        version: '4.0.28',
-        type: 'boolean',
-        enum: '',
-        defVal: '默认 true，继承 setup.modal.draggable',
-        list: []
-      },
-      {
-        name: 'dblclickZoom',
-        descKey: 'app.api.modal.desc.dblclickZoom',
-        version: '',
-        type: 'boolean',
-        enum: '',
-        defVal: '默认 true，继承 setup.modal.dblclickZoom',
-        list: []
-      },
-      {
-        name: 'remember',
-        descKey: 'app.api.modal.desc.remember',
-        version: '',
-        type: 'boolean',
-        enum: '',
-        defVal: 'false',
-        list: []
-      },
-      {
         name: 'destroy-on-close',
         descKey: 'app.api.modal.desc.destroyOnClose',
-        version: '',
-        type: 'boolean',
-        enum: '',
-        defVal: 'false',
-        list: []
-      },
-      {
-        name: 'storage',
-        descKey: 'app.api.modal.desc.storage',
         version: '',
         type: 'boolean',
         enum: '',
@@ -454,7 +281,7 @@ const apis = [
       {
         name: 'corner',
         desc: '窗口右上角的模板',
-        version: '4.3.0',
+        version: '',
         type: '',
         enum: '',
         defVal: '',
@@ -523,33 +350,6 @@ const apis = [
         enum: '',
         defVal: '',
         list: []
-      },
-      {
-        name: 'zoom',
-        desc: '窗口缩放时会触发该事件',
-        version: '',
-        type: '{ type, $event }',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'resize',
-        desc: '窗口调整大小时会触发该事件',
-        version: '4.6.14',
-        type: '{ type, $event }',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'move',
-        desc: '窗口移动时会触发该事件',
-        version: '4.6.14',
-        type: '{ type, $event }',
-        enum: '',
-        defVal: '',
-        list: []
       }
     ]
   },
@@ -584,60 +384,6 @@ const apis = [
         desc: '获取当前窗口元素',
         version: '',
         type: 'Element',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'getPosition()',
-        desc: '只对 type=modal 有效，获取窗口位置',
-        version: '',
-        type: '{top,left}',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'setPosition(top, left)',
-        desc: '只对 type=modal 有效，设置窗口位置',
-        version: '',
-        type: 'Promise',
-        enum: '',
-        defVal: 'top?: number, left?: number',
-        list: []
-      },
-      {
-        name: 'isMaximized()',
-        desc: '判断是否最大化显示',
-        version: '',
-        type: 'Boolean',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'zoom()',
-        desc: '切换窗口最大化/还原',
-        version: '',
-        type: 'Promise<status>',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'maximize()',
-        desc: '如果窗口处于常规状态，则最大化窗口',
-        version: '',
-        type: 'Promise',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'revert()',
-        desc: '如果窗口处于最大化状态，则还原窗口',
-        version: '',
-        type: 'Promise',
         enum: '',
         defVal: '',
         list: []

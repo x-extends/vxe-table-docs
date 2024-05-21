@@ -49,7 +49,7 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="input/Demo8">
+    <CodeLight path="input/Demo9">
       <template #tip>
         <div>年选择器</div>
       </template>

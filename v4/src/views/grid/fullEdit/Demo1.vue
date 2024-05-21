@@ -81,7 +81,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         collapseNode: true,
         itemRender: {
           name: 'VxeButtonGroup',
-          children: [
+          options: [
             { type: 'submit', content: '搜索', status: 'primary' },
             { type: 'reset', content: '重置' }
           ]

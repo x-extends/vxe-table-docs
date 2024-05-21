@@ -87,6 +87,24 @@ const apis = [
         enum: '',
         defVal: '',
         list: []
+      },
+      {
+        name: 'open-active-icon',
+        desc: '自定义打开时动作图标',
+        version: '3.8.7',
+        type: 'string',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'close-active-icon',
+        desc: '自定义关闭时动作图标',
+        version: '3.8.7',
+        type: 'string',
+        enum: '',
+        defVal: '',
+        list: []
       }
     ]
   },

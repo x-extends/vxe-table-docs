@@ -69,8 +69,8 @@ function checkHide () {
   hdTimeout = setTimeout(checkHide, hdDelay)
 }
 
-// 不定期检查，周一周五（4点, 10点, 15点, 22点）强制检查广告拦截
-if ([1, 5].includes(new Date().getDay()) && [4, 10, 15, 22].includes(new Date().getHours())) {
+// 不定期检查，周一周三周五（4点, 10点, 15点, 22点）强制检查广告拦截
+if ([1, 3, 5].includes(new Date().getDay()) && [4, 10, 15, 22].includes(new Date().getHours())) {
   adTimeout = setTimeout(checkAd, adDelay)
   hdTimeout = setTimeout(checkHide, hdDelay)
 }

@@ -3595,6 +3595,15 @@ const apis = [
         list: []
       },
       {
+        name: 'cell-delete-value',
+        desc: '只对 keyboard-config.isDel 有效，当按下删除键指定清空单元格值时会触发该事件',
+        version: '3.8.7',
+        type: '',
+        enum: '',
+        defVal: '{ row, rowIndex, column, columnIndex, activeArea, cellAreas, $event }',
+        list: []
+      },
+      {
         name: 'header-cell-click',
         descKey: 'app.api.table.desc.headerCellClick',
         version: '',

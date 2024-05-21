@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="modal/Demo1">
       <template #tip>
-        <div>轻提示。查看 <router-link class="link" :to="{name: 'VXEAPI', params: {name: 'model'}}">API</router-link></div>
+        <div>轻提示。查看 <router-link class="link" :to="{name: 'VXEAPI', params: {name: 'modal'}}">API</router-link></div>
       </template>
     </CodeLight>
 

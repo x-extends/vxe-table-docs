@@ -108,6 +108,15 @@ const apis = [
         list: []
       },
       {
+        name: 'show-cancel-button',
+        desc: '是否显示取消按钮',
+        version: '3.8.7',
+        type: 'boolean',
+        enum: '',
+        defVal: '默认false（如果 type=confirm 则默认 true）',
+        list: []
+      },
+      {
         name: 'cancel-button-text',
         desc: '只对 type=confirm 有效，取消按钮的文本内容',
         version: '',
@@ -117,12 +126,21 @@ const apis = [
         list: []
       },
       {
+        name: 'show-confirm-button',
+        desc: '是否显示取消按钮',
+        version: '3.8.7',
+        type: 'boolean',
+        enum: '',
+        defVal: '默认false（如果 type=alert|confirm 则默认 true）',
+        list: []
+      },
+      {
         name: 'confirm-button-text',
         desc: '只对 type=alert|confirm 有效，确定按钮的文本内容',
         version: '',
-        type: 'string',
+        type: 'boolean',
         enum: '',
-        defVal: '确定',
+        defVal: '确认',
         list: []
       },
       {
@@ -510,6 +528,24 @@ const apis = [
         name: 'zoom',
         desc: '窗口缩放时会触发该事件',
         version: '',
+        type: '{ type, $event }',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'resize',
+        desc: '窗口调整大小时会触发该事件',
+        version: '3.8.7',
+        type: '{ type, $event }',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'move',
+        desc: '窗口移动时会触发该事件',
+        version: '3.8.7',
         type: '{ type, $event }',
         enum: '',
         defVal: '',

@@ -8,7 +8,7 @@
 
     <CodeLight path="table/base/radio/Demo2">
       <template #tip>
-        <div>通过 <table-api-link prop="checkMethod"/> 方法控制 checkbox 是否允许用户手动选中，如果被禁用，可以调用 <table-api-link prop="setRadioRow"/> 方法手动设置</div>
+        <div>通过 <table-api-link prop="checkMethod"/> 方法控制 checkbox 是否允许用户手动选中，还可以配置 <table-api-link prop="visibleMethod"/> 是否显示复选框，如果被禁用，可以调用 <table-api-link prop="setRadioRow"/> 方法手动设置</div>
       </template>
     </CodeLight>
 

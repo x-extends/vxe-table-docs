@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.global') }}</h2>
-    <p class="tip">旧版本使用 setup({})</p>
+    <p class="tip">旧版本使用 setup({})、config({})，新版本统一setConfig({})</p>
     <pre>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>
@@ -18,7 +18,7 @@ export default defineComponent({
         `
         import VXETable from 'vxe-table'
 
-        VXETable.config({
+        VXETable.setConfig({
           // size: null, // 全局尺寸
           // zIndex: 999, // 全局 zIndex 起始值
           // version: 0, // 版本号，对于某些带数据缓存的功能有用到，上升版本号可以用于重置数据

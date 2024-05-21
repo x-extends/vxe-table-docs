@@ -72,7 +72,7 @@ const formItems = ref<VxeFormPropTypes.Items>([
     span: 24,
     itemRender: {
       name: 'VxeButtonGroup',
-      children: [
+      options: [
         { type: 'submit', content: '提交', status: 'primary' },
         { type: 'reset', content: '重置' }
       ]
