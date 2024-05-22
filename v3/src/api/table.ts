@@ -3461,6 +3461,7 @@ const apis = [
     list: [
       {
         name: 'keydown-start',
+        abandoned: true,
         desc: '当表格被激活且键盘被按下开始时会触发的事件',
         version: '3.5.0',
         type: '',
@@ -3479,6 +3480,7 @@ const apis = [
       },
       {
         name: 'keydown-end',
+        abandoned: true,
         desc: '当表格被激活且键盘被按下结束时会触发的事件',
         version: '3.5.0',
         type: '',
