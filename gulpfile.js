@@ -173,7 +173,28 @@ gulp.task('copy_v4_index', gulp.series('copy_v4_docs', () => {
     .pipe(gulp.dest('_temp/v4'))
 }))
 
-gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index', 'copy_v1_index', 'copy_v2_index', 'copy_v3_index', 'copy_v4_index', () => {
+gulp.task('copy_v4.7_docs', () => {
+  return gulp.src('v4.7/dist/**')
+    .pipe(gulp.dest('_temp/v4.7'))
+})
+
+gulp.task('copy_v4.7_index', gulp.series('copy_v4.7_docs', () => {
+  return gulp.src('v4.7/dist/issues.html')
+    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
+    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/v4.7'))
+}, () => {
+  return gulp.src('v4.7/dist/index.html')
+    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
+    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/v4.7'))
+    .pipe(rename({
+      basename: '404'
+    }))
+    .pipe(gulp.dest('_temp/v4'))
+}))
+
+gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index', 'copy_v1_index', 'copy_v2_index', 'copy_v3_index', 'copy_v4_index', 'copy_v4.7_index', () => {
   return gulp.src('_temp/**')
     .pipe(gulp.dest('docs'))
 }, () => {
@@ -184,6 +205,7 @@ gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index
     '_temp/v2/**/*.html',
     '_temp/v3/**/*.html',
     '_temp/v4/**/*.html',
+    '_temp/v4.7/**/*.html',
   ], { base: './_temp/' })
     .pipe(replace('</head>', `${hmScript}</head>`))
     .pipe(gulp.dest('docs'))

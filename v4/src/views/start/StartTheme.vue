@@ -6,14 +6,15 @@
       <pre-code class="javascript">
         import VXETable from 'vxe-table'
 
+        // 切换为默认主题
+        // VXETable.setTheme('light')
+
         // 切换为暗黑主题
-        VXETable.setConfig({
-          theme: 'dark'
-        })
+        VXETable.setTheme('dark')
       </pre-code>
     </pre>
 
-    <h2>重写样式，覆盖默认主题样式</h2>
+    <!-- <h2>重写样式，覆盖默认主题样式</h2>
     <p class="tip">修改 css 变量（<a class="link" href="https://github.com/x-extends/vxe-table/blob/master/styles/cssvar.scss" target="_blank">查看所有变量</a>），并引入所有样式</p>
     <pre>
       <pre-code class="scss">
@@ -34,6 +35,6 @@
           // ...
         }
       </pre-code>
-    </pre>
+    </pre> -->
   </div>
 </template>

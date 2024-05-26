@@ -376,8 +376,10 @@ export default {
         v2: 'v2.x (vue 2.6 End of life) ~ 2021-12 Stop',
         v3: 'v3.x (vue 2.6 LTS)',
         v3d5: '3.5.x (vue 2.6 Sticky)',
+        v3d9: 'v3.9.x (vue 2.6 下一阶段内侧版)',
         v4: 'v4.x (vue 3.x Current)',
         v4d5: '4.5.x (vue 3.x Sticky)',
+        v4d7: '4.7.x (vue 3.x 下一阶段内侧版)',
         plan: {
           v1: 'v1.x Based on vue2.6, Support for all major browsers',
           v2: 'v2.x Based on vue2.6, Support for all major browsers',
