@@ -59,9 +59,10 @@ export default defineComponent({
         export default i18n
         `,
         `
-        import { createApp } = 'vue'
+        // ...
         import i18n from './i18n'
-        import VXETable from 'vxe-table'
+        import { VXETable } from 'vxe-table'
+        // ...
         
         VXETable.setConfig({
           // 对组件内置的提示语进行国际化翻译
@@ -73,6 +74,10 @@ export default defineComponent({
         createApp(App).use(i18n).use(VXETable).$mount('#app')
         `,
         `
+        // ...
+        import { VXETable } from 'vxe-table'
+        // ...
+
         VXETable.setConfig({
           // 可选，对参数中的列头、校验提示..等进行自动翻译（只对支持国际化的有效）
           translate (key, args) {

@@ -15,7 +15,7 @@
         </vxe-column>
         <vxe-column field="role" title="Role" :edit-render="{}">
           <template #edit="{ row }">
-            <vxe-input v-model="row.name" type="text"></vxe-input>
+            <vxe-input v-model="row.role" type="text"></vxe-input>
           </template>
         </vxe-column>
         <vxe-column field="sex" title="Sex" :edit-render="{}">

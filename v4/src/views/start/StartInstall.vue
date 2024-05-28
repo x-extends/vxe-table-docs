@@ -39,7 +39,7 @@ export default defineComponent({
       demoCodes: [
         `
         // ...
-        import VXETable from 'vxe-table'
+        import { VXETable } from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 

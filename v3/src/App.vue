@@ -28,7 +28,7 @@
           </vxe-select>
           <!-- <span>{{ $t('app.body.label.version') }}: </span> -->
           <vxe-select class="version-switch" size="mini" v-model="version" @change="vChangeEvent">
-            <vxe-option value="4.7" :label="$t('app.body.other.v4d7')" class-name="next-latest"></vxe-option>
+            <vxe-option value="4.7" :label="$t('app.body.other.v4d7')"></vxe-option>
             <!-- <vxe-option value="4.5" :label="$t('app.body.other.v4d5')" disabled></vxe-option> -->
             <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
             <!-- <vxe-option value="3.5" :label="$t('app.body.other.v3d5')" disabled></vxe-option> -->

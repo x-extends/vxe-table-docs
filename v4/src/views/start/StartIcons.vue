@@ -4,7 +4,7 @@
     <p class="tip">如果项目已有适合的图标，可通过配置替换并自行调整相关的样式即可</p>
     <pre>
       <pre-code class="typescript">
-        import VXETable from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
         VXETable.setIcon({
           // loading

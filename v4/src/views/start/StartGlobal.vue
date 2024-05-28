@@ -16,7 +16,7 @@ export default defineComponent({
     return {
       demoCodes: [
         `
-        import VXETable from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
         VXETable.setConfig({
           // size: null, // 全局尺寸

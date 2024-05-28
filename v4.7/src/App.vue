@@ -28,7 +28,7 @@
           </vxe-select>
           <!-- <span>{{ $t('app.body.label.version') }}: </span> -->
           <vxe-select class="version-switch" size="mini" v-model="appData.version" @change="vChangeEvent">
-            <vxe-option value="4.7" :label="$t('app.body.other.v4d7')" class-name="next-latest"></vxe-option>
+            <vxe-option value="4.7" :label="$t('app.body.other.v4d7')"></vxe-option>
             <!-- <vxe-option value="4.5" :label="$t('app.body.other.v4d5')" disabled></vxe-option> -->
             <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
             <!-- <vxe-option value="3.5" :label="$t('app.body.other.v3d5')" disabled></vxe-option> -->
@@ -69,7 +69,8 @@
             <template v-if="appData.apiList.length">
               <ul class="nav-menu">
                 <li v-for="(item, index) in appData.apiList" :key="index" :class="{expand: item.expand}">
-                  <a class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{'is-new': item.isNew, disabled: item.disabled, active: pageKey === item.value}">
+                  <a v-if="item.linkUrl" :href="item.linkUrl" target="_blank" class="link" style="padding-left: 20px;color: #409eff;">更多组件</a>
+                  <a v-else class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{'is-new': item.isNew, disabled: item.disabled, active: pageKey === item.value}">
                     <i class="vxe-icon-arrow-right nav-link-icon"></i>
                     <span v-html="item.label"></span>
                   </a>
@@ -160,23 +161,23 @@ const appData = reactive({
       expand: false,
       children: [
         {
+          label: 'v4 升级 v4.7 指南',
+          locat: {
+            name: 'StartUpgrade'
+          }
+        },
+        {
           label: 'app.aside.nav.install',
           locat: {
             name: 'StartInstall'
           }
         },
-        // {
-        //   label: 'app.aside.nav.use',
-        //   locat: {
-        //     name: 'StartUse'
-        //   }
-        // },
-        // {
-        //   label: 'app.aside.nav.quick',
-        //   locat: {
-        //     name: 'StartQuick'
-        //   }
-        // },
+        {
+          label: 'app.aside.nav.use',
+          locat: {
+            name: 'StartUse'
+          }
+        },
         {
           label: 'app.aside.nav.global',
           locat: {
@@ -1877,6 +1878,11 @@ const appData = reactive({
           }
         }
       ]
+    },
+    {
+      label: '组件库',
+      value: 'lib',
+      linkUrl: 'https://vxeui.com/'
     }
   ]
 })

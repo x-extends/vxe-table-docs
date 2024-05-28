@@ -2,7 +2,7 @@ const apis = [
   {
     name: 'Props',
     descKey: 'app.api.title.props',
-    version: '',
+    version: '4.6.17',
     type: '',
     enum: '',
     defVal: '',

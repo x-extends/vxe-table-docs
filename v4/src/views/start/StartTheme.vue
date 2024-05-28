@@ -4,7 +4,7 @@
     <p class="tip">支持默认主题和暗黑主题</p>
     <pre>
       <pre-code class="javascript">
-        import VXETable from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
         // 切换为默认主题
         // VXETable.setTheme('light')

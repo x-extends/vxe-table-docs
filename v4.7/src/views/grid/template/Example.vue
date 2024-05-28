@@ -10,6 +10,8 @@
           <grid-api-link prop="toolbar"/>：自定义工具栏模板<br>
           <grid-api-link prop="top"/>：自定义顶部模板<br>
           <grid-api-link prop="bottom"/>：自定义底部模板<br>
+          <grid-api-link prop="left"/>：自定义左侧模板<br>
+          <grid-api-link prop="right"/>：自定义右侧模板<br>
           <grid-api-link prop="pager"/>：自定义分页模板<br>
         </div>
       </template>

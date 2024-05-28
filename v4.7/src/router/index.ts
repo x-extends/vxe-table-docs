@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
+const StartUpgrade = () => import('../views/start/StartUpgrade.vue')
 const StartInstall = () => import('../views/start/StartInstall.vue')
-const StartQuick = () => import('../views/start/StartQuick.vue')
 const StartUse = () => import('../views/start/StartUse.vue')
 const StartIcons = () => import('../views/start/StartIcons.vue')
 const StartGlobal = () => import('../views/start/StartGlobal.vue')
@@ -297,14 +297,14 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
+    path: '/table/start/upgrade',
+    name: 'StartUpgrade',
+    component: StartUpgrade
+  },
+  {
     path: '/table/start/install',
     name: 'StartInstall',
     component: StartInstall
-  },
-  {
-    path: '/table/start/quick',
-    name: 'StartQuick',
-    component: StartQuick
   },
   {
     path: '/table/start/use',
