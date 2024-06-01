@@ -28,9 +28,9 @@
           </vxe-select>
           <!-- <span>{{ $t('app.body.label.version') }}: </span> -->
           <vxe-select class="version-switch" size="mini" v-model="version" @change="vChangeEvent">
-            <!-- <vxe-option value="4.5" :label="$t('app.body.other.v4d5')" disabled></vxe-option> -->
+            <vxe-option value="4.7" :label="$t('app.body.other.v4d7')"></vxe-option>
             <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
-            <!-- <vxe-option value="3.5" :label="$t('app.body.other.v3d5')" disabled></vxe-option> -->
+            <vxe-option value="3.9" :label="$t('app.body.other.v3d9')" disabled></vxe-option>
             <vxe-option value="3" :label="$t('app.body.other.v3')"></vxe-option>
             <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
             <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
@@ -2134,7 +2134,7 @@ export default {
         this.stableVersionList = stableVersionList
         this.betaVersionList = betaVersionList
         if (stableVersionList.length) {
-          this.selectStableVersion = tags && tags[`xtable-v${this.version}`] ? tags[`xtable-v${this.version}`] : stableVersionList[0].value
+          this.selectStableVersion = tags[`v${this.version}-legacy`] || stableVersionList[0].value
         }
         if (betaVersionList.length) {
           this.selectBetaVersion = betaVersionList[0].value
@@ -2207,6 +2207,9 @@ export default {
           break
         case '4':
           location.href = `${this.baseApiUrl}v4/`
+          break
+        case '4.7':
+          location.href = `${this.baseApiUrl}v4.7/`
           break
       }
     }

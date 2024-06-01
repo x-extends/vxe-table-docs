@@ -7,7 +7,7 @@
     </p>
     <pre>
       <pre-code class="shell">
-        npm install vxe-table
+        npm install vxe-table@v4-legacy
       </pre-code>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>
@@ -19,12 +19,12 @@
     <pre>
       <pre-code class="xml">
         &lt;!-- 引入样式 --&gt;
-        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table/lib/style.css"&gt;
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@v4-legacy/lib/style.css"&gt;
         &lt;!-- 引入vue --&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;
         &lt;!-- 引入组件 --&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@v4-legacy"&gt;&lt;/script&gt;
       </pre-code>
     </pre>
   </div>
@@ -39,11 +39,11 @@ export default defineComponent({
       demoCodes: [
         `
         // ...
-        import { VXETable } from 'vxe-table'
+        import VxeUITable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
-        createApp(App).use(VXETable).mount('#app')
+        createApp(App).use(VxeUITable).mount('#app')
         `
       ]
     }

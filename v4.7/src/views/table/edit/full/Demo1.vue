@@ -77,7 +77,7 @@ interface RowVO {
   date13: string
 }
 
-const serveApiUrl = 'https://api.VxeUI.cn/demo'
+const serveApiUrl = 'https://api.vxetable.cn/demo'
 
 const xToolbar = ref<VxeToolbarInstance>()
 const tableRef = ref<VxeTableInstance<RowVO>>()

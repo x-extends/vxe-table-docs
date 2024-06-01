@@ -50,7 +50,7 @@ const apis = [
         type: 'any',
         enum: '',
         defVal: '继承 setup.grid.formConfig',
-        list: XEUtils.clone(formProps, true).list.map((item: any) => Object.assign({}, item, { name: XEUtils.camelCase(item.name) })).concat([
+        list: XEUtils.clone(formProps, true).list.filter((item: any) => !['items'].includes(item.name)).map((item: any) => Object.assign({}, item, { name: XEUtils.camelCase(item.name) })).concat([
           {
             name: 'enabled',
             desc: '是否启用',

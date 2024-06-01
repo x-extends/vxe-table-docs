@@ -4,21 +4,22 @@
       <div class="left">
         <a :href="baseApiUrl">
           <img :src="`${baseApiUrl}logo.png`" width="18">
-          <span class="title">vxe-table</span>
+          <span class="title">Vxe Table</span>
         </a>
         <a href='https://gitee.com/xuliangzhan_admin/vxe-table/stargazers'>
           <img src='https://gitee.com/xuliangzhan_admin/vxe-table/badge/star.svg?theme=gvp' alt='star'>
         </a>
-        <a href="https://github.com/x-extends/vxe-table/stargazers">
-          <img src="https://img.shields.io/github/stars/xuliangzhan/vxe-table.svg">
-        </a>
         <a href="http://npm-stat.com/charts.html?package=vxe-table">
           <img src="https://img.shields.io/npm/dm/vxe-table.svg">
+        </a>
+        <a href="https://github.com/x-extends/vxe-table/stargazers">
+          <img src="https://img.shields.io/github/stars/x-extends/vxe-table.svg">
         </a>
       </div>
       <div class="right">
         <div class="content">
           <span v-if="appData.usedJSHeapSize && appData.usedJSHeapSize !== '0'" class="performance">Memory used: {{ appData.usedJSHeapSize }} MB.</span>
+          <vxe-switch class="link theme" v-model="currTheme" open-value="default" open-label="白天" close-value="dark" close-label="夜间"></vxe-switch>
           <!-- <span>{{ $t('app.body.label.translations') }}:</span> -->
           <vxe-select class="locale-switch" size="mini" v-model="$i18n.locale">
             <vxe-option value="zh_CN" label="中文"></vxe-option>
@@ -27,17 +28,14 @@
             <!-- <vxe-option value="ja_JP" label="ジャパン"></vxe-option> -->
           </vxe-select>
           <!-- <span>{{ $t('app.body.label.version') }}: </span> -->
-          <vxe-select class="version-switch" size="mini" v-model="appData.version" @change="vChangeEvent">
+          <vxe-select class="version-switch" size="mini" v-model="appData.version2" @change="vChangeEvent">
             <vxe-option value="4.7" :label="$t('app.body.other.v4d7')"></vxe-option>
-            <!-- <vxe-option value="4.5" :label="$t('app.body.other.v4d5')" disabled></vxe-option> -->
             <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
-            <!-- <vxe-option value="3.5" :label="$t('app.body.other.v3d5')" disabled></vxe-option> -->
             <vxe-option value="3.9" :label="$t('app.body.other.v3d9')" disabled></vxe-option>
             <vxe-option value="3" :label="$t('app.body.other.v3')"></vxe-option>
             <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
             <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
           </vxe-select>
-          <vxe-switch class="link theme" v-model="currTheme" open-value="default" open-label="白天" close-value="dark" close-label="夜间"></vxe-switch>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="showExtendPlugin && appData.apiLoading && appData.showPlugin">
             <template v-if="appData.disabledPlugin">
@@ -144,6 +142,7 @@ const appData = reactive({
   selected: null,
   filterName: '',
   version: docsVersion.value,
+  version2: '4.7',
   apiList: [] as any[],
   tableData: [] as any[],
   selectBetaVersion: null,
@@ -1906,11 +1905,11 @@ const getVersion = () => {
       appData.showPlugin = sp
       appStore.setSupportQQ(ss)
       const stableVersionList = data[`v${appData.version}StableList`].map(value => ({ value, label: value }))
-      const betaVersionList = data[`v${appData.version}BetaList`].map(value => ({ value, label: value }))
+      const betaVersionList = data[`v${appData.version}AlphaList`].map(value => ({ value, label: value }))
       appData.stableVersionList = stableVersionList
       appData.betaVersionList = betaVersionList
       if (stableVersionList.length) {
-        appData.selectStableVersion = tags && tags[`xtable-v${appData.version}`] ? tags[`xtable-v${appData.version}`] : stableVersionList[0].value
+        appData.selectStableVersion = tags[`v${appData.version}-latest`] || stableVersionList[0].value
       }
       if (betaVersionList.length) {
         appData.selectBetaVersion = betaVersionList[0].value
@@ -1978,7 +1977,7 @@ const linkEvent = (item: any) => {
 }
 
 const vChangeEvent = () => {
-  switch (appData.version) {
+  switch (appData.version2) {
     case '1':
       location.href = `${baseApiUrl.value}v1/`
       break

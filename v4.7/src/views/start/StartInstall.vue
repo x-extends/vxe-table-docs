@@ -8,9 +8,27 @@
     </p>
     <pre>
       <pre-code class="shell">
-        npm install vxe-table@alpha
+        npm install vxe-table@v4-latest
       </pre-code>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
+    </pre>
+    <h2>CDN</h2>
+    <p class="tip">
+      可以通过第三方开放的 CDN 来引用， <a class="link" href="https://unpkg.com/vxe-table/">unpkg</a> 或 <a class="link" href="https://cdn.jsdelivr.net/npm/vxe-table/">cdnjs</a> 获取到最新版本的资源，并在页面上引入即可<br>
+      <span class="red">（注：不建议将不受信任的第三方 CDN 用于正式环境，因为该连接随时都可能会失效，导致项目出错，如确实需要使用第三方 CDN 方式记得锁定版本号，锁定版本的方法请查看第三方的说明）</span>
+    </p>
+    <pre>
+      <pre-code class="xml">
+        &lt;!-- 引入样式 --&gt;
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-pc-ui@v4-latest/lib/style.css"&gt;
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@v4-latest/lib/style.css"&gt;
+        &lt;!-- 引入vue --&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;
+        &lt;!-- 引入组件 --&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-pc-ui@v4-latest"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@v4-latest"&gt;&lt;/script&gt;
+      </pre-code>
     </pre>
   </div>
 </template>
@@ -28,7 +46,6 @@ export default defineComponent({
         import 'vxe-table/lib/style.css'
         // ...
 
-        // 可选组件库 Vxe UI
         import VxeUI from 'vxe-pc-ui'
         import 'vxe-pc-ui/lib/style.css'
         // ...

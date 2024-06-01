@@ -4149,6 +4149,15 @@ const apis = [
       //   list: []
       // },
       {
+        name: 'setRow(rows, record)',
+        desc: '修改行数据',
+        version: '4.7.1',
+        type: 'Promise<any>',
+        enum: '',
+        defVal: 'rows: Row | Row[], record: object',
+        list: []
+      },
+      {
         name: 'reloadRow(rows, record, field)',
         desc: '局部加载行数据并恢复到初始状态，仅用于修改的数据，对新增的临时数据无效（对于行数据需要局部更改的场景中可能会用到）',
         version: '',

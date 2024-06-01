@@ -11,12 +11,12 @@ export const useAppStore = defineStore('app', {
   state () {
     return {
       theme: currTheme,
-      docsVersion: '4.7',
+      docsVersion: '4',
       serveTY: new Date().getFullYear(),
       baseApiUrl: process.env.VUE_APP_MAIN_URL,
-      pluginDocsUrl: `${process.env.VUE_APP_MAIN_URL}pluginDocs/`,
+      pluginDocsUrl: `${process.env.VUE_APP_MAIN_URL}pluginDocs/table/`,
       pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
-      serveApiUrl: 'https://api.VxeUI.cn/demo',
+      serveApiUrl: 'https://api.vxetable.cn/demo',
       showSupportQQ: false
     }
   },

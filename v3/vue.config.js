@@ -35,7 +35,7 @@ module.exports = defineConfig({
       entry: 'src/main.ts',
       template: 'public/index.html',
       filename: 'index.html',
-      title: `Vxe UI Table v${process.env.VUE_APP_VXE_VERSION}`
+      title: `Vxe Table v${process.env.VUE_APP_VXE_VERSION}`
     }
   },
   configureWebpack: {

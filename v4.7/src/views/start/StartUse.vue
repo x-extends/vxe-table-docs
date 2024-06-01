@@ -98,7 +98,7 @@
 
     <h2>使用</h2>
     <p class="tip">
-      以下是全量的组件及模块安装列表
+      以下是全量组件的安装列表
     </p>
     <pre>
       <pre-code class="typescript">
@@ -108,7 +108,7 @@
         // 导入主题变量，也可以重写主题变量
         import 'vxe-table/styles/cssvar.scss'
 
-        function LazyVxeTable (app) {
+        function LazyVxeUITable (app) {
           app.use(VxeTable)
           app.use(VxeColumn)
           app.use(VxeColgroup)
@@ -116,7 +116,7 @@
           app.use(VxeToolbar)
         }
 
-        createApp(App).use(LazyVxeTable).mount('#app')
+        createApp(App).use(LazyVxeUITable).mount('#app')
       </pre-code>
     </pre>
   </div>

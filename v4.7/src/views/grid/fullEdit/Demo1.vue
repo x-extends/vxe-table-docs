@@ -13,7 +13,7 @@ interface RowVO {
   [key: string]: any
 }
 
-const serveApiUrl = 'https://api.VxeUI.cn/demo'
+const serveApiUrl = 'https://api.vxetable.cn/demo'
 
 const xGrid = ref<VxeGridInstance<RowVO>>()
 

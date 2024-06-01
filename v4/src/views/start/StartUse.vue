@@ -85,8 +85,7 @@
     </p>
     <pre>
       <pre-code class="typescript">
-        import { App, createApp } from 'vue'
-        import XEUtils from 'xe-utils'
+        // ...
         import {
           // 全局实例对象
           VXETable,
@@ -126,9 +125,11 @@
           // VxeButton,
           // VxeButtonGroup,
           // VxeModal,
+          // VxeDrawer,
           // VxeList,
           // VxePulldown
         } from 'vxe-table'
+        // ...
 
         // 导入默认的语言
         import zhCN from 'vxe-table/es/locale/lang/zh-CN'
@@ -141,7 +142,7 @@
           i18n: (key, args) => XEUtils.toFormatString(XEUtils.get(zhCN, key), args)
         })
 
-        function useTable (app: App) {
+        function LazyVxeUITable (app) {
           // 可选表格模块
           // app.use(VxeTableFilterModule)
           // app.use(VxeTableEditModule)
@@ -177,11 +178,12 @@
           // app.use(VxeButton)
           // app.use(VxeButtonGroup)
           // app.use(VxeModal)
+          // app.use(VxeDrawer)
           // app.use(VxeList)
           // app.use(VxePulldown)
         }
 
-        createApp(App).use(useTable).mount('#app')
+        createApp(App).use(LazyVxeUITable).mount('#app')
       </pre-code>
     </pre>
   </div>
