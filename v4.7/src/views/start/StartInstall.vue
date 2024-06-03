@@ -8,7 +8,7 @@
     </p>
     <pre>
       <pre-code class="shell">
-        npm install vxe-table@v4-latest
+        npm install vxe-table@v4-latest vxe-pc-ui@v4-latest
       </pre-code>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>
@@ -18,7 +18,7 @@
       <span class="red">（注：不建议将不受信任的第三方 CDN 用于正式环境，因为该连接随时都可能会失效，导致项目出错，如确实需要使用第三方 CDN 方式记得锁定版本号，锁定版本的方法请查看第三方的说明）</span>
     </p>
     <pre>
-      <pre-code class="xml">
+      <pre-code class="html">
         &lt;!-- 引入样式 --&gt;
         &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-pc-ui@v4-latest/lib/style.css"&gt;
         &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@v4-latest/lib/style.css"&gt;
@@ -42,7 +42,7 @@ export default defineComponent({
       demoCodes: [
         `
         // ...
-        import VxeUITable from 'vxe-table'
+        import VxeTable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
@@ -50,7 +50,7 @@ export default defineComponent({
         import 'vxe-pc-ui/lib/style.css'
         // ...
 
-        createApp(App).use(VxeUI).use(VxeUITable).mount('#app')
+        createApp(App).use(VxeUI).use(VxeTable).mount('#app')
         `
       ]
     }

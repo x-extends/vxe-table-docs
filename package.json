@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "npm run build:all && build:doc",
     "build:v1": "cd v1 && npm run build",
     "build:v2": "cd v2 && npm run build",
     "build:v3": "cd v3 && npm run build",
@@ -10,6 +11,7 @@
     "build:v4.7": "cd v4.7 && npm run build",
     "build:other3": "cd other3 && npm run build",
     "build:other4": "cd other4 && npm run build",
+    "update": "npm install --legacy-peer-deps && npm run update:all",
     "update:v1": "cd v1 && npm install --legacy-peer-deps",
     "update:v2": "cd v2 && npm install --legacy-peer-deps",
     "update:v3": "cd v3 && npm install --legacy-peer-deps",
