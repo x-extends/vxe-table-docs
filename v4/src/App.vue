@@ -67,7 +67,7 @@
           <div class="version-list">
             <template v-if="appData.stableVersionList.length">
               <span class="title">{{  $t('app.body.label.stableVersion')}}</span>
-              <vxe-select class="stable-select" v-model="appData.selectStableVersion" size="mini" :options="appData.stableVersionList"></vxe-select>
+              <vxe-select class="stable-select" v-model="appData.selectStableVersion" size="mini" :options="appData.stableVersionList" @change="changeVersionList"></vxe-select>
             </template>
             <template v-if="showBetaVetsion">
               <span class="title">{{  $t('app.body.label.latestVersion')}}</span>
@@ -2501,6 +2501,12 @@ const currentLink = computed(() => {
     nextLink: cindex >= 0 && childArr[cindex + 1]
   }
 })
+
+const changeVersionList = () => {
+  if (/^4.7/.test(appData.selectStableVersion)) {
+    location.href = `${baseApiUrl.value}v4.7/`
+  }
+}
 
 const defaultExpand = () => {
   const group = appData.apiList.find(item => item.value === pageKey.value)
