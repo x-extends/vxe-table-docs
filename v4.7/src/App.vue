@@ -19,6 +19,20 @@
       <div class="right">
         <div class="content">
           <span v-if="appData.usedJSHeapSize && appData.usedJSHeapSize !== '0'" class="performance">Memory used: {{ appData.usedJSHeapSize }} MB.</span>
+          <vxe-pulldown v-model="showSystemMenu">
+            <vxe-button class="system-menu-btn" status="primary" mode="text" @click="showSystemMenu = !showSystemMenu">
+              <span style="padding-right: 8px;">生态系统</span>
+              <vxe-icon name="arrow-down"></vxe-icon>
+            </vxe-button>
+
+            <template #dropdown>
+              <ul class="system-menu-wrapper">
+                <li v-for="(item, index) in systemMenuList" :key="index">
+                  <a class="link" :href="item.href" target="_blank">{{ item.content }}</a>
+                </li>
+              </ul>
+            </template>
+          </vxe-pulldown>
           <vxe-switch class="link theme" v-model="currTheme" open-value="default" open-label="白天" close-value="dark" close-label="夜间"></vxe-switch>
           <!-- <span>{{ $t('app.body.label.translations') }}:</span> -->
           <vxe-select class="locale-switch" size="mini" v-model="$i18n.locale">
@@ -120,7 +134,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, reactive, watch } from 'vue'
+import { computed, nextTick, ref, reactive, watch } from 'vue'
 import { useAppStore } from '@/store/app'
 import i18n from './i18n'
 import router from './router'
@@ -136,6 +150,14 @@ const pluginDocsUrl = computed(() => appStore.pluginDocsUrl)
 const serveApiUrl = computed(() => appStore.serveApiUrl)
 
 const showExtendPlugin = location.href.indexOf('vxetable.cn') > -1
+
+const showSystemMenu = ref(false)
+const systemMenuList = ref([
+  { content: 'Vxe Print Web 打印控件', href: 'https://vxeui.com/#/component/print/base' },
+  { content: 'Vxe Table 专业表格', href: 'https://vxetable.cn' },
+  { content: 'Vxe Form 专业表单', href: 'https://vxeui.com/#/component/form/base' },
+  { content: 'Vxe Form Design 表单设计器', href: 'https://vxeui.com/#/component/form-design/base' }
+])
 
 const appData = reactive({
   showLeft: true,
@@ -2159,3 +2181,25 @@ nextTick(() => {
   init()
 })
 </script>
+
+<style lang="scss" scoped>
+.system-menu-wrapper {
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  width: 280px;
+  border: 1px solid var(--vxe-table-docs-layout-border-color);
+  & > li {
+    line-height: 28px;
+    padding: 0 16px;
+    font-size: 14px;
+    a {
+      color: #606266;
+      &:hover {
+        color: #409eff;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+</style>

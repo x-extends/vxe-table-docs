@@ -19,6 +19,20 @@
       <div class="right">
         <div class="content">
           <span v-if="appData.usedJSHeapSize && appData.usedJSHeapSize !== '0'" class="performance">Memory used: {{ appData.usedJSHeapSize }} MB.</span>
+          <vxe-pulldown v-model="appData.showSystemMenu">
+            <vxe-button class="system-menu-btn" status="primary" mode="text" @click="appData.showSystemMenu = !appData.showSystemMenu">
+              <span style="padding-right: 8px;">生态系统</span>
+              <vxe-icon name="arrow-down"></vxe-icon>
+            </vxe-button>
+
+            <template #dropdown>
+              <ul class="system-menu-wrapper">
+                <li v-for="(item, index) in appData.systemMenuList" :key="index">
+                  <a class="link" :href="item.href" target="_blank">{{ item.content }}</a>
+                </li>
+              </ul>
+            </template>
+          </vxe-pulldown>
           <vxe-switch class="link theme" v-model="currTheme" open-value="default" open-label="白天" close-value="dark" close-label="夜间"></vxe-switch>
           <!-- <span>{{ $t('app.body.label.translations') }}:</span> -->
           <vxe-select class="locale-switch" size="mini" v-model="$i18n.locale">
@@ -152,6 +166,13 @@ const appData = reactive({
   apiLoading: false,
   showPlugin: false,
   disabledPlugin: false,
+  showSystemMenu: false,
+  systemMenuList: [
+    { content: 'Vxe Print Web 打印控件', href: 'https://vxeui.com/#/component/print/base' },
+    { content: 'Vxe Table 专业表格', href: 'https://vxetable.cn' },
+    { content: 'Vxe Form 专业表单', href: 'https://vxeui.com/#/component/form/base' },
+    { content: 'Vxe Form Design 表单设计器', href: 'https://vxeui.com/#/component/form-design/base' }
+  ],
   tableList: [
     {
       label: 'app.aside.nav.start',
@@ -2540,3 +2561,25 @@ nextTick(() => {
   init()
 })
 </script>
+
+<style lang="scss" scoped>
+.system-menu-wrapper {
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  width: 280px;
+  border: 1px solid #dcdfe6;
+  & > li {
+    line-height: 28px;
+    padding: 0 16px;
+    font-size: 14px;
+    a {
+      color: #606266;
+      &:hover {
+        color: #409eff;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+</style>
