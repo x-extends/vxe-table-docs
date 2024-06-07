@@ -115,8 +115,6 @@
         import {
           VxeButton,
           VxeButtonGroup,
-          VxeButton,
-          VxeButtonGroup,
           VxeCheckbox,
           VxeCheckboxGroup,
           VxeFormItem,
@@ -155,8 +153,6 @@
         }
 
         function LazyVxeUI (app) {
-          app.use(VxeButton)
-          app.use(VxeButtonGroup)
           app.use(VxeButton)
           app.use(VxeButtonGroup)
           app.use(VxeCheckbox)
