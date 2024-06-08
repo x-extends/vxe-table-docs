@@ -155,7 +155,7 @@ const showSystemMenu = ref(false)
 const systemMenuList = ref([
   { content: 'Vxe Print Web 打印控件', href: 'https://vxeui.com/#/component/print/base' },
   { content: 'Vxe Table 专业表格', href: 'https://vxetable.cn' },
-  { content: 'Vxe Form 专业表单', href: 'https://vxeui.com/#/component/form/base' },
+  { content: 'Vxe Form 专业表单', href: 'https://vxeui.com/#/component/form/basics/base' },
   { content: 'Vxe Form Design 表单设计器', href: 'https://vxeui.com/#/component/form-design/base' }
 ])
 

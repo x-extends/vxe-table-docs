@@ -2,39 +2,41 @@
   <div>
     <h2>按需加载</h2>
     <p class="tip">
-      方式1：如果您使用了 vite，借助插件 <a class="link" href="https://www.npmjs.com/package/unplugin-vue-components" target="_blank">unplugin-vue-components</a> 可以实现按需加载模块。
+      当只用得到部分组件时，只需两步，通过按需加载插件可以去掉未被使用的组件。
+    </p>
+    <h2>1. 配置插件</h2>
+    <p class="tip">
+      如果您使用了 vite，借助插件 <a class="link" href="https://www.npmjs.com/package/vite-plugin-lazy-import" target="_blank">vite-plugin-lazy-import</a> 可以实现按需加载模块。
     </p>
     <pre>
       <pre-code class="shell">
-        npm install unplugin-vue-components @vxecli/import-unplugin-vue-components
+        npm install vite-plugin-lazy-import -D
       </pre-code>
       <div>修改文件 vite.config</div>
       <pre-code class="typescript">
         // ...
-        import Components from 'unplugin-vue-components/vite'
-        import { VxeResolver } from '@vxecli/import-unplugin-vue-components'
+        import { lazyImport, VxeResolver } from 'vite-plugin-lazy-import'
 
         export default defineConfig({
           plugins: [
             // ...,
-            Components({
+            lazyImport({
               resolvers: [
                 VxeResolver({
-                  libraryName: 'vxe-pc-ui'
-                  // importStyle: true
+                  libraryName: 'vxe-table'
                 }),
                 VxeResolver({
-                  libraryName: 'vxe-table'
-                  // importStyle: true
+                  libraryName: 'vxe-pc-ui'
                 })
               ]
             })
+            // ...
           ]
         })
       </pre-code>
     </pre>
 
-    <p class="tip">
+    <!-- <p class="tip">
       方式2：如果您使用了 webpack，借助插件 <a class="link" href="https://www.npmjs.com/package/unplugin-vue-components" target="_blank">unplugin-vue-components</a> 可以实现按需加载模块。
     </p>
     <pre>
@@ -65,7 +67,7 @@
           ]
         })
       </pre-code>
-    </pre>
+    </pre> -->
 
     <!-- <p class="tip">
       方式3：如果您使用了 vite，借助插件 <a class="link" href="https://www.npmjs.com/package/vite-plugin-style-import" target="_blank">vite-plugin-style-import</a> 可以实现按需加载模块，减少文件体积。
@@ -96,7 +98,7 @@
       </pre-code>
     </pre> -->
 
-    <h2>使用</h2>
+    <h2>2. 导入使用</h2>
     <p class="tip">
       以下是全量组件的安装列表
     </p>

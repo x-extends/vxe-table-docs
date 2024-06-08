@@ -3208,13 +3208,31 @@ const apis = [
           },
           {
             name: 'allowSort',
-            desc: '只对 mode=popup 有效，是否允许自定义排序',
-            version: '4.6.6',
+            desc: '是否允许自定义排序',
+            version: '4.7.5',
             type: 'boolean',
             enum: '',
             defVal: 'true',
             list: []
           },
+          // {
+          //   name: 'restoreStore',
+          //   desc: '只对 storage 有效，用于重写默认的恢复自定义配置逻辑，比如需要将服务器保持的个性化信息恢复到本地时可能会用到',
+          //   version: '4.7.6',
+          //   type: '(params: {id}) => storeData',
+          //   enum: '',
+          //   defVal: '',
+          //   list: []
+          // },
+          // {
+          //   name: 'updateStore',
+          //   desc: '只对 storage 有效，用于持久化自定义列信息，比如需要将自定义列信息保持到服务器时可能会用到',
+          //   version: '4.7.6',
+          //   type: '(params: {id, storeData}) => any',
+          //   enum: '',
+          //   defVal: '',
+          //   list: []
+          // },
           {
             name: 'confirmButtonText',
             desc: '确定按钮的文本内容',
@@ -5604,6 +5622,15 @@ const apis = [
         enum: '',
         defVal: 'options: object',
         list: XEUtils.clone(printAPI, true)
+      },
+      {
+        name: 'getPrintHtml(options)',
+        desc: '获取打印的 HTML 标签',
+        version: '4.7.6',
+        type: 'Promise<{html}>',
+        enum: '',
+        defVal: 'options: object',
+        list: []
       },
       {
         name: 'saveFile(options)',

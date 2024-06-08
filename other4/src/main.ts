@@ -19,7 +19,11 @@ import Antd from 'ant-design-vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
-import VXETable from 'vxe-table'
+import VxeUITable from 'vxe-table'
+// import 'vxe-table/lib/style.css'
+
+import VxeUI from 'vxe-pc-ui'
+import 'vxe-pc-ui/lib/style.css'
 
 const app = createApp(App)
 
@@ -29,7 +33,8 @@ app.component('CodeRender', CodeRender)
 app.component('CodeList', CodeList)
 app.component(DemoBlock.name, DemoBlock)
 
-app.use(VXETable)
+app.use(VxeUI)
+app.use(VxeUITable)
 app.use(Antd)
 app.use(ElementPlus)
 

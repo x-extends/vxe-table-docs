@@ -317,7 +317,7 @@ export default {
               return cellValue ? \`￥\${XEUtils.commafy(XEUtils.toNumber(cellValue), { digits: 2 })}\` : ''
             },
             formatDate ({ cellValue }) {
-              return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
+              return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
             }
           }
         }
@@ -343,7 +343,7 @@ export default {
       return cellValue ? `￥${XEUtils.commafy(XEUtils.toNumber(cellValue), { digits: 2 })}` : ''
     },
     formatDate ({ cellValue }) {
-      return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
+      return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
     }
   }
 }

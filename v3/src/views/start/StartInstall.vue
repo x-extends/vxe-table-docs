@@ -7,7 +7,7 @@
     </p>
     <pre>
       <pre-code class="shell">
-        npm install vxe-table@v3-legacy
+        npm install vxe-table@3
       </pre-code>
       <pre-code class="javascript">
         import Vue from 'vue'
@@ -25,12 +25,12 @@
     <pre>
       <pre-code class="xml">
         &lt;!-- 引入样式 --&gt;
-        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@v3-legacy/lib/style.css"&gt;
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@3/lib/style.css"&gt;
         &lt;!-- 引入vue --&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/vue@2"&gt;&lt;/script&gt;
         &lt;!-- 引入组件 --&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@v3-legacy"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@3"&gt;&lt;/script&gt;
       </pre-code>
     </pre>
   </div>

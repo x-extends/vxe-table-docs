@@ -126,7 +126,7 @@ export default {
               return item ? item.label : ''
             },
             formatTime ({ cellValue, row, column }) {
-              return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
+              return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
             }
           }
         }
@@ -210,7 +210,7 @@ export default {
       return item ? item.label : ''
     },
     formatTime ({ cellValue }) {
-      return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
+      return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
     }
   }
 }

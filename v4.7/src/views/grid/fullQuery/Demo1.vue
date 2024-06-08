@@ -175,7 +175,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       width: 160,
       sortable: true,
       formatter ({ cellValue }) {
-        return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
+        return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
       }
     },
     {
