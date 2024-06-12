@@ -1764,6 +1764,15 @@ const apis = [
             list: []
           },
           {
+            name: 'padding',
+            desc: '展开内容的内间距',
+            version: '3.8.8',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
             name: 'trigger',
             desc: '触发方式（注：当多种功能重叠时，会同时触发）',
             version: '',

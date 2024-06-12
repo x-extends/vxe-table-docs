@@ -19,6 +19,20 @@
       <div class="right">
         <div class="content">
           <span v-if="usedJSHeapSize && usedJSHeapSize !== '0'" class="performance">Memory used: {{ usedJSHeapSize }} MB.</span>
+          <vxe-pulldown v-model="showSystemMenu">
+            <vxe-button class="system-menu-btn" status="primary" mode="text" @click="showSystemMenu = !showSystemMenu">
+              <span style="padding-right: 8px;">更多产品</span>
+              <vxe-icon name="arrow-down"></vxe-icon>
+            </vxe-button>
+
+            <template #dropdown>
+              <ul class="system-menu-wrapper">
+                <li v-for="(item, index) in systemMenuList" :key="index">
+                  <a class="link" :href="item.href" target="_blank">{{ item.content }}</a>
+                </li>
+              </ul>
+            </template>
+          </vxe-pulldown>
           <!-- <span>{{ $t('app.body.label.translations') }}:</span> -->
           <vxe-select class="locale-switch" size="mini" v-model="$i18n.locale">
             <vxe-option value="zh_CN" label="中文"></vxe-option>
@@ -149,6 +163,8 @@ export default {
       filterName: '',
       version: '',
       apiList: [],
+      showSystemMenu: false,
+      systemMenuList: [],
       tableData: [],
       selectBetaVersion: null,
       betaVersionList: [],
@@ -1881,6 +1897,16 @@ export default {
           ]
         },
         {
+          label: '组件库',
+          value: 'lib',
+          children: [
+            {
+              label: '点击查看',
+              url: 'https://vxeui.com/'
+            }
+          ]
+        },
+        {
           label: 'app.aside.nav.api',
           value: 'api',
           expand: false,
@@ -2144,11 +2170,6 @@ export default {
               }
             }
           ]
-        },
-        {
-          label: '组件库',
-          value: 'lib',
-          linkUrl: 'https://vxeui.com/'
         }
       ]
     }
@@ -2294,6 +2315,12 @@ export default {
     //   this.newVersionVisible = localStorage.getItem('VXE_TABLE_NEW_VERSION') !== '4.0'
     // }, 5000)
     this.init()
+
+    fetch('https://vxeui.com/component-api/system-list.json').then(res => {
+      res.json().then(data => {
+        this.systemMenuList = data
+      })
+    })
   },
   methods: {
     ...mapMutations([
@@ -2426,3 +2453,25 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.system-menu-wrapper {
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  width: 280px;
+  border: 1px solid #dcdfe6;
+  & > li {
+    line-height: 28px;
+    padding: 0 16px;
+    font-size: 14px;
+    a {
+      color: #606266;
+      &:hover {
+        color: #409eff;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+</style>

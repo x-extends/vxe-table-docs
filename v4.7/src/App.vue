@@ -21,7 +21,7 @@
           <span v-if="appData.usedJSHeapSize && appData.usedJSHeapSize !== '0'" class="performance">Memory used: {{ appData.usedJSHeapSize }} MB.</span>
           <vxe-pulldown v-model="showSystemMenu">
             <vxe-button class="system-menu-btn" status="primary" mode="text" @click="showSystemMenu = !showSystemMenu">
-              <span style="padding-right: 8px;">生态系统</span>
+              <span style="padding-right: 8px;">更多产品</span>
               <vxe-icon name="arrow-down"></vxe-icon>
             </vxe-button>
 
@@ -81,7 +81,7 @@
             <template v-if="appData.apiList.length">
               <ul class="nav-menu">
                 <li v-for="(item, index) in appData.apiList" :key="index" :class="{expand: item.expand}">
-                  <a v-if="item.linkUrl" :href="item.linkUrl" target="_blank" class="link" style="padding-left: 20px;color: #409eff;">更多组件</a>
+                  <a v-if="item.linkUrl" :href="item.linkUrl" target="_blank" class="nav-link" style="padding-left: 20px;">{{ item.label }}</a>
                   <a v-else class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{'is-new': item.isNew, disabled: item.disabled, active: pageKey === item.value}">
                     <i class="vxe-icon-arrow-right nav-link-icon"></i>
                     <span v-html="item.label"></span>
@@ -152,12 +152,7 @@ const serveApiUrl = computed(() => appStore.serveApiUrl)
 const showExtendPlugin = location.href.indexOf('vxetable.cn') > -1
 
 const showSystemMenu = ref(false)
-const systemMenuList = ref([
-  { content: 'Vxe Print Web 打印控件', href: 'https://vxeui.com/#/component/print/base' },
-  { content: 'Vxe Table 专业表格', href: 'https://vxetable.cn' },
-  { content: 'Vxe Form 专业表单', href: 'https://vxeui.com/#/component/form/basics/base' },
-  { content: 'Vxe Form Design 表单设计器', href: 'https://vxeui.com/#/component/form-design/base' }
-])
+const systemMenuList = ref([])
 
 const appData = reactive({
   showLeft: true,
@@ -230,6 +225,16 @@ const appData = reactive({
           locat: {
             name: 'StartI18n'
           }
+        }
+      ]
+    },
+    {
+      label: '组件库',
+      value: 'lib',
+      children: [
+        {
+          label: '点击查看',
+          url: 'https://vxeui.com/'
         }
       ]
     },
@@ -1899,11 +1904,6 @@ const appData = reactive({
           }
         }
       ]
-    },
-    {
-      label: '组件库',
-      value: 'lib',
-      linkUrl: 'https://vxeui.com/'
     }
   ]
 })
@@ -2156,6 +2156,12 @@ watch(pageKey, () => {
 watch(() => router.currentRoute.value, () =>
   document.querySelector('.body .content')?.scrollTo(0, 0)
 )
+
+fetch('https://vxeui.com/component-api/system-list.json').then(res => {
+  res.json().then(data => {
+    systemMenuList.value = data
+  })
+})
 
 nextTick(() => {
   if (process.env.NODE_ENV === 'development') {

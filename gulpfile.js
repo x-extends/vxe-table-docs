@@ -228,10 +228,10 @@ gulp.task('build_css_unicode', () => {
 
 gulp.task('build_latest_docs', () => {
   return gulp.src([
-    'docs/v4/favicon.ico',
-    'docs/v4/index.html',
-    'docs/v4/issues.html',
-    'docs/v4/logo.png'
+    'docs/v4.7/favicon.ico',
+    'docs/v4.7/index.html',
+    'docs/v4.7/issues.html',
+    'docs/v4.7/logo.png'
   ])
     .pipe(gulp.dest('docs'))
 })
