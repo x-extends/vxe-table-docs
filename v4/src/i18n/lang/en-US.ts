@@ -6,6 +6,9 @@ export default {
         install: 'Global install',
         quick: 'Quick starts',
         use: 'Import on demand',
+        globalInstall: 'Global install - Full import',
+        lazyUseGlobal: 'Global install - Lazy import',
+        lazyUseImport: 'Lazy install - Use import',
         global: 'Global props',
         icons: 'Global icon',
         theme: 'Global theme',
@@ -317,10 +320,12 @@ export default {
       }
     },
     header: {
+      moreProducts: 'Resources',
+      enterpriseVersion: 'Enterprise Edition',
       label: {
         donation: '支持我们',
         support: '付费插件',
-        extendPlugin: 'Extended plug-in',
+        extendPlugin: 'Enterprise Edition',
         purchaseAuthorization: 'Plug-in authorization'
       }
     },

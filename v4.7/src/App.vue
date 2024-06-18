@@ -20,15 +20,16 @@
         <div class="content">
           <span v-if="appData.usedJSHeapSize && appData.usedJSHeapSize !== '0'" class="performance">Memory used: {{ appData.usedJSHeapSize }} MB.</span>
           <vxe-pulldown v-model="showSystemMenu">
-            <vxe-button class="system-menu-btn" status="primary" mode="text" @click="showSystemMenu = !showSystemMenu">
-              <span style="padding-right: 8px;">更多产品</span>
-              <vxe-icon name="arrow-down"></vxe-icon>
+            <vxe-button class="system-menu-btn" mode="text" @click="showSystemMenu = !showSystemMenu">
+              <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
+              <span class="system-menu-btn-text">{{ $t('app.header.moreProducts') }}</span>
             </vxe-button>
 
             <template #dropdown>
               <ul class="system-menu-wrapper">
                 <li v-for="(item, index) in systemMenuList" :key="index">
                   <a class="link" :href="item.href" target="_blank">{{ item.content }}</a>
+                  <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
                 </li>
               </ul>
             </template>
@@ -152,7 +153,7 @@ const serveApiUrl = computed(() => appStore.serveApiUrl)
 const showExtendPlugin = location.href.indexOf('vxetable.cn') > -1
 
 const showSystemMenu = ref(false)
-const systemMenuList = ref([])
+const systemMenuList = ref<any[]>([])
 
 const appData = reactive({
   showLeft: true,
@@ -183,15 +184,21 @@ const appData = reactive({
           }
         },
         {
-          label: 'app.aside.nav.install',
+          label: 'app.aside.nav.globalInstall',
           locat: {
             name: 'StartInstall'
           }
         },
         {
-          label: 'app.aside.nav.use',
+          label: 'app.aside.nav.lazyUseGlobal',
           locat: {
-            name: 'StartUse'
+            name: 'StartUseGlobal'
+          }
+        },
+        {
+          label: 'app.aside.nav.lazyUseImport',
+          locat: {
+            name: 'StartUseImport'
           }
         },
         {
@@ -2109,7 +2116,7 @@ const pageKey = computed(() => {
 
 const showOperBtn = computed(() => {
   const $route = router.currentRoute.value
-  return XEUtils.isString($route.name) && ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'StartUseZindex', 'VXEAPI', 'Donation'].includes($route.name)
+  return XEUtils.isString($route.name) && ['StartInstall', 'StartUseGlobal', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'StartUseZindex', 'VXEAPI', 'Donation'].includes($route.name)
 })
 
 const currentLink = computed(() => {
@@ -2157,7 +2164,7 @@ watch(() => router.currentRoute.value, () =>
   document.querySelector('.body .content')?.scrollTo(0, 0)
 )
 
-fetch('https://vxeui.com/component-api/system-list.json').then(res => {
+fetch(`https://vxeui.com/component-api/system-list.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     systemMenuList.value = data
   })
@@ -2189,6 +2196,24 @@ nextTick(() => {
 </script>
 
 <style lang="scss" scoped>
+.system-menu-btn-text {
+  display: inline-block;
+  position: relative;
+  padding: 4px 8px 4px 8px;
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    background-color: red;
+  }
+}
+.system-menu-btn-icon {
+  font-size: 12px;
+}
 .system-menu-wrapper {
   padding: 8px 0;
   margin: 0;
@@ -2196,9 +2221,21 @@ nextTick(() => {
   width: 280px;
   border: 1px solid var(--vxe-table-docs-layout-border-color);
   & > li {
+    position: relative;
     line-height: 28px;
     padding: 0 16px;
     font-size: 14px;
+    .enterprise {
+      display: inline-block;
+      height: 22px;
+      line-height: 22px;
+      background-color: #f6ca9d;
+      border-radius: 10px;
+      font-size: 12px;
+      padding: 0 8px;
+      color: #606266;
+      transform: scale(0.8);
+    }
     a {
       color: #606266;
       &:hover {

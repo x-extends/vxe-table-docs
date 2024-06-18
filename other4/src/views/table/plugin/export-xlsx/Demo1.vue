@@ -90,9 +90,9 @@ const importConfig = ref<VxeTablePropTypes.ImportConfig>({
 
 const exportConfig = ref<VxeTablePropTypes.ExportConfig>({
   // 默认选中类型
-  type: 'xlsx',
+  type: 'xlsx'
   // 自定义类型
-  types: ['xlsx', 'csv', 'html', 'xml', 'txt']
+  // types: ['xlsx', 'csv', 'html', 'xml', 'txt']
 })
 
 const formatterSex: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {

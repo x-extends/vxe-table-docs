@@ -16,8 +16,8 @@
     "vue": "^3.4.27",
     "vue-i18n": "^9.13.1",
     "vue-router": "^4.2.5",
-    "vxe-pc-ui": "^4.0.7",
-    "vxe-table": "^4.7.10"
+    "vxe-pc-ui": "^4.0.23",
+    "vxe-table": "^4.7.24"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.21.0",

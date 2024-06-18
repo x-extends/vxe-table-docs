@@ -1,4 +1,4 @@
-import { VXETable } from 'vxe-table'
+import { VXETable, VxeUI } from 'vxe-table'
 
 import './setup'
 import './renderer'
@@ -18,7 +18,7 @@ import 'vxe-table-plugin-antd/dist/style.css'
 import 'vxe-table-plugin-renderer/dist/style.css'
 
 VXETable.use(VXETablePluginMenus)
-VXETable.use(VXETablePluginExportXLSX)
+VxeUI.use(VXETablePluginExportXLSX)
 VXETable.use(VXETablePluginExportPDF)
 VXETable.use(VXETablePluginElement)
 VXETable.use(VXETablePluginAntd)

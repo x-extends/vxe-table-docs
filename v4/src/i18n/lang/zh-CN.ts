@@ -6,6 +6,9 @@ export default {
         install: '全局安装',
         quick: '快速入门',
         use: '按需加载',
+        globalInstall: '全局安装 - 全量导入',
+        lazyUseGlobal: '全局安装 - 按需导入',
+        lazyUseImport: '局部安装 - 单独导入',
         global: '全局参数',
         icons: '全局图标',
         theme: '全局主题',
@@ -315,10 +318,12 @@ export default {
       }
     },
     header: {
+      moreProducts: '生态',
+      enterpriseVersion: '企业版',
       label: {
         donation: '支持我们',
         support: '付费插件',
-        extendPlugin: '扩展插件',
+        extendPlugin: '企业版',
         purchaseAuthorization: '插件授权'
       }
     },

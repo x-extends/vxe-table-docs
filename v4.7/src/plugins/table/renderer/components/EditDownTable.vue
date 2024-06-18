@@ -15,7 +15,8 @@
 
 <script lang="ts">
 import { defineComponent, PropType, reactive, ref } from 'vue'
-import { VxePulldownInstance, VxeTableEvents, VxeGridProps, VxePagerEvents, VxeGlobalRendererHandles } from 'vxe-table'
+import { VxeTableEvents, VxeGridProps, VxeGlobalRendererHandles } from 'vxe-table'
+import { VxePulldownInstance, VxePagerEvents } from 'vxe-pc-ui'
 
 export default defineComponent({
   name: 'EditDownTable',
