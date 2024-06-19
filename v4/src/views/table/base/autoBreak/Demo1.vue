@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-table
-      :data="tableData">
+      :data="tableData" :show-overflow="false">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
