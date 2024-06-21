@@ -31,7 +31,7 @@
       </vxe-column>
       <vxe-column field="date" title="Date" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+          <vxe-input v-model="row.date" type="date"></vxe-input>
         </template>
       </vxe-column>
     </vxe-table>

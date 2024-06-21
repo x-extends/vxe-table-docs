@@ -21,7 +21,7 @@
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
       :valid-config="{msgMode: 'full'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-colgroup title="分组1">
         <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
         <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>

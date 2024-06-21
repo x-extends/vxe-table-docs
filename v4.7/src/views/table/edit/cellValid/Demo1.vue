@@ -20,7 +20,7 @@
       :edit-rules="validRules"
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-colgroup title="分组1">
         <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">
           <template #edit="params">
@@ -47,7 +47,7 @@
           </vxe-column>
           <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}">
             <template #edit="params">
-              <vxe-input v-model="params.row.date" type="date" transfer @change="changeCellEvent(params)"></vxe-input>
+              <vxe-input v-model="params.row.date" type="date" @change="changeCellEvent(params)"></vxe-input>
             </template>
           </vxe-column>
         </vxe-colgroup>

@@ -21,22 +21,22 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
         <template #edit="scope">
-          <input type="text" class="myinput" v-model="scope.row.name" @input="updateRowStatus(scope)"/>
+          <vxe-input type="text" class="myinput" v-model="scope.row.name" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{autofocus: '.myinput'}">
         <template #edit="scope">
-          <input type="text" class="myinput" v-model="scope.row.sex" @input="updateRowStatus(scope)"/>
+          <vxe-input type="text" class="myinput" v-model="scope.row.sex" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{}">
         <template #edit="scope">
-          <input type="text" v-model="scope.row.address" @input="updateRowStatus(scope)"/>
+          <vxe-input type="text" v-model="scope.row.address" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="date12" title="Date" :formatter="formatDate" :edit-render="{}">
         <template #edit="scope">
-          <input type="date" v-model="scope.row.date12" @input="updateRowStatus(scope)">
+          <vxe-input type="date" v-model="scope.row.date12" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column title="操作" width="200">

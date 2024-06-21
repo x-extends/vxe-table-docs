@@ -1,0 +1,11 @@
+<template>
+  <div>
+    <CodeLight path="table/template/default/Demo1">
+      <template #tip>
+        <vxe-tip status="primary">
+          单元格模板，使用插槽 <ApiLink name="column" prop="default"/> 来自定义模板（提前转换好数据（最优） > <ApiLink name="column" prop="formatter"/>（field值发生变化时） > <ApiLink name="column" prop="slots"/>（实时响应））<br>
+        </vxe-tip>
+      </template>
+    </CodeLight>
+  </div>
+</template>

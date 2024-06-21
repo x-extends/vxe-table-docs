@@ -27,14 +27,7 @@
             <!-- <vxe-option value="ja_JP" label="ジャパン"></vxe-option> -->
           </vxe-select>
           <!-- <span>{{ $t('app.body.label.version') }}: </span> -->
-          <vxe-select class="version-switch" size="mini" v-model="version" @change="vChangeEvent">
-            <vxe-option value="4.7" :label="$t('app.body.other.v4d7')"></vxe-option>
-            <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
-            <vxe-option value="3.9" :label="$t('app.body.other.v3d9')" disabled></vxe-option>
-            <vxe-option value="3" :label="$t('app.body.other.v3')"></vxe-option>
-            <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
-            <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
-          </vxe-select>
+          <vxe-select class="version-switch" size="mini" v-model="version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
           <!-- <router-link class="donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link> -->
         </div>
       </div>
@@ -108,6 +101,9 @@ export default {
       selected: null,
       filterName: '',
       apiList: [],
+      showSystemMenu: false,
+      systemMenuList: [],
+      systemVersionList: [],
       tableData: [],
       selectBetaVersion: null,
       betaVersionList: [],
@@ -2083,6 +2079,19 @@ export default {
     },
     showOperBtn () {
       return ['StartInstall', 'StartUse', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'VXEAPI', 'Donation', 'Run'].includes(this.$route.name)
+    },
+    sysVersionOptions () {
+      return this.systemVersionList.map(item => {
+        return {
+          label: this.$t(`app.body.other.v${item.version.replace('.', 'd')}`),
+          value: item.version,
+          disabled: !!item.isDisabled,
+          className: item.isStop ? 'due-to-stop' : ''
+        }
+      })
+    },
+    selectSysVersion () {
+      return this.systemVersionList.find(item => item.version === this.version)
     }
   },
   watch: {
@@ -2105,6 +2114,12 @@ export default {
       }, 3000)
     }
     this.init()
+
+    fetch(`https://vxeui.com/component-api/vxe-table-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+      res.json().then(data => {
+        this.systemVersionList = data
+      })
+    })
   },
   methods: {
     init () {
@@ -2195,22 +2210,9 @@ export default {
       }
     },
     vChangeEvent () {
-      switch (this.version) {
-        case '1':
-          location.href = `${this.baseApiUrl}v1/`
-          break
-        case '2':
-          location.href = `${this.baseApiUrl}v2/`
-          break
-        case '3':
-          location.href = `${this.baseApiUrl}v3/`
-          break
-        case '4':
-          location.href = `${this.baseApiUrl}v4/`
-          break
-        case '4.7':
-          location.href = `${this.baseApiUrl}v4.7/`
-          break
+      const selectSysItem = this.selectSysVersion
+      if (selectSysItem) {
+        location.href = selectSysItem.url
       }
     }
   }

@@ -21,7 +21,7 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
         <template #edit="{ row }">
-          <input v-model="row.name" type="text" class="myinput" />
+          <vxe-input v-model="row.name" type="text" class="myinput" />
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{}">

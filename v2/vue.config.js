@@ -1,6 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
+process.env.VUE_APP_DATE_NOW = Date.now()
+
 let publicPath = '/'
 if (process.env.NODE_ENV === 'production') {
   publicPath = `/v${process.env.VUE_APP_VXE_VERSION}/`

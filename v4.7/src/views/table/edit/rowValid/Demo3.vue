@@ -41,7 +41,7 @@
       </vxe-column>
       <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{}">
         <template #edit="slotParams">
-          <vxe-input v-model="slotParams.row.date" type="date" transfer @change="changeCellEvent(slotParams)"></vxe-input>
+          <vxe-input v-model="slotParams.row.date" type="date" @change="changeCellEvent(slotParams)"></vxe-input>
         </template>
       </vxe-column>
     </vxe-table>

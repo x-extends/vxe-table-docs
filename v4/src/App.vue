@@ -43,14 +43,7 @@
             <!-- <vxe-option value="ja_JP" label="ジャパン"></vxe-option> -->
           </vxe-select>
           <!-- <span>{{ $t('app.body.label.version') }}: </span> -->
-          <vxe-select class="version-switch" size="mini" v-model="appData.version" @change="vChangeEvent">
-            <vxe-option value="4.7" :label="$t('app.body.other.v4d7')"></vxe-option>
-            <vxe-option value="4" :label="$t('app.body.other.v4')"></vxe-option>
-            <vxe-option value="3.9" :label="$t('app.body.other.v3d9')" disabled></vxe-option>
-            <vxe-option value="3" :label="$t('app.body.other.v3')"></vxe-option>
-            <vxe-option value="2" :label="$t('app.body.other.v2')" class-name="due-to-stop"></vxe-option>
-            <vxe-option value="1" :label="$t('app.body.other.v1')" class-name="due-to-stop"></vxe-option>
-          </vxe-select>
+          <vxe-select class="version-switch" size="mini" v-model="appData.version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
           <router-link class="link donation" :title="$t('app.footer.donationDesc')" :to="{name: 'Donation'}">{{ $t('app.header.label.donation') }}</router-link>
           <template v-if="showExtendPlugin && appData.apiLoading && appData.showPlugin">
             <template v-if="appData.disabledPlugin">
@@ -154,6 +147,8 @@ const showExtendPlugin = location.href.indexOf('vxetable.cn') > -1
 
 const showSystemMenu = ref(false)
 const systemMenuList = ref<any[]>([])
+
+const systemVersionList = ref<any[]>([])
 
 const appData = reactive({
   showLeft: true,
@@ -2299,6 +2294,21 @@ const currTheme = computed({
   }
 })
 
+const sysVersionOptions = computed(() => {
+  return systemVersionList.value.map(item => {
+    return {
+      label: i18n.global.t(`app.body.other.v${item.version.replace('.', 'd')}`),
+      value: item.version,
+      disabled: !!item.isDisabled,
+      className: item.isStop ? 'due-to-stop' : ''
+    }
+  })
+})
+
+const selectSysVersion = computed(() => {
+  return systemVersionList.value.find(item => item.version === appData.version)
+})
+
 const getVersion = () => {
   fetch(`${serveApiUrl.value}/api/npm/versions/vxe-table`, { method: 'GET' })
     .then(response => response.json())
@@ -2381,22 +2391,9 @@ const linkEvent = (item: any) => {
 }
 
 const vChangeEvent = () => {
-  switch (appData.version) {
-    case '1':
-      location.href = `${baseApiUrl.value}v1/`
-      break
-    case '2':
-      location.href = `${baseApiUrl.value}v2/`
-      break
-    case '3':
-      location.href = `${baseApiUrl.value}v3/`
-      break
-    case '4':
-      location.href = `${baseApiUrl.value}v4/`
-      break
-    case '4.7':
-      location.href = `${baseApiUrl.value}v4.7/`
-      break
+  const selectSysItem = selectSysVersion.value
+  if (selectSysItem) {
+    location.href = selectSysItem.url
   }
 }
 
@@ -2548,6 +2545,12 @@ watch(() => router.currentRoute.value, () => {
 fetch(`https://vxeui.com/component-api/system-list.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     systemMenuList.value = data
+  })
+})
+
+fetch(`https://vxeui.com/component-api/vxe-table-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+  res.json().then(data => {
+    systemVersionList.value = data
   })
 })
 

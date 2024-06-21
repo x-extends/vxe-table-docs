@@ -1,0 +1,45 @@
+@import './theme/light.scss';
+@import './theme/dark.scss';
+@import './base.scss';
+
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+body {
+  color: var(--vxe-ui-docs-font-color);
+  background: #f3f5f8;
+}
+
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.orange {
+  color: orange;
+}
+.bold {
+  font-weight: 700;
+}
+
+.docs-title {
+  margin: 8px 0 32px 0;
+}
+
+.keyword-lighten {
+  background-color: #FFFF00;
+}
+
+.due-to-stop {
+  color: red;
+}
+.end-of-life {
+  color: #c0c4cc;
+  text-decoration: line-through;
+}

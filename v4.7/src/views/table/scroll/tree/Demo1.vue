@@ -9,7 +9,7 @@
 
     <vxe-table
       show-overflow
-      height="400"
+      height="600"
       ref="tableRef"
       :loading="loading"
       :tree-config="{transform: true}"

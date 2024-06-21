@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       show-overflow
-      size="small"
+      border="outer"
       :row-config="{isHover: true, useKey: true}"
       :column-config="{resizable: true}"
       :radio-config="{labelField: 'name'}"

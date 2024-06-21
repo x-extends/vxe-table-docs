@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       show-overflow
-      size="medium"
+      border="outer"
       :row-config="{isCurrent: true, isHover: true, useKey: true}"
       :column-config="{resizable: true}"
       :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-caret-right rotate45', iconClose: 'vxe-icon-caret-right'}"

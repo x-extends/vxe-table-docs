@@ -3,7 +3,7 @@
     <vxe-table
       show-overflow
       ref="tableRef"
-      size="mini"
+      border="outer"
       :row-config="{isHover: true, useKey: true}"
       :column-config="{resizable: true}"
       :checkbox-config="{labelField: 'name'}"

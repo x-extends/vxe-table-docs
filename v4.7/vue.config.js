@@ -1,29 +1,29 @@
 const { defineConfig } = require('@vue/cli-service')
 
-let publicPath = '/'
-if (process.env.NODE_ENV === 'production') {
-  publicPath = `/v${process.env.VUE_APP_VXE_VERSION}/`
-  process.env.VUE_APP_CDN_URL = '/umd/'
-  process.env.VUE_APP_MAIN_URL = '/'
-}
-
+process.env.VUE_APP_PAGE_TITLE = 'Vxe Table'
 process.env.VUE_APP_DATE_NOW = Date.now()
 
 module.exports = defineConfig({
-  publicPath,
+  publicPath: `/v${process.env.VUE_APP_VXE_VERSION}/`,
   assetsDir: 'static',
   productionSourceMap: false,
   devServer: {
     port: 8084,
     proxy: {
       '/example/': {
-        target: 'https://vxetable.cn',
+        target: 'https://vxeui.com',
         pathRewrite: {
           '^/example/': '/example/'
         }
       },
+      '/component-api/': {
+        target: 'https://vxeui.com',
+        pathRewrite: {
+          '^/component-api/': '/component-api/'
+        }
+      },
       '/resource/': {
-        target: 'https://vxetable.cn',
+        target: 'https://vxeui.com',
         pathRewrite: {
           '^/resource/': '/resource/'
         }
@@ -35,7 +35,7 @@ module.exports = defineConfig({
       entry: 'src/main.ts',
       template: 'public/index.html',
       filename: 'index.html',
-      title: `Vxe Table v${process.env.VUE_APP_VXE_VERSION}`
+      title: `${process.env.VUE_APP_PAGE_TITLE} v${process.env.VUE_APP_VXE_VERSION}`
     }
   },
   configureWebpack: {
@@ -43,7 +43,8 @@ module.exports = defineConfig({
       hints: false
     },
     externals: {
-      'highlight.js': 'hljs'
+      'highlight.js': 'hljs',
+      axios: 'axios'
     }
   },
   chainWebpack (config) {

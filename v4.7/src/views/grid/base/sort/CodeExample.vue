@@ -1,0 +1,45 @@
+<template>
+  <div>
+    <CodeLight path="grid/base/sort/Demo1">
+      <template #tip>
+        <vxe-tip status="primary">
+          通过给需要排序功能的列加上 <ApiLink name="column" prop="sortable"/> 属性可以支持排序，还可以通过设置 <ApiLink name="column" prop="sort-by"/> 指定字段进行排序<br>
+          如果该列的值为字符串类型，但实际是数值，可以设置 <ApiLink name="column" prop="sort-type"/>=number|string 按指定类型进行排序，默认 auto 自动转换数值<br>
+          如果是自定义排序，可以通过 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="sortMethod"/> 实现自定义排序<br>
+          如果是服务端排序，只需加上 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="remote"/> 和 <ApiLink name="table" prop="sort-change"/> 事件就可以实现<br>
+          还可以通过调用 <ApiLink name="table" prop="sort"/> 方法实现手动排序
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/base/sort/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">配置 <ApiLink name="column" prop="sort-by"/> 指定字段排序、或者方法返回自定义排序的值</vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/base/sort/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">配置 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="sortMethod"/> 自定义排序</vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/base/sort/Demo4">
+      <template #tip>
+        <vxe-tip status="primary">配置 <ApiLink name="table" prop="multiple"/> 启用多字段排序</vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/base/sort/Demo5">
+      <template #tip>
+        <vxe-tip status="primary">点击表头排序，通过 <ApiLink name="table" prop="defaultSort"/> 默认排序、<ApiLink name="table" prop="orders"/> 自定义轮转顺序、通过配置 <ApiLink name="table" prop="trigger"/> 设置触发源</vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/base/sort/Demo6">
+      <template #tip>
+        <vxe-tip status="primary">配置 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="remote"/> 和 <ApiLink name="table" prop="sort-change"/> 事件，实现服务端排序</vxe-tip>
+      </template>
+    </CodeLight>
+  </div>
+</template>
