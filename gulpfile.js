@@ -152,6 +152,22 @@ gulp.task('copy_v3_index', gulp.series('copy_v3_docs', () => {
     .pipe(gulp.dest('_temp/v3'))
 }))
 
+gulp.task('copy_v3.8_docs', () => {
+  return gulp.src('v3.8/dist/**')
+    .pipe(gulp.dest('_temp/v3.8'))
+})
+
+gulp.task('copy_v3.8_index', gulp.series('copy_v3.8_docs', () => {
+  return gulp.src('v3.8/dist/index.html')
+    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
+    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/v3.8'))
+    .pipe(rename({
+      basename: '404'
+    }))
+    .pipe(gulp.dest('_temp/v3.8'))
+}))
+
 gulp.task('copy_v4.6_docs', () => {
   return gulp.src('v4.6/dist/**')
     .pipe(gulp.dest('_temp/v4.6'))
@@ -215,7 +231,7 @@ gulp.task('copy_v4_index', gulp.series('copy_v4_docs', () => {
     .pipe(gulp.dest('_temp/v4'))
 }))
 
-gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index', 'copy_v1_index', 'copy_v2_index', 'copy_v3_index', 'copy_v4.6_index', 'copy_v4_old_index', 'copy_v4_index', () => {
+gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index', 'copy_v1_index', 'copy_v2_index', 'copy_v3_index', 'copy_v3.8_index', 'copy_v4.6_index', 'copy_v4_old_index', 'copy_v4_index', () => {
   return gulp.src('_temp/**')
     .pipe(gulp.dest('docs'))
 }, () => {
@@ -225,6 +241,7 @@ gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index
     '_temp/v1/**/*.html',
     '_temp/v2/**/*.html',
     '_temp/v3/**/*.html',
+    '_temp/v3.8/**/*.html',
     '_temp/v4.6/**/*.html',
     '_temp/v4_old/**/*.html',
     '_temp/v4/**/*.html',

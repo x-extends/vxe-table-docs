@@ -1,6 +1,6 @@
 {
-  "name": "vxe-table-v4",
-  "version": "4.0.0",
+  "name": "vxe-table-v4.6",
+  "version": "4.6.0",
   "private": true,
   "scripts": {
     "update": "npm install --legacy-peer-deps",

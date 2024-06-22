@@ -19,7 +19,7 @@ export interface NavVO {
 }
 
 export const navConfigList: NavVO[] = [
-  { title: '切回旧版文档', linkUrl: '/v4.7_old', linkTarget: '_self' },
+  { title: '切回旧版文档', linkUrl: '/v4_old', linkTarget: '_self' },
   {
     i18nKey: 'app.aside.menu.guide',
     isExpand: true,
