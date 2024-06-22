@@ -21,22 +21,22 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
         <template #edit="scope">
-          <input type="text" class="myinput" v-model="scope.row.name" @input="updateRowStatus(scope)"/>
+          <vxe-input type="text" class="myinput" v-model="scope.row.name" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{autofocus: '.myinput'}">
         <template #edit="scope">
-          <input type="text" class="myinput" v-model="scope.row.sex" @input="updateRowStatus(scope)"/>
+          <vxe-input type="text" class="myinput" v-model="scope.row.sex" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{}">
         <template #edit="scope">
-          <input type="text" v-model="scope.row.address" @input="updateRowStatus(scope)"/>
+          <vxe-input type="text" v-model="scope.row.address" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="date12" title="Date" :formatter="formatDate" :edit-render="{}">
         <template #edit="scope">
-          <input type="date" v-model="scope.row.date12" @input="updateRowStatus(scope)">
+          <vxe-input type="date" v-model="scope.row.date12" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column title="操作" width="200">
@@ -52,7 +52,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -124,10 +124,10 @@ const saveUpdateEvent = (row: RowVO) => {
         row.loading = false
         // 保存完成后将行恢复到初始状态
         $table.reloadRow(row, {})
-        VXETable.modal.message({ content: '保存成功！', status: 'success' })
+        VxeUI.modal.message({ content: '保存成功！', status: 'success' })
       }, 300)
     } else {
-      VXETable.modal.message({ content: '数据未改动！', status: 'info' })
+      VxeUI.modal.message({ content: '数据未改动！', status: 'info' })
     }
   }
 }
@@ -151,7 +151,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VXETable.modal.alert(`新增：${insertRecords.length}`)
+    VxeUI.modal.alert(`新增：${insertRecords.length}`)
   }
 }
 
@@ -159,7 +159,7 @@ const getRemoveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
-    VXETable.modal.alert(`删除：${removeRecords.length}`)
+    VxeUI.modal.alert(`删除：${removeRecords.length}`)
   }
 }
 
@@ -167,7 +167,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VXETable.modal.alert(`更新：${updateRecords.length}`)
+    VxeUI.modal.alert(`更新：${updateRecords.length}`)
   }
 }
 </script>

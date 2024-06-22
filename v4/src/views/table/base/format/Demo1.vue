@@ -3,7 +3,7 @@
     <vxe-table
       border
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="num" title="Num" :formatter="formatterNum" sortable></vxe-column>
       <vxe-column field="sex" title="Sex" :formatter="formatterSex" sortable></vxe-column>
@@ -57,6 +57,6 @@ const formatterSex: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
 }
 
 const formatTime: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
-  return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
+  return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:ss:mm')
 }
 </script>

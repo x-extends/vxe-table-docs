@@ -28,7 +28,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance, VxeTableEvents } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -82,7 +82,7 @@ const getRadioEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const currRow = $table.getRadioRecord()
-    VXETable.modal.alert(JSON.stringify(currRow))
+    VxeUI.modal.alert(JSON.stringify(currRow))
   }
 }
 </script>

@@ -5,7 +5,7 @@
       height="400"
       :data="tableData">
       <vxe-colgroup title="基本信息">
-        <vxe-column type="seq" width="60"></vxe-column>
+        <vxe-column type="seq" width="70"></vxe-column>
         <vxe-column field="name" title="Name"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="更多信息">

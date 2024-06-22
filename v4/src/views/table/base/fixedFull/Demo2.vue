@@ -13,7 +13,7 @@
       show-overflow
       :row-config="{isHover: true}"
       :data="tableData">
-      <vxe-column type="seq" width="60" :fixed="colFixeds.col0"></vxe-column>
+      <vxe-column type="seq" width="70" :fixed="colFixeds.col0"></vxe-column>
       <vxe-column field="name" title="Name" width="300" :fixed="colFixeds.col1"></vxe-column>
       <vxe-column field="role" title="Role" width="300"></vxe-column>
       <vxe-column field="sex" title="Sex" width="300"></vxe-column>

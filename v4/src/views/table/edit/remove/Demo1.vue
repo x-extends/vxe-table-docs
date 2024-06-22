@@ -18,7 +18,7 @@
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
         <template #edit="{ row }">
           <vxe-input v-model="row.name" type="text"></vxe-input>
@@ -40,7 +40,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -83,7 +83,7 @@ const removeSelectRowEvent = () => {
 const removeEvent = async (row: RowVO) => {
   const $table = tableRef.value
   if ($table) {
-    const type = await VXETable.modal.confirm('您确定要删除该数据?')
+    const type = await VxeUI.modal.confirm('您确定要删除该数据?')
     if (type === 'confirm') {
       $table.remove(row)
     }
@@ -94,7 +94,7 @@ const getRemoveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
-    VXETable.modal.alert(removeRecords.length)
+    VxeUI.modal.alert(removeRecords.length)
   }
 }
 
@@ -102,7 +102,7 @@ const getSelectionEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
-    VXETable.modal.alert(selectRecords.length)
+    VxeUI.modal.alert(selectRecords.length)
   }
 }
 
@@ -110,7 +110,7 @@ const saveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-    VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+    VxeUI.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
   }
 }
 </script>

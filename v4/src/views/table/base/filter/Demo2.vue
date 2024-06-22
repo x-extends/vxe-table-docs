@@ -4,7 +4,7 @@
       border
       :row-config="{isHover: true}"
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-colgroup title="基本信息">
         <vxe-column field="name" title="Name" sortable :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
         <vxe-column field="sex" title="Sex" sortable :filters="sexOptions"></vxe-column>

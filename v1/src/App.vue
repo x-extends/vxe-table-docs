@@ -1997,7 +1997,6 @@ export default {
   },
   computed: {
     ...mapState([
-      'docsVersion',
       'baseApiUrl',
       'pluginApiUrl',
       'serveApiUrl'
@@ -2123,7 +2122,7 @@ export default {
   },
   methods: {
     init () {
-      this.version = this.docsVersion
+      this.version = process.env.VUE_APP_VXE_VERSION
       this.getVersion()
       this.loadList()
       setTimeout(() => this.defaultExpand(), 1500)

@@ -2172,7 +2172,6 @@ export default {
   computed: {
     ...mapState([
       'serveTY',
-      'docsVersion',
       'baseApiUrl',
       'pluginDocsUrl',
       'pluginApiUrl',
@@ -2341,7 +2340,7 @@ export default {
       'setSupportQQ'
     ]),
     init () {
-      this.version = this.docsVersion
+      this.version = process.env.VUE_APP_VXE_VERSION
       this.getVersion()
       this.loadList()
       setTimeout(() => this.defaultExpand(), 1500)

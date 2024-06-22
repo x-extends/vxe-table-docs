@@ -15,7 +15,7 @@
       height="400"
       :data="tableData2">
       <vxe-colgroup field="group0" title="基本信息">
-        <vxe-column type="seq" width="60"></vxe-column>
+        <vxe-column type="seq" width="70"></vxe-column>
         <vxe-column field="name" title="Name" width="180"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup field="group1" title="分类信息1">

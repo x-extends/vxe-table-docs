@@ -152,6 +152,48 @@ gulp.task('copy_v3_index', gulp.series('copy_v3_docs', () => {
     .pipe(gulp.dest('_temp/v3'))
 }))
 
+gulp.task('copy_v4.6_docs', () => {
+  return gulp.src('v4.6/dist/**')
+    .pipe(gulp.dest('_temp/v4.6'))
+})
+
+gulp.task('copy_v4.6_index', gulp.series('copy_v4.6_docs', () => {
+  return gulp.src('v4.6/dist/issues.html')
+    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
+    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/v4.6'))
+}, () => {
+  return gulp.src('v4.6/dist/index.html')
+    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
+    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/v4.6'))
+    .pipe(rename({
+      basename: '404'
+    }))
+    .pipe(gulp.dest('_temp/v4.6'))
+}))
+
+gulp.task('copy_v4_old_docs', () => {
+  return gulp.src('v4_old/dist/**')
+    .pipe(gulp.dest('_temp/v4_old'))
+})
+
+gulp.task('copy_v4_old_index', gulp.series('copy_v4_old_docs', () => {
+  return gulp.src('v4_old/dist/issues.html')
+    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
+    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/v4_old'))
+}, () => {
+  return gulp.src('v4_old/dist/index.html')
+    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
+    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
+    .pipe(gulp.dest('_temp/v4_old'))
+    .pipe(rename({
+      basename: '404'
+    }))
+    .pipe(gulp.dest('_temp/v4_old'))
+}))
+
 gulp.task('copy_v4_docs', () => {
   return gulp.src('v4/dist/**')
     .pipe(gulp.dest('_temp/v4'))
@@ -173,49 +215,7 @@ gulp.task('copy_v4_index', gulp.series('copy_v4_docs', () => {
     .pipe(gulp.dest('_temp/v4'))
 }))
 
-gulp.task('copy_v4.7_old_docs', () => {
-  return gulp.src('v4.7_old/dist/**')
-    .pipe(gulp.dest('_temp/v4.7_old'))
-})
-
-gulp.task('copy_v4.7_old_index', gulp.series('copy_v4.7_old_docs', () => {
-  return gulp.src('v4.7_old/dist/issues.html')
-    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
-    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
-    .pipe(gulp.dest('_temp/v4.7_old'))
-}, () => {
-  return gulp.src('v4.7_old/dist/index.html')
-    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
-    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
-    .pipe(gulp.dest('_temp/v4.7_old'))
-    .pipe(rename({
-      basename: '404'
-    }))
-    .pipe(gulp.dest('_temp/v4.7_old'))
-}))
-
-gulp.task('copy_v4.7_docs', () => {
-  return gulp.src('v4.7/dist/**')
-    .pipe(gulp.dest('_temp/v4.7'))
-})
-
-gulp.task('copy_v4.7_index', gulp.series('copy_v4.7_docs', () => {
-  return gulp.src('v4.7/dist/issues.html')
-    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
-    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
-    .pipe(gulp.dest('_temp/v4.7'))
-}, () => {
-  return gulp.src('v4.7/dist/index.html')
-    .pipe(replace('</head>', `${adScript}${isForceAd ? adCheckScript : ''}</head>`))
-    .pipe(replace('</body>', `${sponsorsTmplScript}${adTmplScript}</body>`))
-    .pipe(gulp.dest('_temp/v4.7'))
-    .pipe(rename({
-      basename: '404'
-    }))
-    .pipe(gulp.dest('_temp/v4.7'))
-}))
-
-gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index', 'copy_v1_index', 'copy_v2_index', 'copy_v3_index', 'copy_v4_index', 'copy_v4.7_old_index', 'copy_v4.7_index', () => {
+gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index', 'copy_v1_index', 'copy_v2_index', 'copy_v3_index', 'copy_v4.6_index', 'copy_v4_old_index', 'copy_v4_index', () => {
   return gulp.src('_temp/**')
     .pipe(gulp.dest('docs'))
 }, () => {
@@ -225,9 +225,9 @@ gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index
     '_temp/v1/**/*.html',
     '_temp/v2/**/*.html',
     '_temp/v3/**/*.html',
+    '_temp/v4.6/**/*.html',
+    '_temp/v4_old/**/*.html',
     '_temp/v4/**/*.html',
-    '_temp/v4.7_old/**/*.html',
-    '_temp/v4.7/**/*.html',
   ], { base: './_temp/' })
     .pipe(replace('</head>', `${hmScript}</head>`))
     .pipe(gulp.dest('docs'))
@@ -250,10 +250,10 @@ gulp.task('build_css_unicode', () => {
 
 gulp.task('build_latest_docs', () => {
   return gulp.src([
-    'docs/v4.7/favicon.ico',
-    'docs/v4.7/index.html',
-    'docs/v4.7/issues.html',
-    'docs/v4.7/logo.png'
+    'docs/v4/favicon.ico',
+    'docs/v4/index.html',
+    'docs/v4/issues.html',
+    'docs/v4/logo.png'
   ])
     .pipe(gulp.dest('docs'))
 })

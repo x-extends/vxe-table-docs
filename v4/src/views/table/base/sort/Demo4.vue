@@ -13,7 +13,7 @@
       :sort-config="{multiple: true, chronological: isChronological}"
       :data="tableData"
       @sort-change="sortChangeEvent">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>
       <vxe-column field="num" title="Num" sortable></vxe-column>

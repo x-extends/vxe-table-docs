@@ -6,7 +6,7 @@
       :loading="loading"
       :data="tableData"
       :loading-config="{icon: 'vxe-icon-indicator roll', text: '正在拼命加载中...'}">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

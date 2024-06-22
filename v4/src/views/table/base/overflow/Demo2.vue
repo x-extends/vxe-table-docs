@@ -10,7 +10,7 @@
       :footer-method="footerMethod"
       :data="tableData"
       :tooltip-config="tooltipConfig">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称"></vxe-column>
       <vxe-column field="role" title="标题溢出直接隐藏 xxxxxxxxxxxxxxxxxxxxxxxxxxx" show-header-overflow="ellipsis"></vxe-column>
       <vxe-column field="date" title="Date" show-header-overflow show-overflow show-footer-overflow></vxe-column>

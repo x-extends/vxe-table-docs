@@ -12,11 +12,16 @@ module.exports = {
     ecmaVersion: 2020
   },
   globals: {
-    defineProps: true
+    axios: true,
+    defineProps: true,
+    defineEmits: true,
+    defineExpose: true,
+    defineSlots: true
   },
   rules: {
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    '@typescript-eslint/no-unused-vars': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'vue/multi-word-component-names': 'off'
   }

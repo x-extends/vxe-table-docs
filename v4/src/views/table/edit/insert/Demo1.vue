@@ -22,7 +22,7 @@
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable :edit-render="{autofocus: '.vxe-input--inner', defaultValue: '默认的名字'}">
         <template #edit="{ row }">
           <vxe-input v-model="row.name" type="text"></vxe-input>
@@ -33,7 +33,7 @@
           <span>{{ formatSex(row.sex) }}</span>
         </template>
         <template #edit="{ row }">
-          <vxe-select v-model="row.sex" transfer>
+          <vxe-select v-model="row.sex">
             <vxe-option v-for="item in sexList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
           </vxe-select>
         </template>
@@ -45,7 +45,7 @@
       </vxe-column>
       <vxe-column field="date12" title="Date" sortable :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date12" type="date" transfer></vxe-input>
+          <vxe-input v-model="row.date12" type="date"></vxe-input>
         </template>
       </vxe-column>
     </vxe-table>
@@ -54,7 +54,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -125,7 +125,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VXETable.modal.alert(`新增：${insertRecords.length}`)
+    VxeUI.modal.alert(`新增：${insertRecords.length}`)
   }
 }
 
@@ -133,7 +133,7 @@ const getSelectionEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
-    VXETable.modal.alert(`选中：${selectRecords.length}`)
+    VxeUI.modal.alert(`选中：${selectRecords.length}`)
   }
 }
 
@@ -141,7 +141,7 @@ const saveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-    VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+    VxeUI.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
   }
 }
 </script>

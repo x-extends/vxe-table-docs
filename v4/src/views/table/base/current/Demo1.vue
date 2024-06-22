@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance, VxeTableEvents } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   name: string
@@ -63,7 +63,7 @@ const clearSelectEvent = () => {
 const getCurrentEvent = () => {
   const $table = tableRef.value
   if ($table) {
-    VXETable.modal.alert(JSON.stringify($table.getCurrentRecord()))
+    VxeUI.modal.alert(JSON.stringify($table.getCurrentRecord()))
   }
 }
 </script>

@@ -56,7 +56,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -111,7 +111,7 @@ const saveRowEvent = async (row: RowVO) => {
     await $table.clearEdit()
     // 重新加载行
     await $table.reloadRow(row, {})
-    VXETable.modal.message({ content: 'success', status: 'success' })
+    VxeUI.modal.message({ content: 'success', status: 'success' })
   }
 }
 

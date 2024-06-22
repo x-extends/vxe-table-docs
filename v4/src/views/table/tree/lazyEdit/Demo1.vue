@@ -31,7 +31,7 @@
       </vxe-column>
       <vxe-column field="date" title="Date" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+          <vxe-input v-model="row.date" type="date"></vxe-input>
         </template>
       </vxe-column>
     </vxe-table>
@@ -40,7 +40,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VXETable, VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -83,7 +83,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VXETable.modal.alert(updateRecords.length)
+    VxeUI.modal.alert(updateRecords.length)
   }
 }
 </script>

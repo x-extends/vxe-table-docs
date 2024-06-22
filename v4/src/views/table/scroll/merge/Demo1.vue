@@ -42,7 +42,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -96,7 +96,7 @@ const loadList = (size: number) => {
     const startTime = Date.now()
     if ($table) {
       $table.reloadData(data).then(() => {
-        VXETable.modal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+        VxeUI.modal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
         loading.value = false
       })
     } else {

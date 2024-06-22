@@ -4,7 +4,7 @@
       :row-config="{useKey: true}"
       :column-config="{useKey: true}"
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="userInfo.name" title="Name"></vxe-column>
       <vxe-column field="other[0].sex" title="Sex"></vxe-column>
       <vxe-column field="userInfo.age" title="Age"></vxe-column>

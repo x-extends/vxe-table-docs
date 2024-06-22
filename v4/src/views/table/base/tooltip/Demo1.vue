@@ -7,7 +7,7 @@
       :footer-method="footerMethod"
       :tooltip-config="tooltipConfig"
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称" :title-prefix="{message: '自定义前缀'}"></vxe-column>
       <vxe-column field="role" title="角色" :title-prefix="{message: '自定义前缀图标', icon: 'vxe-icon-question-circle-fill'}"></vxe-column>
       <vxe-column field="date" title="Date" :title-suffix="{message: '自定义后缀'}"></vxe-column>

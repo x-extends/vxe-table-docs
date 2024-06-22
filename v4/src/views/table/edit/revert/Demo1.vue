@@ -42,7 +42,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -88,12 +88,12 @@ const removeEvent = async () => {
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
     if (selectRecords.length) {
-      const type = await VXETable.modal.confirm('您确定要删除选中的数据吗?')
+      const type = await VxeUI.modal.confirm('您确定要删除选中的数据吗?')
       if (type === 'confirm') {
         await $table.removeCheckboxRow()
       }
     } else {
-      VXETable.modal.message({ content: '请至少选择一条数据', status: 'error' })
+      VxeUI.modal.message({ content: '请至少选择一条数据', status: 'error' })
     }
   }
 }
@@ -108,7 +108,7 @@ const revertRow = (row: RowVO) => {
 const revertEvent = async () => {
   const $table = tableRef.value
   if ($table) {
-    const type = await VXETable.modal.confirm('您确定要还原数据吗?')
+    const type = await VxeUI.modal.confirm('您确定要还原数据吗?')
     if (type === 'confirm') {
       await $table.revertData()
     }
@@ -119,7 +119,7 @@ const saveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-    VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+    VxeUI.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
   }
 }
 </script>

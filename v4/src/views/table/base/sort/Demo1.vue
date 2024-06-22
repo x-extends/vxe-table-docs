@@ -14,7 +14,7 @@
       height="300"
       :row-config="{isHover: true}"
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>
       <vxe-column field="age" title="Age" sortable></vxe-column>

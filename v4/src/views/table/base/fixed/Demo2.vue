@@ -4,7 +4,7 @@
       border
       show-overflow
       :data="tableData">
-      <vxe-column type="seq" width="60" fixed="left"></vxe-column>
+      <vxe-column type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

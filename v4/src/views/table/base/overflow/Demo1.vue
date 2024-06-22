@@ -5,7 +5,7 @@
       :row-config="{isHover: true}"
       :footer-method="footerMethod"
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称" show-overflow="ellipsis"></vxe-column>
       <vxe-column field="role" title="角色" show-overflow></vxe-column>
       <vxe-column field="date" title="标题溢出，显示为 tooltip xxxxxxxxxx" show-header-overflow show-overflow="title" show-footer-overflow></vxe-column>

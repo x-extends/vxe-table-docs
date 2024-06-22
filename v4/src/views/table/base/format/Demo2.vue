@@ -3,7 +3,7 @@
     <vxe-table
       border
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="date" title="转日期" width="180" formatter="formatDate"></vxe-column>
       <vxe-column field="time" title="转日期格式" width="140" :formatter="['formatDate', 'yyyy-MM-dd']"></vxe-column>
       <vxe-column field="amount" title="格式化金额" formatter="formatAmount"></vxe-column>

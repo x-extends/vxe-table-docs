@@ -69,7 +69,7 @@ const findList = (order?: VxeTablePropTypes.SortOrder) => {
   }, 300)
 }
 
-const sortChangeEvent: VxeTableEvents.SortChange = ({ order }) => {
+const sortChangeEvent: VxeTableEvents.SortChange<RowVO> = ({ order }) => {
   findList(order)
 }
 

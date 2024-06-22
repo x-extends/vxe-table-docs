@@ -21,7 +21,7 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
         <template #edit="{ row }">
-          <input v-model="row.name" type="text" class="myinput" />
+          <vxe-input v-model="row.name" type="text" class="myinput" />
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{}">
@@ -45,8 +45,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { VXETable, VxeTableInstance, VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
-import XEClipboard from 'xe-clipboard'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -151,8 +150,8 @@ const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, col
         $table.resetColumn(true)
         break
       case 'copy':
-        if (XEClipboard.copy(row[column.field])) {
-          VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+        if (VxeUI.clipboard.copy(row[column.field])) {
+          VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
         }
         break
       case 'reload':
@@ -167,7 +166,7 @@ const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, col
         $table.remove(row)
         break
       case 'save':
-        VXETable.modal.message({ content: '保存成功', status: 'success' })
+        VxeUI.modal.message({ content: '保存成功', status: 'success' })
         findList()
         break
     }
@@ -178,7 +177,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VXETable.modal.alert(insertRecords.length)
+    VxeUI.modal.alert(insertRecords.length)
   }
 }
 
@@ -186,7 +185,7 @@ const getRemoveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
-    VXETable.modal.alert(removeRecords.length)
+    VxeUI.modal.alert(removeRecords.length)
   }
 }
 
@@ -194,7 +193,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VXETable.modal.alert(updateRecords.length)
+    VxeUI.modal.alert(updateRecords.length)
   }
 }
 

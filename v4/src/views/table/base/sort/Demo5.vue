@@ -7,7 +7,7 @@
       :data="tableData"
       :sort-config="{trigger: 'cell', defaultSort: {field: 'age', order: 'desc'}, orders: ['desc', 'asc', null]}"
       @sort-change="sortChangeEvent">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>
       <vxe-column field="sex" title="Sex" sortable></vxe-column>

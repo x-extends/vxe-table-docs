@@ -371,10 +371,10 @@ export default {
       other: {
         v1: 'v1.x (vue 2.6 停止维护) ~ 2020-04 停止更新',
         v2: 'v2.x (vue 2.6 停止维护) ~ 2021-12 停止更新',
-        v3: 'v3.x (vue 2.6 长期维护版)',
-        v3d9: 'v3.9.x (vue 2.6 最新版)',
-        v4: 'v4.x (vue 3.x 长期维护版) ~ 2024-12 停止更新',
-        v4d7: 'v4.7.x (vue 3.x 稳定版)',
+        v3: 'v3.9+ (vue 2.6 长期维护版)',
+        v3d8: 'v3.0~3.8 (vue 2.6 长期维护版)',
+        v4: 'v4.7+ (vue 3.x 最新版)',
+        v4d6: 'v4.0~4.6 (vue 3.x 长期维护版) ~ 2024-12 停止更新',
         plan: {
           v1: 'v1 Based on vue2.6, Support for all major browsers',
           v2: 'v2 Based on vue2.6, Support for all major browsers',

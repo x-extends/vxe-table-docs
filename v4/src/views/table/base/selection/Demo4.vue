@@ -13,7 +13,7 @@
       :row-config="{isHover: true}"
       :tree-config="{}"
       :data="tableData"
-      :checkbox-config="{checkField: 'isChecked', halfField: 'isIndeterminate'}">
+      :checkbox-config="{checkField: 'isChecked', indeterminateField: 'isIndeterminate'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

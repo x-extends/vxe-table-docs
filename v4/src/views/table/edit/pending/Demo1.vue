@@ -32,12 +32,12 @@
       </vxe-column>
       <vxe-column field="date12" title="Date" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
+          <vxe-input v-model="row.date12" type="date" placeholder="请选择日期"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="date13" title="Week" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date13" type="week" placeholder="请选择日期" transfer></vxe-input>
+          <vxe-input v-model="row.date13" type="week" placeholder="请选择日期"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{}">
@@ -51,7 +51,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -89,7 +89,7 @@ const getPendingEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const pendingRecords = $table.getPendingRecords()
-    VXETable.modal.alert(pendingRecords.length)
+    VxeUI.modal.alert(pendingRecords.length)
   }
 }
 
