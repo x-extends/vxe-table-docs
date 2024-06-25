@@ -2,7 +2,7 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #sex_filter="{ $panel, column }">
-        <input class="my-filter" type="type" v-model="option.data" v-for="(option, index) in column.filters" :key="index" @input="changeFilterEvent($event, option, $panel)">
+        <vxe-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeFilterEvent($event, option, $panel)"></vxe-input>
       </template>
     </vxe-grid>
   </div>
@@ -51,7 +51,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const changeFilterEvent = (event: any, option: any, $panel: any) => {
-  $panel.changeOption(event, !!option.data, option)
+const changeFilterEvent = (params: any, option: any, $panel: any) => {
+  $panel.changeOption(params.$event, !!option.data, option)
 }
 </script>

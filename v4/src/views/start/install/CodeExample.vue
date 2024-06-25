@@ -11,7 +11,9 @@
       <template #use>
         <pre>
           <pre-code class="shell">
-            npm install vxe-table@v4
+            npm install vxe-table
+            # 或者
+            yarn add vxe-table
           </pre-code>
           <pre-code class="javascript">
             // ...
@@ -44,14 +46,14 @@
         <pre>
           <pre-code class="html">
             &lt;!-- 引入样式 --&gt;
-            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-pc-ui@v4/lib/style.css"&gt;
-            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@v4/lib/style.css"&gt;
+            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-pc-ui/lib/style.css"&gt;
+            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table/lib/style.css"&gt;
             &lt;!-- 引入vue --&gt;
             &lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;
             &lt;!-- 引入组件 --&gt;
             &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
-            &lt;script src="https://cdn.jsdelivr.net/npm/vxe-pc-ui@v4"&gt;&lt;/script&gt;
-            &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@v4"&gt;&lt;/script&gt;
+            &lt;script src="https://cdn.jsdelivr.net/npm/vxe-pc-ui"&gt;&lt;/script&gt;
+            &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table"&gt;&lt;/script&gt;
           </pre-code>
         </pre>
       </template>

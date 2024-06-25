@@ -39,8 +39,8 @@
       </vxe-pulldown>
     </div>
     <div class="nav-item nav-level1" v-for="(item1, index1) in navList" :key="index1" :class="[{'is-expand': item1.isExpand}]">
-      <div class="nav-name" :title="item1.title" @click="toggleExpand(item1)">
-        <vxe-link v-if="item1.linkUrl" class="nav-item-link" :href="item1.linkUrl" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
+      <div class="nav-name" :class="{'is-plugin': item1.isPlugin, 'is-enterprise': item1.isEnterprise}" :title="item1.title" @click="toggleExpand(item1)">
+        <vxe-link v-if="item1.linkUrl" class="nav-item-link" :status="item1.linkStatus" :href="item1.linkUrl" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
         <span v-else>
           <span class="vxe-icon-arrow-right nav-link-icon"></span>
           <span class="nav-item-text">{{ item1.title }}</span>
@@ -48,23 +48,23 @@
       </div>
       <div v-if="item1.children && item1.children.length" class="nav-subs">
         <div class="nav-item nav-level2" v-for="(item2, index2) in item1.children" :key="index2" :class="[{'is-expand': item2.isExpand}]">
-          <div class="nav-name" :title="item2.title" @click="toggleExpand(item2)">
+          <div class="nav-name" :class="{'is-plugin': item2.isPlugin, 'is-enterprise': item2.isEnterprise}" :title="item2.title" @click="toggleExpand(item2)">
             <vxe-link v-if="item2.routerLink" :class="['nav-item-link', getApiClass(item2)]" :router-link="item2.routerLink" :content="item2.title"></vxe-link>
-            <vxe-link v-else-if="item2.linkUrl" class="nav-item-link" :href="item2.linkUrl" :target="item2.linkTarget || '_blank'" :content="item2.title"></vxe-link>
+            <vxe-link v-else-if="item2.linkUrl" class="nav-item-link" :status="item2.linkStatus" :href="item2.linkUrl" :target="item2.linkTarget || '_blank'" :content="item2.title"></vxe-link>
             <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item2.title"></vxe-text>
           </div>
           <div v-if="!['API'].includes(item1.title || '') && item2.children && item2.children.length" class="nav-subs">
             <div class="nav-item nav-level3" v-for="(item3, index3) in item2.children" :key="index3" :class="[{'is-expand': item3.isExpand}]">
-              <div class="nav-name" :title="item3.title" @click="toggleExpand(item3)">
+              <div class="nav-name" :class="{'is-plugin': item3.isPlugin, 'is-enterprise': item3.isEnterprise}" :title="item3.title" @click="toggleExpand(item3)">
                 <vxe-link v-if="item3.routerLink" :class="['nav-item-link', getApiClass(item3)]" :router-link="item3.routerLink" :content="item3.title"></vxe-link>
-                <vxe-link v-else-if="item3.linkUrl" class="nav-item-link" :href="item3.linkUrl" :target="item3.linkTarget || '_blank'" :content="item3.title"></vxe-link>
+                <vxe-link v-else-if="item3.linkUrl" class="nav-item-link" :status="item3.linkStatus" :href="item3.linkUrl" :target="item3.linkTarget || '_blank'" :content="item3.title"></vxe-link>
                 <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item3.title"></vxe-text>
               </div>
               <div v-if="item3.children && item3.children.length" class="nav-subs">
                 <div class="nav-item nav-level4" v-for="(item4, index3) in item3.children" :key="index3" :class="[{'is-expand': item4.isExpand}]">
-                  <div class="nav-name" :title="item4.title" @click="toggleExpand(item4)">
+                  <div class="nav-name" :class="{'is-plugin': item4.isPlugin, 'is-enterprise': item4.isEnterprise}" :title="item4.title" @click="toggleExpand(item4)">
                     <vxe-link v-if="item4.routerLink" :class="['nav-item-link', getApiClass(item4)]" :router-link="item4.routerLink" :content="item4.title"></vxe-link>
-                    <vxe-link v-else-if="item4.linkUrl" class="nav-item-link" :href="item4.linkUrl" :target="item4.linkTarget || '_blank'" :content="item4.title"></vxe-link>
+                    <vxe-link v-else-if="item4.linkUrl" class="nav-item-link" :status="item4.linkStatus" :href="item4.linkUrl" :target="item4.linkTarget || '_blank'" :content="item4.title"></vxe-link>
                     <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item4.title"></vxe-text>
                   </div>
                 </div>

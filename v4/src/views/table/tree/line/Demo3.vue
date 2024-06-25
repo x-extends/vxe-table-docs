@@ -6,7 +6,7 @@
       :row-config="{isHover: true, useKey: true}"
       :column-config="{resizable: true}"
       :radio-config="{labelField: 'name'}"
-      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
+      :tree-config="{transform: true, accordion: true, showLine: true, iconOpen: 'vxe-icon-square-minus-fill', iconClose: 'vxe-icon-square-plus-fill'}"
       :data="tableData">
       <vxe-column type="radio" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>

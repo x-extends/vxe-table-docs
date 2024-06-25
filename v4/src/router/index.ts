@@ -629,6 +629,11 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/views/table/expand/padding/CodeExample.vue')
               },
               {
+                path: 'icon',
+                name: 'ComponentTableExpandIcon',
+                component: () => import('@/views/table/expand/icon/CodeExample.vue')
+              },
+              {
                 path: 'height',
                 name: 'ComponentTableExpandHeight',
                 component: () => import('@/views/table/expand/height/CodeExample.vue')
@@ -637,6 +642,26 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'fixed',
                 name: 'ComponentTableExpandFixed',
                 component: () => import('@/views/table/expand/fixed/CodeExample.vue')
+              },
+              {
+                path: 'trigger',
+                name: 'ComponentTableExpandTrigger',
+                component: () => import('@/views/table/expand/trigger/CodeExample.vue')
+              },
+              {
+                path: 'lazy',
+                name: 'ComponentTableExpandLazy',
+                component: () => import('@/views/table/expand/lazy/CodeExample.vue')
+              },
+              {
+                path: 'visibleMethod',
+                name: 'ComponentTableExpandVisibleMethod',
+                component: () => import('@/views/table/expand/visibleMethod/CodeExample.vue')
+              },
+              {
+                path: 'toggleMethod',
+                name: 'ComponentTableExpandToggleMethod',
+                component: () => import('@/views/table/expand/toggleMethod/CodeExample.vue')
               }
             ]
           },
@@ -866,6 +891,36 @@ const routes: Array<RouteRecordRaw> = [
             ]
           },
           {
+            path: 'keyboard',
+            children: [
+              {
+                path: 'selected',
+                name: 'ComponentTableKeyboardSelected',
+                component: () => import('@/views/table/keyboard/selected/CodeExample.vue')
+              },
+              {
+                path: 'keyboard',
+                name: 'ComponentTableKeyboardKeyboard',
+                component: () => import('@/views/table/keyboard/keyboard/CodeExample.vue')
+              },
+              {
+                path: 'edit',
+                name: 'ComponentTableKeyboardEdit',
+                component: () => import('@/views/table/keyboard/edit/CodeExample.vue')
+              },
+              {
+                path: 'tree',
+                name: 'ComponentTableKeyboardTree',
+                component: () => import('@/views/table/keyboard/tree/CodeExample.vue')
+              },
+              {
+                path: 'treeEdit',
+                name: 'ComponentTableKeyboardTreeEdit',
+                component: () => import('@/views/table/keyboard/treeEdit/CodeExample.vue')
+              }
+            ]
+          },
+          {
             path: 'edit',
             children: [
               {
@@ -927,6 +982,11 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'rowValid',
                 name: 'ComponentTableEditRowValid',
                 component: () => import('@/views/table/edit/rowValid/CodeExample.vue')
+              },
+              {
+                path: 'tree',
+                name: 'ComponentTableEditTree',
+                component: () => import('@/views/table/edit/tree/CodeExample.vue')
               },
               {
                 path: 'span',
@@ -1082,6 +1142,16 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'advanced',
                 name: 'ComponentTablePrintAdvanced',
                 component: () => import('@/views/table/print/advanced/CodeExample.vue')
+              },
+              {
+                path: 'page',
+                name: 'ComponentTablePrintPage',
+                component: () => import('@/views/table/print/page/CodeExample.vue')
+              },
+              {
+                path: 'multilist',
+                name: 'ComponentTablePrintMultilist',
+                component: () => import('@/views/table/print/multilist/CodeExample.vue')
               }
             ]
           },
@@ -1592,6 +1662,31 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'rowDisable',
                 name: 'ComponentGridEditRowDisable',
                 component: () => import('@/views/grid/edit/rowDisable/CodeExample.vue')
+              }
+            ]
+          },
+          {
+            path: 'editRender',
+            children: [
+              {
+                path: 'input',
+                name: 'ComponentGridEditRenderInput',
+                component: () => import('@/views/grid/editRender/input/CodeExample.vue')
+              },
+              {
+                path: 'select',
+                name: 'ComponentGridEditRenderSelect',
+                component: () => import('@/views/grid/editRender/select/CodeExample.vue')
+              },
+              {
+                path: 'vxe-input',
+                name: 'ComponentGridEditRenderVxeInput',
+                component: () => import('@/views/grid/editRender/vxe-input/CodeExample.vue')
+              },
+              {
+                path: 'vxe-select',
+                name: 'ComponentGridEditRenderVxeSelect',
+                component: () => import('@/views/grid/editRender/vxe-select/CodeExample.vue')
               }
             ]
           },

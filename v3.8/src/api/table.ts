@@ -515,7 +515,7 @@ const apis = [
         version: '3.7.0',
         type: 'number | string',
         enum: '%, px',
-        defVal: '默认 144，继承 setup.table.minHeight',
+        defVal: '默认 144，继承 setConfig.table.minHeight',
         list: []
       },
       {
@@ -552,7 +552,7 @@ const apis = [
         version: '',
         type: 'boolean',
         enum: '',
-        defVal: '默认 false，继承 setup.table.resizable',
+        defVal: '默认 false，继承 setConfig.table.resizable',
         list: []
       },
       {
@@ -561,7 +561,7 @@ const apis = [
         version: '',
         type: 'boolean',
         enum: '',
-        defVal: '默认 false，继承 setup.table.stripe',
+        defVal: '默认 false，继承 setConfig.table.stripe',
         list: []
       },
       {
@@ -570,7 +570,7 @@ const apis = [
         version: '',
         type: 'boolean | string',
         enum: 'default（默认）, full（完整边框）, outer（外边框）, inner（内边框）, none（无边框）',
-        defVal: '默认 false，继承 setup.table.border',
+        defVal: '默认 false，继承 setConfig.table.border',
         list: []
       },
       {
@@ -579,7 +579,7 @@ const apis = [
         version: '',
         type: 'boolean',
         enum: '',
-        defVal: '默认 false，继承 setup.table.round',
+        defVal: '默认 false，继承 setConfig.table.round',
         list: []
       },
       {
@@ -929,7 +929,7 @@ const apis = [
         version: '',
         type: 'string',
         enum: '',
-        defVal: '默认 X_ROW_KEY，继承 setup.table.rowId',
+        defVal: '默认 X_ROW_KEY，继承 setConfig.table.rowId',
         list: []
       },
       {
@@ -938,7 +938,7 @@ const apis = [
         version: '',
         type: 'boolean',
         enum: '',
-        defVal: '默认 false，继承 setup.table.keepSource',
+        defVal: '默认 false，继承 setConfig.table.keepSource',
         list: []
       },
       // {
@@ -948,7 +948,7 @@ const apis = [
       //   version: '',
       //   type: 'number',
       //   enum: '',
-      //   defVal: '继承 setup.table.zIndex',
+      //   defVal: '继承 setConfig.table.zIndex',
       //   list: []
       // },
       {
@@ -1066,7 +1066,7 @@ const apis = [
         version: '3.4.0',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.rowConfig',
+        defVal: '继承 setConfig.table.rowConfig',
         list: [
           {
             name: 'useKey',
@@ -1121,7 +1121,7 @@ const apis = [
         version: '3.6.12',
         type: 'Object',
         enum: '',
-        defVal: '继承 setup.table.resizeConfig',
+        defVal: '继承 setConfig.table.resizeConfig',
         list: [
           {
             name: 'refreshDelay',
@@ -1140,7 +1140,7 @@ const apis = [
         version: '3.0.20',
         type: 'Object',
         enum: '',
-        defVal: '继承 setup.table.resizableConfig',
+        defVal: '继承 setConfig.table.resizableConfig',
         list: [
           {
             name: 'minWidth',
@@ -1168,7 +1168,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.seqConfig',
+        defVal: '继承 setConfig.table.seqConfig',
         list: [
           {
             name: 'startIndex',
@@ -1197,7 +1197,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.sortConfig',
+        defVal: '继承 setConfig.table.sortConfig',
         list: [
           {
             name: 'defaultSort',
@@ -1325,7 +1325,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.filterConfig',
+        defVal: '继承 setConfig.table.filterConfig',
         list: [
           {
             name: 'remote',
@@ -1398,7 +1398,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.exportConfig',
+        defVal: '继承 setConfig.table.exportConfig',
         list: XEUtils.clone(exportDataAPI, true)
       },
       {
@@ -1407,7 +1407,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.importConfig',
+        defVal: '继承 setConfig.table.importConfig',
         list: XEUtils.clone(importDataAPI, true)
       },
       {
@@ -1416,7 +1416,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.printConfig',
+        defVal: '继承 setConfig.table.printConfig',
         list: XEUtils.clone(printAPI, true)
       },
       {
@@ -1425,7 +1425,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.radioConfig',
+        defVal: '继承 setConfig.table.radioConfig',
         list: [
           {
             name: 'strict',
@@ -1507,7 +1507,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.checkboxConfig',
+        defVal: '继承 setConfig.table.checkboxConfig',
         list: [
           {
             name: 'labelField',
@@ -1652,7 +1652,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.tooltipConfig',
+        defVal: '继承 setConfig.table.tooltipConfig',
         list: [
           {
             name: 'showAll',
@@ -1716,7 +1716,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.expandConfig',
+        defVal: '继承 setConfig.table.expandConfig',
         list: [
           {
             name: 'labelField',
@@ -1761,15 +1761,6 @@ const apis = [
             type: 'number',
             enum: '',
             defVal: '',
-            list: []
-          },
-          {
-            name: 'padding',
-            desc: '展开内容的内间距',
-            version: '3.8.8',
-            type: 'boolean',
-            enum: '',
-            defVal: 'false',
             list: []
           },
           {
@@ -1870,7 +1861,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.treeConfig',
+        defVal: '继承 setConfig.table.treeConfig',
         list: [
           {
             name: 'transform',
@@ -2081,7 +2072,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.menuConfig',
+        defVal: '继承 setConfig.table.menuConfig',
         list: [
           {
             name: 'enabled',
@@ -2154,7 +2145,7 @@ const apis = [
         version: 'extend-cell-area',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.clipConfig',
+        defVal: '继承 setConfig.table.clipConfig',
         list: [
           {
             name: 'isCopy',
@@ -2335,7 +2326,7 @@ const apis = [
         version: 'extend-cell-area',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.fnrConfig',
+        defVal: '继承 setConfig.table.fnrConfig',
         list: [
           {
             name: 'isFind',
@@ -2417,7 +2408,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.mouseConfig',
+        defVal: '继承 setConfig.table.mouseConfig',
         list: [
           {
             name: 'selected',
@@ -2454,7 +2445,7 @@ const apis = [
         version: 'extend-cell-area',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.areaConfig',
+        defVal: '继承 setConfig.table.areaConfig',
         list: [
           {
             name: 'multiple',
@@ -2563,7 +2554,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.keyboardConfig',
+        defVal: '继承 setConfig.table.keyboardConfig',
         list: [
           {
             name: 'isArrow',
@@ -2587,6 +2578,15 @@ const apis = [
             name: 'isDel',
             desc: '开启删除键功能，用于 edit-config.mode 和 column.editRender 编辑模式',
             version: '',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'isBack',
+            desc: '开启回退键功能，用于 edit-config 编辑模式或者树形结构回退到上一级节点',
+            version: '3.8.8',
             type: 'boolean',
             enum: '',
             defVal: 'false',
@@ -2717,7 +2717,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.editConfig',
+        defVal: '继承 setConfig.table.editConfig',
         list: [
           {
             name: 'trigger',
@@ -3013,7 +3013,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.emptyRender',
+        defVal: '继承 setConfig.table.emptyRender',
         list: [
           {
             name: 'name',
@@ -3069,7 +3069,7 @@ const apis = [
         version: '3.6.0',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.loadingConfig',
+        defVal: '继承 setConfig.table.loadingConfig',
         list: [
           {
             name: 'icon',
@@ -3095,7 +3095,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.customConfig',
+        defVal: '继承 setConfig.table.customConfig',
         list: [
           {
             name: 'storage',
@@ -3181,6 +3181,15 @@ const apis = [
             list: []
           },
           {
+            name: 'allowVisible',
+            desc: '是否允许自定义列显示与隐藏',
+            version: '3.8.8',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
             name: 'allowFixed',
             desc: '是否允许自定义冻结列',
             version: '3.8.0',
@@ -3196,6 +3205,42 @@ const apis = [
             type: 'boolean',
             enum: '',
             defVal: 'true',
+            list: []
+          },
+          {
+            name: 'allowResizable',
+            desc: '是否允许自定义调整列宽',
+            version: '3.8.8',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'restoreStore',
+            desc: '只对 storage 有效，用于重写默认的恢复自定义配置逻辑，比如需要将服务器保持的个性化信息恢复到本地时可能会用到',
+            version: '3.8.9',
+            type: '(params: {id, type, storeData}) => Promise<storeData>',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'updateStore',
+            desc: '只对 storage 有效，重写默认的保存方法，比如需要将自定义列信息保持到服务器时可能会用到',
+            version: '3.8.9',
+            type: '(params: {id, type, storeData}) => Promise<any>',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'placement',
+            desc: '设置自定义弹窗面板的位置',
+            version: '3.8.8',
+            type: 'string',
+            enum: 'left, right, topLeft, topRight, bottomLeft, bottomRight',
+            defVal: 'topRight',
             list: []
           },
           {
@@ -3243,7 +3288,7 @@ const apis = [
       //   version: '',
       //   type: 'boolean',
       //   enum: '',
-      //   defVal: '默认 true，继承 setup.table.animat',
+      //   defVal: '默认 true，继承 setConfig.table.animat',
       //   list: []
       // },
       // {
@@ -3253,7 +3298,7 @@ const apis = [
       //   version: '',
       //   type: 'number',
       //   enum: '',
-      //   defVal: '默认 250，继承 setup.table.delayHover',
+      //   defVal: '默认 250，继承 setConfig.table.delayHover',
       //   list: []
       // },
       {
@@ -3262,7 +3307,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.scrollX',
+        defVal: '继承 setConfig.table.scrollX',
         list: [
           {
             name: 'enabled',
@@ -3308,7 +3353,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.table.scrollY',
+        defVal: '继承 setConfig.table.scrollY',
         list: [
           {
             name: 'enabled',
@@ -3949,6 +3994,15 @@ const apis = [
         list: []
       },
       {
+        name: 'clear-cell-area-selection',
+        desc: '只对 mouse-config.area 配置时有效，用户点击表格之外选取区域被清除时会触发该事件',
+        version: 'extend-cell-area',
+        type: '',
+        enum: '',
+        defVal: '{ cellAreas, $event }',
+        list: []
+      },
+      {
         name: 'header-cell-area-selection',
         desc: '只对 area-config.selectCellByHeader 配置时有效，点击列头选取当前列的所有单元格时会触发该事件',
         version: 'extend-cell-area',
@@ -4122,21 +4176,12 @@ const apis = [
       //   list: []
       // },
       {
-        name: 'setRow(rows, record)',
-        desc: '修改行数据',
-        version: '3.8.8',
-        type: 'Promise<any>',
-        enum: '',
-        defVal: 'rows: Row | Row[], record: object',
-        list: []
-      },
-      {
         name: 'reloadRow(rows, record, field)',
-        desc: '修改行数据并恢复到初始状态，比如编辑之后需要修改成未编辑状态。仅用于修改的数据，对新增的临时数据无效（对于行数据需要局部更改的场景中可能会用到）',
+        desc: '局部加载行数据并恢复到初始状态，仅用于修改的数据，对新增的临时数据无效（对于行数据需要局部更改的场景中可能会用到）',
         version: '',
         type: 'Promise<any>',
         enum: '',
-        defVal: 'rows: Row | Row[], record?: object, field?: string',
+        defVal: 'rows: Row | Row[], record: object, field?: string',
         list: []
       },
       {
@@ -4331,6 +4376,15 @@ const apis = [
         list: []
       },
       {
+        name: 'getParams()',
+        desc: '获取自定义的 params 属性',
+        version: '3.8.9',
+        type: 'any',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'getRowSeq(row)',
         desc: '根据 row 获取行的序号',
         version: '3.4.7',
@@ -4396,7 +4450,7 @@ const apis = [
       {
         name: 'getColid(column)',
         desc: '根据列获取列的唯一主键',
-        version: '',
+        version: '3.8.8',
         type: 'String',
         enum: '',
         defVal: 'column: ColumnConfig',
@@ -4481,6 +4535,24 @@ const apis = [
         type: 'any[]',
         enum: '',
         defVal: '',
+        list: []
+      },
+      {
+        name: 'getCellElement(row, fieldOrColumn)',
+        desc: '获取单元格对应的 TD 元素，如果是非可视区，则需要先滚动到可视区后再进行获取',
+        version: '3.8.8',
+        type: 'HTMLTableDataCellElement | null',
+        enum: '',
+        defVal: 'row: any, fieldOrColumn?: string | ColumnInfo',
+        list: []
+      },
+      {
+        name: 'getCellLabel(row, fieldOrColumn)',
+        desc: '获取单元格的显示值，支持 formatter（除了插槽之外）',
+        version: '3.8.8',
+        type: 'string | number',
+        enum: '',
+        defVal: 'row: any, fieldOrColumn?: string | ColumnInfo',
         list: []
       },
       {
@@ -4890,6 +4962,15 @@ const apis = [
         type: 'Promise<any>',
         enum: '',
         defVal: 'fieldOrColumn: string | ColumnInfo',
+        list: []
+      },
+      {
+        name: 'getCustomStoreData()',
+        desc: '用于 custom-config，用于获取自定义列设置信息，用于服务端保持',
+        version: '3.8.8',
+        type: 'any',
+        enum: '',
+        defVal: '',
         list: []
       },
       {

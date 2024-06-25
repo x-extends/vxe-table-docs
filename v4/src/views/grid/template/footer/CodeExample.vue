@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/template/footer/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          使用 JSX <ApiLink name="column" prop="footer"/> 来自定义模板
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

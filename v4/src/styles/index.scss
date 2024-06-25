@@ -10,6 +10,13 @@ body,
   font-size: 14px;
 }
 
+html,
+body {
+  [qingmingjie] {
+    filter: grayscale(1);
+  }
+}
+
 body {
   color: var(--vxe-ui-docs-font-color);
   background: #f3f5f8;

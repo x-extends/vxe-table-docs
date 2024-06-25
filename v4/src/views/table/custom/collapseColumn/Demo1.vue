@@ -3,7 +3,7 @@
     <vxe-table
       border
       ref="tableRef"
-      height="200"
+      height="400"
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" width="200">

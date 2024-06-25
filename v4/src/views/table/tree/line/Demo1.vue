@@ -4,7 +4,7 @@
       show-overflow
       :row-config="{isHover: true, useKey: true}"
       :column-config="{resizable: true}"
-      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', line: true}"
+      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', showLine: true}"
       :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>

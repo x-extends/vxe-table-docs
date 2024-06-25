@@ -2,7 +2,8 @@
   <div>
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="insertEvent()">新增</vxe-button>
+        <vxe-button @click="insertEvent()">新增单行</vxe-button>
+        <vxe-button @click="insertsEvent()">新增多行</vxe-button>
         <vxe-button @click="insertEvent(tableData[2])">在第3行插入并激活 Sex 单元格</vxe-button>
         <vxe-button @click="insertEvent(-1)">在最后行插入</vxe-button>
         <vxe-button @click="removeSelectRowEvent">删除选中</vxe-button>
@@ -103,6 +104,24 @@ const insertEvent = async (row?: RowVO | number) => {
       date12: '2021-01-01'
     }
     const { row: newRow } = await $table.insertAt(record, row)
+    await $table.setEditCell(newRow, 'name')
+  }
+}
+
+const insertsEvent = async () => {
+  const $table = tableRef.value
+  if ($table) {
+    const records = [
+      {
+        sex: '1',
+        date12: '2021-01-01'
+      },
+      {
+        sex: '0',
+        date12: '2021-01-05'
+      }
+    ]
+    const { row: newRow } = await $table.insertAt(records, -1)
     await $table.setEditCell(newRow, 'name')
   }
 }

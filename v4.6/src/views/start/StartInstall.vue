@@ -39,11 +39,11 @@ export default defineComponent({
       demoCodes: [
         `
         // ...
-        import VxeUITable from 'vxe-table'
+        import VxeTable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
-        createApp(App).use(VxeUITable).mount('#app')
+        createApp(App).use(VxeTable).mount('#app')
         `
       ]
     }

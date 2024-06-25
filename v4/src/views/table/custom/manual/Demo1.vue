@@ -9,7 +9,7 @@
     <vxe-table
       border
       ref="tableRef"
-      height="300"
+      height="500"
       :loading="loading"
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>

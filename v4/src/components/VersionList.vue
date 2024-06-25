@@ -107,17 +107,13 @@ const getVersion = () => {
         selectBetaVersion.value = betaList[0].value
       }
 
-      // 样式处理
+      // 清明节
       const serveDate = XEUtils.toStringDate(time)
       const yymmdd = XEUtils.toDateString(serveDate, 'yyyyMMdd')
-      if (['20210404', '20220405', '20230405', '20240404', '20250404'].includes(yymmdd)) {
-        localStorage.setItem('qingmingjie', '1')
-        document.body.className = `${document.body.className} qingmingjie`
-      } else {
-        localStorage.removeItem('qingmingjie')
-        document.body.className = document.body.className.replace('qingmingjie', '')
+      if (['20230405', '20240404', '20250404', '20260405', '20270405', '20280404'].includes(yymmdd)) {
+        document.documentElement.setAttribute('qingmingjie', '1')
       }
-    })
+    }).catch(e => e)
 }
 
 getVersion()

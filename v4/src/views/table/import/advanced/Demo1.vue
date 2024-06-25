@@ -1,8 +1,10 @@
 <template>
   <div>
+    <vxe-button @click="exportEvent">高级导出</vxe-button>
     <vxe-button @click="importEvent">高级导入</vxe-button>
     <vxe-table
       ref="tableRef"
+      :export-config="{}"
       :import-config="{}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -34,6 +36,13 @@ const tableData = ref<RowVO[]>([
   { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
+
+const exportEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.openExport()
+  }
+}
 
 const importEvent = () => {
   const $table = tableRef.value

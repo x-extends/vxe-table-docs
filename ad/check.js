@@ -24,10 +24,10 @@ function updateMsg (bEl) {
 var adDelay = 60000
 var adTimeout = null
 function checkAd () {
-  var warpperEl = document.querySelector('.padr');
+  var warpperEl = document.querySelector('.vxe-ad-20240622');
   var bEl = document.querySelector('.page-container');
-  var wwDiv = document.querySelector('.padr .wwads-cn');
-  var wwImgEl = document.querySelector('.padr .wwads-img');
+  var wwDiv = document.querySelector('.vxe-ad-20240622 .wwads-cn');
+  var wwImgEl = document.querySelector('.vxe-ad-20240622 .wwads-img');
   if (!warpperEl) {
     updateMsg(bEl)
     return
@@ -52,8 +52,8 @@ var hdDelay = 10000
 var hdTimeout = null
 function checkHide () {
   var bEl = document.querySelector('.page-container');
-  var warpperEl = document.querySelector('.padr');
-  var wwDiv = document.querySelector('.padr .wwads-cn');
+  var warpperEl = document.querySelector('.vxe-ad-20240622');
+  var wwDiv = document.querySelector('.vxe-ad-20240622 .wwads-cn');
   if (warpperEl) {
     warpperEl.style = 'position: fixed !important;right: 20px !important;top: 50px !important;width: 280px !important;padding: 0 !important;margin: 0 !important;z-index: 99 !important;opacity: 1!important;visibility: visible !important;display: block !important;transform: none !important;'
   } else {

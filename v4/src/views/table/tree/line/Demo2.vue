@@ -5,7 +5,7 @@
       border="outer"
       :row-config="{isCurrent: true, isHover: true, useKey: true}"
       :column-config="{resizable: true}"
-      :tree-config="{transform: true, accordion: true, line: true, iconOpen: 'vxe-icon-caret-right rotate45', iconClose: 'vxe-icon-caret-right'}"
+      :tree-config="{transform: true, accordion: true, showLine: true, iconOpen: 'vxe-icon-caret-right rotate45', iconClose: 'vxe-icon-caret-right'}"
       :checkbox-config="{labelField: 'name'}"
       :data="tableData">
       <vxe-column type="checkbox" title="Name" width="280" tree-node></vxe-column>

@@ -43,8 +43,8 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.grid.formConfig',
-        list: XEUtils.clone((formAPI as any[]).find(item => item.name === 'Props'), true).list.filter(item => !['items'].includes(item.name)).map((item: any) => Object.assign({}, item, { name: XEUtils.camelCase(item.name) })).concat([
+        defVal: '继承 setConfig.grid.formConfig',
+        list: XEUtils.clone((formAPI as any[]).find(item => item.name === 'Props'), true).list.map((item: any) => Object.assign({}, item, { name: XEUtils.camelCase(item.name) })).concat([
           {
             name: 'enabled',
             desc: '是否启用',
@@ -74,7 +74,7 @@ const apis = [
       //   version: '',
       //   type: 'any',
       //   enum: '',
-      //   defVal: '继承 setup.grid.toolbarConfig',
+      //   defVal: '继承 setConfig.grid.toolbarConfig',
       //   list: XEUtils.clone(toolbarAPI.find(item => item.name === 'Props').list, true).concat([
       //     {
       //       name: 'zoom',
@@ -113,7 +113,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.grid.toolbarConfig',
+        defVal: '继承 setConfig.grid.toolbarConfig',
         list: XEUtils.clone((toolbarAPI as any[]).find(item => item.name === 'Props').list, true).concat([
           {
             name: 'enabled',
@@ -161,7 +161,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.grid.pagerConfig',
+        defVal: '继承 setConfig.grid.pagerConfig',
         list: XEUtils.mapTree((pagerAPI as any[]).find(item => item.name === 'Props').list.filter((item: any) => !['size', 'loading'].includes(item.name)), item => Object.assign({}, item, { name: XEUtils.camelCase(item.name) })).concat([
           {
             name: 'enabled',
@@ -181,7 +181,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.grid.proxyConfig',
+        defVal: '继承 setConfig.grid.proxyConfig',
         list: [
           {
             name: 'autoLoad',
@@ -421,7 +421,7 @@ const apis = [
               // },
               {
                 name: 'save',
-                desc: '保存方法 Function({ body, form }, ...arguments)，body 参数 { insertRecords, updateRecords, removeRecords, pendingRecords }',
+                desc: '保存方法 Function({ body, form }, ...arguments)，body 参数 ({ insertRecords, updateRecords, removeRecords, pendingRecords })',
                 version: '',
                 type: 'Function / Promise<any>',
                 enum: '',
@@ -456,7 +456,7 @@ const apis = [
         version: '',
         type: 'any',
         enum: '',
-        defVal: '继承 setup.grid.zoomConfig',
+        defVal: '继承 setConfig.grid.zoomConfig',
         list: [
           {
             name: 'escRestore',
@@ -475,7 +475,7 @@ const apis = [
         version: '3.7.9',
         type: 'string[]',
         enum: 'Form, Toolbar, Top, Table, Bottom, Pager',
-        defVal: '默认 Form, Toolbar, Top, Table, Bottom, Pager，继承 setup.grid.layouts',
+        defVal: '默认 Form, Toolbar, Top, Table, Bottom, Pager，继承 setConfig.grid.layouts',
         list: []
       }
     ]
@@ -519,6 +519,24 @@ const apis = [
         name: 'bottom',
         desc: '表格底部模板',
         version: '',
+        type: '',
+        enum: '',
+        defVal: '{}',
+        list: []
+      },
+      {
+        name: 'left',
+        desc: '表格左侧模板',
+        version: '3.8.7',
+        type: '',
+        enum: '',
+        defVal: '{}',
+        list: []
+      },
+      {
+        name: 'right',
+        desc: '表格右侧模板',
+        version: '3.8.7',
         type: '',
         enum: '',
         defVal: '{}',

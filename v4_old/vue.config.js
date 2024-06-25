@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 
+process.env.VUE_APP_PAGE_TITLE = 'Vxe Table 专业表格'
 process.env.VUE_APP_DATE_NOW = Date.now()
 
 module.exports = defineConfig({

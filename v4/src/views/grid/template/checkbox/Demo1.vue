@@ -36,6 +36,20 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance>()
 
+const toggleAllCheckboxEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.toggleAllCheckboxRow()
+  }
+}
+
+const toggleCheckboxEvent = (row) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.toggleCheckboxRow(row)
+  }
+}
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columns: [
@@ -52,18 +66,4 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
   ]
 })
-
-const toggleAllCheckboxEvent = () => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.toggleAllCheckboxRow()
-  }
-}
-
-const toggleCheckboxEvent = (row) => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.toggleCheckboxRow(row)
-  }
-}
 </script>

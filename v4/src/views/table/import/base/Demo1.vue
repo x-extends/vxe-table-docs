@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-button @click="exportEvent">导出源数据</vxe-button>
     <vxe-button @click="importEvent">直接导入</vxe-button>
     <vxe-table
       ref="tableRef"
@@ -33,6 +34,15 @@ const tableData = ref<RowVO[]>([
   { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
+
+const exportEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.exportData({
+      original: true
+    })
+  }
+}
 
 const importEvent = () => {
   const $table = tableRef.value
