@@ -36,6 +36,7 @@ const gridRef = ref<VxeGridInstance>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   loading: false,
+  showOverflow: true,
   showHeaderOverflow: true,
   showFooterOverflow: true,
   height: 600,

@@ -203,7 +203,7 @@ export default {
               const $table = this.$refs.xTable
               const newRecord = {}
               const { row: newRow } = await $table.insert(newRecord)
-              await $table.setActiveRow(newRow)
+              await $table.setEditRow(newRow)
             },
             async removeSelectEvent () {
               const $table = this.$refs.xTable
@@ -307,7 +307,7 @@ export default {
       const $table = this.$refs.xTable
       const newRecord = {}
       const { row: newRow } = await $table.insert(newRecord)
-      await $table.setActiveRow(newRow)
+      await $table.setEditRow(newRow)
     },
     async removeSelectEvent () {
       const $table = this.$refs.xTable

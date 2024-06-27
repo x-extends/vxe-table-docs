@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, ref } from 'vue'
+import { watch, PropType, ref } from 'vue'
 import { VxeGlobalRendererHandles, VxeInputEvents } from 'vxe-pc-ui'
 import { VxeTableDefines } from 'vxe-table'
 
@@ -46,6 +46,8 @@ const keyupEvent: VxeInputEvents.Keyup = ({ $event }) => {
     }
   }
 }
+
+watch(() => props.params, load)
 
 load()
 </script>

@@ -260,7 +260,7 @@ export default {
                 checked: false
               }
               xTable.insertAt(record, row).then(({ row }) => {
-                xTable.setActiveRow(row)
+                xTable.setEditRow(row)
               })
             },
             getInsertEvent () {
@@ -375,7 +375,7 @@ export default {
         checked: false
       }
       xTable.insertAt(record, row).then(({ row }) => {
-        xTable.setActiveRow(row)
+        xTable.setEditRow(row)
       })
     },
     getInsertEvent () {

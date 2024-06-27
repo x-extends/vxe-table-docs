@@ -6,7 +6,7 @@
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="Name" :filters="roleOptions" :filter-render="{name: 'FilterComplex'}"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
+      <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-render="{name: 'FilterComplex'}"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
     </vxe-table>
   </div>
@@ -30,6 +30,10 @@ const tableData = ref<RowVO[]>([
 ])
 
 const roleOptions = ref([
+  { data: { type: 'has', name: '' } }
+])
+
+const sexOptions = ref([
   { data: { type: 'has', name: '' } }
 ])
 </script>

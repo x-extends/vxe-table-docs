@@ -3,7 +3,7 @@
 import { VxeUI } from 'vxe-pc-ui'
 import DemoFilterComplex from './DemoFilterComplex.vue'
 
-// 创建一个带条件的渲染器
+// 创建一个带条件的筛选渲染器
 VxeUI.renderer.add('FilterComplex', {
   // 不显示底部按钮，使用自定义的按钮
   showFilterFooter: false,

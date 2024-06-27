@@ -122,7 +122,7 @@ export default {
                 sex: '1'
               }
               const { row: newRow } = await $table.insertAt(record, row)
-              await $table.setActiveCell(newRow, 'sex')
+              await $table.setEditCell(newRow, 'sex')
             },
             async removeEvent (row) {
               const type = await VXETable.modal.confirm('您确定要删除该数据?')
@@ -159,7 +159,7 @@ export default {
         sex: '1'
       }
       const { row: newRow } = await $table.insertAt(record, row)
-      await $table.setActiveCell(newRow, 'sex')
+      await $table.setEditCell(newRow, 'sex')
     },
     async removeEvent (row) {
       const type = await VXETable.modal.confirm('您确定要删除该数据?')

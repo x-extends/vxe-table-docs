@@ -3,7 +3,7 @@
 import { VxeUI } from 'vxe-pc-ui'
 import DemoFilterInput from './DemoFilterInput.vue'
 
-// 创建一个简单的输入框筛选
+// 创建一个简单的输入框筛选渲染器
 VxeUI.renderer.add('FilterInput', {
   // 自定义筛选模板
   renderTableFilter (renderOpts, params) {

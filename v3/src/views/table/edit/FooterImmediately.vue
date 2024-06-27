@@ -211,7 +211,7 @@ export default {
                 name: 'New name'
               }
               $table.insert(record).then(({ row }) => {
-                $table.setActiveCell(row, 'age')
+                $table.setEditCell(row, 'age')
               })
             },
             removeEvent () {
@@ -297,7 +297,7 @@ export default {
         name: 'New name'
       }
       $table.insert(record).then(({ row }) => {
-        $table.setActiveCell(row, 'age')
+        $table.setEditCell(row, 'age')
       })
     },
     removeEvent () {

@@ -204,7 +204,7 @@ export default {
                 sex: '1'
               }
               const { row: newRow } = await $table.insertAt(record)
-              await $table.setActiveCell(newRow, 'name')
+              await $table.setEditCell(newRow, 'name')
             },
             getInsertEvent () {
               const $table = this.$refs.xTable
@@ -229,7 +229,7 @@ export default {
         sex: '1'
       }
       const { row: newRow } = await $table.insertAt(record)
-      await $table.setActiveCell(newRow, 'name')
+      await $table.setEditCell(newRow, 'name')
     },
     getInsertEvent () {
       const $table = this.$refs.xTable

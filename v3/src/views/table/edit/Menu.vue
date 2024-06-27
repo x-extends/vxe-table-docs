@@ -206,7 +206,7 @@ export default {
             insertEvent (row, column) {
               const $table = this.$refs.xTable
               $table.insertAt(null, row || -1).then(({ row }) => {
-                $table.setActiveCell(row, column || 'name')
+                $table.v(row, column || 'name')
               })
             },
             visibleMethod ({ options, column }) {
@@ -301,7 +301,7 @@ export default {
     insertEvent (row, column) {
       const $table = this.$refs.xTable
       $table.insertAt(null, row || -1).then(({ row }) => {
-        $table.setActiveCell(row, column || 'name')
+        $table.setEditCell(row, column || 'name')
       })
     },
     visibleMethod ({ options, column }) {

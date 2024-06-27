@@ -9,7 +9,7 @@ VxeUI.menus.add('myExportMenu', {
   }
 })
 
-// 注册一个导出菜单
+// 注册一个打印菜单
 VxeUI.menus.add('myPrintMenu', {
   menuMethod ({ $table }) {
     $table.print()

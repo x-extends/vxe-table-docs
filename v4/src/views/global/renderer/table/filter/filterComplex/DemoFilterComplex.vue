@@ -5,7 +5,7 @@
       <VxeRadio v-model="currOption.data.type" name="fType" label="eq">等于</VxeRadio>
     </div>
     <div class="my-fc-name">
-      <VxeInput v-model="currOption.data.name" mode="text" placeholder="请输入名称" @input="changeOptionEvent()"></VxeInput>
+      <VxeInput v-model="currOption.data.name" class="my-fc-input" mode="text" placeholder="请输入名称" @input="changeOptionEvent()"></VxeInput>
     </div>
     <div class="my-fc-footer">
       <VxeButton @click="resetEvent">重置</VxeButton>
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, ref } from 'vue'
+import { watch, PropType, ref } from 'vue'
 import { VxeInput, VxeRadio, VxeButton, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { VxeTableDefines } from 'vxe-table'
 
@@ -63,18 +63,24 @@ const resetEvent = () => {
   }
 }
 
+watch(() => props.params, load)
+
 load()
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .my-filter-complex {
   width: 260px;
   padding: 5px 15px 10px 15px;
-}
-.my-filter-complex .my-fc-type {
-  padding: 8px 0;
-}
-.my-filter-complex .my-fc-footer {
-  text-align: center;
+  .my-fc-type {
+    padding: 8px 0;
+  }
+  .my-fc-input {
+    width: 100%;
+  }
+  .my-fc-footer {
+    text-align: center;
+    margin-top: 8px;
+  }
 }
 </style>

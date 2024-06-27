@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-tip status="primary" title="全局格式化">将表格中单元格的格式化函数注册成全局可复用</vxe-tip>
+    <vxe-tip status="primary" title="全局格式化">将表格中单元格的格式化函数注册成全局可复用，对于实现低代码/零代码平台时非常有用，可以实现完全配置化。</vxe-tip>
     <vxe-tip status="success">
       <div>调用方式： VxeUI.formats.add(code, options)</div>
     </vxe-tip>

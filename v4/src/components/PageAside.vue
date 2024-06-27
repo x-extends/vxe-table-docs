@@ -49,7 +49,11 @@
       <div v-if="item1.children && item1.children.length" class="nav-subs">
         <div class="nav-item nav-level2" v-for="(item2, index2) in item1.children" :key="index2" :class="[{'is-expand': item2.isExpand}]">
           <div class="nav-name" :class="{'is-plugin': item2.isPlugin, 'is-enterprise': item2.isEnterprise}" :title="item2.title" @click="toggleExpand(item2)">
-            <vxe-link v-if="item2.routerLink" :class="['nav-item-link', getApiClass(item2)]" :router-link="item2.routerLink" :content="item2.title"></vxe-link>
+            <vxe-link v-if="item2.routerLink" :class="['nav-item-link', getApiClass(item2)]" :router-link="item2.routerLink">
+              <span>{{ item2.title }}</span>
+              <span v-if="item2.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
+              <span v-else-if="item2.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+            </vxe-link>
             <vxe-link v-else-if="item2.linkUrl" class="nav-item-link" :status="item2.linkStatus" :href="item2.linkUrl" :target="item2.linkTarget || '_blank'" :content="item2.title"></vxe-link>
             <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item2.title"></vxe-text>
           </div>
@@ -57,14 +61,22 @@
             <div class="nav-item nav-level3" v-for="(item3, index3) in item2.children" :key="index3" :class="[{'is-expand': item3.isExpand}]">
               <div class="nav-name" :class="{'is-plugin': item3.isPlugin, 'is-enterprise': item3.isEnterprise}" :title="item3.title" @click="toggleExpand(item3)">
                 <vxe-link v-if="item3.routerLink" :class="['nav-item-link', getApiClass(item3)]" :router-link="item3.routerLink" :content="item3.title"></vxe-link>
-                <vxe-link v-else-if="item3.linkUrl" class="nav-item-link" :status="item3.linkStatus" :href="item3.linkUrl" :target="item3.linkTarget || '_blank'" :content="item3.title"></vxe-link>
+                <vxe-link v-else-if="item3.linkUrl" class="nav-item-link" :status="item3.linkStatus" :href="item3.linkUrl" :target="item3.linkTarget || '_blank'">
+                  <span>{{ item3.title }}</span>
+                  <span v-if="item3.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
+                  <span v-else-if="item3.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                </vxe-link>
                 <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item3.title"></vxe-text>
               </div>
               <div v-if="item3.children && item3.children.length" class="nav-subs">
                 <div class="nav-item nav-level4" v-for="(item4, index3) in item3.children" :key="index3" :class="[{'is-expand': item4.isExpand}]">
                   <div class="nav-name" :class="{'is-plugin': item4.isPlugin, 'is-enterprise': item4.isEnterprise}" :title="item4.title" @click="toggleExpand(item4)">
                     <vxe-link v-if="item4.routerLink" :class="['nav-item-link', getApiClass(item4)]" :router-link="item4.routerLink" :content="item4.title"></vxe-link>
-                    <vxe-link v-else-if="item4.linkUrl" class="nav-item-link" :status="item4.linkStatus" :href="item4.linkUrl" :target="item4.linkTarget || '_blank'" :content="item4.title"></vxe-link>
+                    <vxe-link v-else-if="item4.linkUrl" class="nav-item-link" :status="item4.linkStatus" :href="item4.linkUrl" :target="item4.linkTarget || '_blank'">
+                      <span>{{ item4.title }}</span>
+                      <span v-if="item4.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
+                      <span v-else-if="item4.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                    </vxe-link>
                     <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item4.title"></vxe-text>
                   </div>
                 </div>
@@ -311,6 +323,38 @@ appStore.updateComponentApiJSON()
     &.router-link-exact-active {
       color: var(--vxe-ui-docs-primary-color);
       font-weight: 700;
+    }
+  }
+  .nav-item-enterprise-icon,
+  .nav-item-plugin-icon {
+    position: absolute;
+    top: 0.3em;
+    font-size: 12px;
+    line-height: 16px;
+    height: 16px;
+    padding: 1px 4px;
+    border-radius: 4px;
+    transform: scale(0.8);
+    &::after {
+      content: "";
+      position: absolute;
+      left: -9px;
+      bottom: 4px;
+      border: 5px solid transparent;
+    }
+  }
+  .nav-item-enterprise-icon {
+    color: #333;
+    background-color: #f5c28f;
+    &::after {
+      border-right-color: #f5c28f;
+    }
+  }
+  .nav-item-plugin-icon {
+    color: #efebeb;
+    background-color: #3eb910;
+    &::after {
+      border-right-color: #3eb910;
     }
   }
   ::v-deep(.nav-item) {

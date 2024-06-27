@@ -221,7 +221,7 @@ export default {
             },
             editRowEvent (row) {
               const $table = this.$refs.xTable
-              $table.setActiveRow(row)
+              $table.setEditRow(row)
             },
             saveRowEvent () {
               const $table = this.$refs.xTable
@@ -264,7 +264,7 @@ export default {
     },
     editRowEvent (row) {
       const $table = this.$refs.xTable
-      $table.setActiveRow(row)
+      $table.setEditRow(row)
     },
     saveRowEvent () {
       const $table = this.$refs.xTable

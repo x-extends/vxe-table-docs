@@ -115,7 +115,7 @@ export default {
         id: rid,
         date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
       }
-      $table.insert(record).then(({ row }) => $table.setActiveRow(row))
+      $table.insert(record).then(({ row }) => $table.setEditRow(row))
     },
     async insertRow (currRow, locat) {
       const $table = this.$refs.tableRef
@@ -131,7 +131,7 @@ export default {
           date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
         }
         const { row: newRow } = await $table.insertAt(record, currRow)
-        await $table.setActiveRow(newRow) // 插入子节点
+        await $table.setEditRow(newRow) // 插入子节点
       } else if (locat === 'top') {
         const record = {
           name: `新数据${rid}`,
@@ -141,7 +141,7 @@ export default {
         }
         const { row: newRow } = await $table.insert(record)
         await $table.setTreeExpand(currRow, true) // 将父节点展开
-        await $table.setActiveRow(newRow) // 插入子节点
+        await $table.setEditRow(newRow) // 插入子节点
       } else if (locat === 'bottom') {
         const record = {
           name: `新数据${rid}`,
@@ -151,7 +151,7 @@ export default {
         }
         const { row: newRow } = await $table.insertAt(record, -1)
         await $table.setTreeExpand(currRow, true) // 将父节点展开
-        await $table.setActiveRow(newRow) // 插入子节点
+        await $table.setEditRow(newRow) // 插入子节点
       }
     },
     async insertNextRow (currRow, locat) {
@@ -168,7 +168,7 @@ export default {
           date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
         }
         const { row: newRow } = await $table.insertAt(record, currRow)
-        await $table.setActiveRow(newRow) // 插入子节点
+        await $table.setEditRow(newRow) // 插入子节点
       }
     },
     async removeRow (row) {

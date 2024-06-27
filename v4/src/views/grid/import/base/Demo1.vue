@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-button @click="exportEvent">直接导出</vxe-button>
     <vxe-button @click="importEvent">直接导入</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -34,6 +35,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
+
+const exportEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.exportData({
+      original: true
+    })
+  }
+}
 
 const importEvent = () => {
   const $grid = gridRef.value

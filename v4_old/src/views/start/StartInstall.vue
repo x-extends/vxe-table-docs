@@ -1,14 +1,18 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.install') }}</h2>
+    <div class="red">需要注意：v4.0 可以直接升级 v4.6</div>
+    <div class="red">需要注意：v4.6 不能直接升级 v4.7，需要调整安装方式，如果是使用老版本记得锁定版本号</div>
     <p class="tip">
-      配合 <a class="link" href="https://vxeui.com" target="_blank">Vxe UI</a> 组件库，更强更好用，支持表单可视化、列表可视化、流程可视化<br>
+      配合 <a class="link" href="https://vxeui.com" target="_blank">Vxe UI</a> 组件库，支持更多可视化组件<br>
       推荐使用 npm 的方式安装，它能更好地和 <a class="link" href="https://webpack.js.org/" target="_blank">webpack</a>、<a class="link" href="https://vitejs.dev/" target="_blank">vite</a> 等打包工具配合使用。<br>
       依赖库：<a class="link" href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D" target="_blank">vue 3.2+</a><br>
     </p>
     <pre>
       <pre-code class="shell">
-        npm install vxe-table@v4 vxe-pc-ui@v4
+        npm install vxe-table@next
+        # 或者
+        yarn add vxe-table@next
       </pre-code>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>
@@ -20,14 +24,14 @@
     <pre>
       <pre-code class="html">
         &lt;!-- 引入样式 --&gt;
-        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-pc-ui@v4/lib/style.css"&gt;
-        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@v4/lib/style.css"&gt;
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-pc-ui/lib/style.css"&gt;
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@next/lib/style.css"&gt;
         &lt;!-- 引入vue --&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;
         &lt;!-- 引入组件 --&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-pc-ui@v4"&gt;&lt;/script&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@v4"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-pc-ui"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@next"&gt;&lt;/script&gt;
       </pre-code>
     </pre>
   </div>

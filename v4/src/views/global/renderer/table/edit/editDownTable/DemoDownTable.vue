@@ -130,7 +130,9 @@ load()
 </script>
 
 <style lang="scss" scoped>
-.edit-down-pulldown {
+.edit-down-table,
+.edit-down-pulldown,
+.edit-down-input {
   width: 100%;
 }
 .edit-down-wrapper {

@@ -153,7 +153,7 @@ export default {
             insertEvent () {
               const $table = this.$refs.xTable
               $table.insert().then(({ row }) => {
-                $table.setActiveCell(row, 'name')
+                $table.setEditCell(row, 'name')
               })
             },
             saveUpdateEvent (row) {
@@ -212,7 +212,7 @@ export default {
     insertEvent () {
       const $table = this.$refs.xTable
       $table.insert().then(({ row }) => {
-        $table.setActiveCell(row, 'name')
+        $table.setEditCell(row, 'name')
       })
     },
     saveUpdateEvent (row) {

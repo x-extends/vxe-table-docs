@@ -315,6 +315,11 @@ const routes: Array<RouteRecordRaw> = [
                     path: 'filterComplex',
                     name: 'GlobalRendererTableFilterFilterComplex',
                     component: () => import('@/views/global/renderer/table/filter/filterComplex/CodeExample.vue')
+                  },
+                  {
+                    path: 'filterContent',
+                    name: 'GlobalRendererTableFilterFilterContent',
+                    component: () => import('@/views/global/renderer/table/filter/filterContent/CodeExample.vue')
                   }
                 ]
               },
@@ -1684,9 +1689,34 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/views/grid/editRender/vxe-input/CodeExample.vue')
               },
               {
+                path: 'vxe-number-picker',
+                name: 'ComponentGridEditRenderVxeNumberPicker',
+                component: () => import('@/views/grid/editRender/vxe-number-picker/CodeExample.vue')
+              },
+              {
+                path: 'vxe-date-picker',
+                name: 'ComponentGridEditRenderVxeDatePicker',
+                component: () => import('@/views/grid/editRender/vxe-date-picker/CodeExample.vue')
+              },
+              {
                 path: 'vxe-select',
                 name: 'ComponentGridEditRenderVxeSelect',
                 component: () => import('@/views/grid/editRender/vxe-select/CodeExample.vue')
+              }
+            ]
+          },
+          {
+            path: 'editTemplate',
+            children: [
+              {
+                path: 'vxe-input',
+                name: 'ComponentGridEditTemplateVxeInput',
+                component: () => import('@/views/grid/editTemplate/vxe-input/CodeExample.vue')
+              },
+              {
+                path: 'vxe-select',
+                name: 'ComponentGridEditTemplateVxeSelect',
+                component: () => import('@/views/grid/editTemplate/vxe-select/CodeExample.vue')
               }
             ]
           },
@@ -1752,6 +1782,26 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'base',
                 name: 'ComponentGridImportBase',
                 component: () => import('@/views/grid/import/base/CodeExample.vue')
+              },
+              {
+                path: 'txt',
+                name: 'ComponentGridImportTxt',
+                component: () => import('@/views/grid/import/txt/CodeExample.vue')
+              },
+              {
+                path: 'xml',
+                name: 'ComponentGridImportXml',
+                component: () => import('@/views/grid/import/xml/CodeExample.vue')
+              },
+              {
+                path: 'html',
+                name: 'ComponentGridImportHtml',
+                component: () => import('@/views/grid/import/html/CodeExample.vue')
+              },
+              {
+                path: 'csv',
+                name: 'ComponentGridImportCsv',
+                component: () => import('@/views/grid/import/csv/CodeExample.vue')
               },
               {
                 path: 'advanced',

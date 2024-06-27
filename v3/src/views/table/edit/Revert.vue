@@ -133,7 +133,7 @@ export default {
                 sex: '1'
               }
               $table.insert(record).then(({ row }) => {
-                $table.setActiveCell(row, 'sex')
+                $table.setEditCell(row, 'sex')
               })
             },
             async removeEvent () {
@@ -173,7 +173,7 @@ export default {
         sex: '1'
       }
       $table.insert(record).then(({ row }) => {
-        $table.setActiveCell(row, 'sex')
+        $table.setEditCell(row, 'sex')
       })
     },
     async removeEvent () {

@@ -122,7 +122,7 @@ export default {
             editMethod ({ row, column }) {
               const $table = this.$refs.xTable
               // 重写默认的覆盖式，改为追加式
-              $table.setActiveCell(row, column)
+              $table.setEditCell(row, column)
             },
             sumNum (list, field) {
               let count = 0
@@ -154,7 +154,7 @@ export default {
     editMethod ({ row, column }) {
       const $table = this.$refs.xTable
       // 重写默认的覆盖式，改为追加式
-      $table.setActiveCell(row, column)
+      $table.setEditCell(row, column)
     },
     sumNum (list, field) {
       let count = 0

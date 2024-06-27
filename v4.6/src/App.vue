@@ -124,6 +124,12 @@
       </div>
       <div class="page-pendant"></div>
     </div>
+
+    <vxe-modal v-model="showUpgrade" title="重要提醒，由于 v4.7 版本的重构" :width="540" resize show-zoom show-footer show-cancel-button show-confirm-button confirm-button-text="忽略，不再提醒" @confirm="confirmUpgrade">
+      <div>由于 v4.7 版本将 vxe-table 拆分为 2 个库： <a class="link" href="https://vxetable.cn/" target="_blank">vxe-table</a> 纯表格库和 <a class="link" href="https://vxeui.com/" target="_blank">vxe-pc-ui</a>组件库。</div>
+      <div>v4.0 可以无缝升级 v4.6。</div>
+      <div class="red">v4.6 不能直接升级 v4.7，需要调一下安装方式，代码无需改动。</div>
+    </vxe-modal>
   </div>
 </template>
 
@@ -148,6 +154,8 @@ const showSystemMenu = ref(false)
 const systemMenuList = ref<any[]>([])
 
 const systemVersionList = ref<any[]>([])
+
+const showUpgrade = ref(!localStorage.getItem('SHOW_4D6_UPGRADE'))
 
 const appData = reactive({
   showLeft: true,
@@ -2339,7 +2347,7 @@ const getVersion = () => {
         localStorage.removeItem('qingmingjie')
         document.body.className = document.body.className.replace('qingmingjie', '')
       }
-    })
+    }).catch(e => e)
 
   if (localStorage.getItem('qingmingjie')) {
     document.body.className = `${document.body.className} qingmingjie`
@@ -2522,6 +2530,10 @@ const init = () => {
   setTimeout(() => defaultExpand(), 1500)
 }
 
+const confirmUpgrade = () => {
+  localStorage.setItem('SHOW_4D6_UPGRADE', '1')
+}
+
 watch(() => i18n.global.locale, (value) => {
   localStorage.setItem('language', value)
   loadList()
@@ -2568,6 +2580,7 @@ nextTick(() => {
     //     })
     //   }
     // })
+
   }
   init()
 })

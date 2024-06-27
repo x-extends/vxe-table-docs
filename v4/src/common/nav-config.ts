@@ -209,7 +209,7 @@ export const navConfigList: NavVO[] = [
           { title: '可编辑按键操作', routerLink: { name: 'ComponentTableKeyboardEdit' } },
           { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
           { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
-          { title: '区域选取', isEnterprise: true, linkStatus: 'warning', linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/singleArea' }
+          { title: '区域选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/singleArea' }
         ]
       },
       {
@@ -237,7 +237,7 @@ export const navConfigList: NavVO[] = [
           { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
           { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
           { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } },
-          { title: '使用第三方组件', isPlugin: true, linkStatus: 'success', linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/edit' }
+          { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/table/edit/el-input' }
         ]
       },
       {
@@ -257,12 +257,12 @@ export const navConfigList: NavVO[] = [
         title: '导出数据',
         children: [
           { title: '导出数据', routerLink: { name: 'ComponentTableExportBase' } },
-          { title: '导出 TXT', routerLink: { name: 'ComponentTableExportTxt' } },
-          { title: '导出 XML', routerLink: { name: 'ComponentTableExportXml' } },
-          { title: '导出 HTML', routerLink: { name: 'ComponentTableExportHtml' } },
-          { title: '导出 CSV', routerLink: { name: 'ComponentTableExportCsv' } },
-          { title: '导出 XLSX', isPlugin: true, linkStatus: 'success', linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/table/export' },
-          { title: '导出 PDF', isPlugin: true, linkStatus: 'success', linkUrl: 'https://vxeui.com/other4/#/plugin-export-pdf/table/export' },
+          { title: '导出 TXT 格式', routerLink: { name: 'ComponentTableExportTxt' } },
+          { title: '导出 XML 格式', routerLink: { name: 'ComponentTableExportXml' } },
+          { title: '导出 HTML 格式', routerLink: { name: 'ComponentTableExportHtml' } },
+          { title: '导出 CSV 格式', routerLink: { name: 'ComponentTableExportCsv' } },
+          { title: '导出 XLSX 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/table/export' },
+          { title: '导出 PDF 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-pdf/table/export' },
           { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } }
         ]
       },
@@ -270,6 +270,7 @@ export const navConfigList: NavVO[] = [
         title: '导入数据',
         children: [
           { title: '导入数据', routerLink: { name: 'ComponentTableImportBase' } },
+          { title: '导入 XLSX 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/table/import' },
           { title: '高级导入', routerLink: { name: 'ComponentTableImportAdvanced' } }
         ]
       },
@@ -446,13 +447,22 @@ export const navConfigList: NavVO[] = [
         ]
       },
       {
-        title: '可编辑 - 渲染控件',
+        title: '可编辑 - 渲染 - 配置式',
         children: [
           { title: 'input', routerLink: { name: 'ComponentGridEditRenderInput' } },
           { title: 'select', routerLink: { name: 'ComponentGridEditRenderSelect' } },
           { title: 'vxe-input', routerLink: { name: 'ComponentGridEditRenderVxeInput' } },
+          { title: 'vxe-number-picker', routerLink: { name: 'ComponentGridEditRenderVxeNumberPicker' } },
+          { title: 'vxe-date-picker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
           { title: 'vxe-select', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
-          { title: '使用第三方组件', isPlugin: true, linkStatus: 'success', linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/edit' }
+          { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/edit/el-input' }
+        ]
+      },
+      {
+        title: '可编辑 - 渲染 - 插槽式',
+        children: [
+          { title: 'vxe-input', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
+          { title: 'vxe-select', routerLink: { name: 'ComponentGridEditTemplateVxeSelect' } }
         ]
       },
       {
@@ -474,12 +484,12 @@ export const navConfigList: NavVO[] = [
         title: '导出数据',
         children: [
           { title: '导出数据', routerLink: { name: 'ComponentGridExportBase' } },
-          { title: '导出 TXT', routerLink: { name: 'ComponentGridExportTxt' } },
-          { title: '导出 XML', routerLink: { name: 'ComponentGridExportXml' } },
-          { title: '导出 HTML', routerLink: { name: 'ComponentGridExportHtml' } },
-          { title: '导出 CSV', routerLink: { name: 'ComponentGridExportCsv' } },
-          { title: '导出 XLSX', isPlugin: true, linkStatus: 'success', linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/grid/export' },
-          { title: '导出 PDF', isPlugin: true, linkStatus: 'success', linkUrl: 'https://vxeui.com/other4/#/plugin-export-pdf/grid/export' },
+          { title: '导出 TXT 格式', routerLink: { name: 'ComponentGridExportTxt' } },
+          { title: '导出 XML 格式', routerLink: { name: 'ComponentGridExportXml' } },
+          { title: '导出 HTML 格式', routerLink: { name: 'ComponentGridExportHtml' } },
+          { title: '导出 CSV 格式', routerLink: { name: 'ComponentGridExportCsv' } },
+          { title: '导出 XLSX 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/grid/export' },
+          { title: '导出 PDF 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-pdf/grid/export' },
           { title: '自定义数据', routerLink: { name: 'ComponentGridExportData' } },
           { title: '高级导出', routerLink: { name: 'ComponentGridExportAdvanced' } }
         ]
@@ -488,6 +498,11 @@ export const navConfigList: NavVO[] = [
         title: '导入数据',
         children: [
           { title: '导入数据', routerLink: { name: 'ComponentGridImportBase' } },
+          { title: '导入 TXT 格式', routerLink: { name: 'ComponentGridImportTxt' } },
+          { title: '导入 XML 格式', routerLink: { name: 'ComponentGridImportXml' } },
+          { title: '导入 HTML 格式', routerLink: { name: 'ComponentGridImportHtml' } },
+          { title: '导入 CSV 格式', routerLink: { name: 'ComponentGridImportCsv' } },
+          { title: '导入 XLSX 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/grid/import' },
           { title: '高级导入', routerLink: { name: 'ComponentGridImportAdvanced' } }
         ]
       },
@@ -542,13 +557,13 @@ export const navConfigList: NavVO[] = [
       { title: '右键菜单', routerLink: { name: 'GlobalMenusTableBase' } }
     ]
   },
-  // {
-  //   title: '指令注册（全局复用）',
-  //   children: [
-  //     { title: 'API', routerLink: { name: 'GlobalCommandsTableAPI' } },
-  //     { title: '工具栏', routerLink: { name: 'GlobalCommandsTableBase' } }
-  //   ]
-  // },
+  {
+    title: '工具栏指令（全局复用）',
+    children: [
+      { title: 'API', routerLink: { name: 'GlobalCommandsTableAPI' } },
+      { title: '工具栏', routerLink: { name: 'GlobalCommandsTableBase' } }
+    ]
+  },
   {
     title: '校验（全局复用）',
     children: [
@@ -592,7 +607,9 @@ export const navConfigList: NavVO[] = [
         title: '筛选',
         children: [
           { title: '实现一个输入筛选', routerLink: { name: 'GlobalRendererTableFilterFilterInput' } },
-          { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterFilterComplex' } }
+          { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterFilterComplex' } },
+          { title: '实现一个显示列表的筛选', routerLink: { name: 'GlobalRendererTableFilterFilterContent' } },
+          { title: '更多筛选插件', isEnterprise: true, linkUrl: 'https://vxetable.cn/plugins/' }
         ]
       },
       {

@@ -166,7 +166,7 @@ export default {
                 name: '新数据',
                 date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
               }
-              $table.insert(newRow).then(({ row }) => $table.setActiveRow(row))
+              $table.insert(newRow).then(({ row }) => $table.setEditRow(row))
             },
             getInsertEvent () {
               const $table = this.$refs.xTable
@@ -191,7 +191,7 @@ export default {
         name: '新数据',
         date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
       }
-      $table.insert(newRow).then(({ row }) => $table.setActiveRow(row))
+      $table.insert(newRow).then(({ row }) => $table.setEditRow(row))
     },
     getInsertEvent () {
       const $table = this.$refs.xTable

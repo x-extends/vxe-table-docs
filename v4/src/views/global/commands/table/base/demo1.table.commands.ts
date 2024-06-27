@@ -2,16 +2,23 @@
 
 import { VxeUI } from 'vxe-pc-ui'
 
-// 自定义导出指令
-VxeUI.commands.add('myExport', {
+// 定义工具栏一个导出指令
+VxeUI.commands.add('myToolbarExport', {
   tableCommandMethod ({ $table }) {
     $table.exportData()
   }
 })
 
-// 自定义导出指令
-VxeUI.commands.add('myLink', {
+// 定义工具栏一个跳转指令
+VxeUI.commands.add('myToolbarLink', {
   tableCommandMethod () {
     open('https://VxeUI.com/')
+  }
+})
+
+// 定义工具栏一个自定义列指令
+VxeUI.commands.add('myToolbarCustom', {
+  tableCommandMethod ({ $table }) {
+    $table.openCustom()
   }
 })

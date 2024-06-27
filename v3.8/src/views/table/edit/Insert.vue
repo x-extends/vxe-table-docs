@@ -165,7 +165,7 @@ export default {
                 date12: '2021-01-01'
               }
               const { row: newRow } = await $table.insertAt(record, row)
-              await $table.setActiveCell(newRow, 'name')
+              await $table.setEditCell(newRow, 'name')
             },
             getInsertEvent () {
               const $table = this.$refs.xTable
@@ -205,7 +205,7 @@ export default {
         date12: '2021-01-01'
       }
       const { row: newRow } = await $table.insertAt(record, row)
-      await $table.setActiveCell(newRow, 'name')
+      await $table.setEditCell(newRow, 'name')
     },
     getInsertEvent () {
       const $table = this.$refs.xTable

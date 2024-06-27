@@ -36,7 +36,7 @@ const tableData = ref([
         desc: '表格 - 自定义菜单方法',
         type: '',
         enum: '',
-        defVal: '({ menu, type, row, rowIndex, column, columnIndex, $event }) => void',
+        defVal: '({ menu, type, row, rowIndex, column, columnIndex, $grid, $table, $event }) => void',
         list: []
       }
     ]

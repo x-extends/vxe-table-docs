@@ -219,7 +219,7 @@ export default {
             },
             editRowEvent (row) {
               const $grid = this.$refs.xGrid
-              $grid.setActiveRow(row)
+              $grid.setEditRow(row)
             },
             saveRowEvent () {
               const $grid = this.$refs.xGrid
@@ -287,7 +287,7 @@ export default {
     },
     editRowEvent (row) {
       const $grid = this.$refs.xGrid
-      $grid.setActiveRow(row)
+      $grid.setEditRow(row)
     },
     saveRowEvent () {
       const $grid = this.$refs.xGrid
