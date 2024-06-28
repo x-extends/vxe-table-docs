@@ -37,13 +37,13 @@ export const navConfigList: NavVO[] = [
       { i18nKey: 'app.aside.menu.i18n', routerLink: { name: 'StartI18n' } }
     ]
   },
-  {
-    i18nKey: 'app.aside.menu.tools',
-    children: [
-      // { title: '函数库' },
-      { i18nKey: 'app.aside.menu.clipboard', routerLink: { name: 'ToolClipboard' } }
-    ]
-  },
+  // {
+  //   i18nKey: 'app.aside.menu.tools',
+  //   children: [
+  //     // { title: '函数库' },
+  //     { i18nKey: 'app.aside.menu.clipboard', routerLink: { name: 'ToolClipboard' } }
+  //   ]
+  // },
   {
     i18nKey: 'app.aside.menu.table.name',
     children: [
@@ -209,7 +209,8 @@ export const navConfigList: NavVO[] = [
           { title: '可编辑按键操作', routerLink: { name: 'ComponentTableKeyboardEdit' } },
           { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
           { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
-          { title: '区域选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/singleArea' }
+          { title: '区域选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/singleArea' },
+          { title: '复制粘贴', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/areaClip' }
         ]
       },
       {
@@ -236,7 +237,26 @@ export const navConfigList: NavVO[] = [
           { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
           { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
           { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
-          { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } },
+          { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } }
+        ]
+      },
+      {
+        title: '可编辑 - 渲染 - 配置式',
+        children: [
+          { title: 'input', routerLink: { name: 'ComponentTableEditRenderInput' } },
+          { title: 'select', routerLink: { name: 'ComponentTableEditRenderSelect' } },
+          { title: 'VxeInput', routerLink: { name: 'ComponentTableEditRenderVxeInput' } },
+          { title: 'VxeNumberInput', routerLink: { name: 'ComponentTableEditRenderVxeNumberInput' } },
+          { title: 'VxeDatePicker', routerLink: { name: 'ComponentTableEditRenderVxeDatePicker' } },
+          { title: 'VxeSelect', routerLink: { name: 'ComponentTableEditRenderVxeSelect' } },
+          { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/table/edit/el-input' }
+        ]
+      },
+      {
+        title: '可编辑 - 渲染 - 插槽式',
+        children: [
+          { title: 'VxeInput', routerLink: { name: 'ComponentTableEditTemplateVxeInput' } },
+          { title: 'VxeSelect', routerLink: { name: 'ComponentTableEditTemplateVxeSelect' } },
           { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/table/edit/el-input' }
         ]
       },
@@ -289,6 +309,7 @@ export const navConfigList: NavVO[] = [
           { title: '纵向虚拟滚动', routerLink: { name: 'ComponentTableScrollVertical' } },
           { title: '横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHorizontal' } },
           { title: '纵向和横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHV' } },
+          { title: '函数式加载数据', routerLink: { name: 'ComponentTableScrollLoadData' } },
           { title: '设置行高', routerLink: { name: 'ComponentTableScrollRowHeight' } },
           { title: '使用分组表头', routerLink: { name: 'ComponentTableScrollGroup' } },
           { title: '按键导航', routerLink: { name: 'ComponentTableScrollKeyboard' } },
@@ -301,6 +322,13 @@ export const navConfigList: NavVO[] = [
         children: [
           { title: '实现表格搜索', routerLink: { name: 'ComponentTableSearchList' } },
           { title: '实现树形表格搜索', routerLink: { name: 'ComponentTableSearchTree' } }
+        ]
+      },
+      {
+        title: '事件监听',
+        children: [
+          { title: '点击/双击事件', routerLink: { name: 'ComponentTableEventsClick' } },
+          { title: '滚动事件', routerLink: { name: 'ComponentTableEventsScroll' } }
         ]
       }
     ]
@@ -434,7 +462,28 @@ export const navConfigList: NavVO[] = [
         title: '树形',
         children: [
           { title: '平级结构', routerLink: { name: 'ComponentGridTreeLeveling' } },
-          { title: '层级结构', routerLink: { name: 'ComponentGridTreeHierarchy' } }
+          { title: '层级结构', routerLink: { name: 'ComponentGridTreeHierarchy' } },
+          { title: '显示连接线', routerLink: { name: 'ComponentGridTreeLine' } },
+          { title: '单选框', routerLink: { name: 'ComponentGridTreeRadio' } },
+          { title: '复选框', routerLink: { name: 'ComponentGridTreeCheckbox' } }
+        ]
+      },
+      {
+        title: '单元格 - 渲染 - 配置式',
+        children: [
+          { title: 'VxeSwitch', routerLink: { name: 'ComponentGridCellRenderVxeSwitch' } },
+          { title: 'VxeButtonGroup', routerLink: { name: 'ComponentGridCellRenderVxeButtonGroup' } },
+          { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellRenderVxeUpload' } }
+        ]
+      },
+      {
+        title: '单元格 - 渲染 - 插槽式',
+        children: [
+          { title: 'VxeSwitch', routerLink: { name: 'ComponentGridCellTemplateVxeSwitch' } },
+          { title: 'VxeButtonGroup', routerLink: { name: 'ComponentGridCellTemplateVxeButtonGroup' } },
+          { title: 'VxeButton', routerLink: { name: 'ComponentGridCellTemplateVxeButton' } },
+          { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellTemplateVxeUpload' } },
+          { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/cell/el-switch' }
         ]
       },
       {
@@ -451,18 +500,21 @@ export const navConfigList: NavVO[] = [
         children: [
           { title: 'input', routerLink: { name: 'ComponentGridEditRenderInput' } },
           { title: 'select', routerLink: { name: 'ComponentGridEditRenderSelect' } },
-          { title: 'vxe-input', routerLink: { name: 'ComponentGridEditRenderVxeInput' } },
-          { title: 'vxe-number-picker', routerLink: { name: 'ComponentGridEditRenderVxeNumberPicker' } },
-          { title: 'vxe-date-picker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
-          { title: 'vxe-select', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
+          { title: 'VxeInput', routerLink: { name: 'ComponentGridEditRenderVxeInput' } },
+          { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridEditRenderVxeNumberInput' } },
+          { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
+          { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
           { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/edit/el-input' }
         ]
       },
       {
         title: '可编辑 - 渲染 - 插槽式',
         children: [
-          { title: 'vxe-input', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
-          { title: 'vxe-select', routerLink: { name: 'ComponentGridEditTemplateVxeSelect' } }
+          { title: 'VxeInput', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
+          { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridEditTemplateVxeNumberInput' } },
+          { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditTemplateVxeDatePicker' } },
+          { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditTemplateVxeSelect' } },
+          { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/edit/el-input' }
         ]
       },
       {
@@ -491,7 +543,10 @@ export const navConfigList: NavVO[] = [
           { title: '导出 XLSX 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/grid/export' },
           { title: '导出 PDF 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-pdf/grid/export' },
           { title: '自定义数据', routerLink: { name: 'ComponentGridExportData' } },
-          { title: '高级导出', routerLink: { name: 'ComponentGridExportAdvanced' } }
+          { title: '高级导出', routerLink: { name: 'ComponentGridExportAdvanced' } },
+          { title: '自定义导出类型', routerLink: { name: 'ComponentGridExportTypes' } },
+          { title: '服务端导出', routerLink: { name: 'ComponentGridExportRemote' } },
+          { title: '自定义导出模式', routerLink: { name: 'ComponentGridExportModes' } }
         ]
       },
       {
@@ -520,8 +575,11 @@ export const navConfigList: NavVO[] = [
           { title: '纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollVertical' } },
           { title: '横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHorizontal' } },
           { title: '纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHV' } },
+          { title: '函数式加载数据', routerLink: { name: 'ComponentGridScrollLoadData' } },
+          { title: '设置行高', routerLink: { name: 'ComponentGridScrollRowHeight' } },
           { title: '使用分组表头', routerLink: { name: 'ComponentGridScrollGroup' } },
-          { title: '使用表尾', routerLink: { name: 'ComponentGridScrollFooter' } }
+          { title: '使用表尾', routerLink: { name: 'ComponentGridScrollFooter' } },
+          { title: '树形虚拟滚动', routerLink: { name: 'ComponentGridScrollTree' } }
         ]
       },
       {
@@ -539,6 +597,13 @@ export const navConfigList: NavVO[] = [
           { title: '手动调用 - 标记删除状态', routerLink: { name: 'ComponentGridProxyManualMark' } },
           { title: '工具栏 - 增删改查', routerLink: { name: 'ComponentGridProxyToolbarSave' } },
           { title: '手动调用 - 增删改查', routerLink: { name: 'ComponentGridProxyManualSave' } }
+        ]
+      },
+      {
+        title: '事件监听',
+        children: [
+          { title: '点击/双击事件', routerLink: { name: 'ComponentGridEventsClick' } },
+          { title: '滚动事件', routerLink: { name: 'ComponentGridEventsScroll' } }
         ]
       }
     ]

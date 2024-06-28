@@ -19,7 +19,7 @@ interface RowVO {
   address: string
 }
 
-const gridRef = ref<VxeGridInstance>()
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 // 模拟接口
 const findList = () => {

@@ -1,0 +1,66 @@
+<template>
+  <div>
+    <vxe-toolbar>
+      <template #buttons>
+        <vxe-button @click="expandAllEvent">展开所有</vxe-button>
+        <vxe-button @click="claseExpandEvent">收起所有</vxe-button>
+      </template>
+    </vxe-toolbar>
+
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { ref, reactive } from 'vue'
+import { VxeGridInstance, VxeGridProps } from 'vxe-table'
+
+interface RowVO {
+  id: number
+  parentId: number | null
+  name: string
+}
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
+
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  showOverflow: true,
+  height: 800,
+  loading: false,
+  scrollY: {
+    enabled: true,
+    gt: 0
+  },
+  columns: [
+    { type: 'seq', width: 300, treeNode: true },
+    { field: 'id', title: 'Id' },
+    { field: 'name', title: 'Name' }
+  ],
+  data: []
+})
+
+const loadList = () => {
+  gridOptions.loading = true
+  fetch('/resource/json/provinces_list.json').then(res => res.json()).then((data: RowVO[]) => {
+    gridOptions.data = data
+    gridOptions.loading = false
+  })
+}
+
+const expandAllEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.setAllTreeExpand(true)
+  }
+}
+
+const claseExpandEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.clearTreeExpand()
+  }
+}
+
+loadList()
+</script>

@@ -54,9 +54,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', editRender: { name: 'input' } },
-    { field: 'sex', title: '下拉框', editRender: sexEditRender },
-    { field: 'type', title: '下拉框分组', editRender: typeEditRender }
+    { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'input' } },
+    { field: 'sex', title: '下拉框', width: 200, editRender: sexEditRender },
+    { field: 'type', title: '下拉框分组', width: 200, editRender: typeEditRender }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },

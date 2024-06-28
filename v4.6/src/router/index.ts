@@ -1635,7 +1635,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Donation
   },
   {
-    path: '/joinSponsor',
+    path: '/start/joinSponsor',
     name: 'JoinSponsor',
     component: JoinSponsor
   },

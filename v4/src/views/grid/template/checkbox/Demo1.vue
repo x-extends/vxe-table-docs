@@ -34,7 +34,7 @@ interface RowVO {
   address: string
 }
 
-const gridRef = ref<VxeGridInstance>()
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const toggleAllCheckboxEvent = () => {
   const $grid = gridRef.value

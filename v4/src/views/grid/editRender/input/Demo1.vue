@@ -30,7 +30,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', width: 200, editRender: { name: 'input' } },
+    { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'input' } },
     { field: 'age', title: '数字', width: 200, editRender: { name: 'input', attrs: { type: 'number' } } },
     { field: 'date', title: '日期', width: 200, editRender: { name: 'input', attrs: { type: 'date' } } },
     { field: 'month', title: '月份', width: 200, editRender: { name: 'input', attrs: { type: 'month' } } },

@@ -34,7 +34,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', width: 180, editRender: { name: 'VxeInput' } },
+    { field: 'name', title: 'Name', minWidth: 180, editRender: { name: 'VxeInput' } },
     { field: 'num', title: '数字', width: 180, editRender: { name: 'VxeInput', props: { type: 'number' } } },
     { field: 'integer', title: '整数', width: 180, editRender: { name: 'VxeInput', props: { type: 'integer' } } },
     { field: 'float', title: '小数', width: 180, editRender: { name: 'VxeInput', props: { type: 'float' } } },

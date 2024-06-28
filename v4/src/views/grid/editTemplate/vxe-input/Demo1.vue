@@ -5,10 +5,6 @@
         <vxe-input v-model="row.name"></vxe-input>
       </template>
 
-      <template #edit_nickname="{ row }">
-        <vxe-input v-model="row.nickname"></vxe-input>
-      </template>
-
       <template #edit_num="{ row }">
         <vxe-input v-model="row.num" type="number"></vxe-input>
       </template>
@@ -89,7 +85,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', width: 180, editRender: { }, slots: { edit: 'edit_name' } },
+    { field: 'name', title: 'Name', minWidth: 180, editRender: { }, slots: { edit: 'edit_name' } },
     { field: 'num', title: '数字', width: 180, editRender: { }, slots: { edit: 'edit_num' } },
     { field: 'integer', title: '整数', width: 180, editRender: { }, slots: { edit: 'edit_integer' } },
     { field: 'float', title: '小数', width: 180, editRender: { }, slots: { edit: 'edit_float' } },

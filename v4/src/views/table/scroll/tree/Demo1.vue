@@ -9,13 +9,13 @@
 
     <vxe-table
       show-overflow
-      height="600"
+      height="800"
       ref="tableRef"
       :loading="loading"
       :tree-config="{transform: true}"
       :scroll-y="{enabled: true, gt: 0}"
       :data="tableData">
-      <vxe-column type="seq" width="200" tree-node></vxe-column>
+      <vxe-column type="seq" width="300" tree-node></vxe-column>
       <vxe-column field="id" title="Id"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
     </vxe-table>

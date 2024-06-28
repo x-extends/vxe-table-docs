@@ -18,7 +18,7 @@ interface RowVO {
   address: string
 }
 
-const gridRef = ref<VxeGridInstance>()
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [

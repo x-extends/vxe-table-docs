@@ -1,5 +1,5 @@
 window.joinSponorEvent = function () {
-  location.href = 'https://vxetable.cn/#/joinSponsor'
+  location.href = 'https://vxetable.cn/#/start/joinSponsor'
 }
 
 fetch('https://api.vxetable.cn/vxe/api/pub/vxetable/sponsors', { method: 'GET' })
@@ -9,7 +9,7 @@ fetch('https://api.vxetable.cn/vxe/api/pub/vxetable/sponsors', { method: 'GET' }
     try {
       data = JSON.parse(decodeURIComponent(atob(rest.result.join(''))))
     } catch (e) {}
-    var sponsorEl = document.querySelector('.vxe-ss-20240622')
+    var sponsorEl = document.querySelector('.xe-sponsor')
     sponsorEl.style = 'display: block !important;'
     if (data && sponsorEl) {
       if (data.length < 3) {

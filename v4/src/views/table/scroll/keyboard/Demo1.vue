@@ -5,7 +5,7 @@
       show-overflow
       keep-source
       ref="tableRef"
-      height="300"
+      height="500"
       :column-config="{resizable: true}"
       :loading="loading"
       :mouse-config="{selected: true}"

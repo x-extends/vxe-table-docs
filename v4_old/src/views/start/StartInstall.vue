@@ -13,6 +13,8 @@
         npm install vxe-table@next
         # 或者
         yarn add vxe-table@next
+        # 或者
+        pnpm add vxe-table@next vxe-pc-ui
       </pre-code>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>
@@ -45,11 +47,12 @@ export default defineComponent({
     return {
       demoCodes: [
         `
-        // ...
+        // ... 纯表格
         import VxeTable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
+        // ...可选 UI
         import VxeUI from 'vxe-pc-ui'
         import 'vxe-pc-ui/lib/style.css'
         // ...

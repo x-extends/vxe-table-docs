@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid ref="xGrid" v-bind="gridOptions" @edit-actived="editActivedEvent">
+    <vxe-grid ref="xGrid" v-bind="gridOptions" v-on=gridEvents>
       <template #name_edit="{ row }">
         <vxe-input v-model="row.name" :disabled="disabledName"></vxe-input>
       </template>
@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeGridInstance, VxeGridProps, VxeGridEvents } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -60,12 +60,14 @@ const disabledName = ref(false)
 const disabledSex = ref(false)
 const disabledAge = ref(false)
 
-const editActivedEvent: VxeGridEvents.EditDisabled = ({ row }) => {
+const gridEvents: VxeGridListeners<RowVO> = {
+  editActived ({ row }) {
   // name 为 'x' 开头的列禁止编辑
-  disabledName.value = (row.name || '').indexOf('x') === 0
-  // age 小于 27 的列禁止编辑
-  disabledAge.value = row.age < 27
-  // sex 值编辑为 1 的列禁止编辑
-  disabledSex.value = row.sex === 'Women'
+    disabledName.value = (row.name || '').indexOf('x') === 0
+    // age 小于 27 的列禁止编辑
+    disabledAge.value = row.age < 27
+    // sex 值编辑为 1 的列禁止编辑
+    disabledSex.value = row.sex === 'Women'
+  }
 }
 </script>

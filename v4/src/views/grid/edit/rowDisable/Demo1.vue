@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" @edit-disabled="editDisabledEvent">
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents">
       <template #name_edit="{ row }">
         <vxe-input v-model="row.name"></vxe-input>
       </template>
@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps, VxeGridEvents } from 'vxe-table'
+import { VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -60,7 +60,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const editDisabledEvent: VxeGridEvents.EditDisabled = () => {
-  console.log('禁止编辑')
+const gridEvents: VxeGridListeners<RowVO> = {
+  editDisabled () {
+    console.log('禁止编辑')
+  }
 }
 </script>
