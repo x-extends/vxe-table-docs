@@ -69,7 +69,7 @@
                 <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item3.title"></vxe-text>
               </div>
               <div v-if="item3.children && item3.children.length" class="nav-subs">
-                <div class="nav-item nav-level4" v-for="(item4, index3) in item3.children" :key="index3" :class="[{'is-expand': item4.isExpand}]">
+                <div class="nav-item nav-level4" v-for="(item4, index4) in item3.children" :key="index4" :class="[{'is-expand': item4.isExpand}]">
                   <div class="nav-name" :class="{'is-plugin': item4.isPlugin, 'is-enterprise': item4.isEnterprise}" :title="item4.title" @click="toggleExpand(item4)">
                     <vxe-link v-if="item4.routerLink" :class="['nav-item-link', getApiClass(item4)]" :router-link="item4.routerLink" :content="item4.title"></vxe-link>
                     <vxe-link v-else-if="item4.linkUrl" class="nav-item-link" :status="item4.linkStatus" :href="item4.linkUrl" :target="item4.linkTarget || '_blank'">
@@ -78,6 +78,19 @@
                       <span v-else-if="item4.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
                     </vxe-link>
                     <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item4.title"></vxe-text>
+                  </div>
+                  <div v-if="item4.children && item4.children.length" class="nav-subs">
+                    <div class="nav-item nav-level5" v-for="(item5, index5) in item4.children" :key="index5" :class="[{'is-expand': item5.isExpand}]">
+                      <div class="nav-name" :class="{'is-plugin': item5.isPlugin, 'is-enterprise': item5.isEnterprise}" :title="item5.title" @click="toggleExpand(item5)">
+                        <vxe-link v-if="item5.routerLink" :class="['nav-item-link', getApiClass(item5)]" :router-link="item5.routerLink" :content="item5.title"></vxe-link>
+                        <vxe-link v-else-if="item5.linkUrl" class="nav-item-link" :status="item5.linkStatus" :href="item5.linkUrl" :target="item5.linkTarget || '_blank'">
+                          <span>{{ item5.title }}</span>
+                          <span v-if="item5.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
+                          <span v-else-if="item5.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                        </vxe-link>
+                        <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item5.title"></vxe-text>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -431,6 +444,16 @@ appStore.updateComponentApiJSON()
     & > .nav-name {
       line-height: 28px;
       padding-left: 7.4em;
+      .nav-item-text,
+      .nav-item-link {
+        font-size: 12px;
+      }
+    }
+  }
+  .nav-level5 {
+    & > .nav-name {
+      line-height: 28px;
+      padding-left: 9em;
       .nav-item-text,
       .nav-item-link {
         font-size: 12px;

@@ -4,9 +4,7 @@
     <div class="content" style="padding-top: 50px">
       <div class="sponsor-title">* 赞助（1000元/30天，1800元/60天）</div>
       <div class="sponsor-desc">当前站点所有页面的右侧展示位（图片尺寸200*100）</div>
-      <div class="sponsor-img">
-        <img src="/static/sponsor/right.png" style="max-width: 800px;">
-      </div>
+      <div class="sponsor-desc">联系邮箱：x_extends@163.com</div>
     </div>
   </div>
 </template>
@@ -25,9 +23,5 @@ const appStore = useAppStore()
 .sponsor-desc {
   font-size: 15px;
   margin-top: 5px;
-}
-.sponsor-img {
-  text-align: center;
-  margin-top: 40px;
 }
 </style>

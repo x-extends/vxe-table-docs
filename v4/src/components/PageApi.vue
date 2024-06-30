@@ -56,7 +56,7 @@ interface RowVO {
 const route = useRoute()
 const appStore = useAppStore()
 
-const gridRef = ref<VxeGridInstance>()
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const searchName = ref(`${route.query.q || ''}`)
 const tableData = ref<any[]>([])

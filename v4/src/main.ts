@@ -33,11 +33,11 @@ import '@/views/global/menus/table/base/demo1.table.menus'
 import '@/views/global/validators/form/base/demo1.form.validators'
 import '@/views/global/validators/table/base/demo1.table.validators'
 
-import '@/views/global/renderer/table/default/myLink/demo1.table.renderer'
-import '@/views/global/renderer/table/default/myImg/demo1.table.renderer'
+import '@/views/global/renderer/table/default/myCellLink/demo1.table.renderer'
+import '@/views/global/renderer/table/default/myCellImg/demo1.table.renderer'
 
-import '@/views/global/renderer/table/edit/editInput/demo1.table.renderer'
-import '@/views/global/renderer/table/edit/editDownTable/demo1.table.renderer'
+import '@/views/global/renderer/table/edit/myEditAmount/demo1.table.renderer'
+import '@/views/global/renderer/table/edit/myEditPulldown/demo1.table.renderer'
 
 import '@/views/global/renderer/table/expand/myExpandList/demo1.table.renderer'
 import '@/views/global/renderer/table/expand/myExpandTable/demo1.table.renderer'
@@ -45,15 +45,18 @@ import '@/views/global/renderer/table/expand/myExpandTable/demo1.table.renderer'
 import '@/views/global/renderer/table/toolbar/button/demo1.table.renderer'
 import '@/views/global/renderer/table/toolbar/tool/demo1.table.renderer'
 
-import '@/views/global/renderer/table/filter/filterInput/demo1.table.renderer'
-import '@/views/global/renderer/table/filter/filterComplex/demo1.table.renderer'
-import '@/views/global/renderer/table/filter/filterContent/demo1.table.renderer'
+import '@/views/global/renderer/table/filter/myFilterInput/demo1.table.renderer'
+import '@/views/global/renderer/table/filter/myFilterComplex/demo1.table.renderer'
+import '@/views/global/renderer/table/filter/myFilterContent/demo1.table.renderer'
 
-import '@/views/global/renderer/table/empty/myEmpty/demo1.table.renderer'
-import '@/views/global/renderer/table/empty/myNotData/demo1.table.renderer'
+import '@/views/global/renderer/table/empty/myEmptyImg/demo1.table.renderer'
+import '@/views/global/renderer/table/empty/myEmptyText/demo1.table.renderer'
 
 import '@/views/global/renderer/form/item/editInput/demo1.form.renderer'
 import '@/views/global/renderer/form/item/editUpload/demo1.form.renderer'
+
+import '@/views/global/renderer/form-design/widget/myInputWidget/demo1.form-design.renderer'
+import '@/views/global/renderer/form-design/widget/myTextareaWidget/demo1.form-design.renderer'
 
 import enUS from 'vxe-pc-ui/packages/language/en-US'
 
