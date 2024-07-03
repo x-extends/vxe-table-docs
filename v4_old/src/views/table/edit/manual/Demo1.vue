@@ -76,7 +76,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -146,7 +146,7 @@ const saveRowEvent = (row: RowVO) => {
       loading.value = true
       setTimeout(() => {
         loading.value = false
-        VxeUI.modal.message({ content: `保存成功！name=${row.name}`, status: 'success' })
+        VXETable.modal.message({ content: `保存成功！name=${row.name}`, status: 'success' })
       }, 300)
     })
   }

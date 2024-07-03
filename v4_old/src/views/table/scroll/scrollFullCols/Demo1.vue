@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { nextTick, reactive, ref } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridProps, VxeGridPropTypes } from 'vxe-table'
 
 interface RowVO {
   [key: string]: string | number | boolean
@@ -165,7 +165,7 @@ const loadColumnAndData = (colSize: number, rowSize: number) => {
         $grid.reloadColumn(columns),
         $grid.reloadData(data)
       ]).then(() => {
-        VxeUI.modal.message({ content: `渲染 ${colSize} 列 ${rowSize} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+        VXETable.modal.message({ content: `渲染 ${colSize} 列 ${rowSize} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
         gridOptions.loading = false
       })
     } else {
@@ -178,7 +178,7 @@ const getSelectEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
     const selectRecords = $grid.getCheckboxRecords()
-    VxeUI.modal.alert(`${selectRecords.length}`)
+    VXETable.modal.alert(`${selectRecords.length}`)
   }
 }
 

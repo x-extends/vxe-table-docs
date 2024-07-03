@@ -179,7 +179,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import { VxeUI, VxeTablePropTypes } from 'vxe-table'
+import { VXETable, VxeTablePropTypes } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -199,12 +199,12 @@ export default defineComponent({
         toggleMethod ({ expanded, row }) {
           if (expanded) {
             if (row.sex === '1') {
-              VxeUI.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
+              VXETable.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
               return false
             }
           } else {
             if (row.sex === '0') {
-              VxeUI.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
+              VXETable.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
               return false
             }
           }
@@ -374,7 +374,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive } from 'vue'
-        import { VxeUI, VxeTablePropTypes } from 'vxe-table'
+        import { VXETable, VxeTablePropTypes } from 'vxe-table'
 
         export default defineComponent({
           setup () {
@@ -383,12 +383,12 @@ export default defineComponent({
                 toggleMethod ({ expanded, row }) {
                   if (expanded) {
                     if (row.sex === '1') {
-                      VxeUI.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
+                      VXETable.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
                       return false
                     }
                   } else {
                     if (row.sex === '0') {
-                      VxeUI.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
+                      VXETable.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
                       return false
                     }
                   }

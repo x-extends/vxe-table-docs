@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 // 打印样式
 const printStyle = `
@@ -131,7 +131,7 @@ const printTmpl = `
 `
 
 const printEvent = () => {
-  VxeUI.print({
+  VXETable.print({
     sheetName: '打印自定义模板',
     style: printStyle,
     // 自定义打印HTML

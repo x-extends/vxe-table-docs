@@ -48,7 +48,7 @@
 
 <script lang="ts" setup>
 import { ref, nextTick } from 'vue'
-import { VxeUI, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -194,7 +194,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(`新增：${insertRecords.length}`)
+    VXETable.modal.alert(`新增：${insertRecords.length}`)
   }
 }
 
@@ -202,7 +202,7 @@ const getRemoveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
-    VxeUI.modal.alert(removeRecords.length)
+    VXETable.modal.alert(removeRecords.length)
   }
 }
 
@@ -210,7 +210,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VxeUI.modal.alert(`更新：${updateRecords.length}`)
+    VXETable.modal.alert(`更新：${updateRecords.length}`)
   }
 }
 

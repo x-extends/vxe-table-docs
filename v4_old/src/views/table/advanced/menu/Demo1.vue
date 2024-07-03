@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeTablePropTypes, VxeColumnPropTypes, VxeTableEvents } from 'vxe-table'
+import { VXETable, VxeTablePropTypes, VxeColumnPropTypes, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -91,13 +91,13 @@ const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, col
     case 'copy':
       // 示例
       if (row && column) {
-        if (VxeUI.clipboard.copy(row[column.field])) {
-          VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+        if (VXETable.clipboard.copy(row[column.field])) {
+          VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
         }
       }
       break
     default:
-      VxeUI.modal.alert(`点击了 ${menu.name} 选项`)
+      VXETable.modal.alert(`点击了 ${menu.name} 选项`)
   }
 }
 

@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -50,7 +50,7 @@ const formatSex = (row: RowVO) => {
 }
 
 const openDetail = (row: RowVO) => {
-  VxeUI.modal.message({
+  VXETable.modal.message({
     status: 'success',
     content: `点击了${row.name}`
   })

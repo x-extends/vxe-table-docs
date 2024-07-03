@@ -1,7 +1,7 @@
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 // 创建一个简单的表单-输入框渲染
-VxeUI.renderer.add('FormItemInput', {
+VXETable.renderer.add('FormItemInput', {
   // 项内容模板
   renderItemContent (renderOpts, params) {
     const { data, field } = params
@@ -11,7 +11,7 @@ VxeUI.renderer.add('FormItemInput', {
 })
 
 // 创建一个简单的表单-按钮组渲染
-VxeUI.renderer.add('FormItemButtonGroup', {
+VXETable.renderer.add('FormItemButtonGroup', {
   // 项内容模板
   renderItemContent () {
     return [

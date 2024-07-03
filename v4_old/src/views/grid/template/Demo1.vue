@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeUI, VxeGridProps } from 'vxe-table'
+import { VXETable, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -60,7 +60,7 @@ const formatSex = (row: RowVO) => {
 }
 
 const openDetail = (row: RowVO) => {
-  VxeUI.modal.message({
+  VXETable.modal.message({
     status: 'success',
     content: `点击了${row.name}`
   })

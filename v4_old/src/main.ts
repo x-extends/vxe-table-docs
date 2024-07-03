@@ -18,7 +18,7 @@ import ToolbarAPILink from './components/ToolbarAPILink.vue'
 import PagerAPILink from './components/PagerAPILink.vue'
 import DemoBlock from './components/DemoBlock.vue'
 
-import VxeUITable from 'vxe-table'
+import VxeTable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 
 import VxeUI from 'vxe-pc-ui'
@@ -38,7 +38,7 @@ app.component(PagerAPILink.name, PagerAPILink)
 app.component(DemoBlock.name, DemoBlock)
 
 app.use(VxeUI)
-app.use(VxeUITable)
+app.use(VxeTable)
 
 app.use(store)
 app.use(router)

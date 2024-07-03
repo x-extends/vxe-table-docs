@@ -54,10 +54,10 @@ export default defineComponent({
       tableData,
       demoCodes: [
         `
-        import { VxeUI } from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
         // 创建一个简单输入框渲染
-        VxeUI.renderer.add('MyInput', {
+        VXETable.renderer.add('MyInput', {
           // 可编辑激活模板
           renderEdit (renderOpts, params) {
             let { row, column } = params

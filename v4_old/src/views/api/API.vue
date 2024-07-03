@@ -42,7 +42,7 @@ import i18n from '../../i18n'
 import router from '../../router'
 import XEUtils from 'xe-utils'
 
-import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 import iconAPI from '../../api/icon'
 import tableAPI from '../../api/table'
@@ -356,8 +356,8 @@ export default defineComponent({
             break
           case 'copy':
             if (row && column) {
-              if (VxeUI.clipboard.copy(row[column.field])) {
-                VxeUI.modal.message({ content: i18n.global.t('app.body.msg.copyToClipboard'), status: 'success' })
+              if (VXETable.clipboard.copy(row[column.field])) {
+                VXETable.modal.message({ content: i18n.global.t('app.body.msg.copyToClipboard'), status: 'success' })
               }
             }
             break

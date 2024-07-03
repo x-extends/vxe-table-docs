@@ -11,7 +11,8 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeUI, VxeFormProps, VxeFormEvents } from 'vxe-pc-ui'
+import { VXETable } from 'vxe-table'
+import { VxeFormProps, VxeFormEvents } from 'vxe-pc-ui'
 
 interface FormDataVO {
   name: string
@@ -45,6 +46,6 @@ const formOptions = reactive<VxeFormProps<FormDataVO>>({
 })
 
 const submitEvent: VxeFormEvents.Submit = () => {
-  VxeUI.modal.message({ content: '保存成功', status: 'success' })
+  VXETable.modal.message({ content: '保存成功', status: 'success' })
 }
 </script>

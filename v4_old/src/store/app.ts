@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 const currTheme: any = localStorage.getItem('VXE_THEME') || 'default'
 
-VxeUI.setTheme(currTheme)
+VXETable.setTheme(currTheme)
 
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
@@ -22,7 +22,7 @@ export const useAppStore = defineStore('app', {
   actions: {
     setTheme (name: any) {
       this.theme = name || 'default'
-      VxeUI.setTheme(name)
+      VXETable.setTheme(name)
       document.documentElement.setAttribute('vxe-docs-theme', name)
       localStorage.setItem('VXE_THEME', name)
     },

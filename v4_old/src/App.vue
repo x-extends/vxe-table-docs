@@ -73,9 +73,10 @@
         <div class="body">
           <div class="docs">
             <template v-if="appData.apiList.length">
+              <a class="link" ref="https://vxetable.cn/">切回新版文档</a>
               <ul class="nav-menu">
                 <li v-for="(item, index) in appData.apiList" :key="index" :class="{expand: item.expand}">
-                  <a v-if="item.linkUrl" :href="item.linkUrl" target="_blank" class="nav-link" style="padding-left: 20px;">{{ item.label }}</a>
+                  <a v-if="item.linkUrl" :href="item.linkUrl" :target="item.linkTarget || '_blank'" class="nav-link" style="padding-left: 20px;">{{ item.label }}</a>
                   <a v-else class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{'is-new': item.isNew, disabled: item.disabled, active: pageKey === item.value}">
                     <i class="vxe-icon-arrow-right nav-link-icon"></i>
                     <span v-html="item.label"></span>
@@ -133,7 +134,7 @@ import { useAppStore } from '@/store/app'
 import i18n from './i18n'
 import router from './router'
 import XEUtils from 'xe-utils'
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 const appStore = useAppStore()
 const serveTY = computed(() => appStore.serveTY)
@@ -2005,7 +2006,7 @@ const clickEvent = (evnt: any) => {
 }
 
 const updatingEvent = () => {
-  VxeUI.modal.alert('维护中...', '维护中')
+  VXETable.modal.alert('维护中...', '维护中')
 }
 
 const linkEvent = (item: any) => {
@@ -2183,7 +2184,7 @@ nextTick(() => {
   } else {
     // setTimeout(() => {
     //   if (location.href.indexOf('vxetable.cn') === -1) {
-    //     VxeUI.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
+    //     VXETable.modal.confirm('官网域名已切换 https://vxetable.cn', '', {
     //       confirmButtonText: '点击跳转'
     //     }).then(type => {
     //       if (type === 'confirm') {

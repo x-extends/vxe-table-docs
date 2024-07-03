@@ -23,7 +23,7 @@ const formDesignWidgets = ref<VxeFormDesignPropTypes.Widgets>([
   {
     customGroup: '我的控件',
     children: [
-      'MyInputWidget'
+      'MyFormDesignInputWidget'
     ]
   }
 ])

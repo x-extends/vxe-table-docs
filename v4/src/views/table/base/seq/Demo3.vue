@@ -6,7 +6,7 @@
       :row-config="{isHover: true}"
       :seq-config="seqConfig"
       :data="tableData">
-      <vxe-column type="seq" title="序号" width="80"></vxe-column>
+      <vxe-column type="seq" title="序号" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

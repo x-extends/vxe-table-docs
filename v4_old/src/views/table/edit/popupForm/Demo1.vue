@@ -107,7 +107,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeColumnPropTypes, VxeFormPropTypes, VxeFormItemPropTypes, VxeTableEvents } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeColumnPropTypes, VxeFormPropTypes, VxeFormItemPropTypes, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -202,7 +202,7 @@ const cellDBLClickEvent: VxeTableEvents.CellDblclick<RowVO> = ({ row }) => {
 }
 
 const removeEvent = async (row: RowVO) => {
-  const type = await VxeUI.modal.confirm('您确定要删除该数据?')
+  const type = await VXETable.modal.confirm('您确定要删除该数据?')
   if (type === 'confirm') {
     const $table = tableRef.value
     if ($table) {
@@ -219,10 +219,10 @@ const submitEvent = () => {
       submitLoading.value = false
       showEdit.value = false
       if (selectRow.value) {
-        VxeUI.modal.message({ content: '保存成功', status: 'success' })
+        VXETable.modal.message({ content: '保存成功', status: 'success' })
         Object.assign(selectRow.value, formData)
       } else {
-        VxeUI.modal.message({ content: '新增成功', status: 'success' })
+        VXETable.modal.message({ content: '新增成功', status: 'success' })
         $table.insert({ ...formData })
       }
     }

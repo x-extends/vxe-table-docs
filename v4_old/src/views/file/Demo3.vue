@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { VxeUI } from 'vxe-pc-ui'
+import { VXETable } from 'vxe-table'
 
 const downloadEvent = () => {
   // 请求文件
@@ -13,7 +13,7 @@ const downloadEvent = () => {
     .then(response => response.blob())
     .then(blob => {
       // 下载到本地
-      VxeUI.saveFile({ filename: '图片', type: 'gif', content: blob })
+      VXETable.saveFile({ filename: '图片', type: 'gif', content: blob })
     })
 }
 </script>

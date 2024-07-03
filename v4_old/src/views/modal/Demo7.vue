@@ -38,7 +38,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeModalDefines } from 'vxe-table'
+import { VXETable, VxeModalDefines } from 'vxe-table'
 
 const val1 = ref(false)
 const tableData = ref([])
@@ -46,6 +46,6 @@ const tableData = ref([])
 const val2 = ref(false)
 
 const openAlert = (options: VxeModalDefines.ModalOptions) => {
-  VxeUI.modal.alert(options)
+  VXETable.modal.alert(options)
 }
 </script>

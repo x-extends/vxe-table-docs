@@ -51,7 +51,7 @@
 
 <script lang="ts" setup>
 import { nextTick, ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   [key: string]: string | number | boolean
@@ -106,7 +106,7 @@ const loadList = (rowSize: number) => {
     // 使用函数式加载
     if ($table) {
       $table.reloadData(data).then(() => {
-        VxeUI.modal.message({ content: `渲染 ${rowSize} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+        VXETable.modal.message({ content: `渲染 ${rowSize} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
         loading.value = false
       })
     } else {
@@ -119,7 +119,7 @@ const getSelectEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
-    VxeUI.modal.alert(`${selectRecords.length}`)
+    VXETable.modal.alert(`${selectRecords.length}`)
   }
 }
 

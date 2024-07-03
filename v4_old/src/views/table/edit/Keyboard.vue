@@ -97,7 +97,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -147,7 +147,7 @@ export default defineComponent({
       const $table = xTable.value
       if ($table) {
         const insertRecords = $table.getInsertRecords()
-        VxeUI.modal.alert(insertRecords.length)
+        VXETable.modal.alert(insertRecords.length)
       }
     }
 
@@ -155,7 +155,7 @@ export default defineComponent({
       const $table = xTable.value
       if ($table) {
         const selectRecords = $table.getCheckboxRecords()
-        VxeUI.modal.alert(selectRecords.length)
+        VXETable.modal.alert(selectRecords.length)
       }
     }
 
@@ -213,7 +213,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
-        import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+        import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
         export default defineComponent({
           setup () {
@@ -260,13 +260,13 @@ export default defineComponent({
             const getInsertEvent = () => {
               const $table = xTable.value
               const insertRecords = $table.getInsertRecords()
-              VxeUI.modal.alert(insertRecords.length)
+              VXETable.modal.alert(insertRecords.length)
             }
 
             const getSelectionEvent = () => {
               const $table = xTable.value
               const selectRecords = $table.getCheckboxRecords()
-              VxeUI.modal.alert(selectRecords.length)
+              VXETable.modal.alert(selectRecords.length)
             }
 
             return {

@@ -5,10 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 const confirmEvent = async () => {
-  const type = await VxeUI.modal.confirm('您确定要删除吗？')
-  VxeUI.modal.message({ content: `点击了 ${type}` })
+  const type = await VXETable.modal.confirm('您确定要删除吗？')
+  VXETable.modal.message({ content: `点击了 ${type}` })
 }
 </script>

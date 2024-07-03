@@ -16,29 +16,29 @@ export default defineComponent({
     return {
       demoCodes: [
         `
-        import { VxeUI } from 'vxe-pc-ui'
+        import { VXETable } from 'vxe-table'
 
-        import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
-        // import zhHK from 'vxe-pc-ui/lib/language/zh-HK'
-        // import zhTW from 'vxe-pc-ui/lib/language/zh-TW'
-        // import zhMO from 'vxe-pc-ui/lib/language/zh-MO'
-        // import enUS from 'vxe-pc-ui/lib/language/en-US'
-        // import jaJP from 'vxe-pc-ui/lib/language/ja-JP'
-        // import esES from 'vxe-pc-ui/lib/language/es-ES'
-        // import ptBR from 'vxe-pc-ui/lib/language/pt-BR'
+        import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
+        // import zhHK from 'vxe-table/lib/locale/lang/zh-HK'
+        // import zhTW from 'vxe-table/lib/locale/lang/zh-TW'
+        // import zhMO from 'vxe-table/lib/locale/lang/zh-MO'
+        // import enUS from 'vxe-table/lib/locale/lang/en-US'
+        // import jaJP from 'vxe-table/lib/locale/lang/ja-JP'
+        // import esES from 'vxe-table/lib/locale/lang/es-ES'
+        // import ptBR from 'vxe-table/lib/locale/lang/pt-BR'
 
         // 增加语言
-        VxeUI.setI18n('zh-CN', zhCN)
-        // VxeUI.setI18n('zh-HK', zhHK)
-        // VxeUI.setI18n('zh-TW', zhTW)
-        // VxeUI.setI18n('zh-MO', zhMO)
-        // VxeUI.setI18n('en-US', enUS)
-        // VxeUI.setI18n('ja-JP', jaJP)
-        // VxeUI.setI18n('es-ES', esES)
-        // VxeUI.setI18n('pt-BR', ptBR)
+        VXETable.setI18n('zh-CN', zhCN)
+        // VXETable.setI18n('zh-HK', zhHK)
+        // VXETable.setI18n('zh-TW', zhTW)
+        // VXETable.setI18n('zh-MO', zhMO)
+        // VXETable.setI18n('en-US', enUS)
+        // VXETable.setI18n('ja-JP', jaJP)
+        // VXETable.setI18n('es-ES', esES)
+        // VXETable.setI18n('pt-BR', ptBR)
 
         // 切换语言
-        VxeUI.setLanguage('zh-CN')
+        VXETable.setLanguage('zh-CN')
         `
       ]
     }

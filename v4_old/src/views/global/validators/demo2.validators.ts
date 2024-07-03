@@ -1,7 +1,7 @@
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 // 手机号校验
-VxeUI.validators.add('myMobile', {
+VXETable.validators.add('myMobile', {
   cellValidatorMethod ({ cellValue }) {
     if (!/^1[3-9]\d{9}$/.test(cellValue)) {
       return new Error('手机号不正确')
@@ -10,7 +10,7 @@ VxeUI.validators.add('myMobile', {
 })
 
 // 邮箱校验
-VxeUI.validators.add('myEmail', {
+VXETable.validators.add('myEmail', {
   cellValidatorMethod ({ cellValue }) {
     if (!/\w[-.\w]*@[-a-z0-9]+(\.[-a-z0-9]+)*\.(com|cn)/.test(cellValue)) {
       return new Error('邮箱不正确')

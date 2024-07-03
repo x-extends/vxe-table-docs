@@ -88,10 +88,10 @@ export default defineComponent({
       demo1,
       demoCodes: [
         `
-        import { VxeUI } from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
         // 创建一个简单的表单-输入框渲染
-        VxeUI.renderer.add('FormItemInput', {
+        VXETable.renderer.add('FormItemInput', {
           // 项显示模板
           renderItemContent (renderOpts, params) {
             const { data, field } = params

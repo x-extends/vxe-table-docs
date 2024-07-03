@@ -37,7 +37,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -107,12 +107,12 @@ const saveEvent = async () => {
     if (insertRecords.length || removeRecords.length || updateRecords.length) {
       const errMap = await $table.validate()
       if (errMap) {
-        VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+        VXETable.modal.message({ status: 'error', content: '校验不通过！' })
       } else {
-        VxeUI.modal.message({ content: '保存成功！', status: 'success' })
+        VXETable.modal.message({ content: '保存成功！', status: 'success' })
       }
     } else {
-      VxeUI.modal.message({ content: '数据未改动！', status: 'warning' })
+      VXETable.modal.message({ content: '数据未改动！', status: 'warning' })
     }
   }
 }

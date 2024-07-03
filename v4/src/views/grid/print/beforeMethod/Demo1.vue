@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-button @click="printEvent">直接头部和底部</vxe-button>
+    <vxe-button @click="printEvent">设置顶部和底部</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -98,8 +98,8 @@ const printEvent = () => {
     $grid.print({
       sheetName: '打印出货单据',
       style: printStyle,
-      beforePrintMethod ({ content }) {
-        return topHtml + content + bottomHtml
+      beforePrintMethod ({ html }) {
+        return topHtml + html + bottomHtml
       }
     })
   }

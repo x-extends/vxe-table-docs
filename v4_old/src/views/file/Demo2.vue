@@ -6,10 +6,10 @@
 </template>
 
 <script lang="ts" setup>
-import { VxeUI } from 'vxe-pc-ui'
+import { VXETable } from 'vxe-table'
 
 const saveEvent1 = () => {
-  VxeUI.saveFile({
+  VXETable.saveFile({
     filename: '文本',
     type: 'txt',
     content: '内容xxx'
@@ -17,7 +17,7 @@ const saveEvent1 = () => {
 }
 
 const saveEvent2 = () => {
-  VxeUI.saveFile({
+  VXETable.saveFile({
     filename: '页面',
     type: 'html',
     content: '<html><head></head><body>内容xx</body></html>'

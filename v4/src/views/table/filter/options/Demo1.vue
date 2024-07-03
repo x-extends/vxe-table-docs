@@ -7,20 +7,21 @@
 
     <vxe-table
       border
+      ref="tableRef"
       height="500"
       :data="tableData">
       <vxe-column field="id" title="ID"></vxe-column>
       <vxe-column field="name" title="Name" :filters="nameOptions"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="time" title="Time" sortable></vxe-column>
+      <vxe-column field="address" title="Address"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeColumnPropTypes } from 'vxe-table'
+import { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -30,6 +31,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
@@ -43,17 +46,27 @@ const tableData = ref<RowVO[]>([
 const nameOptions = ref<VxeColumnPropTypes.Filters>([])
 
 const updateNameOpts = () => {
-  nameOptions.value = [
-    { label: 'Test2', value: 'Test2' },
-    { label: 'Test3', value: 'Test3' }
-  ]
+  const $table = tableRef.value
+  if ($table) {
+    // 修改选项列表
+    $table.setFilter('name', [
+      { label: 'Test2', value: 'Test2' },
+      { label: 'Test3', value: 'Test3' }
+    ])
+  }
 }
 
 const updateNameDefaultOpts = () => {
-  nameOptions.value = [
-    { label: 'Test2', value: 'Test2', checked: false },
-    { label: 'Test3', value: 'Test3', checked: true },
-    { label: 'Test4', value: 'Test4', checked: true }
-  ]
+  const $table = tableRef.value
+  if ($table) {
+    // 修改选项列表
+    $table.setFilter('name', [
+      { label: 'Test2', value: 'Test2', checked: false },
+      { label: 'Test3', value: 'Test3', checked: true },
+      { label: 'Test4', value: 'Test4', checked: true }
+    ])
+    // 更新数据
+    $table.updateData()
+  }
 }
 </script>

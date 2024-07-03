@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridListeners, VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -70,7 +70,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     titleAlign: 'right',
     items: [
       { field: 'name', title: '名称', span: 8, titlePrefix: { message: '名称', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: 'VxeInput', props: { placeholder: '请输入名称' } } },
-      { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://VxeUI.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: 'VxeInput', props: { placeholder: '请输入邮件' } } },
+      { field: 'email', title: '邮件', span: 8, titlePrefix: { useHTML: true, message: '点击链接：<a class="link" href="https://VXETable.cn" target="_blank">vxe-table官网</a>', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: 'VxeInput', props: { placeholder: '请输入邮件' } } },
       { field: 'nickname', title: '昵称', span: 8, itemRender: { name: 'VxeInput', props: { placeholder: '请输入昵称' } } },
       { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: 'VxeInput', props: { placeholder: '请输入角色' } } },
       { field: 'sex', title: '性别', span: 8, folding: true, titleSuffix: { message: '注意，必填信息！', icon: 'vxe-icon-question-circle-fill' }, itemRender: { name: 'VxeSelect', options: [] } },
@@ -147,7 +147,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       field: 'role',
       title: 'Role',
       sortable: true,
-      titlePrefix: { useHTML: true, content: '点击链接：<a class="link" href="https://VxeUI.cn" target="_blank">vxe-table官网</a>' },
+      titlePrefix: { useHTML: true, content: '点击链接：<a class="link" href="https://VXETable.cn" target="_blank">vxe-table官网</a>' },
       filters: [
         { label: '前端开发', value: '前端' },
         { label: '后端开发', value: '后端' },
@@ -208,13 +208,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       const formBody = new FormData()
       formBody.append('file', file)
       return fetch(`${serveApiUrl}/api/pub/import`, { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
-        VxeUI.modal.message({ content: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
+        VXETable.modal.message({ content: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
         // 导入完成，刷新表格
         if ($grid) {
           $grid.commitProxy('query')
         }
       }).catch(() => {
-        VxeUI.modal.message({ content: '导入失败，请检查数据是否正确！', status: 'error' })
+        VXETable.modal.message({ content: '导入失败，请检查数据是否正确！', status: 'error' })
       })
     }
   },
@@ -246,17 +246,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         // 开始服务端导出
         return fetch(`${serveApiUrl}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
           if (data.id) {
-            VxeUI.modal.message({ content: '导出成功，开始下载', status: 'success' })
+            VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
             // 读取路径，请求文件
             fetch(`${serveApiUrl}/api/pub/export/download/${data.id}`).then(response => {
               response.blob().then(blob => {
                 // 开始下载
-                VxeUI.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })
+                VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })
               })
             })
           }
         }).catch(() => {
-          VxeUI.modal.message({ content: '导出失败！', status: 'error' })
+          VXETable.modal.message({ content: '导出失败！', status: 'error' })
         })
       }
       return Promise.resolve()

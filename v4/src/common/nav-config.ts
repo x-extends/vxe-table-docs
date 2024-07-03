@@ -90,7 +90,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '排序',
           children: [
             { title: '多字段排序', routerLink: { name: 'ComponentTableSortMultiple' } },
-            { title: '服务端排序', routerLink: { name: 'ComponentTableSortRemote' } }
+            { title: '触发方式', routerLink: { name: 'ComponentTableSortTrigger' } },
+            { title: '自定义轮询', routerLink: { name: 'ComponentTableSortOrders' } },
+            { title: '设置默认排序', routerLink: { name: 'ComponentTableSortDefaultSort' } },
+            { title: '服务端排序', routerLink: { name: 'ComponentTableSortRemote' } },
+            { title: '设置值的类型', routerLink: { name: 'ComponentTableSortSortType' } },
+            { title: '自定义排序方法', routerLink: { name: 'ComponentTableSortSortMethod' } }
           ]
         },
         {
@@ -336,7 +341,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '动态样式', routerLink: { name: 'ComponentGridBaseDynamicStyle' } },
             // { title: '隐藏表头', routerLink: { name: 'ComponentGridBaseHeader' } },
             // { title: '高亮列', routerLink: { name: 'ComponentGridBaseHeaderHighlight' } },
-            // { title: '拖拽调整列宽', routerLink: { name: 'ComponentGridBaseHeaderResizable' } },
+            { title: '拖拽调整列宽', routerLink: { name: 'ComponentGridBaseHeaderResizable' } },
             // { title: '表格最小高度', routerLink: { name: 'ComponentGridBaseHeaderMinHeight' } },
             // { title: '表格高度', routerLink: { name: 'ComponentGridBaseHeight' } },
             // { title: '表格最大高度', routerLink: { name: 'ComponentGridBaseMaxHeight' } },
@@ -348,14 +353,28 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '分组表头', routerLink: { name: 'ComponentGridBaseGroup' } },
             { title: '高亮行与列', routerLink: { name: 'ComponentGridBaseCurrent' } },
             // { title: '排序', routerLink: { name: 'ComponentGridBaseSort' } },
-            // { title: '筛选', routerLink: { name: 'ComponentGridBaseFilter' } },
+            { title: '筛选', routerLink: { name: 'ComponentGridBaseFilter' } },
             // { title: '加载中', routerLink: { name: 'ComponentGridBaseLoading' } },
             // { title: '格式化内容', routerLink: { name: 'ComponentGridBaseFormat' } },
-            // { title: '序号', routerLink: { name: 'ComponentGridBaseSeq' } },
+            { title: '序号', routerLink: { name: 'ComponentGridBaseSeq' } },
             // { title: '单选框', routerLink: { name: 'ComponentGridBaseRadio' } },
             // { title: '复选框', routerLink: { name: 'ComponentGridBaseSelection' } },
             // { title: 'HTML 类型', routerLink: { name: 'ComponentGridBaseHtml' } },
             { title: '完整案例', routerLink: { name: 'ComponentGridBaseFull' } }
+          ]
+        },
+        {
+          title: '排序',
+          children: [
+            { title: '多字段排序', routerLink: { name: 'ComponentGridSortMultiple' } },
+            { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } }
+          ]
+        },
+        {
+          title: '筛选',
+          children: [
+            { title: '修改筛选选项', routerLink: { name: 'ComponentGridFilterOptions' } },
+            { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } }
           ]
         },
         {
@@ -679,7 +698,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
 }
 
 export const navConfigList: NavVO[] = [
-  { title: '切回旧版文档', linkUrl: '/v4_old', linkTarget: '_self' },
+  { title: '切回 v4.7 旧版文档', linkUrl: '/v4_old', linkTarget: '_self' },
   {
     i18nKey: 'app.aside.menu.guide',
     isExpand: true,

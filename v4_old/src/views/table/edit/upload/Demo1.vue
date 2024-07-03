@@ -30,7 +30,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -74,7 +74,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(insertRecords.length)
+    VXETable.modal.alert(insertRecords.length)
   }
 }
 </script>

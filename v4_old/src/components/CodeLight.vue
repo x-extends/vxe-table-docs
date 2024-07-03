@@ -62,7 +62,7 @@
 <script lang="ts" setup>
 import { ref, computed, defineAsyncComponent, PropType } from 'vue'
 import { codeJsMaps, codeTsMaps } from '@/common/cache'
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 const props = defineProps({
   path: String,
@@ -224,8 +224,8 @@ const copyCode = () => {
     codeContent = tsCodeText.value
   }
   if (codeContent) {
-    if (VxeUI.clipboard.copy(codeContent)) {
-      VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+    if (VXETable.clipboard.copy(codeContent)) {
+      VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
     }
   }
 }

@@ -17,13 +17,13 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 const printRef = ref<HTMLDivElement>()
 
 const printEvent = () => {
   const divEl = printRef.value
-  VxeUI.print({
+  VXETable.print({
     sheetName: '打印下面区域',
     content: divEl?.innerHTML
   })

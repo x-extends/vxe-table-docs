@@ -3,7 +3,7 @@
     <CodeLight path="table/filter/options/Demo1">
       <template #tip>
         <vxe-tip status="primary">
-          通过设置 <ApiLink name="column" prop="filters"/> 就可以修改选项<br>
+          通过调用 <ApiLink name="table" prop="setFilter"/> 方法可以修改选项，配合调用 <ApiLink name="table" prop="updateData"/> 更新表格数据<br>
         </vxe-tip>
       </template>
     </CodeLight>

@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, reactive, computed } from 'vue'
-import { VxeUI, VxeGlobalRendererHandles } from 'vxe-table'
+import { VXETable, VxeGlobalRendererHandles } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 export default defineComponent({
@@ -150,7 +150,7 @@ export default defineComponent({
     }
 
     const childMenuClickEvent = (cItem: CaseItem) => {
-      VxeUI.modal.alert({ content: cItem.label })
+      VXETable.modal.alert({ content: cItem.label })
     }
 
     load()

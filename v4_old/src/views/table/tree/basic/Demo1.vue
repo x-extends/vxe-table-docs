@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTableEvents } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -69,7 +69,7 @@ const getTreeExpansionEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const treeExpandRecords = $table.getTreeExpandRecords()
-    VxeUI.modal.alert(treeExpandRecords.length)
+    VXETable.modal.alert(treeExpandRecords.length)
   }
 }
 

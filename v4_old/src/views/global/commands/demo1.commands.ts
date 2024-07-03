@@ -1,15 +1,15 @@
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 // 自定义导出指令
-VxeUI.commands.add('myExport', {
+VXETable.commands.add('myExport', {
   commandMethod ({ $table }) {
     $table.exportData()
   }
 })
 
 // 自定义导出指令
-VxeUI.commands.add('myLink', {
+VXETable.commands.add('myLink', {
   commandMethod () {
-    open('https://VxeUI.cn/')
+    open('https://vxeui.com')
   }
 })

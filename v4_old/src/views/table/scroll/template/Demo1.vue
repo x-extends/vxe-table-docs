@@ -65,7 +65,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, nextTick } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   name: string
@@ -136,11 +136,11 @@ const showDetailEvent = (row: RowVO) => {
 }
 
 const headerClickEvent = () => {
-  VxeUI.modal.alert('头部点击事件')
+  VXETable.modal.alert('头部点击事件')
 }
 
 const addressClickEvent = (row: RowVO) => {
-  VxeUI.modal.alert(`address点击事件：${row.address}`)
+  VXETable.modal.alert(`address点击事件：${row.address}`)
 }
 
 const changeFilterEvent = (event: Event, option: any, $panel: any) => {

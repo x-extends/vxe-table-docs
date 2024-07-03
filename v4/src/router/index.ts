@@ -223,9 +223,34 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/sort/multiple/CodeExample.vue')
         },
         {
+          path: 'trigger',
+          name: 'ComponentTableSortTrigger',
+          component: () => import('@/views/table/sort/trigger/CodeExample.vue')
+        },
+        {
+          path: 'orders',
+          name: 'ComponentTableSortOrders',
+          component: () => import('@/views/table/sort/orders/CodeExample.vue')
+        },
+        {
+          path: 'defaultSort',
+          name: 'ComponentTableSortDefaultSort',
+          component: () => import('@/views/table/sort/defaultSort/CodeExample.vue')
+        },
+        {
           path: 'remote',
           name: 'ComponentTableSortRemote',
           component: () => import('@/views/table/sort/remote/CodeExample.vue')
+        },
+        {
+          path: 'sortType',
+          name: 'ComponentTableSortSortType',
+          component: () => import('@/views/table/sort/sortType/CodeExample.vue')
+        },
+        {
+          path: 'sortMethod',
+          name: 'ComponentTableSortSortMethod',
+          component: () => import('@/views/table/sort/sortMethod/CodeExample.vue')
         }
       ]
     },
@@ -1142,6 +1167,36 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'full',
           name: 'ComponentGridBaseFull',
           component: () => import('@/views/grid/base/full/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'sort',
+      children: [
+        {
+          path: 'multiple',
+          name: 'ComponentGridSortMultiple',
+          component: () => import('@/views/grid/sort/multiple/CodeExample.vue')
+        },
+        {
+          path: 'remote',
+          name: 'ComponentGridSortRemote',
+          component: () => import('@/views/grid/sort/remote/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'filter',
+      children: [
+        {
+          path: 'options',
+          name: 'ComponentGridFilterOptions',
+          component: () => import('@/views/grid/filter/options/CodeExample.vue')
+        },
+        {
+          path: 'remote',
+          name: 'ComponentGridFilterRemote',
+          component: () => import('@/views/grid/filter/remote/CodeExample.vue')
         }
       ]
     },

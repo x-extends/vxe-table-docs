@@ -38,7 +38,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -163,13 +163,13 @@ const saveRowEvent = async (row: RowVO) => {
     // 模拟异步保存
     setTimeout(() => {
       gridOptions.loading = false
-      VxeUI.modal.message({ content: `${JSON.stringify(row)}`, status: 'success' })
+      VXETable.modal.message({ content: `${JSON.stringify(row)}`, status: 'success' })
     }, 300)
   }
 }
 
 const removeRowEvent = async (row: RowVO) => {
-  const type = await VxeUI.modal.confirm('您确定要删除该数据?')
+  const type = await VXETable.modal.confirm('您确定要删除该数据?')
   const $grid = xGrid.value
   if ($grid) {
     if (type === 'confirm') {

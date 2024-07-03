@@ -1,7 +1,7 @@
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 // 创建一个简单的工具栏-左侧按钮渲染
-VxeUI.renderer.add('ToolbarButtonDownload', {
+VXETable.renderer.add('ToolbarButtonDownload', {
   renderToolbarButton (renderOpts, params) {
     const { events = {} } = renderOpts
     const { button } = params
@@ -14,7 +14,7 @@ VxeUI.renderer.add('ToolbarButtonDownload', {
 })
 
 // 创建一个简单的工具栏-右侧工具渲染
-VxeUI.renderer.add('ToolbarToolPrint', {
+VXETable.renderer.add('ToolbarToolPrint', {
   renderToolbarTool (renderOpts, params) {
     const { $table } = params
     return <vxe-button circle onClick={

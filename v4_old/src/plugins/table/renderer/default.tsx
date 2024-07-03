@@ -1,7 +1,7 @@
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 // 创建一个简单的超链接渲染
-VxeUI.renderer.add('MyLink', {
+VXETable.renderer.add('MyLink', {
   // 默认显示模板
   renderDefault (renderOpts, params) {
     const { row, column } = params

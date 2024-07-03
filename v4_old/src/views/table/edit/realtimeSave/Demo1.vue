@@ -46,7 +46,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTableEvents } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -98,7 +98,7 @@ const editClosedEvent: VxeTableEvents.EditClosed<RowVO> = ({ row, column }) => {
     // 判断单元格值是否被修改
     if ($table.isUpdateByRow(row, field)) {
       setTimeout(() => {
-        VxeUI.modal.message({
+        VXETable.modal.message({
           content: `局部保存成功！ ${field}=${cellValue}`,
           status: 'success'
         })

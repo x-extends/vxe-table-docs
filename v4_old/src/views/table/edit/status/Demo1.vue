@@ -52,7 +52,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -124,10 +124,10 @@ const saveUpdateEvent = (row: RowVO) => {
         row.loading = false
         // 保存完成后将行恢复到初始状态
         $table.reloadRow(row, {})
-        VxeUI.modal.message({ content: '保存成功！', status: 'success' })
+        VXETable.modal.message({ content: '保存成功！', status: 'success' })
       }, 300)
     } else {
-      VxeUI.modal.message({ content: '数据未改动！', status: 'info' })
+      VXETable.modal.message({ content: '数据未改动！', status: 'info' })
     }
   }
 }
@@ -151,7 +151,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(`新增：${insertRecords.length}`)
+    VXETable.modal.alert(`新增：${insertRecords.length}`)
   }
 }
 
@@ -159,7 +159,7 @@ const getRemoveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
-    VxeUI.modal.alert(`删除：${removeRecords.length}`)
+    VXETable.modal.alert(`删除：${removeRecords.length}`)
   }
 }
 
@@ -167,7 +167,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VxeUI.modal.alert(`更新：${updateRecords.length}`)
+    VXETable.modal.alert(`更新：${updateRecords.length}`)
   }
 }
 </script>

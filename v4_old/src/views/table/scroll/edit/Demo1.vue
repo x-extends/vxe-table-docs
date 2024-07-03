@@ -75,7 +75,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   checked: boolean
@@ -183,7 +183,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(insertRecords.length)
+    VXETable.modal.alert(insertRecords.length)
   }
 }
 
@@ -191,7 +191,7 @@ const getRemoveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
-    VxeUI.modal.alert(removeRecords.length)
+    VXETable.modal.alert(removeRecords.length)
   }
 }
 
@@ -199,7 +199,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VxeUI.modal.alert(updateRecords.length)
+    VXETable.modal.alert(updateRecords.length)
   }
 }
 

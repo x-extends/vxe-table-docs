@@ -21,13 +21,13 @@
 </template>
 
 <script lang="ts" setup>
-import { VxeUI, VxeModalDefines } from 'vxe-table'
+import { VXETable, VxeModalDefines } from 'vxe-table'
 
 const openMessage = (options: VxeModalDefines.ModalOptions) => {
-  VxeUI.modal.message(options)
+  VXETable.modal.message(options)
 }
 
 const closeMessage = (id: string) => {
-  VxeUI.modal.close(id)
+  VXETable.modal.close(id)
 }
 </script>

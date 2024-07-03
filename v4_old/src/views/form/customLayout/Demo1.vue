@@ -66,7 +66,8 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeFormPropTypes, VxeButtonEvents } from 'vxe-pc-ui'
+import { VXETable } from 'vxe-table'
+import { VxeFormPropTypes, VxeButtonEvents } from 'vxe-pc-ui'
 
 interface FormDataVO {
   name: string
@@ -102,10 +103,10 @@ const formRules = reactive<VxeFormPropTypes.Rules>({
 })
 
 const searchEvent: VxeButtonEvents.Click = () => {
-  VxeUI.modal.message({ content: '查询事件', status: 'info' })
+  VXETable.modal.message({ content: '查询事件', status: 'info' })
 }
 
 const resetEvent: VxeButtonEvents.Click = () => {
-  VxeUI.modal.message({ content: '重置事件', status: 'info' })
+  VXETable.modal.message({ content: '重置事件', status: 'info' })
 }
 </script>

@@ -12,14 +12,14 @@
           <pre-code class="javascript">
             import { VxeUI } from 'vxe-table'
 
-            import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
-            // import zhHK from 'vxe-pc-ui/lib/language/zh-HK'
-            // import zhTW from 'vxe-pc-ui/lib/language/zh-TW'
-            // import zhMO from 'vxe-pc-ui/lib/language/zh-MO'
-            // import enUS from 'vxe-pc-ui/lib/language/en-US'
-            // import jaJP from 'vxe-pc-ui/lib/language/ja-JP'
-            // import esES from 'vxe-pc-ui/lib/language/es-ES'
-            // import ptBR from 'vxe-pc-ui/lib/language/pt-BR'
+            import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
+            // import zhHK from 'vxe-table/lib/locale/lang/zh-HK'
+            // import zhTW from 'vxe-table/lib/locale/lang/zh-TW'
+            // import zhMO from 'vxe-table/lib/locale/lang/zh-MO'
+            // import enUS from 'vxe-table/lib/locale/lang/en-US'
+            // import jaJP from 'vxe-table/lib/locale/lang/ja-JP'
+            // import esES from 'vxe-table/lib/locale/lang/es-ES'
+            // import ptBR from 'vxe-table/lib/locale/lang/pt-BR'
 
             // 增加语言
             VxeUI.setI18n('zh-CN', zhCN)

@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTablePropTypes } from 'vxe-table'
+import { VXETable, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -52,12 +52,12 @@ const treeConfig = ref<VxeTablePropTypes.TreeConfig<RowVO>>({
   toggleMethod ({ expanded, row }) {
     if (expanded) {
       if (row.date === '2020-11-01') {
-        VxeUI.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
+        VXETable.modal.message({ id: 'openErr', content: '不允许展开', status: 'error' })
         return false
       }
     } else {
       if (row.date === '2020-10-01') {
-        VxeUI.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
+        VXETable.modal.message({ id: 'closeErr', content: '不允许关闭', status: 'error' })
         return false
       }
     }

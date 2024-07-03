@@ -54,7 +54,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -125,7 +125,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(`新增：${insertRecords.length}`)
+    VXETable.modal.alert(`新增：${insertRecords.length}`)
   }
 }
 
@@ -133,7 +133,7 @@ const getSelectionEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
-    VxeUI.modal.alert(`选中：${selectRecords.length}`)
+    VXETable.modal.alert(`选中：${selectRecords.length}`)
   }
 }
 
@@ -141,7 +141,7 @@ const saveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-    VxeUI.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+    VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
   }
 }
 </script>

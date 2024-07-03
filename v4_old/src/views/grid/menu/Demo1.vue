@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -127,8 +127,8 @@ const gridEvents = reactive<VxeGridListeners<RowVO>>({
       switch (menu.code) {
         case 'copy':
           if (row && column) {
-            if (VxeUI.clipboard.copy(row[column.field])) {
-              VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+            if (VXETable.clipboard.copy(row[column.field])) {
+              VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
             }
           }
           break

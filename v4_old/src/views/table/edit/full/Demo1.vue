@@ -61,7 +61,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref, nextTick } from 'vue'
-import { VxeUI, VxeTablePropTypes, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
+import { VXETable, VxeTablePropTypes, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -134,7 +134,7 @@ const removeSelectEvent = async () => {
 }
 
 const deleteSelectEvent = async () => {
-  const type = await VxeUI.modal.confirm('您确定要删除选中的数据?')
+  const type = await VXETable.modal.confirm('您确定要删除选中的数据?')
   if (type !== 'confirm') {
     return
   }
@@ -157,7 +157,7 @@ const removeRowEvent = async (row: RowVO) => {
 }
 
 const deleteRowEvent = async (row: RowVO) => {
-  const type = await VxeUI.modal.confirm('您确定要删除该数据?')
+  const type = await VXETable.modal.confirm('您确定要删除该数据?')
   if (type !== 'confirm') {
     return
   }
@@ -173,7 +173,7 @@ const saveEvent = async () => {
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
     if (insertRecords.length <= 0 && removeRecords.length <= 0 && updateRecords.length <= 0) {
-      VxeUI.modal.message({ content: '数据未改动！', status: 'warning' })
+      VXETable.modal.message({ content: '数据未改动！', status: 'warning' })
       return
     }
     const errMap = await $table.validate()
@@ -185,9 +185,9 @@ const saveEvent = async () => {
       const body = { insertRecords, removeRecords, updateRecords }
       await fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
       await loadList()
-      VxeUI.modal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
+      VXETable.modal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
     } catch (e) {
-      VxeUI.modal.message({ content: '操作失败', status: 'error' })
+      VXETable.modal.message({ content: '操作失败', status: 'error' })
     }
     loading.value = false
   }

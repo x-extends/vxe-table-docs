@@ -10,7 +10,7 @@
 
 <script lang="tsx" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-pc-ui'
+import { VXETable, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -68,9 +68,9 @@ const validEvent = async () => {
   if ($grid) {
     const errMap = await $grid.validate(true)
     if (errMap) {
-      VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+      VXETable.modal.message({ status: 'error', content: '校验不通过！' })
     } else {
-      VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+      VXETable.modal.message({ status: 'success', content: '校验成功！' })
     }
   }
 }

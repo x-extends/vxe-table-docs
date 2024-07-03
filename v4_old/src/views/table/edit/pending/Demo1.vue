@@ -51,7 +51,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -89,7 +89,7 @@ const getPendingEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const pendingRecords = $table.getPendingRecords()
-    VxeUI.modal.alert(pendingRecords.length)
+    VXETable.modal.alert(pendingRecords.length)
   }
 }
 

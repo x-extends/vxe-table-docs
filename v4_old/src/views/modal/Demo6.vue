@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import { VxeUI, VxeModalDefines } from 'vxe-table'
+import { VXETable, VxeModalDefines } from 'vxe-table'
 
 const openAlert = (options: VxeModalDefines.ModalOptions) => {
-  VxeUI.modal.alert(options)
+  VXETable.modal.alert(options)
 }
 </script>

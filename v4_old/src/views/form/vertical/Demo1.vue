@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeFormInstance, VxeFormPropTypes, VxeFormEvents } from 'vxe-table'
+import { VXETable, VxeFormInstance, VxeFormPropTypes, VxeFormEvents } from 'vxe-table'
 
 interface FormDataVO {
   name: string
@@ -72,11 +72,11 @@ const submitEvent: VxeFormEvents.Submit = () => {
   loading.value = true
   setTimeout(() => {
     loading.value = false
-    VxeUI.modal.message({ content: '保存成功', status: 'success' })
+    VXETable.modal.message({ content: '保存成功', status: 'success' })
   }, 1000)
 }
 
 const resetEvent: VxeFormEvents.Reset = () => {
-  VxeUI.modal.message({ content: '重置事件', status: 'info' })
+  VXETable.modal.message({ content: '重置事件', status: 'info' })
 }
 </script>

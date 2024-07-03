@@ -4,9 +4,9 @@
     <p class="tip">如果项目已有适合的图标，可通过配置替换并自行调整相关的样式即可</p>
     <pre>
       <pre-code class="typescript">
-        import { VxeUI } from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
-        VxeUI.setIcon({
+        VXETable.setIcon({
           // table
           TABLE_SORT_ASC: 'vxe-icon-caret-up',
           TABLE_SORT_DESC: 'vxe-icon-caret-down',

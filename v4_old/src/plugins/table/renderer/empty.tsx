@@ -1,7 +1,7 @@
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 // 创建一个简单的空内容渲染
-VxeUI.renderer.add('NotData', {
+VXETable.renderer.add('NotData', {
   // 空内容模板
   renderEmpty () {
     return <span>

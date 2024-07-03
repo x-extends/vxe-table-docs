@@ -39,7 +39,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -109,9 +109,9 @@ const fullValidEvent = async () => {
   if ($table) {
     const errMap = await $table.validate(true)
     if (errMap) {
-      VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+      VXETable.modal.message({ status: 'error', content: '校验不通过！' })
     } else {
-      VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+      VXETable.modal.message({ status: 'success', content: '校验成功！' })
     }
   }
 }
@@ -123,12 +123,12 @@ const selectValidEvent = async () => {
     if (selectRecords.length > 0) {
       const errMap = await $table.validate(selectRecords)
       if (errMap) {
-        VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+        VXETable.modal.message({ status: 'error', content: '校验不通过！' })
       } else {
-        VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+        VXETable.modal.message({ status: 'success', content: '校验成功！' })
       }
     } else {
-      VxeUI.modal.message({ status: 'warning', content: '未选中数据！' })
+      VXETable.modal.message({ status: 'warning', content: '未选中数据！' })
     }
   }
 }
@@ -149,7 +149,7 @@ const getSelectEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
-    VxeUI.modal.alert(selectRecords.length)
+    VXETable.modal.alert(selectRecords.length)
   }
 }
 
@@ -157,7 +157,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(insertRecords.length)
+    VXETable.modal.alert(insertRecords.length)
   }
 }
 
@@ -165,7 +165,7 @@ const getRemoveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
-    VxeUI.modal.alert(removeRecords.length)
+    VXETable.modal.alert(removeRecords.length)
   }
 }
 
@@ -173,7 +173,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VxeUI.modal.alert(updateRecords.length)
+    VXETable.modal.alert(updateRecords.length)
   }
 }
 </script>

@@ -63,7 +63,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref, nextTick } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes, VxeToolbarInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTablePropTypes, VxeToolbarInstance } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -167,7 +167,7 @@ export default defineComponent({
       const $table = xTable.value
       if ($table) {
         const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-        VxeUI.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+        VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
       }
     }
 
@@ -240,7 +240,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref, nextTick } from 'vue'
-        import { VxeUI, VxeTableInstance, VxeTablePropTypes, VxeToolbarInstance } from 'vxe-table'
+        import { VXETable, VxeTableInstance, VxeTablePropTypes, VxeToolbarInstance } from 'vxe-table'
 
         export default defineComponent({
           setup () {
@@ -337,7 +337,7 @@ export default defineComponent({
             const saveEvent = () => {
               const $table = xTable.value
               const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-              VxeUI.modal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
+              VXETable.modal.alert(\`insertRecords=\${insertRecords.length} removeRecords=\${removeRecords.length} updateRecords=\${updateRecords.length}\`)
             }
 
             nextTick(() => {

@@ -29,7 +29,7 @@
 
 <script lang="ts" setup>
 import { ref, nextTick } from 'vue'
-import { VxeUI, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeToolbarInstance } from 'vxe-table'
 
 const tableData = ref([
   { name: 'Test1', role: '前端', sex: '男' },
@@ -42,7 +42,7 @@ const tableRef = ref<VxeTableInstance>()
 const toolbarRef = ref<VxeToolbarInstance>()
 
 const funnelEvent = () => {
-  VxeUI.modal.alert({ content: '点击事件' })
+  VXETable.modal.alert({ content: '点击事件' })
 }
 
 nextTick(() => {

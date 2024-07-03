@@ -76,10 +76,10 @@ export default defineComponent({
       addressOptions,
       demoCodes: [
         `
-        import { VxeUI } from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
         // 创建一个简单的输入框筛选
-        VxeUI.renderer.add('FilterInput', {
+        VXETable.renderer.add('FilterInput', {
           // 筛选模板
           renderFilter (renderOpts, params) {
             return <filter-input params={ params }></filter-input>

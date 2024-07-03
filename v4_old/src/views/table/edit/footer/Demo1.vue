@@ -49,7 +49,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -143,7 +143,7 @@ const saveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const { insertRecords, removeRecords, updateRecords } = $table.getRecordset()
-    VxeUI.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
+    VXETable.modal.alert(`insertRecords=${insertRecords.length} removeRecords=${removeRecords.length} updateRecords=${updateRecords.length}`)
   }
 }
 </script>

@@ -15,9 +15,10 @@ export default defineComponent({
     return {
       demoCodes: [
         `
-        import { VxeUI } from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
-        VxeUI.setConfig({
+        // 旧版本使用 setup({}) 或者 config({})
+        VXETable.setConfig({
           // size: null, // 全局尺寸
           // zIndex: 999, // 全局 zIndex 起始值
           // version: 0, // 版本号，对于某些带数据缓存的功能有用到，上升版本号可以用于重置数据

@@ -115,7 +115,7 @@
 
 <script lang="tsx">
 import { defineComponent, reactive, ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 export default defineComponent({
   setup () {
@@ -172,9 +172,9 @@ export default defineComponent({
       if ($table) {
         const errMap = await $table.validate()
         if (errMap) {
-          VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+          VXETable.modal.message({ status: 'error', content: '校验不通过！' })
         } else {
-          VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+          VXETable.modal.message({ status: 'success', content: '校验成功！' })
         }
       }
     }
@@ -193,7 +193,7 @@ export default defineComponent({
               })
             })
           })
-          VxeUI.modal.message({
+          VXETable.modal.message({
             status: 'error',
             slots: {
               default () {
@@ -210,7 +210,7 @@ export default defineComponent({
             }
           })
         } else {
-          VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+          VXETable.modal.message({ status: 'success', content: '校验成功！' })
         }
       }
     }
@@ -222,12 +222,12 @@ export default defineComponent({
         if (selectRecords.length > 0) {
           const errMap = await $table.validate(selectRecords).catch(errMap => errMap)
           if (errMap) {
-            VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+            VXETable.modal.message({ status: 'error', content: '校验不通过！' })
           } else {
-            VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+            VXETable.modal.message({ status: 'success', content: '校验成功！' })
           }
         } else {
-          VxeUI.modal.message({ status: 'warning', content: '未选中数据！' })
+          VXETable.modal.message({ status: 'warning', content: '未选中数据！' })
         }
       }
     }
@@ -248,7 +248,7 @@ export default defineComponent({
       const $table = xTable.value
       if ($table) {
         const insertRecords = $table.getInsertRecords()
-        VxeUI.modal.alert(insertRecords.length)
+        VXETable.modal.alert(insertRecords.length)
       }
     }
 
@@ -256,7 +256,7 @@ export default defineComponent({
       const $table = xTable.value
       if ($table) {
         const removeRecords = $table.getRemoveRecords()
-        VxeUI.modal.alert(removeRecords.length)
+        VXETable.modal.alert(removeRecords.length)
       }
     }
 
@@ -264,7 +264,7 @@ export default defineComponent({
       const $table = xTable.value
       if ($table) {
         const updateRecords = $table.getUpdateRecords()
-        VxeUI.modal.alert(updateRecords.length)
+        VXETable.modal.alert(updateRecords.length)
       }
     }
 
@@ -365,7 +365,7 @@ export default defineComponent({
         `,
         `
         import { defineComponent, reactive, ref } from 'vue'
-        import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+        import { VXETable, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
         export default defineComponent({
           setup () {
@@ -421,9 +421,9 @@ export default defineComponent({
               const $table = xTable.value
               const errMap = await $table.validate()
               if (errMap) {
-                VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+                VXETable.modal.message({ status: 'error', content: '校验不通过！' })
               } else {
-                VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+                VXETable.modal.message({ status: 'success', content: '校验成功！' })
               }
             }
 
@@ -440,7 +440,7 @@ export default defineComponent({
                     })
                   })
                 })
-                VxeUI.modal.message({
+                VXETable.modal.message({
                   status: 'error',
                   slots: {
                     default () {
@@ -457,7 +457,7 @@ export default defineComponent({
                   }
                 })
               } else {
-                VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+                VXETable.modal.message({ status: 'success', content: '校验成功！' })
               }
             }
 
@@ -467,12 +467,12 @@ export default defineComponent({
               if (selectRecords.length > 0) {
                 const errMap = await $table.validate(selectRecords).catch(errMap => errMap)
                 if (errMap) {
-                  VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+                  VXETable.modal.message({ status: 'error', content: '校验不通过！' })
                 } else {
-                  VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+                  VXETable.modal.message({ status: 'success', content: '校验成功！' })
                 }
               } else {
-                VxeUI.modal.message({ status: 'warning', content: '未选中数据！' })
+                VXETable.modal.message({ status: 'warning', content: '未选中数据！' })
               }
             }
 
@@ -489,19 +489,19 @@ export default defineComponent({
             const getInsertEvent = () => {
               const $table = xTable.value
               const insertRecords = $table.getInsertRecords()
-              VxeUI.modal.alert(insertRecords.length)
+              VXETable.modal.alert(insertRecords.length)
             }
 
             const getRemoveEvent = () => {
               const $table = xTable.value
               const removeRecords = $table.getRemoveRecords()
-              VxeUI.modal.alert(removeRecords.length)
+              VXETable.modal.alert(removeRecords.length)
             }
 
             const getUpdateEvent = () => {
               const $table = xTable.value
               const updateRecords = $table.getUpdateRecords()
-              VxeUI.modal.alert(updateRecords.length)
+              VXETable.modal.alert(updateRecords.length)
             }
 
             findList()

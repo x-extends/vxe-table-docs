@@ -3,7 +3,7 @@
     <vxe-table
       border
       height="300"
-      :sort-config="{multiple: true, chronological: true}"
+      :sort-config="sortConfig"
       :data="tableData"
       @sort-change="sortChangeEvent">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -16,13 +16,18 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeTableEvents } from 'vxe-table'
+import { VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   name: string
   role: string
   num: number
 }
+
+const sortConfig = ref<VxeTablePropTypes.SortConfig<RowVO>>({
+  multiple: true,
+  chronological: true
+})
 
 const tableData = ref<RowVO[]>([
   { name: '小红', role: '前端', num: 7 },

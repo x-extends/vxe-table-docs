@@ -8,13 +8,13 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 const printRef = ref<HTMLImageElement>()
 
 const printEvent = () => {
   const imgEl = printRef.value
-  VxeUI.print({
+  VXETable.print({
     sheetName: '打印图片',
     style: `
       img {

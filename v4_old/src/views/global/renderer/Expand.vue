@@ -47,10 +47,10 @@ export default defineComponent({
       tableData,
       demoCodes: [
         `
-        import { VxeUI } from 'vxe-table'
+        import { VXETable } from 'vxe-table'
         
         // 创建一个简单的展开内容渲染
-        VxeUI.renderer.add('MyExpand', {
+        VXETable.renderer.add('MyExpand', {
           renderExpand (renderOpts, params) {
             const { row } = params
             return <ul>

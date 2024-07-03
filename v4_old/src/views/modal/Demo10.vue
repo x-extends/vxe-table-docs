@@ -23,17 +23,17 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 const val1 = ref(false)
 const tableData = ref([])
 
 const beforeHideMethod = async () => {
-  const type = await VxeUI.modal.confirm('您确定要关闭吗？')
+  const type = await VXETable.modal.confirm('您确定要关闭吗？')
   if (type === 'confirm') {
-    VxeUI.modal.message({ content: `允许关闭 ${type}`, status: 'success' })
+    VXETable.modal.message({ content: `允许关闭 ${type}`, status: 'success' })
   } else {
-    VxeUI.modal.message({ content: `禁止关闭 ${type}`, status: 'error' })
+    VXETable.modal.message({ content: `禁止关闭 ${type}`, status: 'error' })
     return new Error()
   }
 }

@@ -2,10 +2,10 @@
   <div>
     <vxe-table
       border
-      height="300"
+      height="400"
       :loading="loading"
       :data="tableData"
-      :sort-config="{remote: true}"
+      :sort-config="sortConfig"
       @sort-change="sortChangeEvent">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -35,6 +35,10 @@ interface RowVO {
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>()
+
+const sortConfig = ref<VxeTablePropTypes.SortConfig<RowVO>>({
+  remote: true
+})
 
 const findList = (field?: VxeColumnPropTypes.Field, order?: VxeTablePropTypes.SortOrder) => {
   loading.value = true

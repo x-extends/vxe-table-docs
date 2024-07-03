@@ -45,7 +45,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
+import { VXETable, VxeTableInstance, VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -150,8 +150,8 @@ const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, col
         $table.resetColumn(true)
         break
       case 'copy':
-        if (VxeUI.clipboard.copy(row[column.field])) {
-          VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
+        if (VXETable.clipboard.copy(row[column.field])) {
+          VXETable.modal.message({ content: '已复制到剪贴板！', status: 'success' })
         }
         break
       case 'reload':
@@ -166,7 +166,7 @@ const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, col
         $table.remove(row)
         break
       case 'save':
-        VxeUI.modal.message({ content: '保存成功', status: 'success' })
+        VXETable.modal.message({ content: '保存成功', status: 'success' })
         findList()
         break
     }
@@ -177,7 +177,7 @@ const getInsertEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(insertRecords.length)
+    VXETable.modal.alert(insertRecords.length)
   }
 }
 
@@ -185,7 +185,7 @@ const getRemoveEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const removeRecords = $table.getRemoveRecords()
-    VxeUI.modal.alert(removeRecords.length)
+    VXETable.modal.alert(removeRecords.length)
   }
 }
 
@@ -193,7 +193,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VxeUI.modal.alert(updateRecords.length)
+    VXETable.modal.alert(updateRecords.length)
   }
 }
 

@@ -53,7 +53,7 @@
 
 <script lang="ts" setup>
 import { ref, nextTick } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -111,7 +111,7 @@ const loadList = (rowSize: number) => {
     // 使用函数式加载
     if ($table) {
       $table.reloadData(data).then(() => {
-        VxeUI.modal.message({ content: `渲染 ${rowSize} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+        VXETable.modal.message({ content: `渲染 ${rowSize} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
         loading.value = false
       })
     } else {

@@ -36,7 +36,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -80,7 +80,7 @@ const hasRowExpand = (row: RowVO) => {
 }
 
 const removeRowEvent = async (row: RowVO) => {
-  const type = await VxeUI.modal.confirm('您确定要删除吗？')
+  const type = await VXETable.modal.confirm('您确定要删除吗？')
   if (type === 'confirm') {
     const matchObj = XEUtils.findTree(tableData.value, item => item.id === row.id)
     if (matchObj) {

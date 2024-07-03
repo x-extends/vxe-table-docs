@@ -1,7 +1,6 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.global') }}</h2>
-    <p class="tip">旧版本使用 setup({})、config({})，新版本统一setConfig({})</p>
     <pre>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>
@@ -18,6 +17,7 @@ export default defineComponent({
         `
         import { VXETable } from 'vxe-table'
 
+        // 旧版本使用 setup({}) 或者 config({})
         VXETable.setConfig({
           // size: null, // 全局尺寸
           // zIndex: 999, // 全局 zIndex 起始值

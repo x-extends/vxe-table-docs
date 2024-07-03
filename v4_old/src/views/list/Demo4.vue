@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, nextTick } from 'vue'
-import { VxeUI } from 'vxe-table'
+import { VXETable } from 'vxe-table'
 
 interface ItemVO {
   id: number
@@ -49,7 +49,7 @@ const loadData = async (size: number) => {
   loading.value = false
   const startTime = Date.now()
   await nextTick()
-  await VxeUI.modal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
+  await VXETable.modal.message({ content: `渲染 ${size} 行，用时 ${Date.now() - startTime}毫秒`, status: 'info' })
 }
 
 // 初始化

@@ -40,7 +40,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -83,7 +83,7 @@ const getUpdateEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    VxeUI.modal.alert(updateRecords.length)
+    VXETable.modal.alert(updateRecords.length)
   }
 }
 </script>

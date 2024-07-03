@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VXETable, VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -97,7 +97,7 @@ const gridEvents: VxeGridListeners<RowVO> = {
         }
         case 'mySave': {
           const { insertRecords, removeRecords, updateRecords } = $grid.getRecordset()
-          VxeUI.modal.message({ content: `新增 ${insertRecords.length} 条，删除 ${removeRecords.length} 条，更新 ${updateRecords.length} 条`, status: 'success' })
+          VXETable.modal.message({ content: `新增 ${insertRecords.length} 条，删除 ${removeRecords.length} 条，更新 ${updateRecords.length} 条`, status: 'success' })
           break
         }
         case 'myExport': {

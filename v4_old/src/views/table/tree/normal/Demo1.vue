@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VXETable, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -60,7 +60,7 @@ const getTreeRadioEvent = () => {
   const $table = xTreeRef.value
   if ($table) {
     const selectRow = $table.getRadioRecord()
-    VxeUI.modal.alert(selectRow ? selectRow.name : '')
+    VXETable.modal.alert(selectRow ? selectRow.name : '')
   }
 }
 
@@ -68,7 +68,7 @@ const getTreeExpansionEvent = () => {
   const $table = xTreeRef.value
   if ($table) {
     const treeExpandRecords = $table.getTreeExpandRecords()
-    VxeUI.modal.alert(`${treeExpandRecords.length}`)
+    VXETable.modal.alert(`${treeExpandRecords.length}`)
   }
 }
 

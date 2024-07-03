@@ -39,10 +39,10 @@ export default defineComponent({
       tableData,
       demoCodes: [
         `
-        import { VxeUI } from 'vxe-table'
+        import { VXETable } from 'vxe-table'
 
         // 创建一个空内容渲染
-        VxeUI.renderer.add('NotData', {
+        VXETable.renderer.add('NotData', {
           // 空内容模板
           renderEmpty (renderOpts, params) {
             return <span>

@@ -1,20 +1,20 @@
 // main.js
 
 import { VxeUI } from 'vxe-pc-ui'
-import { getMyWidgetTextareaConfig } from './demoMyTextareaWidget'
-import DemoMyTextareaWidgetView from './DemoMyTextareaWidgetView.vue'
-import DemoMyTextareaWidgetProps from './DemoMyTextareaWidgetProps.vue'
+import { getFormDesignWidgetTextareaConfig } from './demoFormDesignTextareaWidget'
+import DemoFormDesignTextareaWidgetView from './DemoFormDesignTextareaWidgetView.vue'
+import DemoFormDesignTextareaWidgetProps from './DemoFormDesignTextareaWidgetProps.vue'
 
 // 创建表单设计器控件 - 多行输入
-VxeUI.renderer.add('MyTextareaWidget', {
+VxeUI.renderer.add('MyFormDesignTextareaWidget', {
   // 定义左侧控件
-  createFormDesignWidgetConfig: getMyWidgetTextareaConfig,
+  createFormDesignWidgetConfig: getFormDesignWidgetTextareaConfig,
   // 渲染控件的表单视图
   renderFormDesignWidgetView (renderOpts, renderParams) {
-    return <DemoMyTextareaWidgetView renderOpts={renderOpts} renderParams={renderParams} />
+    return <DemoFormDesignTextareaWidgetView renderOpts={renderOpts} renderParams={renderParams} />
   },
   // 渲染控件右侧的属性配置视图
   renderFormDesignWidgetFormView (renderOpts, renderParams) {
-    return <DemoMyTextareaWidgetProps renderOpts={renderOpts} renderParams={renderParams} />
+    return <DemoFormDesignTextareaWidgetProps renderOpts={renderOpts} renderParams={renderParams} />
   }
 })
