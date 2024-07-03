@@ -83,8 +83,6 @@
           <pre-code class="javascript">
             // ...
             import {
-              VxeUI,
-
               VxeIcon,
               VxeLoading,
               // VxeGrid,
@@ -114,6 +112,8 @@
             } from 'vxe-pc-ui'
 
             import {
+              VXETable,
+
               VxeTable,
               VxeColumn,
               // VxeColgroup,
@@ -128,8 +128,8 @@
             // 导入默认的语言
             import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
 
-            VxeUI.setI18n('zh-CN', zhCN)
-            VxeUI.setLanguage('zh-CN')
+            VXETable.setI18n('zh-CN', zhCN)
+            VXETable.setLanguage('zh-CN')
 
             // 可选组件
             function LazyVxeUI (app) {

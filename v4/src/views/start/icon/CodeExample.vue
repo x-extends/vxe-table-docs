@@ -3,16 +3,16 @@
     <CodeLight>
       <template #tip>
         <vxe-tip status="primary" title="自定义图标">
-          通过调用 VxeUI.setIcon({ ... }) 方法可以全局替换组件内置的图标
+          通过调用 setIcon({ ... }) 方法可以全局替换组件内置的图标
         </vxe-tip>
       </template>
 
       <template #use>
         <pre>
           <pre-code class="javascript">
-            import { VxeUI } from 'vxe-table'
+            import { VXETable } from 'vxe-table'
 
-            VxeUI.setIcon({
+            VXETable.setIcon({
               // loading
               LOADING: 'vxe-icon-spinner roll vxe-loading--default-icon',
 

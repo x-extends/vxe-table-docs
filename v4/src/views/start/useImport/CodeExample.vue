@@ -82,8 +82,6 @@
           <pre-code class="javascript">
             // ...
             import {
-              VxeUI,
-
               VxeIcon,
               VxeLoading,
               // VxeGrid,
@@ -113,6 +111,8 @@
             } from 'vxe-pc-ui'
 
             import {
+              VXETable,
+
               VxeTable,
               VxeColumn,
               // VxeColgroup,
@@ -127,44 +127,44 @@
             // 导入默认的语言
             import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
 
-            VxeUI.setI18n('zh-CN', zhCN)
-            VxeUI.setLanguage('zh-CN')
+            VXETable.setI18n('zh-CN', zhCN)
+            VXETable.setLanguage('zh-CN')
 
             // 注册组件
             // 如果页面中已经被显性导入了，则可以不用调用注册
             // 如果是配置式的，没有在页面中显性导入，则需要逐个注册
-            VxeUI.component(VxeIcon)
-            VxeUI.component(VxeLoading)
-            // VxeUI.component(VxeVxeGrid)
-            // VxeUI.component(VxeTooltip)
-            // VxeUI.component(VxeToolbar)
-            // VxeUI.component(VxePager)
-            // VxeUI.component(VxeForm)
-            // VxeUI.component(VxeFormItem)
-            // VxeUI.component(VxeFormGather)
-            // VxeUI.component(VxeCheckbox)
-            // VxeUI.component(VxeCheckboxGroup)
-            // VxeUI.component(VxeRadio)
-            // VxeUI.component(VxeRadioGroup)
-            // VxeUI.component(VxeRadioButton)
-            // VxeUI.component(VxeSwitch)
-            // VxeUI.component(VxeInput)
-            // VxeUI.component(VxeSelect)
-            // VxeUI.component(VxeOptgroup)
-            // VxeUI.component(VxeOption)
-            // VxeUI.component(VxeTextarea)
-            // VxeUI.component(VxeButton)
-            // VxeUI.component(VxeButtonGroup)
-            // VxeUI.component(VxeModal)
-            // VxeUI.component(VxeDrawer)
-            // VxeUI.component(VxeList)
-            // VxeUI.component(VxePulldown)
+            VXETable.component(VxeIcon)
+            VXETable.component(VxeLoading)
+            // VXETable.component(VxeVxeGrid)
+            // VXETable.component(VxeTooltip)
+            // VXETable.component(VxeToolbar)
+            // VXETable.component(VxePager)
+            // VXETable.component(VxeForm)
+            // VXETable.component(VxeFormItem)
+            // VXETable.component(VxeFormGather)
+            // VXETable.component(VxeCheckbox)
+            // VXETable.component(VxeCheckboxGroup)
+            // VXETable.component(VxeRadio)
+            // VXETable.component(VxeRadioGroup)
+            // VXETable.component(VxeRadioButton)
+            // VXETable.component(VxeSwitch)
+            // VXETable.component(VxeInput)
+            // VXETable.component(VxeSelect)
+            // VXETable.component(VxeOptgroup)
+            // VXETable.component(VxeOption)
+            // VXETable.component(VxeTextarea)
+            // VXETable.component(VxeButton)
+            // VXETable.component(VxeButtonGroup)
+            // VXETable.component(VxeModal)
+            // VXETable.component(VxeDrawer)
+            // VXETable.component(VxeList)
+            // VXETable.component(VxePulldown)
 
-            VxeUI.component(VxeTable)
-            VxeUI.component(VxeColumn)
-            // VxeUI.component(VxeColgroup)
-            // VxeUI.component(VxeGrid)
-            // VxeUI.component(VxeToolbar)
+            VXETable.component(VxeTable)
+            VXETable.component(VxeColumn)
+            // VXETable.component(VxeColgroup)
+            // VXETable.component(VxeGrid)
+            // VXETable.component(VxeToolbar)
           </pre-code>
         </pre>
       </template>

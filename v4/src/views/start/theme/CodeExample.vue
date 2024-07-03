@@ -10,13 +10,13 @@
       <template #use>
         <pre>
           <pre-code class="javascript">
-            import { VxeUI } from 'vxe-table'
+            import { VXETable } from 'vxe-table'
 
             // 切换为默认主题
-            // VxeUI.setTheme('light')
+            // VXETable.setTheme('light')
 
             // 切换为暗黑主题
-            VxeUI.setTheme('dark')
+            VXETable.setTheme('dark')
           </pre-code>
         </pre>
       </template>
