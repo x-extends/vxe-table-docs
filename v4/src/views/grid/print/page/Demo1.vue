@@ -14,26 +14,23 @@ interface RowVO {
   id: number
   name: string
   role: string
-  sex: string
   age: number
+  sex: string
   address: string
 }
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  height: 300,
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' }
   ],
-  data: [
-    { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-    { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-    { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-    { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
-  ]
+  data: []
 })
 
 const printEvent = () => {
@@ -41,7 +38,7 @@ const printEvent = () => {
   if ($grid) {
     // 分割每页26条
     Promise.all(
-      XEUtils.chunk(gridOptions.data || [], 26).map(pageData => {
+      XEUtils.chunk(gridOptions.data, 26).map(pageData => {
         return $grid.getPrintHtml({
           data: pageData
         }).then(({ html }) => {
@@ -59,4 +56,17 @@ const printEvent = () => {
     })
   }
 }
+
+const list: RowVO[] = []
+for (let i = 0; i < 100; i++) {
+  list.push({
+    id: 10001 + i,
+    name: 'Test1',
+    role: 'Develop',
+    age: 66,
+    sex: 'Man',
+    address: 'test abc'
+  })
+}
+gridOptions.data = list
 </script>

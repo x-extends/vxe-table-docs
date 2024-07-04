@@ -8,6 +8,7 @@ import StartConfig from '@/views/start/config/CodeExample.vue'
 import StartTheme from '@/views/start/theme/CodeExample.vue'
 import StartI18n from '@/views/start/i18n/CodeExample.vue'
 import StartUseZIndex from '@/views/start/z-index/CodeExample.vue'
+import StartPermission from '@/views/start/permission/CodeExample.vue'
 import FreeDonation from '@/views/start/FreeDonation.vue'
 import JoinSponsor from '@/views/start/JoinSponsor.vue'
 
@@ -428,9 +429,14 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/custom/toolbar/CodeExample.vue')
         },
         {
-          path: 'popup',
-          name: 'ComponentTableCustomPopup',
-          component: () => import('@/views/table/custom/popup/CodeExample.vue')
+          path: 'modal',
+          name: 'ComponentTableCustomModal',
+          component: () => import('@/views/table/custom/modal/CodeExample.vue')
+        },
+        {
+          path: 'drawer',
+          name: 'ComponentTableCustomDrawer',
+          component: () => import('@/views/table/custom/drawer/CodeExample.vue')
         },
         {
           path: 'visible',
@@ -441,6 +447,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'fixed',
           name: 'ComponentTableCustomFixed',
           component: () => import('@/views/table/custom/fixed/CodeExample.vue')
+        },
+        {
+          path: 'fixedMax',
+          name: 'ComponentTableCustomFixedMax',
+          component: () => import('@/views/table/custom/fixedMax/CodeExample.vue')
         },
         {
           path: 'resizable',
@@ -730,6 +741,36 @@ const tableRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'cellRender',
+      children: [
+        {
+          path: 'vxe-switch',
+          name: 'ComponentTableCellRenderVxeSwitch',
+          component: () => import('@/views/table/cellRender/vxe-switch/CodeExample.vue')
+        },
+        {
+          path: 'vxe-radio',
+          name: 'ComponentTableCellRenderVxeRadioGroup',
+          component: () => import('@/views/table/cellRender/vxe-radio-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox',
+          name: 'ComponentTableCellRenderVxeCheckboxGroup',
+          component: () => import('@/views/table/cellRender/vxe-checkbox-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-button-group',
+          name: 'ComponentTableCellRenderVxeButtonGroup',
+          component: () => import('@/views/table/cellRender/vxe-button-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-upload',
+          name: 'ComponentTableCellRenderVxeUpload',
+          component: () => import('@/views/table/cellRender/vxe-upload/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'editRender',
       children: [
         {
@@ -771,6 +812,16 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-input',
           name: 'ComponentTableEditTemplateVxeInput',
           component: () => import('@/views/table/editTemplate/vxe-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-number-input',
+          name: 'ComponentTableEditTemplateVxeNumberInput',
+          component: () => import('@/views/table/editTemplate/vxe-number-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-date-picker',
+          name: 'ComponentTableEditTemplateVxeDatePicker',
+          component: () => import('@/views/table/editTemplate/vxe-date-picker/CodeExample.vue')
         },
         {
           path: 'vxe-select',
@@ -1359,9 +1410,14 @@ const gridRouteConfig: RouteRecordRaw = {
       path: 'custom',
       children: [
         {
-          path: 'popup',
-          name: 'ComponentGridCustomPopup',
-          component: () => import('@/views/grid/custom/popup/CodeExample.vue')
+          path: 'modal',
+          name: 'ComponentGridCustomModal',
+          component: () => import('@/views/grid/custom/modal/CodeExample.vue')
+        },
+        {
+          path: 'drawer',
+          name: 'ComponentGridCustomDrawer',
+          component: () => import('@/views/grid/custom/drawer/CodeExample.vue')
         },
         // {
         //   path: 'visible',
@@ -1398,11 +1454,11 @@ const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridCustomStorage',
           component: () => import('@/views/grid/custom/storage/CodeExample.vue')
         },
-        // {
-        //   path: 'events',
-        //   name: 'ComponentGridCustomEvents',
-        //   component: () => import('@/views/grid/custom/events/CodeExample.vue')
-        // },
+        {
+          path: 'events',
+          name: 'ComponentGridCustomEvents',
+          component: () => import('@/views/grid/custom/events/CodeExample.vue')
+        },
         {
           path: 'remote',
           name: 'ComponentGridCustomRemote',
@@ -1469,6 +1525,16 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/cellRender/vxe-switch/CodeExample.vue')
         },
         {
+          path: 'vxe-radio',
+          name: 'ComponentGridCellRenderVxeRadioGroup',
+          component: () => import('@/views/grid/cellRender/vxe-radio-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox',
+          name: 'ComponentGridCellRenderVxeCheckboxGroup',
+          component: () => import('@/views/grid/cellRender/vxe-checkbox-group/CodeExample.vue')
+        },
+        {
           path: 'vxe-button-group',
           name: 'ComponentGridCellRenderVxeButtonGroup',
           component: () => import('@/views/grid/cellRender/vxe-button-group/CodeExample.vue')
@@ -1502,6 +1568,36 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vxe-upload',
           name: 'ComponentGridCellTemplateVxeUpload',
           component: () => import('@/views/grid/cellTemplate/vxe-upload/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'keyboard',
+      children: [
+        {
+          path: 'selected',
+          name: 'ComponentGridKeyboardSelected',
+          component: () => import('@/views/grid/keyboard/selected/CodeExample.vue')
+        },
+        {
+          path: 'keyboard',
+          name: 'ComponentGridKeyboardKeyboard',
+          component: () => import('@/views/grid/keyboard/keyboard/CodeExample.vue')
+        },
+        {
+          path: 'edit',
+          name: 'ComponentGridKeyboardEdit',
+          component: () => import('@/views/grid/keyboard/edit/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentGridKeyboardTree',
+          component: () => import('@/views/grid/keyboard/tree/CodeExample.vue')
+        },
+        {
+          path: 'treeEdit',
+          name: 'ComponentGridKeyboardTreeEdit',
+          component: () => import('@/views/grid/keyboard/treeEdit/CodeExample.vue')
         }
       ]
     },
@@ -1752,6 +1848,26 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'advanced',
           name: 'ComponentGridPrintAdvanced',
           component: () => import('@/views/grid/print/advanced/CodeExample.vue')
+        },
+        {
+          path: 'page',
+          name: 'ComponentGridPrintPage',
+          component: () => import('@/views/grid/print/page/CodeExample.vue')
+        },
+        {
+          path: 'multilist',
+          name: 'ComponentGridPrintMultilist',
+          component: () => import('@/views/grid/print/multilist/CodeExample.vue')
+        },
+        {
+          path: 'header',
+          name: 'ComponentGridPrintHeader',
+          component: () => import('@/views/grid/print/header/CodeExample.vue')
+        },
+        {
+          path: 'footer',
+          name: 'ComponentGridPrintFooter',
+          component: () => import('@/views/grid/print/footer/CodeExample.vue')
         }
       ]
     },
@@ -1866,6 +1982,21 @@ const gridRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'search',
+      children: [
+        {
+          path: 'list',
+          name: 'ComponentGridSearchList',
+          component: () => import('@/views/grid/search/list/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentGridSearchTree',
+          component: () => import('@/views/grid/search/tree/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'events',
       children: [
         {
@@ -1938,6 +2069,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'z-index',
         name: 'StartUseZIndex',
         component: StartUseZIndex
+      },
+      {
+        path: 'permission',
+        name: 'StartPermission',
+        component: StartPermission
       },
       {
         path: 'freeDonation',

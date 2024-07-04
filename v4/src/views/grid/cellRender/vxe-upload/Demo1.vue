@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps } from 'vxe-table'
+import { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 import { VxeUploadPropTypes } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -15,6 +15,21 @@ interface RowVO {
   fileList: VxeUploadPropTypes.ModelValue
   imgList: VxeUploadPropTypes.ModelValue
 }
+
+const fileListCellRender = reactive<VxeColumnPropTypes.CellRender>({
+  name: 'VxeUpload',
+  props: {
+    readonly: true
+  }
+})
+
+const imgListCellRender = reactive<VxeColumnPropTypes.CellRender>({
+  name: 'VxeUpload',
+  props: {
+    mode: 'image',
+    readonly: true
+  }
+})
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -25,8 +40,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 180 },
-    { field: 'fileList', title: '附件列表', width: 300, cellRender: { name: 'VxeUpload', props: { readonly: true } } },
-    { field: 'imgList', title: '图片列表', width: 600, cellRender: { name: 'VxeUpload', props: { mode: 'image', readonly: true } } }
+    { field: 'fileList', title: '附件列表', width: 300, cellRender: fileListCellRender },
+    { field: 'imgList', title: '图片列表', width: 600, cellRender: imgListCellRender }
   ],
   data: [
     {

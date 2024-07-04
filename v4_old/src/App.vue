@@ -73,7 +73,7 @@
         <div class="body">
           <div class="docs">
             <template v-if="appData.apiList.length">
-              <a class="link" ref="https://vxetable.cn/">切回新版文档</a>
+              <a class="link" href="https://vxetable.cn/">切回新版文档</a>
               <ul class="nav-menu">
                 <li v-for="(item, index) in appData.apiList" :key="index" :class="{expand: item.expand}">
                   <a v-if="item.linkUrl" :href="item.linkUrl" :target="item.linkTarget || '_blank'" class="nav-link" style="padding-left: 20px;">{{ item.label }}</a>
@@ -226,6 +226,12 @@ const appData = reactive({
           demoUrl: 'https://jsrun.pro/SbfKp/edit',
           locat: {
             name: 'StartI18n'
+          }
+        },
+        {
+          label: 'app.aside.nav.globalPermission',
+          locat: {
+            name: 'StartPermission'
           }
         }
       ]
@@ -2113,7 +2119,7 @@ const pageKey = computed(() => {
 
 const showOperBtn = computed(() => {
   const $route = router.currentRoute.value
-  return XEUtils.isString($route.name) && ['StartInstall', 'StartUseGlobal', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'StartUseZindex', 'VXEAPI', 'Donation'].includes($route.name)
+  return XEUtils.isString($route.name) && ['StartInstall', 'StartUseGlobal', 'StartGlobal', 'StartIcons', 'StartTheme', 'StartI18n', 'StartUseZindex', 'StartPermission', 'VXEAPI', 'Donation'].includes($route.name)
 })
 
 const currentLink = computed(() => {

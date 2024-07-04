@@ -6,13 +6,13 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180" :edit-render="{ name: 'VxeInput' }"></vxe-column>
-      <vxe-column field="date" title="日期" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'date' } }"></vxe-column>
-      <vxe-column field="year" title="年份" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'year' } }"></vxe-column>
-      <vxe-column field="quarter" title="季度" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'quarter' } }"></vxe-column>
-      <vxe-column field="month" title="月份" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'month' } }"></vxe-column>
-      <vxe-column field="week" title="周" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'week' } }"></vxe-column>
-      <vxe-column field="time" title="时间" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'time' } }"></vxe-column>
-      <vxe-column field="datetime" title="日期带时间" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'datetime' } }"></vxe-column>
+      <vxe-column field="date" title="日期" width="180" :edit-render="{ name: 'VxeDatePicker' }"></vxe-column>
+      <vxe-column field="year" title="年份" width="180" :edit-render="{ name: 'VxeDatePicker', props: { type: 'year' } }"></vxe-column>
+      <vxe-column field="quarter" title="季度" width="180" :edit-render="{ name: 'VxeDatePicker', props: { type: 'quarter' } }"></vxe-column>
+      <vxe-column field="month" title="月份" width="180" :edit-render="{ name: 'VxeDatePicker', props: { type: 'month' } }"></vxe-column>
+      <vxe-column field="week" title="周" width="180" :edit-render="{ name: 'VxeDatePicker', props: { type: 'week' } }"></vxe-column>
+      <vxe-column field="time" title="时间" width="180" :edit-render="{ name: 'VxeDatePicker', props: { type: 'time' } }"></vxe-column>
+      <vxe-column field="datetime" title="日期带时间" width="180" :edit-render="{ name: 'VxeDatePicker', props: { type: 'datetime' } }"></vxe-column>
     </vxe-table>
   </div>
 </template>

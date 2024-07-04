@@ -14,6 +14,7 @@ export default {
         theme: '全域主題',
         i18n: '國際化',
         useZindex: '全局 z-index',
+        globalPermission: '全局权限控制',
 
         extendCellArea: '区域选取',
 

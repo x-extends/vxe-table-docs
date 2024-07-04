@@ -14,6 +14,7 @@ export default {
         theme: 'Global theme',
         useZindex: 'Global z-index',
         i18n: 'Internationalization',
+        globalPermission: 'Global permission',
 
         extendCellArea: 'Region selection',
 

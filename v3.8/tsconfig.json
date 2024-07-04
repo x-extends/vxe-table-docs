@@ -35,7 +35,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "../v4_old/src/views/start/StartPermission.vue"  ],
   "exclude": [
     "node_modules"
   ]

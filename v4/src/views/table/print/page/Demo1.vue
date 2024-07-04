@@ -24,6 +24,7 @@ interface RowVO {
   id: number
   name: string
   role: string
+  age: number
   sex: string
   address: string
 }
@@ -36,6 +37,7 @@ for (let i = 0; i < 100; i++) {
     id: 10001 + i,
     name: 'Test1',
     role: 'Develop',
+    age: 66,
     sex: 'Man',
     address: 'test abc'
   })

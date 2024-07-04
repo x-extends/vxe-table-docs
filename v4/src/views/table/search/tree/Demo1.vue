@@ -6,7 +6,8 @@
 
     <vxe-table
       ref="tableRef"
-      max-height="400"
+      class="mytree-table"
+      height="400"
       :column-config="{useKey: true}"
       :row-config="{useKey: true}"
       :tree-config="{}"
@@ -77,7 +78,7 @@ const searchEvent = () => {
     const rest = XEUtils.searchTree(tableData.value, item => searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1), options)
     XEUtils.eachTree(rest, item => {
       searchProps.forEach(key => {
-        item[key] = String(item[key]).replace(filterRE, match => `<span class="keyword-lighten">${match}</span>`)
+        item[key] = String(item[key]).replace(filterRE, match => `<span class="keyword-highlight">${match}</span>`)
       })
     }, options)
     list.value = rest
@@ -95,3 +96,11 @@ const searchEvent = () => {
 
 searchEvent()
 </script>
+
+<style lang="scss" scoped>
+.mytree-table {
+  ::v-deep(.keyword-highlight)  {
+    background-color: #FFFF00;
+  }
+}
+</style>

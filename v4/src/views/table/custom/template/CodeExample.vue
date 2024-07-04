@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="table/custom/template/Demo1">
       <template #tip>
-        <vxe-tip status="primary">通过 custom 启用表格自定义列功能 </vxe-tip>
+        <vxe-tip status="primary">通过 <ApiLink name="table" prop="custom"/> 启用表格自定义列功能 </vxe-tip>
       </template>
     </CodeLight>
 

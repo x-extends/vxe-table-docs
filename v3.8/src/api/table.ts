@@ -3145,11 +3145,11 @@ const apis = [
           },
           {
             name: 'mode',
-            desc: '操作模式，simple简化模式；popup 弹窗模式（只对 trigger=click 有效）',
-            version: '3.8.0',
+            desc: '操作模式，default默认模式；modal 窗口模式（只对 trigger=click 有效）；drawer 抽屉模式（只对 trigger=click 有效）',
+            version: '3.8.10',
             type: 'string',
-            enum: 'simple,popup',
-            defVal: 'simple',
+            enum: 'default,modal,drawer',
+            defVal: 'default',
             list: []
           },
           {

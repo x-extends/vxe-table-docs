@@ -2,11 +2,9 @@
   <div>
     <vxe-table
       border="inner"
-      ref="tableRef"
       :edit-config="{trigger: 'dblclick', mode: 'cell'}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
-      :keyboard-config="{isArrow: true, isEnter: true, isTab: true, isDel: true, isBack: true}"
-      :mouse-config="{selected: true}"
+      :keyboard-config="{isEdit: true, isArrow: true, isTab: true, isDel: true, isBack: true}"
       :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>

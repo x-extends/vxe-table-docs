@@ -60,7 +60,7 @@ export default {
         `
         import Vue from 'vue'
         import i18n from './i18n'
-        import VXETable from 'vxe-table'
+        import { VXETable } from 'vxe-table'
         import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
         import enUS from 'vxe-table/lib/locale/lang/en-US'
 

@@ -6,7 +6,8 @@
 
     <vxe-table
       border
-      height="300"
+      class="mylist-table"
+      height="400"
       :column-config="{useKey: true}"
       :row-config="{useKey: true}"
       :data="list">
@@ -57,7 +58,7 @@ const searchEvent = () => {
     list.value = rest.map(row => {
       const item = Object.assign({}, row)
       searchProps.forEach(key => {
-        item[key] = String(item[key]).replace(filterRE, match => `<span class="keyword-lighten">${match}</span>`)
+        item[key] = String(item[key]).replace(filterRE, match => `<span class="keyword-highlight">${match}</span>`)
       })
       return item
     })
@@ -68,3 +69,11 @@ const searchEvent = () => {
 
 searchEvent()
 </script>
+
+<style lang="scss" scoped>
+.mylist-table {
+  ::v-deep(.keyword-highlight)  {
+    background-color: #FFFF00;
+  }
+}
+</style>

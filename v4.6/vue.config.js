@@ -1,6 +1,9 @@
 const { defineConfig } = require('@vue/cli-service')
+const XEUtils = require('xe-utils')
 
+process.env.VUE_APP_PAGE_TITLE = 'Vxe Table 表格'
 process.env.VUE_APP_DATE_NOW = Date.now()
+process.env.VUE_APP_DATE_DATE = XEUtils.toDateString(process.env.VUE_APP_DATE_NOW, 'yyyy-MM-dd HH:mm:ss')
 
 module.exports = defineConfig({
   publicPath: `/v${process.env.VUE_APP_VXE_VERSION}/`,

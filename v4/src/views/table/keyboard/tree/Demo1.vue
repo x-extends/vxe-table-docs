@@ -3,7 +3,6 @@
     <vxe-table
       height="500"
       border="inner"
-      ref="tableRef"
       :row-config="{isCurrent: true, isHover: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :keyboard-config="{isArrow: true, isEnter: true, isBack: true}"

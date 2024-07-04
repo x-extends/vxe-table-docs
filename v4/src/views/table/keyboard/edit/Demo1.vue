@@ -4,7 +4,7 @@
       border
       height="500"
       :edit-config="{trigger: 'dblclick', mode: 'cell'}"
-      :keyboard-config="{isArrow: true, isEnter: true, isTab: true, isDel: true, isBack: true}"
+      :keyboard-config="{isEdit: true, isArrow: true, isEnter: true, isTab: true, isDel: true, isBack: true}"
       :mouse-config="{selected: true}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>

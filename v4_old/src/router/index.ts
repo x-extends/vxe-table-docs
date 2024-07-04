@@ -9,6 +9,7 @@ import StartGlobal from '../views/start/StartGlobal.vue'
 import StartTheme from '../views/start/StartTheme.vue'
 import StartI18n from '../views/start/StartI18n.vue'
 import StartUseZindex from '../views/start/StartUseZindex.vue'
+import StartPermission from '../views/start/StartPermission.vue'
 
 const RendererAPI = () => import('../views/global/renderer/API.vue')
 const RendererFilter = () => import('../views/global/renderer/Filter.vue')
@@ -341,6 +342,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/table/start/zindex',
     name: 'StartUseZindex',
     component: StartUseZindex
+  },
+  {
+    path: '/table/start/permission',
+    name: 'StartPermission',
+    component: StartPermission
   },
   {
     path: '/table/renderer/api',
