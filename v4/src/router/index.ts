@@ -2230,14 +2230,14 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'item',
                 children: [
                   {
-                    path: 'editInput',
-                    name: 'GlobalRendererFormItemEditInput',
-                    component: () => import('@/views/global/renderer/form/item/editInput/CodeExample.vue')
+                    path: 'myItemAmount',
+                    name: 'GlobalRendererFormItemMyItemAmount',
+                    component: () => import('@/views/global/renderer/form/item/myItemAmount/CodeExample.vue')
                   },
                   {
-                    path: 'editUpload',
-                    name: 'GlobalRendererFormItemEditUpload',
-                    component: () => import('@/views/global/renderer/form/item/editUpload/CodeExample.vue')
+                    path: 'myItemUpload',
+                    name: 'GlobalRendererFormItemMyItemUpload',
+                    component: () => import('@/views/global/renderer/form/item/myItemUpload/CodeExample.vue')
                   }
                 ]
               }
