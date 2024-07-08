@@ -1,3 +1,4 @@
+<!-- eslint-disable no-irregular-whitespace -->
 <template>
   <div>
     <CodeLight>
@@ -16,155 +17,205 @@
             VXETable.setConfig({
               // size: null, // 全局尺寸
               // zIndex: 999, // 全局 zIndex 起始值，如果项目的的 z-index 样式值过大时就需要跟随设置更大，避免被遮挡；新版本可以使用 dom-zindex 共享配置
-              // version: 0, // 版本号，对于某些带数据缓存的功能有用到，上升版本号可以用于重置数据
+              // version: 1, // 版本号，对于某些带数据缓存的功能有用到，上升版本号可以用于重置数据
 
-              alert: {},
-              anchor: {},
-              anchorLink: {},
-              breadcrumb: {
-                separator: '/'
-              },
-              breadcrumbItem: {},
-              button: {},
-              buttonGroup: {},
-              checkbox: {},
-              checkboxGroup: {},
-              col: {},
-              colgroup: {},
-              collapse: {},
-              collapsePane: {},
-              column: {},
-              drawer: {
-                // size: null,
-                position: 'left',
+              emptyCell: '　',
+
+              table: {
+                fit: true,
                 showHeader: true,
-                lockView: true,
-                mask: true,
-                showTitleOverflow: true,
-                showClose: true,
-                padding: true
-              },
-              form: {
-                // preventSubmit: false,
+                animat: true,
+                delayHover: 250,
+                autoResize: true,
+                minHeight: 144,
+                // keepSource: false,
+                // showOverflow: null,
+                // showHeaderOverflow: null,
+                // showFooterOverflow: null,
+                // resizeInterval: 500,
                 // size: null,
-                // colon: false,
-                validConfig: {
-                  showMessage: true,
-                  autoPos: true
+                // zIndex: null,
+                // stripe: false,
+                // border: false,
+                // round: false,
+                // emptyText: '暂无数据',
+                // emptyRender: {
+                //   name: ''
+                // },
+                rowConfig: {
+                  keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名，必须设置，随时都可能会被改变
+                },
+                resizeConfig: {
+                  refreshDelay: 250
+                },
+                radioConfig: {
+                  // trigger: 'default'
+                  strict: true
+                },
+                checkboxConfig: {
+                  // trigger: 'default',
+                  strict: true
                 },
                 tooltipConfig: {
                   enterable: true
                 },
-                titleAsterisk: true
-              },
-              formDesign: {
-                height: 400,
-                showPc: true
-              },
-              formGather: {},
-              formItem: {},
-              formView: {},
-              grid: {},
-              icon: {},
-              image: {},
-              imagePreview: {},
-              input: {
-                // size: null,
-                // transfer: false
-                // parseFormat: 'yyyy-MM-dd HH:mm:ss.SSS',
-                // labelFormat: '',
-                // valueFormat: '',
-                startDate: new Date(1900, 0, 1),
-                endDate: new Date(2100, 0, 1),
-                startDay: 1,
-                selectDay: 1,
-                digits: 2,
-                controls: true
-              },
-              layoutAside: {},
-              layoutBody: {},
-              layoutContainer: {},
-              layoutFooter: {},
-              layoutHeader: {},
-              link: {
-                underline: true
-              },
-              listDesign: {
-                height: 400,
-                showPc: true
-              },
-              list: {
-                // size: null,
+                validConfig: {
+                  showMessage: true,
+                  autoClear: true,
+                  autoPos: true,
+                  message: 'inline',
+                  msgMode: 'single'
+                },
+                columnConfig: {
+                  maxFixedSize: 4
+                },
+                // menuConfig: {
+                //   visibleMethod () {}
+                // },
+                customConfig: {
+                  allowVisible: true,
+                  allowResizable: true,
+                  allowFixed: true,
+                  allowSort: true,
+                  showFooter: true,
+                  placement: 'top-right',
+                  //  storage: false,
+                  //  checkMethod () {},
+                  modalOptions: {
+                    showMaximize: true,
+                    mask: true,
+                    lockView: true,
+                    resize: true,
+                    escClosable: true
+                  }
+                },
+                sortConfig: {
+                  // remote: false,
+                  // trigger: 'default',
+                  // orders: ['asc', 'desc', null],
+                  // sortMethod: null,
+                  showIcon: true,
+                  iconLayout: 'vertical'
+                },
+                filterConfig: {
+                  // remote: false,
+                  // filterMethod: null,
+                  showIcon: true
+                },
+                treeConfig: {
+                  rowField: 'id',
+                  parentField: 'parentId',
+                  childrenField: 'children',
+                  hasChildField: 'hasChild',
+                  mapChildrenField: '_X_ROW_CHILD',
+                  indent: 20,
+                  showIcon: true
+                },
+                expandConfig: {
+                  // trigger: 'default',
+                  showIcon: true
+                },
+                editConfig: {
+                  // mode: 'cell',
+                  showIcon: true,
+                  showAsterisk: true
+                },
+                importConfig: {
+                  _typeMaps: {
+                    csv: 1,
+                    html: 1,
+                    xml: 1,
+                    txt: 1
+                  }
+                },
+                exportConfig: {
+                  _typeMaps: {
+                    csv: 1,
+                    html: 1,
+                    xml: 1,
+                    txt: 1
+                  }
+                },
+                printConfig: {
+                },
+                mouseConfig: {
+                  extension: true
+                },
+                keyboardConfig: {
+                  isEsc: true
+                },
+                areaConfig: {
+                  autoClear: true,
+                  selectCellByHeader: true
+                },
+                clipConfig: {
+                  isCopy: true,
+                  isCut: true,
+                  isPaste: true
+                },
+                fnrConfig: {
+                  isFind: true,
+                  isReplace: true
+                },
+                scrollX: {
+                  // enabled: false,
+                  gt: 60
+                  // oSize: 0
+                },
                 scrollY: {
-                  enabled: true,
+                  // enabled: false,
                   gt: 100
                   // oSize: 0
                 }
               },
-              loading: {},
-              modal: {
+              // export: {
+              //   types: {}
+              // },
+              grid: {
                 // size: null,
-                top: 15,
-                showHeader: true,
-                minWidth: 340,
-                minHeight: 140,
-                lockView: true,
-                mask: true,
-                duration: 3000,
-                marginSize: 0,
-                dblclickZoom: true,
-                showTitleOverflow: true,
-                showClose: true,
-                padding: true,
-                draggable: true,
-                showConfirmButton: null,
-                // storage: false,
-                storageKey: 'VXE_MODAL_POSITION'
+                // zoomConfig: {
+                //   escRestore: true
+                // },
+                formConfig: {
+                  enabled: true
+                },
+                pagerConfig: {
+                  enabled: true
+                  // perfect: false
+                },
+                toolbarConfig: {
+                  enabled: true
+                  // perfect: false
+                },
+                proxyConfig: {
+                  enabled: true,
+                  autoLoad: true,
+                  message: true,
+                  props: {
+                    list: null,
+                    result: 'result',
+                    total: 'page.total',
+                    message: 'message'
+                  }
+                  // beforeItem: null,
+                  // beforeColumn: null,
+                  // beforeQuery: null,
+                  // afterQuery: null,
+                  // beforeDelete: null,
+                  // afterDelete: null,
+                  // beforeSave: null,
+                  // afterSave: null
+                }
               },
-              optgroup: {},
-              option: {},
-              pager: {
+              toolbar: {
                 // size: null,
-                // autoHidden: false,
-                // perfect: true,
-                // pageSize: 10,
-                // pagerCount: 7,
-                // pageSizes: [10, 15, 20, 50, 100],
-                // layouts: ['PrevJump', 'PrevPage', 'Jump', 'PageCount', 'NextPage', 'NextJump', 'Sizes', 'Total']
-              },
-              pulldown: {},
-              radio: {
-                strict: true
-              },
-              radioButton: {
-                strict: true
-              },
-              radioGroup: {
-                strict: true
-              },
-              row: {},
-              select: {
-                multiCharOverflow: 8
-              },
-              switch: {},
-              tabPane: {},
-              table: {},
-              tabs: {},
-              textarea: {},
-              toolbar: {},
-              tip: {},
-              tooltip: {
-                // size: null,
-                trigger: 'hover',
-                theme: 'dark',
-                enterDelay: 500,
-                leaveDelay: 300
-              },
-              tree: {},
-              treeSelect: {},
-              upload: {
-                mode: 'all',
-                imageTypes: ['jpg', 'jpeg', 'png', 'gif']
+                // import: {
+                //   mode: 'covering'
+                // },
+                // export: {
+                //   types: ['csv', 'html', 'xml', 'txt']
+                // },
+                // buttons: []
               }
             })
           </pre-code>

@@ -84,9 +84,9 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/base/header/CodeExample.vue')
         },
         {
-          path: 'headerHighlight',
-          name: 'ComponentTableBaseHeaderHighlight',
-          component: () => import('@/views/table/base/headerHighlight/CodeExample.vue')
+          path: 'currentColumn',
+          name: 'ComponentTableBaseCurrentColumn',
+          component: () => import('@/views/table/base/currentColumn/CodeExample.vue')
         },
         {
           path: 'resizable',
@@ -139,9 +139,9 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/base/seq/CodeExample.vue')
         },
         {
-          path: 'current',
-          name: 'ComponentTableBaseCurrent',
-          component: () => import('@/views/table/base/current/CodeExample.vue')
+          path: 'currentRow',
+          name: 'ComponentTableBaseCurrentRow',
+          component: () => import('@/views/table/base/currentRow/CodeExample.vue')
         },
         {
           path: 'radio',
@@ -1105,9 +1105,9 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/base/header/CodeExample.vue')
         },
         {
-          path: 'headerHighlight',
-          name: 'ComponentGridBaseHeaderHighlight',
-          component: () => import('@/views/grid/base/headerHighlight/CodeExample.vue')
+          path: 'currentColumn',
+          name: 'ComponentGridBaseCurrentColumn',
+          component: () => import('@/views/grid/base/currentColumn/CodeExample.vue')
         },
         {
           path: 'resizable',
@@ -1165,9 +1165,9 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/base/seq/CodeExample.vue')
         },
         {
-          path: 'current',
-          name: 'ComponentGridBaseCurrent',
-          component: () => import('@/views/grid/base/current/CodeExample.vue')
+          path: 'currentRow',
+          name: 'ComponentGridBaseCurrentRow',
+          component: () => import('@/views/grid/base/currentRow/CodeExample.vue')
         },
         {
           path: 'radio',

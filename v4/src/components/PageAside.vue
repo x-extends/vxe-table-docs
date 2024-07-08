@@ -3,7 +3,7 @@
     <div class="nav-top">
       <VersionList />
       <vxe-pulldown v-model="showSearchList" transfer>
-        <vxe-input v-model="searchName" class="search-input" type="search" placeholder="文档搜索" clearable @click="clickSearchEvent" @change="changeSearchEvent"></vxe-input>
+        <vxe-input v-model="searchName" class="search-input" type="search" :placeholder="$t('app.aside.docsSearch')" clearable @click="clickSearchEvent" @change="changeSearchEvent"></vxe-input>
 
         <template #dropdown>
           <div class="nav-search-wrapper">
@@ -27,12 +27,12 @@
               </vxe-tree>
             </div>
             <div v-else class="nav-search-empty">
-              <div v-if="!searchName">输入关键字搜索文档</div>
+              <div v-if="!searchName">{{ $t('app.aside.searchPlaceholder') }}</div>
               <div v-else-if="searchLoading">
                 <vxe-icon name="refresh" roll></vxe-icon>
-                <span>正在搜索，请稍等！</span>
+                <span>{{ $t('app.aside.searchLoadingText') }}</span>
               </div>
-              <div v-else>找不到与 “<span class="keyword-lighten">{{ searchName }}</span>” 相关的结果！</div>
+              <div v-else v-html="$t('app.aside.searchResultHtml', [searchName])"></div>
             </div>
           </div>
         </template>

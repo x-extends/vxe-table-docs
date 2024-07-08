@@ -2,8 +2,7 @@
   <div>
     <vxe-table
       border
-      :column-config="{isCurrent: true, isHover: true}"
-      :row-config="{isCurrent: true, isHover: true}"
+      :row-config="rowConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -15,7 +14,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -25,6 +25,17 @@ interface RowVO {
   age: number
   address: string
 }
+
+const rowConfig = reactive<VxeTablePropTypes.RowConfig<RowVO>>({
+  isCurrent: true,
+  isHover: true,
+  currentMethod ({ row }) {
+    if (row.age > 30) {
+      return false
+    }
+    return true
+  }
+})
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

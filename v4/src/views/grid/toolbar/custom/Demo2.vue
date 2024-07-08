@@ -31,7 +31,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   customConfig: {
-    mode: 'popup'
+    mode: 'drawer'
   },
   columns: [
     { type: 'checkbox', width: 50 },

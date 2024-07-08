@@ -55,7 +55,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 400,
   showOverflow: true,
   customConfig: {
-    mode: 'popup'
+    mode: 'drawer'
   },
   toolbarConfig: {
     custom: true,

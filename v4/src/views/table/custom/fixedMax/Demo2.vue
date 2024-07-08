@@ -44,7 +44,7 @@ const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
 })
 
 const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
-  mode: 'popup'
+  mode: 'drawer'
 })
 
 onMounted(() => {

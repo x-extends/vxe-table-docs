@@ -17,13 +17,13 @@ setTimeout(function () {
           data.push(null)
         }
         sponsorEl.innerHTML = [
-          '<div style="display: block !important;padding:4px 0 8px 0 !important;font-size: 14px !important;">赞助位</div>',
+          '<div style="display: block !important;padding:4px 0 8px 0 !important;font-size: 14px !important;">SPONSORS</div>',
           '<div style="display: block !important;">',
           data.map(function (item) {
             if (item) {
               return '<a href="' + (item ? item.url : '') + '" style="display: block !important;margin:5px 0 !important;width:200px !important;height:100px !important;line-height:100px !important;text-align: center !important;background-color: rgba(0, 0, 0, 0.2) !important;border-radius: 2px !important;cursor: pointer !important;" target="_blank"><img src="' + item.img + '" alt="" style="display: inline-block !important;max-width:100% !important;max-height:100% !important;vertical-align: middle !important;"></a>'
             }
-            return '<a style="display: block !important;margin:5px 0 !important;width:200px !important;height:100px !important;line-height:100px !important;text-align: center !important;background-color: rgba(0, 0, 0, 0.2) !important;border-radius: 2px !important;cursor: pointer !important;" onclick="joinSponorEvent()"><span style="font-size: 13px !important;">成为赞助商</span></a>'
+            return '<a style="display: block !important;margin:5px 0 !important;width:200px !important;height:100px !important;line-height:100px !important;text-align: center !important;background-color: rgba(0, 0, 0, 0.2) !important;border-radius: 2px !important;cursor: pointer !important;" onclick="joinSponorEvent()"><span style="font-size: 13px !important;">Become a Sponsor</span></a>'
           }).join(''),
           '</div>'
         ].join('')

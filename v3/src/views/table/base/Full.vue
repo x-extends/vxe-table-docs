@@ -109,7 +109,7 @@ export default {
           },
           methods: {
             formatterSex ({ cellValue }) {
-              let item = this.sexList.find(item => item.value === cellValue)
+              let item = this.sexOptions.find(item => item.value === cellValue)
               return item ? item.label : ''
             },
             filterAgeMethod ({ value, row, column }) {
@@ -151,7 +151,7 @@ export default {
   },
   methods: {
     formatterSex ({ cellValue }) {
-      const item = this.sexList.find(item => item.value === cellValue)
+      const item = this.sexOptions.find(item => item.value === cellValue)
       return item ? item.label : ''
     },
     filterAgeMethod ({ value, row }) {

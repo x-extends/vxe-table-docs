@@ -39,7 +39,7 @@ const tableData = ref<RowVO[]>([
 ])
 
 const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
-  mode: 'popup'
+  mode: 'modal'
 })
 
 onMounted(() => {

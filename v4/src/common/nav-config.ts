@@ -25,7 +25,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
   i18nKey: 'app.aside.menu.tableTitle',
   children: [
     {
-      i18nKey: 'app.aside.menu.table.name',
+      i18nKey: 'app.aside.menu.tableTableTitle',
       children: [
         { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'table' } } },
         {
@@ -46,7 +46,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '单元格样式', routerLink: { name: 'ComponentTableBaseStyle' } },
             { title: '动态样式', routerLink: { name: 'ComponentTableBaseDynamicStyle' } },
             { title: '隐藏表头', routerLink: { name: 'ComponentTableBaseHeader' } },
-            { title: '高亮列', routerLink: { name: 'ComponentTableBaseHeaderHighlight' } },
+            { title: '高亮列', routerLink: { name: 'ComponentTableBaseCurrentColumn' } },
+            { title: '高亮行', routerLink: { name: 'ComponentTableBaseCurrentRow' } },
             { title: '拖拽调整列宽', routerLink: { name: 'ComponentTableBaseHeaderResizable' } },
             { title: '表格最小高度', routerLink: { name: 'ComponentTableBaseHeaderMinHeight' } },
             { title: '表格高度', routerLink: { name: 'ComponentTableBaseHeight' } },
@@ -56,7 +57,6 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '冻结列', routerLink: { name: 'ComponentTableBaseFixed' } },
             { title: '冻结表头和列', routerLink: { name: 'ComponentTableBaseFixedFull' } },
             { title: '分组表头', routerLink: { name: 'ComponentTableBaseGroup' } },
-            { title: '高亮行与列', routerLink: { name: 'ComponentTableBaseCurrent' } },
             { title: '排序', routerLink: { name: 'ComponentTableBaseSort' } },
             { title: '筛选', routerLink: { name: 'ComponentTableBaseFilter' } },
             { title: '加载中', routerLink: { name: 'ComponentTableBaseLoading' } },
@@ -333,7 +333,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
       ]
     },
     {
-      i18nKey: 'app.aside.menu.grid.name',
+      i18nKey: 'app.aside.menu.tableGridTitle',
       children: [
         { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'grid' } } },
         {
@@ -354,7 +354,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '单元格样式', routerLink: { name: 'ComponentGridBaseStyle' } },
             { title: '动态样式', routerLink: { name: 'ComponentGridBaseDynamicStyle' } },
             // { title: '隐藏表头', routerLink: { name: 'ComponentGridBaseHeader' } },
-            // { title: '高亮列', routerLink: { name: 'ComponentGridBaseHeaderHighlight' } },
+            // { title: '高亮列', routerLink: { name: 'ComponentGridBaseCurrentColumn' } },
+            { title: '高亮行', routerLink: { name: 'ComponentGridBaseCurrentRow' } },
             { title: '拖拽调整列宽', routerLink: { name: 'ComponentGridBaseHeaderResizable' } },
             // { title: '表格最小高度', routerLink: { name: 'ComponentGridBaseHeaderMinHeight' } },
             // { title: '表格高度', routerLink: { name: 'ComponentGridBaseHeight' } },
@@ -365,7 +366,6 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '冻结表头和列', routerLink: { name: 'ComponentGridBaseFixedFull' } },
             // { title: '表尾', routerLink: { name: 'ComponentGridBaseFooter' } },
             // { title: '分组表头', routerLink: { name: 'ComponentGridBaseGroup' } },
-            { title: '高亮行与列', routerLink: { name: 'ComponentGridBaseCurrent' } },
             // { title: '排序', routerLink: { name: 'ComponentGridBaseSort' } },
             { title: '筛选', routerLink: { name: 'ComponentGridBaseFilter' } },
             // { title: '加载中', routerLink: { name: 'ComponentGridBaseLoading' } },
@@ -651,35 +651,35 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
       ]
     },
     {
-      title: '格式化（全局复用）',
+      i18nKey: 'app.aside.menu.tableGlobalFormats',
       children: [
         { title: 'API', routerLink: { name: 'GlobalFormatsTableAPI' } },
         { title: '单元格', routerLink: { name: 'GlobalFormatsTableBase' } }
       ]
     },
     {
-      title: '右键菜单（全局复用）',
+      i18nKey: 'app.aside.menu.tableGlobalMenus',
       children: [
         { title: 'API', routerLink: { name: 'GlobalMenusTableAPI' } },
         { title: '右键菜单', routerLink: { name: 'GlobalMenusTableBase' } }
       ]
     },
     {
-      title: '工具栏指令（全局复用）',
+      i18nKey: 'app.aside.menu.tableGlobalCommands',
       children: [
         { title: 'API', routerLink: { name: 'GlobalCommandsTableAPI' } },
         { title: '工具栏', routerLink: { name: 'GlobalCommandsTableBase' } }
       ]
     },
     {
-      title: '校验（全局复用）',
+      i18nKey: 'app.aside.menu.tableGlobalValidators',
       children: [
         { title: 'API', routerLink: { name: 'GlobalValidatorsTableAPI' } },
         { title: '单元格校验', routerLink: { name: 'GlobalValidatorsTableBase' } }
       ]
     },
     {
-      title: '渲染器（高阶复用）',
+      i18nKey: 'app.aside.menu.tableGlobalRenderer',
       children: [
         { title: 'API', routerLink: { name: 'GlobalRendererTableAPI' } },
         {
@@ -729,7 +729,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
       ]
     },
     {
-      title: '事件拦截（高级用法）',
+      i18nKey: 'app.aside.menu.tableGlobalInterceptor',
       children: [
         { title: 'API', routerLink: { name: 'GlobalInterceptorTableAPI' } },
         { title: '可编辑 - 兼容性处理', routerLink: { name: 'GlobalInterceptorTableBase' } }
