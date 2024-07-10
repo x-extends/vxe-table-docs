@@ -229,7 +229,7 @@ export default {
             treeNode: true,
             minWidth: 280,
             titlePrefix: {
-              message: '参数名称及使用，如果是在 CDN 环境中使用 kebab-case（短横线式），\n如果项目基于 vue-cli 脚手架可以使用 camelCase（驼峰式）'
+              content: '参数名称及使用，如果是在 CDN 环境中使用 kebab-case（短横线式），\n如果项目基于 vue-cli 脚手架可以使用 camelCase（驼峰式）'
             },
             filters: [
               { label: 'Props', value: 'Props' },
@@ -241,8 +241,8 @@ export default {
           { field: 'desc', title: 'app.api.title.desc', type: 'html', minWidth: 300 },
           { field: 'type', title: 'app.api.title.type', type: 'html', minWidth: 140 },
           { field: 'enum', title: 'app.api.title.enum', type: 'html', minWidth: 150 },
-          { field: 'defVal', title: 'app.api.title.defVal', type: 'html', minWidth: 160, titlePrefix: { message: '部分参数可支持全局设置，具体请查阅相关说明' } },
-          { field: 'version', title: 'app.api.title.version', type: 'html', width: 120, titlePrefix: { message: '该文档与最新版本保持同步，如果遇到参数无效时，\n请检查当前使用的版本号是否支持该参数' }, slots: { default: 'default_version' } }
+          { field: 'defVal', title: 'app.api.title.defVal', type: 'html', minWidth: 160, titlePrefix: { content: '部分参数可支持全局设置，具体请查阅相关说明' } },
+          { field: 'version', title: 'app.api.title.version', type: 'html', width: 120, titlePrefix: { content: '该文档与最新版本保持同步，如果遇到参数无效时，\n请检查当前使用的版本号是否支持该参数' }, slots: { default: 'default_version' } }
         ],
         data: []
       }

@@ -8,12 +8,12 @@
         </template>
       </vxe-form-item>
       <div style="border: 1px dashed green;padding: 10px;">
-        <vxe-form-item title="昵称" field="nickname" :item-render="{}" :title-prefix="{ message: '左边图标', icon: 'vxe-icon-question-circle-fill' }">
+        <vxe-form-item title="昵称" field="nickname" :item-render="{}" :title-prefix="{ content: '左边图标', icon: 'vxe-icon-question-circle-fill' }">
           <template #default="{ data }">
             <vxe-input v-model="data.nickname" placeholder="请输入昵称" clearable></vxe-input>
           </template>
         </vxe-form-item>
-        <vxe-form-item title="性别" field="sex" :item-render="{}" :title-prefix="{ message: '左边图标', icon: 'vxe-icon-question-circle-fill' }" :title-suffix="{ message: '右边图标', icon: 'vxe-icon-question-circle-fill' }">
+        <vxe-form-item title="性别" field="sex" :item-render="{}" :title-prefix="{ content: '左边图标', icon: 'vxe-icon-question-circle-fill' }" :title-suffix="{ content: '右边图标', icon: 'vxe-icon-question-circle-fill' }">
           <template #title>
             <span style="color: red;">标题</span>
           </template>
@@ -24,7 +24,7 @@
             </vxe-select>
           </template>
         </vxe-form-item>
-        <vxe-form-item title="年龄" field="age" :item-render="{}" :title-suffix="{ message: '右边图标', icon: 'vxe-icon-question-circle-fill' }">
+        <vxe-form-item title="年龄" field="age" :item-render="{}" :title-suffix="{ content: '右边图标', icon: 'vxe-icon-question-circle-fill' }">
           <template #default="{ data }">
             <vxe-input v-model="data.age" type="integer" placeholder="请输入年龄" clearable></vxe-input>
           </template>

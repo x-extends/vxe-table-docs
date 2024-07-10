@@ -163,11 +163,7 @@ export default {
               return cellValue ? (cellValue === '1' ? '男' : '女') : ''
             },
             exportDataEvent () {
-              this.$refs.xTable.exportData({
-                filename: '导出',
-                sheetName: 'Sheet1',
-                type: 'xlsx'
-              })
+              this.$refs.xTable.openExport()
             },
             meanNum (list, field) {
               let count = 0
@@ -248,11 +244,7 @@ export default {
       return cellValue ? (cellValue === '1' ? '男' : '女') : ''
     },
     exportDataEvent () {
-      this.$refs.xTable.exportData({
-        filename: '导出',
-        sheetName: 'Sheet1',
-        type: 'xlsx'
-      })
+      this.$refs.xTable.openExport()
     },
     meanNum (list, field) {
       let count = 0

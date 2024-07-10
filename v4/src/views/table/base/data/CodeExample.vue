@@ -8,7 +8,7 @@
 
     <CodeLight path="table/base/data/Demo2">
       <template #tip>
-        <vxe-tip status="primary" title="深层结构">可用于带有复杂结构的场景</vxe-tip>
+        <vxe-tip status="primary" title="深层结构">可用于带有复杂层级的场景</vxe-tip>
         <vxe-tip status="error">深层级数据类型必须先定义字段，层级越深越影响性能，具体取决于数据量大小</vxe-tip>
       </template>
     </CodeLight>

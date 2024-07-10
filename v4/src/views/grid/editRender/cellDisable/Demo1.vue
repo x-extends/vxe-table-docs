@@ -23,9 +23,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   editConfig: {
     trigger: 'click',
-    mode: 'row',
-    beforeEditMethod ({ rowIndex }) {
-      if (rowIndex === 1) {
+    mode: 'cell',
+    beforeEditMethod ({ columnIndex }) {
+      if (columnIndex === 1) {
         return false
       }
       return true

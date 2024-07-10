@@ -184,6 +184,16 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/base/data/CodeExample.vue')
         },
         {
+          path: 'titlePrefix',
+          name: 'ComponentTableBaseTitlePrefix',
+          component: () => import('@/views/table/base/titlePrefix/CodeExample.vue')
+        },
+        {
+          path: 'titleSuffix',
+          name: 'ComponentTableBaseTitleSuffix',
+          component: () => import('@/views/table/base/titleSuffix/CodeExample.vue')
+        },
+        {
           path: 'html',
           name: 'ComponentTableBaseHtml',
           component: () => import('@/views/table/base/html/CodeExample.vue')
@@ -1658,6 +1668,16 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vxe-select',
           name: 'ComponentGridEditRenderVxeSelect',
           component: () => import('@/views/grid/editRender/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'cellDisable',
+          name: 'ComponentGridEditRenderCellDisable',
+          component: () => import('@/views/grid/editRender/cellDisable/CodeExample.vue')
+        },
+        {
+          path: 'rowDisable',
+          name: 'ComponentGridEditRenderRowDisable',
+          component: () => import('@/views/grid/editRender/rowDisable/CodeExample.vue')
         }
       ]
     },

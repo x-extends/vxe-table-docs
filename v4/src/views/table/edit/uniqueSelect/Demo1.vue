@@ -14,7 +14,7 @@
       :column-config="{resizable: true}"
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'row'}"
-      @edit-actived="editActivedEvent">
+      @edit-activated="editActivatedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">
@@ -42,7 +42,7 @@
 
 <script lang="ts" setup>
 import { ref, nextTick } from 'vue'
-import { VxeTableInstance } from 'vxe-table'
+import { VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -101,7 +101,7 @@ const roleChangeEvent = () => {
   updateRoleList()
 }
 
-const editActivedEvent = () => {
+const editActivatedEvent: VxeTableEvents.EditActivated<RowVO> = () => {
   // 激活编辑时检查剩余选项是否可选择
   updateRoleList()
 }

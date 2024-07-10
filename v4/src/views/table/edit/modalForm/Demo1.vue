@@ -34,7 +34,7 @@
       destroy-on-close>
       <template #default>
         <vxe-form :data="formData" :rules="formRules" title-align="right" title-width="100" @submit="submitEvent">
-          <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{icon: 'vxe-icon-comment'}"></vxe-form-item>
+          <vxe-form-item title="Basic information" title-align="left" :title-width="200" :span="24" :title-prefix="{ icon: 'vxe-icon-comment', content: '提示信息' }"></vxe-form-item>
           <vxe-form-item field="name" title="Name" :span="12" :item-render="{}">
             <template #default="{ data }">
               <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
@@ -80,7 +80,7 @@
               </vxe-checkbox-group>
             </template>
           </vxe-form-item>
-          <vxe-form-item title="Other information" title-align="left" :title-width="200" :span="24" :title-prefix="{message: '请填写必填项', icon: 'vxe-icon-info-circle-fill'}"></vxe-form-item>
+          <vxe-form-item title="Other information" title-align="left" :title-width="200" :span="24" :title-prefix="{content: '请填写必填项', icon: 'vxe-icon-info-circle-fill'}"></vxe-form-item>
           <vxe-form-item field="num" title="Number" :span="12" :item-render="{}">
             <template #default="{ data }">
               <vxe-input v-model="data.num" type="number" placeholder="请输入数值"></vxe-input>
@@ -91,7 +91,7 @@
               <vxe-input v-model="data.date3" type="date" placeholder="请选择日期" transfer></vxe-input>
             </template>
           </vxe-form-item>
-          <vxe-form-item field="address" title="Date" :span="24" :item-render="{}" :title-suffix="{message: '提示信息！！', icon: 'vxe-icon-question-circle-fill'}">
+          <vxe-form-item field="address" title="Date" :span="24" :item-render="{}" :title-suffix="{content: '提示信息！！', icon: 'vxe-icon-question-circle-fill'}">
             <template #default="{ data }">
               <vxe-textarea v-model="data.address" :autosize="{minRows: 2, maxRows: 4}"></vxe-textarea>
             </template>

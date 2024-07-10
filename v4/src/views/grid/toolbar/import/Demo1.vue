@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid ref="xGrid" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ interface RowVO {
   address: string
 }
 
-const xGrid = ref<VxeGridInstance<RowVO>>()
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,

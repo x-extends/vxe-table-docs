@@ -8,7 +8,7 @@
           <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
         </template>
       </vxe-form-item>
-      <vxe-form-item title="性别" field="sex" :item-render="{}" :title-prefix="{ message: '帮助信息！！！' }">
+      <vxe-form-item title="性别" field="sex" :item-render="{}" :title-prefix="{ content: '帮助信息！！！' }">
         <template #default="{ data }">
           <vxe-select v-model="data.sex" placeholder="请选择性别" clearable>
             <vxe-option value="1" label="女"></vxe-option>
@@ -73,7 +73,7 @@ export default {
               <vxe-input v-model="data.name" placeholder="请输入名称"></vxe-input>
             </template>
           </vxe-form-item>
-          <vxe-form-item title="性别" field="sex" :item-render="{}" :title-prefix="{ message: '帮助信息！！！' }">
+          <vxe-form-item title="性别" field="sex" :item-render="{}" :title-prefix="{ content: '帮助信息！！！' }">
             <template #default="{ data }">
               <vxe-select v-model="data.sex" placeholder="请选择性别" clearable>
                 <vxe-option value="1" label="女"></vxe-option>

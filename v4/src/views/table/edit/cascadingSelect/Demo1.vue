@@ -12,7 +12,7 @@
       :column-config="{resizable: true}"
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'row'}"
-      @edit-actived="editActivedEvent">
+      @edit-activated="editActivatedEvent">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">
@@ -144,7 +144,7 @@ const ptypeChangeEvent = (row: RowVO) => {
   updatePnameList(row)
 }
 
-const editActivedEvent: VxeTableEvents.EditActived<RowVO> = ({ row }) => {
+const editActivatedEvent: VxeTableEvents.EditActivated<RowVO> = ({ row }) => {
   updatePnameList(row)
 }
 </script>

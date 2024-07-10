@@ -92,11 +92,7 @@ export default {
     exportDataEvent () {
       const $table = this.$refs.tableRef
       if ($table) {
-        $table.exportData({
-          filename: '导出',
-          sheetName: 'Sheet1',
-          type: 'xlsx'
-        })
+        $table.openExport()
       }
     },
     meanNum (list, field) {

@@ -55,7 +55,7 @@ const tableData = ref([
         name: 'formItemClassName',
         desc: '设置表单项的 class',
         version: '',
-        type: 'string | ((params: { data, field, $form }) => string)',
+        type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
         enum: '',
         defVal: '',
         list: []
@@ -64,7 +64,7 @@ const tableData = ref([
         name: 'formItemStyle',
         desc: '设置表单项的样式',
         version: '',
-        type: 'Record<string, any> | ((renderOpts, params: { data, field, $form }) => Record<string, any>)',
+        type: 'Record<string, any> | ((renderOpts, params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
         enum: '',
         defVal: '',
         list: []
@@ -73,7 +73,7 @@ const tableData = ref([
         name: 'formItemContentClassName',
         desc: '设置表单项内容元素的 class',
         version: '',
-        type: 'string | ((params: { data, field, $form }) => string)',
+        type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
         enum: '',
         defVal: '',
         list: []
@@ -82,7 +82,7 @@ const tableData = ref([
         name: 'formItemContentStyle',
         desc: '设置表单项内容元素的样式',
         version: '',
-        type: 'Record<string, any> | ((params: { data, field, $form }) => Record<string, any>)',
+        type: 'Record<string, any> | ((params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
         enum: '',
         defVal: '',
         list: []
@@ -91,7 +91,7 @@ const tableData = ref([
         name: 'formItemTitleClassName',
         desc: '设置表单项标题元素的 class',
         version: '',
-        type: 'string | ((params: { data, field, $form }) => string)',
+        type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
         enum: '',
         defVal: '',
         list: []
@@ -100,7 +100,7 @@ const tableData = ref([
         name: 'formItemTitleStyle',
         desc: '设置表单项标题元素的样式',
         version: '',
-        type: 'Record<string, any> | ((params: { data, field, $form }) => Record<string, any>)',
+        type: 'Record<string, any> | ((params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
         enum: '',
         defVal: '',
         list: []
@@ -109,7 +109,7 @@ const tableData = ref([
         name: 'renderFormItemTitle',
         desc: '渲染表单项标题',
         version: '',
-        type: '(params: { data, item, field, $form }) => JSX',
+        type: '(params: { data, item, field, disabled, readonly, $form }) => JSX',
         enum: '',
         defVal: '',
         list: []
@@ -118,7 +118,7 @@ const tableData = ref([
         name: 'renderFormItemContent',
         desc: '渲染表单项内容',
         version: '',
-        type: '(params: { data, item, field, $form }) => JSX',
+        type: '(params: { data, item, field, disabled, readonly, $form }) => JSX',
         enum: '',
         defVal: '',
         list: []

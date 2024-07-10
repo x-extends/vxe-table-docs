@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid ref="xGrid" v-bind="gridOptions" v-on=gridEvents>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on=gridEvents>
       <template #name_edit="{ row }">
         <vxe-input v-model="row.name" :disabled="disabledName"></vxe-input>
       </template>
@@ -8,10 +8,7 @@
         <vxe-input v-model="row.sex" :disabled="disabledSex"></vxe-input>
       </template>
       <template #age_edit="{ row }">
-        <vxe-input v-model="row.age" :disabled="disabledAge"></vxe-input>
-      </template>
-      <template #address_edit="{ row }">
-        <vxe-input v-model="row.address"></vxe-input>
+        <vxe-input v-model="row.age" type="integer" :disabled="disabledAge"></vxe-input>
       </template>
     </vxe-grid>
   </div>
@@ -31,7 +28,7 @@ interface RowVO {
   address: string
 }
 
-const xGrid = ref<VxeGridInstance<RowVO>>()
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -45,7 +42,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
     { field: 'sex', title: 'Sex', editRender: {}, slots: { edit: 'sex_edit' } },
     { field: 'age', title: 'Age', editRender: {}, slots: { edit: 'age_edit' } },
-    { field: 'address', title: 'Address', editRender: {}, slots: { edit: 'address_edit' } }
+    { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
   ],
   data: [
     { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -61,7 +58,7 @@ const disabledSex = ref(false)
 const disabledAge = ref(false)
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  editActived ({ row }) {
+  editActivated ({ row }) {
   // name 为 'x' 开头的列禁止编辑
     disabledName.value = (row.name || '').indexOf('x') === 0
     // age 小于 27 的列禁止编辑
