@@ -41,7 +41,7 @@ VXETable.renderer.add('FilterInput', {
 // 创建一个条件的渲染器
 VXETable.renderer.add('FilterComplex', {
   // 不显示底部按钮，使用自定义的按钮
-  isFooter: false,
+  showFilterFooter: false,
   // 筛选模板
   renderFilter (h, renderOpts, params) {
     return <filter-complex params={ params }></filter-complex>
@@ -66,7 +66,7 @@ VXETable.renderer.add('FilterComplex', {
 // 创建一个支持列内容的筛选
 VXETable.renderer.add('FilterContent', {
   // 不显示底部按钮，使用自定义的按钮
-  isFooter: false,
+  showFilterFooter: false,
   // 筛选模板
   renderFilter (h, renderOpts, params) {
     return <filter-content params={ params }></filter-content>
@@ -88,7 +88,7 @@ VXETable.renderer.add('FilterContent', {
 // 创建一个复杂的筛选器
 VXETable.renderer.add('FilterExtend', {
   // 不显示底部按钮，使用自定义的按钮
-  isFooter: false,
+  showFilterFooter: false,
   // 筛选模板
   renderFilter (h, renderOpts, params) {
     return <filter-extend params={ params }></filter-extend>
