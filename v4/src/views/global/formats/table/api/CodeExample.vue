@@ -33,10 +33,20 @@ const tableData = ref([
     list: [
       {
         name: 'tableCellFormatMethod',
+        version: '',
         desc: '表格 - 自定义单元格格式化方法',
         type: '',
         enum: '',
         defVal: '({ cellValue, row, column }) => string | number',
+        list: []
+      },
+      {
+        name: 'tableFooterCellFormatMethod',
+        version: '4.0.65',
+        desc: '表格 - 自定义表尾单元格格式化方法',
+        type: '',
+        enum: '',
+        defVal: '({ itemValue, row, column }) => string | number',
         list: []
       }
     ]

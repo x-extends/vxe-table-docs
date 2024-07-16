@@ -9,6 +9,7 @@
 
     <vxe-table
       border
+      height="500"
       ref="tableRef"
       :row-config="{isHover: true}"
       :tree-config="{}"

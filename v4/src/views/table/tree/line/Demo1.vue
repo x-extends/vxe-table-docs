@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       show-overflow
+      border="outer"
       :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', showLine: true}"
       :data="tableData">

@@ -8,5 +8,13 @@
         <vxe-tip status="error">连接线不支持虚拟滚动</vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/tree/line/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          复选框与连接线
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

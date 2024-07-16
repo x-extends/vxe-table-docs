@@ -4,7 +4,7 @@
       border
       :row-config="{keyField: 'id', isHover: true}"
       :data="tableData"
-      :checkbox-config="{checkRowKeys: defaultSelecteRowKeys, highlight: true}"
+      :checkbox-config="{checkRowKeys: defaultSelecteRowKeys}"
       :radio-config="{labelField: 'name'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="id" title="ID"></vxe-column>

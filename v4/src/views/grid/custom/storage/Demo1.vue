@@ -18,6 +18,7 @@ interface RowVO {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
   id: 'myCustomStorage',
   toolbarConfig: {
     custom: true
@@ -28,8 +29,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
+    { field: 'role', title: 'role' },
     { field: 'sex', title: 'Sex' },
-    { field: 'age', title: 'Age' }
+    { field: 'age', title: 'Age' },
+    { field: 'address', title: 'address' }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

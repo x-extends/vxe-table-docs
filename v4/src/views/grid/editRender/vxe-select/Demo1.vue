@@ -89,10 +89,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'VxeInput' } },
-    { field: 'sex', title: '下拉框', width: 200, editRender: sexEditRender },
-    { field: 'sexList', title: '下拉框多选', width: 200, editRender: sexListEditRender },
-    { field: 'type', title: '下拉框分组', width: 200, editRender: typeEditRender },
-    { field: 'typeList', title: '下拉框分组多选', width: 200, editRender: typeListEditRender }
+    { field: 'sex', title: '下拉单选', width: 200, editRender: sexEditRender },
+    { field: 'sexList', title: '下拉多选', width: 200, editRender: sexListEditRender },
+    { field: 'type', title: '下拉分组单选', width: 200, editRender: typeEditRender },
+    { field: 'typeList', title: '下拉分组多选', width: 200, editRender: typeListEditRender }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },

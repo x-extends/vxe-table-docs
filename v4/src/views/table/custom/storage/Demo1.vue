@@ -2,14 +2,17 @@
   <div>
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
+      border
       id="myCustomStorage"
       ref="tableRef"
       :custom-config="customConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-column field="role" title="role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="address" title="address"></vxe-column>
     </vxe-table>
   </div>
 </template>

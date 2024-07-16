@@ -26,11 +26,11 @@
         <vxe-column field="attr1" title="Attr1" width="200"></vxe-column>
         <vxe-colgroup title="详细信息">
           <vxe-column field="sex" title="Sex" width="200"></vxe-column>
-          <vxe-column field="num" title="Num" width="200"></vxe-column>
+          <vxe-column field="num" title="Num" width="300"></vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
       <vxe-colgroup field="group3" title="分类信息2">
-        <vxe-column field="attr6" title="Attr6" width="120"></vxe-column>
+        <vxe-column field="attr6" title="Attr6" width="200"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup field="group4" title="额外信息">
         <vxe-column field="date3" title="Date" width="140"></vxe-column>
@@ -43,7 +43,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
-import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: number
@@ -72,11 +71,7 @@ const toggleFixedColumn = (field: string, type: VxeColumnPropTypes.Fixed) => {
   if ($table) {
     const column = $table.getColumnByField(field)
     if (column) {
-      const groupFixed = column.fixed ? null : type
-      // 将分组整体设置固定列
-      XEUtils.eachTree([column], column => {
-        column.fixed = groupFixed
-      })
+      $table.setColumnFixed(column, column.fixed ? null : type)
     }
   }
 }

@@ -2,14 +2,12 @@
   <div>
     <vxe-table
       border
-      height="300"
+      height="500"
       :column-config="{resizable: true}"
       :row-config="{isCurrent: true, isHover: true}"
       :data="tableData"
-      :radio-config="{labelField: 'role'}"
       :checkbox-config="{labelField: 'name', highlight: true, range: true}">
       <vxe-column type="checkbox" title="Name"></vxe-column>
-      <vxe-column type="radio" title="Role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address" show-overflow></vxe-column>

@@ -8,7 +8,7 @@
 
     <CodeLight path="table/base/loading/Demo2">
       <template #tip>
-        <vxe-tip status="primary">修改加载中图标</vxe-tip>
+        <vxe-tip status="primary">修改加载中图标及文字</vxe-tip>
       </template>
     </CodeLight>
 

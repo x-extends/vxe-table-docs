@@ -219,9 +219,64 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/footer/footerMethod/CodeExample.vue')
         },
         {
+          path: 'footerFormat',
+          name: 'ComponentTableFooterFooterFormat',
+          component: () => import('@/views/table/footer/footerFormat/CodeExample.vue')
+        },
+        {
           path: 'template',
           name: 'ComponentTableFooterTemplate',
           component: () => import('@/views/table/footer/template/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'radio',
+      children: [
+        {
+          path: 'highlight',
+          name: 'ComponentTableRadioHighlight',
+          component: () => import('@/views/table/radio/highlight/CodeExample.vue')
+        },
+        {
+          path: 'checkMethod',
+          name: 'ComponentTableRadioCheckMethod',
+          component: () => import('@/views/table/radio/checkMethod/CodeExample.vue')
+        },
+        {
+          path: 'visibleMethod',
+          name: 'ComponentTableRadioVisibleMethod',
+          component: () => import('@/views/table/radio/visibleMethod/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'checkbox',
+      children: [
+        {
+          path: 'highlight',
+          name: 'ComponentTableCheckboxHighlight',
+          component: () => import('@/views/table/checkbox/highlight/CodeExample.vue')
+        },
+        {
+          path: 'field',
+          name: 'ComponentTableCheckboxField',
+          component: () => import('@/views/table/checkbox/field/CodeExample.vue')
+        },
+        {
+          path: 'checkMethod',
+          name: 'ComponentTableCheckboxCheckMethod',
+          component: () => import('@/views/table/checkbox/checkMethod/CodeExample.vue')
+        },
+        {
+          path: 'visibleMethod',
+          name: 'ComponentTableCheckboxVisibleMethod',
+          component: () => import('@/views/table/checkbox/visibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'range',
+          name: 'ComponentTableCheckboxRange',
+          component: () => import('@/views/table/checkbox/range/CodeExample.vue')
         }
       ]
     },
@@ -689,6 +744,16 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/edit/revert/CodeExample.vue')
         },
         {
+          path: 'cellDisable',
+          name: 'ComponentTableEditCellDisable',
+          component: () => import('@/views/table/edit/cellDisable/CodeExample.vue')
+        },
+        {
+          path: 'rowDisable',
+          name: 'ComponentTableEditRowDisable',
+          component: () => import('@/views/table/edit/rowDisable/CodeExample.vue')
+        },
+        {
           path: 'cellValid',
           name: 'ComponentTableEditCellValid',
           component: () => import('@/views/table/edit/cellValid/CodeExample.vue')
@@ -812,6 +877,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-select',
           name: 'ComponentTableEditRenderVxeSelect',
           component: () => import('@/views/table/editRender/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-tree-select',
+          name: 'ComponentTableEditRenderVxeTreeSelect',
+          component: () => import('@/views/table/editRender/vxe-tree-select/CodeExample.vue')
         }
       ]
     },
@@ -927,6 +997,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'csv',
           name: 'ComponentTableExportCsv',
           component: () => import('@/views/table/export/csv/CodeExample.vue')
+        },
+        {
+          path: 'exportMethod',
+          name: 'ComponentTableExportExportMethod',
+          component: () => import('@/views/table/export/exportMethod/CodeExample.vue')
         },
         {
           path: 'advanced',
@@ -1288,6 +1363,66 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'footerMethod',
           name: 'ComponentGridFooterFooterMethod',
           component: () => import('@/views/grid/footer/footerMethod/CodeExample.vue')
+        },
+        {
+          path: 'footerFormat',
+          name: 'ComponentGridFooterFooterFormat',
+          component: () => import('@/views/grid/footer/footerFormat/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          name: 'ComponentGridFooterTemplate',
+          component: () => import('@/views/grid/footer/template/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'radio',
+      children: [
+        {
+          path: 'highlight',
+          name: 'ComponentGridRadioHighlight',
+          component: () => import('@/views/grid/radio/highlight/CodeExample.vue')
+        },
+        {
+          path: 'checkMethod',
+          name: 'ComponentGridRadioCheckMethod',
+          component: () => import('@/views/grid/radio/checkMethod/CodeExample.vue')
+        },
+        {
+          path: 'visibleMethod',
+          name: 'ComponentGridRadioVisibleMethod',
+          component: () => import('@/views/grid/radio/visibleMethod/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'checkbox',
+      children: [
+        {
+          path: 'highlight',
+          name: 'ComponentGridCheckboxHighlight',
+          component: () => import('@/views/grid/checkbox/highlight/CodeExample.vue')
+        },
+        {
+          path: 'field',
+          name: 'ComponentGridCheckboxField',
+          component: () => import('@/views/grid/checkbox/field/CodeExample.vue')
+        },
+        {
+          path: 'checkMethod',
+          name: 'ComponentGridCheckboxCheckMethod',
+          component: () => import('@/views/grid/checkbox/checkMethod/CodeExample.vue')
+        },
+        {
+          path: 'visibleMethod',
+          name: 'ComponentGridCheckboxVisibleMethod',
+          component: () => import('@/views/grid/checkbox/visibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'range',
+          name: 'ComponentGridCheckboxRange',
+          component: () => import('@/views/grid/checkbox/range/CodeExample.vue')
         }
       ]
     },
@@ -1670,6 +1805,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/editRender/vxe-select/CodeExample.vue')
         },
         {
+          path: 'vxe-tree-select',
+          name: 'ComponentGridEditRenderVxeTreeSelect',
+          component: () => import('@/views/grid/editRender/vxe-tree-select/CodeExample.vue')
+        },
+        {
           path: 'cellDisable',
           name: 'ComponentGridEditRenderCellDisable',
           component: () => import('@/views/grid/editRender/cellDisable/CodeExample.vue')
@@ -1828,6 +1968,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'data',
           name: 'ComponentGridExportData',
           component: () => import('@/views/grid/export/data/CodeExample.vue')
+        },
+        {
+          path: 'exportMethod',
+          name: 'ComponentGridExportExportMethod',
+          component: () => import('@/views/grid/export/exportMethod/CodeExample.vue')
         },
         {
           path: 'advanced',

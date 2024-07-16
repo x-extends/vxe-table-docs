@@ -48,8 +48,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  editDisabled () {
-    console.log('禁止编辑')
+  editDisabled ({ row, column }) {
+    console.log('禁止编辑', column.field, row)
   }
 }
 </script>

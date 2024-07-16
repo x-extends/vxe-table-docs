@@ -24,8 +24,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   editConfig: {
     trigger: 'click',
     mode: 'cell',
-    beforeEditMethod ({ columnIndex }) {
-      if (columnIndex === 1) {
+    beforeEditMethod ({ row }) {
+      // name 为 'x' 开头的列禁止编辑
+      if ((row.name || '').indexOf('x') === 0) {
+        return false
+      }
+      // age 小于 27 的列禁止编辑
+      if (row.age < 27) {
+        return false
+      }
+      // sex 值编辑为 1 的列禁止编辑
+      if (row.sex === 'Women') {
         return false
       }
       return true
@@ -48,8 +57,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  editDisabled () {
-    console.log('禁止编辑')
+  editDisabled ({ row, column }) {
+    console.log('禁止编辑', column.field, row)
   }
 }
 </script>

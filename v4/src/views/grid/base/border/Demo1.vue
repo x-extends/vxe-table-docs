@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-button status="primary" @click="changeBorder">切换边框</vxe-button>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -18,6 +19,7 @@ interface RowVO {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: false,
   height: 200,
   columns: [
     { type: 'seq', width: 70 },
@@ -33,4 +35,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
+
+const changeBorder = () => {
+  gridOptions.border = !gridOptions.border
+}
 </script>

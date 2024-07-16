@@ -38,7 +38,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '边框', routerLink: { name: 'ComponentTableBaseBorder' } },
             { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' } },
             { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' } },
-            { title: '列宽设置', routerLink: { name: 'ComponentTableBaseWidth' } },
+            { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' } },
             { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
             { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' } },
             { title: '文本提示', routerLink: { name: 'ComponentTableBaseTooltip' } },
@@ -85,7 +85,27 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '标准结构', routerLink: { name: 'ComponentTableFooterFooterData' } },
             { title: '自定义数据方法', routerLink: { name: 'ComponentTableFooterFooterMethod' } },
+            { title: '格式化表尾内容', routerLink: { name: 'ComponentTableFooterFooterFormat' } },
             { title: '自定义插槽模板', routerLink: { name: 'ComponentTableFooterTemplate' } }
+          ]
+        },
+        {
+          title: '单选框',
+          children: [
+            { title: '高亮选择行', routerLink: { name: 'ComponentTableRadioHighlight' } },
+            { title: '禁用', routerLink: { name: 'ComponentTableRadioCheckMethod' } },
+            { title: '显示隐藏', routerLink: { name: 'ComponentTableRadioVisibleMethod' } }
+          ]
+        },
+        {
+          title: '复选框',
+          children: [
+            { title: '高亮选择行', routerLink: { name: 'ComponentTableCheckboxHighlight' } },
+            { title: '绑定字段', routerLink: { name: 'ComponentTableCheckboxField' } },
+            { title: '禁用', routerLink: { name: 'ComponentTableCheckboxCheckMethod' } },
+            { title: '显示隐藏', routerLink: { name: 'ComponentTableCheckboxVisibleMethod' } },
+            { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentTableCheckboxRange' } },
+            { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' }
           ]
         },
         {
@@ -214,6 +234,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '删除数据', routerLink: { name: 'ComponentTableEditRemove' } },
             { title: '标记为删除', routerLink: { name: 'ComponentTableEditPending' } },
             { title: '还原数据', routerLink: { name: 'ComponentTableEditRevert' } },
+            { title: '禁用单元格编辑', routerLink: { name: 'ComponentTableEditCellDisable' } },
+            { title: '禁用行编辑', routerLink: { name: 'ComponentTableEditRowDisable' } },
             { title: '单元格校验', routerLink: { name: 'ComponentTableEditCellValid' } },
             { title: '行校验', routerLink: { name: 'ComponentTableEditRowValid' } },
             { title: '树结构', routerLink: { name: 'ComponentTableEditTree' } },
@@ -237,6 +259,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentTableEditRenderVxeNumberInput' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentTableEditRenderVxeDatePicker' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentTableEditRenderVxeSelect' } },
+            { title: 'VxeTreeSelect', routerLink: { name: 'ComponentTableEditRenderVxeTreeSelect' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/table/edit/el-input' }
           ]
         },
@@ -284,7 +307,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导出 HTML 格式', routerLink: { name: 'ComponentTableExportHtml' } },
             { title: '导出 CSV 格式', routerLink: { name: 'ComponentTableExportCsv' } },
             { title: '导出 XLSX 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/table/export' },
-            { title: '导出 PDF 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-pdf/table/export' },
+            { title: '格式化单元格内容', routerLink: { name: 'ComponentTableExportExportMethod' } },
             { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } }
           ]
         },
@@ -350,7 +373,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '边框', routerLink: { name: 'ComponentGridBaseBorder' } },
             { title: '圆角', routerLink: { name: 'ComponentGridBaseRound' } },
             { title: '对齐方式', routerLink: { name: 'ComponentGridBaseAlign' } },
-            { title: '列宽设置', routerLink: { name: 'ComponentGridBaseWidth' } },
+            { title: '列宽', routerLink: { name: 'ComponentGridBaseWidth' } },
             { title: '自动换行', routerLink: { name: 'ComponentGridBaseAutoBreak' } },
             // { title: '溢出隐藏', routerLink: { name: 'ComponentGridBaseOverflow' } },
             // { title: '文本提示', routerLink: { name: 'ComponentGridBaseTooltip' } },
@@ -368,8 +391,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '设置行度', routerLink: { name: 'ComponentGridBaseRowHeight' } },
             // { title: '冻结列', routerLink: { name: 'ComponentGridBaseFixed' } },
             // { title: '冻结表头和列', routerLink: { name: 'ComponentGridBaseFixedFull' } },
-            // { title: '表尾', routerLink: { name: 'ComponentGridBaseFooter' } },
-            // { title: '分组表头', routerLink: { name: 'ComponentGridBaseGroup' } },
+            { title: '表尾', routerLink: { name: 'ComponentGridBaseFooter' } },
+            { title: '分组表头', routerLink: { name: 'ComponentGridBaseGroup' } },
             // { title: '排序', routerLink: { name: 'ComponentGridBaseSort' } },
             { title: '筛选', routerLink: { name: 'ComponentGridBaseFilter' } },
             // { title: '加载中', routerLink: { name: 'ComponentGridBaseLoading' } },
@@ -377,7 +400,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '序号', routerLink: { name: 'ComponentGridBaseSeq' } },
             // { title: '单选框', routerLink: { name: 'ComponentGridBaseRadio' } },
             // { title: '复选框', routerLink: { name: 'ComponentGridBaseSelection' } },
-            // { title: 'HTML 类型', routerLink: { name: 'ComponentGridBaseHtml' } },
+            { title: 'HTML 类型', routerLink: { name: 'ComponentGridBaseHtml' } },
             { title: '完整案例', routerLink: { name: 'ComponentGridBaseFull' } }
           ]
         },
@@ -407,7 +430,28 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '表尾数据',
           children: [
             { title: '标准结构', routerLink: { name: 'ComponentGridFooterFooterData' } },
-            { title: '自定义数据方法', routerLink: { name: 'ComponentGridFooterFooterMethod' } }
+            { title: '自定义数据方法', routerLink: { name: 'ComponentGridFooterFooterMethod' } },
+            { title: '格式化表尾内容', routerLink: { name: 'ComponentGridFooterFooterFormat' } },
+            { title: '自定义插槽模板', routerLink: { name: 'ComponentGridFooterTemplate' } }
+          ]
+        },
+        {
+          title: '单选框',
+          children: [
+            { title: '高亮选择行', routerLink: { name: 'ComponentGridRadioHighlight' } },
+            { title: '禁用', routerLink: { name: 'ComponentGridRadioCheckMethod' } },
+            { title: '显示隐藏', routerLink: { name: 'ComponentGridRadioVisibleMethod' } }
+          ]
+        },
+        {
+          title: '复选框',
+          children: [
+            { title: '高亮选择行', routerLink: { name: 'ComponentGridCheckboxHighlight' } },
+            { title: '绑定字段', routerLink: { name: 'ComponentGridCheckboxField' } },
+            { title: '禁用', routerLink: { name: 'ComponentGridCheckboxCheckMethod' } },
+            { title: '显示隐藏', routerLink: { name: 'ComponentGridCheckboxVisibleMethod' } },
+            { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentGridCheckboxRange' } },
+            { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' }
           ]
         },
         {
@@ -527,6 +571,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridEditRenderVxeNumberInput' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
+            { title: 'VxeTreeSelect', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
             { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/edit/el-input' }
@@ -580,6 +625,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导出 XLSX 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-xlsx/grid/export' },
             { title: '导出 PDF 格式', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-export-pdf/grid/export' },
             { title: '自定义数据', routerLink: { name: 'ComponentGridExportData' } },
+            { title: '格式化导出内容', routerLink: { name: 'ComponentGridExportExportMethod' } },
             { title: '高级导出', routerLink: { name: 'ComponentGridExportAdvanced' } },
             { title: '自定义导出类型', routerLink: { name: 'ComponentGridExportTypes' } },
             { title: '服务端导出', routerLink: { name: 'ComponentGridExportRemote' } },

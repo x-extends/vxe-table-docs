@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      height="400"
       :column-config="{useKey: true}"
       :row-config="{useKey: true}"
       :data="tableData">

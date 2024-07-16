@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      show-overflow
       ref="tableRef"
       :loading="loading"
       :edit-config="{trigger: 'manual', mode: 'row'}"

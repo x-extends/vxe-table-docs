@@ -14,15 +14,15 @@
                 :data="searchList"
                 title-field="title"
                 children-field="searchResult"
-                trigger="row">
-                <template #title="{ row }">
-                  <vxe-link v-if="row.routerLink" status="primary" :class="[getApiClass(row)]" :router-link="row.routerLink" @click="searchRowClickEvent">
-                    <span v-html="row.title"></span>
+                trigger="node">
+                <template #title="{ node }">
+                  <vxe-link v-if="node.routerLink" status="primary" :class="[getApiClass(node)]" :router-link="node.routerLink" @click="searchRowClickEvent">
+                    <span v-html="node.title"></span>
                   </vxe-link>
-                  <vxe-link v-else-if="row.linkUrl" status="primary" :href="row.linkUrl" target="_blank">
-                    <span v-html="row.title"></span>
+                  <vxe-link v-else-if="node.linkUrl" status="primary" :href="node.linkUrl" target="_blank">
+                    <span v-html="node.title"></span>
                   </vxe-link>
-                  <span v-else v-html="row.title"></span>
+                  <span v-else v-html="node.title"></span>
                 </template>
               </vxe-tree>
             </div>

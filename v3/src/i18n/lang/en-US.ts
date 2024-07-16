@@ -439,7 +439,7 @@ export default {
           data: 'Table data(note that updating data does not reset the status)',
           columns: 'Column configuration',
           customs: 'Have been obsolete',
-          height: 'Table height, supports adaptive or fixed height(if you set adaptive, you must ensure that parent nodes exist and no adjacent elements are allowed)',
+          height: 'Table height, supports adaptive or fixed height',
           maxHeight: 'Maximum height of the table',
           syncResize: 'Automatically following a property change to recalculate the table is the same as manually calling the recalculate method',
           autoResize: 'Automatically listen for parent changes to recalculate the table (this may be used in scenarios where parent elements may be dynamically changing)',

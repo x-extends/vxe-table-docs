@@ -505,7 +505,7 @@ const apis = [
         descKey: 'app.api.table.desc.height',
         version: '',
         type: 'number | string',
-        enum: 'auto, %, px',
+        enum: '%, px',
         defVal: '',
         list: []
       },

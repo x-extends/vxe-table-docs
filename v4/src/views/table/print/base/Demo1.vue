@@ -2,10 +2,16 @@
   <div>
     <vxe-button @click="printEvent">直接打印</vxe-button>
     <vxe-table
+      border
       ref="tableRef"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-column field="name" title="Name">
+        <template #default="{ row }">
+          <div>{{ row.name }}</div>
+          <div>{{ row.role }}</div>
+        </template>
+      </vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
     </vxe-table>

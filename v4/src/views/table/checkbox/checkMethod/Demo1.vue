@@ -10,6 +10,7 @@
 
     <vxe-table
       border
+      height="500"
       ref="tableRef"
       :data="tableData"
       :checkbox-config="checkboxConfig">
@@ -40,9 +41,6 @@ const checkboxConfig = reactive<VxeTablePropTypes.CheckboxConfig<RowVO>>({
   labelField: 'name',
   checkMethod: ({ row }) => {
     return row.age > 26
-  },
-  visibleMethod ({ row }) {
-    return row.sex === 'Women'
   }
 })
 

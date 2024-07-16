@@ -1,7 +1,12 @@
 <template>
   <div>
     <vxe-button @click="printEvent">直接打印</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions">
+      <template #default_name="{ row }">
+        <div>{{ row.name }}</div>
+        <div>{{ row.role }}</div>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
@@ -21,9 +26,10 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
+    { field: 'name', title: 'Name', slots: { default: 'default_name' } },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' }
   ],

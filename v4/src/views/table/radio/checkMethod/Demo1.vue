@@ -1,9 +1,9 @@
 <template>
   <div>
     <p>
-        <vxe-button @click="setSelectRow(0)">设置第一行选中（如果被禁用，不可选中）</vxe-button>
-        <vxe-button @click="setSelectRow(1)">设置第二行选中</vxe-button>
-        <vxe-button @click="clearRadioRowEevnt">清除所有行选中</vxe-button>
+      <vxe-button @click="setSelectRow(0)">设置第一行选中（如果被禁用，不可选中）</vxe-button>
+      <vxe-button @click="setSelectRow(1)">设置第二行选中</vxe-button>
+      <vxe-button @click="clearRadioRowEevnt">清除所有行选中</vxe-button>
     </p>
 
     <vxe-table
@@ -50,9 +50,6 @@ const radioConfig = reactive<VxeTablePropTypes.RadioConfig<RowVO>>({
   labelField: 'name',
   checkMethod ({ row }) {
     return row.age > 26
-  },
-  visibleMethod ({ row }) {
-    return row.sex === 'Women'
   }
 })
 
