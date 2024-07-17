@@ -42,6 +42,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
             { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' } },
             { title: '文本提示', routerLink: { name: 'ComponentTableBaseTooltip' } },
+            { title: '滚动条样式', routerLink: { name: 'ComponentTableBaseScrollStyle' } },
             { title: '斑马线样式', routerLink: { name: 'ComponentTableBaseStripe' } },
             { title: '单元格样式', routerLink: { name: 'ComponentTableBaseStyle' } },
             { title: '动态样式', routerLink: { name: 'ComponentTableBaseDynamicStyle' } },

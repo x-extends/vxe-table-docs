@@ -65,55 +65,47 @@ const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) 
 </script>
 
 <style lang="scss">
-/*滚动条整体部分*/
-.mytable-scrollbar ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+.mytable-scrollbar {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+  }
 }
 
 /** 默认模式 */
-[data-vxe-table-theme="default"] {
-  /*滚动条的轨道*/
-  .mytable-scrollbar ::-webkit-scrollbar-track {
-    background-color: #FFFFFF;
-  }
-  /*滚动条里面的小方块，能向上向下移动*/
-  .mytable-scrollbar ::-webkit-scrollbar-thumb {
-    background-color: #bfbfbf;
-    border-radius: 5px;
-  }
-  .mytable-scrollbar ::-webkit-scrollbar-thumb:hover {
-    background-color: #A8A8A8;
-  }
-  .mytable-scrollbar ::-webkit-scrollbar-thumb:active {
-    background-color: #787878;
-  }
-  /*边角，即两个滚动条的交汇处*/
-  .mytable-scrollbar ::-webkit-scrollbar-corner {
-    background-color: #FFFFFF;
+[data-vxe-ui-theme="light"] {
+  .mytable-scrollbar {
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-corner {
+      background-color: #FFFFFF;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #bfbfbf;
+    }
+    ::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar-thumb:active {
+      background-color: #787878;
+    }
   }
 }
 
 /** 暗黑模式 */
-[data-vxe-table-theme="dark"] {
-  /*滚动条的轨道*/
-  .mytable-scrollbar ::-webkit-scrollbar-track {
-    background-color: #151518;
-  }
-  /*滚动条里面的小方块，能向上向下移动*/
-  .mytable-scrollbar ::-webkit-scrollbar-thumb {
-    background-color: #bfbfbf;
-    border-radius: 5px;
-  }
-  .mytable-scrollbar ::-webkit-scrollbar-thumb:hover {
-    background-color: #A8A8A8;
-  }
-  .mytable-scrollbar ::-webkit-scrollbar-thumb:active {
-    background-color: #A3A6AD;
-  }
-  /*边角，即两个滚动条的交汇处*/
-  .mytable-scrollbar ::-webkit-scrollbar-corner {
-    background-color: #151518;
+[data-vxe-ui-theme="dark"] {
+  .mytable-scrollbar {
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-corner {
+      background-color: #151518;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #bfbfbf;
+    }
+    ::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar-thumb:active {
+      background-color: #A3A6AD;
+    }
   }
 }
 </style>

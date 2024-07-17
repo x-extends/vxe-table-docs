@@ -54,6 +54,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/base/tooltip/CodeExample.vue')
         },
         {
+          path: 'scrollStyle',
+          name: 'ComponentTableBaseScrollStyle',
+          component: () => import('@/views/table/base/scrollStyle/CodeExample.vue')
+        },
+        {
           path: 'stripe',
           name: 'ComponentTableBaseStripe',
           component: () => import('@/views/table/base/stripe/CodeExample.vue')

@@ -27,7 +27,8 @@
     "build:all": "npm run build:other3 && npm run build:other4 && npm run build:v1 && npm run build:v2 && npm run build:v3 && npm run build:v3.8 && npm run build:v4 && npm run build:v4_old && npm run build:v4.6",
     "build:docs": "gulp build_docs && npm run build:zip",
     "build:vxe": "gulp build_docs && gulp build_vxe_docs && npm run build:zip",
-    "build:zip": "gulp build_zip"
+    "build:zip": "gulp build_zip",
+    "pack:all": "npm run build:all && npm run build:docs"
   },
   "devDependencies": {
     "del": "6.0.0",
