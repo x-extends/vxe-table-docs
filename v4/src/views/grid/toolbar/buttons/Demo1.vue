@@ -1,6 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #toolbar_buttons>
+        <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+        <vxe-button status="error" @click="delEvent">删除</vxe-button>
+        <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
@@ -21,25 +27,18 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
-  height: 500,
-  exportConfig: {},
-  columnConfig: {
-    resizable: true
-  },
+  height: 400,
   toolbarConfig: {
-    export: true
+    slots: {
+      buttons: 'toolbar_buttons'
+    }
   },
   columns: [
     { type: 'checkbox', width: 50 },
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
-    {
-      title: '分类',
-      children: [
-        { field: 'nickname', title: 'Nickname' },
-        { field: 'role', title: 'Role' }
-      ]
-    },
+    { field: 'nickname', title: 'Nickname' },
+    { field: 'role', title: 'Role' },
     { field: 'address', title: 'Address' }
   ],
   data: [
@@ -53,4 +52,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10008, name: 'Test8', nickname: 'T8', role: 'Develop', sex: 'Man', age: 35, address: 'Shenzhen' }
   ]
 })
+
+const addEvent = () => {
+  console.log('add')
+}
+
+const delEvent = () => {
+  console.log('del')
+}
+
+const saveEvent = () => {
+  console.log('save')
+}
 </script>

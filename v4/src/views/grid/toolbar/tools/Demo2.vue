@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps } from 'vxe-table'
+import { VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -21,25 +21,20 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
-  height: 500,
-  exportConfig: {},
-  columnConfig: {
-    resizable: true
-  },
+  height: 400,
   toolbarConfig: {
-    export: true
+    tools: [
+      { name: '新增', code: 'add', status: 'primary' },
+      { name: '删除', code: 'del', status: 'error' },
+      { name: '保存', code: 'save', status: 'success' }
+    ]
   },
   columns: [
     { type: 'checkbox', width: 50 },
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
-    {
-      title: '分类',
-      children: [
-        { field: 'nickname', title: 'Nickname' },
-        { field: 'role', title: 'Role' }
-      ]
-    },
+    { field: 'nickname', title: 'Nickname' },
+    { field: 'role', title: 'Role' },
     { field: 'address', title: 'Address' }
   ],
   data: [
@@ -53,4 +48,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10008, name: 'Test8', nickname: 'T8', role: 'Develop', sex: 'Man', age: 35, address: 'Shenzhen' }
   ]
 })
+
+const gridEvents: VxeGridListeners = {
+  toolbarButtonClick (params) {
+    console.log(params.code)
+  }
+}
 </script>

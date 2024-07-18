@@ -406,20 +406,6 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
-          title: '排序',
-          children: [
-            { title: '多字段排序', routerLink: { name: 'ComponentGridSortMultiple' } },
-            { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } }
-          ]
-        },
-        {
-          title: '筛选',
-          children: [
-            { title: '修改筛选选项', routerLink: { name: 'ComponentGridFilterOptions' } },
-            { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } }
-          ]
-        },
-        {
           title: '单元格合并',
           children: [
             { title: '合并行', routerLink: { name: 'ComponentGridMergeRow' } },
@@ -456,12 +442,42 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '排序',
+          children: [
+            { title: '多字段排序', routerLink: { name: 'ComponentGridSortMultiple' } },
+            { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } }
+          ]
+        },
+        {
           title: '展开行',
           children: [
             { title: '基础使用', routerLink: { name: 'ComponentGridExpandBasic' } },
             { title: '展开容器内间距', routerLink: { name: 'ComponentGridExpandPadding' } },
             { title: '展开容器高度', routerLink: { name: 'ComponentGridExpandHeight' } },
             { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } }
+          ]
+        },
+        {
+          title: '筛选',
+          children: [
+            { title: '修改筛选选项', routerLink: { name: 'ComponentGridFilterOptions' } },
+            { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } }
+          ]
+        },
+        {
+          title: '筛选 - 渲染 - 配置式',
+          children: [
+            { title: 'VxeInput', routerLink: { name: 'ComponentGridFilterRenderVxeInput' } },
+            { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridFilterRenderVxeNumberInput' } },
+            { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterRenderVxeSelect' } },
+            { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridFilterRenderVxeDatePicker' } }
+          ]
+        },
+        {
+          title: '筛选 - 渲染 - 插槽式',
+          children: [
+            { title: 'VxeInput', routerLink: { name: 'ComponentGridFilterTemplateVxeInput' } },
+            { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterTemplateVxeSelect' } }
           ]
         },
         {
@@ -483,6 +499,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '工具栏',
           children: [
+            { title: '左侧按钮', routerLink: { name: 'ComponentGridToolbarButtons' } },
+            { title: '右侧按钮', routerLink: { name: 'ComponentGridToolbarTools' } },
             { title: '自定义列功能', routerLink: { name: 'ComponentGridToolbarCustom' } },
             { title: '打印功能', routerLink: { name: 'ComponentGridToolbarPrint' } },
             { title: '最大化显示', routerLink: { name: 'ComponentGridToolbarZoom' } },

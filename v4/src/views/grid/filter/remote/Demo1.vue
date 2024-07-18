@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 import { VxeTableDefines, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {

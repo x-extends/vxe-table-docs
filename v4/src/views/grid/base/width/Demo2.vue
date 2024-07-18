@@ -1,12 +1,14 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button @click="changeNameWidth(300)">修改name=300宽度</vxe-button>
+    <vxe-button @click="changeNameWidth(400)">修改name=400宽度</vxe-button>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import { VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -16,6 +18,7 @@ interface RowVO {
   age: number
   address: string
 }
+const gridRef = ref<VxeGridInstance>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -32,4 +35,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' }
   ]
 })
+
+const changeNameWidth = (width: number) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.setColumnWidth('name', width)
+  }
+}
 </script>

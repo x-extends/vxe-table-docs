@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import { VxeGridProps } from 'vxe-table'
+import { reactive } from 'vue'
+import { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,31 +17,19 @@ interface RowVO {
   address: string
 }
 
+const ageFilterRender = reactive<VxeColumnPropTypes.FilterRender>({
+  name: 'VxeNumberInput'
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 400,
   columns: [
     { field: 'id', title: 'ID' },
     { field: 'name', title: 'Name' },
-    {
-      field: 'sex',
-      title: 'Sex',
-      filterMultiple: false,
-      filters: [
-        { label: 'Man', value: '1' },
-        { label: 'Woman', value: '0' }
-      ]
-    },
-    {
-      field: 'age',
-      title: 'Age',
-      filters: [
-        { label: '28', value: 28 },
-        { label: '22', value: 22, checked: true },
-        { label: '38', value: 38 }
-      ]
-    },
-    { field: 'time', title: 'Time' }
+    { field: 'sex', title: 'Sex' },
+    { field: 'age', title: 'Age', filters: [{ data: '' }], filterRender: ageFilterRender },
+    { field: 'address', title: 'Address' }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

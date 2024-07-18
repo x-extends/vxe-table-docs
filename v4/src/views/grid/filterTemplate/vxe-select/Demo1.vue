@@ -1,6 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #filter_sex="{ $panel, column }">
+        <div v-for="(option, index) in column.filters" :key="index">
+          <vxe-select v-model="option.data" :options="sexOptions" @change="$panel.changeOption($event, !!option.data, option)"></vxe-select>
+        </div>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
@@ -17,6 +23,11 @@ interface RowVO {
   address: string
 }
 
+const sexOptions = ref([
+  { label: 'Women', value: 'Women' },
+  { label: 'Man', value: 'Man' }
+])
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 400,
@@ -26,22 +37,21 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     {
       field: 'sex',
       title: 'Sex',
-      filterMultiple: false,
       filters: [
-        { label: 'Man', value: '1' },
-        { label: 'Woman', value: '0' }
-      ]
+        { data: '' }
+      ],
+      filterMethod ({ option, row, column }) {
+        if (option.data) {
+          return row[column.field] === option.data
+        }
+        return true
+      },
+      slots: {
+        filter: 'filter_sex'
+      }
     },
-    {
-      field: 'age',
-      title: 'Age',
-      filters: [
-        { label: '28', value: 28 },
-        { label: '22', value: 22, checked: true },
-        { label: '38', value: 38 }
-      ]
-    },
-    { field: 'time', title: 'Time' }
+    { field: 'age', title: 'Age' },
+    { field: 'address', title: 'Address' }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

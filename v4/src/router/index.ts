@@ -1342,6 +1342,46 @@ const gridRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'filterRender',
+      children: [
+        {
+          path: 'vxe-input',
+          name: 'ComponentGridFilterRenderVxeInput',
+          component: () => import('@/views/grid/filterRender/vxe-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-number-input',
+          name: 'ComponentGridFilterRenderVxeNumberInput',
+          component: () => import('@/views/grid/filterRender/vxe-number-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-select',
+          name: 'ComponentGridFilterRenderVxeSelect',
+          component: () => import('@/views/grid/filterRender/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-date-picker',
+          name: 'ComponentGridFilterRenderVxeDatePicker',
+          component: () => import('@/views/grid/filterRender/vxe-date-picker/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'filterTemplate',
+      children: [
+        {
+          path: 'vxe-input',
+          name: 'ComponentGridFilterTemplateVxeInput',
+          component: () => import('@/views/grid/filterTemplate/vxe-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-select',
+          name: 'ComponentGridFilterTemplateVxeSelect',
+          component: () => import('@/views/grid/filterTemplate/vxe-select/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'layout',
       children: [
         {
@@ -1519,6 +1559,16 @@ const gridRouteConfig: RouteRecordRaw = {
     {
       path: 'toolbar',
       children: [
+        {
+          path: 'buttons',
+          name: 'ComponentGridToolbarButtons',
+          component: () => import('@/views/grid/toolbar/buttons/CodeExample.vue')
+        },
+        {
+          path: 'tools',
+          name: 'ComponentGridToolbarTools',
+          component: () => import('@/views/grid/toolbar/tools/CodeExample.vue')
+        },
         {
           path: 'custom',
           name: 'ComponentGridToolbarCustom',

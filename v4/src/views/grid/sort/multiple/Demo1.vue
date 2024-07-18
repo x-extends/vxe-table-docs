@@ -5,37 +5,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import { VxeGridProps, VxeTableEvents, VxeGridListeners } from 'vxe-table'
+import { reactive } from 'vue'
+import { VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   name: string
   role: string
   num: number
 }
-
-const tableData = ref<RowVO[]>([
-  { name: '小红', role: '前端', num: 7 },
-  { name: '老王', role: '后端', num: 6 },
-  { name: '小红', role: '后端', num: 1 },
-  { name: '小明', role: '前端', num: 2 },
-  { name: '老徐', role: '测试', num: 3 },
-  { name: '老王', role: '前端', num: 3 },
-  { name: '老徐', role: '测试', num: 4 },
-  { name: '小明', role: '前端', num: 4 },
-  { name: '小明', role: '前端', num: 8 },
-  { name: '小明', role: '测试', num: 6 },
-  { name: '小红', role: '后端', num: 9 },
-  { name: '老徐', role: '前端', num: 5 },
-  { name: '老徐', role: '测试', num: 1 },
-  { name: '小红', role: '前端', num: 4 },
-  { name: '小红', role: '前端', num: 2 },
-  { name: '小明', role: '测试', num: 3 },
-  { name: '老王', role: '前端', num: 6 },
-  { name: '老王', role: '后端', num: 4 },
-  { name: '老徐', role: '前端', num: 8 },
-  { name: '小明', role: '测试', num: 7 }
-])
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,

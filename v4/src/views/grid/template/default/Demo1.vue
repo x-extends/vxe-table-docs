@@ -10,9 +10,9 @@
       </template>
 
       <template #address_default="{ row }">
-        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 36px;">
+        <vxe-image src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" width="36"></vxe-image>
         <span>{{ row.address }}</span>
-        <img src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" style="width: 30px;">
+        <vxe-image src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" width="30"></vxe-image>
       </template>
     </vxe-grid>
   </div>
