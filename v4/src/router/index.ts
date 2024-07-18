@@ -1338,6 +1338,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'remote',
           name: 'ComponentGridFilterRemote',
           component: () => import('@/views/grid/filter/remote/CodeExample.vue')
+        },
+        {
+          path: 'headerFilter',
+          name: 'ComponentGridFilterHeaderFilter',
+          component: () => import('@/views/grid/filter/headerFilter/CodeExample.vue')
         }
       ]
     },

@@ -461,7 +461,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '筛选',
           children: [
             { title: '修改筛选选项', routerLink: { name: 'ComponentGridFilterOptions' } },
-            { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } }
+            { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } },
+            { title: '实现列头中自定义筛选', routerLink: { name: 'ComponentGridFilterHeaderFilter' } }
           ]
         },
         {
