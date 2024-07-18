@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>
+      <vxe-button @click="insertEvent">第二行插入子节点</vxe-button>
       <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
     </p>
 
@@ -78,6 +79,22 @@ const treeConfig = reactive<VxeTablePropTypes.TreeConfig<RowVO>>({
     })
   }
 })
+
+const insertEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    const id = Date.now()
+    const record = {
+      id: id,
+      parentId: 10050,
+      name: `name ${id}`,
+      type: 'mp4',
+      size: 1024,
+      date: '2020-08-01'
+    }
+    $table.insert(record)
+  }
+}
 
 const getUpdateEvent = () => {
   const $table = tableRef.value

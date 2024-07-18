@@ -8,7 +8,12 @@
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="age" title="Age">
+        <template #header="{ column }">
+          <span>{{ column.title }}</span>
+          <vxe-button mode="text" icon="vxe-icon-setting-fill" @click="openCustomEvent"></vxe-button>
+        </template>
+      </vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -26,7 +31,7 @@ interface RowVO {
   address: string
 }
 
-const tableRef = ref<VxeTableInstance>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
