@@ -576,6 +576,21 @@ const tableRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'pager',
+      children: [
+        {
+          path: 'mockPage',
+          name: 'ComponentTablePagerMockPage',
+          component: () => import('@/views/table/pager/mockPage/CodeExample.vue')
+        },
+        {
+          path: 'layouts',
+          name: 'ComponentTablePagerLayouts',
+          component: () => import('@/views/table/pager/layouts/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'tree',
       children: [
         {
@@ -1680,14 +1695,19 @@ const gridRouteConfig: RouteRecordRaw = {
       path: 'pager',
       children: [
         {
-          path: 'base',
-          name: 'ComponentGridPagerBase',
-          component: () => import('@/views/grid/pager/base/CodeExample.vue')
+          path: 'mockPage',
+          name: 'ComponentGridPagerMockPage',
+          component: () => import('@/views/grid/pager/mockPage/CodeExample.vue')
         },
         {
-          path: 'pageSize',
-          name: 'ComponentGridPagerPageSize',
-          component: () => import('@/views/grid/pager/pageSize/CodeExample.vue')
+          path: 'layouts',
+          name: 'ComponentGridPagerLayouts',
+          component: () => import('@/views/grid/pager/layouts/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          name: 'ComponentGridPagerTemplate',
+          component: () => import('@/views/grid/pager/template/CodeExample.vue')
         }
       ]
     },

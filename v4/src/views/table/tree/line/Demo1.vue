@@ -3,6 +3,7 @@
     <vxe-table
       show-overflow
       border="outer"
+      :row-config="{useKey: true}"
       :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', showLine: true}"
       :data="tableData">

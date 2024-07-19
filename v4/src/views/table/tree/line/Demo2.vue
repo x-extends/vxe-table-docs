@@ -3,6 +3,7 @@
     <vxe-table
       show-overflow
       border="outer"
+      :row-config="{useKey: true}"
       :column-config="{resizable: true}"
       :checkbox-config="{labelField: 'name'}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', showLine: true}"

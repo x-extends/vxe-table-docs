@@ -74,8 +74,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格合并',
           children: [
-            { title: '合并行', routerLink: { name: 'ComponentTableMergeRow' } },
-            { title: '合并列', routerLink: { name: 'ComponentTableMergeColumn' } },
+            { title: '将多行进行合并', routerLink: { name: 'ComponentTableMergeRow' } },
+            { title: '将多列进行合并', routerLink: { name: 'ComponentTableMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentTableMergeAll' } },
             { title: '表尾合并', routerLink: { name: 'ComponentTableMergeFooter' } },
             { title: '实现横向树', routerLink: { name: 'ComponentTableMergeHorizontal' } }
@@ -185,10 +185,13 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现折叠列', routerLink: { name: 'ComponentTableCustomCollapseColumn' } }
           ]
         },
-        // {
-        //   title: '数据分页',
-        //   children: []
-        // },
+        {
+          title: '数据分页',
+          children: [
+            { title: '实现前端分页', routerLink: { name: 'ComponentTablePagerMockPage' } },
+            { title: '自定义分页布局', routerLink: { name: 'ComponentTablePagerLayouts' } }
+          ]
+        },
         {
           title: '树形',
           children: [
@@ -408,8 +411,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格合并',
           children: [
-            { title: '合并行', routerLink: { name: 'ComponentGridMergeRow' } },
-            { title: '合并列', routerLink: { name: 'ComponentGridMergeColumn' } },
+            { title: '将多行进行合并', routerLink: { name: 'ComponentGridMergeRow' } },
+            { title: '将多列进行合并', routerLink: { name: 'ComponentGridMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } }
           ]
         },
@@ -529,10 +532,11 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
-          title: '分页查询',
+          title: '数据分页',
           children: [
-            { title: '基础', routerLink: { name: 'ComponentGridPagerBase' } },
-            { title: '自定义每页大小', routerLink: { name: 'ComponentGridPagerPageSize' } }
+            { title: '实现前端分页', routerLink: { name: 'ComponentGridPagerMockPage' } },
+            { title: '自定义分页布局', routerLink: { name: 'ComponentGridPagerLayouts' } },
+            { title: '自定义分页模板', routerLink: { name: 'ComponentGridPagerTemplate' } }
           ]
         },
         {
