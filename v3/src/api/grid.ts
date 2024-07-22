@@ -797,6 +797,16 @@ XEUtils.eachTree((gridAPI as any[]), (item, index, obj, paths, parent) => {
       },
       {
         name: 'insert_actived',
+        disabled: true,
+        desc: '已废弃，请使用 insert_edit',
+        version: '',
+        type: '',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'insert_edit',
         desc: '新增数据并且默认激活第一个可编辑的单元格',
         version: '',
         type: '',

@@ -95,7 +95,7 @@ export default {
       },
       tableToolbar: {
         buttons: [
-          { code: 'insert_actived', name: 'Add' },
+          { code: 'insert_edit', name: 'Add' },
           { code: 'mark_cancel', name: '删除/取消' },
           { code: 'save', name: 'Save' }
         ],
@@ -252,7 +252,7 @@ export default {
                 },
                 toolbarConfig: {
                   buttons: [
-                    { code: 'insert_actived', name: 'Add' },
+                    { code: 'insert_edit', name: 'Add' },
                     { code: 'mark_cancel', name: '删除/取消' },
                     { code: 'save', name: 'Save' }
                   ],

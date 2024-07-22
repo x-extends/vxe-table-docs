@@ -383,7 +383,7 @@ const importDataAPI = [
     desc: '导入数据的方式',
     version: '',
     type: 'string',
-    enum: 'covering, insert',
+    enum: 'covering, insertBottom',
     defVal: 'covering',
     list: []
   },

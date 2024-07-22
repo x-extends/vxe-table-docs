@@ -48,7 +48,7 @@ export default {
         },
         toolbarConfig: {
           buttons: [
-            { code: 'insert_actived', name: '新增', icon: 'vxe-icon-square-plus' },
+            { code: 'insert_edit', name: '新增', icon: 'vxe-icon-square-plus' },
             { code: 'mark_cancel', name: 'app.body.button.markCancel', icon: 'vxe-icon-delete' },
             { code: 'save', name: 'app.body.button.save', icon: 'vxe-icon-save' }
           ],
@@ -173,7 +173,7 @@ export default {
                 },
                 toolbarConfig: {
                   buttons: [
-                    { code: 'insert_actived', name: '新增', icon: 'vxe-icon-square-plus' },
+                    { code: 'insert_edit', name: '新增', icon: 'vxe-icon-square-plus' },
                     { code: 'mark_cancel', name: 'app.body.button.markCancel', icon: 'vxe-icon-delete' },
                     { code: 'save', name: 'app.body.button.save', icon: 'vxe-icon-save' }
                   ],

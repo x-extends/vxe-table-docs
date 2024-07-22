@@ -381,12 +381,21 @@ const importDataAPI = [
   {
     name: 'mode',
     desc: '导入数据的方式',
-    version: '',
+    version: '3.8.10 | 3.8.16',
     type: 'string',
-    enum: 'covering, insert',
+    enum: 'covering, insertBottom, insertTop',
     defVal: 'covering',
     list: []
   },
+  // {
+  //   name: 'modes',
+  //   desc: '导入数据的方式列表',
+  //   version: '3.8.16',
+  //   type: 'string',
+  //   enum: 'covering, insertBottom, insertTop',
+  //   defVal: '["insertTop", "covering"]',
+  //   list: []
+  // },
   {
     name: 'message',
     desc: '是否显示内置的消息提示',
