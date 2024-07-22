@@ -1780,6 +1780,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/cellRender/vxe-image/CodeExample.vue')
         },
         {
+          path: 'vxe-image-group',
+          name: 'ComponentGridCellRenderVxeImageGroup',
+          component: () => import('@/views/grid/cellRender/vxe-image-group/CodeExample.vue')
+        },
+        {
           path: 'vxe-upload',
           name: 'ComponentGridCellRenderVxeUpload',
           component: () => import('@/views/grid/cellRender/vxe-upload/CodeExample.vue')

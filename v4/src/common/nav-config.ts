@@ -566,6 +566,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeCheckboxGroup', routerLink: { name: 'ComponentGridCellRenderVxeCheckboxGroup' } },
             { title: 'VxeButtonGroup', routerLink: { name: 'ComponentGridCellRenderVxeButtonGroup' } },
             { title: 'VxeImage', routerLink: { name: 'ComponentGridCellRenderVxeImage' } },
+            { title: 'VxeImageGroup', routerLink: { name: 'ComponentGridCellRenderVxeImageGroup' } },
             { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellRenderVxeUpload' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/cell/el-switch' }
           ]
