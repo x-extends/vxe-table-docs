@@ -10,7 +10,11 @@
           </div>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
+      <vxe-column field="sex" title="Sex">
+        <template #header>
+          <span style="color: red;">Sex</span>
+        </template>
+      </vxe-column>
       <vxe-column field="num" title="Number"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address"></vxe-column>

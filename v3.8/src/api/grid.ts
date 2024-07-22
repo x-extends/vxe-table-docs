@@ -194,8 +194,27 @@ const apis = [
           },
           {
             name: 'message',
-            desc: '是否显示内置的消息提示（可以设为 false 关闭内置的消息提示）',
+            disabled: true,
+            desc: '请使用 showResponseMsg',
             version: '',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'showResponseMsg',
+            desc: '是否显示内置的响应提示',
+            version: '3.8.17',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'showActiveMsg',
+            desc: '是否显示内置的操作提示）',
+            version: '3.8.17',
             type: 'boolean',
             enum: '',
             defVal: 'true',

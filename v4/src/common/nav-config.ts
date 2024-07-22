@@ -189,7 +189,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '数据分页',
           children: [
             { title: '实现前端分页', routerLink: { name: 'ComponentTablePagerMockPage' } },
-            { title: '自定义分页布局', routerLink: { name: 'ComponentTablePagerLayouts' } }
+            { title: '自定义布局', routerLink: { name: 'ComponentTablePagerLayouts' } },
+            { title: '自定义序号', routerLink: { name: 'ComponentTablePagerStart' } }
           ]
         },
         {
@@ -535,8 +536,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '数据分页',
           children: [
             { title: '实现前端分页', routerLink: { name: 'ComponentGridPagerMockPage' } },
-            { title: '自定义分页布局', routerLink: { name: 'ComponentGridPagerLayouts' } },
-            { title: '自定义分页模板', routerLink: { name: 'ComponentGridPagerTemplate' } }
+            { title: '自定义布局', routerLink: { name: 'ComponentGridPagerLayouts' } },
+            { title: '自定义序号', routerLink: { name: 'ComponentGridPagerStart' } },
+            { title: '自定义插槽模板', routerLink: { name: 'ComponentGridPagerTemplate' } }
           ]
         },
         {
@@ -563,6 +565,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeRadioGroup', routerLink: { name: 'ComponentGridCellRenderVxeRadioGroup' } },
             { title: 'VxeCheckboxGroup', routerLink: { name: 'ComponentGridCellRenderVxeCheckboxGroup' } },
             { title: 'VxeButtonGroup', routerLink: { name: 'ComponentGridCellRenderVxeButtonGroup' } },
+            { title: 'VxeImage', routerLink: { name: 'ComponentGridCellRenderVxeImage' } },
             { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellRenderVxeUpload' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/cell/el-switch' }
           ]
@@ -573,6 +576,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeSwitch', routerLink: { name: 'ComponentGridCellTemplateVxeSwitch' } },
             { title: 'VxeButtonGroup', routerLink: { name: 'ComponentGridCellTemplateVxeButtonGroup' } },
             { title: 'VxeButton', routerLink: { name: 'ComponentGridCellTemplateVxeButton' } },
+            { title: 'VxeImage', routerLink: { name: 'ComponentGridCellTemplateVxeImage' } },
             { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellTemplateVxeUpload' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/cell/el-switch' }
           ]

@@ -194,8 +194,27 @@ const apis = [
           },
           {
             name: 'message',
-            desc: '是否显示内置的消息提示（可以设为 false 关闭内置的消息提示）',
+            disabled: true,
+            desc: '请使用 showResponseMsg',
             version: '',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'showResponseMsg',
+            desc: '是否显示内置的响应提示',
+            version: '3.8.17',
+            type: 'boolean',
+            enum: '',
+            defVal: 'true',
+            list: []
+          },
+          {
+            name: 'showActiveMsg',
+            desc: '是否显示内置的操作提示）',
+            version: '3.8.17',
             type: 'boolean',
             enum: '',
             defVal: 'true',
@@ -797,16 +816,6 @@ XEUtils.eachTree((gridAPI as any[]), (item, index, obj, paths, parent) => {
       },
       {
         name: 'insert_actived',
-        disabled: true,
-        desc: '已废弃，请使用 insert_edit',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: '',
-        list: []
-      },
-      {
-        name: 'insert_edit',
         desc: '新增数据并且默认激活第一个可编辑的单元格',
         version: '',
         type: '',

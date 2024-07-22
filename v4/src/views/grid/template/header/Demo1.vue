@@ -1,11 +1,14 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-      <template #name_header>
+      <template #header_name>
         <div class="first-col">
           <div class="first-col-top">名称</div>
           <div class="first-col-bottom">序号</div>
         </div>
+      </template>
+      <template #header_sex>
+        <span style="color: red;">Sex</span>
       </template>
     </vxe-grid>
   </div>
@@ -29,8 +32,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', slots: { header: 'name_header' } },
-    { field: 'sex', title: 'Sex' },
+    { field: 'name', title: 'Name', slots: { header: 'header_name' } },
+    { field: 'sex', title: 'Sex', slots: { header: 'header_sex' } },
     { field: 'num', title: 'Number' },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }
