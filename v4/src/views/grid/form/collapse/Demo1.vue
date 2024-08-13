@@ -22,6 +22,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 500,
   formConfig: {
+    data: {
+      name: '',
+      email: '',
+      nickname: '',
+      role: '',
+      age: ''
+    },
     items: [
       { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput' } },
       { field: 'email', title: '邮件', span: 8, itemRender: { name: 'VxeInput' } },

@@ -682,6 +682,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'expandLazy',
           name: 'ComponentTableTreeExpandLazy',
           component: () => import('@/views/table/tree/expandLazy/CodeExample.vue')
+        },
+        {
+          path: 'group',
+          name: 'ComponentTableTreeGroup',
+          component: () => import('@/views/table/tree/group/CodeExample.vue')
         }
       ]
     },

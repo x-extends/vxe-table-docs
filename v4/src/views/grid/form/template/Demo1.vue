@@ -2,10 +2,10 @@
   <div>
     <vxe-grid v-bind="gridOptions" v-on="gridEvents">
       <template #form>
-        <vxe-form v-bind="formOptions">
+        <vxe-form ref="formRef" v-bind="formOptions">
           <template #active>
-            <vxe-button status="primary" content="搜索" @click="searchEvent"></vxe-button>
-            <vxe-button content="重置"></vxe-button>
+            <vxe-button status="primary" @click="searchEvent">搜索</vxe-button>
+            <vxe-button @click="resetEvent">重置</vxe-button>
           </template>
         </vxe-form>
       </template>
@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeGridProps, VxeGridListeners, VxeFormInstance } from 'vxe-table'
 import { VxeFormProps } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -35,6 +35,8 @@ interface FormDataVO {
   sex: string
   age: string
 }
+
+const formRef = ref<VxeFormInstance>()
 
 const formOptions = reactive<VxeFormProps<FormDataVO>>({
   data: {
@@ -96,8 +98,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const searchEvent = () => {
-  console.log('search form')
+const searchEvent = async () => {
+  console.log('search form', gridOptions.formConfig?.data)
+}
+
+const resetEvent = () => {
+  const $form = formRef.value
+  if ($form) {
+    $form.reset()
+  }
 }
 
 const gridEvents: VxeGridListeners = {

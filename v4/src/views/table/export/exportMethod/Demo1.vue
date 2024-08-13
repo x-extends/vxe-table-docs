@@ -15,9 +15,9 @@
       <vxe-column
         field="age"
         title="Age"
-        :header-export-method="headerExportMethod"
-        :export-method="exportMethod"
-        :footer-export-method="footerExportMethod">
+        :header-export-method="headerAgeExportMethod"
+        :export-method="exportAgeMethod"
+        :footer-export-method="footerAgeExportMethod">
       </vxe-column>
     </vxe-table>
   </div>
@@ -49,15 +49,15 @@ const footerData = ref<VxeTablePropTypes.FooterData>([
   { seq: '平均', age: '26' }
 ])
 
-const headerExportMethod: VxeColumnPropTypes.HeaderExportMethod<RowVO> = ({ column }) => {
+const headerAgeExportMethod: VxeColumnPropTypes.HeaderExportMethod<RowVO> = ({ column }) => {
   return `自定义：${column.title}`
 }
 
-const exportMethod: VxeColumnPropTypes.ExportMethod<RowVO> = ({ row, column }) => {
-  return `自定义：${row[column.field]}`
+const exportAgeMethod: VxeColumnPropTypes.ExportMethod<RowVO> = ({ row, column }) => {
+  return `自定义：${row.age}`
 }
 
-const footerExportMethod: VxeColumnPropTypes.FooterExportMethod<RowVO> = ({ row }) => {
+const footerAgeExportMethod: VxeColumnPropTypes.FooterExportMethod<RowVO> = ({ row }) => {
   return `平均：${row.age}`
 }
 

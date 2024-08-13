@@ -212,7 +212,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '懒加载', routerLink: { name: 'ComponentTableTreeLazy' } },
             { title: '懒加载 - 可编辑', routerLink: { name: 'ComponentTableTreeLazyEdit' } },
             { title: '同时使用展开行', routerLink: { name: 'ComponentTableTreeExpand' } },
-            { title: '同时使用展开行 - 懒加载', routerLink: { name: 'ComponentTableTreeExpandLazy' } }
+            { title: '同时使用展开行 - 懒加载', routerLink: { name: 'ComponentTableTreeExpandLazy' } },
+            { title: '实现数据分组', routerLink: { name: 'ComponentTableTreeGroup' } }
           ]
         },
         {
@@ -496,7 +497,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '查询表单',
           children: [
             { title: '查询表单', routerLink: { name: 'ComponentGridFormSearch' } },
-            { title: '绑定表单数据', routerLink: { name: 'ComponentGridFormFormData' } },
+            { title: '表单的默认值', routerLink: { name: 'ComponentGridFormFormData' } },
             { title: '带折叠的查询表单', routerLink: { name: 'ComponentGridFormCollapse' } },
             { title: '自定义表单插槽模板', routerLink: { name: 'ComponentGridFormTemplate' } }
           ]

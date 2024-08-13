@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-switch v-model="menuConfig.enabled"></vxe-switch>
     <vxe-table
       border
       show-footer
@@ -7,9 +8,9 @@
       height="400"
       :row-config="{isCurrent: true}"
       :column-config="{isCurrent: true}"
-      :footer-method="footerMethod"
       :data="tableData"
       :menu-config="menuConfig"
+      :footer-data="footerData"
       @header-cell-menu="headerCellContextMenuEvent"
       @cell-menu="cellContextMenuEvent"
       @menu-click="contextMenuClickEvent">
@@ -47,7 +48,12 @@ const tableData = ref([
   { id: 10007, name: 'Test7', role: 'Test', sex: 'Women', age: 44, address: 'Guangzhou' }
 ])
 
+const footerData = ref<VxeTablePropTypes.FooterData>([
+  { checkbox: '合计', age: 135 }
+])
+
 const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
+  enabled: true,
   header: {
     options: [
       [
@@ -155,27 +161,5 @@ const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, col
     default:
       VxeUI.modal.message({ content: `点击了 "${menu.name}"`, status: 'info' })
   }
-}
-
-const meanNum = (list: RowVO[], field: string) => {
-  let count = 0
-  list.forEach(item => {
-    count += Number(item[field])
-  })
-  return count / list.length
-}
-
-const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) => {
-  return [
-    columns.map((column, columnIndex) => {
-      if (columnIndex === 0) {
-        return '平均'
-      }
-      if (['age', 'rate'].includes(column.field)) {
-        return meanNum(data, column.field)
-      }
-      return '-'
-    })
-  ]
 }
 </script>

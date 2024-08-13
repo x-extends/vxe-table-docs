@@ -575,7 +575,7 @@ export default {
           field: 'Column field',
           label: 'Obsolete, please use "title"',
           title: 'Column title (support internationalization)',
-          width: 'Column width (if empty, distribute the remaining widths evenly; if all columns are fixed, there may be a widescreen that does not fill up, either with "%" or "min-width" layout)',
+          width: 'Column width. If it is empty, the remaining width is evenly distributed. If it is auto, the content width is adaptively adjusted (when all columns have a fixed width, there may be situations where the widescreen is not fully filled. You can set some columns as a "%" percentage or set the minimum width through "min width")',
           minWidth: 'Minimum height of the column,The remaining space is automatically allocated proportionally',
           resizable: 'Whether column resizing allows dragging column widths',
           fixed: 'Fix the column to the left or right (note: fixed columns should be left and right)',

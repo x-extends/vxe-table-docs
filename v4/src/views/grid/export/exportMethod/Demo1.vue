@@ -34,8 +34,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       headerExportMethod ({ column }) {
         return `自定义：${column.title}`
       },
-      exportMethod ({ row, column }) {
-        return `自定义：${row[column.field]}`
+      exportMethod ({ row }) {
+        return `自定义：${row.age}`
       },
       footerExportMethod ({ row }) {
         return `平均：${row.age}`

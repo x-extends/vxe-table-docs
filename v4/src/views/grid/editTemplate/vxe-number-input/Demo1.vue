@@ -6,15 +6,15 @@
       </template>
 
       <template #edit_num="{ row }">
-        <vxe-input v-model="row.num" type="number"></vxe-input>
+        <vxe-number-input v-model="row.num"></vxe-number-input>
       </template>
 
       <template #edit_integer="{ row }">
-        <vxe-input v-model="row.integer" type="integer"></vxe-input>
+        <vxe-number-input v-model="row.integer" type="integer"></vxe-number-input>
       </template>
 
       <template #edit_float="{ row }">
-        <vxe-input v-model="row.float" type="float"></vxe-input>
+        <vxe-number-input v-model="row.float" type="float"></vxe-number-input>
       </template>
     </vxe-grid>
   </div>

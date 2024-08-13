@@ -6,37 +6,37 @@
       </template>
 
       <template #edit_date="{ row }">
-        <vxe-input v-model="row.date" type="date"></vxe-input>
+        <vxe-date-picker v-model="row.date"></vxe-date-picker>
       </template>
 
       <template #edit_year="{ row }">
-        <vxe-input v-model="row.year" type="year"></vxe-input>
+        <vxe-date-picker v-model="row.year" type="year"></vxe-date-picker>
       </template>
 
       <template #edit_quarter="{ row }">
-        <vxe-input v-model="row.quarter" type="quarter"></vxe-input>
+        <vxe-date-picker v-model="row.quarter" type="quarter"></vxe-date-picker>
       </template>
       <template #default_quarter="{ row }">
         <span>{{ formatQuarterLabel(row.quarter) }}</span>
       </template>
 
       <template #edit_month="{ row }">
-        <vxe-input v-model="row.month" type="month"></vxe-input>
+        <vxe-date-picker v-model="row.month" type="month"></vxe-date-picker>
       </template>
 
       <template #edit_week="{ row }">
-        <vxe-input v-model="row.week" type="week"></vxe-input>
+        <vxe-date-picker v-model="row.week" type="week"></vxe-date-picker>
       </template>
       <template #default_week="{ row }">
         <span>{{ formatWeekLabel(row.week) }}</span>
       </template>
 
       <template #edit_time="{ row }">
-        <vxe-input v-model="row.time" type="time"></vxe-input>
+        <vxe-date-picker v-model="row.time" type="time"></vxe-date-picker>
       </template>
 
       <template #edit_datetime="{ row }">
-        <vxe-input v-model="row.datetime" type="datetime"></vxe-input>
+        <vxe-date-picker v-model="row.datetime" type="datetime"></vxe-date-picker>
       </template>
     </vxe-grid>
   </div>

@@ -1,12 +1,13 @@
 <template>
   <div>
+    <vxe-switch v-model="gridOptions.menuConfig.enabled"></vxe-switch>
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeUI, VxeGridInstance, VxeTablePropTypes, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -20,7 +21,9 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
+const gridOptions = reactive<VxeGridProps<RowVO> & {
+  menuConfig: VxeTablePropTypes.MenuConfig<RowVO>
+}>({
   border: true,
   showFooter: true,
   rowConfig: {
@@ -46,6 +49,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10005, name: 'Test5', nickname: 'T5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' }
   ],
   menuConfig: {
+    enabled: true,
     header: {
       options: [
         [

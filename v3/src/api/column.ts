@@ -94,7 +94,7 @@ const apis = [
         descKey: 'app.api.tableColumn.desc.minWidth',
         version: '',
         type: 'number | string',
-        enum: 'px, %',
+        enum: 'auto, px, %',
         defVal: '继承 table.column-config.minWidth',
         list: []
       },
