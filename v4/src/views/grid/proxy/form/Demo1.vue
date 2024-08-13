@@ -44,8 +44,8 @@ const list = [
 ]
 
 // 模拟接口
-const findPageList = (pageSize: number, currentPage: number) => {
-  console.log(`调用查询接口 pageSize=${pageSize} currentPage=${currentPage}`)
+const findPageList = (pageSize: number, currentPage: number, queryObj: any) => {
+  console.log(`调用查询接口 pageSize=${pageSize} currentPage=${currentPage}`, queryObj)
   return new Promise<{
     result: RowVO[]
     page: {
@@ -67,15 +67,33 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 500,
   pagerConfig: {},
+  formConfig: {
+    items: [
+      { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput' } },
+      { field: 'email', title: '邮件', span: 8, itemRender: { name: 'VxeInput' } },
+      { field: 'nickname', title: '昵称', span: 8, itemRender: { name: 'VxeInput' } },
+      { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: 'VxeInput' } },
+      { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: 'VxeInput' } },
+      {
+        span: 24,
+        align: 'center',
+        collapseNode: true,
+        itemRender: {
+          name: 'VxeButtonGroup',
+          options: [
+            { type: 'submit', content: '搜索', status: 'primary' },
+            { type: 'reset', content: '重置' }
+          ]
+        }
+      }
+    ]
+  },
   proxyConfig: {
-    // props: {
-    //   result: 'result', // 配置响应结果列表字段
-    //   total: 'page.total' // 配置响应结果总页数字段
-    // },
+    // 启用表单代理
+    form: true,
     ajax: {
-      query: ({ page }) => {
-        // 默认接收 Promise<{ result: [], page: { total: 100 } }>
-        return findPageList(page.pageSize, page.currentPage)
+      query: ({ page, form }) => {
+        return findPageList(page.pageSize, page.currentPage, form)
       }
     }
   },

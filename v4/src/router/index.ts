@@ -2205,6 +2205,16 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/proxy/pager/CodeExample.vue')
         },
         {
+          path: 'form',
+          name: 'ComponentGridProxyForm',
+          component: () => import('@/views/grid/proxy/form/CodeExample.vue')
+        },
+        {
+          path: 'seq',
+          name: 'ComponentGridProxySeq',
+          component: () => import('@/views/grid/proxy/seq/CodeExample.vue')
+        },
+        {
           path: 'toolbarQuery',
           name: 'ComponentGridProxyToolbarQuery',
           component: () => import('@/views/grid/proxy/toolbarQuery/CodeExample.vue')

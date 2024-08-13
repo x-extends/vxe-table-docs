@@ -20,6 +20,7 @@ interface RowVO {
 
 // 模拟接口
 const findList = () => {
+  console.log('调用查询接口')
   return new Promise<RowVO[]>(resolve => {
     setTimeout(() => {
       const list = [

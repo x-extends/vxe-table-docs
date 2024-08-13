@@ -44,7 +44,8 @@ const list = [
 ]
 
 // 模拟接口
-const findPageList = (pageSize: number, currentPage: number) => {
+const findPageList = (pageSize: number, currentPage: number, queryObj: any) => {
+  console.log(`调用查询接口 pageSize=${pageSize} currentPage=${currentPage}`, queryObj)
   return new Promise<{
     result: RowVO[]
     total: number
@@ -60,6 +61,7 @@ const findPageList = (pageSize: number, currentPage: number) => {
 
 // 模拟接口
 const deleteApi = (removeRecords: RowVO[]) => {
+  console.log('调用删除接口', removeRecords)
   return new Promise<void>(resolve => {
     setTimeout(() => {
       console.log(`已删除 ${removeRecords.length} 行`, removeRecords)
@@ -70,6 +72,7 @@ const deleteApi = (removeRecords: RowVO[]) => {
 
 // 模拟接口
 const saveApi = (pendingRecords: RowVO[], insertRecords: RowVO[], updateRecords: RowVO[]) => {
+  console.log('调用保存接口', pendingRecords, insertRecords, updateRecords)
   return new Promise<void>(resolve => {
     setTimeout(() => {
       console.log(`删除行 ${pendingRecords.length} 行`, pendingRecords)
@@ -93,6 +96,27 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     mode: 'row',
     showStatus: true
   },
+  formConfig: {
+    items: [
+      { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput' } },
+      { field: 'email', title: '邮件', span: 8, itemRender: { name: 'VxeInput' } },
+      { field: 'nickname', title: '昵称', span: 8, itemRender: { name: 'VxeInput' } },
+      { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: 'VxeInput' } },
+      { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: 'VxeInput' } },
+      {
+        span: 24,
+        align: 'center',
+        collapseNode: true,
+        itemRender: {
+          name: 'VxeButtonGroup',
+          options: [
+            { type: 'submit', content: '搜索', status: 'primary' },
+            { type: 'reset', content: '重置' }
+          ]
+        }
+      }
+    ]
+  },
   toolbarConfig: {
     buttons: [
       { code: 'insert_actived', name: '新增' },
@@ -110,14 +134,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'address', title: 'Address', editRender: { name: 'input' }, showOverflow: true }
   ],
   proxyConfig: {
+    form: true, // 启用表单代理
     props: {
       result: 'result', // 配置响应结果列表字段
       total: 'total' // 配置响应结果总页数字段
     },
     ajax: {
-      query: ({ page }) => {
+      query: ({ page, form }) => {
         // 默认接收 Promise<{ result: [], page: { total: 100 } }>
-        return findPageList(page.pageSize, page.currentPage)
+        return findPageList(page.pageSize, page.currentPage, form)
       },
       delete: ({ body }) => {
         // 接收 Promise<any>
