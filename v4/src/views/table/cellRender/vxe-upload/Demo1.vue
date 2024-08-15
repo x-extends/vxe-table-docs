@@ -3,7 +3,6 @@
     <vxe-table
       border
       show-overflow
-      :row-config="{height: 140}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180"></vxe-column>
@@ -28,7 +27,11 @@ interface RowVO {
 const fileListCellRender = reactive<VxeColumnPropTypes.CellRender>({
   name: 'VxeUpload',
   props: {
-    readonly: true
+    readonly: true,
+    moreConfig: {
+      maxCount: 1,
+      layout: 'horizontal'
+    }
   }
 })
 
@@ -36,7 +39,14 @@ const imgListCellRender = reactive<VxeColumnPropTypes.CellRender>({
   name: 'VxeUpload',
   props: {
     mode: 'image',
-    readonly: true
+    readonly: true,
+    moreConfig: {
+      maxCount: 1
+    },
+    imageStyle: {
+      width: 40,
+      height: 40
+    }
   }
 })
 

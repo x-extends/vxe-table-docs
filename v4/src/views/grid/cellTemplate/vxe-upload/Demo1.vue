@@ -2,11 +2,11 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #fileList_default="{ row }">
-        <vxe-upload v-model="row.fileList" readonly></vxe-upload>
+        <vxe-upload v-model="row.fileList" :more-config="{maxCount: 1, layout: 'horizontal'}" readonly></vxe-upload>
       </template>
 
       <template #imgList_default="{ row }">
-        <vxe-upload v-model="row.imgList" mode="image" readonly></vxe-upload>
+        <vxe-upload v-model="row.imgList" mode="image" :more-config="{ maxCount: 1 }" :image-style="{ width: 40, height: 40 }" readonly></vxe-upload>
       </template>
     </vxe-grid>
   </div>
@@ -27,9 +27,6 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
-  rowConfig: {
-    height: 140
-  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 180 },

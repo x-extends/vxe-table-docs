@@ -12,7 +12,7 @@
       :column-config="{resizable: true}"
       :tree-config="treeConfig"
       :data="tableData">
-      <vxe-column field="name" title="app.body.label.name" tree-node></vxe-column>
+      <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>
       <vxe-column field="date" title="Date"></vxe-column>

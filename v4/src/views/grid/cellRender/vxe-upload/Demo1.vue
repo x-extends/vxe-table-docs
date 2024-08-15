@@ -19,7 +19,11 @@ interface RowVO {
 const fileListCellRender = reactive<VxeColumnPropTypes.CellRender>({
   name: 'VxeUpload',
   props: {
-    readonly: true
+    readonly: true,
+    moreConfig: {
+      maxCount: 1,
+      layout: 'horizontal'
+    }
   }
 })
 
@@ -27,21 +31,25 @@ const imgListCellRender = reactive<VxeColumnPropTypes.CellRender>({
   name: 'VxeUpload',
   props: {
     mode: 'image',
-    readonly: true
+    readonly: true,
+    moreConfig: {
+      maxCount: 1
+    },
+    imageStyle: {
+      width: 40,
+      height: 40
+    }
   }
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
-  rowConfig: {
-    height: 140
-  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 180 },
     { field: 'fileList', title: '附件列表', width: 300, cellRender: fileListCellRender },
-    { field: 'imgList', title: '图片列表', width: 600, cellRender: imgListCellRender }
+    { field: 'imgList', title: '图片列表', width: 200, cellRender: imgListCellRender }
   ],
   data: [
     {
