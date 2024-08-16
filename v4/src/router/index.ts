@@ -252,6 +252,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'visibleMethod',
           name: 'ComponentTableRadioVisibleMethod',
           component: () => import('@/views/table/radio/visibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          name: 'ComponentTableRadioTemplate',
+          component: () => import('@/views/table/radio/template/CodeExample.vue')
         }
       ]
     },
@@ -282,6 +287,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'range',
           name: 'ComponentTableCheckboxRange',
           component: () => import('@/views/table/checkbox/range/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          name: 'ComponentTableCheckboxTemplate',
+          component: () => import('@/views/table/checkbox/template/CodeExample.vue')
         }
       ]
     },
@@ -1468,6 +1478,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'visibleMethod',
           name: 'ComponentGridRadioVisibleMethod',
           component: () => import('@/views/grid/radio/visibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          name: 'ComponentGridRadioTemplate',
+          component: () => import('@/views/grid/radio/template/CodeExample.vue')
         }
       ]
     },
@@ -1498,6 +1513,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'range',
           name: 'ComponentGridCheckboxRange',
           component: () => import('@/views/grid/checkbox/range/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          name: 'ComponentGridCheckboxTemplate',
+          component: () => import('@/views/grid/checkbox/template/CodeExample.vue')
         }
       ]
     },

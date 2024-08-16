@@ -15,5 +15,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/template/checkbox/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">
+          放弃自带功能，自定义实现
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

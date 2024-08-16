@@ -95,7 +95,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '高亮选择行', routerLink: { name: 'ComponentTableRadioHighlight' } },
             { title: '禁用', routerLink: { name: 'ComponentTableRadioCheckMethod' } },
-            { title: '显示隐藏', routerLink: { name: 'ComponentTableRadioVisibleMethod' } }
+            { title: '显示隐藏', routerLink: { name: 'ComponentTableRadioVisibleMethod' } },
+            { title: '自定义模板', routerLink: { name: 'ComponentTableRadioTemplate' } }
           ]
         },
         {
@@ -106,7 +107,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用', routerLink: { name: 'ComponentTableCheckboxCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentTableCheckboxVisibleMethod' } },
             { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentTableCheckboxRange' } },
-            { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' }
+            { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' },
+            { title: '自定义模板', routerLink: { name: 'ComponentTableCheckboxTemplate' } }
           ]
         },
         {
@@ -432,7 +434,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '高亮选择行', routerLink: { name: 'ComponentGridRadioHighlight' } },
             { title: '禁用', routerLink: { name: 'ComponentGridRadioCheckMethod' } },
-            { title: '显示隐藏', routerLink: { name: 'ComponentGridRadioVisibleMethod' } }
+            { title: '显示隐藏', routerLink: { name: 'ComponentGridRadioVisibleMethod' } },
+            { title: '自定义模板', routerLink: { name: 'ComponentGridRadioTemplate' } }
           ]
         },
         {
@@ -443,7 +446,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用', routerLink: { name: 'ComponentGridCheckboxCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentGridCheckboxVisibleMethod' } },
             { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentGridCheckboxRange' } },
-            { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' }
+            { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' },
+            { title: '自定义模板', routerLink: { name: 'ComponentGridCheckboxTemplate' } }
           ]
         },
         {

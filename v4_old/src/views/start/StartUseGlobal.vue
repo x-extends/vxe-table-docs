@@ -65,36 +65,40 @@
       <pre-code class="typescript">
         // ...
         import {
-          VXETable,
-          VxeTable,
-          VxeColumn,
-          // VxeColgroup,
-          // VxeGrid,
-          // VxeToolbar
-        } from 'vxe-table'
+          VxeUI,
+
+          VxeButton,
+          VxeButtonGroup,
+          VxeCheckbox,
+          VxeCheckboxGroup,
+          VxeForm,
+          VxeFormGather,
+          VxeFormItem,
+          VxeIcon,
+          VxeInput,
+          VxeList,
+          VxeLoading,
+          VxeModal,
+          VxeOptgroup,
+          VxeOption,
+          VxePager,
+          VxePulldown,
+          VxeRadio,
+          VxeRadioButton,
+          VxeRadioGroup,
+          VxeSelect,
+          VxeSwitch,
+          VxeTextarea,
+          VxeTooltip
+        } from 'vxe-pc-ui'
 
         import {
-          // VxeButton,
-          // VxeButtonGroup,
-          // VxeCheckbox,
-          // VxeCheckboxGroup,
-          // VxeFormItem,
-          // VxeForm,
-          VxeIcon,
-          VxeLoading,
-          // VxeInput,
-          // VxeModal,
-          // VxePager,
-          // VxePulldown,
-          // VxeRadio,
-          // VxeRadioButton,
-          // VxeRadioGroup,
-          // VxeSelect,
-          // VxeSwitch,
-          // VxeTextarea,
-          // VxeTooltip
-        } from 'vxe-pc-ui'
-        // ...
+          VxeTable,
+          VxeColumn,
+          VxeColgroup,
+          VxeGrid,
+          VxeToolbar
+        } from 'vxe-table'
 
         // 导入主题变量，也可以重写主题变量
         import 'vxe-table/styles/cssvar.scss'
@@ -106,37 +110,42 @@
         VXETable.setI18n('zh-CN', zhCN)
         VXETable.setLanguage('zh-CN')
 
-        function LazyVxeTable (app) {
-          app.use(VxeTable)
-          app.use(VxeColumn)
-          // app.use(VxeColgroup)
-          // app.use(VxeGrid)
-          // app.use(VxeToolbar)
+        // 可选组件
+        function lazyVxeUI (app) {
+          app.component(VxeButton)
+          app.component(VxeButtonGroup)
+          app.component(VxeCheckbox)
+          app.component(VxeCheckboxGroup)
+          app.component(VxeForm)
+          app.component(VxeFormGather)
+          app.component(VxeFormItem)
+          app.component(VxeIcon)
+          app.component(VxeInput)
+          app.component(VxeList)
+          app.component(VxeLoading)
+          app.component(VxeModal)
+          app.component(VxeOptgroup)
+          app.component(VxeOption)
+          app.component(VxePager)
+          app.component(VxePulldown)
+          app.component(VxeRadio)
+          app.component(VxeRadioButton)
+          app.component(VxeRadioGroup)
+          app.component(VxeSelect)
+          app.component(VxeSwitch)
+          app.component(VxeTextarea)
+          app.component(VxeTooltip)
         }
 
-        function LazyVxeUI (app) {
-          // app.use(VxeButton)
-          // app.use(VxeButtonGroup)
-          // app.use(VxeCheckbox)
-          // app.use(VxeCheckboxGroup)
-          // app.use(VxeFormItem)
-          // app.use(VxeForm)
-          app.use(VxeIcon)
-          app.use(VxeLoading)
-          // app.use(VxeInput)
-          // app.use(VxeModal)
-          // app.use(VxePager)
-          // app.use(VxePulldown)
-          // app.use(VxeRadio)
-          // app.use(VxeRadioButton)
-          // app.use(VxeRadioGroup)
-          // app.use(VxeSelect)
-          // app.use(VxeSwitch)
-          // app.use(VxeTextarea)
-          // app.use(VxeTooltip)
+        function lazyVxeTable (app) {
+          app.component(VxeTable)
+          app.component(VxeColumn)
+          app.component(VxeColgroup)
+          app.component(VxeGrid)
+          app.component(VxeToolbar)
         }
 
-        createApp(App).use(LazyVxeUI).use(LazyVxeTable).mount('#app')
+        createApp(App).use(lazyVxeUI).use(lazyVxeTable).mount('#app')
       </pre-code>
     </pre>
 
