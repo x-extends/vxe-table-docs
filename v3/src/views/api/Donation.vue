@@ -18,7 +18,7 @@
         <img :src="`${baseApiUrl}static/donation/qq1.png`">
         <img :src="`${baseApiUrl}static/donation/qq2.png`">
       </div>
-      <div style="padding: 15px 0;width: 500px;">
+      <div style="padding: 15px 0;width: 1000px;">
         <vxe-radio-group v-model="supportAuthor">
           <vxe-radio label="1" content="关于 vxe-table"></vxe-radio>
           <vxe-radio label="2" content="赞助作者"></vxe-radio>
@@ -30,6 +30,7 @@
       <div v-if="supportAuthor === '2'">
         <div>如果该项目帮助了您，请作者喝杯咖啡吧</div>
         <img :src="`${baseApiUrl}static/donation/pay.jpg`">
+        <div style="margin-top: 38px;font-size: 18px;">感谢您的支持，送一份 <a class="link" href="https://vxetable.cn/demo/vxe-ui-renderer-vue3-vite" target="_blank">渲染器详细教程文档</a>（<a class="link" href="https://api.vxetable.cn/vxe/api/pub/vxeui/sponsor/demo/download?name=vxe-ui-renderer-vue3-vite" target="_blank">点击下载 vxe-table v4.7+ 版本</a>） ，所有支持过的用户都可以下载查看。</div>
       </div>
     </div>
   </div>
