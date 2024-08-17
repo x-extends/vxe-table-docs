@@ -214,7 +214,7 @@ const searchRowClickEvent = () => {
 const expandAllApiTree = () => {
   const $tree = treeRef.value
   if ($tree) {
-    $tree.setAllExpand(true)
+    $tree.setAllExpandNode(true)
   }
 }
 
