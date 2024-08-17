@@ -28,11 +28,11 @@ setTimeout(function () {
           '<div style="display: block !important;">',
           data.map(function (item) {
             if (item) {
-              return '<a href="' + (item ? item.url : '') + '" style="display: block !important;margin:5px 0 !important;width:200px !important;height:100px !important;line-height:100px !important;text-align: center !important;background-color: rgba(0, 0, 0, 0.2) !important;border-radius: 2px !important;cursor: pointer !important;" target="_blank"><img src="' + item.img + '" alt="" style="display: inline-block !important;max-width:100% !important;max-height:100% !important;vertical-align: middle !important;"></a>'
+              return '<a href="' + (item ? item.url : '') + '" style="display: block !important;margin:5px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;background-color: rgba(0, 0, 0, 0.2) !important;border-radius: 2px !important;cursor: pointer !important;" target="_blank"><img src="' + item.img + '" alt="" style="display: inline-block !important;max-width:100% !important;max-height:100% !important;vertical-align: middle !important;"></a>'
             }
             return [
-              '<a style="display: block !important;margin:5px 0 !important;width:200px !important;height:100px !important;line-height:100px !important;text-align: center !important;background-color: rgba(0, 0, 0, 0.2) !important;border-radius: 2px !important;cursor: pointer !important;" onclick="joinSponorEvent()">',
-              '<span style="font-size: 13px !important;">', 
+              '<a style="display: block !important;margin:5px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;background-color: rgba(0, 0, 0, 0.2) !important;border-radius: 2px !important;cursor: pointer !important;" onclick="joinSponorEvent()">',
+              '<span style="font-size: 13px !important;line-height: 50p !important;">', 
               isZH ? '成为赞助商' : 'Become a Sponsor', 
               '</span>',
               '</a>'
