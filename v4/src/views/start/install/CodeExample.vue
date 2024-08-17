@@ -24,17 +24,17 @@
             yarn add vxe-table@next
           </pre-code>
           <pre-code class="javascript">
-            // ...纯表格
-            import VxeTable from 'vxe-table'
-            import 'vxe-table/lib/style.css'
-            // ...
-
-            // ...可选 UI
+            // 完整导入 UI 组件库
             import VxeUI from 'vxe-pc-ui'
             import 'vxe-pc-ui/lib/style.css'
             // ...
 
-            createApp(App).use(VxeUI).use(VxeTable).mount('#app')
+            // 完整导入 表格库
+            import VxeUITable from 'vxe-table'
+            import 'vxe-table/lib/style.css'
+            // ...
+
+            createApp(App).use(VxeUI).use(VxeUITable).mount('#app')
             // ...
           </pre-code>
         </pre>
