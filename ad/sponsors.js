@@ -38,7 +38,7 @@ setTimeout(function () {
             }
             return [
               '<a href="' + (item ? item.url : '') + '" style="display: block !important;margin:8px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;border-radius: 2px !important;cursor: pointer !important;' + (style.a || '') + '" target="_blank">',
-                '<span style="font-size: 13px !important;line-height: 50px !important;' + (style.span || '') + '">', 
+                '<span style="display: block !important;font-size: 15px !important;padding: 8px 0 !important;' + (style.span || '') + '">', 
                   item.title || '', 
                 '</span>',
               '</a>'
@@ -46,7 +46,7 @@ setTimeout(function () {
           }
           return [
             '<a style="display: block !important;margin:8px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;background-color: var(--vxe-ui-status-info-tinge-color, rgba(0, 0, 0, 0.05)) !important;border-radius: 2px !important;cursor: pointer !important;" onclick="joinSponorEvent()">',
-              '<span style="font-size: 13px !important;line-height: 50px !important;">', 
+              '<span style="display: block !important;font-size: 13px !important;padding: 8px 0 !important;">', 
                 isZH ? '点击成为赞助商' : 'Click become a Sponsor', 
               '</span>',
             '</a>'
