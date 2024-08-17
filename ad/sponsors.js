@@ -55,4 +55,4 @@ setTimeout(function () {
       ].join('')
     }
   })
-}, Math.min(4000, 500 + Math.ceil(Math.random() * 1000)))
+}, Math.min(3000, 500 + Math.ceil(Math.random() * 1000)))
