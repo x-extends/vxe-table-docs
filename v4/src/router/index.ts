@@ -1773,6 +1773,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'checkbox',
           name: 'ComponentGridTreeCheckbox',
           component: () => import('@/views/grid/tree/checkbox/CodeExample.vue')
+        },
+        {
+          path: 'group',
+          name: 'ComponentGridTreeGroup',
+          component: () => import('@/views/grid/tree/group/CodeExample.vue')
         }
       ]
     },

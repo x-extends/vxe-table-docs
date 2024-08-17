@@ -1,26 +1,17 @@
 <template>
   <div>
     <vxe-button status="primary" @click="listToGroup()">取消分组</vxe-button>
-    <vxe-button status="primary" @click="listToGroup('name')">按名称分组</vxe-button>
+    <vxe-button status="primary" @click="listToGroup('name')">按名称+类型分组</vxe-button>
     <vxe-button status="primary" @click="listToGroup('type')">按类型分组</vxe-button>
     <vxe-button status="primary" @click="listToGroup('date')">按时间分组</vxe-button>
 
-    <vxe-table
-      show-overflow
-      border="inner"
-      height="400"
-      :tree-config="{}"
-      :data="tableData">
-      <vxe-column field="name" title="Name" tree-node></vxe-column>
-      <vxe-column field="size" title="Size"></vxe-column>
-      <vxe-column field="type" title="Type"></vxe-column>
-      <vxe-column field="date" title="Date"></vxe-column>
-    </vxe-table>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { reactive } from 'vue'
+import { VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -53,7 +44,19 @@ const allList = [
   { id: 24577, name: 'Test1', type: 'js', size: '1024', date: '2021-06-01' }
 ]
 
-const tableData = ref<RowVO[]>(allList)
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  height: 400,
+  border: 'inner',
+  showOverflow: true,
+  treeConfig: {},
+  columns: [
+    { field: 'name', title: 'Name', treeNode: true },
+    { field: 'size', title: 'Size' },
+    { field: 'type', title: 'Type' },
+    { field: 'date', title: 'Date' }
+  ],
+  data: allList
+})
 
 let idKey = 1
 const handleGroupByField = (list: RowVO[], field: string) => {
@@ -72,6 +75,6 @@ const handleGroupByField = (list: RowVO[], field: string) => {
 }
 
 const listToGroup = (field?: string) => {
-  tableData.value = field ? handleGroupByField(allList, field) : allList
+  gridOptions.data = field ? handleGroupByField(allList, field) : allList
 }
 </script>

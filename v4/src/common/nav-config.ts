@@ -560,7 +560,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '层级结构', routerLink: { name: 'ComponentGridTreeHierarchy' } },
             { title: '显示连接线', routerLink: { name: 'ComponentGridTreeLine' } },
             { title: '单选框', routerLink: { name: 'ComponentGridTreeRadio' } },
-            { title: '复选框', routerLink: { name: 'ComponentGridTreeCheckbox' } }
+            { title: '复选框', routerLink: { name: 'ComponentGridTreeCheckbox' } },
+            { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } }
           ]
         },
         {
