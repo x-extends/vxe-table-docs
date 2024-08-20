@@ -4484,6 +4484,15 @@ const apis = [
         list: []
       },
       {
+        name: 'getParentColumn(field)',
+        desc: '如果存在，获取父级列',
+        version: '3.8.20',
+        type: 'Column',
+        enum: '',
+        defVal: 'field: string',
+        list: []
+      },
+      {
         name: 'getTableColumn()',
         desc: '获取当前表格的列（收集到的全量列、全量表头列、处理条件之后的全量表头列、当前渲染中的表头列）',
         version: '',

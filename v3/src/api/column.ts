@@ -767,7 +767,8 @@ const apis = [
           },
           {
             name: 'autofocus',
-            desc: '如果是自定义渲染可以指定聚焦的选择器，例如 .my-input',
+            abandoned: true,
+            desc: '请使用 autoFocus',
             version: '',
             type: 'String',
             enum: '',
@@ -775,9 +776,28 @@ const apis = [
             list: []
           },
           {
+            name: 'autoFocus',
+            desc: '如果是自定义渲染可以指定聚焦的选择器，例如 .my-input',
+            version: '3.8.20',
+            type: 'String',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'autoselect',
-            desc: '是否在激活编辑之后自动选中输入框内容',
+            abandoned: true,
+            desc: '请使用 autoSelect',
             version: '',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'autoSelect',
+            desc: '是否在激活编辑之后自动选中输入框内容',
+            version: '3.8.20',
             type: 'boolean',
             enum: '',
             defVal: 'false',

@@ -745,6 +745,15 @@ const apis = [
         list: []
       },
       {
+        name: 'getFormData()',
+        desc: '只对 form-config 有效，获取表单数据',
+        version: '3.8.20',
+        type: 'any',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'getFormItems(index)',
         desc: '只对 form-config 有效，获取表单项列表',
         version: '',

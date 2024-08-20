@@ -381,12 +381,21 @@ const importDataAPI = [
   {
     name: 'mode',
     desc: '导入数据的方式',
-    version: '',
+    version: '3.8.10 | 3.8.16',
     type: 'string',
-    enum: 'covering, insertBottom',
+    enum: 'covering, insertBottom, insertTop',
     defVal: 'covering',
     list: []
   },
+  // {
+  //   name: 'modes',
+  //   desc: '导入数据的方式列表',
+  //   version: '3.8.16',
+  //   type: 'string',
+  //   enum: 'covering, insertBottom, insertTop',
+  //   defVal: '["insertTop", "covering"]',
+  //   list: []
+  // },
   {
     name: 'message',
     desc: '是否显示内置的消息提示',
@@ -4469,6 +4478,15 @@ const apis = [
         name: 'getColumnByField(field)',
         desc: '根据列的字段名获取列',
         version: '',
+        type: 'Column',
+        enum: '',
+        defVal: 'field: string',
+        list: []
+      },
+      {
+        name: 'getParentColumn(field)',
+        desc: '如果存在，获取父级列',
+        version: '3.8.20',
         type: 'Column',
         enum: '',
         defVal: 'field: string',
