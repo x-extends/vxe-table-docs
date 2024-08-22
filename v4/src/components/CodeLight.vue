@@ -87,7 +87,6 @@
 import { ref, computed, defineAsyncComponent, PropType } from 'vue'
 import { codeJsMaps, codeTsMaps } from '@/common/cache'
 import { VxeUI } from 'vxe-pc-ui'
-import { useAppStore } from '@/store/app'
 
 interface ImportItemVO {
   path: string
@@ -96,8 +95,6 @@ interface ImportItemVO {
   text: string
   isExpand: boolean
 }
-
-const appStore = useAppStore()
 
 const props = defineProps({
   path: String,

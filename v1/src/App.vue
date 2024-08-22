@@ -6,8 +6,8 @@
           <img :src="`${baseApiUrl}logo.png`" width="18">
           <span class="title">vxe-table</span>
         </a>
-        <a href='https://gitee.com/xuliangzhan_admin/vxe-table/stargazers'>
-          <img src='https://gitee.com/xuliangzhan_admin/vxe-table/badge/star.svg?theme=gvp' alt='star'>
+        <a href='https://gitee.com/xuliangzhan/vxe-table/stargazers'>
+          <img src='https://gitee.com/xuliangzhan/vxe-table/badge/star.svg?theme=gvp' alt='star'>
         </a>
         <a href="https://github.com/x-extends/vxe-table/stargazers">
           <img src="https://img.shields.io/github/stars/xuliangzhan/vxe-table.svg">

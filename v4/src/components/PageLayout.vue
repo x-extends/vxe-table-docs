@@ -50,7 +50,6 @@ const showOperBtn = computed(() => {
   box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 .layout-body {
-  position: relative;
   ::v-deep(.vxe-layout-body--inner) {
     position: relative;
     padding: 16px 300px 16px 16px;

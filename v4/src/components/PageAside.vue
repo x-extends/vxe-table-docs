@@ -345,7 +345,7 @@ appStore.updateComponentApiJSON()
     font-size: 12px;
     line-height: 16px;
     height: 16px;
-    padding: 1px 4px;
+    padding: 0 4px 1px 4px;
     border-radius: 4px;
     transform: scale(0.8);
     &::after {

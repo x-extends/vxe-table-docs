@@ -248,7 +248,7 @@ export default defineComponent({
       }
       `
       // 生成二维码
-      QRCode.toDataURL('https://gitee.com/xuliangzhan_admin/vxe-table').then(url => {
+      QRCode.toDataURL('https://gitee.com/xuliangzhan/vxe-table').then(url => {
         // 打印模板
         const printTmpl = `
         <p class="title">扫一扫二维码</p>
@@ -637,7 +637,7 @@ export default defineComponent({
               }
               \`
               // 生成二维码
-              QRCode.toDataURL('https://gitee.com/xuliangzhan_admin/vxe-table').then(url => {
+              QRCode.toDataURL('https://gitee.com/xuliangzhan/vxe-table').then(url => {
                 // 打印模板
                 const printTmpl = \`
                 <p class="title">扫一扫二维码</p>

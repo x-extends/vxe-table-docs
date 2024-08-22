@@ -95,7 +95,7 @@ const getVersion = () => {
   fetch(`${process.env.VUE_APP_SERVE_API_URL}/api/npm/versions/${process.env.VUE_APP_PACKAGE_NAME}`, { method: 'GET' })
     .then(response => response.json())
     .then((data) => {
-      const { sp, dp, ss, time, tags } = data
+      const { time, tags } = data
       const stableList = data[`v${appStore.docsVersion}StableList`].map(value => ({ value, label: value }))
       const betaList = data[`v${appStore.docsVersion}BetaList`].map(value => ({ value, label: value }))
       stableVersionList.value = stableList
