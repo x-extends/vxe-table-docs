@@ -51,16 +51,20 @@ const showOperBtn = computed(() => {
 }
 .layout-body {
   position: relative;
-  padding: 16px 300px 16px 16px;
+  ::v-deep(.vxe-layout-body--inner) {
+    position: relative;
+    padding: 16px 300px 16px 16px;
+  }
 }
 .layout-aside {
-  overflow-y: scroll;
+  ::v-deep(.vxe-layout-aside--inner) {
+    overflow-y: scroll;
+  }
 }
 .app-container {
   &.docs-api {
     .layout-body {
       height: 100%;
-      overflow: auto;
     }
     .layout-footer {
       display: none;

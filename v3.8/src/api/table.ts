@@ -2457,6 +2457,24 @@ const apis = [
         defVal: '继承 setConfig.table.areaConfig',
         list: [
           {
+            name: 'show-column-status',
+            desc: '只对 mouse-config.area 启用后有效，显示选取单元格所对应列的状态',
+            version: 'extend-cell-area',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
+            name: 'show-row-status',
+            desc: '只对 mouse-config.area 启用后有效，显示选取单元格所对应行的状态',
+            version: 'extend-cell-area',
+            type: 'boolean',
+            enum: '',
+            defVal: 'false',
+            list: []
+          },
+          {
             name: 'multiple',
             desc: '只对 mouse-config.area 启用后有效，启用多区域选取功能',
             version: 'extend-cell-area',
