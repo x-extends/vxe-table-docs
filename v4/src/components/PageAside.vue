@@ -49,12 +49,13 @@
       <div v-if="item1.children && item1.children.length" class="nav-subs">
         <div class="nav-item nav-level2" v-for="(item2, index2) in item1.children" :key="index2" :class="[{'is-expand': item2.isExpand}]">
           <div class="nav-name" :class="{'is-plugin': item2.isPlugin, 'is-enterprise': item2.isEnterprise}" :title="item2.title" @click="toggleExpand(item2)">
-            <vxe-link v-if="item2.routerLink" :class="['nav-item-link', getApiClass(item2)]" :router-link="item2.routerLink">
+            <vxe-link v-if="item2.routerLink" :class="['nav-item-link', getApiClass(item2)]" :router-link="item2.routerLink"></vxe-link>
+            <vxe-link v-else-if="item2.linkUrl" class="nav-item-link" :status="item2.linkStatus" :href="item2.linkUrl" :target="item2.linkTarget || '_blank'" :content="item2.title">
               <span>{{ item2.title }}</span>
               <span v-if="item2.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
               <span v-else-if="item2.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+              <span v-else-if="item2.isTemplate" class="nav-item-template-icon">{{ $t('app.aside.templateVersion') }}</span>
             </vxe-link>
-            <vxe-link v-else-if="item2.linkUrl" class="nav-item-link" :status="item2.linkStatus" :href="item2.linkUrl" :target="item2.linkTarget || '_blank'" :content="item2.title"></vxe-link>
             <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item2.title"></vxe-text>
           </div>
           <div v-if="!['API'].includes(item1.title || '') && item2.children && item2.children.length" class="nav-subs">
@@ -65,6 +66,7 @@
                   <span>{{ item3.title }}</span>
                   <span v-if="item3.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
                   <span v-else-if="item3.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                  <span v-else-if="item3.isTemplate" class="nav-item-template-icon">{{ $t('app.aside.templateVersion') }}</span>
                 </vxe-link>
                 <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item3.title"></vxe-text>
               </div>
@@ -76,6 +78,7 @@
                       <span>{{ item4.title }}</span>
                       <span v-if="item4.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
                       <span v-else-if="item4.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                      <span v-else-if="item4.isTemplate" class="nav-item-template-icon">{{ $t('app.aside.templateVersion') }}</span>
                     </vxe-link>
                     <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item4.title"></vxe-text>
                   </div>
@@ -87,6 +90,7 @@
                           <span>{{ item5.title }}</span>
                           <span v-if="item5.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
                           <span v-else-if="item5.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                          <span v-else-if="item5.isTemplate" class="nav-item-template-icon">{{ $t('app.aside.templateVersion') }}</span>
                         </vxe-link>
                         <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item5.title"></vxe-text>
                       </div>
@@ -339,15 +343,16 @@ appStore.updateComponentApiJSON()
     }
   }
   .nav-item-enterprise-icon,
-  .nav-item-plugin-icon {
+  .nav-item-plugin-icon,
+  .nav-item-template-icon {
     position: absolute;
-    top: 0.3em;
+    top: 0.2em;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 15px;
     height: 16px;
-    padding: 0 4px 1px 4px;
+    padding: 0 5px 0 5px;
     border-radius: 4px;
-    transform: scale(0.8);
+    transform: rotate(-7deg) translate(6px, 4px);
     &::after {
       content: "";
       position: absolute;
@@ -368,6 +373,13 @@ appStore.updateComponentApiJSON()
     background-color: #3eb910;
     &::after {
       border-right-color: #3eb910;
+    }
+  }
+  .nav-item-template-icon {
+    color: #efebeb;
+    background-color: #b31a20;
+    &::after {
+      border-right-color: #b31a20;
     }
   }
   ::v-deep(.nav-item) {

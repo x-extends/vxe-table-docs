@@ -9,6 +9,7 @@ export interface NavVO {
   isUnpublished?: boolean
   isEnterprise?: boolean
   isPlugin?: boolean
+  isTemplate?: boolean
   routerLink?: {
     name: string
     params?: Record<string, string | number>
