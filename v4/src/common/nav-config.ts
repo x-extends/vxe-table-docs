@@ -481,14 +481,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeInput', routerLink: { name: 'ComponentGridFilterRenderVxeInput' } },
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridFilterRenderVxeNumberInput' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterRenderVxeSelect' } },
-            { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridFilterRenderVxeDatePicker' } }
+            { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridFilterRenderVxeDatePicker' } },
+            { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/filter/el-input' }
           ]
         },
         {
           title: '筛选 - 渲染 - 插槽式',
           children: [
             { title: 'VxeInput', routerLink: { name: 'ComponentGridFilterTemplateVxeInput' } },
-            { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterTemplateVxeSelect' } }
+            { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterTemplateVxeSelect' } },
+            { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/grid/filter/el-input' }
           ]
         },
         {

@@ -29,7 +29,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     isEnter: true,
     isTab: true,
     isDel: true,
-    isBack: true
+    isBack: true,
+    isEsc: true
   },
   editConfig: {
     trigger: 'dblclick',
@@ -37,9 +38,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', editRender: { name: 'input' } },
-    { field: 'sex', title: 'Sex', editRender: { name: 'input' } },
-    { field: 'age', title: 'Age', editRender: { name: 'input' } }
+    { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
+    { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput', props: { type: 'number' } } },
+    { field: 'age', title: 'Age', editRender: { name: 'VxeNumberInput' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
