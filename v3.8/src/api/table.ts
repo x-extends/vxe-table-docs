@@ -134,7 +134,32 @@ const contextMenuAPI = [
             type: 'string',
             enum: '',
             defVal: '',
-            list: []
+            list: [
+              {
+                name: 'icon',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: '',
+                list: []
+              },
+              {
+                name: 'content',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: '',
+                list: []
+              },
+              {
+                name: 'className',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: '',
+                list: []
+              }
+            ]
           },
           {
             name: 'prefixIcon',
@@ -153,7 +178,32 @@ const contextMenuAPI = [
             type: 'string',
             enum: '',
             defVal: '',
-            list: []
+            list: [
+              {
+                name: 'icon',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: '',
+                list: []
+              },
+              {
+                name: 'content',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: '',
+                list: []
+              },
+              {
+                name: 'className',
+                version: '',
+                type: 'string',
+                enum: '',
+                defVal: '',
+                list: []
+              }
+            ]
           },
           {
             name: 'visible ',
