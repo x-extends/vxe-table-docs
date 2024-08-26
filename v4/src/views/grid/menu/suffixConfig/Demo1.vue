@@ -49,27 +49,34 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     header: {
       options: [
         [
-          { code: 'exportAll', name: '导出所有.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
+          { code: 'custom1', name: '自定义前缀图标', suffixConfig: { icon: 'vxe-icon-download' } },
+          { code: 'custom2', name: '自定义前缀内容', suffixConfig: { content: 'Ctrl+S' } }
         ]
       ]
     },
     body: {
       options: [
         [
-          { code: 'copy', name: '复制内容（Ctrl+C）', prefixConfig: { icon: 'vxe-icon-copy' }, visible: true, disabled: false },
-          { code: 'clear', name: '清除内容', visible: true, disabled: false },
-          { code: 'reload', name: '刷新表格', visible: true, disabled: false }
+          { code: 'custom3', name: '自定义前缀图标', suffixConfig: { icon: 'vxe-icon-download' } },
+          { code: 'custom4', name: '自定义前缀内容', suffixConfig: { content: 'Ctrl+S' } }
         ],
         [
-          { code: 'myPrint', name: '打印（Ctrl+P）', prefixConfig: { icon: 'vxe-icon-print' }, visible: true, disabled: false },
-          { code: 'myExport', name: '导出.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
+          {
+            code: 'custom5',
+            name: '二级菜单',
+            children: [
+              { code: 'custom6', name: '自定义前缀图标', suffixConfig: { icon: 'vxe-icon-download' } },
+              { code: 'custom7', name: '自定义前缀内容', suffixConfig: { content: 'Ctrl+S' } }
+            ]
+          }
         ]
       ]
     },
     footer: {
       options: [
         [
-          { code: 'exportAll', name: '导出所有.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
+          { code: 'custom8', name: '前缀图标', suffixConfig: { icon: 'vxe-icon-download' } },
+          { code: 'custom9', name: '前缀内容', suffixConfig: { content: 'Ctrl+S' } }
         ]
       ]
     }
@@ -80,34 +87,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  cellMenu ({ row }) {
-    const $grid = gridRef.value
-    if ($grid) {
-      $grid.setCurrentRow(row)
-    }
-  },
-  menuClick ({ menu, row, column }) {
-    const $grid = gridRef.value
-    if ($grid) {
-      switch (menu.code) {
-        case 'copy':
-          if (row && column) {
-            if (VxeUI.clipboard.copy(row[column.field])) {
-              VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
-            }
-          }
-          break
-        case 'clear':
-          $grid.clearData(row, column.field)
-          break
-        case 'myPrint':
-          $grid.print()
-          break
-        case 'myExport':
-          $grid.exportData()
-          break
-      }
-    }
+  menuClick ({ menu }) {
+    VxeUI.modal.alert(`点击了 ${menu.name} 选项`)
   }
 }
 </script>

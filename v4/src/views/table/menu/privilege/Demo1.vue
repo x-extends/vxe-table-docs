@@ -14,7 +14,7 @@
       @header-cell-menu="headerCellContextMenuEvent"
       @cell-menu="cellContextMenuEvent"
       @menu-click="contextMenuClickEvent">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -49,7 +49,7 @@ const tableData = ref([
 ])
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
-  { checkbox: '合计', age: 135 }
+  { seq: '合计', age: 135 }
 ])
 
 const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
@@ -64,11 +64,11 @@ const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
   body: {
     options: [
       [
-        { code: 'details', name: '查看详情', prefixIcon: 'vxe-icon-link', visible: true, disabled: false }
+        { code: 'details', name: '查看详情', prefixConfig: { icon: 'vxe-icon-link' }, visible: true, disabled: false }
       ],
       [
-        { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-copy', visible: true, disabled: false },
-        { code: 'clear', name: '清除内容', prefixIcon: 'vxe-icon-delete-fill', visible: true, disabled: false }
+        { code: 'copy', name: '复制（Ctrl+C）', prefixConfig: { icon: 'vxe-icon-copy' }, visible: true, disabled: false },
+        { code: 'clear', name: '清除内容', prefixConfig: { icon: 'vxe-icon-delete-fill' }, visible: true, disabled: false }
       ],
       [
         { code: 'remove', name: '删除', visible: true, disabled: false },
@@ -93,7 +93,7 @@ const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
             { code: 'sortDesc', name: '倒序', visible: true, disabled: false }
           ]
         },
-        { code: 'print', name: '打印', disabled: true }
+        { code: 'print', name: '打印（Ctrl+P）', disabled: true }
       ]
     ]
   },

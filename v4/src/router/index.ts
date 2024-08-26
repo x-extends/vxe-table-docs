@@ -459,6 +459,16 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/menu/footer/CodeExample.vue')
         },
         {
+          path: 'prefixConfig',
+          name: 'ComponentTableMenuPrefixConfig',
+          component: () => import('@/views/table/menu/prefixConfig/CodeExample.vue')
+        },
+        {
+          path: 'suffixConfig',
+          name: 'ComponentTableMenuSuffixConfig',
+          component: () => import('@/views/table/menu/suffixConfig/CodeExample.vue')
+        },
+        {
           path: 'full',
           name: 'ComponentTableMenuFull',
           component: () => import('@/views/table/menu/full/CodeExample.vue')
@@ -1569,6 +1579,16 @@ const gridRouteConfig: RouteRecordRaw = {
     {
       path: 'menu',
       children: [
+        {
+          path: 'prefixConfig',
+          name: 'ComponentGridMenuPrefixConfig',
+          component: () => import('@/views/grid/menu/prefixConfig/CodeExample.vue')
+        },
+        {
+          path: 'suffixConfig',
+          name: 'ComponentGridMenuSuffixConfig',
+          component: () => import('@/views/grid/menu/suffixConfig/CodeExample.vue')
+        },
         {
           path: 'full',
           name: 'ComponentGridMenuFull',

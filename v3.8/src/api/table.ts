@@ -37,8 +37,18 @@ const contextMenuAPI = [
         list: []
       },
       {
+        name: 'prefixConfig',
+        desc: '前缀配置项',
+        version: '3.8.23',
+        type: 'string',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'prefixIcon',
-        desc: '前缀图标 className',
+        disabled: true,
+        desc: '已废弃，请使用 prefixConfig',
         version: '',
         type: 'string',
         enum: '',
@@ -46,8 +56,18 @@ const contextMenuAPI = [
         list: []
       },
       {
+        name: 'suffixConfig',
+        desc: '后缀配置项',
+        version: '3.8.23',
+        type: 'string',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'suffixIcon',
-        desc: '后缀图标 className',
+        disabled: true,
+        desc: '已废弃，请使用 suffixConfig',
         version: '',
         type: 'string',
         enum: '',
@@ -108,9 +128,28 @@ const contextMenuAPI = [
             list: []
           },
           {
+            name: 'prefixConfig',
+            desc: '前缀配置项',
+            version: '3.8.23',
+            type: 'string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'prefixIcon',
-            desc: '前缀图标 className',
+            disabled: true,
+            desc: '已废弃，请使用 prefixConfig',
             version: '',
+            type: 'string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'suffixConfig',
+            desc: '后缀配置项',
+            version: '3.8.23',
             type: 'string',
             enum: '',
             defVal: '',

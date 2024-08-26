@@ -153,6 +153,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '表头菜单', routerLink: { name: 'ComponentTableMenuHeader' } },
             { title: '单元格菜单', routerLink: { name: 'ComponentTableMenuBody' } },
             { title: '表尾菜单', routerLink: { name: 'ComponentTableMenuFooter' } },
+            { title: '自定义前缀', routerLink: { name: 'ComponentTableMenuPrefixConfig' } },
+            { title: '自定义后缀', routerLink: { name: 'ComponentTableMenuSuffixConfig' } },
             { title: '完整右键菜单', routerLink: { name: 'ComponentTableMenuFull' } },
             { title: '菜单权限控制', routerLink: { name: 'ComponentTableMenuPrivilege' } }
           ]
@@ -496,6 +498,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '右键菜单',
           children: [
+            { title: '自定义前缀', routerLink: { name: 'ComponentGridMenuPrefixConfig' } },
+            { title: '自定义后缀', routerLink: { name: 'ComponentGridMenuSuffixConfig' } },
             { title: '完整右键菜单', routerLink: { name: 'ComponentGridMenuFull' } },
             { title: '菜单权限控制', routerLink: { name: 'ComponentGridMenuPrivilege' } }
           ]

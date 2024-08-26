@@ -83,11 +83,11 @@ const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
   body: {
     options: [
       [
-        { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-copy', disabled: false },
+        { code: 'copy', name: '复制', prefixConfig: { icon: 'vxe-icon-copy' }, disabled: false },
         { code: 'reload', name: '刷新', disabled: false },
         { code: 'insertAt', name: '插入', disabled: false },
         { code: 'remove', name: '删除', disabled: false },
-        { code: 'save', name: '保存', prefixIcon: 'vxe-icon-save', disabled: false }
+        { code: 'save', name: '保存', prefixConfig: { icon: 'vxe-icon-save' }, disabled: false }
       ]
     ]
   },

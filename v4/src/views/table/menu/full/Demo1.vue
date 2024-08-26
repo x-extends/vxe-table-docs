@@ -3,11 +3,11 @@
     <vxe-table
       border
       show-footer
-      :footer-method="footerMethod"
+      :footer-data="footerData"
       :data="tableData"
       :menu-config="menuConfig"
       @menu-click="contextMenuClickEvent">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeTablePropTypes, VxeColumnPropTypes, VxeTableEvents } from 'vxe-table'
+import { VxeUI, VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -50,10 +50,10 @@ const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
   body: {
     options: [
       [
-        { code: 'copy', name: '复制', prefixIcon: 'vxe-icon-copy', className: 'my-copy-item' }
+        { code: 'copy', name: '复制', prefixConfig: { icon: 'vxe-icon-copy' }, suffixConfig: { content: 'Ctrl+C' } }
       ],
       [
-        { code: 'remove', name: '删除', prefixIcon: 'vxe-icon-delete-fill color-red' },
+        { code: 'remove', name: '删除', prefixConfig: { icon: 'vxe-icon-delete-fill', className: 'color-red' } },
         {
           name: '筛选',
           children: [
@@ -64,14 +64,14 @@ const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
         {
           code: 'sort',
           name: '排序',
-          prefixIcon: 'vxe-icon-sort color-blue',
+          prefixConfig: { icon: 'vxe-icon-sort' },
           children: [
             { code: 'clearSort', name: '清除排序' },
-            { code: 'sortAsc', name: '升序', prefixIcon: 'vxe-icon-sort-alpha-asc color-orange' },
-            { code: 'sortDesc', name: '倒序', prefixIcon: 'vxe-icon-sort-alpha-desc color-orange' }
+            { code: 'sortAsc', name: '升序', prefixConfig: { icon: 'vxe-icon-sort-alpha-asc' }, suffixConfig: { content: 'Ctrl+P' } },
+            { code: 'sortDesc', name: '倒序', prefixConfig: { icon: 'vxe-icon-sort-alpha-desc' }, suffixConfig: { content: 'Ctrl+P' } }
           ]
         },
-        { code: 'print', name: '打印', disabled: true }
+        { code: 'print', name: '打印', suffixConfig: { content: 'Ctrl+P' }, disabled: true }
       ]
     ]
   },
@@ -83,6 +83,10 @@ const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
     ]
   }
 })
+
+const footerData = ref<VxeTablePropTypes.FooterData>([
+  { seq: '合计', age: 106 }
+])
 
 const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, column }) => {
   switch (menu.code) {
@@ -98,28 +102,6 @@ const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, col
       VxeUI.modal.alert(`点击了 ${menu.name} 选项`)
   }
 }
-
-const meanNum = (list: RowVO[], field: VxeColumnPropTypes.Field) => {
-  let count = 0
-  list.forEach(item => {
-    count += Number(item[field])
-  })
-  return count / list.length
-}
-
-const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) => {
-  return [
-    columns.map((column, columnIndex) => {
-      if (columnIndex === 0) {
-        return '平均'
-      }
-      if (['age', 'rate'].includes(column.field)) {
-        return meanNum(data, column.field)
-      }
-      return null
-    })
-  ]
-}
 </script>
 
 <style lang="scss">
@@ -128,10 +110,6 @@ const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) 
 }
 .my-menus .vxe-ctxmenu--link {
   width: 200px;
-}
-.my-copy-item {
-  font-weight: 700;
-  font-style: oblique;
 }
 .color-red {
   color: red;
