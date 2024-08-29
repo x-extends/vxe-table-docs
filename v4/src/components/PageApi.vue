@@ -3,6 +3,7 @@
     <vxe-grid
       ref="gridRef"
       class="api-table"
+      :columns="columns"
       v-bind="gridOptions">
       <template #toolbar_buttons>
         <vxe-input clearable class="search-input" v-model="searchName" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
@@ -34,7 +35,7 @@
 import { ref, watch, nextTick, computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAppStore } from '@/store/app'
-import { VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { VxeGridProps, VxeGridPropTypes, VxeGridInstance } from 'vxe-table'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 
@@ -155,7 +156,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       buttons: 'toolbar_buttons'
     }
   },
-  columns: [
+  data: []
+})
+
+const columns = computed<VxeGridPropTypes.Columns>(() => {
+  return [
     {
       field: 'name',
       title: i18n.global.t('api.title.prop'),
@@ -163,7 +168,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       treeNode: true,
       minWidth: 280,
       titlePrefix: {
-        content: '参数名称及使用，如果是在 CDN 环境中使用 kebab-case（短横线式），\n如果项目基于 vue-cli 脚手架可以使用 camelCase（驼峰式）'
+        content: i18n.global.t('api.title.propHelp')
       },
       filters: [
         { label: 'Props', value: 'Props' },
@@ -175,10 +180,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'i18nValue', title: i18n.global.t('api.title.desc'), type: 'html', minWidth: 300 },
     { field: 'type', title: i18n.global.t('api.title.type'), type: 'html', minWidth: 140 },
     { field: 'enum', title: i18n.global.t('api.title.enum'), type: 'html', minWidth: 150 },
-    { field: 'defVal', title: i18n.global.t('api.title.defVal'), type: 'html', minWidth: 160, titlePrefix: { content: '部分参数可支持全局设置，具体请查阅相关说明' } },
-    { field: 'version', title: i18n.global.t('api.title.version'), type: 'html', width: 180, titlePrefix: { content: '该文档与最新版本保持同步，如果遇到参数无效时，\n请检查当前使用的版本号是否支持该参数' }, slots: { default: 'default_version' } }
-  ],
-  data: []
+    { field: 'defVal', title: i18n.global.t('api.title.defVal'), type: 'html', minWidth: 160, titlePrefix: { content: i18n.global.t('api.title.defValHelp') } },
+    { field: 'version', title: i18n.global.t('api.title.version'), type: 'html', width: 180, titlePrefix: { content: i18n.global.t('api.title.versionHelp') }, slots: { default: 'default_version' } }
+  ]
 })
 
 const handleValueHighlight = (str: string, filterRE: RegExp) => {
