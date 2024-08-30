@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
+import { VxeUI, VxeTablePropTypes, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -49,6 +49,10 @@ const tableData = ref<RowVO[]>([
 ])
 
 const editDisabledEvent: VxeTableEvents.EditDisabled<RowVO> = ({ row, column }) => {
+  VxeUI.modal.message({
+    content: '禁止编辑',
+    status: 'error'
+  })
   console.log('禁止编辑', column.field, row)
 }
 </script>

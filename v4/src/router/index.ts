@@ -574,6 +574,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/custom/events/CodeExample.vue')
         },
         {
+          path: 'immediate',
+          name: 'ComponentTableCustomImmediate',
+          component: () => import('@/views/table/custom/immediate/CodeExample.vue')
+        },
+        {
           path: 'remote',
           name: 'ComponentTableCustomRemote',
           component: () => import('@/views/table/custom/remote/CodeExample.vue')
@@ -1728,6 +1733,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'events',
           name: 'ComponentGridCustomEvents',
           component: () => import('@/views/grid/custom/events/CodeExample.vue')
+        },
+        {
+          path: 'immediate',
+          name: 'ComponentGridCustomImmediate',
+          component: () => import('@/views/grid/custom/immediate/CodeExample.vue')
         },
         {
           path: 'remote',
