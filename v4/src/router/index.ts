@@ -894,9 +894,34 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/cellRender/vxe-button-group/CodeExample.vue')
         },
         {
+          path: 'vxe-image',
+          name: 'ComponentTableCellRenderVxeImage',
+          component: () => import('@/views/table/cellRender/vxe-image/CodeExample.vue')
+        },
+        {
+          path: 'vxe-image-group',
+          name: 'ComponentTableCellRenderVxeImageGroup',
+          component: () => import('@/views/table/cellRender/vxe-image-group/CodeExample.vue')
+        },
+        {
           path: 'vxe-upload',
           name: 'ComponentTableCellRenderVxeUpload',
           component: () => import('@/views/table/cellRender/vxe-upload/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'cellTemplate',
+      children: [
+        {
+          path: 'vxe-switch',
+          name: 'ComponentTableCellTemplateVxeSwitch',
+          component: () => import('@/views/table/cellTemplate/vxe-switch/CodeExample.vue')
+        },
+        {
+          path: 'vxe-button',
+          name: 'ComponentTableCellTemplateVxeButton',
+          component: () => import('@/views/table/cellTemplate/vxe-button/CodeExample.vue')
         }
       ]
     },

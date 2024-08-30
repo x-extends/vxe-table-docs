@@ -25,7 +25,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200 },
-    { title: '按钮组', width: 200, slots: { default: 'active' } }
+    { title: '按钮', width: 200, slots: { default: 'active' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop' },

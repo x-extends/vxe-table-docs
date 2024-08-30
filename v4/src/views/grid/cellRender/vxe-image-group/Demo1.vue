@@ -15,7 +15,7 @@ interface RowVO {
   imgList: string[]
 }
 
-const imgUrlCellRender = reactive<VxeColumnPropTypes.CellRender>({
+const imgListCellRender = reactive<VxeColumnPropTypes.CellRender>({
   name: 'VxeImageGroup',
   props: {
     imageStyle: {
@@ -31,7 +31,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200 },
-    { field: 'imgList', title: '图片组', width: 300, cellRender: imgUrlCellRender }
+    { field: 'imgList', title: '图片组', width: 300, cellRender: imgListCellRender }
   ],
   data: [
     {

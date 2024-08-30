@@ -229,7 +229,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeRadioGroup', routerLink: { name: 'ComponentTableCellRenderVxeRadioGroup' } },
             { title: 'VxeCheckboxGroup', routerLink: { name: 'ComponentTableCellRenderVxeCheckboxGroup' } },
             { title: 'VxeButtonGroup', routerLink: { name: 'ComponentTableCellRenderVxeButtonGroup' } },
+            { title: 'VxeImage', routerLink: { name: 'ComponentTableCellRenderVxeImage' } },
+            { title: 'VxeImageGroup', routerLink: { name: 'ComponentTableCellRenderVxeImageGroup' } },
             { title: 'VxeUpload', routerLink: { name: 'ComponentTableCellRenderVxeUpload' } },
+            { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/table/cell/el-switch' }
+          ]
+        },
+        {
+          title: '单元格 - 渲染 - 插槽式',
+          children: [
+            { title: 'VxeSwitch', routerLink: { name: 'ComponentTableCellTemplateVxeSwitch' } },
+            { title: 'VxeButton', routerLink: { name: 'ComponentTableCellTemplateVxeButton' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: 'https://vxeui.com/other4/#/plugin-render-element/table/cell/el-switch' }
           ]
         },
