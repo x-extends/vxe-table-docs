@@ -268,6 +268,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentTableEditDrawerForm' } },
             { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
             { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
+            { title: '实现行字段的合计', routerLink: { name: 'ComponentTableEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
             { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } }
           ]
@@ -613,7 +614,11 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '单击编辑', routerLink: { name: 'ComponentGridEditClick' } },
             { title: '双击编辑', routerLink: { name: 'ComponentGridEditDblclick' } },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },
-            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } }
+            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } },
+            { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
+            { title: '行编辑', routerLink: { name: 'ComponentGridEditRowValid' } },
+            { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
+            { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } }
           ]
         },
         {

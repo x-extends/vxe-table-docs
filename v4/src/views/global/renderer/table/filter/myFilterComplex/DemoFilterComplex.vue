@@ -63,7 +63,10 @@ const resetEvent = () => {
   }
 }
 
-watch(() => props.params, load)
+watch(() => {
+  const { column } = props.params || {}
+  return column
+}, load)
 
 load()
 </script>

@@ -2,10 +2,7 @@
   <div>
     <p>
       <vxe-button @click="insertEvent">新增</vxe-button>
-      <vxe-button @click="removeSelectEvent()">删除选中</vxe-button>
-      <vxe-button @click="fullValidEvent">快速校验全量数据</vxe-button>
-      <vxe-button @click="selectValidEvent">选中行校验</vxe-button>
-      <vxe-button @click="getSelectEvent">获取选中</vxe-button>
+      <vxe-button @click="validEvent">快速校验变动数据</vxe-button>
       <vxe-button @click="getInsertEvent">获取新增</vxe-button>
       <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
       <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
@@ -23,14 +20,34 @@
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-colgroup title="分组1">
-        <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
-        <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>
+        <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">
+          <template #edit="params">
+            <vxe-input v-model="params.row.name" type="text" @change="changeCellEvent(params)"></vxe-input>
+          </template>
+        </vxe-column>
+        <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}">
+          <template #edit="params">
+            <vxe-input v-model="params.row.role" type="text" @change="changeCellEvent(params)"></vxe-input>
+          </template>
+        </vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="分组2">
         <vxe-colgroup title="分组21">
-          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}"></vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.sex" type="text" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.age" type="integer" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.date" type="date" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
     </vxe-table>
@@ -97,14 +114,14 @@ const validRules = ref<VxeTablePropTypes.EditRules<RowVO>>({
   ]
 })
 
-const removeSelectEvent = () => {
+const changeCellEvent = (params: any) => {
   const $table = tableRef.value
   if ($table) {
-    $table.removeCheckboxRow()
+    $table.updateStatus(params)
   }
 }
 
-const fullValidEvent = async () => {
+const validEvent = async () => {
   const $table = tableRef.value
   if ($table) {
     const errMap = await $table.validate(true)
@@ -112,23 +129,6 @@ const fullValidEvent = async () => {
       VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
     } else {
       VxeUI.modal.message({ status: 'success', content: '校验成功！' })
-    }
-  }
-}
-
-const selectValidEvent = async () => {
-  const $table = tableRef.value
-  if ($table) {
-    const selectRecords = $table.getCheckboxRecords()
-    if (selectRecords.length > 0) {
-      const errMap = await $table.validate(selectRecords)
-      if (errMap) {
-        VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
-      } else {
-        VxeUI.modal.message({ status: 'success', content: '校验成功！' })
-      }
-    } else {
-      VxeUI.modal.message({ status: 'warning', content: '未选中数据！' })
     }
   }
 }
@@ -142,14 +142,6 @@ const insertEvent = async () => {
     if (errMap) {
       // 校验失败
     }
-  }
-}
-
-const getSelectEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const selectRecords = $table.getCheckboxRecords()
-    VxeUI.modal.alert(selectRecords.length)
   }
 }
 

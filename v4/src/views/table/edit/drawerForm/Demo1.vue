@@ -94,6 +94,7 @@
           </vxe-form-item>
           <vxe-form-item align="center" title-align="left" :span="24">
             <template #default>
+              <vxe-button @click="cancelEvent">取消</vxe-button>
               <vxe-button type="reset">重置</vxe-button>
               <vxe-button type="submit" status="primary">提交</vxe-button>
             </template>
@@ -195,6 +196,11 @@ const editEvent = (row: RowVO) => {
   Object.assign(formData, row)
   selectRow.value = row
   showEdit.value = true
+}
+
+const cancelEvent = () => {
+  showEdit.value = false
+  selectRow.value = null
 }
 
 const cellDblclickEvent: VxeTableEvents.CellDblclick<RowVO> = ({ row }) => {

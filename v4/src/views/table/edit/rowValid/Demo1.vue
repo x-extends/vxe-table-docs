@@ -1,47 +1,55 @@
 <template>
   <div>
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button @click="insertEvent">新增</vxe-button>
-        <vxe-button @click="removeSelectEvent()">删除选中</vxe-button>
-        <vxe-button @click="validEvent">快速校验变动数据</vxe-button>
-        <vxe-button @click="getSelectEvent">获取选中</vxe-button>
-        <vxe-button @click="getInsertEvent">获取新增</vxe-button>
-        <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
-        <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
-      </template>
-    </vxe-toolbar>
+    <p>
+      <vxe-button @click="insertEvent">新增</vxe-button>
+      <vxe-button @click="validEvent">快速校验变动数据</vxe-button>
+      <vxe-button @click="getInsertEvent">获取新增</vxe-button>
+      <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
+      <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
+    </p>
 
     <vxe-table
       border
       show-overflow
       keep-source
+      height="300"
       ref="tableRef"
       :data="tableData"
       :edit-rules="validRules"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
-      <vxe-column type="checkbox" width="80"></vxe-column>
-      <vxe-column type="seq" width="80"></vxe-column>
-      <vxe-column field="name" title="Name" width="400" :edit-render="{}">
-        <template #edit="slotParams">
-          <vxe-input v-model="slotParams.row.name" type="text" @change="changeCellEvent(slotParams)"></vxe-input>
-        </template>
-      </vxe-column>
-      <vxe-column field="age" title="Age" width="200" :edit-render="{}">
-        <template #edit="slotParams">
-          <vxe-input v-model="slotParams.row.age" type="text" @change="changeCellEvent(slotParams)"></vxe-input>
-        </template>
-      </vxe-column>
-      <vxe-column field="sex" title="Sex" width="200" :edit-render="{}">
-        <template #edit="slotParams">
-          <vxe-input v-model="slotParams.row.sex" type="text" @change="changeCellEvent(slotParams)"></vxe-input>
-        </template>
-      </vxe-column>
-      <vxe-column field="date" title="Date" width="300" fixed="right" :edit-render="{}">
-        <template #edit="slotParams">
-          <vxe-input v-model="slotParams.row.date" type="date" @change="changeCellEvent(slotParams)"></vxe-input>
-        </template>
-      </vxe-column>
+      <vxe-column type="checkbox" width="60"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-colgroup title="分组1">
+        <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">
+          <template #edit="params">
+            <vxe-input v-model="params.row.name" type="text" @change="changeCellEvent(params)"></vxe-input>
+          </template>
+        </vxe-column>
+        <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}">
+          <template #edit="params">
+            <vxe-input v-model="params.row.role" type="text" @change="changeCellEvent(params)"></vxe-input>
+          </template>
+        </vxe-column>
+      </vxe-colgroup>
+      <vxe-colgroup title="分组2">
+        <vxe-colgroup title="分组21">
+          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.sex" type="text" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.age" type="integer" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.date" type="date" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
+        </vxe-colgroup>
+      </vxe-colgroup>
     </vxe-table>
   </div>
 </template>
@@ -65,43 +73,46 @@ const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
   { id: 10002, name: '', role: 'Test', sex: '1', age: 22, address: 'Guangzhou' },
   { id: 10003, name: 'Test3', role: 'PM', sex: '', age: 32, address: 'Shanghai' },
-  { id: 10004, name: '', role: '', sex: '1', age: 23, address: 'test abc' },
-  { id: 10005, name: 'Test5', role: '', sex: '', age: 30, address: 'Shanghai' },
+  { id: 10004, name: 'Test4', role: 'Designer', sex: '', age: 23, address: 'test abc' },
+  { id: 10005, name: '', role: '', sex: '1', age: 30, address: 'Shanghai' },
   { id: 10006, name: 'Test6', role: 'Designer', sex: '1', age: 21, address: 'test abc' }
 ])
 
-const validRules = ref<VxeTablePropTypes.EditRules>({
+const validRules = ref<VxeTablePropTypes.EditRules<RowVO>>({
   name: [
+    { required: true, message: '请输入名称' },
     {
       validator ({ cellValue }) {
-        if (cellValue && !/^\w+$/.test(cellValue)) {
-          return new Error('名称格式不正确，必须字母或数字')
+        // 模拟服务端校验
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (cellValue && (cellValue.length < 3 || cellValue.length > 50)) {
+              reject(new Error('名称长度在 3 到 50 个字符之间'))
+            } else {
+              resolve()
+            }
+          }, 100)
+        })
+      }
+    }
+  ],
+  role: [
+    {
+      validator ({ cellValue }) {
+        if (cellValue && !['Develop', 'Test', 'Designer', 'PM'].includes(cellValue)) {
+          return new Error('角色输入不正确')
         }
       }
     }
   ],
   sex: [
-    { required: true, message: '性别必须填写' }
+    { required: true, message: '性别必须填写' },
+    { pattern: /^[0,1]{1}$/, message: '格式不正确' }
   ],
   age: [
-    { type: 'number', min: 10, max: 100000, message: '输入 10 ~ 100000 范围' }
-  ],
-  date: [
-    { required: true, message: '日期必须填写' }
+    { pattern: '^[0-9]{0,3}$', message: '格式不正确' }
   ]
 })
-
-const validEvent = async () => {
-  const $table = tableRef.value
-  if ($table) {
-    const errMap = await $table.validate()
-    if (errMap) {
-      VxeUI.modal.message({ status: 'error', message: '校验不通过！' })
-    } else {
-      VxeUI.modal.message({ status: 'success', message: '校验成功！' })
-    }
-  }
-}
 
 const changeCellEvent = (params: any) => {
   const $table = tableRef.value
@@ -110,10 +121,15 @@ const changeCellEvent = (params: any) => {
   }
 }
 
-const removeSelectEvent = () => {
+const validEvent = async () => {
   const $table = tableRef.value
   if ($table) {
-    $table.removeCheckboxRow()
+    const errMap = await $table.validate()
+    if (errMap) {
+      VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+    } else {
+      VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+    }
   }
 }
 
@@ -126,14 +142,6 @@ const insertEvent = async () => {
     if (errMap) {
       // 校验失败
     }
-  }
-}
-
-const getSelectEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const selectRecords = $table.getCheckboxRecords()
-    VxeUI.modal.alert(selectRecords.length)
   }
 }
 

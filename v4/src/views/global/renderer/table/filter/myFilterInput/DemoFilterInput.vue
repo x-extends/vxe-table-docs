@@ -47,7 +47,10 @@ const keyupEvent: VxeInputEvents.Keyup = ({ $event }) => {
   }
 }
 
-watch(() => props.params, load)
+watch(() => {
+  const { column } = props.params || {}
+  return column
+}, load)
 
 load()
 </script>

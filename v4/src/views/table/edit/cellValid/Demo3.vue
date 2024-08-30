@@ -2,9 +2,7 @@
   <div>
     <p>
       <vxe-button @click="insertEvent">新增</vxe-button>
-      <vxe-button @click="removeSelectEvent()">删除选中</vxe-button>
       <vxe-button @click="validAllEvent">校验全表单元格</vxe-button>
-      <vxe-button @click="getSelectEvent">获取选中</vxe-button>
       <vxe-button @click="getInsertEvent">获取新增</vxe-button>
       <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
       <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
@@ -18,19 +16,38 @@
       ref="tableRef"
       :data="tableData"
       :edit-rules="validRules"
-      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
-      :valid-config="{msgMode: 'full'}">
+      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-colgroup title="分组1">
-        <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
-        <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>
+        <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">
+          <template #edit="params">
+            <vxe-input v-model="params.row.name" type="text" @change="changeCellEvent(params)"></vxe-input>
+          </template>
+        </vxe-column>
+        <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}">
+          <template #edit="params">
+            <vxe-input v-model="params.row.role" type="text" @change="changeCellEvent(params)"></vxe-input>
+          </template>
+        </vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="分组2">
         <vxe-colgroup title="分组21">
-          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}"></vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}"></vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}"></vxe-column>
+          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.sex" type="text" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.age" type="integer" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
+          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}">
+            <template #edit="params">
+              <vxe-input v-model="params.row.date" type="date" @change="changeCellEvent(params)"></vxe-input>
+            </template>
+          </vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
     </vxe-table>
@@ -97,10 +114,10 @@ const validRules = ref<VxeTablePropTypes.EditRules<RowVO>>({
   ]
 })
 
-const removeSelectEvent = () => {
+const changeCellEvent = (params: any) => {
   const $table = tableRef.value
   if ($table) {
-    $table.removeCheckboxRow()
+    $table.updateStatus(params)
   }
 }
 
@@ -122,13 +139,11 @@ const validAllEvent = async () => {
         status: 'error',
         slots: {
           default () {
-            return (
-              <div class="red" style="max-height: 400px;overflow: auto;">
+            return <div class="red" style="max-height: 400px;overflow: auto;">
                 {
                   msgList.map(msg => <div>{ msg }</div>)
                 }
               </div>
-            )
           }
         }
       })
@@ -147,14 +162,6 @@ const insertEvent = async () => {
     if (errMap) {
       // 校验失败
     }
-  }
-}
-
-const getSelectEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const selectRecords = $table.getCheckboxRecords()
-    VxeUI.modal.alert(selectRecords.length)
   }
 }
 

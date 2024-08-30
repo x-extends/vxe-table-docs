@@ -859,6 +859,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/edit/cascadingSelect/CodeExample.vue')
         },
         {
+          path: 'rowImmediately',
+          name: 'ComponentTableEditRowImmediately',
+          component: () => import('@/views/table/edit/rowImmediately/CodeExample.vue')
+        },
+        {
           path: 'footerImmediately',
           name: 'ComponentTableEditFooterImmediately',
           component: () => import('@/views/table/edit/footerImmediately/CodeExample.vue')
@@ -1958,6 +1963,26 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'rowDisable',
           name: 'ComponentGridEditRowDisable',
           component: () => import('@/views/grid/edit/rowDisable/CodeExample.vue')
+        },
+        {
+          path: 'cellValid',
+          name: 'ComponentGridEditCellValid',
+          component: () => import('@/views/grid/edit/cellValid/CodeExample.vue')
+        },
+        {
+          path: 'rowValid',
+          name: 'ComponentGridEditRowValid',
+          component: () => import('@/views/grid/edit/rowValid/CodeExample.vue')
+        },
+        {
+          path: 'rowImmediately',
+          name: 'ComponentGridEditRowImmediately',
+          component: () => import('@/views/grid/edit/rowImmediately/CodeExample.vue')
+        },
+        {
+          path: 'footerImmediately',
+          name: 'ComponentGridEditFooterImmediately',
+          component: () => import('@/views/grid/edit/footerImmediately/CodeExample.vue')
         }
       ]
     },

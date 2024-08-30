@@ -2,9 +2,7 @@
   <div>
     <p>
       <vxe-button @click="insertEvent">新增</vxe-button>
-      <vxe-button @click="removeSelectEvent()">删除选中</vxe-button>
       <vxe-button @click="validEvent">快速校验变动数据</vxe-button>
-      <vxe-button @click="getSelectEvent">获取选中</vxe-button>
       <vxe-button @click="getInsertEvent">获取新增</vxe-button>
       <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
       <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
@@ -123,13 +121,6 @@ const changeCellEvent = (params: any) => {
   }
 }
 
-const removeSelectEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.removeCheckboxRow()
-  }
-}
-
 const validEvent = async () => {
   const $table = tableRef.value
   if ($table) {
@@ -151,14 +142,6 @@ const insertEvent = async () => {
     if (errMap) {
       // 校验失败
     }
-  }
-}
-
-const getSelectEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const selectRecords = $table.getCheckboxRecords()
-    VxeUI.modal.alert(selectRecords.length)
   }
 }
 
