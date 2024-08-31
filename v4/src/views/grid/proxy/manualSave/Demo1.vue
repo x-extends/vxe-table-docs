@@ -8,7 +8,7 @@
     <vxe-button status="success" @click="saveEvent">保存</vxe-button>
 
     <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #active="{ row }">
+      <template #action="{ row }">
         <vxe-button mode="text" status="warning" @click="pendingRow(row)">标记</vxe-button>
         <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
       </template>
@@ -139,7 +139,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
     { field: 'role', title: 'Role', editRender: { name: 'input' } },
     { field: 'address', title: 'Address', editRender: { name: 'input' }, showOverflow: true },
-    { title: '操作', slots: { default: 'active' } }
+    { title: '操作', slots: { default: 'action' } }
   ],
   proxyConfig: {
     form: true,

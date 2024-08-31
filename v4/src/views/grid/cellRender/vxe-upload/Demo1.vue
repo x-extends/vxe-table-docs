@@ -22,6 +22,7 @@ const fileList1CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUpl
   name: 'VxeUpload',
   props: {
     readonly: true,
+    progressText: '{percent}%',
     moreConfig: {
       maxCount: 1,
       layout: 'horizontal'
@@ -34,6 +35,7 @@ const fileList2CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUpl
   props: {
     multiple: true,
     showButtonText: false,
+    progressText: '{percent}%',
     moreConfig: {
       maxCount: 1,
       layout: 'horizontal'
@@ -46,6 +48,7 @@ const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
   props: {
     mode: 'image',
     readonly: true,
+    progressText: '{percent}%',
     moreConfig: {
       maxCount: 1
     },
@@ -62,6 +65,7 @@ const imgList2CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
     mode: 'image',
     multiple: true,
     showButtonText: false,
+    progressText: '{percent}%',
     moreConfig: {
       maxCount: 1
     },

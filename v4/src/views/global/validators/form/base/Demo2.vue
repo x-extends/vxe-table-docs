@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-form v-bind="formOptions" @submit="submitEvent">
-      <template #active>
+      <template #action>
         <vxe-button type="submit" status="primary">提交</vxe-button>
         <vxe-button type="reset">重置</vxe-button>
       </template>
@@ -32,7 +32,7 @@ const formOptions = reactive<VxeFormProps<FormDataVO>>({
     { title: 'Name', field: 'name', span: 24, itemRender: { name: 'VxeInput', props: { placeholder: '请输入名称' } } },
     { title: 'Mobile', field: 'mobile', span: 24, itemRender: { name: 'VxeInput' } },
     { title: 'Email', field: 'email', span: 24, itemRender: { name: 'VxeInput' } },
-    { slots: { default: 'active' } }
+    { slots: { default: 'action' } }
   ],
   rules: {
     mobile: [

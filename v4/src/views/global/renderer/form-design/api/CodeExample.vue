@@ -107,7 +107,7 @@ const tableData = ref([
       },
       {
         name: 'renderFormDesignWidgetEdit',
-        desc: '控件渲染器（设计时），如果不设置，则使用 renderFormDesignWidgetView 渲染',
+        desc: '表单控件渲染（设计时），如果不设置，则使用 renderFormDesignWidgetView 渲染',
         version: '',
         type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
         enum: '',
@@ -116,7 +116,7 @@ const tableData = ref([
       },
       {
         name: 'renderFormDesignWidgetPreview',
-        desc: '控件渲染器（预览时 - 电脑端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
+        desc: '表单控件渲染（预览时 - 电脑端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
         version: '',
         type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
         enum: '',
@@ -125,7 +125,7 @@ const tableData = ref([
       },
       {
         name: 'renderFormDesignWidgetMobilePreview',
-        desc: '控件渲染器（预览时 - 手机端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
+        desc: '表单控件渲染（预览时 - 手机端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
         version: '',
         type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
         enum: '',
@@ -134,9 +134,36 @@ const tableData = ref([
       },
       {
         name: 'renderFormDesignWidgetView',
-        desc: '控件渲染器（运行时）',
+        desc: '表单控件渲染（默认）',
         version: '',
         type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetSubtableDefaultView',
+        desc: '子表控件渲染（只读模式）',
+        version: '4.1.14',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetSubtableCellView',
+        desc: '子表控件渲染（编辑模式-查看），如果不设置，则使用 renderFormDesignWidgetSubtableDefaultView',
+        version: '4.1.14',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetSubtableEditView',
+        desc: '子表控件渲染（编辑模式-编辑）',
+        version: '4.1.14',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
         enum: '',
         defVal: '',
         list: []

@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-      <template #active>
+      <template #action>
         <vxe-button-group mode="text" @click="clickEvent">
           <vxe-button name="del">查看</vxe-button>
           <vxe-button status="error" name="error">删除</vxe-button>
@@ -27,7 +27,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200 },
-    { title: '按钮组', width: 200, slots: { default: 'active' } }
+    { title: '按钮组', width: 200, slots: { default: 'action' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop' },
