@@ -119,7 +119,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   toolbarConfig: {
     buttons: [
-      { code: 'insert_actived', name: '新增' },
+      { code: 'insert_edit', name: '新增' },
       { code: 'delete', name: '直接删除' },
       { code: 'mark_cancel', status: 'error', name: '删除/取消' },
       { code: 'save', status: 'success', name: '保存' }

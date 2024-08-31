@@ -3,10 +3,11 @@
     <vxe-table
       border
       show-overflow
+      keep-source
       height="400"
       ref="tableRef"
       :loading="loading"
-      :edit-config="{trigger: 'manual', mode: 'row'}"
+      :edit-config="{trigger: 'manual', mode: 'row', showStatus: true, autoClear: false}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
@@ -80,7 +81,10 @@ const saveRowEvent = (row: RowVO) => {
 const cancelRowEvent = (row: RowVO) => {
   const $table = tableRef.value
   if ($table) {
-    $table.clearEdit()
+    $table.clearEdit().then(() => {
+      // 还原行数据
+      $table.revertData(row)
+    })
   }
 }
 </script>

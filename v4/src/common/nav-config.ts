@@ -611,6 +611,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '可编辑',
           children: [
+            { title: '手动编辑', routerLink: { name: 'ComponentGridEditManual' } },
             { title: '单击编辑', routerLink: { name: 'ComponentGridEditClick' } },
             { title: '双击编辑', routerLink: { name: 'ComponentGridEditDblclick' } },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },

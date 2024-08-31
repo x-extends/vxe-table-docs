@@ -41,7 +41,7 @@
       </vxe-column>
       <vxe-column title="操作">
         <template #default="{ row }">
-          <template v-if="isActiveStatus(row)">
+          <template v-if="hasEditStatus(row)">
             <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
             <vxe-button @click="cancelRowEvent(row)">取消</vxe-button>
           </template>
@@ -98,7 +98,7 @@ const editRowEvent = async (row: RowVO) => {
   }
 }
 
-const isActiveStatus = (row: RowVO) => {
+const hasEditStatus = (row: RowVO) => {
   const $table = tableRef.value
   if ($table) {
     return $table.isEditByRow(row)

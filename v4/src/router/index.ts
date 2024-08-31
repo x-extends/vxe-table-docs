@@ -1945,6 +1945,11 @@ const gridRouteConfig: RouteRecordRaw = {
       path: 'edit',
       children: [
         {
+          path: 'manual',
+          name: 'ComponentGridEditManual',
+          component: () => import('@/views/grid/edit/manual/CodeExample.vue')
+        },
+        {
           path: 'click',
           name: 'ComponentGridEditClick',
           component: () => import('@/views/grid/edit/click/CodeExample.vue')
