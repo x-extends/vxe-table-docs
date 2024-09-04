@@ -40,8 +40,8 @@ const formRef = ref<VxeFormInstance>()
 
 const formOptions = reactive<VxeFormProps<FormDataVO>>({
   data: {
-    name: 'test1',
-    nickname: 'Testing',
+    name: 'Test',
+    nickname: '',
     sex: '',
     age: ''
   },
@@ -57,28 +57,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: true,
   height: 500,
-  formConfig: {
-    data: {
-      name: 'Test',
-      email: '',
-      nickname: ''
-    },
-    items: [
-      { field: 'name', title: 'Name', span: 6, itemRender: { name: 'VxeInput' } },
-      { field: 'role', title: 'Role', span: 6, itemRender: { name: 'VxeInput' } },
-      { field: 'age', title: 'Age', span: 6, itemRender: { name: 'VxeInput' } },
-      {
-        span: 6,
-        itemRender: {
-          name: 'VxeButtonGroup',
-          options: [
-            { type: 'submit', content: '搜索', status: 'primary' },
-            { type: 'reset', content: '重置' }
-          ]
-        }
-      }
-    ]
-  },
   columns: [
     { type: 'seq', width: 70, fixed: 'left' },
     { field: 'name', title: 'Name', minWidth: 160 },
@@ -99,7 +77,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const searchEvent = async () => {
-  console.log('search form', gridOptions.formConfig?.data)
+  console.log('search form', formOptions.data)
 }
 
 const resetEvent = () => {

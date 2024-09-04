@@ -1,12 +1,29 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents">
+      <template #nameItem="{ data }">
+        <vxe-input v-model="data.name"></vxe-input>
+      </template>
+
+      <template #sexItem="{ data }">
+        <vxe-input v-model="data.sex"></vxe-input>
+      </template>
+
+      <template #ageItem="{ data }">
+        <vxe-input v-model="data.age"></vxe-input>
+      </template>
+
+      <template #actionItem>
+        <vxe-button status="primary" @click="searchEvent">搜索</vxe-button>
+        <vxe-button @click="resetEvent">重置</vxe-button>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeGridProps, VxeGridListeners, VxeFormInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -18,6 +35,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const formRef = ref<VxeFormInstance>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
@@ -31,19 +50,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       age: ''
     },
     items: [
-      { field: 'name', title: 'Name', span: 6, itemRender: { name: 'VxeInput' } },
-      { field: 'role', title: 'Role', span: 6, itemRender: { name: 'VxeInput' } },
-      { field: 'age', title: 'Age', span: 6, itemRender: { name: 'VxeInput' } },
-      {
-        span: 6,
-        itemRender: {
-          name: 'VxeButtonGroup',
-          options: [
-            { type: 'submit', content: '搜索', status: 'primary' },
-            { type: 'reset', content: '重置' }
-          ]
-        }
-      }
+      { field: 'name', title: '名称', span: 24, itemRender: {}, slots: { default: 'nameItem' } },
+      { field: 'sex', title: '性别', span: 12, itemRender: { }, slots: { default: 'sexItem' } },
+      { field: 'age', title: '年龄', span: 12, itemRender: {}, slots: { default: 'ageItem' } },
+      { span: 24, align: 'center', itemRender: {}, slots: { default: 'actionItem' } }
     ]
   },
   columns: [
@@ -64,6 +74,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', nickname: '', role: 'Designer', sex: 'Women', age: 24, email: '', address: 'Shanghai' }
   ]
 })
+
+const searchEvent = async () => {
+  console.log('search form', gridOptions.formConfig?.data)
+}
+
+const resetEvent = () => {
+  const $form = formRef.value
+  if ($form) {
+    $form.reset()
+  }
+}
 
 const gridEvents: VxeGridListeners = {
   formSubmit () {

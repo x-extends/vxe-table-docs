@@ -7,7 +7,7 @@
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.name"></vxe-input>
+          <vxe-input v-model="row.name" clearable></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="num" title="数字" width="180" :edit-render="{}">

@@ -2,7 +2,7 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #edit_name="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
+        <vxe-input v-model="row.name" clearable></vxe-input>
       </template>
 
       <template #edit_num="{ row }">

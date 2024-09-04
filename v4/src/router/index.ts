@@ -1655,6 +1655,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/form/collapse/CodeExample.vue')
         },
         {
+          path: 'itemTemplate',
+          name: 'ComponentGridFormItemTemplate',
+          component: () => import('@/views/grid/form/itemTemplate/CodeExample.vue')
+        },
+        {
           path: 'template',
           name: 'ComponentGridFormTemplate',
           component: () => import('@/views/grid/form/template/CodeExample.vue')
