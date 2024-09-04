@@ -6,7 +6,7 @@
 
 <script lang="tsx" setup>
 import { reactive } from 'vue'
-import { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps } from 'vxe-table'
 import { VxeInput } from 'vxe-pc-ui'
 
 interface RowVO {

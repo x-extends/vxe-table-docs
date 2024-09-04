@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeColumnPropTypes } from 'vxe-table'
+import type { VxeColumnPropTypes } from 'vxe-table'
 import { VxeUploadProps, VxeUploadPropTypes } from 'vxe-pc-ui'
 
 interface RowVO {

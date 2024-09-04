@@ -41,7 +41,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
+import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
 import { VxeButtonEvents } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 

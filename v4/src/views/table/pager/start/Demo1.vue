@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeTablePropTypes } from 'vxe-table'
+import type { VxeTablePropTypes } from 'vxe-table'
 import { VxePagerEvents } from 'vxe-pc-ui'
 
 interface RowVO {

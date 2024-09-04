@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import { VxeToolbarInstance, VxeTableInstance } from 'vxe-table'
+import type { VxeToolbarInstance, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number

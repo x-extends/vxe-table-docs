@@ -6,7 +6,8 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 import axios from 'axios'
 
 interface RowVO {

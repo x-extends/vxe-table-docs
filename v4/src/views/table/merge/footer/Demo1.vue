@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeTablePropTypes } from 'vxe-table'
+import type { VxeTablePropTypes } from 'vxe-table'
 
 const demo1 = reactive({
   tableData: [

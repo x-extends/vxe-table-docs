@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, nextTick } from 'vue'
-import { VxeGridProps, VxeGridInstance } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
