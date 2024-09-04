@@ -404,7 +404,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '单元格样式', routerLink: { name: 'ComponentGridBaseStyle' } },
             { title: '动态样式', routerLink: { name: 'ComponentGridBaseDynamicStyle' } },
             // { title: '隐藏表头', routerLink: { name: 'ComponentGridBaseHeader' } },
-            // { title: '高亮列', routerLink: { name: 'ComponentGridBaseCurrentColumn' } },
+            { title: '高亮列', routerLink: { name: 'ComponentGridBaseCurrentColumn' } },
             { title: '高亮行', routerLink: { name: 'ComponentGridBaseCurrentRow' } },
             { title: '拖拽调整列宽', routerLink: { name: 'ComponentGridBaseHeaderResizable' } },
             // { title: '表格最小高度', routerLink: { name: 'ComponentGridBaseHeaderMinHeight' } },

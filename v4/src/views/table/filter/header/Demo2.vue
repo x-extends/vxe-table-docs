@@ -35,8 +35,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
+import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
