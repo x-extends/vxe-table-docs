@@ -4,12 +4,17 @@
       border
       show-overflow
       :data="tableData">
-      <vxe-column type="seq" width="70" fixed="left"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="Role"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="address" title="Address" fixed="right" width="300"></vxe-column>
+      <vxe-colgroup title="操作" fixed="left">
+        <vxe-column type="seq" width="70"></vxe-column>
+        <vxe-column type="checkbox" width="70"></vxe-column>
+      </vxe-colgroup>
+      <vxe-column field="name" title="Name" min-width="800"></vxe-column>
+      <vxe-column field="role" title="Role" min-width="300"></vxe-column>
+      <vxe-column field="sex" title="Sex" width="500"></vxe-column>
+      <vxe-colgroup title="其他信息" fixed="right">
+        <vxe-column field="age" title="Age" width="100"></vxe-column>
+        <vxe-column field="address" title="Address" width="200"></vxe-column>
+      </vxe-colgroup>
     </vxe-table>
   </div>
 </template>

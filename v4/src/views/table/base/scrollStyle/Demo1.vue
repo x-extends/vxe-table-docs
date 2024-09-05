@@ -5,14 +5,14 @@
       show-footer
       class="mytable-scrollbar"
       height="400"
-      :footer-method="footerMethod"
+      :footer-data="footerData"
       :data="tableData">
       <vxe-column type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
       <vxe-column field="sex" title="Sex" width="250"></vxe-column>
       <vxe-column field="age" title="Age" width="250"></vxe-column>
       <vxe-column field="role" title="Role" width="300"></vxe-column>
-      <vxe-column field="address" title="Address" width="350" show-overflow></vxe-column>
+      <vxe-column field="address" title="Address" min-width="350" show-overflow></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -41,37 +41,19 @@ const tableData = ref<RowVO[]>([
   { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
 ])
 
-const sumNum = (list: any[], field: string) => {
-  let count = 0
-  list.forEach(item => {
-    count += Number(item[field])
-  })
-  return count
-}
-
-const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns, data }) => {
-  return [
-    columns.map((column, columnIndex) => {
-      if (columnIndex === 0) {
-        return '平均'
-      }
-      if (['age'].includes(column.field)) {
-        return sumNum(data, column.field)
-      }
-      return '-'
-    })
-  ]
-}
+const footerData = ref<VxeTablePropTypes.FooterData>([
+  { age: 220 }
+])
 </script>
 
 <style lang="scss">
 .mytable-scrollbar {
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
   ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
+    border-radius: 4px;
   }
 }
 

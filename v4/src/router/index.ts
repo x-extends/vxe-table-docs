@@ -1245,6 +1245,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/base/tooltip/CodeExample.vue')
         },
         {
+          path: 'scrollStyle',
+          name: 'ComponentGridBaseScrollStyle',
+          component: () => import('@/views/grid/base/scrollStyle/CodeExample.vue')
+        },
+        {
           path: 'stripe',
           name: 'ComponentGridBaseStripe',
           component: () => import('@/views/grid/base/stripe/CodeExample.vue')

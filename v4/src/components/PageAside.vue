@@ -448,7 +448,7 @@ appStore.updateComponentApiJSON()
       padding-left: 5em;
       .nav-item-text,
       .nav-item-link {
-        font-size: 13px;
+        font-size: 14px;
       }
     }
   }
@@ -458,7 +458,7 @@ appStore.updateComponentApiJSON()
       padding-left: 7.4em;
       .nav-item-text,
       .nav-item-link {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }
@@ -468,7 +468,7 @@ appStore.updateComponentApiJSON()
       padding-left: 9em;
       .nav-item-text,
       .nav-item-link {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }
