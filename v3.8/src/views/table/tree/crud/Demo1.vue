@@ -167,7 +167,7 @@ export default {
           parentId: currRow.parentId, // 父节点必须与当前行一致
           date: XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
         }
-        const { row: newRow } = await $table.insertAt(record, currRow)
+        const { row: newRow } = await $table.insertNextAt(record, currRow)
         await $table.setEditRow(newRow) // 插入子节点
       }
     },
