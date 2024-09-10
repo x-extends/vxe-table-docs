@@ -1,5 +1,8 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
+import RouteLayout from '@/components/RouteLayout.vue'
+import PageLayout from '@/components/PageLayout.vue'
+
 import StartInstall from '@/views/start/install/CodeExample.vue'
 import StartUseGlobal from '@/views/start/useGlobal/CodeExample.vue'
 import StartUseImport from '@/views/start/useImport/CodeExample.vue'
@@ -14,9 +17,11 @@ import JoinSponsor from '@/views/start/JoinSponsor.vue'
 
 const tableRouteConfig: RouteRecordRaw = {
   path: 'table',
+  component: RouteLayout,
   children: [
     {
       path: 'base',
+      component: RouteLayout,
       children: [
         {
           path: 'basic',
@@ -212,6 +217,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'footer',
+      component: RouteLayout,
       children: [
         {
           path: 'footerData',
@@ -237,6 +243,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'radio',
+      component: RouteLayout,
       children: [
         {
           path: 'highlight',
@@ -262,6 +269,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'checkbox',
+      component: RouteLayout,
       children: [
         {
           path: 'highlight',
@@ -297,6 +305,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'sort',
+      component: RouteLayout,
       children: [
         {
           path: 'multiple',
@@ -337,6 +346,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'filter',
+      component: RouteLayout,
       children: [
         {
           path: 'options',
@@ -362,6 +372,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'merge',
+      component: RouteLayout,
       children: [
         {
           path: 'row',
@@ -392,6 +403,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'expand',
+      component: RouteLayout,
       children: [
         {
           path: 'basic',
@@ -442,6 +454,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'menu',
+      component: RouteLayout,
       children: [
         {
           path: 'header',
@@ -482,6 +495,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'toolbar',
+      component: RouteLayout,
       children: [
         {
           path: 'basic',
@@ -512,6 +526,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'custom',
+      component: RouteLayout,
       children: [
         {
           path: 'toolbar',
@@ -602,6 +617,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'pager',
+      component: RouteLayout,
       children: [
         {
           path: 'mockPage',
@@ -622,6 +638,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'tree',
+      component: RouteLayout,
       children: [
         {
           path: 'basic',
@@ -647,6 +664,16 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'accordion',
           name: 'ComponentTableTreeAccordion',
           component: () => import('@/views/table/tree/accordion/CodeExample.vue')
+        },
+        {
+          path: 'currentRow',
+          name: 'ComponentTableTreeCurrentRow',
+          component: () => import('@/views/table/tree/currentRow/CodeExample.vue')
+        },
+        {
+          path: 'currentColumn',
+          name: 'ComponentTableTreeCurrentColumn',
+          component: () => import('@/views/table/tree/currentColumn/CodeExample.vue')
         },
         {
           path: 'radio',
@@ -717,6 +744,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'keyboard',
+      component: RouteLayout,
       children: [
         {
           path: 'selected',
@@ -747,6 +775,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'edit',
+      component: RouteLayout,
       children: [
         {
           path: 'manual',
@@ -877,6 +906,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'cellRender',
+      component: RouteLayout,
       children: [
         {
           path: 'vxe-switch',
@@ -917,6 +947,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'cellTemplate',
+      component: RouteLayout,
       children: [
         {
           path: 'vxe-switch',
@@ -932,6 +963,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'editRender',
+      component: RouteLayout,
       children: [
         {
           path: 'input',
@@ -972,6 +1004,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'editTemplate',
+      component: RouteLayout,
       children: [
         {
           path: 'vxe-input',
@@ -997,6 +1030,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'template',
+      component: RouteLayout,
       children: [
         {
           path: 'default',
@@ -1042,6 +1076,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'import',
+      component: RouteLayout,
       children: [
         {
           path: 'base',
@@ -1057,6 +1092,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'export',
+      component: RouteLayout,
       children: [
         {
           path: 'base',
@@ -1097,6 +1133,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'print',
+      component: RouteLayout,
       children: [
         {
           path: 'base',
@@ -1122,6 +1159,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'scroll',
+      component: RouteLayout,
       children: [
         {
           path: 'vertical',
@@ -1172,6 +1210,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'search',
+      component: RouteLayout,
       children: [
         {
           path: 'list',
@@ -1187,6 +1226,7 @@ const tableRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'events',
+      component: RouteLayout,
       children: [
         {
           path: 'click',
@@ -1205,9 +1245,11 @@ const tableRouteConfig: RouteRecordRaw = {
 
 const gridRouteConfig: RouteRecordRaw = {
   path: 'grid',
+  component: RouteLayout,
   children: [
     {
       path: 'base',
+      component: RouteLayout,
       children: [
         {
           path: 'basic',
@@ -1398,6 +1440,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'sort',
+      component: RouteLayout,
       children: [
         {
           path: 'multiple',
@@ -1413,6 +1456,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'filter',
+      component: RouteLayout,
       children: [
         {
           path: 'options',
@@ -1433,6 +1477,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'filterRender',
+      component: RouteLayout,
       children: [
         {
           path: 'vxe-input',
@@ -1458,6 +1503,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'filterTemplate',
+      component: RouteLayout,
       children: [
         {
           path: 'vxe-input',
@@ -1473,6 +1519,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'layout',
+      component: RouteLayout,
       children: [
         {
           path: 'pager',
@@ -1488,6 +1535,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'footer',
+      component: RouteLayout,
       children: [
         {
           path: 'footerData',
@@ -1513,6 +1561,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'radio',
+      component: RouteLayout,
       children: [
         {
           path: 'highlight',
@@ -1538,6 +1587,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'checkbox',
+      component: RouteLayout,
       children: [
         {
           path: 'highlight',
@@ -1573,6 +1623,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'merge',
+      component: RouteLayout,
       children: [
         {
           path: 'row',
@@ -1593,6 +1644,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'expand',
+      component: RouteLayout,
       children: [
         {
           path: 'basic',
@@ -1618,6 +1670,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'menu',
+      component: RouteLayout,
       children: [
         {
           path: 'prefixConfig',
@@ -1643,6 +1696,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'form',
+      component: RouteLayout,
       children: [
         {
           path: 'search',
@@ -1673,6 +1727,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'toolbar',
+      component: RouteLayout,
       children: [
         {
           path: 'buttons',
@@ -1723,6 +1778,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'custom',
+      component: RouteLayout,
       children: [
         {
           path: 'modal',
@@ -1793,6 +1849,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'pager',
+      component: RouteLayout,
       children: [
         {
           path: 'mockPage',
@@ -1818,6 +1875,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'tree',
+      component: RouteLayout,
       children: [
         {
           path: 'leveling',
@@ -1853,6 +1911,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'cellRender',
+      component: RouteLayout,
       children: [
         {
           path: 'vxe-switch',
@@ -1893,6 +1952,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'cellTemplate',
+      component: RouteLayout,
       children: [
         {
           path: 'vxe-switch',
@@ -1923,6 +1983,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'keyboard',
+      component: RouteLayout,
       children: [
         {
           path: 'selected',
@@ -1953,6 +2014,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'edit',
+      component: RouteLayout,
       children: [
         {
           path: 'manual',
@@ -2003,6 +2065,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'editRender',
+      component: RouteLayout,
       children: [
         {
           path: 'input',
@@ -2053,6 +2116,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'editTemplate',
+      component: RouteLayout,
       children: [
         {
           path: 'vxe-input',
@@ -2078,6 +2142,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'template',
+      component: RouteLayout,
       children: [
         {
           path: 'layout',
@@ -2133,6 +2198,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'import',
+      component: RouteLayout,
       children: [
         {
           path: 'base',
@@ -2168,6 +2234,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'export',
+      component: RouteLayout,
       children: [
         {
           path: 'base',
@@ -2228,6 +2295,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'print',
+      component: RouteLayout,
       children: [
         {
           path: 'base',
@@ -2268,6 +2336,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'scroll',
+      component: RouteLayout,
       children: [
         {
           path: 'vertical',
@@ -2313,6 +2382,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'proxy',
+      component: RouteLayout,
       children: [
         {
           path: 'query',
@@ -2388,6 +2458,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'search',
+      component: RouteLayout,
       children: [
         {
           path: 'list',
@@ -2403,6 +2474,7 @@ const gridRouteConfig: RouteRecordRaw = {
     },
     {
       path: 'events',
+      component: RouteLayout,
       children: [
         {
           path: 'click',
@@ -2434,6 +2506,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/start',
+    component: PageLayout,
     children: [
       {
         path: 'install',
@@ -2494,6 +2567,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/tool',
+    component: PageLayout,
     children: [
       {
         path: 'clipboard',
@@ -2504,6 +2578,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/global',
+    component: PageLayout,
     children: [
       {
         path: 'formats',
@@ -2784,15 +2859,22 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/component',
+    component: PageLayout,
     children: [
       tableRouteConfig,
       gridRouteConfig
     ]
   },
   {
-    path: '/:name/api',
-    name: 'DocsApi',
-    component: () => import('@/views/api/DocsApi.vue')
+    path: '/',
+    component: PageLayout,
+    children: [
+      {
+        path: ':name/api',
+        name: 'DocsApi',
+        component: () => import('@/views/api/DocsApi.vue')
+      }
+    ]
   }
 ]
 

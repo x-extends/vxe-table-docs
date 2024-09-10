@@ -6,7 +6,8 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import type { VxeTreeSelectProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -16,7 +17,7 @@ interface RowVO {
   regionList: string[]
 }
 
-const regionEditRender = reactive<VxeColumnPropTypes.EditRender>({
+const regionEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps>>({
   name: 'VxeTreeSelect',
   options: [
     {
@@ -36,7 +37,7 @@ const regionEditRender = reactive<VxeColumnPropTypes.EditRender>({
   ]
 })
 
-const regionListEditRender = reactive<VxeColumnPropTypes.EditRender>({
+const regionListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps>>({
   name: 'VxeTreeSelect',
   props: {
     multiple: true

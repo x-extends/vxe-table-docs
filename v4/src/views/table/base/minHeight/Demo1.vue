@@ -6,8 +6,8 @@
       :row-config="{isHover: true}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" sortable></vxe-column>
-      <vxe-column field="sex" title="Sex" align="center"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
     </vxe-table>

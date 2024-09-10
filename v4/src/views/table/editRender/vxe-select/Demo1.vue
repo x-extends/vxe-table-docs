@@ -17,6 +17,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import type { VxeColumnPropTypes } from 'vxe-table'
+import type { VxeSelectProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -28,7 +29,7 @@ interface RowVO {
   typeList: string[]
 }
 
-const sexEditRender = reactive<VxeColumnPropTypes.EditRender>({
+const sexEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
   name: 'VxeSelect',
   options: [
     { label: '女', value: 'Women' },
@@ -36,18 +37,22 @@ const sexEditRender = reactive<VxeColumnPropTypes.EditRender>({
   ]
 })
 
-const sexListEditRender = reactive<VxeColumnPropTypes.EditRender>({
+const sexListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
   name: 'VxeSelect',
   props: {
     multiple: true
   },
   options: [
-    { label: '女', value: 'Women' },
-    { label: '男', value: 'Man' }
-  ]
+    { name: '女', code: 'Women' },
+    { name: '男', code: 'Man' }
+  ],
+  optionProps: {
+    label: 'name',
+    value: 'code'
+  }
 })
 
-const typeEditRender = reactive<VxeColumnPropTypes.EditRender>({
+const typeEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
   name: 'VxeSelect',
   optionGroups: [
     {
@@ -67,7 +72,7 @@ const typeEditRender = reactive<VxeColumnPropTypes.EditRender>({
   ]
 })
 
-const typeListEditRender = reactive<VxeColumnPropTypes.EditRender>({
+const typeListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
   name: 'VxeSelect',
   props: {
     multiple: true
