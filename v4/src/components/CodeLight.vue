@@ -86,6 +86,7 @@
 <script lang="ts" setup>
 import { ref, computed, defineAsyncComponent, PropType } from 'vue'
 import { codeJsMaps, codeTsMaps } from '@/common/cache'
+import { useAppStore } from '@/store/app'
 import { VxeUI } from 'vxe-pc-ui'
 
 interface ImportItemVO {
@@ -100,9 +101,12 @@ const props = defineProps({
   path: String,
   extraImports: {
     type: Array as PropType<string[]>,
-    defalt: () => []
+    default: () => []
   }
 })
+
+const appStore = useAppStore()
+const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const showInstall = ref(false)
 const showPreview = ref(true)
@@ -167,7 +171,7 @@ const loadJsCode = () => {
     } else {
       jsLoading.value = true
       Promise.all([
-        fetch(`${process.env.BASE_URL}example/js/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+        fetch(`${siteBaseUrl.value}${process.env.BASE_URL}example/js/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
           if (response.status >= 200 && response.status < 400) {
             return response.text()
           }
@@ -175,7 +179,7 @@ const loadJsCode = () => {
         }),
         ...(props.extraImports?.map(impPath => {
           const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
-          return fetch(`${process.env.BASE_URL}example/js/${filePath}.${fileType}?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+          return fetch(`${siteBaseUrl.value}${process.env.BASE_URL}example/js/${filePath}.${fileType}?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
             if (response.status >= 200 && response.status < 400) {
               return response.text().then(text => {
                 return {
@@ -220,7 +224,7 @@ const loadTsCode = () => {
     } else {
       tsLoading.value = true
       Promise.all([
-        fetch(`${process.env.BASE_URL}example/ts/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+        fetch(`${siteBaseUrl.value}${process.env.BASE_URL}example/ts/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
           if (response.status >= 200 && response.status < 400) {
             return response.text()
           }
@@ -228,7 +232,7 @@ const loadTsCode = () => {
         }),
         ...(props.extraImports?.map(impPath => {
           const { filePath, fileType, codeLang } = parseTsFilePath(impPath)
-          return fetch(`${process.env.BASE_URL}example/ts/${filePath}.${fileType}?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+          return fetch(`${siteBaseUrl.value}${process.env.BASE_URL}example/ts/${filePath}.${fileType}?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
             if (response.status >= 200 && response.status < 400) {
               return response.text().then(text => {
                 return {

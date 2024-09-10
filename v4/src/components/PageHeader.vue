@@ -5,8 +5,8 @@
         <img src="/logo.png">
         <span class="title">{{ appStore.pageTitle }}</span>
       </a>
-      <a v-if="appStore.packName === 'vxe-table'" href='https://gitee.com/xuliangzhan/vxe-table/stargazers'>
-        <img src='https://gitee.com/xuliangzhan/vxe-table/badge/star.svg?theme=gvp' alt='star'>
+      <a v-if="appStore.packName === 'vxe-table'" href='https://gitee.com/xuliangzhan_admin/vxe-table/stargazers'>
+        <img src='https://gitee.com/xuliangzhan_admin/vxe-table/badge/star.svg?theme=gvp' alt='star'>
       </a>
       <a v-else :href='`https://gitee.com/x-extends/${appStore.packName}/stargazers`'>
         <img :src='`https://gitee.com/x-extends/${appStore.packName}/badge/star.svg?theme=gvp`' alt='star'>
@@ -21,9 +21,9 @@
     <div class="header-middle"></div>
     <div class="header-right">
       <vxe-pulldown v-model="showSystemMenu">
-        <vxe-button class="system-menu-btn" mode="text" @click="showSystemMenu = !showSystemMenu">
+        <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
-          <span class="system-menu-btn-text">{{ $t('app.header.moreProducts') }}</span>
+          <span :class="['system-menu-btn-text', {'unread': appStore.showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
         </vxe-button>
 
         <template #dropdown>
@@ -47,8 +47,8 @@
       <vxe-radio-group v-model="currLang" class="switch-lang" type="button" size="mini" :options="langOptions"></vxe-radio-group>
       <vxe-select v-if="!appStore.isPluginDocs" v-model="currSysVersion" class="switch-version" size="mini" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
       <vxe-link v-if="!appStore.isPluginDocs" class="free-donation" status="success" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
-      <a v-if="appStore.isPluginDocs" class="plugin-shopping" :href="appStore.pluginBuyUrl" target="_blank">{{ $t('app.header.buyPlugin') }}</a>
-      <a v-else class="plugin-shopping" :href="appStore.pluginBuyUrl" target="_blank">{{ $t('app.header.pluginStore') }}</a>
+      <a v-if="appStore.isPluginDocs" :class="['plugin-shopping', {'unread': appStore.showAuthMsgFlag}]" :href="appStore.pluginBuyUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
+      <a v-else :class="['plugin-shopping', {'unread': appStore.showAuthMsgFlag}]" :href="appStore.pluginBuyUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a>
     </div>
   </div>
 </template>
@@ -106,6 +106,11 @@ const selectSysVersion = computed(() => {
   return systemVersionList.value.find(item => item.version === currSysVersion.value)
 })
 
+const toggleSystemMenuEvent = () => {
+  showSystemMenu.value = !showSystemMenu.value
+  appStore.readTopMenuMsgFlagVisible()
+}
+
 const vChangeEvent = () => {
   const selectSysItem = selectSysVersion.value
   if (selectSysItem) {
@@ -113,13 +118,17 @@ const vChangeEvent = () => {
   }
 }
 
-fetch(`${siteBaseUrl.value}component-api/system-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+const openPluginEvent = () => {
+  appStore.readAuthMsgFlagVisible()
+}
+
+fetch(`${siteBaseUrl.value}/component-api/system-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     systemMenuList.value = data
   })
 })
 
-fetch(`${siteBaseUrl.value}component-api/${process.env.VUE_APP_PACKAGE_NAME}-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     systemVersionList.value = data
   })
@@ -166,15 +175,17 @@ fetch(`${siteBaseUrl.value}component-api/${process.env.VUE_APP_PACKAGE_NAME}-ver
     &:hover {
       text-decoration: underline;
     }
-    &::after {
-      content: "";
-      position: absolute;
-      top: 2px;
-      right: 8px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: red;
+    &.unread {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: red;
+      }
     }
   }
 }
@@ -203,15 +214,17 @@ fetch(`${siteBaseUrl.value}component-api/${process.env.VUE_APP_PACKAGE_NAME}-ver
   display: inline-block;
   position: relative;
   padding: 4px 8px 4px 8px;
-  &::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 6px;
-    height: 6px;
-    border-radius: 6px;
-    background-color: red;
+  &.unread {
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 6px;
+      background-color: red;
+    }
   }
 }
 .system-menu-btn-icon {
