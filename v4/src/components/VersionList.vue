@@ -52,7 +52,7 @@ const showBetaVersion = computed(() => {
       return true
     }
   } else {
-    return betaList.some((item: any) => item.value.indexOf('4.') === 0)
+    return betaList.some((item) => item.value.indexOf('4.') === 0)
   }
   return false
 })
@@ -66,7 +66,7 @@ const newBetsVersionList = computed(() => {
       const stable1 = XEUtils.toNumber(stableNums[0])
       const stable2 = XEUtils.toNumber(stableNums[1])
       const stable3 = XEUtils.toNumber(stableNums[2])
-      return betaList.filter((pack: any) => {
+      return betaList.filter((pack) => {
         const betaNums = pack.value.split('-')[0].split('.')
         const beta1 = XEUtils.toNumber(betaNums[0])
         const beta2 = XEUtils.toNumber(betaNums[1])

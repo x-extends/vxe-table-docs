@@ -58,9 +58,8 @@ import { ref, computed } from 'vue'
 import { useAppStore } from '@/store/app'
 import i18n from '@/i18n'
 
-const siteBaseUrl = computed(() => appStore.siteBaseUrl)
-
 const appStore = useAppStore()
+const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const showSystemMenu = ref(false)
 const systemMenuList = ref<any[]>()
