@@ -316,12 +316,12 @@ export default {
         copyToClipboard: 'Copied to clipboard'
       },
       other: {
-        v1: 'v1.x (vue 2.6 停止维护) ~ 2020-04 停止更新',
-        v2: 'v2.x (vue 2.6 停止维护) ~ 2021-12 停止更新',
-        v3: 'v3.9+ (vue 2.6 长期维护版)',
-        v3d8: 'v3.0~3.8 (vue 2.6 长期维护版)',
-        v4: 'v4.7+ (vue 3.x 最新版)',
-        v4d6: 'v4.0~4.6 (vue 3.x 长期维护版) ~ 2024-12 停止更新',
+        v1: 'v1.x (vue 2.6 Stop) ~ 2020-04 Stop updating',
+        v2: 'v2.x (vue 2.6 Stop) ~ 2021-12 Stop updating',
+        v3d8: 'v3.0~3.8 (vue 2.6 LTS) ~ 2024-12 Stop updating',
+        v3: 'v3.9+ (vue 2.6 LTS)',
+        v4d6: 'v4.0~4.6 (vue 3.x LTS) ~ 2024-12 Stop updating',
+        v4: 'v4.7+ (vue 3.x Stable)',
         plan: {
           v1: 'v1 Based on vue2.6+, Support for all major browsers',
           v2: 'v2 Based on vue2.6+, Support for all major browsers',
