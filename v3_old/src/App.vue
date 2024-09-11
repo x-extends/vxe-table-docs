@@ -2373,7 +2373,7 @@ export default {
           this.stableVersionList = stableVersionList
           this.betaVersionList = betaVersionList
           if (stableVersionList.length) {
-            this.selectStableVersion = tags[`v${this.docsVersion}-legacy`] || stableVersionList[0].value
+            this.selectStableVersion = tags[`v${this.docsVersion}-latest`] || stableVersionList[0].value
           }
           if (betaVersionList.length) {
             this.selectBetaVersion = betaVersionList[0].value
