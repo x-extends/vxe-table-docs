@@ -60,7 +60,7 @@ gulp.task('handle_vue_tstojs', gulp.series('handle_vue_tmpltojs', () => {
       const handlePath = `${this.file.dirname}\\${this.file.basename}`.replace('\\src\\', '\\temp\\').replace('.vue', '.js')
       if (fs.existsSync(handlePath)) {
         return text.replace(/<script [^>]*?>([\s\S]*)<\/script>/, () => {
-          let codeContent = fs.readFileSync(handlePath, 'utf-8').replace('use strict', '')
+          let codeContent = fs.readFileSync(handlePath, 'utf-8')
           if (codeContent) {
             codeContent += '\n'
           }
