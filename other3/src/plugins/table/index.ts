@@ -2,7 +2,10 @@ import Vue from 'vue'
 import i18n from '@/i18n'
 
 import XEUtils from 'xe-utils'
-import VXETable from 'vxe-table'
+import VxeUI from 'vxe-pc-ui'
+import 'vxe-pc-ui/lib/style.css'
+import VxeUITable from 'vxe-table'
+import 'vxe-table/lib/style.css'
 
 import VXETablePluginElement from 'vxe-table-plugin-element'
 import VXETablePluginIView from 'vxe-table-plugin-iview'
@@ -21,7 +24,7 @@ import './renderer'
 import './formatter'
 
 // 设置默认参数
-VXETable.setup({
+VxeUITable.setup({
   table: {
     exportConfig: {
       types: ['csv', 'html', 'xml', 'txt']
@@ -31,23 +34,24 @@ VXETable.setup({
   i18n: (key, args) => i18n.t(key, args) as string
 })
 
-Vue.use(VXETable)
+Vue.use(VxeUI)
+Vue.use(VxeUITable)
 
-VXETable.use(VXETablePluginElement)
-VXETable.use(VXETablePluginIView)
-VXETable.use(VXETablePluginAntd)
-VXETable.use(VXETablePluginMenus)
-VXETable.use(VXETablePluginExportPDF)
-VXETable.use(VXETablePluginRenderer)
+VxeUITable.use(VXETablePluginElement)
+VxeUITable.use(VXETablePluginIView)
+VxeUITable.use(VXETablePluginAntd)
+VxeUITable.use(VXETablePluginMenus)
+VxeUITable.use(VXETablePluginExportPDF)
+VxeUITable.use(VXETablePluginRenderer)
 // VXETable.use(VXETablePluginShortcutKey)
-VXETable.use(VXETablePluginValidator)
+VxeUITable.use(VXETablePluginValidator)
 
 if (!XEUtils.browse().msie) {
   const exceljs = document.createElement('script')
   exceljs.src = `${process.env.VUE_APP_CDN_URL}exceljs@4.2.1/dist/exceljs.min.js`
   exceljs.onload = () => {
     import(/* webpackChunkName: 'export-xlsx' */ 'vxe-table-plugin-export-xlsx').then((VXETablePluginExportXLSX) => {
-      VXETable.use(VXETablePluginExportXLSX.default)
+      VxeUITable.use(VXETablePluginExportXLSX.default)
     })
   }
   document.body.appendChild(exceljs)
