@@ -100,7 +100,7 @@
         <vxe-button class="oper-btn" :icon="appData.showLeft ? 'vxe-icon-arrow-left' : 'vxe-icon-arrow-right'" @click="appData.showLeft = !appData.showLeft"></vxe-button>
       </div>
       <div class="body">
-        <div class="content" :class="{full: ['VXEAPI', 'Donation'].includes($route.name)}">
+        <div class="content" :class="{full: ['VXEAPI', 'Donation'].includes($route.name as string)}">
           <div class="page-view">
             <template v-if="!/\/start|\/module|\/api/.test($route.path)">
               <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank">{{ $t('app.body.button.runDemo') }}</a>
