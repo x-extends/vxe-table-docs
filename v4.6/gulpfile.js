@@ -60,10 +60,14 @@ gulp.task('handle_vue_tstojs', gulp.series('handle_vue_tmpltojs', () => {
       const handlePath = `${this.file.dirname}\\${this.file.basename}`.replace('\\src\\', '\\temp\\').replace('.vue', '.js')
       if (fs.existsSync(handlePath)) {
         return text.replace(/<script [^>]*?>([\s\S]*)<\/script>/, () => {
-          if (cacheTsxMaps[codePath]) {
-            return `<script lang="jsx" setup>\n${fs.readFileSync(handlePath, 'utf-8')}</script>`
+          let codeContent = fs.readFileSync(handlePath, 'utf-8').replace('use strict', '')
+          if (codeContent) {
+            codeContent += '\n'
           }
-          return `<script setup>\n${fs.readFileSync(handlePath, 'utf-8')}</script>`
+          if (cacheTsxMaps[codePath]) {
+            return `<script lang="jsx" setup>\n${codeContent}</script>`
+          }
+          return `<script setup>\n${codeContent}</script>`
         })
       }
       return text
@@ -73,12 +77,14 @@ gulp.task('handle_vue_tstojs', gulp.series('handle_vue_tmpltojs', () => {
 
 gulp.task('handle_tstojs', () => {
   return gulp.src([
-    'src/views/**/demo*.ts'
+    'src/**/*.d.ts',
+    'src/views/**/demo*.ts',
+    'src/views/**/demo*.tsx'
   ])
     .pipe(ts({
       target: 'esnext',
       module: 'esnext',
-      strict: true,
+      strict: false,
       jsx: 'preserve',
       importHelpers: true,
       moduleResolution: 'node',
@@ -107,7 +113,8 @@ gulp.task('build_vue_tstojs', gulp.series('handle_vue_tstojs', 'handle_tstojs', 
 gulp.task('build_examples', gulp.series('build_vue_tstojs', () => {
   return gulp.src([
     'src/views/**/Demo*.vue',
-    'src/views/**/demo*.ts'
+    'src/views/**/demo*.ts',
+    'src/views/**/demo*.tsx'
   ])
     .pipe(gulp.dest('dist/example/ts'))
 }))
