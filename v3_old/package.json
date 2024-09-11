@@ -1,6 +1,6 @@
 {
   "name": "vxe-table-v3_old",
-  "version": "3.8.0",
+  "version": "3.9.0",
   "private": true,
   "scripts": {
     "update": "npm install --legacy-peer-deps",
