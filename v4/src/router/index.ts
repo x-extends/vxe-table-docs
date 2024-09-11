@@ -762,6 +762,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/keyboard/edit/CodeExample.vue')
         },
         {
+          path: 'editMethod',
+          name: 'ComponentTableKeyboardEditMethod',
+          component: () => import('@/views/table/keyboard/editMethod/CodeExample.vue')
+        },
+        {
           path: 'tree',
           name: 'ComponentTableKeyboardTree',
           component: () => import('@/views/table/keyboard/tree/CodeExample.vue')
@@ -2001,6 +2006,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/keyboard/edit/CodeExample.vue')
         },
         {
+          path: 'editMethod',
+          name: 'ComponentGridKeyboardEditMethod',
+          component: () => import('@/views/grid/keyboard/editMethod/CodeExample.vue')
+        },
+        {
           path: 'tree',
           name: 'ComponentGridKeyboardTree',
           component: () => import('@/views/grid/keyboard/tree/CodeExample.vue')
@@ -2487,6 +2497,17 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/events/scroll/CodeExample.vue')
         }
       ]
+    },
+    {
+      path: 'other',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'reverse',
+          name: 'ComponentGridOtherReverse',
+          component: () => import('@/views/grid/other/reverse/CodeExample.vue')
+        }
+      ]
     }
   ]
 }
@@ -2582,9 +2603,11 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'formats',
+        component: RouteLayout,
         children: [
           {
             path: 'table',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2602,9 +2625,11 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'menus',
+        component: RouteLayout,
         children: [
           {
             path: 'table',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2622,9 +2647,11 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'commands',
+        component: RouteLayout,
         children: [
           {
             path: 'table',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2642,9 +2669,11 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'validators',
+        component: RouteLayout,
         children: [
           {
             path: 'form',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2660,6 +2689,7 @@ const routes: Array<RouteRecordRaw> = [
           },
           {
             path: 'table',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2677,9 +2707,11 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'interceptor',
+        component: RouteLayout,
         children: [
           {
             path: 'table',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2697,9 +2729,11 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'renderer',
+        component: RouteLayout,
         children: [
           {
             path: 'form',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2708,6 +2742,7 @@ const routes: Array<RouteRecordRaw> = [
               },
               {
                 path: 'item',
+                component: RouteLayout,
                 children: [
                   {
                     path: 'myItemAmount',
@@ -2725,6 +2760,7 @@ const routes: Array<RouteRecordRaw> = [
           },
           {
             path: 'table',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2733,6 +2769,7 @@ const routes: Array<RouteRecordRaw> = [
               },
               {
                 path: 'default',
+                component: RouteLayout,
                 children: [
                   {
                     path: 'myCellLink',
@@ -2748,6 +2785,7 @@ const routes: Array<RouteRecordRaw> = [
               },
               {
                 path: 'edit',
+                component: RouteLayout,
                 children: [
                   {
                     path: 'myEditAmount',
@@ -2763,6 +2801,7 @@ const routes: Array<RouteRecordRaw> = [
               },
               {
                 path: 'expand',
+                component: RouteLayout,
                 children: [
                   {
                     path: 'myExpandList',
@@ -2778,6 +2817,7 @@ const routes: Array<RouteRecordRaw> = [
               },
               {
                 path: 'toolbar',
+                component: RouteLayout,
                 children: [
                   {
                     path: 'btn',
@@ -2793,6 +2833,7 @@ const routes: Array<RouteRecordRaw> = [
               },
               {
                 path: 'filter',
+                component: RouteLayout,
                 children: [
                   {
                     path: 'myFilterInput',
@@ -2813,6 +2854,7 @@ const routes: Array<RouteRecordRaw> = [
               },
               {
                 path: 'empty',
+                component: RouteLayout,
                 children: [
                   {
                     path: 'myEmptyImg',
@@ -2830,6 +2872,7 @@ const routes: Array<RouteRecordRaw> = [
           },
           {
             path: 'form-design',
+            component: RouteLayout,
             children: [
               {
                 path: 'api',
@@ -2838,6 +2881,7 @@ const routes: Array<RouteRecordRaw> = [
               },
               {
                 path: 'widget',
+                component: RouteLayout,
                 children: [
                   {
                     path: 'myInputWidget',

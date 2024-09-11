@@ -4,14 +4,27 @@
   </pre>
 </template>
 
-<script>
+<script lang="ts">
+import Vue, { PropType } from 'vue'
 import hljs from 'highlight.js'
 
-export default {
-  name: 'CodeRender',
+export default Vue.extend({
   props: {
-    language: String,
+    language: {
+      type: String as PropType<'' | 'html' | 'javascript'>,
+      default: ''
+    },
     code: String
+  },
+  methods: {
+    handleHigh  () {
+      this.$nextTick(() => {
+        const codeEl = this.$refs.codeRef as HTMLElement
+        if (codeEl) {
+          codeEl.innerHTML = hljs.highlight(this.code || '', { language: this.language }).value
+        }
+      })
+    }
   },
   watch: {
     code () {
@@ -20,16 +33,6 @@ export default {
   },
   created () {
     this.handleHigh()
-  },
-  methods: {
-    handleHigh () {
-      this.$nextTick(() => {
-        const codeEl = this.$refs.codeRef
-        if (codeEl) {
-          codeEl.innerHTML = hljs.highlight(this.code || '', { language: this.language }).value
-        }
-      })
-    }
   }
-}
+})
 </script>

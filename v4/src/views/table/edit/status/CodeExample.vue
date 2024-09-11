@@ -7,7 +7,8 @@
           对于某些需要局部保存的场景，可以在数据保存完成后调用 <ApiLink name="table" prop="reloadRow"/> 方法加载行数据并恢复到初始状态<br>
         </vxe-tip>
         <vxe-tip status="error">
-          开启 showStatus 后如果使用自定义渲染需要配合 <ApiLink name="table" prop="updateStatus"/> 方法使用，在对应单元格的值发生改变时调用更新状态
+          开启 showStatus 后如果使用自定义渲染需要配合 <ApiLink name="table" prop="updateStatus"/> 方法使用，在对应单元格的值发生改变时调用更新状态。
+          需要注意 <ApiLink name="table" prop="reloadRow"/>仅用于编辑场景。对于新增的临时数据是无效的，如果是新增的场景直接更新数据即可。
         </vxe-tip>
       </template>
     </CodeLight>

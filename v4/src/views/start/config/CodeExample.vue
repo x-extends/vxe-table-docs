@@ -11,14 +11,10 @@
       <template #use>
         <pre>
           <pre-code class="javascript">
-            import { VXETable } from 'vxe-table'
+            import { VxeUI } from 'vxe-table'
 
             // 旧版本使用 setup({}) 或者 config({})
-            VXETable.setConfig({
-              // size: null, // 全局尺寸
-              // zIndex: 999, // 全局 zIndex 起始值，如果项目的的 z-index 样式值过大时就需要跟随设置更大，避免被遮挡；新版本可以使用 dom-zindex 共享配置
-              // version: 1, // 版本号，对于某些带数据缓存的功能有用到，上升版本号可以用于重置数据
-
+            VxeUI.setConfig({
               emptyCell: '　',
 
               table: {
@@ -42,9 +38,9 @@
                 // emptyRender: {
                 //   name: ''
                 // },
-                rowConfig: {
-                  keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名，必须设置，随时都可能会被改变
-                },
+                // rowConfig: {
+                //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
+                // },
                 resizeConfig: {
                   refreshDelay: 250
                 },
@@ -190,7 +186,8 @@
                 proxyConfig: {
                   enabled: true,
                   autoLoad: true,
-                  message: true,
+                  showResponseMsg: true,
+                  showActiveMsg: true,
                   props: {
                     list: null,
                     result: 'result',

@@ -1,20 +1,22 @@
 <template>
-  <code ref="code">
+  <code ref="codeElem">
     <slot>{{ content }}</slot>
   </code>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import hljs from 'highlight.js'
 
-export default {
-  name: 'PreCode',
+export default Vue.extend({
   props: {
     content: String
   },
-  mounted () {
-    const block = this.$el
-    hljs.highlightBlock(block)
+  created () {
+    this.$nextTick(() => {
+      const block = this.$refs.codeElem as HTMLElement
+      hljs.highlightBlock(block)
+    })
   }
-}
+})
 </script>

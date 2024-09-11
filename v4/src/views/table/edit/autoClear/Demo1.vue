@@ -7,7 +7,7 @@
       ref="tableRef"
       :loading="loading"
       :data="tableData"
-      :edit-config="{trigger: 'manual', mode: 'row', autoClear: false, showStatus: true}">
+      :edit-config="editConfig">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">
@@ -39,7 +39,7 @@
           <vxe-input v-model="row.address" type="text"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column title="操作">
+      <vxe-column title="操作" width="160">
         <template #default="{ row }">
           <template v-if="hasEditStatus(row)">
             <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
@@ -56,7 +56,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -73,6 +73,13 @@ interface RowVO {
 }
 
 const tableRef = ref<VxeTableInstance<RowVO>>()
+
+const editConfig = ref<VxeTablePropTypes.EditConfig>({
+  trigger: 'manual',
+  mode: 'row',
+  autoClear: false,
+  showStatus: true
+})
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])

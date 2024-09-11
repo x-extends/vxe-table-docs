@@ -13,9 +13,9 @@
       <template #use>
         <pre>
           <pre-code class="javascript">
-            import { VXETable } from 'vxe-table'
+            import { VxeUI } from 'vxe-table'
 
-            VXETable.setConfig({
+            VxeUI.setConfig({
               // 全局权限码控制方法
               permissionMethod ({ code }) {
                 if (code === 'xxx') {

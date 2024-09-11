@@ -7,13 +7,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'CodeList',
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+
+export default Vue.extend({
   props: {
-    confs: Array
+    confs: Array as PropType<any[]>
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

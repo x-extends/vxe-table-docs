@@ -124,8 +124,8 @@
             // 导入默认的语言
             import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
 
-            VXETable.setI18n('zh-CN', zhCN)
-            VXETable.setLanguage('zh-CN')
+            VxeUI.setI18n('zh-CN', zhCN)
+            VxeUI.setLanguage('zh-CN')
 
             // 注册组件
             // 如果页面中已经被显性导入了，则可以不用调用注册

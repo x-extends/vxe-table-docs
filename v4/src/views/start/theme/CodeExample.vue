@@ -10,7 +10,7 @@
       <template #use>
         <pre>
           <pre-code class="javascript">
-            import { VxeUI } from 'vxe-pc-ui'
+            import { VxeUI } from 'vxe-table'
 
             // 切换为默认主题
             // VxeUI.setTheme('light')

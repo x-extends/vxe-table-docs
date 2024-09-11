@@ -3,9 +3,9 @@
     <vxe-table
       border
       height="500"
-      :edit-config="{trigger: 'dblclick', mode: 'cell'}"
-      :keyboard-config="{isEdit: true, isArrow: true, isEnter: true, isTab: true, isDel: true, isBack: true}"
-      :mouse-config="{selected: true}"
+      :edit-config="editConfig"
+      :keyboard-config="keyboardConfig"
+      :mouse-config="mouseConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
@@ -17,6 +17,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import type { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -49,4 +50,23 @@ const tableData = ref<RowVO[]>([
   { id: 10019, name: 'Test19', role: 'Test', sex: 'Man', age: 37, address: 'test abc' },
   { id: 10020, name: 'Test20', role: 'Develop', sex: 'Man', age: 41, address: 'test abc' }
 ])
+
+const editConfig = ref<VxeTablePropTypes.EditConfig>({
+  trigger: 'dblclick',
+  mode: 'cell'
+})
+
+const mouseConfig = ref<VxeTablePropTypes.MouseConfig>({
+  selected: true
+})
+
+const keyboardConfig = ref<VxeTablePropTypes.KeyboardConfig<RowVO>>({
+  isEdit: true,
+  isArrow: true,
+  isEnter: true,
+  isTab: true,
+  isDel: true,
+  isBack: true,
+  isEsc: true
+})
 </script>
