@@ -307,7 +307,7 @@ gulp.task('copy_v4_docs', gulp.series('copy_v4_index', () => {
     .pipe(gulp.dest('docs'))
 }))
 
-gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index', 'copy_v1_index', 'copy_v2_index', 'copy_v3_index', 'copy_v3d8_index', 'copy_v4d6_index', 'copy_v4_old_index', 'copy_v4_index', () => {
+gulp.task('copy_docs_index', gulp.series('copy_other3_index', 'copy_other4_index', 'copy_v1_index', 'copy_v2_index', 'copy_v3_index', 'copy_v3d8_index', 'copy_v3_old_index', 'copy_v4d6_index', 'copy_v4_old_index', 'copy_v4_index', () => {
   return gulp.src('_temp/**')
     .pipe(gulp.dest('docs'))
 }, () => {
