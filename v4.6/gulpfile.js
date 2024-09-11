@@ -28,7 +28,7 @@ gulp.task('handle_vue_tmpltojs', () => {
     .pipe(ts({
       target: 'esnext',
       module: 'esnext',
-      strict: false,
+      strict: true,
       jsx: 'preserve',
       importHelpers: true,
       moduleResolution: 'node',
@@ -84,7 +84,7 @@ gulp.task('handle_tstojs', () => {
     .pipe(ts({
       target: 'esnext',
       module: 'esnext',
-      strict: false,
+      strict: true,
       jsx: 'preserve',
       importHelpers: true,
       moduleResolution: 'node',
