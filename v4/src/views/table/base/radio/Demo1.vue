@@ -2,7 +2,7 @@
   <div>
     <p>
       <vxe-button @click="setSelectRow(1)">设置第二行选中</vxe-button>
-      <vxe-button @click="clearRadioRowEevnt">取消选中</vxe-button>
+      <vxe-button @click="clearRadioRowEvent">取消选中</vxe-button>
       <vxe-button @click="getRadioEvent">获取选中</vxe-button>
     </p>
 
@@ -16,7 +16,7 @@
       @radio-change="radioChangeEvent">
       <vxe-column type="radio" width="60">
         <template #header>
-          <vxe-button mode="text" @click="clearRadioRowEevnt" :disabled="!selectRow">取消</vxe-button>
+          <vxe-button mode="text" @click="clearRadioRowEvent" :disabled="!selectRow">取消</vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -70,7 +70,7 @@ const setSelectRow = (index: number) => {
   }
 }
 
-const clearRadioRowEevnt = () => {
+const clearRadioRowEvent = () => {
   const $table = tableRef.value
   if ($table) {
     selectRow.value = null

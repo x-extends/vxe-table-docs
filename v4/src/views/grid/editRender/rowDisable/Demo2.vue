@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on=gridEvents></vxe-grid>
+    <vxe-grid v-bind="gridOptions" v-on=gridEvents></vxe-grid>
   </div>
 </template>
 
@@ -17,8 +17,6 @@ interface RowVO {
   age: number
   address: string
 }
-
-const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const nameEditRender = reactive({
   name: 'VxeInput',

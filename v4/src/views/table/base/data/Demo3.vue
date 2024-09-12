@@ -16,8 +16,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import type { VxeTablePropTypes } from 'vxe-table'
 
-const tableData = ref<(string | number)[][]>([
+const tableData = ref<VxeTablePropTypes.Data>([
   [101, 'Test4', '男', 26, '<a href="https://github.com/x-extends/vxe-table">我是链接</a>', '前端'],
   [102, 'Test2', '男', 28, '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">', '后端'],
   [103, 'Test1', '女', 22, '<div><span style="color: red">我是 Html 片段</span></div>', '设计师'],

@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import type { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   userInfo: {
@@ -31,7 +32,7 @@ interface RowVO {
   role: string
 }
 
-const tableData = ref<RowVO[]>([
+const tableData = ref<VxeTablePropTypes.Data<RowVO>>([
   {
     userInfo: { name: 'Test1', age: 22 },
     other: [

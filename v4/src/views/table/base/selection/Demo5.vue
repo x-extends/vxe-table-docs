@@ -3,7 +3,6 @@
     <vxe-table
       border
       class="checkbox-table"
-      ref="tableRef"
       :row-config="{isHover: true}"
       :data="tableData"
       :checkbox-config="{trigger: 'row'}">
@@ -18,7 +17,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -29,8 +27,6 @@ interface RowVO {
   address: string
   checked: boolean
 }
-
-const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc', checked: false },

@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
+import { VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -23,12 +24,12 @@ interface RowVO {
   address: string
 }
 
-const nameTitlePrefix = reactive({
+const nameTitlePrefix = reactive<VxeColumnPropTypes.TitleSuffix>({
   icon: 'vxe-icon-question-circle-fill',
   content: '提示内容'
 })
 
-const sexTitlePrefix = reactive({
+const sexTitlePrefix = reactive<VxeColumnPropTypes.TitleSuffix>({
   icon: 'vxe-icon-question-circle-fill',
   useHTML: true,
   content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'

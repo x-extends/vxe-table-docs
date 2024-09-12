@@ -30,50 +30,50 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
     {
       i18nKey: 'app.aside.menu.tableTableTitle',
       children: [
-        { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'table' } } }
-        //     {
-        //       title: '基础功能',
-        //       children: [
-        //         { title: '基础', routerLink: { name: 'ComponentTableBaseBasic' } },
-        //         { title: '尺寸大小', routerLink: { name: 'ComponentTableBaseSize' } },
-        //         { title: '数据类型', routerLink: { name: 'ComponentTableBaseData' } },
-        //         { title: '空数据提示', routerLink: { name: 'ComponentTableBaseEmpty' } },
-        //         { title: '边框', routerLink: { name: 'ComponentTableBaseBorder' } },
-        //         { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' } },
-        //         { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' } },
-        //         { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' } },
-        //         { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
-        //         { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' } },
-        //         { title: '文本提示', routerLink: { name: 'ComponentTableBaseTooltip' } },
-        //         { title: '滚动条样式', routerLink: { name: 'ComponentTableBaseScrollStyle' } },
-        //         { title: '斑马线样式', routerLink: { name: 'ComponentTableBaseStripe' } },
-        //         { title: '单元格样式', routerLink: { name: 'ComponentTableBaseStyle' } },
-        //         { title: '动态样式', routerLink: { name: 'ComponentTableBaseDynamicStyle' } },
-        //         { title: '隐藏表头', routerLink: { name: 'ComponentTableBaseHeader' } },
-        //         { title: '高亮列', routerLink: { name: 'ComponentTableBaseCurrentColumn' } },
-        //         { title: '高亮行', routerLink: { name: 'ComponentTableBaseCurrentRow' } },
-        //         { title: '拖拽调整列宽', routerLink: { name: 'ComponentTableBaseHeaderResizable' } },
-        //         { title: '表格最小高度', routerLink: { name: 'ComponentTableBaseHeaderMinHeight' } },
-        //         { title: '表格高度', routerLink: { name: 'ComponentTableBaseHeight' } },
-        //         { title: '表格最大高度', routerLink: { name: 'ComponentTableBaseMaxHeight' } },
-        //         { title: '表格响应式高度', routerLink: { name: 'ComponentTableBaseAutoHeight' } },
-        //         { title: '设置行度', routerLink: { name: 'ComponentTableBaseRowHeight' } },
-        //         { title: '冻结列', routerLink: { name: 'ComponentTableBaseFixed' } },
-        //         { title: '冻结表头和列', routerLink: { name: 'ComponentTableBaseFixedFull' } },
-        //         { title: '分组表头', routerLink: { name: 'ComponentTableBaseGroup' } },
-        //         { title: '排序', routerLink: { name: 'ComponentTableBaseSort' } },
-        //         { title: '筛选', routerLink: { name: 'ComponentTableBaseFilter' } },
-        //         { title: '加载中', routerLink: { name: 'ComponentTableBaseLoading' } },
-        //         { title: '格式化内容', routerLink: { name: 'ComponentTableBaseFormat' } },
-        //         { title: '序号', routerLink: { name: 'ComponentTableBaseSeq' } },
-        //         { title: '单选框', routerLink: { name: 'ComponentTableBaseRadio' } },
-        //         { title: '复选框', routerLink: { name: 'ComponentTableBaseSelection' } },
-        //         { title: '标题前缀图标', routerLink: { name: 'ComponentTableBaseTitlePrefix' } },
-        //         { title: '标题后缀图标', routerLink: { name: 'ComponentTableBaseTitleSuffix' } },
-        //         { title: 'HTML 类型', routerLink: { name: 'ComponentTableBaseHtml' } },
-        //         { title: '完整案例', routerLink: { name: 'ComponentTableBaseFull' } }
-        //       ]
-        //     },
+        { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'table' } } },
+        {
+          title: '基础功能',
+          children: [
+            { title: '基础', routerLink: { name: 'ComponentTableBaseBasic' } },
+            { title: '尺寸大小', routerLink: { name: 'ComponentTableBaseSize' } },
+            { title: '数据类型', routerLink: { name: 'ComponentTableBaseData' } },
+            { title: '空数据提示', routerLink: { name: 'ComponentTableBaseEmpty' } },
+            { title: '边框', routerLink: { name: 'ComponentTableBaseBorder' } },
+            { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' } },
+            { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' } },
+            { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' } },
+            { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
+            { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' } },
+            { title: '文本提示', routerLink: { name: 'ComponentTableBaseTooltip' } },
+            { title: '滚动条样式', routerLink: { name: 'ComponentTableBaseScrollStyle' } },
+            { title: '斑马线样式', routerLink: { name: 'ComponentTableBaseStripe' } },
+            { title: '单元格样式', routerLink: { name: 'ComponentTableBaseStyle' } },
+            { title: '动态样式', routerLink: { name: 'ComponentTableBaseDynamicStyle' } },
+            { title: '隐藏表头', routerLink: { name: 'ComponentTableBaseHeader' } },
+            { title: '高亮列', routerLink: { name: 'ComponentTableBaseCurrentColumn' } },
+            { title: '高亮行', routerLink: { name: 'ComponentTableBaseCurrentRow' } },
+            { title: '拖拽调整列宽', routerLink: { name: 'ComponentTableBaseHeaderResizable' } },
+            { title: '表格最小高度', routerLink: { name: 'ComponentTableBaseHeaderMinHeight' } },
+            { title: '表格高度', routerLink: { name: 'ComponentTableBaseHeight' } },
+            { title: '表格最大高度', routerLink: { name: 'ComponentTableBaseMaxHeight' } },
+            { title: '表格响应式高度', routerLink: { name: 'ComponentTableBaseAutoHeight' } },
+            { title: '设置行度', routerLink: { name: 'ComponentTableBaseRowHeight' } },
+            { title: '冻结列', routerLink: { name: 'ComponentTableBaseFixed' } },
+            { title: '冻结表头和列', routerLink: { name: 'ComponentTableBaseFixedFull' } },
+            { title: '分组表头', routerLink: { name: 'ComponentTableBaseGroup' } },
+            { title: '排序', routerLink: { name: 'ComponentTableBaseSort' } },
+            { title: '筛选', routerLink: { name: 'ComponentTableBaseFilter' } },
+            { title: '加载中', routerLink: { name: 'ComponentTableBaseLoading' } },
+            { title: '格式化内容', routerLink: { name: 'ComponentTableBaseFormat' } },
+            { title: '序号', routerLink: { name: 'ComponentTableBaseSeq' } },
+            { title: '单选框', routerLink: { name: 'ComponentTableBaseRadio' } },
+            { title: '复选框', routerLink: { name: 'ComponentTableBaseSelection' } },
+            { title: '标题前缀图标', routerLink: { name: 'ComponentTableBaseTitlePrefix' } },
+            { title: '标题后缀图标', routerLink: { name: 'ComponentTableBaseTitleSuffix' } },
+            { title: 'HTML 类型', routerLink: { name: 'ComponentTableBaseHtml' } },
+            { title: '完整案例', routerLink: { name: 'ComponentTableBaseFull' } }
+          ]
+        },
         //     {
         //       title: '单元格合并',
         //       children: [
@@ -377,19 +377,19 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '查找与替换', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/areaFNR' }
         //       ]
         //     },
-        //     {
-        //       title: '事件监听',
-        //       children: [
-        //         { title: '点击/双击事件', routerLink: { name: 'ComponentTableEventsClick' } },
-        //         { title: '滚动事件', routerLink: { name: 'ComponentTableEventsScroll' } }
-        //       ]
-        //     }
+        {
+          title: '事件监听',
+          children: [
+            { title: '点击/双击事件', routerLink: { name: 'ComponentTableEventsClick' } },
+            { title: '滚动事件', routerLink: { name: 'ComponentTableEventsScroll' } }
+          ]
+        }
       ]
     },
     {
       i18nKey: 'app.aside.menu.tableGridTitle',
       children: [
-        { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'grid' } } }
+        { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'grid' } } },
         //     {
         //       title: '基础功能',
         //       children: [
@@ -458,18 +458,18 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '自定义模板', routerLink: { name: 'ComponentGridRadioTemplate' } }
         //       ]
         //     },
-        //     {
-        //       title: '复选框',
-        //       children: [
-        //         { title: '高亮选择行', routerLink: { name: 'ComponentGridCheckboxHighlight' } },
-        //         { title: '绑定字段', routerLink: { name: 'ComponentGridCheckboxField' } },
-        //         { title: '禁用', routerLink: { name: 'ComponentGridCheckboxCheckMethod' } },
-        //         { title: '显示隐藏', routerLink: { name: 'ComponentGridCheckboxVisibleMethod' } },
-        //         { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentGridCheckboxRange' } },
-        //         { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' },
-        //         { title: '自定义模板', routerLink: { name: 'ComponentGridCheckboxTemplate' } }
-        //       ]
-        //     },
+        {
+          title: '复选框',
+          children: [
+            { title: '高亮选择行', routerLink: { name: 'ComponentGridCheckboxHighlight' } },
+            { title: '绑定字段', routerLink: { name: 'ComponentGridCheckboxField' } },
+            { title: '禁用', routerLink: { name: 'ComponentGridCheckboxCheckMethod' } },
+            { title: '显示隐藏', routerLink: { name: 'ComponentGridCheckboxVisibleMethod' } },
+            { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentGridCheckboxRange' } },
+            { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' },
+            { title: '自定义模板', routerLink: { name: 'ComponentGridCheckboxTemplate' } }
+          ]
+        },
         //     {
         //       title: '排序',
         //       children: [
@@ -628,21 +628,21 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } }
         //       ]
         //     },
-        //     {
-        //       title: '可编辑 - 渲染 - 配置式',
-        //       children: [
-        //         { title: 'input', routerLink: { name: 'ComponentGridEditRenderInput' } },
-        //         { title: 'select', routerLink: { name: 'ComponentGridEditRenderSelect' } },
-        //         { title: 'VxeInput', routerLink: { name: 'ComponentGridEditRenderVxeInput' } },
-        //         { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridEditRenderVxeNumberInput' } },
-        //         { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
-        //         { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
-        //         { title: 'VxeTreeSelect', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
-        //         { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
-        //         { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
-        //         { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
-        //       ]
-        //     },
+        {
+          title: '可编辑 - 渲染 - 配置式',
+          children: [
+            { title: 'input', routerLink: { name: 'ComponentGridEditRenderInput' } },
+            { title: 'select', routerLink: { name: 'ComponentGridEditRenderSelect' } },
+            { title: 'VxeInput', routerLink: { name: 'ComponentGridEditRenderVxeInput' } },
+            { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridEditRenderVxeNumberInput' } },
+            { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
+            { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
+            { title: 'VxeTreeSelect', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
+            { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
+            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
+            { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
+          ]
+        },
         //     {
         //       title: '可编辑 - 渲染 - 插槽式',
         //       children: [
@@ -735,25 +735,25 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '树形虚拟滚动', routerLink: { name: 'ComponentGridScrollTree' } }
         //       ]
         //     },
-        //     {
-        //       title: '数据代理',
-        //       children: [
-        //         { title: '查询接口', routerLink: { name: 'ComponentGridProxyQuery' } },
-        //         { title: '分页查询接口', routerLink: { name: 'ComponentGridProxyPager' } },
-        //         { title: '集成表单查询', routerLink: { name: 'ComponentGridProxyForm' } },
-        //         { title: '集成分页序号', routerLink: { name: 'ComponentGridProxySeq' } },
-        //         { title: '工具栏 - 查询', routerLink: { name: 'ComponentGridProxyToolbarQuery' } },
-        //         { title: '手动调用 - 查询', routerLink: { name: 'ComponentGridProxyManualQuery' } },
-        //         { title: '工具栏 - 全量数据导出', routerLink: { name: 'ComponentGridProxyToolbarExport' } },
-        //         { title: '工具栏 - 服务端导出', routerLink: { name: 'ComponentGridProxyToolbarRemoteExport' } },
-        //         { title: '工具栏 - 删除已选', routerLink: { name: 'ComponentGridProxyToolbarDelete' } },
-        //         { title: '手动调用 - 删除已选', routerLink: { name: 'ComponentGridProxyManualDelete' } },
-        //         { title: '工具栏 - 批量标记删除', routerLink: { name: 'ComponentGridProxyToolbarMark' } },
-        //         { title: '手动调用 - 标记删除状态', routerLink: { name: 'ComponentGridProxyManualMark' } },
-        //         { title: '工具栏 - 增删改查', routerLink: { name: 'ComponentGridProxyToolbarSave' } },
-        //         { title: '手动调用 - 增删改查', routerLink: { name: 'ComponentGridProxyManualSave' } }
-        //       ]
-        //     },
+        {
+          title: '数据代理',
+          children: [
+            { title: '查询接口', routerLink: { name: 'ComponentGridProxyQuery' } },
+            { title: '分页查询接口', routerLink: { name: 'ComponentGridProxyPager' } },
+            { title: '集成表单查询', routerLink: { name: 'ComponentGridProxyForm' } },
+            { title: '集成分页序号', routerLink: { name: 'ComponentGridProxySeq' } },
+            { title: '工具栏 - 查询', routerLink: { name: 'ComponentGridProxyToolbarQuery' } },
+            { title: '手动调用 - 查询', routerLink: { name: 'ComponentGridProxyManualQuery' } },
+            { title: '工具栏 - 全量数据导出', routerLink: { name: 'ComponentGridProxyToolbarExport' } },
+            { title: '工具栏 - 服务端导出', routerLink: { name: 'ComponentGridProxyToolbarRemoteExport' } },
+            { title: '工具栏 - 删除已选', routerLink: { name: 'ComponentGridProxyToolbarDelete' } },
+            { title: '手动调用 - 删除已选', routerLink: { name: 'ComponentGridProxyManualDelete' } },
+            { title: '工具栏 - 批量标记删除', routerLink: { name: 'ComponentGridProxyToolbarMark' } },
+            { title: '手动调用 - 标记删除状态', routerLink: { name: 'ComponentGridProxyManualMark' } },
+            { title: '工具栏 - 增删改查', routerLink: { name: 'ComponentGridProxyToolbarSave' } },
+            { title: '手动调用 - 增删改查', routerLink: { name: 'ComponentGridProxyManualSave' } }
+          ]
+        },
         //     {
         //       title: '表格搜索',
         //       children: [
@@ -762,13 +762,13 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '查找与替换', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaFNR' }
         //       ]
         //     },
-        //     {
-        //       title: '事件监听',
-        //       children: [
-        //         { title: '点击/双击事件', routerLink: { name: 'ComponentGridEventsClick' } },
-        //         { title: '滚动事件', routerLink: { name: 'ComponentGridEventsScroll' } }
-        //       ]
-        //     }
+        {
+          title: '事件监听',
+          children: [
+            { title: '点击/双击事件', routerLink: { name: 'ComponentGridEventsClick' } },
+            { title: '滚动事件', routerLink: { name: 'ComponentGridEventsScroll' } }
+          ]
+        }
       ]
     },
     {
