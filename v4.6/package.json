@@ -16,7 +16,7 @@
     "vue": "^3.5.4",
     "vue-i18n": "^9.13.1",
     "vue-router": "^4.2.5",
-    "vxe-table": "4.6.18",
+    "vxe-table": "4.6.19",
     "xe-clipboard": "^1.10.2"
   },
   "devDependencies": {
@@ -39,7 +39,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.1.4",
     "gulp-typescript": "^5.0.1",
-    "sass": "^1.75.0",
+    "sass": "~1.78.0",
     "sass-loader": "^14.2.1",
     "typescript": "~4.9.4"
   }
