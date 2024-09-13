@@ -60,6 +60,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '设置行度', routerLink: { name: 'ComponentTableBaseRowHeight' } },
             { title: '冻结列', routerLink: { name: 'ComponentTableBaseFixed' } },
             { title: '冻结表头和列', routerLink: { name: 'ComponentTableBaseFixedFull' } },
+            { title: '表尾数据', routerLink: { name: 'ComponentTableBaseFooter' } },
             { title: '分组表头', routerLink: { name: 'ComponentTableBaseGroup' } },
             { title: '排序', routerLink: { name: 'ComponentTableBaseSort' } },
             { title: '筛选', routerLink: { name: 'ComponentTableBaseFilter' } },
