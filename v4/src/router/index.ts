@@ -94,6 +94,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/base/header/CodeExample.vue')
         },
         {
+          path: 'footer',
+          name: 'ComponentTableBaseFooter',
+          component: () => import('@/views/table/base/footer/CodeExample.vue')
+        },
+        {
           path: 'currentColumn',
           name: 'ComponentTableBaseCurrentColumn',
           component: () => import('@/views/table/base/currentColumn/CodeExample.vue')

@@ -20,13 +20,16 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   loading: false,
+  height: 400,
   showFooter: true,
+  showOverflow: true,
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
-    { field: 'sex', title: 'Sex' },
-    { field: 'num', title: 'Num' },
-    { field: 'address', title: 'Address', showOverflow: true }
+    { field: 'name', title: 'Name', minWidth: 400 },
+    { field: 'role', title: 'Role', width: 300 },
+    { field: 'sex', title: 'Sex', width: 100 },
+    { field: 'num', title: 'Num', width: 120 },
+    { field: 'address', title: 'Address', minWidth: 300 }
   ],
   data: [],
   footerData: [

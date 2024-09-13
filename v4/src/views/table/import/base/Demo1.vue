@@ -4,6 +4,8 @@
     <vxe-button @click="importEvent">直接导入</vxe-button>
     <vxe-table
       ref="tableRef"
+      :export-config="{}"
+      :import-config="{}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>

@@ -3,6 +3,7 @@
     <CodeLight path="table/base/data/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="标准结构">使用对象数组形式</vxe-tip>
+        <vxe-tip status="success">参数 <ApiLink name="table" prop="data"/> 是响应式的</vxe-tip>
       </template>
     </CodeLight>
 

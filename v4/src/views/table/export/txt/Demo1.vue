@@ -3,6 +3,7 @@
     <vxe-button @click="exportEvent">直接导出 Txt 文件</vxe-button>
     <vxe-table
       ref="tableRef"
+      :export-config="{}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>

@@ -60,6 +60,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '设置行度', routerLink: { name: 'ComponentTableBaseRowHeight' } },
             { title: '冻结列', routerLink: { name: 'ComponentTableBaseFixed' } },
             { title: '冻结表头和列', routerLink: { name: 'ComponentTableBaseFixedFull' } },
+            { title: '表尾数据', routerLink: { name: 'ComponentTableBaseFooter' } },
             { title: '分组表头', routerLink: { name: 'ComponentTableBaseGroup' } },
             { title: '排序', routerLink: { name: 'ComponentTableBaseSort' } },
             { title: '筛选', routerLink: { name: 'ComponentTableBaseFilter' } },
@@ -319,6 +320,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '单元格选中', routerLink: { name: 'ComponentTableKeyboardSelected' } },
             { title: '按键操作', routerLink: { name: 'ComponentTableKeyboardKeyboard' } },
             { title: '可编辑按键操作', routerLink: { name: 'ComponentTableKeyboardEdit' } },
+            { title: '重写默认编辑行为', routerLink: { name: 'ComponentTableKeyboardEditMethod' } },
             { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
             { title: 'Excel 单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/singleArea' },
@@ -674,6 +676,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '单元格选中', routerLink: { name: 'ComponentGridKeyboardSelected' } },
             { title: '按键操作', routerLink: { name: 'ComponentGridKeyboardKeyboard' } },
             { title: '可编辑按键操作', routerLink: { name: 'ComponentGridKeyboardEdit' } },
+            { title: '重写默认编辑行为', routerLink: { name: 'ComponentGridKeyboardEditMethod' } },
             { title: '树结构按键操作', routerLink: { name: 'ComponentGridKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentGridKeyboardTreeEdit' } },
             { title: 'Excel 单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/singleArea' },
@@ -767,6 +770,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '点击/双击事件', routerLink: { name: 'ComponentGridEventsClick' } },
             { title: '滚动事件', routerLink: { name: 'ComponentGridEventsScroll' } }
+          ]
+        },
+        {
+          title: '其他',
+          children: [
+            { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } }
           ]
         }
       ]
