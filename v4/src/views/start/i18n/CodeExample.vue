@@ -73,18 +73,16 @@
             // import huHU from 'vxe-table/lib/language/hu-HU'
             // import ruRU from 'vxe-table/lib/language/ru-RU'
 
-            const messages = {
-              zh_CN: {
-                ...zhCN
-              },
-              en_US: {
-                ...enUS
-              }
-            }
-
             const i18n = createI18n({
               locale: 'zh_CN',
-              messages,
+              messages: {
+                zh_CN: {
+                  ...zhCN
+                },
+                en_US: {
+                  ...enUS
+                }
+              }
             })
 
             export default i18n
