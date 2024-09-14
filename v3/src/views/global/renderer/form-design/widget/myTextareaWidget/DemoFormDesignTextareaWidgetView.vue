@@ -1,0 +1,54 @@
+<template>
+  <vxe-form-item :field="currWidget.field" :title="currWidget.title">
+    <vxe-textarea
+      v-model="widgetModel"
+      :placeholder="currWidget.options.placeholder"
+      :autosize="{minRows: currWidget.options.minRows, maxRows: currWidget.options.maxRows}">
+    </vxe-textarea>
+  </vxe-form-item>
+</template>
+
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+import { VxeGlobalRendererHandles, VxeFormDesignDefines } from 'vxe-pc-ui'
+import { FormDesignWidgetTextareaProps } from './demoFormDesignTextareaWidget'
+
+export default Vue.extend({
+  mixins: [
+    {
+      computed: {
+        widgetModel: {
+          get (this: any) {
+            const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetTextareaProps>
+            const { $formView, widget } = renderParams
+            return $formView ? $formView.getItemValue(widget) : null
+          },
+          set (this: any, value) {
+            const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetTextareaProps>
+            const { $formView, widget } = renderParams
+            if ($formView) {
+              $formView.setItemValue(widget, value)
+            }
+          }
+        }
+      }
+    }
+  ],
+  props: {
+    renderOpts: {
+      type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetViewOptions>,
+      default: () => ({} as VxeGlobalRendererHandles.RenderFormDesignWidgetViewOptions)
+    },
+    renderParams: {
+      type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetTextareaProps>>,
+      default: () => ({} as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetTextareaProps>)
+    }
+  },
+  computed: {
+    currWidget (): VxeFormDesignDefines.WidgetObjItem<FormDesignWidgetTextareaProps> {
+      const { renderParams } = this
+      return renderParams.widget
+    }
+  }
+})
+</script>

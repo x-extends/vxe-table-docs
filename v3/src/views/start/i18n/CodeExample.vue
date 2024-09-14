@@ -3,7 +3,7 @@
     <CodeLight>
       <template #tip>
         <vxe-tip status="primary" title="国际化语言">
-          通过调用 VxeUI.setLanguage('zh-CN') 方法可以切换组件语言
+          使用内置国际化功能，通过调用 setLanguage('zh-CN') 方法可以切换组件语言
         </vxe-tip>
       </template>
 

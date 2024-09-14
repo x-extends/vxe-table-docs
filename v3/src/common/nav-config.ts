@@ -85,15 +85,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '实现横向树', routerLink: { name: 'ComponentTableMergeHorizontal' } }
         //       ]
         //     },
-        //     {
-        //       title: '表尾数据',
-        //       children: [
-        //         { title: '标准结构', routerLink: { name: 'ComponentTableFooterFooterData' } },
-        //         { title: '自定义数据方法', routerLink: { name: 'ComponentTableFooterFooterMethod' } },
-        //         { title: '格式化表尾内容', routerLink: { name: 'ComponentTableFooterFooterFormat' } },
-        //         { title: '自定义插槽模板', routerLink: { name: 'ComponentTableFooterTemplate' } }
-        //       ]
-        //     },
+        {
+          title: '表尾数据',
+          children: [
+            { title: '标准结构', routerLink: { name: 'ComponentTableFooterFooterData' } },
+            { title: '自定义数据方法', routerLink: { name: 'ComponentTableFooterFooterMethod' } },
+            { title: '格式化表尾内容', routerLink: { name: 'ComponentTableFooterFooterFormat' } },
+            { title: '自定义插槽模板', routerLink: { name: 'ComponentTableFooterTemplate' } }
+          ]
+        },
         //     {
         //       title: '单选框',
         //       children: [
@@ -441,15 +441,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } }
         //       ]
         //     },
-        //     {
-        //       title: '表尾数据',
-        //       children: [
-        //         { title: '标准结构', routerLink: { name: 'ComponentGridFooterFooterData' } },
-        //         { title: '自定义数据方法', routerLink: { name: 'ComponentGridFooterFooterMethod' } },
-        //         { title: '格式化表尾内容', routerLink: { name: 'ComponentGridFooterFooterFormat' } },
-        //         { title: '自定义插槽模板', routerLink: { name: 'ComponentGridFooterTemplate' } }
-        //       ]
-        //     },
+        {
+          title: '表尾数据',
+          children: [
+            { title: '标准结构', routerLink: { name: 'ComponentGridFooterFooterData' } },
+            { title: '自定义数据方法', routerLink: { name: 'ComponentGridFooterFooterMethod' } },
+            { title: '格式化表尾内容', routerLink: { name: 'ComponentGridFooterFooterFormat' } },
+            { title: '自定义插槽模板', routerLink: { name: 'ComponentGridFooterTemplate' } }
+          ]
+        },
         //     {
         //       title: '单选框',
         //       children: [
@@ -775,86 +775,86 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
     {
       i18nKey: 'app.aside.menu.tableGlobalFormats',
       children: [
-        { title: 'API', routerLink: { name: 'GlobalFormatsTableAPI' } }
-        // { title: '单元格', routerLink: { name: 'GlobalFormatsTableBase' } }
+        { title: 'API', routerLink: { name: 'GlobalFormatsTableAPI' } },
+        { title: '单元格', routerLink: { name: 'GlobalFormatsTableBase' } }
       ]
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalMenus',
       children: [
-        { title: 'API', routerLink: { name: 'GlobalMenusTableAPI' } }
-        // { title: '右键菜单', routerLink: { name: 'GlobalMenusTableBase' } }
+        { title: 'API', routerLink: { name: 'GlobalMenusTableAPI' } },
+        { title: '右键菜单', routerLink: { name: 'GlobalMenusTableBase' } }
       ]
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalCommands',
       children: [
-        { title: 'API', routerLink: { name: 'GlobalCommandsTableAPI' } }
-        // { title: '工具栏', routerLink: { name: 'GlobalCommandsTableBase' } }
+        { title: 'API', routerLink: { name: 'GlobalCommandsTableAPI' } },
+        { title: '工具栏', routerLink: { name: 'GlobalCommandsTableBase' } }
       ]
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalValidators',
       children: [
-        { title: 'API', routerLink: { name: 'GlobalValidatorsTableAPI' } }
-        // { title: '单元格校验', routerLink: { name: 'GlobalValidatorsTableBase' } }
+        { title: 'API', routerLink: { name: 'GlobalValidatorsTableAPI' } },
+        { title: '单元格校验', routerLink: { name: 'GlobalValidatorsTableBase' } }
       ]
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalRenderer',
       children: [
-        { title: 'API', routerLink: { name: 'GlobalRendererTableAPI' } }
-        // {
-        //   title: '单元格',
-        //   children: [
-        //     { title: '实现一个超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' } },
-        //     { title: '实现一个图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' } }
-        //   ]
-        // },
-        // {
-        //   title: '可编辑',
-        //   children: [
-        //     { title: '实现一个金额输入', routerLink: { name: 'GlobalRendererTableEditMyEditAmount' } },
-        //     { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' } }
-        //   ]
-        // },
-        // {
-        //   title: '展开行',
-        //   children: [
-        //     { title: '实现一个展开列表', routerLink: { name: 'GlobalRendererTableExpandMyExpandList' } },
-        //     { title: '实现一个展开表格', routerLink: { name: 'GlobalRendererTableExpandMyExpandTable' } }
-        //   ]
-        // },
-        // {
-        //   title: '工具栏',
-        //   children: [
-        //     { title: '实现左侧操作按钮', routerLink: { name: 'GlobalRendererTableToolbarBtn' } },
-        //     { title: '实现右侧工具按钮', routerLink: { name: 'GlobalRendererTableToolbarTool' } }
-        //   ]
-        // },
-        // {
-        //   title: '筛选',
-        //   children: [
-        //     { title: '实现一个输入筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterInput' } },
-        //     { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterComplex' } },
-        //     { title: '实现一个显示列表的筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterContent' } },
-        //     { title: '更多筛选插件', isEnterprise: true, linkUrl: 'https://vxetable.cn/plugins/' }
-        //   ]
-        // },
-        // {
-        //   title: '空数据提示',
-        //   children: [
-        //     { title: '实现一个空数据显示文字', routerLink: { name: 'GlobalRendererTableMyEmptyImg' } },
-        //     { title: '实现一个空数据显示图片', routerLink: { name: 'GlobalRendererTableMyEmptyText' } }
-        //   ]
-        // }
+        { title: 'API', routerLink: { name: 'GlobalRendererTableAPI' } },
+        {
+          title: '单元格',
+          children: [
+            { title: '实现一个超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' } },
+            { title: '实现一个图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' } }
+          ]
+        },
+        {
+          title: '可编辑',
+          children: [
+            { title: '实现一个金额输入', routerLink: { name: 'GlobalRendererTableEditMyEditAmount' } },
+            { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' } }
+          ]
+        },
+        {
+          title: '展开行',
+          children: [
+            { title: '实现一个展开列表', routerLink: { name: 'GlobalRendererTableExpandMyExpandList' } },
+            { title: '实现一个展开表格', routerLink: { name: 'GlobalRendererTableExpandMyExpandTable' } }
+          ]
+        },
+        {
+          title: '工具栏',
+          children: [
+            { title: '实现左侧操作按钮', routerLink: { name: 'GlobalRendererTableToolbarBtn' } },
+            { title: '实现右侧工具按钮', routerLink: { name: 'GlobalRendererTableToolbarTool' } }
+          ]
+        },
+        {
+          title: '筛选',
+          children: [
+            { title: '实现一个输入筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterInput' } },
+            { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterComplex' } },
+            { title: '实现一个显示列表的筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterContent' } },
+            { title: '更多筛选插件', isEnterprise: true, linkUrl: 'https://vxetable.cn/plugins/' }
+          ]
+        },
+        {
+          title: '空数据提示',
+          children: [
+            { title: '实现一个空数据显示文字', routerLink: { name: 'GlobalRendererTableMyEmptyImg' } },
+            { title: '实现一个空数据显示图片', routerLink: { name: 'GlobalRendererTableMyEmptyText' } }
+          ]
+        }
       ]
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalInterceptor',
       children: [
-        { title: 'API', routerLink: { name: 'GlobalInterceptorTableAPI' } }
-        // { title: '可编辑 - 兼容性处理', routerLink: { name: 'GlobalInterceptorTableBase' } }
+        { title: 'API', routerLink: { name: 'GlobalInterceptorTableAPI' } },
+        { title: '可编辑 - 兼容性处理', routerLink: { name: 'GlobalInterceptorTableBase' } }
       ]
     }
   ]

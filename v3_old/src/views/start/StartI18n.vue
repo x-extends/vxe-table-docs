@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.i18n') }}</h2>
-    <p class="tip">通过调用 setLanguage('zh-CN') 方法可以切换组件语言</p>
+    <p class="tip">使用内置国际化功能，通过调用 setLanguage('zh-CN') 方法可以切换组件语言</p>
     <pre>
       <pre-code class="javascript">{{ demoCodes[0] }}</pre-code>
     </pre>
