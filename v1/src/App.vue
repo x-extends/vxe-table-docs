@@ -2085,7 +2085,7 @@ export default {
           label: this.$t(`app.body.other.v${item.version.replace('.', 'd')}`),
           value: item.version,
           disabled: !!item.isDisabled,
-          className: item.isStop ? 'due-to-stop' : ''
+          className: item.isStop ? 'due-to-stop' : (item.isAbandoned ? 'about-to-stop' : '')
         }
       })
     },
