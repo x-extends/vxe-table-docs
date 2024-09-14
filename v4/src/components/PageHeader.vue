@@ -5,8 +5,8 @@
         <img src="/logo.png">
         <span class="title">{{ appStore.pageTitle }}</span>
       </a>
-      <a v-if="appStore.packName === 'vxe-table'" href='https://gitee.com/xuliangzhan/vxe-table/stargazers'>
-        <img src='https://gitee.com/xuliangzhan/vxe-table/badge/star.svg?theme=gvp' alt='star'>
+      <a v-if="appStore.packName === 'vxe-table'" href='https://gitee.com/xuliangzhan_admin/vxe-table/stargazers'>
+        <img src='https://gitee.com/xuliangzhan_admin/vxe-table/badge/star.svg?theme=gvp' alt='star'>
       </a>
       <a v-else :href='`https://gitee.com/x-extends/${appStore.packName}/stargazers`'>
         <img :src='`https://gitee.com/x-extends/${appStore.packName}/badge/star.svg?theme=gvp`' alt='star'>
@@ -96,7 +96,7 @@ const sysVersionOptions = computed(() => {
       label: i18n.global.t(`app.version.${process.env.VUE_APP_PACKAGE_NAME}.v${item.version.replace('.', 'd')}`),
       value: item.version,
       disabled: !!item.isDisabled,
-      className: item.isStop ? 'due-to-stop' : ''
+      className: item.isStop ? 'due-to-stop' : (item.isAbandoned ? 'about-to-stop' : '')
     }
   })
 })
