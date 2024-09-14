@@ -25,7 +25,7 @@ export default {
         // import zhHK from 'vxe-table/lib/language/zh-HK'
         // import zhTW from 'vxe-table/lib/language/zh-TW'
         // import zhMO from 'vxe-table/lib/language/zh-MO'
-        // import enUS from 'vxe-table/lib/language/en-US'
+        import enUS from 'vxe-table/lib/language/en-US'
         // import jaJP from 'vxe-table/lib/language/ja-JP'
         // import esES from 'vxe-table/lib/language/es-ES'
         // import ptBR from 'vxe-table/lib/language/pt-BR'
@@ -39,7 +39,7 @@ export default {
         // VXETable.setI18n('zh-HK', zhHK)
         // VXETable.setI18n('zh-TW', zhTW)
         // VXETable.setI18n('zh-MO', zhMO)
-        // VXETable.setI18n('en-US', enUS)
+        VXETable.setI18n('en-US', enUS)
         // VXETable.setI18n('ja-JP', jaJP)
         // VXETable.setI18n('es-ES', esES)
         // VXETable.setI18n('pt-BR', ptBR)

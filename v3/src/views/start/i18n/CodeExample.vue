@@ -16,7 +16,7 @@
             // import zhHK from 'vxe-table/lib/language/zh-HK'
             // import zhTW from 'vxe-table/lib/language/zh-TW'
             // import zhMO from 'vxe-table/lib/language/zh-MO'
-            // import enUS from 'vxe-table/lib/language/en-US'
+            import enUS from 'vxe-table/lib/language/en-US'
             // import jaJP from 'vxe-table/lib/language/ja-JP'
             // import esES from 'vxe-table/lib/language/es-ES'
             // import ptBR from 'vxe-table/lib/language/pt-BR'
@@ -30,7 +30,7 @@
             // VxeUI.setI18n('zh-HK', zhHK)
             // VxeUI.setI18n('zh-TW', zhTW)
             // VxeUI.setI18n('zh-MO', zhMO)
-            // VxeUI.setI18n('en-US', enUS)
+            VxeUI.setI18n('en-US', enUS)
             // VxeUI.setI18n('ja-JP', jaJP)
             // VxeUI.setI18n('es-ES', esES)
             // VxeUI.setI18n('pt-BR', ptBR)
