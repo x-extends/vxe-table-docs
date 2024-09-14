@@ -224,162 +224,13 @@ export default {
           ]
         },
         {
-          label: 'app.aside.nav.module',
-          value: 'module',
+          label: '组件库',
+          value: 'lib',
           expand: false,
           children: [
             {
-              label: 'app.aside.nav.icon',
-              locat: {
-                name: 'ModuleIcon'
-              },
-              keywords: ['icon']
-            },
-            {
-              label: 'app.aside.nav.button',
-              locat: {
-                name: 'ModuleButton'
-              },
-              keywords: ['button']
-            },
-            {
-              label: 'app.aside.nav.radio',
-              locat: {
-                name: 'ModuleRadio'
-              },
-              keywords: ['radio']
-            },
-            {
-              label: 'app.aside.nav.checkbox',
-              locat: {
-                name: 'ModuleCheckbox'
-              },
-              keywords: ['checkbox']
-            },
-            {
-              label: 'app.aside.nav.switch',
-              locat: {
-                name: 'ModuleSwitch'
-              },
-              keywords: ['switch']
-            },
-            {
-              label: 'app.aside.nav.input',
-              locat: {
-                name: 'ModuleInput'
-              },
-              keywords: ['input']
-            },
-            {
-              label: 'app.aside.nav.textarea',
-              locat: {
-                name: 'ModuleTextarea'
-              },
-              keywords: ['textarea']
-            },
-            {
-              label: 'app.aside.nav.select',
-              locat: {
-                name: 'ModuleSelect'
-              },
-              keywords: ['select']
-            },
-            {
-              label: 'app.aside.nav.pulldown',
-              locat: {
-                name: 'ModulePulldown'
-              },
-              keywords: ['pulldown']
-            },
-            {
-              label: 'app.aside.nav.pager',
-              locat: {
-                name: 'ModulePager'
-              },
-              keywords: ['pager']
-            },
-            // {
-            //   label: 'app.aside.nav.tooltip',
-            //   locat: {
-            //     name: 'ModuleTooltip'
-            //   }
-            // },
-            {
-              label: 'app.aside.nav.toolbar',
-              locat: {
-                name: 'ModuleToolbar'
-              },
-              keywords: ['toolbar']
-            },
-            {
-              label: 'app.aside.nav.list',
-              locat: {
-                name: 'ModuleList'
-              },
-              keywords: ['list']
-            },
-            {
-              label: 'app.aside.nav.modal',
-              locat: {
-                name: 'ModuleModal'
-              },
-              keywords: ['modal']
-            },
-            {
-              label: 'app.aside.nav.file',
-              locat: {
-                name: 'ModuleFile'
-              },
-              keywords: ['file']
-            },
-            {
-              label: 'app.aside.nav.print',
-              locat: {
-                name: 'ModulePrint'
-              },
-              keywords: ['print']
-            }
-          ]
-        },
-        {
-          label: 'app.aside.nav.form',
-          value: 'form',
-          expand: false,
-          children: [
-            {
-              label: 'app.aside.nav.baseForm',
-              locat: {
-                name: 'FormBasics'
-              },
-              keywords: ['form', 'form-item', 'form-gather']
-            },
-            {
-              label: 'app.aside.nav.customLayout',
-              locat: {
-                name: 'FormCustomLayout'
-              },
-              keywords: ['custom-layout']
-            },
-            {
-              label: 'app.aside.nav.formVertical',
-              locat: {
-                name: 'FormVertical'
-              },
-              keywords: ['vertical']
-            },
-            {
-              label: 'app.aside.nav.formValid',
-              locat: {
-                name: 'FormValid'
-              },
-              keywords: ['rulest']
-            },
-            {
-              label: 'app.aside.nav.configForm',
-              locat: {
-                name: 'FormConfig'
-              },
-              keywords: ['form']
+              label: '点击查看',
+              url: 'https://vxeui.com/v3/'
             }
           ]
         },
@@ -1889,16 +1740,6 @@ export default {
                 name: 'InterceptorAPI'
               },
               keywords: ['interceptor']
-            }
-          ]
-        },
-        {
-          label: '组件库',
-          value: 'lib',
-          children: [
-            {
-              label: '点击查看',
-              url: 'https://vxeui.com/'
             }
           ]
         },

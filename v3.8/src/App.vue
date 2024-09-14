@@ -1898,7 +1898,7 @@ export default {
           children: [
             {
               label: '点击查看',
-              url: 'https://vxeui.com/'
+              url: 'https://vxeui.com/v3/'
             }
           ]
         },
