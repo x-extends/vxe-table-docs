@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI, VxeGlobalI18nLocale } from 'vxe-pc-ui'
 import axios from 'axios'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 
 const currTheme = (localStorage.getItem('VXE_DOCS_THEME') || 'light') as 'dark' | 'light'
-const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as 'zh-CN' | 'zh-TC' | 'en-US'
+const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as VxeGlobalI18nLocale
 
 VxeUI.setLanguage(currLanguage)
 setTimeout(() => {
@@ -50,7 +50,7 @@ export default new Vuex.Store({
       document.documentElement.setAttribute('vxe-docs-theme', name)
       localStorage.setItem('VXE_DOCS_THEME', name)
     },
-    setLanguage (state, language: 'zh-CN' | 'zh-TC' | 'en-US') {
+    setLanguage (state, language: VxeGlobalI18nLocale) {
       if (i18nStatus[language]) {
         state.language = language || 'zh-CN'
         VxeUI.setLanguage(language)

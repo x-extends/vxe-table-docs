@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI, VxeGlobalI18nLocale } from 'vxe-pc-ui'
 import axios from 'axios'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 
 const currTheme = (localStorage.getItem('VXE_DOCS_THEME') || 'light') as 'dark' | 'light'
-const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as 'zh-CN' | 'zh-TC' | 'en-US'
+const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as VxeGlobalI18nLocale
 
 VxeUI.setLanguage(currLanguage)
 setTimeout(() => {
@@ -49,7 +49,7 @@ export const useAppStore = defineStore('app', {
       document.documentElement.setAttribute('vxe-docs-theme', name)
       localStorage.setItem('VXE_DOCS_THEME', name)
     },
-    setLanguage (language: 'zh-CN' | 'zh-TC' | 'en-US') {
+    setLanguage (language: VxeGlobalI18nLocale) {
       if (i18nStatus[language]) {
         this.language = language || 'zh-CN'
         VxeUI.setLanguage(language)

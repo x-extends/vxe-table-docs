@@ -22,43 +22,43 @@ import 'vxe-pc-ui/es/style.css'
 import VxeTable from 'vxe-table'
 import 'vxe-table/es/style.css'
 
-// import '@/views/table/base/format/demo2.format'
-// import '@/views/table/footer/footerFormat/demo2.footerFormat'
-// import '@/views/grid/footer/footerFormat/demo2.footerFormat'
+import '@/views/table/base/format/demo2.format'
+import '@/views/table/footer/footerFormat/demo2.footerFormat'
+import '@/views/grid/footer/footerFormat/demo2.footerFormat'
 
-// import '@/views/global/formats/table/base/demo1.table.formats'
+import '@/views/global/formats/table/base/demo1.table.formats'
 
-// import '@/views/global/commands/table/base/demo1.table.commands'
+import '@/views/global/commands/table/base/demo1.table.commands'
 
-// import '@/views/global/menus/table/base/demo1.table.menus'
+import '@/views/global/menus/table/base/demo1.table.menus'
 
-// import '@/views/global/validators/form/base/demo1.form.validators'
-// import '@/views/global/validators/table/base/demo1.table.validators'
+import '@/views/global/validators/form/base/demo1.form.validators'
+import '@/views/global/validators/table/base/demo1.table.validators'
 
-// import '@/views/global/renderer/table/default/myCellLink/demo1.table.renderer'
-// import '@/views/global/renderer/table/default/myCellImg/demo1.table.renderer'
+import '@/views/global/renderer/table/default/myCellLink/demo1.table.renderer'
+import '@/views/global/renderer/table/default/myCellImg/demo1.table.renderer'
 
-// import '@/views/global/renderer/table/edit/myEditAmount/demo1.table.renderer'
-// import '@/views/global/renderer/table/edit/myEditPulldown/demo1.table.renderer'
+import '@/views/global/renderer/table/edit/myEditAmount/demo1.table.renderer'
+import '@/views/global/renderer/table/edit/myEditPulldown/demo1.table.renderer'
 
-// import '@/views/global/renderer/table/expand/myExpandList/demo1.table.renderer'
-// import '@/views/global/renderer/table/expand/myExpandTable/demo1.table.renderer'
+import '@/views/global/renderer/table/expand/myExpandList/demo1.table.renderer'
+import '@/views/global/renderer/table/expand/myExpandTable/demo1.table.renderer'
 
-// import '@/views/global/renderer/table/toolbar/button/demo1.table.renderer'
-// import '@/views/global/renderer/table/toolbar/tool/demo1.table.renderer'
+import '@/views/global/renderer/table/toolbar/button/demo1.table.renderer'
+import '@/views/global/renderer/table/toolbar/tool/demo1.table.renderer'
 
-// import '@/views/global/renderer/table/filter/myFilterInput/demo1.table.renderer'
-// import '@/views/global/renderer/table/filter/myFilterComplex/demo1.table.renderer'
-// import '@/views/global/renderer/table/filter/myFilterContent/demo1.table.renderer'
+import '@/views/global/renderer/table/filter/myFilterInput/demo1.table.renderer'
+import '@/views/global/renderer/table/filter/myFilterComplex/demo1.table.renderer'
+import '@/views/global/renderer/table/filter/myFilterContent/demo1.table.renderer'
 
-// import '@/views/global/renderer/table/empty/myEmptyImg/demo1.table.renderer'
-// import '@/views/global/renderer/table/empty/myEmptyText/demo1.table.renderer'
+import '@/views/global/renderer/table/empty/myEmptyImg/demo1.table.renderer'
+import '@/views/global/renderer/table/empty/myEmptyText/demo1.table.renderer'
 
-// import '@/views/global/renderer/form/item/myItemAmount/demo1.form.renderer'
-// import '@/views/global/renderer/form/item/myItemUpload/demo1.form.renderer'
+import '@/views/global/renderer/form/item/myItemAmount/demo1.form.renderer'
+import '@/views/global/renderer/form/item/myItemUpload/demo1.form.renderer'
 
-// import '@/views/global/renderer/form-design/widget/myInputWidget/demo1.form-design.renderer'
-// import '@/views/global/renderer/form-design/widget/myTextareaWidget/demo1.form-design.renderer'
+import '@/views/global/renderer/form-design/widget/myInputWidget/demo1.form-design.renderer'
+import '@/views/global/renderer/form-design/widget/myTextareaWidget/demo1.form-design.renderer'
 
 import enUS from 'vxe-pc-ui/packages/language/en-US'
 

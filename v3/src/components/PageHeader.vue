@@ -20,7 +20,7 @@
     </div>
     <div class="header-middle"></div>
     <div class="header-right">
-      <vxe-pulldown v-model="showSystemMenu">
+      <vxe-pulldown v-model="showSystemMenu" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
@@ -35,6 +35,9 @@
           </ul>
         </template>
       </vxe-pulldown>
+
+      <vxe-select v-if="!isPluginDocs" v-model="currSysVersion" class="switch-version" size="mini" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
+
       <vxe-switch
         class="link switch-theme"
         v-model="currTheme"
@@ -44,11 +47,27 @@
         close-value="dark"
         :close-label="$t('app.base.dark')">
       </vxe-switch>
-      <vxe-radio-group v-model="currLang" class="switch-lang" type="button" size="mini" :options="langOptions"></vxe-radio-group>
-      <vxe-select v-if="!isPluginDocs" v-model="currSysVersion" class="switch-version" size="mini" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
-      <vxe-link v-if="!isPluginDocs" class="free-donation" status="success" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
+
+      <vxe-pulldown :options="langOptions" trigger="click" show-popup-shadow @option-click="langClickEvent">
+        <vxe-button class="switch-lang-btn" mode="text" icon="vxe-icon-language-switch" :content="currLangLabel"></vxe-button>
+
+        <template #option="{ option }">
+          <div class="switch-lang-item">
+            <div class="switch-lang-name">{{ option.label }}</div>
+            <div class="switch-lang-icon">
+              <vxe-link class="github" :href="`https://github.com/x-extends/vxe-ui-docs/tree/main/i18n/${option.value}.json`" icon="vxe-icon-github-fill" target="_blank"></vxe-link>
+            </div>
+          </div>
+        </template>
+      </vxe-pulldown>
+
       <a v-if="isPluginDocs" :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="pluginBuyUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
       <a v-else :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="pluginBuyUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a>
+
+      <vxe-link v-if="!isPluginDocs" class="free-donation" status="success" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
+
+      <vxe-link class="git-btn" status="error" :href="githubUrl" icon="vxe-icon-gitee-fill" target="_blank"></vxe-link>
+      <vxe-link class="git-btn" :href="giteeUrl" icon="vxe-icon-github-fill" target="_blank"></vxe-link>
     </div>
   </div>
 </template>
@@ -63,13 +82,13 @@ export default Vue.extend({
       showSystemMenu: false,
       systemMenuList: [] as any[],
 
-      currSysVersion: process.env.VUE_APP_VXE_VERSION,
+      currSysVersion: process.env.VUE_APP_VXE_VERSION as string,
       systemVersionList: [] as any[],
 
-      langOptions: [
-        { value: 'zh-CN', label: '中文' },
-        { value: 'en-US', label: 'English' }
-      ]
+      langOptions: [] as {
+        value: string
+        label: string
+      }[]
 
     }
   },
@@ -104,13 +123,20 @@ export default Vue.extend({
         this.setTheme(name)
       }
     },
-    currLang: {
-      get () {
-        return this.language
-      },
-      set (lang) {
-        this.setLanguage(lang)
+    currLanguage (): any {
+      return this.langOptions.find(item => item.value === this.language)
+    },
+    currLangLabel (this: any) {
+      return this.currLanguage ? this.currLanguage.label : this.language
+    },
+    githubUrl () {
+      return `https://github.com/x-extends/${this.packName}`
+    },
+    giteeUrl () {
+      if (this.packName === 'vxe-table') {
+        return 'https://gitee.com/xuliangzhan/vxe-table'
       }
+      return `https://gitee.com/x-extends/${this.packName}`
     },
     sysVersionOptions () {
       return this.systemVersionList.map(item => {
@@ -122,7 +148,7 @@ export default Vue.extend({
         }
       })
     },
-    selectSysVersion () {
+    selectSysVersion (): any {
       return this.systemVersionList.find(item => item.version === this.currSysVersion)
     }
 
@@ -134,6 +160,9 @@ export default Vue.extend({
       'readTopMenuMsgFlagVisible',
       'readAuthMsgFlagVisible'
     ]),
+    langClickEvent (this: any, { option }: any) {
+      this.setLanguage(option.value as any)
+    },
     toggleSystemMenuEvent  (this: any) {
       this.showSystemMenu = !this.showSystemMenu
       this.readTopMenuMsgFlagVisible()
@@ -149,6 +178,12 @@ export default Vue.extend({
     }
   },
   created () {
+    fetch(`${this.siteBaseUrl}/component-api/language-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+      res.json().then(data => {
+        this.langOptions = data
+      })
+    })
+
     fetch(`${this.siteBaseUrl}/component-api/system-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
       res.json().then(data => {
         this.systemMenuList = data
@@ -178,20 +213,26 @@ export default Vue.extend({
     align-items: center;
     flex-shrink: 0;
   }
+  .header-right {
+    padding: 0 16px;
+  }
   .header-middle {
     flex-grow: 1;
   }
-  .switch-lang {
-    margin-right: 20px;
-  }
   .system-menu-btn,
   .switch-theme,
+  .switch-lang-btn,
   .switch-lang,
   .switch-version,
   .free-donation,
-  .plugin-shopping {
+  .plugin-shopping,
+  .git-btn {
     flex-shrink: 0;
     margin-right: 20px;
+  }
+  .git-btn {
+    font-size: 1.4em;
+    margin-right: 8px;
   }
   .plugin-shopping {
     position: relative;
@@ -237,6 +278,30 @@ export default Vue.extend({
       display: inline-block;
       vertical-align: middle;
     }
+  }
+}
+.switch-lang-item {
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+}
+.switch-lang-name {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.switch-lang-icon {
+  flex-shrink: 0;
+  .github,
+  .gitee {
+    margin-left: 0.5em;
+  }
+  .github {
+    color: var(--vxe-ui-font-color);
+  }
+  .gitee {
+    color: var(--vxe-ui-status-error-color);
   }
 }
 .system-menu-btn-text {
