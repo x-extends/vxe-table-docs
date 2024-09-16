@@ -1,21 +1,12 @@
 <template>
   <div>
-    <vxe-table
-      border
-      loading
-      height="300"
-      :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" sortable></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="address" title="Address" show-overflow></vxe-column>
-    </vxe-table>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { reactive } from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -26,10 +17,18 @@ interface RowVO {
   address: string
 }
 
-const tableData = ref<RowVO[]>([])
-
-setTimeout(() => {
-  tableData.value = [
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  loading: true,
+  height: 300,
+  columns: [
+    { type: 'seq', width: 70 },
+    { field: 'name', title: 'Name', sortable: true },
+    { field: 'sex', title: 'Sex' },
+    { field: 'age', title: 'Age' },
+    { field: 'address', title: 'Address', showOverflow: true }
+  ],
+  data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
     { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
     { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
@@ -39,5 +38,5 @@ setTimeout(() => {
     { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'test abc' },
     { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
   ]
-}, 3000)
+})
 </script>

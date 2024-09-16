@@ -67,7 +67,7 @@ const cellClassName: VxeTablePropTypes.CellClassName<RowVO> = ({ row, column }) 
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 ::v-deep(.mytable-style.vxe-table .vxe-body--row.row-green) {
   background-color: #187;
   color: #fff;

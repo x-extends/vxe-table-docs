@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
+import type { VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: string
@@ -43,7 +43,7 @@ const footerData = ref<VxeTablePropTypes.FooterData>([
   { seq: '合计', num: '282' }
 ])
 
-const formatFooterNum = ({ itemValue }) => {
+const formatFooterNum: VxeColumnPropTypes.FooterFormatter = ({ itemValue }) => {
   return `￥${itemValue}元`
 }
 </script>

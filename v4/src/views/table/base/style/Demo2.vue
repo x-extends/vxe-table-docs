@@ -56,7 +56,7 @@ const cellClickEvent: VxeTableEvents.CellClick<RowVO> = ({ row, column }) => {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 ::v-deep(.mytable-style.vxe-table .vxe-body--column.col-orange) {
   background-color: #f60;
   color: #fff;

@@ -1,23 +1,12 @@
 <template>
   <div>
-    <vxe-table
-      border
-      size="small"
-      :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column type="radio" width="60"></vxe-column>
-      <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="age" title="Age" sortable></vxe-column>
-      <vxe-column field="sex" title="Sex" :filters="sexOptions"></vxe-column>
-      <vxe-column field="sex2" title="Sex2" sortable :filters="sexOptions" :filter-multiple="false"></vxe-column>
-      <vxe-column field="address" title="Address" show-overflow></vxe-column>
-    </vxe-table>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { reactive } from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -28,13 +17,38 @@ interface RowVO {
   address: string
 }
 
-const tableData = ref<RowVO[]>([
-  { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-  { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' }
-])
-
-const sexOptions = ref([
-  { value: '0', label: '女' },
-  { value: '1', label: '男' }
-])
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  size: 'small',
+  columns: [
+    { type: 'seq', width: 70 },
+    { type: 'radio', width: 60 },
+    { type: 'checkbox', width: 60 },
+    { field: 'name', title: 'Name' },
+    { field: 'age', title: 'Age', sortable: true },
+    {
+      field: 'sex',
+      title: 'Sex',
+      filters: [
+        { value: '0', label: '女' },
+        { value: '1', label: '男' }
+      ]
+    },
+    {
+      field: 'sex2',
+      title: 'Sex2',
+      sortable: true,
+      filterMultiple: false,
+      filters: [
+        { value: '0', label: '女' },
+        { value: '1', label: '男' }
+      ]
+    },
+    { field: 'address', title: 'Address', showOverflow: true }
+  ],
+  data: [
+    { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
+    { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' }
+  ]
+})
 </script>
