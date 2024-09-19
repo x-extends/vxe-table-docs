@@ -1442,6 +1442,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/base/html/CodeExample.vue')
         },
         {
+          path: 'columns',
+          name: 'ComponentGridBaseColumns',
+          component: () => import('@/views/grid/base/columns/CodeExample.vue')
+        },
+        {
           path: 'full',
           name: 'ComponentGridBaseFull',
           component: () => import('@/views/grid/base/full/CodeExample.vue')

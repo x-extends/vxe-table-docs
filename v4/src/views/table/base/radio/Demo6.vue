@@ -6,11 +6,7 @@
       :row-config="{isCurrent: true, isHover: true}"
       :radio-config="{labelField: 'name', trigger: 'row'}"
       :data="tableData">
-      <vxe-column type="radio" title="还可以这样" width="120">
-        <template #header>
-          <span>自定义插槽</span>
-        </template>
-      </vxe-column>
+      <vxe-column type="radio" width="120"> </vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

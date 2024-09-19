@@ -423,14 +423,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '冻结表头和列', routerLink: { name: 'ComponentGridBaseFixedFull' } },
             { title: '表尾', routerLink: { name: 'ComponentGridBaseFooter' } },
             { title: '分组表头', routerLink: { name: 'ComponentGridBaseGroup' } },
-            // { title: '排序', routerLink: { name: 'ComponentGridBaseSort' } },
+            { title: '排序', routerLink: { name: 'ComponentGridBaseSort' } },
             { title: '筛选', routerLink: { name: 'ComponentGridBaseFilter' } },
             { title: '加载中', routerLink: { name: 'ComponentGridBaseLoading' } },
             { title: '格式化内容', routerLink: { name: 'ComponentGridBaseFormat' } },
             { title: '序号', routerLink: { name: 'ComponentGridBaseSeq' } },
-            // { title: '单选框', routerLink: { name: 'ComponentGridBaseRadio' } },
-            // { title: '复选框', routerLink: { name: 'ComponentGridBaseSelection' } },
+            { title: '单选框', routerLink: { name: 'ComponentGridBaseRadio' } },
+            { title: '复选框', routerLink: { name: 'ComponentGridBaseSelection' } },
             { title: 'HTML 类型', routerLink: { name: 'ComponentGridBaseHtml' } },
+            { title: '列配置', routerLink: { name: 'ComponentGridBaseColumns' } },
             { title: '完整案例', routerLink: { name: 'ComponentGridBaseFull' } }
           ]
         },

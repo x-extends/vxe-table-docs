@@ -1,12 +1,8 @@
 <template>
   <div>
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button @click="sortEvent('name', 'asc')">Name 升序</vxe-button>
-        <vxe-button @click="sortEvent('name', 'desc')">Name 降序</vxe-button>
-        <vxe-button @click="clearSortEvent">清除排序</vxe-button>
-      </template>
-    </vxe-toolbar>
+    <vxe-button @click="sortEvent('name', 'asc')">Name 升序</vxe-button>
+    <vxe-button @click="sortEvent('name', 'desc')">Name 降序</vxe-button>
+    <vxe-button @click="clearSortEvent">清除排序</vxe-button>
 
     <vxe-table
       border

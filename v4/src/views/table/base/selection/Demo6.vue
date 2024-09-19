@@ -4,7 +4,7 @@
       border
       :row-config="{keyField: 'id', isHover: true}"
       :data="tableData"
-      :checkbox-config="{checkRowKeys: defaultSelecteRowKeys}"
+      :checkbox-config="{checkRowKeys: defaultSelectRowKeys}"
       :radio-config="{labelField: 'name'}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="id" title="ID"></vxe-column>
@@ -27,7 +27,7 @@ interface RowVO {
   address: string
 }
 
-const defaultSelecteRowKeys = ref([10002, 10003])
+const defaultSelectRowKeys = ref([10002, 10003])
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

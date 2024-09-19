@@ -29,7 +29,7 @@
 
     <CodeLight path="table/base/radio/Demo6">
       <template #tip>
-        <vxe-tip status="primary">更多方式</vxe-tip>
+        <vxe-tip status="primary">通过 <ApiLink name="table" prop="trigger"/> 指定触发方式</vxe-tip>
       </template>
     </CodeLight>
   </div>

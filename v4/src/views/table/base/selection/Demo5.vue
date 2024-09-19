@@ -2,7 +2,6 @@
   <div>
     <vxe-table
       border
-      class="checkbox-table"
       :row-config="{isHover: true}"
       :data="tableData"
       :checkbox-config="{trigger: 'row'}">
