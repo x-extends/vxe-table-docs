@@ -1,0 +1,96 @@
+<template>
+  <div>
+    <vxe-grid class="mytable-scrollbar" v-bind="gridOptions"></vxe-grid>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import type { VxeGridProps } from 'vxe-table'
+
+interface RowVO {
+  id: number
+  name: string
+  role: string
+  sex: string
+  age: number
+  address: string
+}
+
+export default Vue.extend({
+  data () {
+    const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      showFooter: true,
+      height: 400,
+      columns: [
+        { type: 'seq', width: 70 },
+        { field: 'name', title: 'Name', width: 300 },
+        { field: 'sex', title: 'Sex', width: 250 },
+        { field: 'age', title: 'Age', width: 250 },
+        { field: 'role', title: 'Role', width: 300 },
+        { field: 'address', title: 'Address', minWidth: 350, showOverflow: true }
+      ],
+      data: [
+        { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
+        { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
+        { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
+        { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
+      ],
+      footerData: [
+        { age: 220 }
+      ]
+    }
+
+    return {
+      gridOptions
+    }
+  }
+})
+</script>
+
+<style lang="scss">
+.mytable-scrollbar {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+  }
+}
+
+/** 默认模式 */
+[data-vxe-ui-theme="light"] {
+  .mytable-scrollbar {
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-corner {
+      background-color: #FFFFFF;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #bfbfbf;
+    }
+    ::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar-thumb:active {
+      background-color: #787878;
+    }
+  }
+}
+
+/** 暗黑模式 */
+[data-vxe-ui-theme="dark"] {
+  .mytable-scrollbar {
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-corner {
+      background-color: #151518;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #bfbfbf;
+    }
+    ::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar-thumb:active {
+      background-color: #A3A6AD;
+    }
+  }
+}
+</style>
