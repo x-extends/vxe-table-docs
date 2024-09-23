@@ -66,8 +66,8 @@
 
       <vxe-link v-if="!isPluginDocs" class="free-donation" status="success" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
 
-      <vxe-link class="git-btn" status="error" :href="githubUrl" icon="vxe-icon-gitee-fill" target="_blank"></vxe-link>
-      <vxe-link class="git-btn" :href="giteeUrl" icon="vxe-icon-github-fill" target="_blank"></vxe-link>
+      <vxe-link class="git-btn" status="error" :href="giteeUrl" icon="vxe-icon-gitee-fill" target="_blank"></vxe-link>
+      <vxe-link class="git-btn" :href="githubUrl" icon="vxe-icon-github-fill" target="_blank"></vxe-link>
     </div>
   </div>
 </template>
