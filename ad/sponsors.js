@@ -18,7 +18,7 @@ setTimeout(function () {
     var sponsorEl = document.querySelector('.xe-sponsor')
     sponsorEl.style = 'display: block !important;'
     if (data && sponsorEl) {
-      if (data.length < 3) {
+      if (data.length < 5) {
         data.push(null)
       }
       sponsorEl.innerHTML = [
