@@ -40,6 +40,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '空数据提示', routerLink: { name: 'ComponentTableBaseEmpty' } },
             { title: '边框', routerLink: { name: 'ComponentTableBaseBorder' } },
             { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' } },
+            { title: '边距', routerLink: { name: 'ComponentTableBasePadding' } },
             { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' } },
             { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' } },
             { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
@@ -400,6 +401,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '空数据提示', routerLink: { name: 'ComponentGridBaseEmpty' } },
             { title: '边框', routerLink: { name: 'ComponentGridBaseBorder' } },
             { title: '圆角', routerLink: { name: 'ComponentGridBaseRound' } },
+            { title: '边距', routerLink: { name: 'ComponentGridBasePadding' } },
             { title: '对齐方式', routerLink: { name: 'ComponentGridBaseAlign' } },
             { title: '列宽', routerLink: { name: 'ComponentGridBaseWidth' } },
             { title: '自动换行', routerLink: { name: 'ComponentGridBaseAutoBreak' } },
@@ -479,15 +481,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } }
         //       ]
         //     },
-        //     {
-        //       title: '展开行',
-        //       children: [
-        //         { title: '基础使用', routerLink: { name: 'ComponentGridExpandBasic' } },
-        //         { title: '展开容器内间距', routerLink: { name: 'ComponentGridExpandPadding' } },
-        //         { title: '展开容器高度', routerLink: { name: 'ComponentGridExpandHeight' } },
-        //         { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } }
-        //       ]
-        //     },
+        {
+          title: '展开行',
+          children: [
+            { title: '基础使用', routerLink: { name: 'ComponentGridExpandBasic' } },
+            { title: '展开容器内间距', routerLink: { name: 'ComponentGridExpandPadding' } },
+            { title: '展开容器高度', routerLink: { name: 'ComponentGridExpandHeight' } },
+            { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } }
+          ]
+        },
         //     {
         //       title: '筛选',
         //       children: [
@@ -547,24 +549,24 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '自定义图标', routerLink: { name: 'ComponentGridToolbarIcon' } }
         //       ]
         //     },
-        //     {
-        //       title: '自定义列',
-        //       children: [
-        //         { title: '窗口模式', routerLink: { name: 'ComponentGridCustomModal' } },
-        //         { title: '抽屉模式', routerLink: { name: 'ComponentGridCustomDrawer' } },
-        //         // { title: '允许调整列显示隐藏', routerLink: { name: 'ComponentGridCustomVisible' } },
-        //         // { title: '允许调整列冻结', routerLink: { name: 'ComponentGridCustomFixed' } },
-        //         // { title: '允许调整列宽', routerLink: { name: 'ComponentGridCustomResizable' } },
-        //         // { title: '允许拖拽列顺序', routerLink: { name: 'ComponentGridCustomSort' } },
-        //         // { title: '自定义触发弹出设置', routerLink: { name: 'ComponentGridCustomTemplate' } },
-        //         { title: '自定义弹出位置', routerLink: { name: 'ComponentGridCustomPlacement' } },
-        //         { title: '事件监听', routerLink: { name: 'ComponentGridCustomEvents' } },
-        //         { title: '实时更新', routerLink: { name: 'ComponentGridCustomImmediate' } },
-        //         { title: '本地保存列设置', routerLink: { name: 'ComponentGridCustomStorage' } },
-        //         { title: '自定义服务端保存', routerLink: { name: 'ComponentGridCustomRemote' } },
-        //         { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentGridCustomRemoteFull' } }
-        //       ]
-        //     },
+        {
+          title: '自定义列',
+          children: [
+            { title: '窗口模式', routerLink: { name: 'ComponentGridCustomModal' } },
+            { title: '抽屉模式', routerLink: { name: 'ComponentGridCustomDrawer' } },
+            // { title: '允许调整列显示隐藏', routerLink: { name: 'ComponentGridCustomVisible' } },
+            // { title: '允许调整列冻结', routerLink: { name: 'ComponentGridCustomFixed' } },
+            // { title: '允许调整列宽', routerLink: { name: 'ComponentGridCustomResizable' } },
+            // { title: '允许拖拽列顺序', routerLink: { name: 'ComponentGridCustomSort' } },
+            // { title: '自定义触发弹出设置', routerLink: { name: 'ComponentGridCustomTemplate' } },
+            { title: '自定义弹出位置', routerLink: { name: 'ComponentGridCustomPlacement' } },
+            { title: '事件监听', routerLink: { name: 'ComponentGridCustomEvents' } },
+            { title: '实时更新', routerLink: { name: 'ComponentGridCustomImmediate' } },
+            { title: '本地保存列设置', routerLink: { name: 'ComponentGridCustomStorage' } },
+            { title: '自定义服务端保存', routerLink: { name: 'ComponentGridCustomRemote' } },
+            { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentGridCustomRemoteFull' } }
+          ]
+        },
         //     {
         //       title: '数据分页',
         //       children: [
@@ -581,17 +583,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '调整工具栏位置', routerLink: { name: 'ComponentGridLayoutToolbar' } }
         //       ]
         //     },
-        //     {
-        //       title: '树形',
-        //       children: [
-        //         { title: '平级结构', routerLink: { name: 'ComponentGridTreeLeveling' } },
-        //         { title: '层级结构', routerLink: { name: 'ComponentGridTreeHierarchy' } },
-        //         { title: '显示连接线', routerLink: { name: 'ComponentGridTreeLine' } },
-        //         { title: '单选框', routerLink: { name: 'ComponentGridTreeRadio' } },
-        //         { title: '复选框', routerLink: { name: 'ComponentGridTreeCheckbox' } },
-        //         { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } }
-        //       ]
-        //     },
+        {
+          title: '树形',
+          children: [
+            { title: '平级结构', routerLink: { name: 'ComponentGridTreeLeveling' } },
+            { title: '层级结构', routerLink: { name: 'ComponentGridTreeHierarchy' } },
+            { title: '显示连接线', routerLink: { name: 'ComponentGridTreeLine' } },
+            { title: '单选框', routerLink: { name: 'ComponentGridTreeRadio' } },
+            { title: '复选框', routerLink: { name: 'ComponentGridTreeCheckbox' } },
+            { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } }
+          ]
+        },
         //     {
         //       title: '单元格 - 渲染 - 配置式',
         //       children: [
