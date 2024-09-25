@@ -2035,57 +2035,67 @@ const gridRouteConfig: RouteConfig = {
     //     }
     //   ]
     // },
-    // {
-    //   path: 'edit',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'manual',
-    //       name: 'ComponentGridEditManual',
-    //       component: () => import('@/views/grid/edit/manual/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'click',
-    //       name: 'ComponentGridEditClick',
-    //       component: () => import('@/views/grid/edit/click/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'dblclick',
-    //       name: 'ComponentGridEditDblclick',
-    //       component: () => import('@/views/grid/edit/dblclick/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'cellDisable',
-    //       name: 'ComponentGridEditCellDisable',
-    //       component: () => import('@/views/grid/edit/cellDisable/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'rowDisable',
-    //       name: 'ComponentGridEditRowDisable',
-    //       component: () => import('@/views/grid/edit/rowDisable/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'cellValid',
-    //       name: 'ComponentGridEditCellValid',
-    //       component: () => import('@/views/grid/edit/cellValid/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'rowValid',
-    //       name: 'ComponentGridEditRowValid',
-    //       component: () => import('@/views/grid/edit/rowValid/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'rowImmediately',
-    //       name: 'ComponentGridEditRowImmediately',
-    //       component: () => import('@/views/grid/edit/rowImmediately/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'footerImmediately',
-    //       name: 'ComponentGridEditFooterImmediately',
-    //       component: () => import('@/views/grid/edit/footerImmediately/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'edit',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'manual',
+          name: 'ComponentGridEditManual',
+          component: () => import('@/views/grid/edit/manual/CodeExample.vue')
+        },
+        {
+          path: 'click',
+          name: 'ComponentGridEditClick',
+          component: () => import('@/views/grid/edit/click/CodeExample.vue')
+        },
+        {
+          path: 'dblclick',
+          name: 'ComponentGridEditDblclick',
+          component: () => import('@/views/grid/edit/dblclick/CodeExample.vue')
+        },
+        {
+          path: 'cellDisable',
+          name: 'ComponentGridEditCellDisable',
+          component: () => import('@/views/grid/edit/cellDisable/CodeExample.vue')
+        },
+        {
+          path: 'rowDisable',
+          name: 'ComponentGridEditRowDisable',
+          component: () => import('@/views/grid/edit/rowDisable/CodeExample.vue')
+        },
+        {
+          path: 'cellValid',
+          name: 'ComponentGridEditCellValid',
+          component: () => import('@/views/grid/edit/cellValid/CodeExample.vue')
+        },
+        {
+          path: 'rowValid',
+          name: 'ComponentGridEditRowValid',
+          component: () => import('@/views/grid/edit/rowValid/CodeExample.vue')
+        },
+        {
+          path: 'rowImmediately',
+          name: 'ComponentGridEditRowImmediately',
+          component: () => import('@/views/grid/edit/rowImmediately/CodeExample.vue')
+        },
+        {
+          path: 'footerImmediately',
+          name: 'ComponentGridEditFooterImmediately',
+          component: () => import('@/views/grid/edit/footerImmediately/CodeExample.vue')
+        },
+        {
+          path: 'modal',
+          name: 'ComponentGridEditModalForm',
+          component: () => import('@/views/grid/edit/modalForm/CodeExample.vue')
+        },
+        {
+          path: 'drawer',
+          name: 'ComponentGridEditDrawerForm',
+          component: () => import('@/views/grid/edit/drawerForm/CodeExample.vue')
+        }
+      ]
+    },
     {
       path: 'editRender',
       component: RouteLayout,

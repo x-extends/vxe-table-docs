@@ -618,20 +618,22 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` }
         //       ]
         //     },
-        //     {
-        //       title: '可编辑',
-        //       children: [
-        //         { title: '手动编辑', routerLink: { name: 'ComponentGridEditManual' } },
-        //         { title: '单击编辑', routerLink: { name: 'ComponentGridEditClick' } },
-        //         { title: '双击编辑', routerLink: { name: 'ComponentGridEditDblclick' } },
-        //         { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },
-        //         { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } },
-        //         { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
-        //         { title: '行编辑', routerLink: { name: 'ComponentGridEditRowValid' } },
-        //         { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
-        //         { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } }
-        //       ]
-        //     },
+        {
+          title: '可编辑',
+          children: [
+            { title: '手动编辑', routerLink: { name: 'ComponentGridEditManual' } },
+            { title: '单击编辑', routerLink: { name: 'ComponentGridEditClick' } },
+            { title: '双击编辑', routerLink: { name: 'ComponentGridEditDblclick' } },
+            { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },
+            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } },
+            { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
+            { title: '行编辑', routerLink: { name: 'ComponentGridEditRowValid' } },
+            { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
+            { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } },
+            { title: '实现弹窗编辑', routerLink: { name: 'ComponentGridEditModalForm' } },
+            { title: '实现抽屉编辑', routerLink: { name: 'ComponentGridEditDrawerForm' } }
+          ]
+        },
         {
           title: '可编辑 - 渲染 - 配置式',
           children: [
