@@ -35,7 +35,7 @@ const route = useRoute()
 const showLeft = ref(true)
 
 const pageName = computed(() => {
-  return route ? XEUtils.kebabCase(route.name) : ''
+  return route ? XEUtils.kebabCase(`${String(route.name).replace('VxeIcon', 'VxeIco')}`) : ''
 })
 
 const showOperBtn = computed(() => {

@@ -40,6 +40,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '空数据提示', routerLink: { name: 'ComponentTableBaseEmpty' } },
             { title: '边框', routerLink: { name: 'ComponentTableBaseBorder' } },
             { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' } },
+            { title: '边距', routerLink: { name: 'ComponentTableBasePadding' } },
             { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' } },
             { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' } },
             { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
@@ -147,7 +148,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '触发方式', routerLink: { name: 'ComponentTableExpandTrigger' } },
             { title: '懒加载', routerLink: { name: 'ComponentTableExpandLazy' } },
             { title: '展开按钮的显示隐藏', routerLink: { name: 'ComponentTableExpandVisibleMethod' } },
-            { title: '展开与关闭的控制', routerLink: { name: 'ComponentTableExpandToggleMethod' } }
+            { title: '展开与关闭的控制', routerLink: { name: 'ComponentTableExpandToggleMethod' } },
+            { title: '实现展开子表格', routerLink: { name: 'ComponentTableExpandChildTable' } }
           ]
         },
         {
@@ -272,6 +274,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现弹窗编辑表单', routerLink: { name: 'ComponentTableEditModalForm' } },
             { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentTableEditDrawerForm' } },
             { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
+            { title: '实现多行文本编辑', routerLink: { name: 'ComponentTableEditRowHeight' } },
             { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentTableEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
@@ -401,6 +404,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '空数据提示', routerLink: { name: 'ComponentGridBaseEmpty' } },
             { title: '边框', routerLink: { name: 'ComponentGridBaseBorder' } },
             { title: '圆角', routerLink: { name: 'ComponentGridBaseRound' } },
+            { title: '边距', routerLink: { name: 'ComponentGridBasePadding' } },
             { title: '对齐方式', routerLink: { name: 'ComponentGridBaseAlign' } },
             { title: '列宽', routerLink: { name: 'ComponentGridBaseWidth' } },
             { title: '自动换行', routerLink: { name: 'ComponentGridBaseAutoBreak' } },
@@ -486,7 +490,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '基础使用', routerLink: { name: 'ComponentGridExpandBasic' } },
             { title: '展开容器内间距', routerLink: { name: 'ComponentGridExpandPadding' } },
             { title: '展开容器高度', routerLink: { name: 'ComponentGridExpandHeight' } },
-            { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } }
+            { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } },
+            { title: '实现展开子表格', routerLink: { name: 'ComponentGridExpandChildTable' } }
           ]
         },
         {
@@ -628,7 +633,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
             { title: '行编辑', routerLink: { name: 'ComponentGridEditRowValid' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
-            { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } }
+            { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } },
+            { title: '实现弹窗编辑', routerLink: { name: 'ComponentGridEditModalForm' } },
+            { title: '实现抽屉编辑', routerLink: { name: 'ComponentGridEditDrawerForm' } }
           ]
         },
         {
@@ -638,6 +645,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'select', routerLink: { name: 'ComponentGridEditRenderSelect' } },
             { title: 'VxeInput', routerLink: { name: 'ComponentGridEditRenderVxeInput' } },
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridEditRenderVxeNumberInput' } },
+            { title: 'VxeIconPicker', routerLink: { name: 'ComponentGridEditRenderVxeIconPicker' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
             { title: 'VxeTreeSelect', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },

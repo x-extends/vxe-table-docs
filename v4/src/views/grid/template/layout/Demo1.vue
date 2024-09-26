@@ -14,7 +14,7 @@
       </template>
 
       <template #top>
-        <div style="background: green;">自定义顶部区域</div>
+        <vxe-notice-bar content="自定义顶部区域" style="background: green;color: #fff;"></vxe-notice-bar>
       </template>
 
       <template #left>
@@ -26,7 +26,7 @@
       </template>
 
       <template #bottom>
-        <div style="background: palegreen;">自定义底部区域</div>
+        <vxe-notice-bar direction="right" content="自定义底部区域" style="background: palegreen;"></vxe-notice-bar>
       </template>
 
       <template #pager>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on=gridEvents>
+    <vxe-grid v-bind="gridOptions" v-on=gridEvents>
       <template #name_edit="{ row }">
         <vxe-input v-model="row.name" :disabled="disabledName"></vxe-input>
       </template>
@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -27,8 +27,6 @@ interface RowVO {
   age: number
   address: string
 }
-
-const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,

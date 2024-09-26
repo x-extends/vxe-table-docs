@@ -34,9 +34,27 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         }
       }
     },
-    { field: 'sex', title: 'Sex' },
-    { field: 'num', title: 'Number' },
-    { field: 'age', title: 'Age' },
+    {
+      title: 'Group1',
+      children: [
+        {
+          field: 'sex',
+          title: 'Sex',
+          slots: {
+            header: () => {
+              return <span style="color: red;">Sex</span>
+            }
+          }
+        },
+        { field: 'num', title: 'Number' },
+        { field: 'age', title: 'Age' }
+      ],
+      slots: {
+        header () {
+          return <span style="color: red;">自定义列头</span>
+        }
+      }
+    },
     { field: 'address', title: 'Address' }
   ],
   data: [

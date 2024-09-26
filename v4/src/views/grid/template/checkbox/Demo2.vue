@@ -47,9 +47,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
               indeterminate
                 ? <i class="vxe-icon-square-minus-fill"></i>
                 : (
-                    checked
-                      ? <i class="vxe-icon-square-checked-fill"></i>
-                      : <i class="vxe-icon-checkbox-unchecked"></i>
+                    checked ? <i class="vxe-icon-square-checked-fill"></i> : <i class="vxe-icon-checkbox-unchecked"></i>
                   )
             }
           </span>
@@ -60,10 +58,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
               indeterminate
                 ? <i class="vxe-icon-square-minus-fill"></i>
                 : (
-                    checked
-                      ? <i class="vxe-icon-square-checked-fill"></i>
-                      : <i class="vxe-icon-checkbox-unchecked"></i>
-
+                    checked ? <i class="vxe-icon-square-checked-fill"></i> : <i class="vxe-icon-checkbox-unchecked"></i>
                   )
             }
           </span>

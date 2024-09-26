@@ -1,17 +1,10 @@
 <template>
   <div>
     <vxe-table
+      border
+      :padding="false"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column type="expand" width="60">
-        <template #content="{ row }">
-          <div>Name：{{ row.name }}</div>
-          <div>Role：{{ row.role }}</div>
-          <div>Age：{{ row.age }}</div>
-          <div>Sex：{{ row.sex }}</div>
-          <div>Address：{{ row.address }}</div>
-        </template>
-      </vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

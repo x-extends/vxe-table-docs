@@ -67,6 +67,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 const validEvent = () => {
   const $grid = gridRef.value
-  $grid?.validate(true)
+  if ($grid) {
+    $grid.validate(true)
+  }
 }
 </script>

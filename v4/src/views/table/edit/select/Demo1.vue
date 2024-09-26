@@ -6,7 +6,7 @@
       :edit-config="{trigger: 'click', mode: 'cell'}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input', autos}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{name: 'input', autoSelect: true}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
     </vxe-table>

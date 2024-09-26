@@ -1,8 +1,8 @@
 <template>
   <div>
-    <CodeLight path="table/edit/click/Demo1">
+    <CodeLight path="table/edit/select/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="单击编辑">通过 edit-config.trigger=click 设置单击模式 </vxe-tip>
+        <vxe-tip status="primary" title="自动选中">通过 item-render.autoSelect 设置 </vxe-tip>
       </template>
     </CodeLight>
   </div>

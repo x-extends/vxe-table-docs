@@ -20,7 +20,7 @@
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column title="操作">
         <template #default="{ row }">
-          <vxe-button mode="text" @click="toggleExpand(row)">切换展开</vxe-button>
+          <vxe-button status="primary" mode="text" @click="toggleExpand(row)">点击切换展开</vxe-button>
         </template>
       </vxe-column>
     </vxe-table>

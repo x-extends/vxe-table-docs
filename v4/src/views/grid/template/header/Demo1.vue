@@ -10,6 +10,9 @@
       <template #header_sex>
         <span style="color: red;">Sex</span>
       </template>
+      <template #header_group1>
+        <span style="color: red;">自定义列头</span>
+      </template>
     </vxe-grid>
   </div>
 </template>
@@ -33,9 +36,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', slots: { header: 'header_name' } },
-    { field: 'sex', title: 'Sex', slots: { header: 'header_sex' } },
-    { field: 'num', title: 'Number' },
-    { field: 'age', title: 'Age' },
+    {
+      title: 'Group1',
+      field: 'group1',
+      children: [
+        { field: 'sex', title: 'Sex', slots: { header: 'header_sex' } },
+        { field: 'num', title: 'Number' },
+        { field: 'age', title: 'Age' }
+      ],
+      slots: { header: 'header_group1' }
+    },
     { field: 'address', title: 'Address' }
   ],
   data: [

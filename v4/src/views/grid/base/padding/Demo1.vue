@@ -1,13 +1,12 @@
 <template>
   <div>
-    <vxe-button @click="exportEvent">高级导出</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { reactive } from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -18,10 +17,9 @@ interface RowVO {
   address: string
 }
 
-const gridRef = ref<VxeGridInstance<RowVO>>()
-
 const gridOptions = reactive<VxeGridProps<RowVO>>({
-  exportConfig: {},
+  border: true,
+  padding: false,
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
@@ -35,11 +33,4 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
-
-const exportEvent = () => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.openExport()
-  }
-}
 </script>

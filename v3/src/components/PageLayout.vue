@@ -43,7 +43,7 @@ export default Vue.extend({
   computed: {
     pageName () {
       const route = this.$route
-      return route ? XEUtils.kebabCase(route.name) : ''
+      return route ? XEUtils.kebabCase(`${String(route.name).replace('VxeIcon', 'VxeIco')}`) : ''
     },
     showOperBtn () {
       const route = this.$route

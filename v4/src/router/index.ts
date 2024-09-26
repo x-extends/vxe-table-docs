@@ -79,6 +79,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/base/round/CodeExample.vue')
         },
         {
+          path: 'padding',
+          name: 'ComponentTableBasePadding',
+          component: () => import('@/views/table/base/padding/CodeExample.vue')
+        },
+        {
           path: 'style',
           name: 'ComponentTableBaseStyle',
           component: () => import('@/views/table/base/style/CodeExample.vue')
@@ -454,6 +459,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'toggleMethod',
           name: 'ComponentTableExpandToggleMethod',
           component: () => import('@/views/table/expand/toggleMethod/CodeExample.vue')
+        },
+        {
+          path: 'childTable',
+          name: 'ComponentTableExpandChildTable',
+          component: () => import('@/views/table/expand/childTable/CodeExample.vue')
         }
       ]
     },
@@ -888,6 +898,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/edit/drawerForm/CodeExample.vue')
         },
         {
+          path: 'rowHeight',
+          name: 'ComponentTableEditRowHeight',
+          component: () => import('@/views/table/edit/rowHeight/CodeExample.vue')
+        },
+        {
           path: 'uniqueSelect',
           name: 'ComponentTableEditUniqueSelect',
           component: () => import('@/views/table/edit/uniqueSelect/CodeExample.vue')
@@ -1317,6 +1332,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/base/round/CodeExample.vue')
         },
         {
+          path: 'padding',
+          name: 'ComponentGridBasePadding',
+          component: () => import('@/views/grid/base/padding/CodeExample.vue')
+        },
+        {
           path: 'style',
           name: 'ComponentGridBaseStyle',
           component: () => import('@/views/grid/base/style/CodeExample.vue')
@@ -1680,6 +1700,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'fixed',
           name: 'ComponentGridExpandFixed',
           component: () => import('@/views/grid/expand/fixed/CodeExample.vue')
+        },
+        {
+          path: 'childTable',
+          name: 'ComponentGridExpandChildTable',
+          component: () => import('@/views/grid/expand/childTable/CodeExample.vue')
         }
       ]
     },
@@ -2080,6 +2105,16 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'footerImmediately',
           name: 'ComponentGridEditFooterImmediately',
           component: () => import('@/views/grid/edit/footerImmediately/CodeExample.vue')
+        },
+        {
+          path: 'modal',
+          name: 'ComponentGridEditModalForm',
+          component: () => import('@/views/grid/edit/modalForm/CodeExample.vue')
+        },
+        {
+          path: 'drawer',
+          name: 'ComponentGridEditDrawerForm',
+          component: () => import('@/views/grid/edit/drawerForm/CodeExample.vue')
         }
       ]
     },
@@ -2106,6 +2141,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vxe-number-input',
           name: 'ComponentGridEditRenderVxeNumberInput',
           component: () => import('@/views/grid/editRender/vxe-number-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-icon-picker',
+          name: 'ComponentGridEditRenderVxeIconPicker',
+          component: () => import('@/views/grid/editRender/vxe-icon-picker/CodeExample.vue')
         },
         {
           path: 'vxe-date-picker',

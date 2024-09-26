@@ -5,21 +5,11 @@
       <vxe-notice-bar content="温馨提示：当表单很较且不适用直接在表格中编辑时，可以实现弹出抽屉编辑"></vxe-notice-bar>
     </p>
 
-    <vxe-table
-      border
-      show-overflow
-      height="400"
-      :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column title="操作" width="100">
-        <template #default="{ row }">
-          <vxe-button mode="text" status="primary" icon="vxe-icon-edit" @click="editRow(row)">编辑</vxe-button>
-        </template>
-      </vxe-column>
-    </vxe-table>
+    <vxe-grid v-bind="gridOptions">
+      <template #action="{ row }">
+        <vxe-button mode="text" status="primary" icon="vxe-icon-edit" @click="editRow(row)">编辑</vxe-button>
+      </template>
+    </vxe-grid>
 
     <vxe-drawer
       destroy-on-close
@@ -38,7 +28,8 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { VxeGridProps } from 'vxe-table'
 import { VxeUI, VxeFormInstance, VxeFormProps, VxeFormItemPropTypes, VxeSelectProps } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
@@ -102,12 +93,24 @@ const formOptions = reactive<VxeFormProps<RowVO>>({
   ]
 })
 
-const tableData = ref<RowVO[]>([
-  { id: 10001, name: 'Test1', nickname: '', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-  { id: 10002, name: 'Test2', nickname: 'Test 2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-  { id: 10003, name: 'Test3', nickname: '', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-  { id: 10004, name: 'Test4', nickname: 'Test 4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
-])
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  showOverflow: true,
+  height: 400,
+  columns: [
+    { type: 'seq', width: 70 },
+    { field: 'name', title: 'Name' },
+    { field: 'sex', title: 'Sex' },
+    { field: 'age', title: 'Age' },
+    { title: '操作', width: 100, slots: { default: 'action' } }
+  ],
+  data: [
+    { id: 10001, name: 'Test1', nickname: '', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
+    { id: 10002, name: 'Test2', nickname: 'Test 2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
+    { id: 10003, name: 'Test3', nickname: '', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
+    { id: 10004, name: 'Test4', nickname: 'Test 4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
+  ]
+})
 
 const addEvent = () => {
   selectRow.value = undefined

@@ -137,20 +137,21 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '手动操作筛选', routerLink: { name: 'ComponentTableFilterManual' } }
         //       ]
         //     },
-        //     {
-        //       title: '展开行',
-        //       children: [
-        //         { title: '基础使用', routerLink: { name: 'ComponentTableExpandBasic' } },
-        //         { title: '展开容器内间距', routerLink: { name: 'ComponentTableExpandPadding' } },
-        //         { title: '自定义图标', routerLink: { name: 'ComponentTableExpandIcon' } },
-        //         { title: '展开容器高度', routerLink: { name: 'ComponentTableExpandHeight' } },
-        //         { title: '使用冻结列', routerLink: { name: 'ComponentTableExpandFixed' } },
-        //         { title: '触发方式', routerLink: { name: 'ComponentTableExpandTrigger' } },
-        //         { title: '懒加载', routerLink: { name: 'ComponentTableExpandLazy' } },
-        //         { title: '展开按钮的显示隐藏', routerLink: { name: 'ComponentTableExpandVisibleMethod' } },
-        //         { title: '展开与关闭的控制', routerLink: { name: 'ComponentTableExpandToggleMethod' } }
-        //       ]
-        //     },
+        {
+          title: '展开行',
+          children: [
+            { title: '基础使用', routerLink: { name: 'ComponentTableExpandBasic' } },
+            { title: '展开容器内间距', routerLink: { name: 'ComponentTableExpandPadding' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentTableExpandIcon' } },
+            { title: '展开容器高度', routerLink: { name: 'ComponentTableExpandHeight' } },
+            { title: '使用冻结列', routerLink: { name: 'ComponentTableExpandFixed' } },
+            { title: '触发方式', routerLink: { name: 'ComponentTableExpandTrigger' } },
+            { title: '懒加载', routerLink: { name: 'ComponentTableExpandLazy' } },
+            { title: '展开按钮的显示隐藏', routerLink: { name: 'ComponentTableExpandVisibleMethod' } },
+            { title: '展开与关闭的控制', routerLink: { name: 'ComponentTableExpandToggleMethod' } },
+            { title: '实现展开子表格', routerLink: { name: 'ComponentTableExpandChildTable' } }
+          ]
+        },
         //     {
         //       title: '右键菜单',
         //       children: [
@@ -249,49 +250,49 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
         //       ]
         //     },
-        //     {
-        //       title: '可编辑',
-        //       children: [
-        //         { title: '手动编辑', routerLink: { name: 'ComponentTableEditManual' } },
-        //         { title: '单击编辑', routerLink: { name: 'ComponentTableEditClick' } },
-        //         { title: '双击编辑', routerLink: { name: 'ComponentTableEditDblclick' } },
-        //         { title: '关闭自动清除编辑状态', routerLink: { name: 'ComponentTableEditAutoClear' } },
-        //         { title: '编辑状态', routerLink: { name: 'ComponentTableEditStatus' } },
-        //         { title: '空值占位符', routerLink: { name: 'ComponentTableEditCellPlaceholder' } },
-        //         { title: '插入数据', routerLink: { name: 'ComponentTableEditInsert' } },
-        //         { title: '删除数据', routerLink: { name: 'ComponentTableEditRemove' } },
-        //         { title: '标记为删除', routerLink: { name: 'ComponentTableEditPending' } },
-        //         { title: '还原数据', routerLink: { name: 'ComponentTableEditRevert' } },
-        //         { title: '禁用单元格编辑', routerLink: { name: 'ComponentTableEditCellDisable' } },
-        //         { title: '禁用行编辑', routerLink: { name: 'ComponentTableEditRowDisable' } },
-        //         { title: '单元格校验', routerLink: { name: 'ComponentTableEditCellValid' } },
-        //         { title: '行校验', routerLink: { name: 'ComponentTableEditRowValid' } },
-        //         { title: '树结构', routerLink: { name: 'ComponentTableEditTree' } },
-        //         { title: '使用合并行与列', routerLink: { name: 'ComponentTableEditSpan' } },
-        //         { title: '使用右键菜单', routerLink: { name: 'ComponentTableEditMenu' } },
-        //         { title: '实现附件列表', routerLink: { name: 'ComponentTableEditFileList' } },
-        //         { title: '实现弹窗编辑表单', routerLink: { name: 'ComponentTableEditModalForm' } },
-        //         { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentTableEditDrawerForm' } },
-        //         { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
-        //         { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
-        //         { title: '实现行字段的合计', routerLink: { name: 'ComponentTableEditRowImmediately' } },
-        //         { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
-        //         { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '可编辑 - 渲染 - 配置式',
-        //       children: [
-        //         { title: 'input', routerLink: { name: 'ComponentTableEditRenderInput' } },
-        //         { title: 'select', routerLink: { name: 'ComponentTableEditRenderSelect' } },
-        //         { title: 'VxeInput', routerLink: { name: 'ComponentTableEditRenderVxeInput' } },
-        //         { title: 'VxeNumberInput', routerLink: { name: 'ComponentTableEditRenderVxeNumberInput' } },
-        //         { title: 'VxeDatePicker', routerLink: { name: 'ComponentTableEditRenderVxeDatePicker' } },
-        //         { title: 'VxeSelect', routerLink: { name: 'ComponentTableEditRenderVxeSelect' } },
-        //         { title: 'VxeTreeSelect', routerLink: { name: 'ComponentTableEditRenderVxeTreeSelect' } },
-        //         { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
-        //       ]
-        //     },
+        {
+          title: '可编辑',
+          children: [
+            { title: '手动编辑', routerLink: { name: 'ComponentTableEditManual' } },
+            { title: '单击编辑', routerLink: { name: 'ComponentTableEditClick' } },
+            { title: '双击编辑', routerLink: { name: 'ComponentTableEditDblclick' } },
+            { title: '关闭自动清除编辑状态', routerLink: { name: 'ComponentTableEditAutoClear' } },
+            { title: '编辑状态', routerLink: { name: 'ComponentTableEditStatus' } },
+            { title: '空值占位符', routerLink: { name: 'ComponentTableEditCellPlaceholder' } },
+            { title: '插入数据', routerLink: { name: 'ComponentTableEditInsert' } },
+            { title: '删除数据', routerLink: { name: 'ComponentTableEditRemove' } },
+            { title: '标记为删除', routerLink: { name: 'ComponentTableEditPending' } },
+            { title: '还原数据', routerLink: { name: 'ComponentTableEditRevert' } },
+            { title: '禁用单元格编辑', routerLink: { name: 'ComponentTableEditCellDisable' } },
+            { title: '禁用行编辑', routerLink: { name: 'ComponentTableEditRowDisable' } },
+            { title: '单元格校验', routerLink: { name: 'ComponentTableEditCellValid' } },
+            { title: '行校验', routerLink: { name: 'ComponentTableEditRowValid' } },
+            { title: '树结构', routerLink: { name: 'ComponentTableEditTree' } },
+            { title: '使用合并行与列', routerLink: { name: 'ComponentTableEditSpan' } },
+            { title: '使用右键菜单', routerLink: { name: 'ComponentTableEditMenu' } },
+            { title: '实现附件列表', routerLink: { name: 'ComponentTableEditFileList' } },
+            { title: '实现弹窗编辑表单', routerLink: { name: 'ComponentTableEditModalForm' } },
+            { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentTableEditDrawerForm' } },
+            { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
+            { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
+            { title: '实现行字段的合计', routerLink: { name: 'ComponentTableEditRowImmediately' } },
+            { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
+            { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } }
+          ]
+        },
+        {
+          title: '可编辑 - 渲染 - 配置式',
+          children: [
+            { title: 'input', routerLink: { name: 'ComponentTableEditRenderInput' } },
+            { title: 'select', routerLink: { name: 'ComponentTableEditRenderSelect' } },
+            { title: 'VxeInput', routerLink: { name: 'ComponentTableEditRenderVxeInput' } },
+            { title: 'VxeNumberInput', routerLink: { name: 'ComponentTableEditRenderVxeNumberInput' } },
+            { title: 'VxeDatePicker', routerLink: { name: 'ComponentTableEditRenderVxeDatePicker' } },
+            { title: 'VxeSelect', routerLink: { name: 'ComponentTableEditRenderVxeSelect' } },
+            { title: 'VxeTreeSelect', routerLink: { name: 'ComponentTableEditRenderVxeTreeSelect' } },
+            { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
+          ]
+        },
         //     {
         //       title: '可编辑 - 渲染 - 插槽式',
         //       children: [
@@ -487,7 +488,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '基础使用', routerLink: { name: 'ComponentGridExpandBasic' } },
             { title: '展开容器内间距', routerLink: { name: 'ComponentGridExpandPadding' } },
             { title: '展开容器高度', routerLink: { name: 'ComponentGridExpandHeight' } },
-            { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } }
+            { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } },
+            { title: '实现展开子表格', routerLink: { name: 'ComponentGridExpandChildTable' } }
           ]
         },
         //     {
@@ -641,6 +643,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'select', routerLink: { name: 'ComponentGridEditRenderSelect' } },
             { title: 'VxeInput', routerLink: { name: 'ComponentGridEditRenderVxeInput' } },
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridEditRenderVxeNumberInput' } },
+            { title: 'VxeIconPicker', routerLink: { name: 'ComponentGridEditRenderVxeIconPicker' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
             { title: 'VxeTreeSelect', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
