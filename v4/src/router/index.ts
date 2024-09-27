@@ -1690,6 +1690,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'all',
           name: 'ComponentGridMergeAll',
           component: () => import('@/views/grid/merge/all/CodeExample.vue')
+        },
+        {
+          path: 'footer',
+          name: 'ComponentGridMergeFooter',
+          component: () => import('@/views/grid/merge/footer/CodeExample.vue')
         }
       ]
     },

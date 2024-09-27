@@ -451,7 +451,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '将多行进行合并', routerLink: { name: 'ComponentGridMergeRow' } },
             { title: '将多列进行合并', routerLink: { name: 'ComponentGridMergeColumn' } },
-            { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } }
+            { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } },
+            { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } }
           ]
         },
         {
