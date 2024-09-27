@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeFormProps, VxeUploadPropTypes } from 'vxe-pc-ui'
+import type { VxeFormProps, VxeUploadPropTypes } from 'vxe-pc-ui'
 
 interface FormDataVO {
   name: string

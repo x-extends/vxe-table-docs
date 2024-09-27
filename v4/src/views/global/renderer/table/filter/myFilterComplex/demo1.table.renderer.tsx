@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoFilterComplex from './DemoFilterComplex.vue'
 
 // 创建一个带条件的筛选渲染器

@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoEditAmount from './DemoEditAmount.vue'
 
 // 创建一个金额输入渲染器

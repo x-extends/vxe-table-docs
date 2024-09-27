@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-toolbar ref="toolbarRef" :buttons="toolbarButtons"></vxe-toolbar>
+    <vxe-toolbar ref="toolbarRef" :tools="toolbarTools"></vxe-toolbar>
     <vxe-table
       border
       ref="tableRef"
@@ -31,8 +31,8 @@ interface RowVO {
 const toolbarRef = ref<VxeToolbarInstance>()
 const tableRef = ref<VxeTableInstance<RowVO>>()
 
-const toolbarButtons = ref<VxeToolbarPropTypes.Buttons>([
-  { buttonRender: { name: 'ToolbarBtnDownload' } }
+const toolbarTools = ref<VxeToolbarPropTypes.Tools>([
+  { toolRender: { name: 'ToolbarToolPrint' } }
 ])
 
 const tableData = ref<RowVO[]>([

@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoExpandTable from './DemoExpandTable.vue'
 
 // 创建一个展开表格渲染器

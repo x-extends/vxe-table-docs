@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUploadPropTypes } from 'vxe-pc-ui'
+import type { VxeUploadPropTypes } from 'vxe-pc-ui'
 
 interface FormDataVO {
   name: string

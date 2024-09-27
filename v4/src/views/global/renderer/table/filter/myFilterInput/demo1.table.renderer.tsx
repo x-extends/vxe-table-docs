@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoFilterInput from './DemoFilterInput.vue'
 
 // 创建一个简单的输入框筛选渲染器

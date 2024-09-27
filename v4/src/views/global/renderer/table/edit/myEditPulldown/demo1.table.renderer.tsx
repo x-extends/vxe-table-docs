@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoEditPulldown from './DemoEditPulldown.vue'
 
 // 创建一个下拉表格渲染器

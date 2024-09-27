@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 
 // 注册一个导出菜单
 VxeUI.menus.add('myExportMenu', {

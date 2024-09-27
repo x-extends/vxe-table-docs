@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoFormItemUpload from './DemoFormItemUpload.vue'
 
 // 创建一个附件上传渲染器

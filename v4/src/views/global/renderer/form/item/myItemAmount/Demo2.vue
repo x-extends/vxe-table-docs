@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeFormProps } from 'vxe-pc-ui'
+import type { VxeFormProps } from 'vxe-table'
 
 interface FormDataVO {
   name: string

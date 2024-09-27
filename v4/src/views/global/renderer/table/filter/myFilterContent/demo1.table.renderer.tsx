@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoFilterContent from './DemoFilterContent.vue'
 
 // 创建一个显示列表的筛选的筛选渲染器

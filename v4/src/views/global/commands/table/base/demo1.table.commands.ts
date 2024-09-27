@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 
 // 定义工具栏一个导出指令
 VxeUI.commands.add('myToolbarExport', {

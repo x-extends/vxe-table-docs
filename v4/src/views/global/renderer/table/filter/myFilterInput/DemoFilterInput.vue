@@ -6,8 +6,8 @@
 
 <script lang="ts" setup>
 import { watch, PropType, ref } from 'vue'
-import { VxeGlobalRendererHandles, VxeInputEvents } from 'vxe-pc-ui'
-import { VxeTableDefines } from 'vxe-table'
+import type { VxeGlobalRendererHandles, VxeInputEvents } from 'vxe-pc-ui'
+import type { VxeTableDefines } from 'vxe-table'
 
 const props = defineProps({
   params: {

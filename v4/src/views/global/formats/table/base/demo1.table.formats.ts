@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 // 格式金额，默认2位数
