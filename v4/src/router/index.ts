@@ -964,6 +964,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/cellRender/vxe-image-group/CodeExample.vue')
         },
         {
+          path: 'vxe-text-ellipsis',
+          name: 'ComponentTableCellRenderVxeTextEllipsis',
+          component: () => import('@/views/table/cellRender/vxe-text-ellipsis/CodeExample.vue')
+        },
+        {
           path: 'vxe-upload',
           name: 'ComponentTableCellRenderVxeUpload',
           component: () => import('@/views/table/cellRender/vxe-upload/CodeExample.vue')
@@ -1262,6 +1267,17 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'scroll',
           name: 'ComponentTableEventsScroll',
           component: () => import('@/views/table/events/scroll/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'other',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'lineEllipsis',
+          name: 'ComponentTableOtherLineEllipsis',
+          component: () => import('@/views/table/other/lineEllipsis/CodeExample.vue')
         }
       ]
     }
@@ -1984,6 +2000,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/cellRender/vxe-image-group/CodeExample.vue')
         },
         {
+          path: 'vxe-text-ellipsis',
+          name: 'ComponentGridCellRenderVxeTextEllipsis',
+          component: () => import('@/views/grid/cellRender/vxe-text-ellipsis/CodeExample.vue')
+        },
+        {
           path: 'vxe-upload',
           name: 'ComponentGridCellRenderVxeUpload',
           component: () => import('@/views/grid/cellRender/vxe-upload/CodeExample.vue')
@@ -2556,6 +2577,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'reverse',
           name: 'ComponentGridOtherReverse',
           component: () => import('@/views/grid/other/reverse/CodeExample.vue')
+        },
+        {
+          path: 'lineEllipsis',
+          name: 'ComponentGridOtherLineEllipsis',
+          component: () => import('@/views/grid/other/lineEllipsis/CodeExample.vue')
         }
       ]
     }

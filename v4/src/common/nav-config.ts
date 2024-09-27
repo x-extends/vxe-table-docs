@@ -238,6 +238,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeButtonGroup', routerLink: { name: 'ComponentTableCellRenderVxeButtonGroup' } },
             { title: 'VxeImage', routerLink: { name: 'ComponentTableCellRenderVxeImage' } },
             { title: 'VxeImageGroup', routerLink: { name: 'ComponentTableCellRenderVxeImageGroup' } },
+            { title: 'VxeTextEllipsis', routerLink: { name: 'ComponentTableCellRenderVxeTextEllipsis' } },
             { title: 'VxeUpload', routerLink: { name: 'ComponentTableCellRenderVxeUpload' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
@@ -387,6 +388,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '点击/双击事件', routerLink: { name: 'ComponentTableEventsClick' } },
             { title: '滚动事件', routerLink: { name: 'ComponentTableEventsScroll' } }
+          ]
+        },
+        {
+          title: '其他',
+          children: [
+            { title: '多行文本溢出省略', routerLink: { name: 'ComponentTableOtherLineEllipsis' } }
           ]
         }
       ]
@@ -607,6 +614,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeButtonGroup', routerLink: { name: 'ComponentGridCellRenderVxeButtonGroup' } },
             { title: 'VxeImage', routerLink: { name: 'ComponentGridCellRenderVxeImage' } },
             { title: 'VxeImageGroup', routerLink: { name: 'ComponentGridCellRenderVxeImageGroup' } },
+            { title: 'VxeTextEllipsis', routerLink: { name: 'ComponentGridCellRenderVxeTextEllipsis' } },
             { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellRenderVxeUpload' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` }
           ]
@@ -784,7 +792,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '其他',
           children: [
-            { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } }
+            { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
+            { title: '多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } }
           ]
         }
       ]

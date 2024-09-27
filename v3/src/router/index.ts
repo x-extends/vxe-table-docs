@@ -1257,6 +1257,17 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/events/scroll/CodeExample.vue')
         }
       ]
+    },
+    {
+      path: 'other',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'lineEllipsis',
+          name: 'ComponentTableOtherLineEllipsis',
+          component: () => import('@/views/table/other/lineEllipsis/CodeExample.vue')
+        }
+      ]
     }
   ]
 }
@@ -2533,6 +2544,22 @@ const gridRouteConfig: RouteConfig = {
           path: 'scroll',
           name: 'ComponentGridEventsScroll',
           component: () => import('@/views/grid/events/scroll/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'other',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'reverse',
+          name: 'ComponentGridOtherReverse',
+          component: () => import('@/views/grid/other/reverse/CodeExample.vue')
+        },
+        {
+          path: 'lineEllipsis',
+          name: 'ComponentGridOtherLineEllipsis',
+          component: () => import('@/views/grid/other/lineEllipsis/CodeExample.vue')
         }
       ]
     }

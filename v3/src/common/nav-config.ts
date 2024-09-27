@@ -386,6 +386,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '点击/双击事件', routerLink: { name: 'ComponentTableEventsClick' } },
             { title: '滚动事件', routerLink: { name: 'ComponentTableEventsScroll' } }
           ]
+        },
+        {
+          title: '其他',
+          children: [
+            { title: '多行文本溢出省略', routerLink: { name: 'ComponentTableOtherLineEllipsis' } }
+          ]
         }
       ]
     },
@@ -776,6 +782,13 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '点击/双击事件', routerLink: { name: 'ComponentGridEventsClick' } },
             { title: '滚动事件', routerLink: { name: 'ComponentGridEventsScroll' } }
+          ]
+        },
+        {
+          title: '其他',
+          children: [
+            { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
+            { title: '多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } }
           ]
         }
       ]
