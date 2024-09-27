@@ -61,6 +61,43 @@
       <vxe-column field="col50" title="列50" width="170"></vxe-column>
       <vxe-column field="col51" title="列51" width="160"></vxe-column>
       <vxe-column field="col52" title="列52" width="100"></vxe-column>
+      <vxe-column field="col53" title="列53" width="280"></vxe-column>
+      <vxe-column field="col55" title="列54" width="170"></vxe-column>
+      <vxe-column field="col55" title="列55" width="370"></vxe-column>
+      <vxe-column field="col56" title="列56" width="120"></vxe-column>
+      <vxe-column field="col57" title="列57" width="170"></vxe-column>
+      <vxe-column field="col58" title="列58" width="400"></vxe-column>
+      <vxe-column field="col59" title="列59" width="220"></vxe-column>
+      <vxe-column field="col60" title="列60" width="500"></vxe-column>
+      <vxe-column field="col61" title="列61" width="600"></vxe-column>
+      <vxe-column field="col62" title="列62" width="100"></vxe-column>
+      <vxe-column field="col63" title="列63" width="490"></vxe-column>
+      <vxe-column field="col64" title="列64" width="100"></vxe-column>
+      <vxe-column field="col65" title="列65" width="150"></vxe-column>
+      <vxe-column field="col66" title="列66" width="800"></vxe-column>
+      <vxe-column field="col67" title="列67" width="400"></vxe-column>
+      <vxe-column field="col68" title="列68" width="800"></vxe-column>
+      <vxe-column field="col69" title="列69" width="360"></vxe-column>
+      <vxe-column field="col70" title="列70" width="500"></vxe-column>
+      <vxe-column field="col71" title="列71" width="600"></vxe-column>
+      <vxe-column field="col72" title="列72" width="100"></vxe-column>
+      <vxe-column field="col73" title="列73" width="490"></vxe-column>
+      <vxe-column field="col74" title="列74" width="100"></vxe-column>
+      <vxe-column field="col75" title="列75" width="150"></vxe-column>
+      <vxe-column field="col76" title="列76" width="800"></vxe-column>
+      <vxe-column field="col77" title="列77" width="400"></vxe-column>
+      <vxe-column field="col78" title="列78" width="800"></vxe-column>
+      <vxe-column field="col79" title="列79" width="360"></vxe-column>
+      <vxe-column field="col80" title="列80" width="500"></vxe-column>
+      <vxe-column field="col81" title="列81" width="600"></vxe-column>
+      <vxe-column field="col82" title="列82" width="100"></vxe-column>
+      <vxe-column field="col83" title="列83" width="490"></vxe-column>
+      <vxe-column field="col84" title="列84" width="100"></vxe-column>
+      <vxe-column field="col85" title="列85" width="150"></vxe-column>
+      <vxe-column field="col86" title="列86" width="800"></vxe-column>
+      <vxe-column field="col87" title="列87" width="400"></vxe-column>
+      <vxe-column field="col88" title="列88" width="800"></vxe-column>
+      <vxe-column field="col89" title="列89" width="360"></vxe-column>
     </vxe-table>
   </div>
 </template>
