@@ -1235,6 +1235,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'tree',
           name: 'ComponentTableScrollTree',
           component: () => import('@/views/table/scroll/tree/CodeExample.vue')
+        },
+        {
+          path: 'edit',
+          name: 'ComponentTableScrollEdit',
+          component: () => import('@/views/table/scroll/edit/CodeExample.vue')
         }
       ]
     },
@@ -2463,6 +2468,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'tree',
           name: 'ComponentGridScrollTree',
           component: () => import('@/views/grid/scroll/tree/CodeExample.vue')
+        },
+        {
+          path: 'edit',
+          name: 'ComponentGridScrollEdit',
+          component: () => import('@/views/grid/scroll/edit/CodeExample.vue')
         }
       ]
     },
