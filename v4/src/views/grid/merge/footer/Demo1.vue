@@ -23,7 +23,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showFooter: true,
   height: 400,
   mergeFooterItems: [
-    { row: 0, col: 1, rowspan: 1, colspan: 3 }
+    { row: 0, col: 1, rowspan: 1, colspan: 3 },
+    { row: 1, col: 3, rowspan: 1, colspan: 2 }
   ],
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
@@ -44,7 +45,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ],
   footerData: [
     { seq: '平均', name: '合并了', role: '33', rate: '56' },
-    { seq: '和值', name: 'aa', role: 'bb', rate: '1235' }
+    { seq: '和值', name: 'aa', role: 'bb', rate: '合并了' }
   ]
 })
 </script>

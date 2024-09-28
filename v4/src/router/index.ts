@@ -1700,6 +1700,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'footer',
           name: 'ComponentGridMergeFooter',
           component: () => import('@/views/grid/merge/footer/CodeExample.vue')
+        },
+        {
+          path: 'horizontal',
+          name: 'ComponentGridMergeHorizontal',
+          component: () => import('@/views/grid/merge/horizontal/CodeExample.vue')
         }
       ]
     },

@@ -83,7 +83,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '将多列进行合并', routerLink: { name: 'ComponentTableMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentTableMergeAll' } },
             { title: '表尾合并', routerLink: { name: 'ComponentTableMergeFooter' } },
-            { title: '实现横向树', routerLink: { name: 'ComponentTableMergeHorizontal' } }
+            { title: '实现横向合并树', routerLink: { name: 'ComponentTableMergeHorizontal' } }
           ]
         },
         {
@@ -453,7 +453,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '将多行进行合并', routerLink: { name: 'ComponentGridMergeRow' } },
             { title: '将多列进行合并', routerLink: { name: 'ComponentGridMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } },
-            { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } }
+            { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } },
+            { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } }
           ]
         },
         {

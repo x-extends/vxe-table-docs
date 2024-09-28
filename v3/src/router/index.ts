@@ -1660,27 +1660,37 @@ const gridRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'merge',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'row',
-    //       name: 'ComponentGridMergeRow',
-    //       component: () => import('@/views/grid/merge/row/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'column',
-    //       name: 'ComponentGridMergeColumn',
-    //       component: () => import('@/views/grid/merge/column/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'all',
-    //       name: 'ComponentGridMergeAll',
-    //       component: () => import('@/views/grid/merge/all/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'merge',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'row',
+          name: 'ComponentGridMergeRow',
+          component: () => import('@/views/grid/merge/row/CodeExample.vue')
+        },
+        {
+          path: 'column',
+          name: 'ComponentGridMergeColumn',
+          component: () => import('@/views/grid/merge/column/CodeExample.vue')
+        },
+        {
+          path: 'all',
+          name: 'ComponentGridMergeAll',
+          component: () => import('@/views/grid/merge/all/CodeExample.vue')
+        },
+        {
+          path: 'footer',
+          name: 'ComponentGridMergeFooter',
+          component: () => import('@/views/grid/merge/footer/CodeExample.vue')
+        },
+        {
+          path: 'horizontal',
+          name: 'ComponentGridMergeHorizontal',
+          component: () => import('@/views/grid/merge/horizontal/CodeExample.vue')
+        }
+      ]
+    },
     {
       path: 'expand',
       component: RouteLayout,

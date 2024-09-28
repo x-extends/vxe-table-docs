@@ -443,14 +443,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '完整案例', routerLink: { name: 'ComponentGridBaseFull' } }
           ]
         },
-        //     {
-        //       title: '单元格合并',
-        //       children: [
-        //         { title: '将多行进行合并', routerLink: { name: 'ComponentGridMergeRow' } },
-        //         { title: '将多列进行合并', routerLink: { name: 'ComponentGridMergeColumn' } },
-        //         { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } }
-        //       ]
-        //     },
+        {
+          title: '单元格合并',
+          children: [
+            { title: '将多行进行合并', routerLink: { name: 'ComponentGridMergeRow' } },
+            { title: '将多列进行合并', routerLink: { name: 'ComponentGridMergeColumn' } },
+            { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } },
+            { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } },
+            { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } }
+          ]
+        },
         {
           title: '表尾数据',
           children: [

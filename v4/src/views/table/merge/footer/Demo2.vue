@@ -7,7 +7,7 @@
       :merge-footer-items="mergeFooterItems"
       :footer-data="footerData"
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column field="seq" type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>
       <vxe-column field="rate" title="Rate" footer-align="center"></vxe-column>
@@ -31,7 +31,8 @@ interface RowVO {
 }
 
 const mergeFooterItems = ref<VxeTablePropTypes.MergeFooterItems>([
-  { row: 0, col: 1, rowspan: 2, colspan: 1 }
+  { row: 0, col: 1, rowspan: 2, colspan: 1 },
+  { row: 1, col: 3, rowspan: 2, colspan: 2 }
 ])
 
 const tableData = ref<RowVO[]>([
@@ -47,6 +48,7 @@ const tableData = ref<RowVO[]>([
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
   { seq: '平均', name: '合并了', role: '33', rate: '56' },
-  { seq: '和值', name: 'aa', role: 'bb', rate: '1235' }
+  { seq: '和值', name: 'aa', role: 'bb', rate: '合并了' },
+  { seq: '其他', name: 'aa', role: 'bb', rate: '1235' }
 ])
 </script>

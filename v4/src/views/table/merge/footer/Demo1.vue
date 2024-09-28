@@ -31,7 +31,8 @@ interface RowVO {
 }
 
 const mergeFooterItems = ref<VxeTablePropTypes.MergeFooterItems>([
-  { row: 0, col: 1, rowspan: 1, colspan: 3 }
+  { row: 0, col: 1, rowspan: 1, colspan: 3 },
+  { row: 1, col: 3, rowspan: 1, colspan: 2 }
 ])
 
 const tableData = ref<RowVO[]>([
@@ -47,6 +48,6 @@ const tableData = ref<RowVO[]>([
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
   { seq: '平均', name: '合并了', role: '33', rate: '56' },
-  { seq: '和值', name: 'aa', role: 'bb', rate: '1235' }
+  { seq: '和值', name: 'aa', role: 'bb', rate: '合并了' }
 ])
 </script>
