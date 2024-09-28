@@ -15,8 +15,8 @@
           <div style="font-size: 22px;font-weight: 700;">QQ交流群</div>
           <div style="padding-top: 15px;">该群供大家交流問題，如果群人数已满，将会不定期剔除不活跃的，<br>如果有 bug 请准备好 <a class="link" href="https://vxetable.cn/issues.html" target="_blank">复现链接</a> 并通过提交 <a class="link" href="https://github.com/x-extends/vxe-table/issues" target="_blank">issues</a> 反馈</div>
         </div>
-        <img :src="`${baseApiUrl}static/donation/qq1.png`">
-        <img :src="`${baseApiUrl}static/donation/qq2.png`">
+        <img :src="`${baseApiUrl}resource/donation/qq1.png`">
+        <img :src="`${baseApiUrl}resource/donation/qq2.png`">
       </div>
       <div style="float: right;">
         <div style="padding: 15px 0;width: 500px;">
@@ -30,7 +30,7 @@
         </div>
         <div v-if="supportAuthor === '2'">
           <div>如果该项目帮助了您，请作者喝杯咖啡吧</div>
-          <img :src="`${baseApiUrl}static/donation/pay.jpg`">
+          <img :src="`${baseApiUrl}resource/donation/pay.jpg`">
         </div>
       </div>
     </div>

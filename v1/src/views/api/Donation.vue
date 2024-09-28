@@ -27,7 +27,7 @@
           <br>
           <span v-html="$t('app.body.other.issuesTitle')"></span>
         </div>
-        <img :src="`${baseApiUrl}static/donation/qq.jpg`">
+        <img :src="`${baseApiUrl}resource/donation/qq.jpg`">
       </div>
       <div style="float: right;padding-right: 5em;">
         <div style="margin-bottom: 15px;">
@@ -35,7 +35,7 @@
           <br>
           <span>如果觉得该项目对您有帮助，请作者喝杯咖啡吧</span>
         </div>
-        <img :src="`${baseApiUrl}static/donation/pay.jpg`">
+        <img :src="`${baseApiUrl}v/donation/pay.jpg`">
       </div>
     </div>
   </div>
