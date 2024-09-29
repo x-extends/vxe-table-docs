@@ -223,14 +223,75 @@ export default {
             }
           ]
         },
+
         {
-          label: '组件库',
+          label: '功能模块',
           value: 'lib',
-          expand: false,
           children: [
             {
-              label: '点击查看',
-              url: 'https://vxeui.com/v3/'
+              label: '图标',
+              url: 'https://vxeui.com/v3/#/component/icon/base',
+              linkTarget: '_self'
+            },
+            {
+              label: '按钮',
+              url: 'https://vxeui.com/v3/#/component/button/status',
+              linkTarget: '_self'
+            },
+            {
+              label: '单选框',
+              url: 'https://vxeui.com/v3/#/component/radio/group',
+              linkTarget: '_self'
+            },
+            {
+              label: '复选框',
+              url: 'https://vxeui.com/v3/#/component/checkbox/group',
+              linkTarget: '_self'
+            },
+            {
+              label: '开关',
+              url: 'https://vxeui.com/v3/#/component/switch/label',
+              linkTarget: '_self'
+            },
+            {
+              label: '输入框',
+              url: 'https://vxeui.com/v3/#/component/input/text',
+              linkTarget: '_self'
+            },
+            {
+              label: '下拉容器',
+              url: 'https://vxeui.com/v3/#/component/pulldown/options',
+              linkTarget: '_self'
+            },
+            {
+              label: '分页',
+              url: 'https://vxeui.com/v3/#/component/pager/align',
+              linkTarget: '_self'
+            },
+            {
+              label: '工具栏',
+              url: 'https://vxeui.com/v3/#/component/table/toolbar/basic',
+              linkTarget: '_self'
+            },
+            {
+              label: '虚拟列表',
+              url: 'https://vxeui.com/v3/#/component/list/base',
+              linkTarget: '_self'
+            },
+            {
+              label: '弹窗',
+              url: 'https://vxeui.com/v3/#/component/modal/base',
+              linkTarget: '_self'
+            },
+            {
+              label: '文件操作',
+              url: 'https://vxeui.com/v3/#/component/upload/global/readFile',
+              linkTarget: '_self'
+            },
+            {
+              label: '打印',
+              url: 'https://vxeui.com/v3/#/component/print/page/basics',
+              linkTarget: '_self'
             }
           ]
         },

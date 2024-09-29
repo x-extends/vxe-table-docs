@@ -84,7 +84,7 @@
                   <ul v-if="item.children" v-show="item.expand" class="nav-child-menu">
                     <li v-for="(child, cIndex) in item.children" :key="cIndex" :class="{'is-donation': child.locat && ['Donation'].includes(child.locat.name)}">
                       <a class="nav-link disabled" v-if="child.disabled" :title="$t('app.body.other.newFunc')" v-html="child.label"></a>
-                      <a class="nav-link" v-else-if="child.url" :href="child.url" :title="$t('app.body.other.newFunc')" v-html="child.label" target="_blank"></a>
+                      <a class="nav-link" v-else-if="child.url" :href="child.url" :title="$t('app.body.other.newFunc')" v-html="child.label" :target="child.linkTarget || '_blank'"></a>
                       <router-link v-else class="nav-link" :to="child.locat" :title="child.label" v-html="child.label"></router-link>
                     </li>
                   </ul>
@@ -237,12 +237,73 @@ const appData = reactive({
       ]
     },
     {
-      label: '组件库',
+      label: '功能模块',
       value: 'lib',
       children: [
         {
-          label: '点击查看',
-          url: 'https://vxeui.com/'
+          label: '图标',
+          url: 'https://vxeui.com/v4/#/component/icon/base',
+          linkTarget: '_self'
+        },
+        {
+          label: '按钮',
+          url: 'https://vxeui.com/v4/#/component/button/status',
+          linkTarget: '_self'
+        },
+        {
+          label: '单选框',
+          url: 'https://vxeui.com/v4/#/component/radio/group',
+          linkTarget: '_self'
+        },
+        {
+          label: '复选框',
+          url: 'https://vxeui.com/v4/#/component/checkbox/group',
+          linkTarget: '_self'
+        },
+        {
+          label: '开关',
+          url: 'https://vxeui.com/v4/#/component/switch/label',
+          linkTarget: '_self'
+        },
+        {
+          label: '输入框',
+          url: 'https://vxeui.com/v4/#/component/input/text',
+          linkTarget: '_self'
+        },
+        {
+          label: '下拉容器',
+          url: 'https://vxeui.com/v4/#/component/pulldown/options',
+          linkTarget: '_self'
+        },
+        {
+          label: '分页',
+          url: 'https://vxeui.com/v4/#/component/pager/align',
+          linkTarget: '_self'
+        },
+        {
+          label: '工具栏',
+          url: 'https://vxeui.com/v4/#/component/table/toolbar/basic',
+          linkTarget: '_self'
+        },
+        {
+          label: '虚拟列表',
+          url: 'https://vxeui.com/v4/#/component/list/base',
+          linkTarget: '_self'
+        },
+        {
+          label: '弹窗',
+          url: 'https://vxeui.com/v4/#/component/modal/base',
+          linkTarget: '_self'
+        },
+        {
+          label: '文件操作',
+          url: 'https://vxeui.com/v4/#/component/upload/global/readFile',
+          linkTarget: '_self'
+        },
+        {
+          label: '打印',
+          url: 'https://vxeui.com/v4/#/component/print/page/basics',
+          linkTarget: '_self'
         }
       ]
     },
