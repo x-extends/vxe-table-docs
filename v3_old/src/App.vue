@@ -227,6 +227,7 @@ export default {
         {
           label: '功能模块',
           value: 'lib',
+          expand: false,
           children: [
             {
               label: '图标',
