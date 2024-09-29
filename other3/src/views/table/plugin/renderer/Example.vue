@@ -19,7 +19,7 @@ const codeConfs = ref([
   {
     title: '安装',
     language: 'shell',
-    content: 'npm install vxe-table@legacy vxe-table-plugin-renderer@legacy'
+    content: 'npm install vxe-table@3.8.24 vxe-table-plugin-renderer@3.3.1'
   },
   {
     title: '使用',

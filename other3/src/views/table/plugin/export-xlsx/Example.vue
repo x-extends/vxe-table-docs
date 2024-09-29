@@ -19,7 +19,7 @@ const codeConfs = ref([
   {
     title: '安装',
     language: 'shell',
-    content: 'npm install vxe-table@legacy vxe-table-plugin-export-xlsx@legacy exceljs'
+    content: 'npm install vxe-table@3.8.24 vxe-table-plugin-export-xlsx@3.3.4 exceljs'
   },
   {
     title: '使用',
