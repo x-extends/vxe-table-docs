@@ -22,7 +22,7 @@ export interface NavVO {
   children?: NavVO[]
 }
 
-const otherUrl = `${process.env.VUE_APP_SITE_BASE_URL}/other${process.env.VUE_APP_VXE_VERSION}`
+const otherUrl = `${process.env.VUE_APP_SITE_PLUGIN_URL}/other${process.env.VUE_APP_VXE_VERSION}`
 
 const tableNavConfig: NavVO & { children: NavVO[] } = {
   i18nKey: 'app.aside.menu.tableTitle',
