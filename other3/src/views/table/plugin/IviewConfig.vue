@@ -4,6 +4,9 @@
       具体兼容请查看 <a class="link" href="https://github.com/x-extends/vxe-table-plugin-iview/tree/v2" target="_blank">vxe-table-plugin-iview</a> 插件的 API<br>
       <span class="red">（注：该示例仅供参考，具体逻辑请自行实现）</span>
     </p>
+    <p>
+      <CodeList :confs="['npm install vxe-table@3.8.24 vxe-table-plugin-iview@3.3.2']"></CodeList>
+    </p>
 
     <vxe-grid
       border

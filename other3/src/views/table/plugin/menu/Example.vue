@@ -12,26 +12,30 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
+<script>
+export default {
+  data () {
+    return {
+      codeConfs: [
+        {
+          title: '安装',
+          language: 'shell',
+          content: 'npm install vxe-table@3.8.24 vxe-table-plugin-menus@3.3.5'
+        },
+        {
+          title: '使用',
+          language: 'javascript',
+          content: `
+          // ...
+          import VXETable from 'vxe-table'
+          import VXETablePluginMenus from 'vxe-table-plugin-menus'
+          // ...
 
-const codeConfs = ref([
-  {
-    title: '安装',
-    language: 'shell',
-    content: 'npm install vxe-table@3.8.24 vxe-table-plugin-menus@3.3.5'
-  },
-  {
-    title: '使用',
-    language: 'javascript',
-    content: `
-    // ...
-    import VXETable from 'vxe-table'
-    import VXETablePluginMenus from 'vxe-table-plugin-menus'
-    // ...
-
-    VXETable.use(VXETablePluginMenus)
-    `
+          VXETable.use(VXETablePluginMenus)
+          `
+        }
+      ]
+    }
   }
-])
+}
 </script>

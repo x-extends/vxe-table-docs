@@ -4,6 +4,9 @@
       具体兼容请查看 <a class="link" href="https://github.com/x-extends/vxe-table-plugin-export-pdf/tree/v2" target="_blank">vxe-table-plugin-export-pdf</a> 插件的 API<span class="red">（建议使用后端导出）</span><br>
       <span class="red">（注：该示例仅供参考，默认是不支持中文字体的，可以通过设置 <a class="link" href="https://github.com/x-extends/vxe-table-plugin-export-pdf#font" target="_blank">字体</a> 解决）</span>
     </p>
+    <p>
+      <CodeList :confs="['npm install vxe-table@3.8.24 vxe-table-plugin-export-pdf@3.3.4 jspdf']"></CodeList>
+    </p>
 
     <vxe-toolbar custom :export="tableExport">
       <template #buttons>

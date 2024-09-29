@@ -12,33 +12,37 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
+<script>
+export default {
+  data () {
+    return {
+      codeConfs: [
+        {
+          title: '安装',
+          language: 'shell',
+          content: 'npm install vxe-table@3.8.24 vxe-table-plugin-export-xlsx@3.3.4 exceljs'
+        },
+        {
+          title: '使用',
+          language: 'javascript',
+          content: `
+          // ...
+          import VXETable from 'vxe-table'
+          import VXETablePluginExportXLSX from 'vxe-table-plugin-export-xlsx'
+          import ExcelJS from 'exceljs'
+          // ...
 
-const codeConfs = ref([
-  {
-    title: '安装',
-    language: 'shell',
-    content: 'npm install vxe-table@3.8.24 vxe-table-plugin-export-xlsx@3.3.4 exceljs'
-  },
-  {
-    title: '使用',
-    language: 'javascript',
-    content: `
-    // ...
-    import VXETable from 'vxe-table'
-    import VXETablePluginExportXLSX from 'vxe-table-plugin-export-xlsx'
-    import ExcelJS from 'exceljs'
-    // ...
+          // 方式1：NPM 安装，注入 ExcelJS 对象
+          VXETable.use(VXETablePluginExportXLSX, {
+            ExcelJS
+          })
 
-    // 方式1：NPM 安装，注入 ExcelJS 对象
-    VXETable.use(VXETablePluginExportXLSX, {
-      ExcelJS
-    })
-
-    // 方式2：CDN 安装，只要确保 window.ExcelJS 存在即可
-    // VXETable.use(VXETablePluginExportXLSX)
-    `
+          // 方式2：CDN 安装，只要确保 window.ExcelJS 存在即可
+          // VXETable.use(VXETablePluginExportXLSX)
+          `
+        }
+      ]
+    }
   }
-])
+}
 </script>

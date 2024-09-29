@@ -3,7 +3,10 @@
     <p class="tip">
       具体兼容请查看 <a class="link" href="https://github.com/x-extends/vxe-table-plugin-export-xlsx/tree/v2" target="_blank">vxe-table-plugin-export-xlsx</a> 插件的 API<br>
       <span class="red">（注：该示例仅供参考，建议使用后端导出）</span>
-      </p>
+    </p>
+    <p>
+      <CodeList :confs="['npm install vxe-table@3.8.24 vxe-table-plugin-export-xlsx@3.3.4 exceljs']"></CodeList>
+    </p>
 
     <vxe-toolbar custom import export>
       <template #buttons>

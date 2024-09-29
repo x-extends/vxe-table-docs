@@ -4,6 +4,9 @@
       具体兼容请查看 <a class="link" href="https://github.com/x-extends/vxe-table-plugin-antd" target="_blank">vxe-table-plugin-antd</a> 插件的 API<br>
       <span class="red">（注：该示例仅供参考，具体逻辑请自行实现）</span>
     </p>
+    <p>
+      <CodeList :confs="['npm install vxe-table@4.6.19 vxe-table-plugin-antd@4.0.7']"></CodeList>
+    </p>
 
     <vxe-grid ref="xGrid" v-bind="gridOptions" v-on="gridEvents">
       <template #top>
