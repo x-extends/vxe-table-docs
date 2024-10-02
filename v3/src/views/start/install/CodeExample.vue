@@ -58,7 +58,7 @@
             &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-pc-ui@3/lib/style.css"&gt;
             &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@rc/lib/style.css"&gt;
             &lt;!-- 引入vue --&gt;
-            &lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;
+            &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"&gt;&lt;/script&gt;
             &lt;!-- 引入组件 --&gt;
             &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
             &lt;script src="https://cdn.jsdelivr.net/npm/vxe-pc-ui@3"&gt;&lt;/script&gt;
