@@ -922,63 +922,68 @@ const tableRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'cellRender',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vxe-switch',
-    //       name: 'ComponentTableCellRenderVxeSwitch',
-    //       component: () => import('@/views/table/cellRender/vxe-switch/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-radio',
-    //       name: 'ComponentTableCellRenderVxeRadioGroup',
-    //       component: () => import('@/views/table/cellRender/vxe-radio-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-checkbox',
-    //       name: 'ComponentTableCellRenderVxeCheckboxGroup',
-    //       component: () => import('@/views/table/cellRender/vxe-checkbox-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-button-group',
-    //       name: 'ComponentTableCellRenderVxeButtonGroup',
-    //       component: () => import('@/views/table/cellRender/vxe-button-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-image',
-    //       name: 'ComponentTableCellRenderVxeImage',
-    //       component: () => import('@/views/table/cellRender/vxe-image/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-image-group',
-    //       name: 'ComponentTableCellRenderVxeImageGroup',
-    //       component: () => import('@/views/table/cellRender/vxe-image-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-upload',
-    //       name: 'ComponentTableCellRenderVxeUpload',
-    //       component: () => import('@/views/table/cellRender/vxe-upload/CodeExample.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'cellTemplate',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vxe-switch',
-    //       name: 'ComponentTableCellTemplateVxeSwitch',
-    //       component: () => import('@/views/table/cellTemplate/vxe-switch/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-button',
-    //       name: 'ComponentTableCellTemplateVxeButton',
-    //       component: () => import('@/views/table/cellTemplate/vxe-button/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'cellRender',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vxe-switch',
+          name: 'ComponentTableCellRenderVxeSwitch',
+          component: () => import('@/views/table/cellRender/vxe-switch/CodeExample.vue')
+        },
+        {
+          path: 'vxe-radio',
+          name: 'ComponentTableCellRenderVxeRadioGroup',
+          component: () => import('@/views/table/cellRender/vxe-radio-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox',
+          name: 'ComponentTableCellRenderVxeCheckboxGroup',
+          component: () => import('@/views/table/cellRender/vxe-checkbox-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-button-group',
+          name: 'ComponentTableCellRenderVxeButtonGroup',
+          component: () => import('@/views/table/cellRender/vxe-button-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-image',
+          name: 'ComponentTableCellRenderVxeImage',
+          component: () => import('@/views/table/cellRender/vxe-image/CodeExample.vue')
+        },
+        {
+          path: 'vxe-image-group',
+          name: 'ComponentTableCellRenderVxeImageGroup',
+          component: () => import('@/views/table/cellRender/vxe-image-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-text-ellipsis',
+          name: 'ComponentTableCellRenderVxeTextEllipsis',
+          component: () => import('@/views/table/cellRender/vxe-text-ellipsis/CodeExample.vue')
+        },
+        {
+          path: 'vxe-upload',
+          name: 'ComponentTableCellRenderVxeUpload',
+          component: () => import('@/views/table/cellRender/vxe-upload/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'cellTemplate',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vxe-switch',
+          name: 'ComponentTableCellTemplateVxeSwitch',
+          component: () => import('@/views/table/cellTemplate/vxe-switch/CodeExample.vue')
+        },
+        {
+          path: 'vxe-button',
+          name: 'ComponentTableCellTemplateVxeButton',
+          component: () => import('@/views/table/cellTemplate/vxe-button/CodeExample.vue')
+        }
+      ]
+    },
     {
       path: 'editRender',
       component: RouteLayout,
@@ -1020,32 +1025,37 @@ const tableRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'editTemplate',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vxe-input',
-    //       name: 'ComponentTableEditTemplateVxeInput',
-    //       component: () => import('@/views/table/editTemplate/vxe-input/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-number-input',
-    //       name: 'ComponentTableEditTemplateVxeNumberInput',
-    //       component: () => import('@/views/table/editTemplate/vxe-number-input/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-date-picker',
-    //       name: 'ComponentTableEditTemplateVxeDatePicker',
-    //       component: () => import('@/views/table/editTemplate/vxe-date-picker/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-select',
-    //       name: 'ComponentTableEditTemplateVxeSelect',
-    //       component: () => import('@/views/table/editTemplate/vxe-select/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'editTemplate',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vxe-input',
+          name: 'ComponentTableEditTemplateVxeInput',
+          component: () => import('@/views/table/editTemplate/vxe-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-number-input',
+          name: 'ComponentTableEditTemplateVxeNumberInput',
+          component: () => import('@/views/table/editTemplate/vxe-number-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-date-picker',
+          name: 'ComponentTableEditTemplateVxeDatePicker',
+          component: () => import('@/views/table/editTemplate/vxe-date-picker/CodeExample.vue')
+        },
+        {
+          path: 'vxe-select',
+          name: 'ComponentTableEditTemplateVxeSelect',
+          component: () => import('@/views/table/editTemplate/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-pulldown',
+          name: 'ComponentTableEditTemplateVxePulldown',
+          component: () => import('@/views/table/editTemplate/vxe-pulldown/CodeExample.vue')
+        }
+      ]
+    },
     // {
     //   path: 'template',
     //   component: RouteLayout,
@@ -1963,78 +1973,78 @@ const gridRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'cellRender',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vxe-switch',
-    //       name: 'ComponentGridCellRenderVxeSwitch',
-    //       component: () => import('@/views/grid/cellRender/vxe-switch/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-radio',
-    //       name: 'ComponentGridCellRenderVxeRadioGroup',
-    //       component: () => import('@/views/grid/cellRender/vxe-radio-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-checkbox',
-    //       name: 'ComponentGridCellRenderVxeCheckboxGroup',
-    //       component: () => import('@/views/grid/cellRender/vxe-checkbox-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-button-group',
-    //       name: 'ComponentGridCellRenderVxeButtonGroup',
-    //       component: () => import('@/views/grid/cellRender/vxe-button-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-image',
-    //       name: 'ComponentGridCellRenderVxeImage',
-    //       component: () => import('@/views/grid/cellRender/vxe-image/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-image-group',
-    //       name: 'ComponentGridCellRenderVxeImageGroup',
-    //       component: () => import('@/views/grid/cellRender/vxe-image-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-upload',
-    //       name: 'ComponentGridCellRenderVxeUpload',
-    //       component: () => import('@/views/grid/cellRender/vxe-upload/CodeExample.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'cellTemplate',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vxe-switch',
-    //       name: 'ComponentGridCellTemplateVxeSwitch',
-    //       component: () => import('@/views/grid/cellTemplate/vxe-switch/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-button-group',
-    //       name: 'ComponentGridCellTemplateVxeButtonGroup',
-    //       component: () => import('@/views/grid/cellTemplate/vxe-button-group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-button',
-    //       name: 'ComponentGridCellTemplateVxeButton',
-    //       component: () => import('@/views/grid/cellTemplate/vxe-button/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-image',
-    //       name: 'ComponentGridCellTemplateVxeImage',
-    //       component: () => import('@/views/grid/cellTemplate/vxe-image/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-upload',
-    //       name: 'ComponentGridCellTemplateVxeUpload',
-    //       component: () => import('@/views/grid/cellTemplate/vxe-upload/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'cellRender',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vxe-switch',
+          name: 'ComponentGridCellRenderVxeSwitch',
+          component: () => import('@/views/grid/cellRender/vxe-switch/CodeExample.vue')
+        },
+        {
+          path: 'vxe-radio',
+          name: 'ComponentGridCellRenderVxeRadioGroup',
+          component: () => import('@/views/grid/cellRender/vxe-radio-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox',
+          name: 'ComponentGridCellRenderVxeCheckboxGroup',
+          component: () => import('@/views/grid/cellRender/vxe-checkbox-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-button-group',
+          name: 'ComponentGridCellRenderVxeButtonGroup',
+          component: () => import('@/views/grid/cellRender/vxe-button-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-image',
+          name: 'ComponentGridCellRenderVxeImage',
+          component: () => import('@/views/grid/cellRender/vxe-image/CodeExample.vue')
+        },
+        {
+          path: 'vxe-image-group',
+          name: 'ComponentGridCellRenderVxeImageGroup',
+          component: () => import('@/views/grid/cellRender/vxe-image-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-upload',
+          name: 'ComponentGridCellRenderVxeUpload',
+          component: () => import('@/views/grid/cellRender/vxe-upload/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'cellTemplate',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vxe-switch',
+          name: 'ComponentGridCellTemplateVxeSwitch',
+          component: () => import('@/views/grid/cellTemplate/vxe-switch/CodeExample.vue')
+        },
+        {
+          path: 'vxe-button-group',
+          name: 'ComponentGridCellTemplateVxeButtonGroup',
+          component: () => import('@/views/grid/cellTemplate/vxe-button-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-button',
+          name: 'ComponentGridCellTemplateVxeButton',
+          component: () => import('@/views/grid/cellTemplate/vxe-button/CodeExample.vue')
+        },
+        {
+          path: 'vxe-image',
+          name: 'ComponentGridCellTemplateVxeImage',
+          component: () => import('@/views/grid/cellTemplate/vxe-image/CodeExample.vue')
+        },
+        {
+          path: 'vxe-upload',
+          name: 'ComponentGridCellTemplateVxeUpload',
+          component: () => import('@/views/grid/cellTemplate/vxe-upload/CodeExample.vue')
+        }
+      ]
+    },
     // {
     //   path: 'keyboard',
     //   component: RouteLayout,
@@ -2183,32 +2193,32 @@ const gridRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'editTemplate',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vxe-input',
-    //       name: 'ComponentGridEditTemplateVxeInput',
-    //       component: () => import('@/views/grid/editTemplate/vxe-input/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-number-input',
-    //       name: 'ComponentGridEditTemplateVxeNumberInput',
-    //       component: () => import('@/views/grid/editTemplate/vxe-number-input/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-date-picker',
-    //       name: 'ComponentGridEditTemplateVxeDatePicker',
-    //       component: () => import('@/views/grid/editTemplate/vxe-date-picker/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-select',
-    //       name: 'ComponentGridEditTemplateVxeSelect',
-    //       component: () => import('@/views/grid/editTemplate/vxe-select/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'editTemplate',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vxe-input',
+          name: 'ComponentGridEditTemplateVxeInput',
+          component: () => import('@/views/grid/editTemplate/vxe-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-number-input',
+          name: 'ComponentGridEditTemplateVxeNumberInput',
+          component: () => import('@/views/grid/editTemplate/vxe-number-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-date-picker',
+          name: 'ComponentGridEditTemplateVxeDatePicker',
+          component: () => import('@/views/grid/editTemplate/vxe-date-picker/CodeExample.vue')
+        },
+        {
+          path: 'vxe-select',
+          name: 'ComponentGridEditTemplateVxeSelect',
+          component: () => import('@/views/grid/editTemplate/vxe-select/CodeExample.vue')
+        }
+      ]
+    },
     {
       path: 'template',
       component: RouteLayout,
@@ -2525,22 +2535,22 @@ const gridRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'search',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'list',
-    //       name: 'ComponentGridSearchList',
-    //       component: () => import('@/views/grid/search/list/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'tree',
-    //       name: 'ComponentGridSearchTree',
-    //       component: () => import('@/views/grid/search/tree/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'search',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'list',
+          name: 'ComponentGridSearchList',
+          component: () => import('@/views/grid/search/list/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentGridSearchTree',
+          component: () => import('@/views/grid/search/tree/CodeExample.vue')
+        }
+      ]
+    },
     {
       path: 'events',
       component: RouteLayout,
@@ -2570,6 +2580,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'lineEllipsis',
           name: 'ComponentGridOtherLineEllipsis',
           component: () => import('@/views/grid/other/lineEllipsis/CodeExample.vue')
+        },
+        {
+          path: 'yearMonth',
+          name: 'ComponentGridOtherYearMonth',
+          component: () => import('@/views/grid/other/yearMonth/CodeExample.vue')
         }
       ]
     }
