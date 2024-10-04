@@ -43,7 +43,10 @@
         <vxe-link v-if="item1.linkUrl" class="nav-item-link" :status="item1.linkStatus" :href="item1.linkUrl" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
         <span v-else>
           <span class="vxe-icon-arrow-right nav-link-icon"></span>
-          <span class="nav-item-text">{{ item1.title }}</span>
+          <span class="nav-item-text">
+            <span> {{ item1.title }}</span>
+            <vxe-text v-if="['API'].includes(item1.title || '') && item1.children" status="success">（{{ item1.children.length }}）</vxe-text>
+          </span>
         </span>
       </div>
       <div v-if="item1.isExpand && item1.children && item1.children.length" class="nav-subs">
