@@ -1,0 +1,83 @@
+<template>
+  <div>
+    <vxe-grid v-bind="gridOptions">
+      <template #name_default="{ row }">
+        <vxe-image :src="row.imgUrl" height="100"></vxe-image>
+      </template>
+
+      <template #info_default="{ row }">
+        <div class="label-ellipsis">{{ row.name }}</div>
+        <div class="label-ellipsis">{{ row.num }}</div>
+        <div class="label-ellipsis">{{ row.address }}</div>
+      </template>
+    </vxe-grid>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import type { VxeGridProps } from 'vxe-table'
+
+interface RowVO {
+  id: number
+  name: string
+  imgUrl: string
+  info: string
+  num: number
+  address: string
+}
+
+export default Vue.extend({
+  data () {
+    const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      showOverflow: true,
+      height: 600,
+      loading: false,
+      rowConfig: {
+        height: 120
+      },
+      scrollY: {
+        enabled: true,
+        gt: 0
+      },
+      columns: [
+        { type: 'seq', title: '序号', width: 100 },
+        { field: 'name', title: '图片', width: 140, align: 'center', slots: { default: 'name_default' } },
+        { field: 'info', title: '基本信息', slots: { default: 'info_default' } },
+        { field: 'num', title: 'Num', width: 200 },
+        { field: 'address', title: 'Address', width: 200 }
+      ],
+      data: []
+    }
+
+    return {
+      gridOptions
+    }
+  },
+  methods: {
+    // 模拟行数据
+    loadList (size = 200) {
+      this.gridOptions.loading = true
+      setTimeout(() => {
+        const dataList: RowVO[] = []
+        for (let i = 0; i < size; i++) {
+          dataList.push({
+            id: i,
+            name: `名称${i} 名称名称 称`,
+            imgUrl: 'https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif',
+            info: `info ${i}`,
+            num: 20,
+            address: 'shenzhen shen'
+          })
+        }
+        this.gridOptions.data = dataList
+        this.gridOptions.loading = false
+      }, 350)
+    }
+  },
+  created () {
+    this.loadList(500)
+  }
+})
+</script>

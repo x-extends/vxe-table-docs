@@ -1487,85 +1487,85 @@ const gridRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'sort',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'multiple',
-    //       name: 'ComponentGridSortMultiple',
-    //       component: () => import('@/views/grid/sort/multiple/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'remote',
-    //       name: 'ComponentGridSortRemote',
-    //       component: () => import('@/views/grid/sort/remote/CodeExample.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'filter',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'options',
-    //       name: 'ComponentGridFilterOptions',
-    //       component: () => import('@/views/grid/filter/options/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'remote',
-    //       name: 'ComponentGridFilterRemote',
-    //       component: () => import('@/views/grid/filter/remote/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'headerFilter',
-    //       name: 'ComponentGridFilterHeaderFilter',
-    //       component: () => import('@/views/grid/filter/headerFilter/CodeExample.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'filterRender',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vxe-input',
-    //       name: 'ComponentGridFilterRenderVxeInput',
-    //       component: () => import('@/views/grid/filterRender/vxe-input/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-number-input',
-    //       name: 'ComponentGridFilterRenderVxeNumberInput',
-    //       component: () => import('@/views/grid/filterRender/vxe-number-input/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-select',
-    //       name: 'ComponentGridFilterRenderVxeSelect',
-    //       component: () => import('@/views/grid/filterRender/vxe-select/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-date-picker',
-    //       name: 'ComponentGridFilterRenderVxeDatePicker',
-    //       component: () => import('@/views/grid/filterRender/vxe-date-picker/CodeExample.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'filterTemplate',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vxe-input',
-    //       name: 'ComponentGridFilterTemplateVxeInput',
-    //       component: () => import('@/views/grid/filterTemplate/vxe-input/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'vxe-select',
-    //       name: 'ComponentGridFilterTemplateVxeSelect',
-    //       component: () => import('@/views/grid/filterTemplate/vxe-select/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'sort',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'multiple',
+          name: 'ComponentGridSortMultiple',
+          component: () => import('@/views/grid/sort/multiple/CodeExample.vue')
+        },
+        {
+          path: 'remote',
+          name: 'ComponentGridSortRemote',
+          component: () => import('@/views/grid/sort/remote/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'filter',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'options',
+          name: 'ComponentGridFilterOptions',
+          component: () => import('@/views/grid/filter/options/CodeExample.vue')
+        },
+        {
+          path: 'remote',
+          name: 'ComponentGridFilterRemote',
+          component: () => import('@/views/grid/filter/remote/CodeExample.vue')
+        },
+        {
+          path: 'headerFilter',
+          name: 'ComponentGridFilterHeaderFilter',
+          component: () => import('@/views/grid/filter/headerFilter/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'filterRender',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vxe-input',
+          name: 'ComponentGridFilterRenderVxeInput',
+          component: () => import('@/views/grid/filterRender/vxe-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-number-input',
+          name: 'ComponentGridFilterRenderVxeNumberInput',
+          component: () => import('@/views/grid/filterRender/vxe-number-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-select',
+          name: 'ComponentGridFilterRenderVxeSelect',
+          component: () => import('@/views/grid/filterRender/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-date-picker',
+          name: 'ComponentGridFilterRenderVxeDatePicker',
+          component: () => import('@/views/grid/filterRender/vxe-date-picker/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'filterTemplate',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vxe-input',
+          name: 'ComponentGridFilterTemplateVxeInput',
+          component: () => import('@/views/grid/filterTemplate/vxe-input/CodeExample.vue')
+        },
+        {
+          path: 'vxe-select',
+          name: 'ComponentGridFilterTemplateVxeSelect',
+          component: () => import('@/views/grid/filterTemplate/vxe-select/CodeExample.vue')
+        }
+      ]
+    },
     // {
     //   path: 'layout',
     //   component: RouteLayout,
@@ -1608,32 +1608,32 @@ const gridRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'radio',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'highlight',
-    //       name: 'ComponentGridRadioHighlight',
-    //       component: () => import('@/views/grid/radio/highlight/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'checkMethod',
-    //       name: 'ComponentGridRadioCheckMethod',
-    //       component: () => import('@/views/grid/radio/checkMethod/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'visibleMethod',
-    //       name: 'ComponentGridRadioVisibleMethod',
-    //       component: () => import('@/views/grid/radio/visibleMethod/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'template',
-    //       name: 'ComponentGridRadioTemplate',
-    //       component: () => import('@/views/grid/radio/template/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'radio',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'highlight',
+          name: 'ComponentGridRadioHighlight',
+          component: () => import('@/views/grid/radio/highlight/CodeExample.vue')
+        },
+        {
+          path: 'checkMethod',
+          name: 'ComponentGridRadioCheckMethod',
+          component: () => import('@/views/grid/radio/checkMethod/CodeExample.vue')
+        },
+        {
+          path: 'visibleMethod',
+          name: 'ComponentGridRadioVisibleMethod',
+          component: () => import('@/views/grid/radio/visibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          name: 'ComponentGridRadioTemplate',
+          component: () => import('@/views/grid/radio/template/CodeExample.vue')
+        }
+      ]
+    },
     {
       path: 'checkbox',
       component: RouteLayout,
@@ -2216,6 +2216,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'vxe-select',
           name: 'ComponentGridEditTemplateVxeSelect',
           component: () => import('@/views/grid/editTemplate/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-pulldown',
+          name: 'ComponentGridEditTemplateVxePulldown',
+          component: () => import('@/views/grid/editTemplate/vxe-pulldown/CodeExample.vue')
         }
       ]
     },
@@ -2413,52 +2418,52 @@ const gridRouteConfig: RouteConfig = {
     //     }
     //   ]
     // },
-    // {
-    //   path: 'scroll',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vertical',
-    //       name: 'ComponentGridScrollVertical',
-    //       component: () => import('@/views/grid/scroll/vertical/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'horizontal',
-    //       name: 'ComponentGridScrollHorizontal',
-    //       component: () => import('@/views/grid/scroll/horizontal/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'hv',
-    //       name: 'ComponentGridScrollHV',
-    //       component: () => import('@/views/grid/scroll/hv/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'loadData',
-    //       name: 'ComponentGridScrollLoadData',
-    //       component: () => import('@/views/grid/scroll/loadData/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'rowHeight',
-    //       name: 'ComponentGridScrollRowHeight',
-    //       component: () => import('@/views/grid/scroll/rowHeight/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'group',
-    //       name: 'ComponentGridScrollGroup',
-    //       component: () => import('@/views/grid/scroll/group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'footer',
-    //       name: 'ComponentGridScrollFooter',
-    //       component: () => import('@/views/grid/scroll/footer/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'tree',
-    //       name: 'ComponentGridScrollTree',
-    //       component: () => import('@/views/grid/scroll/tree/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'scroll',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vertical',
+          name: 'ComponentGridScrollVertical',
+          component: () => import('@/views/grid/scroll/vertical/CodeExample.vue')
+        },
+        {
+          path: 'horizontal',
+          name: 'ComponentGridScrollHorizontal',
+          component: () => import('@/views/grid/scroll/horizontal/CodeExample.vue')
+        },
+        {
+          path: 'hv',
+          name: 'ComponentGridScrollHV',
+          component: () => import('@/views/grid/scroll/hv/CodeExample.vue')
+        },
+        {
+          path: 'loadData',
+          name: 'ComponentGridScrollLoadData',
+          component: () => import('@/views/grid/scroll/loadData/CodeExample.vue')
+        },
+        {
+          path: 'rowHeight',
+          name: 'ComponentGridScrollRowHeight',
+          component: () => import('@/views/grid/scroll/rowHeight/CodeExample.vue')
+        },
+        {
+          path: 'group',
+          name: 'ComponentGridScrollGroup',
+          component: () => import('@/views/grid/scroll/group/CodeExample.vue')
+        },
+        {
+          path: 'footer',
+          name: 'ComponentGridScrollFooter',
+          component: () => import('@/views/grid/scroll/footer/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentGridScrollTree',
+          component: () => import('@/views/grid/scroll/tree/CodeExample.vue')
+        }
+      ]
+    },
     {
       path: 'proxy',
       component: RouteLayout,
