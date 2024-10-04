@@ -204,31 +204,31 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '自定义序号', routerLink: { name: 'ComponentTablePagerStart' } }
         //       ]
         //     },
-        //     {
-        //       title: '树形',
-        //       children: [
-        //         { title: '基础使用', routerLink: { name: 'ComponentTableTreeBasic' } },
-        //         { title: '平级结构', routerLink: { name: 'ComponentTableTreeLeveling' } },
-        //         { title: '层级结构', routerLink: { name: 'ComponentTableTreeHierarchy' } },
-        //         { title: '自定义图标', routerLink: { name: 'ComponentTableTreeIcon' } },
-        //         { title: '显示连接线', routerLink: { name: 'ComponentTableTreeLine' } },
-        //         { title: '最大高度', routerLink: { name: 'ComponentTableTreeMaxHeight' } },
-        //         { title: '手风琴效果', routerLink: { name: 'ComponentTableTreeAccordion' } },
-        //         { title: '高亮行', routerLink: { name: 'ComponentTableTreeCurrentRow' } },
-        //         { title: '高亮列', routerLink: { name: 'ComponentTableTreeCurrentColumn' } },
-        //         { title: '单选框', routerLink: { name: 'ComponentTableTreeRadio' } },
-        //         { title: '复选框', routerLink: { name: 'ComponentTableTreeCheckbox' } },
-        //         { title: '树形排序', routerLink: { name: 'ComponentTableTreeSort' } },
-        //         { title: '树形筛选', routerLink: { name: 'ComponentTableTreeFilter' } },
-        //         { title: '冻结列', routerLink: { name: 'ComponentTableTreeFixed' } },
-        //         { title: '右键菜单', routerLink: { name: 'ComponentTableTreeMenu' } },
-        //         { title: '懒加载', routerLink: { name: 'ComponentTableTreeLazy' } },
-        //         { title: '懒加载 - 可编辑', routerLink: { name: 'ComponentTableTreeLazyEdit' } },
-        //         { title: '同时使用展开行', routerLink: { name: 'ComponentTableTreeExpand' } },
-        //         { title: '同时使用展开行 - 懒加载', routerLink: { name: 'ComponentTableTreeExpandLazy' } },
-        //         { title: '实现数据分组', routerLink: { name: 'ComponentTableTreeGroup' } }
-        //       ]
-        //     },
+        {
+          title: '树形',
+          children: [
+            { title: '基础使用', routerLink: { name: 'ComponentTableTreeBasic' } },
+            { title: '平级结构', routerLink: { name: 'ComponentTableTreeLeveling' } },
+            { title: '层级结构', routerLink: { name: 'ComponentTableTreeHierarchy' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentTableTreeIcon' } },
+            { title: '显示连接线', routerLink: { name: 'ComponentTableTreeLine' } },
+            { title: '最大高度', routerLink: { name: 'ComponentTableTreeMaxHeight' } },
+            { title: '手风琴效果', routerLink: { name: 'ComponentTableTreeAccordion' } },
+            { title: '高亮行', routerLink: { name: 'ComponentTableTreeCurrentRow' } },
+            { title: '高亮列', routerLink: { name: 'ComponentTableTreeCurrentColumn' } },
+            { title: '单选框', routerLink: { name: 'ComponentTableTreeRadio' } },
+            { title: '复选框', routerLink: { name: 'ComponentTableTreeCheckbox' } },
+            { title: '树形排序', routerLink: { name: 'ComponentTableTreeSort' } },
+            { title: '树形筛选', routerLink: { name: 'ComponentTableTreeFilter' } },
+            { title: '冻结列', routerLink: { name: 'ComponentTableTreeFixed' } },
+            { title: '右键菜单', routerLink: { name: 'ComponentTableTreeMenu' } },
+            { title: '懒加载', routerLink: { name: 'ComponentTableTreeLazy' } },
+            { title: '懒加载 - 可编辑', routerLink: { name: 'ComponentTableTreeLazyEdit' } },
+            { title: '同时使用展开行', routerLink: { name: 'ComponentTableTreeExpand' } },
+            { title: '同时使用展开行 - 懒加载', routerLink: { name: 'ComponentTableTreeExpandLazy' } },
+            { title: '实现数据分组', routerLink: { name: 'ComponentTableTreeGroup' } }
+          ]
+        },
         {
           title: '单元格 - 渲染 - 配置式',
           children: [
@@ -528,39 +528,39 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/filter/el-input` }
           ]
         },
-        //     {
-        //       title: '右键菜单',
-        //       children: [
-        //         { title: '自定义前缀', routerLink: { name: 'ComponentGridMenuPrefixConfig' } },
-        //         { title: '自定义后缀', routerLink: { name: 'ComponentGridMenuSuffixConfig' } },
-        //         { title: '完整右键菜单', routerLink: { name: 'ComponentGridMenuFull' } },
-        //         { title: '菜单权限控制', routerLink: { name: 'ComponentGridMenuPrivilege' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '查询表单',
-        //       children: [
-        //         { title: '查询表单', routerLink: { name: 'ComponentGridFormSearch' } },
-        //         { title: '表单的默认值', routerLink: { name: 'ComponentGridFormFormData' } },
-        //         { title: '带折叠的查询表单', routerLink: { name: 'ComponentGridFormCollapse' } },
-        //         { title: '自定义项插槽模板', routerLink: { name: 'ComponentGridFormItemTemplate' } },
-        //         { title: '自定义表单插槽模板', routerLink: { name: 'ComponentGridFormTemplate' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '工具栏',
-        //       children: [
-        //         { title: '左侧按钮', routerLink: { name: 'ComponentGridToolbarButtons' } },
-        //         { title: '右侧按钮', routerLink: { name: 'ComponentGridToolbarTools' } },
-        //         { title: '自定义列功能', routerLink: { name: 'ComponentGridToolbarCustom' } },
-        //         { title: '打印功能', routerLink: { name: 'ComponentGridToolbarPrint' } },
-        //         { title: '最大化显示', routerLink: { name: 'ComponentGridToolbarZoom' } },
-        //         { title: '导入数据', routerLink: { name: 'ComponentGridToolbarImport' } },
-        //         { title: '导出数据', routerLink: { name: 'ComponentGridToolbarExport' } },
-        //         { title: '刷新列表', routerLink: { name: 'ComponentGridToolbarRefresh' } },
-        //         { title: '自定义图标', routerLink: { name: 'ComponentGridToolbarIcon' } }
-        //       ]
-        //     },
+        {
+          title: '右键菜单',
+          children: [
+            { title: '自定义前缀', routerLink: { name: 'ComponentGridMenuPrefixConfig' } },
+            { title: '自定义后缀', routerLink: { name: 'ComponentGridMenuSuffixConfig' } },
+            { title: '完整右键菜单', routerLink: { name: 'ComponentGridMenuFull' } },
+            { title: '菜单权限控制', routerLink: { name: 'ComponentGridMenuPrivilege' } }
+          ]
+        },
+        {
+          title: '查询表单',
+          children: [
+            { title: '查询表单', routerLink: { name: 'ComponentGridFormSearch' } },
+            { title: '表单的默认值', routerLink: { name: 'ComponentGridFormFormData' } },
+            { title: '带折叠的查询表单', routerLink: { name: 'ComponentGridFormCollapse' } },
+            { title: '自定义项插槽模板', routerLink: { name: 'ComponentGridFormItemTemplate' } },
+            { title: '自定义表单插槽模板', routerLink: { name: 'ComponentGridFormTemplate' } }
+          ]
+        },
+        {
+          title: '工具栏',
+          children: [
+            { title: '左侧按钮', routerLink: { name: 'ComponentGridToolbarButtons' } },
+            { title: '右侧按钮', routerLink: { name: 'ComponentGridToolbarTools' } },
+            { title: '自定义列功能', routerLink: { name: 'ComponentGridToolbarCustom' } },
+            { title: '打印功能', routerLink: { name: 'ComponentGridToolbarPrint' } },
+            { title: '最大化显示', routerLink: { name: 'ComponentGridToolbarZoom' } },
+            { title: '导入数据', routerLink: { name: 'ComponentGridToolbarImport' } },
+            { title: '导出数据', routerLink: { name: 'ComponentGridToolbarExport' } },
+            { title: '刷新列表', routerLink: { name: 'ComponentGridToolbarRefresh' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentGridToolbarIcon' } }
+          ]
+        },
         {
           title: '自定义列',
           children: [
@@ -579,22 +579,22 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentGridCustomRemoteFull' } }
           ]
         },
-        //     {
-        //       title: '数据分页',
-        //       children: [
-        //         { title: '实现前端分页', routerLink: { name: 'ComponentGridPagerMockPage' } },
-        //         { title: '自定义布局', routerLink: { name: 'ComponentGridPagerLayouts' } },
-        //         { title: '自定义序号', routerLink: { name: 'ComponentGridPagerStart' } },
-        //         { title: '自定义插槽模板', routerLink: { name: 'ComponentGridPagerTemplate' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '功能布局',
-        //       children: [
-        //         { title: '调整分页位置', routerLink: { name: 'ComponentGridLayoutPager' } },
-        //         { title: '调整工具栏位置', routerLink: { name: 'ComponentGridLayoutToolbar' } }
-        //       ]
-        //     },
+        {
+          title: '数据分页',
+          children: [
+            { title: '实现前端分页', routerLink: { name: 'ComponentGridPagerMockPage' } },
+            { title: '自定义布局', routerLink: { name: 'ComponentGridPagerLayouts' } },
+            { title: '自定义序号', routerLink: { name: 'ComponentGridPagerStart' } },
+            { title: '自定义插槽模板', routerLink: { name: 'ComponentGridPagerTemplate' } }
+          ]
+        },
+        {
+          title: '功能布局',
+          children: [
+            { title: '调整分页位置', routerLink: { name: 'ComponentGridLayoutPager' } },
+            { title: '调整工具栏位置', routerLink: { name: 'ComponentGridLayoutToolbar' } }
+          ]
+        },
         {
           title: '树形',
           children: [
@@ -688,18 +688,18 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义单元格校验模板', routerLink: { name: 'ComponentGridTemplateValid' } }
           ]
         },
-        //     {
-        //       title: '按键导航',
-        //       children: [
-        //         { title: '单元格选中', routerLink: { name: 'ComponentGridKeyboardSelected' } },
-        //         { title: '按键操作', routerLink: { name: 'ComponentGridKeyboardKeyboard' } },
-        //         { title: '可编辑按键操作', routerLink: { name: 'ComponentGridKeyboardEdit' } },
-        //         { title: '树结构按键操作', routerLink: { name: 'ComponentGridKeyboardTree' } },
-        //         { title: '树结构可编辑', routerLink: { name: 'ComponentGridKeyboardTreeEdit' } },
-        //         { title: 'Excel 单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/singleArea' },
-        //         { title: 'Excel 复制与粘贴', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaClip' }
-        //       ]
-        //     },
+        {
+          title: '按键导航',
+          children: [
+            { title: '单元格选中', routerLink: { name: 'ComponentGridKeyboardSelected' } },
+            { title: '按键操作', routerLink: { name: 'ComponentGridKeyboardKeyboard' } },
+            { title: '可编辑按键操作', routerLink: { name: 'ComponentGridKeyboardEdit' } },
+            { title: '树结构按键操作', routerLink: { name: 'ComponentGridKeyboardTree' } },
+            { title: '树结构可编辑', routerLink: { name: 'ComponentGridKeyboardTreeEdit' } },
+            { title: 'Excel 单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/singleArea' },
+            { title: 'Excel 复制与粘贴', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaClip' }
+          ]
+        },
         {
           title: '导出数据',
           children: [
@@ -718,30 +718,30 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义导出模式', routerLink: { name: 'ComponentGridExportModes' } }
           ]
         },
-        //     {
-        //       title: '导入数据',
-        //       children: [
-        //         { title: '导入数据', routerLink: { name: 'ComponentGridImportBase' } },
-        //         { title: '导入 TXT 格式', routerLink: { name: 'ComponentGridImportTxt' } },
-        //         { title: '导入 XML 格式', routerLink: { name: 'ComponentGridImportXml' } },
-        //         { title: '导入 HTML 格式', routerLink: { name: 'ComponentGridImportHtml' } },
-        //         { title: '导入 CSV 格式', routerLink: { name: 'ComponentGridImportCsv' } },
-        //         { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/grid/import` },
-        //         { title: '高级导入', routerLink: { name: 'ComponentGridImportAdvanced' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '打印表格',
-        //       children: [
-        //         { title: '打印表格', routerLink: { name: 'ComponentGridPrintBase' } },
-        //         { title: '自定义顶部和底部', routerLink: { name: 'ComponentGridPrintBeforeMethod' } },
-        //         { title: '高级打印', routerLink: { name: 'ComponentGridPrintAdvanced' } },
-        //         { title: '自定义页眉/标题', routerLink: { name: 'ComponentGridPrintHeader' } },
-        //         { title: '自定义页尾/页码', routerLink: { name: 'ComponentGridPrintFooter' } },
-        //         { title: '实现将表格切割为多页打印', routerLink: { name: 'ComponentGridPrintPage' } },
-        //         { title: '实现打印多张表格', routerLink: { name: 'ComponentGridPrintMultilist' } }
-        //       ]
-        //     },
+        {
+          title: '导入数据',
+          children: [
+            { title: '导入数据', routerLink: { name: 'ComponentGridImportBase' } },
+            { title: '导入 TXT 格式', routerLink: { name: 'ComponentGridImportTxt' } },
+            { title: '导入 XML 格式', routerLink: { name: 'ComponentGridImportXml' } },
+            { title: '导入 HTML 格式', routerLink: { name: 'ComponentGridImportHtml' } },
+            { title: '导入 CSV 格式', routerLink: { name: 'ComponentGridImportCsv' } },
+            { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/grid/import` },
+            { title: '高级导入', routerLink: { name: 'ComponentGridImportAdvanced' } }
+          ]
+        },
+        {
+          title: '打印表格',
+          children: [
+            { title: '打印表格', routerLink: { name: 'ComponentGridPrintBase' } },
+            { title: '自定义顶部和底部', routerLink: { name: 'ComponentGridPrintBeforeMethod' } },
+            { title: '高级打印', routerLink: { name: 'ComponentGridPrintAdvanced' } },
+            { title: '自定义页眉/标题', routerLink: { name: 'ComponentGridPrintHeader' } },
+            { title: '自定义页尾/页码', routerLink: { name: 'ComponentGridPrintFooter' } },
+            { title: '实现将表格切割为多页打印', routerLink: { name: 'ComponentGridPrintPage' } },
+            { title: '实现打印多张表格', routerLink: { name: 'ComponentGridPrintMultilist' } }
+          ]
+        },
         {
           title: '虚拟滚动（超大数据量表格）',
           children: [
