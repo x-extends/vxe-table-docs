@@ -7,7 +7,7 @@
     </VxeLink>
     <span style="margin-left: 20px;">
       <span>©</span>
-      <span><VxeLink status="primary" :href="siteBaseUrl" target="_blank">{{ packName }}</VxeLink> 2018-{{serveTY}}</span>
+      <span><VxeLink status="primary" :href="siteBaseUrl" target="_blank">Vxe UI</VxeLink> 2018-{{serveTY}}</span>
     </span>
   </div>
 </template>
@@ -17,7 +17,6 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
-const packName = computed(() => appStore.packName)
 const serveTY = computed(() => appStore.serveTY)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 </script>

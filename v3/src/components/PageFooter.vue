@@ -7,7 +7,7 @@
     </VxeLink>
     <span style="margin-left: 20px;">
       <span>©</span>
-      <span><VxeLink status="primary" :href="siteBaseUrl" target="_blank">{{ packName }}</VxeLink> 2018-{{serveTY}}</span>
+      <span><VxeLink status="primary" :href="siteBaseUrl" target="_blank">Vxe UI</VxeLink> 2018-{{serveTY}}</span>
     </span>
   </div>
 </template>
@@ -20,7 +20,6 @@ export default Vue.extend({
   computed: {
     ...mapState([
       'serveTY',
-      'packName',
       'siteBaseUrl'
     ])
   }
