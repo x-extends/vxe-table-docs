@@ -1,0 +1,69 @@
+<template>
+  <div>
+    <vxe-toolbar>
+      <template #buttons>
+        <vxe-button @click="expandAllEvent">展开所有</vxe-button>
+        <vxe-button @click="clearExpandEvent">收起所有</vxe-button>
+      </template>
+    </vxe-toolbar>
+
+    <vxe-table
+      show-overflow
+      height="800"
+      ref="tableRef"
+      :loading="loading"
+      :tree-config="{transform: true}"
+      :scroll-y="{enabled: true, gt: 0}"
+      :data="tableData">
+      <vxe-column type="seq" width="300" tree-node></vxe-column>
+      <vxe-column field="id" title="Id"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
+    </vxe-table>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import type { VxeTableInstance } from 'vxe-table'
+
+interface RowVO {
+  id: number
+  parentId: number | null
+  name: string
+}
+
+export default Vue.extend({
+  data () {
+    const tableData: RowVO[] = []
+
+    return {
+      loading: false,
+      tableData
+    }
+  },
+  methods: {
+    loadList () {
+      this.loading = true
+      fetch('/resource/json/provinces_list.json').then(res => res.json()).then((data: RowVO[]) => {
+        this.tableData = data
+        this.loading = false
+      })
+    },
+    expandAllEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        $table.setAllTreeExpand(true)
+      }
+    },
+    clearExpandEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        $table.clearTreeExpand()
+      }
+    }
+  },
+  created () {
+    this.loadList()
+  }
+})
+</script>

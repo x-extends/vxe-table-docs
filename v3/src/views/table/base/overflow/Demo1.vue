@@ -3,9 +3,9 @@
     <vxe-table
       show-footer
       :row-config="{isHover: true}"
-      :footer-method="footerMethod"
+      :footer-data="footerData"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称" show-overflow="ellipsis"></vxe-column>
       <vxe-column field="role" title="角色" show-overflow></vxe-column>
       <vxe-column field="date" title="标题溢出，显示为 tooltip xxxxxxxxxx" show-header-overflow show-overflow="title" show-footer-overflow></vxe-column>
@@ -41,27 +41,13 @@ export default Vue.extend({
       { name: 'Test5', role: '前端', date: '2020-01-20', rate: 3, address: 'address5\ntooltip文本换行\n换行xx' }
     ]
 
-    const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns }) => {
-      const footerData = [
-        columns.map((column, columnIndex) => {
-          if (columnIndex === 0) {
-            return '合计'
-          }
-          if (['date'].includes(column.field)) {
-            return '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-          }
-          if (['rate'].includes(column.field)) {
-            return '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行'
-          }
-          return null
-        })
-      ]
-      return footerData
-    }
+    const footerData: VxeTablePropTypes.FooterData = [
+      { seq: '合计', date: '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', rate: '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行' }
+    ]
 
     return {
       tableData,
-      footerMethod
+      footerData
     }
   }
 })

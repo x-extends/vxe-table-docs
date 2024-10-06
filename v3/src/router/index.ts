@@ -357,32 +357,32 @@ const tableRouteConfig: RouteConfig = {
     //     }
     //   ]
     // },
-    // {
-    //   path: 'filter',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'options',
-    //       name: 'ComponentTableFilterOptions',
-    //       component: () => import('@/views/table/filter/options/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'remote',
-    //       name: 'ComponentTableFilterRemote',
-    //       component: () => import('@/views/table/filter/remote/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'header',
-    //       name: 'ComponentTableFilterHeader',
-    //       component: () => import('@/views/table/filter/header/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'manual',
-    //       name: 'ComponentTableFilterManual',
-    //       component: () => import('@/views/table/filter/manual/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'filter',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'options',
+          name: 'ComponentTableFilterOptions',
+          component: () => import('@/views/table/filter/options/CodeExample.vue')
+        },
+        {
+          path: 'remote',
+          name: 'ComponentTableFilterRemote',
+          component: () => import('@/views/table/filter/remote/CodeExample.vue')
+        },
+        {
+          path: 'header',
+          name: 'ComponentTableFilterHeader',
+          component: () => import('@/views/table/filter/header/CodeExample.vue')
+        },
+        {
+          path: 'manual',
+          name: 'ComponentTableFilterManual',
+          component: () => import('@/views/table/filter/manual/CodeExample.vue')
+        }
+      ]
+    },
     // {
     //   path: 'merge',
     //   component: RouteLayout,
@@ -511,128 +511,128 @@ const tableRouteConfig: RouteConfig = {
     //     }
     //   ]
     // },
-    // {
-    //   path: 'toolbar',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'basic',
-    //       name: 'ComponentTableToolbarBasic',
-    //       component: () => import('@/views/table/toolbar/basic/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'custom',
-    //       name: 'ComponentTableToolbarCustom',
-    //       component: () => import('@/views/table/toolbar/custom/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'print',
-    //       name: 'ComponentTableToolbarPrint',
-    //       component: () => import('@/views/table/toolbar/print/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'import',
-    //       name: 'ComponentTableToolbarImport',
-    //       component: () => import('@/views/table/toolbar/import/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'export',
-    //       name: 'ComponentTableToolbarExport',
-    //       component: () => import('@/views/table/toolbar/export/CodeExample.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'custom',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'toolbar',
-    //       name: 'ComponentTableCustomToolbar',
-    //       component: () => import('@/views/table/custom/toolbar/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'modal',
-    //       name: 'ComponentTableCustomModal',
-    //       component: () => import('@/views/table/custom/modal/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'drawer',
-    //       name: 'ComponentTableCustomDrawer',
-    //       component: () => import('@/views/table/custom/drawer/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'visible',
-    //       name: 'ComponentTableCustomVisible',
-    //       component: () => import('@/views/table/custom/visible/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'fixed',
-    //       name: 'ComponentTableCustomFixed',
-    //       component: () => import('@/views/table/custom/fixed/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'fixedMax',
-    //       name: 'ComponentTableCustomFixedMax',
-    //       component: () => import('@/views/table/custom/fixedMax/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'resizable',
-    //       name: 'ComponentTableCustomResizable',
-    //       component: () => import('@/views/table/custom/resizable/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'sort',
-    //       name: 'ComponentTableCustomSort',
-    //       component: () => import('@/views/table/custom/sort/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'template',
-    //       name: 'ComponentTableCustomTemplate',
-    //       component: () => import('@/views/table/custom/template/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'placement',
-    //       name: 'ComponentTableCustomPlacement',
-    //       component: () => import('@/views/table/custom/placement/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'storage',
-    //       name: 'ComponentTableCustomStorage',
-    //       component: () => import('@/views/table/custom/storage/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'events',
-    //       name: 'ComponentTableCustomEvents',
-    //       component: () => import('@/views/table/custom/events/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'immediate',
-    //       name: 'ComponentTableCustomImmediate',
-    //       component: () => import('@/views/table/custom/immediate/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'remote',
-    //       name: 'ComponentTableCustomRemote',
-    //       component: () => import('@/views/table/custom/remote/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'remoteFull',
-    //       name: 'ComponentTableCustomRemoteFull',
-    //       component: () => import('@/views/table/custom/remoteFull/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'manual',
-    //       name: 'ComponentTableCustomManual',
-    //       component: () => import('@/views/table/custom/manual/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'collapseColumn',
-    //       name: 'ComponentTableCustomCollapseColumn',
-    //       component: () => import('@/views/table/custom/collapseColumn/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'toolbar',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'basic',
+          name: 'ComponentTableToolbarBasic',
+          component: () => import('@/views/table/toolbar/basic/CodeExample.vue')
+        },
+        {
+          path: 'custom',
+          name: 'ComponentTableToolbarCustom',
+          component: () => import('@/views/table/toolbar/custom/CodeExample.vue')
+        },
+        {
+          path: 'print',
+          name: 'ComponentTableToolbarPrint',
+          component: () => import('@/views/table/toolbar/print/CodeExample.vue')
+        },
+        {
+          path: 'import',
+          name: 'ComponentTableToolbarImport',
+          component: () => import('@/views/table/toolbar/import/CodeExample.vue')
+        },
+        {
+          path: 'export',
+          name: 'ComponentTableToolbarExport',
+          component: () => import('@/views/table/toolbar/export/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'custom',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'toolbar',
+          name: 'ComponentTableCustomToolbar',
+          component: () => import('@/views/table/custom/toolbar/CodeExample.vue')
+        },
+        {
+          path: 'modal',
+          name: 'ComponentTableCustomModal',
+          component: () => import('@/views/table/custom/modal/CodeExample.vue')
+        },
+        {
+          path: 'drawer',
+          name: 'ComponentTableCustomDrawer',
+          component: () => import('@/views/table/custom/drawer/CodeExample.vue')
+        },
+        {
+          path: 'visible',
+          name: 'ComponentTableCustomVisible',
+          component: () => import('@/views/table/custom/visible/CodeExample.vue')
+        },
+        {
+          path: 'fixed',
+          name: 'ComponentTableCustomFixed',
+          component: () => import('@/views/table/custom/fixed/CodeExample.vue')
+        },
+        {
+          path: 'fixedMax',
+          name: 'ComponentTableCustomFixedMax',
+          component: () => import('@/views/table/custom/fixedMax/CodeExample.vue')
+        },
+        {
+          path: 'resizable',
+          name: 'ComponentTableCustomResizable',
+          component: () => import('@/views/table/custom/resizable/CodeExample.vue')
+        },
+        {
+          path: 'sort',
+          name: 'ComponentTableCustomSort',
+          component: () => import('@/views/table/custom/sort/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          name: 'ComponentTableCustomTemplate',
+          component: () => import('@/views/table/custom/template/CodeExample.vue')
+        },
+        {
+          path: 'placement',
+          name: 'ComponentTableCustomPlacement',
+          component: () => import('@/views/table/custom/placement/CodeExample.vue')
+        },
+        {
+          path: 'storage',
+          name: 'ComponentTableCustomStorage',
+          component: () => import('@/views/table/custom/storage/CodeExample.vue')
+        },
+        {
+          path: 'events',
+          name: 'ComponentTableCustomEvents',
+          component: () => import('@/views/table/custom/events/CodeExample.vue')
+        },
+        {
+          path: 'immediate',
+          name: 'ComponentTableCustomImmediate',
+          component: () => import('@/views/table/custom/immediate/CodeExample.vue')
+        },
+        {
+          path: 'remote',
+          name: 'ComponentTableCustomRemote',
+          component: () => import('@/views/table/custom/remote/CodeExample.vue')
+        },
+        {
+          path: 'remoteFull',
+          name: 'ComponentTableCustomRemoteFull',
+          component: () => import('@/views/table/custom/remoteFull/CodeExample.vue')
+        },
+        {
+          path: 'manual',
+          name: 'ComponentTableCustomManual',
+          component: () => import('@/views/table/custom/manual/CodeExample.vue')
+        },
+        {
+          path: 'collapseColumn',
+          name: 'ComponentTableCustomCollapseColumn',
+          component: () => import('@/views/table/custom/collapseColumn/CodeExample.vue')
+        }
+      ]
+    },
     // {
     //   path: 'pager',
     //   component: RouteLayout,
@@ -760,37 +760,37 @@ const tableRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'keyboard',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'selected',
-    //       name: 'ComponentTableKeyboardSelected',
-    //       component: () => import('@/views/table/keyboard/selected/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'keyboard',
-    //       name: 'ComponentTableKeyboardKeyboard',
-    //       component: () => import('@/views/table/keyboard/keyboard/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'edit',
-    //       name: 'ComponentTableKeyboardEdit',
-    //       component: () => import('@/views/table/keyboard/edit/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'tree',
-    //       name: 'ComponentTableKeyboardTree',
-    //       component: () => import('@/views/table/keyboard/tree/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'treeEdit',
-    //       name: 'ComponentTableKeyboardTreeEdit',
-    //       component: () => import('@/views/table/keyboard/treeEdit/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'keyboard',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'selected',
+          name: 'ComponentTableKeyboardSelected',
+          component: () => import('@/views/table/keyboard/selected/CodeExample.vue')
+        },
+        {
+          path: 'keyboard',
+          name: 'ComponentTableKeyboardKeyboard',
+          component: () => import('@/views/table/keyboard/keyboard/CodeExample.vue')
+        },
+        {
+          path: 'edit',
+          name: 'ComponentTableKeyboardEdit',
+          component: () => import('@/views/table/keyboard/edit/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentTableKeyboardTree',
+          component: () => import('@/views/table/keyboard/tree/CodeExample.vue')
+        },
+        {
+          path: 'treeEdit',
+          name: 'ComponentTableKeyboardTreeEdit',
+          component: () => import('@/views/table/keyboard/treeEdit/CodeExample.vue')
+        }
+      ]
+    },
     {
       path: 'edit',
       component: RouteLayout,
@@ -1056,109 +1056,109 @@ const tableRouteConfig: RouteConfig = {
         }
       ]
     },
-    // {
-    //   path: 'template',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'default',
-    //       name: 'ComponentTableTemplateDefault',
-    //       component: () => import('@/views/table/template/default/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'header',
-    //       name: 'ComponentTableTemplateHeader',
-    //       component: () => import('@/views/table/template/header/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'footer',
-    //       name: 'ComponentTableTemplateFooter',
-    //       component: () => import('@/views/table/template/footer/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'checkbox',
-    //       name: 'ComponentTableTemplateCheckbox',
-    //       component: () => import('@/views/table/template/checkbox/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'radio',
-    //       name: 'ComponentTableTemplateRadio',
-    //       component: () => import('@/views/table/template/radio/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'content',
-    //       name: 'ComponentTableTemplateContent',
-    //       component: () => import('@/views/table/template/content/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'filter',
-    //       name: 'ComponentTableTemplateFilter',
-    //       component: () => import('@/views/table/template/filter/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'edit',
-    //       name: 'ComponentTableTemplateEdit',
-    //       component: () => import('@/views/table/template/edit/CodeExample.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'import',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'base',
-    //       name: 'ComponentTableImportBase',
-    //       component: () => import('@/views/table/import/base/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'advanced',
-    //       name: 'ComponentTableImportAdvanced',
-    //       component: () => import('@/views/table/import/advanced/CodeExample.vue')
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'export',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'base',
-    //       name: 'ComponentTableExportBase',
-    //       component: () => import('@/views/table/export/base/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'txt',
-    //       name: 'ComponentTableExportTxt',
-    //       component: () => import('@/views/table/export/txt/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'xml',
-    //       name: 'ComponentTableExportXml',
-    //       component: () => import('@/views/table/export/xml/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'html',
-    //       name: 'ComponentTableExportHtml',
-    //       component: () => import('@/views/table/export/html/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'csv',
-    //       name: 'ComponentTableExportCsv',
-    //       component: () => import('@/views/table/export/csv/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'exportMethod',
-    //       name: 'ComponentTableExportExportMethod',
-    //       component: () => import('@/views/table/export/exportMethod/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'advanced',
-    //       name: 'ComponentTableExportAdvanced',
-    //       component: () => import('@/views/table/export/advanced/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'template',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'default',
+          name: 'ComponentTableTemplateDefault',
+          component: () => import('@/views/table/template/default/CodeExample.vue')
+        },
+        {
+          path: 'header',
+          name: 'ComponentTableTemplateHeader',
+          component: () => import('@/views/table/template/header/CodeExample.vue')
+        },
+        {
+          path: 'footer',
+          name: 'ComponentTableTemplateFooter',
+          component: () => import('@/views/table/template/footer/CodeExample.vue')
+        },
+        {
+          path: 'checkbox',
+          name: 'ComponentTableTemplateCheckbox',
+          component: () => import('@/views/table/template/checkbox/CodeExample.vue')
+        },
+        {
+          path: 'radio',
+          name: 'ComponentTableTemplateRadio',
+          component: () => import('@/views/table/template/radio/CodeExample.vue')
+        },
+        {
+          path: 'content',
+          name: 'ComponentTableTemplateContent',
+          component: () => import('@/views/table/template/content/CodeExample.vue')
+        },
+        {
+          path: 'filter',
+          name: 'ComponentTableTemplateFilter',
+          component: () => import('@/views/table/template/filter/CodeExample.vue')
+        },
+        {
+          path: 'edit',
+          name: 'ComponentTableTemplateEdit',
+          component: () => import('@/views/table/template/edit/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'import',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'base',
+          name: 'ComponentTableImportBase',
+          component: () => import('@/views/table/import/base/CodeExample.vue')
+        },
+        {
+          path: 'advanced',
+          name: 'ComponentTableImportAdvanced',
+          component: () => import('@/views/table/import/advanced/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'export',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'base',
+          name: 'ComponentTableExportBase',
+          component: () => import('@/views/table/export/base/CodeExample.vue')
+        },
+        {
+          path: 'txt',
+          name: 'ComponentTableExportTxt',
+          component: () => import('@/views/table/export/txt/CodeExample.vue')
+        },
+        {
+          path: 'xml',
+          name: 'ComponentTableExportXml',
+          component: () => import('@/views/table/export/xml/CodeExample.vue')
+        },
+        {
+          path: 'html',
+          name: 'ComponentTableExportHtml',
+          component: () => import('@/views/table/export/html/CodeExample.vue')
+        },
+        {
+          path: 'csv',
+          name: 'ComponentTableExportCsv',
+          component: () => import('@/views/table/export/csv/CodeExample.vue')
+        },
+        {
+          path: 'exportMethod',
+          name: 'ComponentTableExportExportMethod',
+          component: () => import('@/views/table/export/exportMethod/CodeExample.vue')
+        },
+        {
+          path: 'advanced',
+          name: 'ComponentTableExportAdvanced',
+          component: () => import('@/views/table/export/advanced/CodeExample.vue')
+        }
+      ]
+    },
     // {
     //   path: 'print',
     //   component: RouteLayout,
@@ -1185,57 +1185,57 @@ const tableRouteConfig: RouteConfig = {
     //     }
     //   ]
     // },
-    // {
-    //   path: 'scroll',
-    //   component: RouteLayout,
-    //   children: [
-    //     {
-    //       path: 'vertical',
-    //       name: 'ComponentTableScrollVertical',
-    //       component: () => import('@/views/table/scroll/vertical/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'horizontal',
-    //       name: 'ComponentTableScrollHorizontal',
-    //       component: () => import('@/views/table/scroll/horizontal/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'hv',
-    //       name: 'ComponentTableScrollHV',
-    //       component: () => import('@/views/table/scroll/hv/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'loadData',
-    //       name: 'ComponentTableScrollLoadData',
-    //       component: () => import('@/views/table/scroll/loadData/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'rowHeight',
-    //       name: 'ComponentTableScrollRowHeight',
-    //       component: () => import('@/views/table/scroll/rowHeight/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'group',
-    //       name: 'ComponentTableScrollGroup',
-    //       component: () => import('@/views/table/scroll/group/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'keyboard',
-    //       name: 'ComponentTableScrollKeyboard',
-    //       component: () => import('@/views/table/scroll/keyboard/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'merge',
-    //       name: 'ComponentTableScrollMerge',
-    //       component: () => import('@/views/table/scroll/merge/CodeExample.vue')
-    //     },
-    //     {
-    //       path: 'tree',
-    //       name: 'ComponentTableScrollTree',
-    //       component: () => import('@/views/table/scroll/tree/CodeExample.vue')
-    //     }
-    //   ]
-    // },
+    {
+      path: 'scroll',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'vertical',
+          name: 'ComponentTableScrollVertical',
+          component: () => import('@/views/table/scroll/vertical/CodeExample.vue')
+        },
+        {
+          path: 'horizontal',
+          name: 'ComponentTableScrollHorizontal',
+          component: () => import('@/views/table/scroll/horizontal/CodeExample.vue')
+        },
+        {
+          path: 'hv',
+          name: 'ComponentTableScrollHV',
+          component: () => import('@/views/table/scroll/hv/CodeExample.vue')
+        },
+        {
+          path: 'loadData',
+          name: 'ComponentTableScrollLoadData',
+          component: () => import('@/views/table/scroll/loadData/CodeExample.vue')
+        },
+        {
+          path: 'rowHeight',
+          name: 'ComponentTableScrollRowHeight',
+          component: () => import('@/views/table/scroll/rowHeight/CodeExample.vue')
+        },
+        {
+          path: 'group',
+          name: 'ComponentTableScrollGroup',
+          component: () => import('@/views/table/scroll/group/CodeExample.vue')
+        },
+        {
+          path: 'keyboard',
+          name: 'ComponentTableScrollKeyboard',
+          component: () => import('@/views/table/scroll/keyboard/CodeExample.vue')
+        },
+        {
+          path: 'merge',
+          name: 'ComponentTableScrollMerge',
+          component: () => import('@/views/table/scroll/merge/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentTableScrollTree',
+          component: () => import('@/views/table/scroll/tree/CodeExample.vue')
+        }
+      ]
+    },
     // {
     //   path: 'search',
     //   component: RouteLayout,

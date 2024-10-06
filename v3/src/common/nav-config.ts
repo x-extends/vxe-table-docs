@@ -128,15 +128,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '自定义排序方法', routerLink: { name: 'ComponentTableSortSortMethod' } }
         //       ]
         //     },
-        //     {
-        //       title: '筛选',
-        //       children: [
-        //         { title: '修改筛选选项', routerLink: { name: 'ComponentTableFilterOptions' } },
-        //         { title: '服务端筛选', routerLink: { name: 'ComponentTableFilterRemote' } },
-        //         { title: '实现列头筛选', routerLink: { name: 'ComponentTableFilterHeader' } },
-        //         { title: '手动操作筛选', routerLink: { name: 'ComponentTableFilterManual' } }
-        //       ]
-        //     },
+        {
+          title: '筛选',
+          children: [
+            { title: '修改筛选选项', routerLink: { name: 'ComponentTableFilterOptions' } },
+            { title: '服务端筛选', routerLink: { name: 'ComponentTableFilterRemote' } },
+            { title: '实现列头筛选', routerLink: { name: 'ComponentTableFilterHeader' } },
+            { title: '手动操作筛选', routerLink: { name: 'ComponentTableFilterManual' } }
+          ]
+        },
         {
           title: '展开行',
           children: [
@@ -164,38 +164,38 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '菜单权限控制', routerLink: { name: 'ComponentTableMenuPrivilege' } }
         //       ]
         //     },
-        //     {
-        //       title: '工具栏',
-        //       children: [
-        //         { title: '工具栏布局', routerLink: { name: 'ComponentTableToolbarBasic' } },
-        //         { title: '自定义列功能', routerLink: { name: 'ComponentTableToolbarCustom' } },
-        //         { title: '打印功能', routerLink: { name: 'ComponentTableToolbarPrint' } },
-        //         { title: '导入功能', routerLink: { name: 'ComponentTableToolbarImport' } },
-        //         { title: '导出功能', routerLink: { name: 'ComponentTableToolbarExport' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '自定义列',
-        //       children: [
-        //         { title: '关联工具栏', routerLink: { name: 'ComponentTableCustomToolbar' } },
-        //         { title: '窗口模式', routerLink: { name: 'ComponentTableCustomModal' } },
-        //         { title: '抽屉模式', routerLink: { name: 'ComponentTableCustomDrawer' } },
-        //         { title: '允许调整列显示隐藏', routerLink: { name: 'ComponentTableCustomVisible' } },
-        //         { title: '允许调整列冻结', routerLink: { name: 'ComponentTableCustomFixed' } },
-        //         { title: '允许调整列宽', routerLink: { name: 'ComponentTableCustomResizable' } },
-        //         { title: '允许拖拽列顺序', routerLink: { name: 'ComponentTableCustomSort' } },
-        //         { title: '冻结列最大数量限制', routerLink: { name: 'ComponentTableCustomFixedMax' } },
-        //         { title: '自定义触发弹出设置', routerLink: { name: 'ComponentTableCustomTemplate' } },
-        //         { title: '自定义弹出位置', routerLink: { name: 'ComponentTableCustomPlacement' } },
-        //         { title: '事件监听', routerLink: { name: 'ComponentTableCustomEvents' } },
-        //         { title: '实时更新', routerLink: { name: 'ComponentTableCustomImmediate' } },
-        //         { title: '本地保存列设置', routerLink: { name: 'ComponentTableCustomStorage' } },
-        //         { title: '自定义服务端保存', routerLink: { name: 'ComponentTableCustomRemote' } },
-        //         { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentTableCustomRemoteFull' } },
-        //         { title: '实现显示/隐藏列', routerLink: { name: 'ComponentTableCustomManual' } },
-        //         { title: '实现折叠列', routerLink: { name: 'ComponentTableCustomCollapseColumn' } }
-        //       ]
-        //     },
+        {
+          title: '工具栏',
+          children: [
+            { title: '工具栏布局', routerLink: { name: 'ComponentTableToolbarBasic' } },
+            { title: '自定义列功能', routerLink: { name: 'ComponentTableToolbarCustom' } },
+            { title: '打印功能', routerLink: { name: 'ComponentTableToolbarPrint' } },
+            { title: '导入功能', routerLink: { name: 'ComponentTableToolbarImport' } },
+            { title: '导出功能', routerLink: { name: 'ComponentTableToolbarExport' } }
+          ]
+        },
+        {
+          title: '自定义列',
+          children: [
+            { title: '关联工具栏', routerLink: { name: 'ComponentTableCustomToolbar' } },
+            { title: '窗口模式', routerLink: { name: 'ComponentTableCustomModal' } },
+            { title: '抽屉模式', routerLink: { name: 'ComponentTableCustomDrawer' } },
+            { title: '允许调整列显示隐藏', routerLink: { name: 'ComponentTableCustomVisible' } },
+            { title: '允许调整列冻结', routerLink: { name: 'ComponentTableCustomFixed' } },
+            { title: '允许调整列宽', routerLink: { name: 'ComponentTableCustomResizable' } },
+            { title: '允许拖拽列顺序', routerLink: { name: 'ComponentTableCustomSort' } },
+            { title: '冻结列最大数量限制', routerLink: { name: 'ComponentTableCustomFixedMax' } },
+            { title: '自定义触发弹出设置', routerLink: { name: 'ComponentTableCustomTemplate' } },
+            { title: '自定义弹出位置', routerLink: { name: 'ComponentTableCustomPlacement' } },
+            { title: '事件监听', routerLink: { name: 'ComponentTableCustomEvents' } },
+            { title: '实时更新', routerLink: { name: 'ComponentTableCustomImmediate' } },
+            { title: '本地保存列设置', routerLink: { name: 'ComponentTableCustomStorage' } },
+            { title: '自定义服务端保存', routerLink: { name: 'ComponentTableCustomRemote' } },
+            { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentTableCustomRemoteFull' } },
+            { title: '实现显示/隐藏列', routerLink: { name: 'ComponentTableCustomManual' } },
+            { title: '实现折叠列', routerLink: { name: 'ComponentTableCustomCollapseColumn' } }
+          ]
+        },
         //     {
         //       title: '数据分页',
         //       children: [
@@ -305,52 +305,52 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
-        //     {
-        //       title: '自定义插槽模板',
-        //       children: [
-        //         { title: '自定义单元格模板', routerLink: { name: 'ComponentTableTemplateDefault' } },
-        //         { title: '自定义表头模板', routerLink: { name: 'ComponentTableTemplateHeader' } },
-        //         { title: '自定义表尾模板', routerLink: { name: 'ComponentTableTemplateFooter' } },
-        //         { title: '自定义复选框模板', routerLink: { name: 'ComponentTableTemplateCheckbox' } },
-        //         { title: '自定义单选框模板', routerLink: { name: 'ComponentTableTemplateRadio' } },
-        //         { title: '自定义展开行模板', routerLink: { name: 'ComponentTableTemplateContent' } },
-        //         { title: '自定义筛选模板', routerLink: { name: 'ComponentTableTemplateFilter' } },
-        //         { title: '自定义编辑模板', routerLink: { name: 'ComponentTableTemplateEdit' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '按键导航',
-        //       children: [
-        //         { title: '单元格选中', routerLink: { name: 'ComponentTableKeyboardSelected' } },
-        //         { title: '按键操作', routerLink: { name: 'ComponentTableKeyboardKeyboard' } },
-        //         { title: '可编辑按键操作', routerLink: { name: 'ComponentTableKeyboardEdit' } },
-        //         { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
-        //         { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
-        //         { title: 'Excel 单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/singleArea' },
-        //         { title: 'Excel 复制与粘贴', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/areaClip' }
-        //       ]
-        //     },
-        //     {
-        //       title: '导出数据',
-        //       children: [
-        //         { title: '导出数据', routerLink: { name: 'ComponentTableExportBase' } },
-        //         { title: '导出 TXT 格式', routerLink: { name: 'ComponentTableExportTxt' } },
-        //         { title: '导出 XML 格式', routerLink: { name: 'ComponentTableExportXml' } },
-        //         { title: '导出 HTML 格式', routerLink: { name: 'ComponentTableExportHtml' } },
-        //         { title: '导出 CSV 格式', routerLink: { name: 'ComponentTableExportCsv' } },
-        //         { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/export` },
-        //         { title: '格式化单元格内容', routerLink: { name: 'ComponentTableExportExportMethod' } },
-        //         { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '导入数据',
-        //       children: [
-        //         { title: '导入数据', routerLink: { name: 'ComponentTableImportBase' } },
-        //         { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/import` },
-        //         { title: '高级导入', routerLink: { name: 'ComponentTableImportAdvanced' } }
-        //       ]
-        //     },
+        {
+          title: '自定义插槽模板',
+          children: [
+            { title: '自定义单元格模板', routerLink: { name: 'ComponentTableTemplateDefault' } },
+            { title: '自定义表头模板', routerLink: { name: 'ComponentTableTemplateHeader' } },
+            { title: '自定义表尾模板', routerLink: { name: 'ComponentTableTemplateFooter' } },
+            { title: '自定义复选框模板', routerLink: { name: 'ComponentTableTemplateCheckbox' } },
+            { title: '自定义单选框模板', routerLink: { name: 'ComponentTableTemplateRadio' } },
+            { title: '自定义展开行模板', routerLink: { name: 'ComponentTableTemplateContent' } },
+            { title: '自定义筛选模板', routerLink: { name: 'ComponentTableTemplateFilter' } },
+            { title: '自定义编辑模板', routerLink: { name: 'ComponentTableTemplateEdit' } }
+          ]
+        },
+        {
+          title: '按键导航',
+          children: [
+            { title: '单元格选中', routerLink: { name: 'ComponentTableKeyboardSelected' } },
+            { title: '按键操作', routerLink: { name: 'ComponentTableKeyboardKeyboard' } },
+            { title: '可编辑按键操作', routerLink: { name: 'ComponentTableKeyboardEdit' } },
+            { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
+            { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
+            { title: 'Excel 单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/singleArea' },
+            { title: 'Excel 复制与粘贴', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/areaClip' }
+          ]
+        },
+        {
+          title: '导出数据',
+          children: [
+            { title: '导出数据', routerLink: { name: 'ComponentTableExportBase' } },
+            { title: '导出 TXT 格式', routerLink: { name: 'ComponentTableExportTxt' } },
+            { title: '导出 XML 格式', routerLink: { name: 'ComponentTableExportXml' } },
+            { title: '导出 HTML 格式', routerLink: { name: 'ComponentTableExportHtml' } },
+            { title: '导出 CSV 格式', routerLink: { name: 'ComponentTableExportCsv' } },
+            { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/export` },
+            { title: '格式化单元格内容', routerLink: { name: 'ComponentTableExportExportMethod' } },
+            { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } }
+          ]
+        },
+        {
+          title: '导入数据',
+          children: [
+            { title: '导入数据', routerLink: { name: 'ComponentTableImportBase' } },
+            { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/import` },
+            { title: '高级导入', routerLink: { name: 'ComponentTableImportAdvanced' } }
+          ]
+        },
         //     {
         //       title: '打印表格',
         //       children: [
@@ -360,20 +360,20 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         //         { title: '实现打印多张表格', routerLink: { name: 'ComponentTablePrintMultilist' } }
         //       ]
         //     },
-        //     {
-        //       title: '虚拟滚动（超大数据量表格）',
-        //       children: [
-        //         { title: '纵向虚拟滚动', routerLink: { name: 'ComponentTableScrollVertical' } },
-        //         { title: '横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHorizontal' } },
-        //         { title: '纵向和横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHV' } },
-        //         { title: '函数式加载数据', routerLink: { name: 'ComponentTableScrollLoadData' } },
-        //         { title: '设置行高', routerLink: { name: 'ComponentTableScrollRowHeight' } },
-        //         { title: '使用分组表头', routerLink: { name: 'ComponentTableScrollGroup' } },
-        //         { title: '按键导航', routerLink: { name: 'ComponentTableScrollKeyboard' } },
-        //         { title: '单元格合并', routerLink: { name: 'ComponentTableScrollMerge' } },
-        //         { title: '树形虚拟滚动', routerLink: { name: 'ComponentTableScrollTree' } }
-        //       ]
-        //     },
+        {
+          title: '虚拟滚动（超大数据量表格）',
+          children: [
+            { title: '纵向虚拟滚动', routerLink: { name: 'ComponentTableScrollVertical' } },
+            { title: '横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHorizontal' } },
+            { title: '纵向和横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHV' } },
+            { title: '函数式加载数据', routerLink: { name: 'ComponentTableScrollLoadData' } },
+            { title: '设置行高', routerLink: { name: 'ComponentTableScrollRowHeight' } },
+            { title: '使用分组表头', routerLink: { name: 'ComponentTableScrollGroup' } },
+            { title: '按键导航', routerLink: { name: 'ComponentTableScrollKeyboard' } },
+            { title: '单元格合并', routerLink: { name: 'ComponentTableScrollMerge' } },
+            { title: '树形虚拟滚动', routerLink: { name: 'ComponentTableScrollTree' } }
+          ]
+        },
         //     {
         //       title: '表格搜索',
         //       children: [
