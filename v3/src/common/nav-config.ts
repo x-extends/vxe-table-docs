@@ -76,16 +76,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '完整案例', routerLink: { name: 'ComponentTableBaseFull' } }
           ]
         },
-        //     {
-        //       title: '单元格合并',
-        //       children: [
-        //         { title: '将多行进行合并', routerLink: { name: 'ComponentTableMergeRow' } },
-        //         { title: '将多列进行合并', routerLink: { name: 'ComponentTableMergeColumn' } },
-        //         { title: '合并行与列', routerLink: { name: 'ComponentTableMergeAll' } },
-        //         { title: '表尾合并', routerLink: { name: 'ComponentTableMergeFooter' } },
-        //         { title: '实现横向树', routerLink: { name: 'ComponentTableMergeHorizontal' } }
-        //       ]
-        //     },
+        {
+          title: '单元格合并',
+          children: [
+            { title: '将多行进行合并', routerLink: { name: 'ComponentTableMergeRow' } },
+            { title: '将多列进行合并', routerLink: { name: 'ComponentTableMergeColumn' } },
+            { title: '合并行与列', routerLink: { name: 'ComponentTableMergeAll' } },
+            { title: '表尾合并', routerLink: { name: 'ComponentTableMergeFooter' } },
+            { title: '实现横向树', routerLink: { name: 'ComponentTableMergeHorizontal' } }
+          ]
+        },
         {
           title: '表尾数据',
           children: [
@@ -95,39 +95,39 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义插槽模板', routerLink: { name: 'ComponentTableFooterTemplate' } }
           ]
         },
-        //     {
-        //       title: '单选框',
-        //       children: [
-        //         { title: '高亮选择行', routerLink: { name: 'ComponentTableRadioHighlight' } },
-        //         { title: '禁用', routerLink: { name: 'ComponentTableRadioCheckMethod' } },
-        //         { title: '显示隐藏', routerLink: { name: 'ComponentTableRadioVisibleMethod' } },
-        //         { title: '自定义模板', routerLink: { name: 'ComponentTableRadioTemplate' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '复选框',
-        //       children: [
-        //         { title: '高亮选择行', routerLink: { name: 'ComponentTableCheckboxHighlight' } },
-        //         { title: '绑定字段', routerLink: { name: 'ComponentTableCheckboxField' } },
-        //         { title: '禁用', routerLink: { name: 'ComponentTableCheckboxCheckMethod' } },
-        //         { title: '显示隐藏', routerLink: { name: 'ComponentTableCheckboxVisibleMethod' } },
-        //         { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentTableCheckboxRange' } },
-        //         { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' },
-        //         { title: '自定义模板', routerLink: { name: 'ComponentTableCheckboxTemplate' } }
-        //       ]
-        //     },
-        //     {
-        //       title: '排序',
-        //       children: [
-        //         { title: '多字段排序', routerLink: { name: 'ComponentTableSortMultiple' } },
-        //         { title: '触发方式', routerLink: { name: 'ComponentTableSortTrigger' } },
-        //         { title: '自定义轮询', routerLink: { name: 'ComponentTableSortOrders' } },
-        //         { title: '设置默认排序', routerLink: { name: 'ComponentTableSortDefaultSort' } },
-        //         { title: '服务端排序', routerLink: { name: 'ComponentTableSortRemote' } },
-        //         { title: '设置值的类型', routerLink: { name: 'ComponentTableSortSortType' } },
-        //         { title: '自定义排序方法', routerLink: { name: 'ComponentTableSortSortMethod' } }
-        //       ]
-        //     },
+        {
+          title: '单选框',
+          children: [
+            { title: '高亮选择行', routerLink: { name: 'ComponentTableRadioHighlight' } },
+            { title: '禁用', routerLink: { name: 'ComponentTableRadioCheckMethod' } },
+            { title: '显示隐藏', routerLink: { name: 'ComponentTableRadioVisibleMethod' } },
+            { title: '自定义模板', routerLink: { name: 'ComponentTableRadioTemplate' } }
+          ]
+        },
+        {
+          title: '复选框',
+          children: [
+            { title: '高亮选择行', routerLink: { name: 'ComponentTableCheckboxHighlight' } },
+            { title: '绑定字段', routerLink: { name: 'ComponentTableCheckboxField' } },
+            { title: '禁用', routerLink: { name: 'ComponentTableCheckboxCheckMethod' } },
+            { title: '显示隐藏', routerLink: { name: 'ComponentTableCheckboxVisibleMethod' } },
+            { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentTableCheckboxRange' } },
+            { title: '范围选择与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' },
+            { title: '自定义模板', routerLink: { name: 'ComponentTableCheckboxTemplate' } }
+          ]
+        },
+        {
+          title: '排序',
+          children: [
+            { title: '多字段排序', routerLink: { name: 'ComponentTableSortMultiple' } },
+            { title: '触发方式', routerLink: { name: 'ComponentTableSortTrigger' } },
+            { title: '自定义轮询', routerLink: { name: 'ComponentTableSortOrders' } },
+            { title: '设置默认排序', routerLink: { name: 'ComponentTableSortDefaultSort' } },
+            { title: '服务端排序', routerLink: { name: 'ComponentTableSortRemote' } },
+            { title: '设置值的类型', routerLink: { name: 'ComponentTableSortSortType' } },
+            { title: '自定义排序方法', routerLink: { name: 'ComponentTableSortSortMethod' } }
+          ]
+        },
         {
           title: '筛选',
           children: [
@@ -152,18 +152,18 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现展开子表格', routerLink: { name: 'ComponentTableExpandChildTable' } }
           ]
         },
-        //     {
-        //       title: '右键菜单',
-        //       children: [
-        //         { title: '表头菜单', routerLink: { name: 'ComponentTableMenuHeader' } },
-        //         { title: '单元格菜单', routerLink: { name: 'ComponentTableMenuBody' } },
-        //         { title: '表尾菜单', routerLink: { name: 'ComponentTableMenuFooter' } },
-        //         { title: '自定义前缀', routerLink: { name: 'ComponentTableMenuPrefixConfig' } },
-        //         { title: '自定义后缀', routerLink: { name: 'ComponentTableMenuSuffixConfig' } },
-        //         { title: '完整右键菜单', routerLink: { name: 'ComponentTableMenuFull' } },
-        //         { title: '菜单权限控制', routerLink: { name: 'ComponentTableMenuPrivilege' } }
-        //       ]
-        //     },
+        {
+          title: '右键菜单',
+          children: [
+            { title: '表头菜单', routerLink: { name: 'ComponentTableMenuHeader' } },
+            { title: '单元格菜单', routerLink: { name: 'ComponentTableMenuBody' } },
+            { title: '表尾菜单', routerLink: { name: 'ComponentTableMenuFooter' } },
+            { title: '自定义前缀', routerLink: { name: 'ComponentTableMenuPrefixConfig' } },
+            { title: '自定义后缀', routerLink: { name: 'ComponentTableMenuSuffixConfig' } },
+            { title: '完整右键菜单', routerLink: { name: 'ComponentTableMenuFull' } },
+            { title: '菜单权限控制', routerLink: { name: 'ComponentTableMenuPrivilege' } }
+          ]
+        },
         {
           title: '工具栏',
           children: [
@@ -196,14 +196,14 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现折叠列', routerLink: { name: 'ComponentTableCustomCollapseColumn' } }
           ]
         },
-        //     {
-        //       title: '数据分页',
-        //       children: [
-        //         { title: '实现前端分页', routerLink: { name: 'ComponentTablePagerMockPage' } },
-        //         { title: '自定义布局', routerLink: { name: 'ComponentTablePagerLayouts' } },
-        //         { title: '自定义序号', routerLink: { name: 'ComponentTablePagerStart' } }
-        //       ]
-        //     },
+        {
+          title: '数据分页',
+          children: [
+            { title: '实现前端分页', routerLink: { name: 'ComponentTablePagerMockPage' } },
+            { title: '自定义布局', routerLink: { name: 'ComponentTablePagerLayouts' } },
+            { title: '自定义序号', routerLink: { name: 'ComponentTablePagerStart' } }
+          ]
+        },
         {
           title: '树形',
           children: [
@@ -351,15 +351,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '高级导入', routerLink: { name: 'ComponentTableImportAdvanced' } }
           ]
         },
-        //     {
-        //       title: '打印表格',
-        //       children: [
-        //         { title: '打印表格', routerLink: { name: 'ComponentTablePrintBase' } },
-        //         { title: '高级打印', routerLink: { name: 'ComponentTablePrintAdvanced' } },
-        //         { title: '实现将表格切割为多页打印', routerLink: { name: 'ComponentTablePrintPage' } },
-        //         { title: '实现打印多张表格', routerLink: { name: 'ComponentTablePrintMultilist' } }
-        //       ]
-        //     },
+        {
+          title: '打印表格',
+          children: [
+            { title: '打印表格', routerLink: { name: 'ComponentTablePrintBase' } },
+            { title: '高级打印', routerLink: { name: 'ComponentTablePrintAdvanced' } },
+            { title: '实现将表格切割为多页打印', routerLink: { name: 'ComponentTablePrintPage' } },
+            { title: '实现打印多张表格', routerLink: { name: 'ComponentTablePrintMultilist' } }
+          ]
+        },
         {
           title: '虚拟滚动（超大数据量表格）',
           children: [
@@ -374,14 +374,14 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '树形虚拟滚动', routerLink: { name: 'ComponentTableScrollTree' } }
           ]
         },
-        //     {
-        //       title: '表格搜索',
-        //       children: [
-        //         { title: '实现表格搜索', routerLink: { name: 'ComponentTableSearchList' } },
-        //         { title: '实现树形表格搜索', routerLink: { name: 'ComponentTableSearchTree' } },
-        //         { title: '查找与替换', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/areaFNR' }
-        //       ]
-        //     },
+        {
+          title: '表格搜索',
+          children: [
+            { title: '实现表格搜索', routerLink: { name: 'ComponentTableSearchList' } },
+            { title: '实现树形表格搜索', routerLink: { name: 'ComponentTableSearchTree' } },
+            { title: '查找与替换', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/areaFNR' }
+          ]
+        },
         {
           title: '事件监听',
           children: [

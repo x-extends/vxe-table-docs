@@ -1,0 +1,79 @@
+<template>
+  <div>
+    <vxe-button @click="selectRowEvent(tableData[1], true)">选中第二行</vxe-button>
+    <vxe-button @click="selectRowEvent(tableData[1], false)">取消选中第二行</vxe-button>
+
+    <vxe-table border ref="tableRef" :data="tableData">
+      <vxe-column type="checkbox" width="80">
+        <template #header="{ checked, indeterminate }">
+          <span class="custom-checkbox" @click.stop="toggleAllCheckboxEvent">
+            <i v-if="indeterminate" class="vxe-icon-square-minus-fill"></i>
+            <i v-else-if="checked" class="vxe-icon-square-checked-fill"></i>
+            <i v-else class="vxe-icon-checkbox-unchecked"></i>
+          </span>
+        </template>
+        <template #checkbox="{ row, checked, indeterminate }">
+          <span class="custom-checkbox" @click.stop="toggleCheckboxEvent(row)">
+            <i v-if="indeterminate" class="vxe-icon-square-minus-fill"></i>
+            <i v-else-if="checked" class="vxe-icon-square-checked-fill"></i>
+            <i v-else class="vxe-icon-checkbox-unchecked"></i>
+          </span>
+        </template>
+      </vxe-column>
+      <vxe-column field="name" title="Name" width="160"></vxe-column>
+      <vxe-column field="sex" title="Sex"></vxe-column>
+      <vxe-column field="num" title="Number"></vxe-column>
+      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="address" title="Address"></vxe-column>
+    </vxe-table>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import type { VxeTableInstance } from 'vxe-table'
+
+interface RowVO {
+  id: number
+  name: string
+  role: string
+  sex: string
+  age: number
+  num: number
+  address: string
+}
+
+export default Vue.extend({
+  data () {
+    const tableData: RowVO[] = [
+      { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
+      { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
+      { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
+    ]
+
+    return {
+      tableData
+    }
+  },
+  methods: {
+    toggleAllCheckboxEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance
+      if ($table) {
+        $table.toggleAllCheckboxRow()
+      }
+    },
+    toggleCheckboxEvent (row) {
+      const $table = this.$refs.tableRef as VxeTableInstance
+      if ($table) {
+        $table.toggleCheckboxRow(row)
+      }
+    },
+    selectRowEvent (row: RowVO, checked: boolean) {
+      const $table = this.$refs.tableRef as VxeTableInstance
+      if ($table) {
+        $table.setCheckboxRow(row, checked)
+      }
+    }
+  }
+})
+</script>
