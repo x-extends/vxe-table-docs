@@ -6,6 +6,7 @@ import PageLayout from '@/components/PageLayout.vue'
 import StartInstall from '@/views/start/install/CodeExample.vue'
 import StartUseGlobal from '@/views/start/useGlobal/CodeExample.vue'
 import StartUseImport from '@/views/start/useImport/CodeExample.vue'
+import StartCDN from '@/views/start/cdn/CodeExample.vue'
 import StartIcons from '@/views/start/icon/CodeExample.vue'
 import StartConfig from '@/views/start/config/CodeExample.vue'
 import StartTheme from '@/views/start/theme/CodeExample.vue'
@@ -2639,6 +2640,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'useImport',
         name: 'StartUseImport',
         component: StartUseImport
+      },
+      {
+        path: 'cdn',
+        name: 'StartCDN',
+        component: StartCDN
       },
       {
         path: 'global',

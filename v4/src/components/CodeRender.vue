@@ -1,6 +1,6 @@
 <template>
   <pre>
-    <code class="hljs " :class="language" ref="codeRef"></code>
+    <code class="hljs" :class="language" ref="codeRef"></code>
   </pre>
 </template>
 
