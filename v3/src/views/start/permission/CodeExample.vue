@@ -38,6 +38,11 @@
             &lt;vxe-button permission-code="xxx"&gt;按钮&lt;/vxe-button&gt;
             &lt;vxe-link permission-code="xxx"&gt;链接&lt;/vxe-link&gt;
           </pre-code>
+          <div>如果多个权限码，支持分隔符：|（或）</div>
+          <pre-code class="html">
+            &lt;vxe-button permission-code="aaa|bbb"&gt;按钮&lt;/vxe-button&gt;
+            &lt;vxe-link permission-code="aaa|bbb"&gt;链接&lt;/vxe-link&gt;
+          </pre-code>
         </pre>
       </template>
     </CodeLight>
