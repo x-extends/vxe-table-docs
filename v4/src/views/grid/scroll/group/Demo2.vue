@@ -4,30 +4,31 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+<script lang="ts" setup>
+import { reactive } from 'vue'
+import type { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
   [key: string]: string | number
 }
 
-export default Vue.extend({
-  data () {
-    const gridOptions: VxeGridProps<RowVO> = {
-      border: true,
-      showHeaderOverflow: true,
-      showFooterOverflow: true,
-      height: 600,
-      columnConfig: {
-        resizable: true
-      },
-      scrollX: {
-        enabled: true,
-        gt: 0
-      },
-      columns: [
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  showOverflow: true,
+  height: 600,
+  columnConfig: {
+    resizable: true
+  },
+  scrollX: {
+    enabled: true,
+    gt: 0
+  },
+  columns: [
+    { type: 'seq', width: 70 },
+    {
+      title: '分组1',
+      children: [
         { title: '列0', field: 'col0', width: 160 },
         { title: '列1', field: 'col1', width: 100 },
         { title: '列2', field: 'col2', width: 160 },
@@ -40,7 +41,12 @@ export default Vue.extend({
         { title: '列9', field: 'col9', width: 160 },
         { title: '列10', field: 'col10', width: 160 },
         { title: '列11', field: 'col11', width: 180 },
-        { title: '列12', field: 'col12', width: 160 },
+        { title: '列12', field: 'col12', width: 160 }
+      ]
+    },
+    {
+      title: '分组1',
+      children: [
         { title: '列13', field: 'col13', width: 80 },
         { title: '列14', field: 'col14', width: 120 },
         { title: '列15', field: 'col15', width: 360 },
@@ -55,7 +61,12 @@ export default Vue.extend({
         { title: '列24', field: 'col24', width: 330 },
         { title: '列25', field: 'col25', width: 460 },
         { title: '列26', field: 'col26', width: 280 },
-        { title: '列27', field: 'col27', width: 220 },
+        { title: '列27', field: 'col27', width: 220 }
+      ]
+    },
+    {
+      title: '分组3',
+      children: [
         { title: '列28', field: 'col28', width: 120 },
         { title: '列29', field: 'col29', width: 180 },
         { title: '列30', field: 'col30', width: 500 },
@@ -74,13 +85,18 @@ export default Vue.extend({
         { title: '列43', field: 'col43', width: 280 },
         { title: '列44', field: 'col44', width: 170 },
         { title: '列45', field: 'col45', width: 370 },
-        { title: '列46', field: 'col46', width: 420 },
+        { title: '列46', field: 'col46', width: 120 },
         { title: '列47', field: 'col47', width: 170 },
         { title: '列48', field: 'col48', width: 400 },
         { title: '列49', field: 'col49', width: 220 },
         { title: '列50', field: 'col50', width: 170 },
         { title: '列51', field: 'col51', width: 160 },
-        { title: '列52', field: 'col52', width: 500 },
+        { title: '列52', field: 'col52', width: 100 }
+      ]
+    },
+    {
+      title: '分组4',
+      children: [
         { title: '列53', field: 'col53', width: 280 },
         { title: '列54', field: 'col54', width: 170 },
         { title: '列55', field: 'col55', width: 370 },
@@ -115,41 +131,34 @@ export default Vue.extend({
         { title: '列87', field: 'col87', width: 400 },
         { title: '列88', field: 'col88', width: 800 },
         { title: '列89', field: 'col89', width: 360 }
-      ],
-      data: []
+      ]
     }
-
-    return {
-      gridOptions
-    }
-  },
-  methods: {
-    // 模拟行与列数据
-    loadDataAndColumns (rowSize: number) {
-      const colList: VxeGridPropTypes.Columns = []
-      for (let i = 0; i < 90; i++) {
-        colList.push({
-          field: `col${i}`,
-          title: `标题${i}`,
-          width: 160
-        })
-      }
-      const dataList: RowVO[] = []
-      for (let i = 0; i < rowSize; i++) {
-        const item: RowVO = {
-          id: 10000 + i
-        }
-        for (let j = 0; j < colList.length; j++) {
-          item[`col${j}`] = `值_${i}_${j}`
-        }
-        dataList.push(item)
-      }
-      this.gridOptions.data = dataList
-    }
-
-  },
-  created () {
-    this.loadDataAndColumns(20)
-  }
+  ],
+  data: []
 })
+
+// 模拟行与列数据
+const loadDataAndColumns = (rowSize: number) => {
+  const colList: VxeGridPropTypes.Columns = []
+  for (let i = 0; i < 90; i++) {
+    colList.push({
+      field: `col${i}`,
+      title: `标题${i}`,
+      width: 160
+    })
+  }
+  const dataList: RowVO[] = []
+  for (let i = 0; i < rowSize; i++) {
+    const item: RowVO = {
+      id: 10000 + i
+    }
+    for (let j = 0; j < colList.length; j++) {
+      item[`col${j}`] = `值_${i}_${j}`
+    }
+    dataList.push(item)
+  }
+  gridOptions.data = dataList
+}
+
+loadDataAndColumns(20)
 </script>

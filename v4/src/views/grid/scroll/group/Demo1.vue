@@ -20,7 +20,10 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
-  height: 800,
+  height: 600,
+  columnConfig: {
+    resizable: true
+  },
   scrollY: {
     enabled: true,
     gt: 0
