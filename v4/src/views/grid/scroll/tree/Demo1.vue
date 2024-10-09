@@ -3,11 +3,11 @@
     <vxe-toolbar>
       <template #buttons>
         <vxe-button @click="expandAllEvent">展开所有</vxe-button>
-        <vxe-button @click="claseExpandEvent">收起所有</vxe-button>
+        <vxe-button @click="clearExpandEvent">收起所有</vxe-button>
       </template>
     </vxe-toolbar>
 
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -28,6 +28,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   height: 800,
   loading: false,
+  treeConfig: {
+    transform: true
+  },
   scrollY: {
     enabled: true,
     gt: 0
@@ -55,7 +58,7 @@ const expandAllEvent = () => {
   }
 }
 
-const claseExpandEvent = () => {
+const clearExpandEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.clearTreeExpand()

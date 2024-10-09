@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" v-on="gridEvents">
+    <vxe-grid v-bind="gridOptions">
       <template #nameItem="{ data }">
         <vxe-input v-model="data.name"></vxe-input>
       </template>
@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeGridProps, VxeGridListeners, VxeFormInstance } from 'vxe-table'
+import { VxeGridProps, VxeFormInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -84,14 +84,6 @@ const resetEvent = () => {
   if ($form) {
     $form.reset()
   }
-}
-
-const gridEvents: VxeGridListeners = {
-  formSubmit () {
-    console.log('form submit')
-  },
-  formReset () {
-    console.log('form reset')
-  }
+  console.log('reset form')
 }
 </script>

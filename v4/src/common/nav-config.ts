@@ -302,6 +302,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentTableEditTemplateVxeNumberInput' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentTableEditTemplateVxeDatePicker' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentTableEditTemplateVxeSelect' } },
+            { title: 'VxePulldown', routerLink: { name: 'ComponentTableEditTemplateVxePulldown' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
@@ -672,6 +673,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridEditTemplateVxeNumberInput' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditTemplateVxeDatePicker' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditTemplateVxeSelect' } },
+            { title: 'VxePulldown', routerLink: { name: 'ComponentGridEditTemplateVxePulldown' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
           ]
         },
@@ -797,7 +799,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '其他',
           children: [
             { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
-            { title: '多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } }
+            { title: '文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
+            { title: '多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
+            { title: '动态生成月份表头', routerLink: { name: 'ComponentGridOtherYearMonth' } }
           ]
         }
       ]

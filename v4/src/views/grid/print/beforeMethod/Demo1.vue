@@ -36,63 +36,63 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-// 打印样式
-const printStyle = `
-.title {
-  text-align: center;
-}
-.my-list-row {
-  display: inline-block;
-  width: 100%;
-}
-.my-list-col {
-  float: left;
-  width: 33.33%;
-  height: 28px;
-  line-height: 28px;
-}
-.my-top,
-.my-bottom {
-  font-size: 12px;
-}
-.my-top {
-  margin-bottom: 5px;
-}
-.my-bottom {
-  margin-top: 30px;
-  text-align: right;
-}
-`
-
-// 打印顶部内容模板
-const topHtml = `
-<h1 class="title">出货单据</h1>
-<div class="my-top">
-  <div class="my-list-row">
-    <div class="my-list-col">商品名称：vxe-table</div>
-    <div class="my-list-col">发货单号：X2665847132654</div>
-    <div class="my-list-col">发货日期：2020-09-20</div>
-  </div>
-  <div class="my-list-row">
-    <div class="my-list-col">收货姓名：小徐</div>
-    <div class="my-list-col">收货地址：火星第七区18号001</div>
-    <div class="my-list-col">联系电话：10086</div>
-  </div>
-</div>
-`
-
-// 打印底部内容模板
-const bottomHtml = `
-<div class="my-bottom">
-  <div class="my-list-row">
-    <div class="my-list-col"></div>
-    <div class="my-list-col">创建人：小徐</div>
-    <div class="my-list-col">创建日期：2020-09-20</div>
-  </div>
-</div>
-`
-
 const printEvent = () => {
+  // 打印样式
+  const printStyle = `
+  .title {
+    text-align: center;
+  }
+  .my-list-row {
+    display: inline-block;
+    width: 100%;
+  }
+  .my-list-col {
+    float: left;
+    width: 33.33%;
+    height: 28px;
+    line-height: 28px;
+  }
+  .my-top,
+  .my-bottom {
+    font-size: 12px;
+  }
+  .my-top {
+    margin-bottom: 5px;
+  }
+  .my-bottom {
+    margin-top: 30px;
+    text-align: right;
+  }
+  `
+
+  // 打印顶部内容模板
+  const topHtml = `
+  <h1 class="title">出货单据</h1>
+  <div class="my-top">
+    <div class="my-list-row">
+      <div class="my-list-col">商品名称：vxe-table</div>
+      <div class="my-list-col">发货单号：X2665847132654</div>
+      <div class="my-list-col">发货日期：2020-09-20</div>
+    </div>
+    <div class="my-list-row">
+      <div class="my-list-col">收货姓名：小徐</div>
+      <div class="my-list-col">收货地址：火星第七区18号001</div>
+      <div class="my-list-col">联系电话：10086</div>
+    </div>
+  </div>
+  `
+
+  // 打印底部内容模板
+  const bottomHtml = `
+  <div class="my-bottom">
+    <div class="my-list-row">
+      <div class="my-list-col"></div>
+      <div class="my-list-col">创建人：小徐</div>
+      <div class="my-list-col">创建日期：2020-09-20</div>
+    </div>
+  </div>
+  `
+
   const $grid = gridRef.value
   if ($grid) {
     $grid.print({

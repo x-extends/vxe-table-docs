@@ -22,7 +22,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -33,7 +32,7 @@ interface RowVO {
   address: string
 }
 
-const tableData = ref<VxeTablePropTypes.Data<RowVO>>([])
+const tableData = ref<RowVO[]>([])
 
 // 模拟行数据
 const loadList = (size = 200) => {

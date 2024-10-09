@@ -2,7 +2,6 @@
   <div>
     <vxe-table
       height="400"
-      ref="tableRef"
       :data="tableData"
       :tree-config="{transform: true}">
       <vxe-column type="seq" width="140" tree-node></vxe-column>
@@ -16,7 +15,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -26,8 +24,6 @@ interface RowVO {
   size: number
   date: string
 }
-
-const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },

@@ -4,7 +4,7 @@
       border
       :column-config="{resizable: true}"
       :tree-config="{transform: true}"
-      :expand-config="tableExpand"
+      :expand-config="expandConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column type="expand" width="80">
@@ -98,7 +98,7 @@ const getDataApi = () => {
   })
 }
 
-const tableExpand = ref<VxeTablePropTypes.ExpandConfig<RowVO>>({
+const expandConfig = ref<VxeTablePropTypes.ExpandConfig<RowVO>>({
   lazy: true,
   async loadMethod ({ row }) {
     row.childCols = await getColumnApi()

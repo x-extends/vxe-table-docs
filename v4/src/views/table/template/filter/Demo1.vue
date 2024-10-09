@@ -1,11 +1,11 @@
 <template>
   <div>
-    <vxe-table border :data="tableData">
+    <vxe-table ref="tableRef" border :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" width="160"></vxe-column>
       <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-method="sexFilterMethod">
-        <template #filter="{ $panel, column }">
-          <input class="my-filter" type="type" v-model="option.data" v-for="(option, index) in column.filters" :key="index" @input="changeFilterEvent($event, option, $panel)">
+        <template #filter="{ column }">
+          <input class="my-filter" type="type" v-model="option.data" v-for="(option, index) in column.filters" :key="index" @input="changeFilterEvent(option)">
         </template>
       </vxe-column>
       <vxe-column field="num" title="Number"></vxe-column>
@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeColumnPropTypes } from 'vxe-table'
+import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -28,6 +28,8 @@ interface RowVO {
   num: number
   address: string,
 }
+
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
@@ -43,7 +45,10 @@ const sexFilterMethod: VxeColumnPropTypes.FilterMethod = ({ option, cellValue })
   return option.data === cellValue
 }
 
-const changeFilterEvent = (event: any, option: any, $panel: any) => {
-  $panel.changeOption(event, !!option.data, option)
+const changeFilterEvent = (option: any) => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.updateFilterOptionStatus(option, !!option.data)
+  }
 }
 </script>

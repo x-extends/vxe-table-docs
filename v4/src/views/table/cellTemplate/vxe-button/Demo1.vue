@@ -8,8 +8,15 @@
       <vxe-column field="name" title="Name" min-width="200"></vxe-column>
       <vxe-column field="active" title="按钮" width="200">
         <template #default>
-        <vxe-button mode="text" @click="viewEvent">查看</vxe-button>
-        <vxe-button mode="text" status="error" @click="delEvent">删除</vxe-button>
+          <vxe-button mode="text" @click="viewEvent">查看</vxe-button>
+          <vxe-button mode="text" status="error" @click="delEvent">删除</vxe-button>
+          <vxe-button mode="text" content="更多">
+            <template #dropdowns>
+              <vxe-button mode="text" @click="downloadEvent">下载</vxe-button>
+              <vxe-button mode="text">导出数据</vxe-button>
+              <vxe-button mode="text">导入数据</vxe-button>
+            </template>
+          </vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -45,4 +52,12 @@ const delEvent = () => {
     content: '请您确认是否删除？'
   })
 }
+
+const downloadEvent = () => {
+  VxeUI.modal.message({
+    content: '点击了下载',
+    status: 'success'
+  })
+}
+
 </script>

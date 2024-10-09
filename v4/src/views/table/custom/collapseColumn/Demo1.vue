@@ -60,13 +60,12 @@ const collapsable1Event = () => {
     const fields = ['role', 'sex']
     collapsable1.value = !collapsable1.value
     fields.forEach(field => {
-      const column = $table.getColumnByField(field)
-      if (column) {
-        // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
-        column.visible = collapsable1.value
+      if (collapsable1.value) {
+        $table.showColumn(field)
+      } else {
+        $table.hideColumn(field)
       }
     })
-    $table.refreshColumn()
   }
 }
 
@@ -76,13 +75,12 @@ const collapsable2Event = () => {
     const fields = ['rate', 'address']
     collapsable2.value = !collapsable2.value
     fields.forEach(field => {
-      const column = $table.getColumnByField(field)
-      if (column) {
-        // 如果是直接修改实例属性，则需要调用 refreshColumn 刷新列
-        column.visible = collapsable2.value
+      if (collapsable2.value) {
+        $table.showColumn(field)
+      } else {
+        $table.hideColumn(field)
       }
     })
-    $table.refreshColumn()
   }
 }
 </script>

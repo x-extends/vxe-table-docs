@@ -55,7 +55,7 @@ const toggleAllCheckboxEvent = () => {
   }
 }
 
-const toggleCheckboxEvent = (row) => {
+const toggleCheckboxEvent = (row: RowVO) => {
   const $table = tableRef.value
   if ($table) {
     $table.toggleCheckboxRow(row)

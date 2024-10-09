@@ -7,10 +7,10 @@
       height="500"
       :row-config="{useKey: true, isHover: true}"
       :column-config="{useKey: true}"
-      :footer-method="footerMethod"
+      :footer-data="footerData"
       :data="tableData"
       :tooltip-config="tooltipConfig">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称"></vxe-column>
       <vxe-column field="role" title="标题溢出直接隐藏 xxxxxxxxxxxxxxxxxxxxxxxxxxx" show-header-overflow="ellipsis"></vxe-column>
       <vxe-column field="date" title="Date" show-header-overflow show-overflow show-footer-overflow></vxe-column>
@@ -67,21 +67,7 @@ const tooltipConfig = reactive<VxeTablePropTypes.TooltipConfig<RowVO>>({
   enterable: true
 })
 
-const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns }) => {
-  const footerData = [
-    columns.map((column, columnIndex) => {
-      if (columnIndex === 0) {
-        return '合计'
-      }
-      if (['date'].includes(column.field)) {
-        return '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-      }
-      if (['rate'].includes(column.field)) {
-        return '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行'
-      }
-      return null
-    })
-  ]
-  return footerData
-}
+const footerData = ref<VxeTablePropTypes.FooterData>([
+  { seq: '合计', date: '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', rate: '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行' }
+])
 </script>

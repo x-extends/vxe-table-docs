@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      <vxe-input v-model="filterName" type="search" placeholder="试试全表搜索" @keyup="searchEvent"></vxe-input>
+      <vxe-input v-model="filterName" type="search" placeholder="试试全表搜索" clearable @change="searchEvent"></vxe-input>
     </p>
 
     <vxe-table
@@ -22,6 +22,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: number
@@ -49,7 +50,7 @@ const tableData = ref<RowVO[]>([
   { id: 100010, name: 'Test10', role: 'Develop', sex: '1', age: 21, amount: 666, address: 'test abc' }
 ])
 
-const searchEvent = () => {
+const handleSearch = () => {
   const filterVal = String(filterName.value).trim().toLowerCase()
   if (filterVal) {
     const filterRE = new RegExp(filterVal, 'gi')
@@ -67,7 +68,12 @@ const searchEvent = () => {
   }
 }
 
-searchEvent()
+// 节流函数,间隔500毫秒触发搜索
+const searchEvent = XEUtils.throttle(function () {
+  handleSearch()
+}, 500, { trailing: true, leading: true })
+
+handleSearch()
 </script>
 
 <style lang="scss" scoped>

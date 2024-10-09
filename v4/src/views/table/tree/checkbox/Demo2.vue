@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-table
+      ref="tableRef"
       :row-config="{keyField: 'id'}"
       :column-config="{resizable: true}"
       :data="tableData"
@@ -17,7 +18,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeTableEvents } from 'vxe-table'
+import { VxeTableInstance, VxeTableEvents } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -27,6 +28,8 @@ interface RowVO {
   size: number
   date: string
 }
+
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -49,8 +52,11 @@ const tableData = ref<RowVO[]>([
   { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
 ])
 
-const selectChangeEvent: VxeTableEvents.CheckboxChange<RowVO> = ({ $table }) => {
-  const records = $table.getCheckboxRecords()
-  console.info(`勾选${records.length}个树形节点`, records)
+const selectChangeEvent: VxeTableEvents.CheckboxChange<RowVO> = () => {
+  const $table = tableRef.value
+  if ($table) {
+    const records = $table.getCheckboxRecords()
+    console.info(`勾选${records.length}个树形节点`, records)
+  }
 }
 </script>

@@ -3,7 +3,7 @@
     <vxe-table
       :row-config="{keyField: 'id'}"
       :column-config="{resizable: true}"
-      :tree-config="{transform: true, expandRowKeys: defaultExpandKeys}"
+      :tree-config="treeConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -14,7 +14,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { VxeTablePropTypes } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -25,7 +26,10 @@ interface RowVO {
   date: string
 }
 
-const defaultExpandKeys = ref([24300])
+const treeConfig = reactive<VxeTablePropTypes.TreeConfig>({
+  transform: true,
+  expandRowKeys: [24300]
+})
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },

@@ -14,8 +14,6 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
-const footerData = ref<string[][]>([])
-
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
@@ -36,9 +34,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   checkboxConfig: {
     labelField: 'id'
   },
-  footerMethod () {
-    return footerData.value
-  }
+  footerData: [
+    { col_0: '合计' }
+  ]
 })
 
 let colIndex = 0
@@ -107,18 +105,7 @@ const init = async () => {
     })
   ])
 
-  const $grid = gridRef.value
   gridOptions.loading = false
-
-  // 计算表尾数据
-  const footList: string[][] = [[]]
-  tableColumn.forEach((column, index) => {
-    footList[0].push(index === 0 ? '合计' : `${index}`)
-  })
-  footerData.value = footList
-  if ($grid) {
-    $grid.updateFooter()
-  }
 }
 
 init()

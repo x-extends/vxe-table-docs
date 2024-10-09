@@ -4,10 +4,10 @@
       show-footer
       :row-config="{useKey: true}"
       :column-config="{useKey: true}"
-      :footer-method="footerMethod"
+      :footer-data="footerData"
       :tooltip-config="tooltipConfig"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称" :title-prefix="{content: '自定义前缀'}"></vxe-column>
       <vxe-column field="role" title="角色" :title-prefix="{content: '自定义前缀图标', icon: 'vxe-icon-question-circle-fill'}"></vxe-column>
       <vxe-column field="date" title="Date" :title-suffix="{content: '自定义后缀'}"></vxe-column>
@@ -61,21 +61,7 @@ const tooltipConfig = reactive<VxeTablePropTypes.TooltipConfig<RowVO>>({
   }
 })
 
-const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns }) => {
-  const footerData = [
-    columns.map((column, columnIndex) => {
-      if (columnIndex === 0) {
-        return '合计'
-      }
-      if (['date'].includes(column.field)) {
-        return '2020-09-05'
-      }
-      if (['rate'].includes(column.field)) {
-        return 999.8
-      }
-      return null
-    })
-  ]
-  return footerData
-}
+const footerData = ref<VxeTablePropTypes.FooterData>([
+  { seq: '合计', date: '2020-09-05', rate: '999.8' }
+])
 </script>

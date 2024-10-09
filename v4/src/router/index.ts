@@ -1056,6 +1056,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-select',
           name: 'ComponentTableEditTemplateVxeSelect',
           component: () => import('@/views/table/editTemplate/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-pulldown',
+          name: 'ComponentTableEditTemplateVxePulldown',
+          component: () => import('@/views/table/editTemplate/vxe-pulldown/CodeExample.vue')
         }
       ]
     },
@@ -2234,6 +2239,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vxe-select',
           name: 'ComponentGridEditTemplateVxeSelect',
           component: () => import('@/views/grid/editTemplate/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-pulldown',
+          name: 'ComponentGridEditTemplateVxePulldown',
+          component: () => import('@/views/grid/editTemplate/vxe-pulldown/CodeExample.vue')
         }
       ]
     },
@@ -2600,9 +2610,19 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/other/reverse/CodeExample.vue')
         },
         {
+          path: 'fileList',
+          name: 'ComponentGridOtherFileList',
+          component: () => import('@/views/grid/other/fileList/CodeExample.vue')
+        },
+        {
           path: 'lineEllipsis',
           name: 'ComponentGridOtherLineEllipsis',
           component: () => import('@/views/grid/other/lineEllipsis/CodeExample.vue')
+        },
+        {
+          path: 'yearMonth',
+          name: 'ComponentGridOtherYearMonth',
+          component: () => import('@/views/grid/other/yearMonth/CodeExample.vue')
         }
       ]
     }

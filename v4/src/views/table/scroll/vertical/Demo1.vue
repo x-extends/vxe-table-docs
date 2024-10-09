@@ -4,6 +4,7 @@
       border
       show-overflow
       height="600"
+      :column-config="{resizable: true}"
       :scroll-y="{enabled: true, gt: 0}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>

@@ -20,7 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
+import type { VxeTablePropTypes } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -38,17 +39,7 @@ const tableData = ref<RowVO[]>([
   { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
 ])
 
-const sumNum = (list: RowVO[], field: string) => {
-  let count = 0
-  list.forEach(item => {
-    count += Number(item[field])
-  })
-  return count
-}
-
-const footerData = computed(() => {
-  return [
-    { seq: '合计', num: sumNum(tableData.value, 'num') }
-  ]
-})
+const footerData = ref<VxeTablePropTypes.FooterData>([
+  { seq: '合计', num: '280' }
+])
 </script>

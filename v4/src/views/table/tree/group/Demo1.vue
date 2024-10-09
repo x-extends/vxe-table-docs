@@ -32,7 +32,7 @@ interface RowVO {
   children?: RowVO[]
 }
 
-const allList = [
+const allList: RowVO[] = [
   { id: 10000, name: 'Test1', type: 'mp3', size: '1024', date: '2020-08-01' },
   { id: 10050, name: 'Test2', type: 'mp4', size: '0', date: '2021-04-01' },
   { id: 24300, name: 'Test3', type: 'avi', size: '1024', date: '2020-03-01' },

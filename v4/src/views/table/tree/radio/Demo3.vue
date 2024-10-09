@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-table
-      ref="xTree3"
+      ref="tableRef"
       :row-config="{isCurrent: true}"
       :column-config="{resizable: true}"
       :tree-config="{transform: true}"
@@ -32,7 +32,7 @@ interface RowVO {
   size: number
   date: string
 }
-const xTree3 = ref<VxeTableInstance<RowVO>>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -62,7 +62,7 @@ const currentChangeEvent: VxeTableEvents.CurrentChange<RowVO> = ({ row }) => {
 }
 
 const clearCurrentRowEvent = () => {
-  const $table = xTree3.value
+  const $table = tableRef.value
   if ($table) {
     selectRow.value = null
     $table.clearRadioRow()

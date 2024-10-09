@@ -48,7 +48,7 @@ interface RowVO {
   parentId: number | null
   name: string
   type: string
-  size: number
+  size: number | null
   date: string
   hasChild?: boolean
 }

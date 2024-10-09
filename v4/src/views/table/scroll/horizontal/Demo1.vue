@@ -6,6 +6,7 @@
       show-header-overflow
       show-footer-overflow
       height="600"
+      :column-config="{resizable: true}"
       :scroll-x="{enabled: true, gt: 0}"
       :data="tableData">
       <vxe-column field="col0" title="列0" width="160"></vxe-column>
@@ -62,7 +63,7 @@
       <vxe-column field="col51" title="列51" width="160"></vxe-column>
       <vxe-column field="col52" title="列52" width="100"></vxe-column>
       <vxe-column field="col53" title="列53" width="280"></vxe-column>
-      <vxe-column field="col55" title="列54" width="170"></vxe-column>
+      <vxe-column field="col54" title="列54" width="170"></vxe-column>
       <vxe-column field="col55" title="列55" width="370"></vxe-column>
       <vxe-column field="col56" title="列56" width="120"></vxe-column>
       <vxe-column field="col57" title="列57" width="170"></vxe-column>
@@ -104,20 +105,19 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-
-import { VxeTablePropTypes, VxeColumnProps } from 'vxe-table'
+import { VxeColumnProps } from 'vxe-table'
 
 interface RowVO {
   id: number
   [key: string]: string | number
 }
 
-const tableData = ref<VxeTablePropTypes.Data<RowVO>>([])
+const tableData = ref<RowVO[]>([])
 
 // 模拟行与列数据
 const loadDataAndColumns = (rowSize: number) => {
   const colList: VxeColumnProps[] = []
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 100; i++) {
     colList.push({
       field: `col${i}`,
       title: `标题${i}`,
@@ -137,5 +137,5 @@ const loadDataAndColumns = (rowSize: number) => {
   tableData.value = dataList
 }
 
-loadDataAndColumns(50)
+loadDataAndColumns(20)
 </script>

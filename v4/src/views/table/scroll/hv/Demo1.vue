@@ -17,6 +17,7 @@
       ref="tableRef"
       height="600"
       :loading="loading"
+      :column-config="{resizable: true}"
       :scroll-y="{enabled: true, gt: 0}"
       :scroll-x="{enabled: true, gt: 0}">
       <vxe-column field="col0" title="列0" width="160"></vxe-column>

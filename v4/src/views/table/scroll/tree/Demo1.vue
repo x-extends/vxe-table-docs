@@ -3,7 +3,7 @@
     <vxe-toolbar>
       <template #buttons>
         <vxe-button @click="expandAllEvent">展开所有</vxe-button>
-        <vxe-button @click="claseExpandEvent">收起所有</vxe-button>
+        <vxe-button @click="clearExpandEvent">收起所有</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -52,7 +52,7 @@ const expandAllEvent = () => {
   }
 }
 
-const claseExpandEvent = () => {
+const clearExpandEvent = () => {
   const $table = tableRef.value
   if ($table) {
     $table.clearTreeExpand()

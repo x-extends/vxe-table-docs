@@ -793,6 +793,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '其他',
           children: [
             { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
+            { title: '文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
             { title: '多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
             { title: '动态生成月份表头', routerLink: { name: 'ComponentGridOtherYearMonth' } }
           ]

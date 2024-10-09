@@ -64,6 +64,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
+  custom ({ type }) {
+    console.log(type)
+  },
   toolbarButtonClick ({ code }) {
     const $grid = gridRef.value
     if ($grid) {

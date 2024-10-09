@@ -3,7 +3,7 @@
     <p>
       <vxe-button @click="setSelectRow(0)">设置第一行选中（如果被禁用，不可选中）</vxe-button>
       <vxe-button @click="setSelectRow(1)">设置第二行选中</vxe-button>
-      <vxe-button @click="clearRadioRowEevnt">清除所有行选中</vxe-button>
+      <vxe-button @click="clearRadioRowEvent">清除所有行选中</vxe-button>
     </p>
 
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
@@ -59,7 +59,7 @@ const setSelectRow = (index: number) => {
   }
 }
 
-const clearRadioRowEevnt = () => {
+const clearRadioRowEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.clearRadioRow()
