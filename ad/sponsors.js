@@ -15,7 +15,7 @@ setTimeout(function () {
     try {
       data = JSON.parse(decodeURIComponent(atob(rest.result.join(''))))
     } catch (e) {}
-    var sponsorEl = document.querySelector('.xe-sponsor')
+    var sponsorEl = document.querySelector('.xe_sponsor_2410')
     sponsorEl.style = 'display: block !important;'
     if (data && sponsorEl) {
       if (data.length < 5) {
@@ -56,4 +56,4 @@ setTimeout(function () {
       ].join('')
     }
   })
-}, Math.min(3000, 500 + Math.ceil(Math.random() * 1000)))
+}, Math.min(3000, 300 + Math.ceil(Math.random() * 1000)))
