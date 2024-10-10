@@ -14,7 +14,7 @@
       </pre-code>
     </pre>
 
-    <p class="tip">通过修复 css 变量（<a href="https://gitee.com/x-extends/vxe-table/blob/main/styles/theme/light.scss" status="primary">全量变量</a>）方式修改组件主题样式，给 html 加个 class="my-theme"，示例：</p>
+    <p class="tip">通过修改 css 变量（<a href="https://gitee.com/x-extends/vxe-table/blob/main/styles/theme/light.scss" status="primary">查看全部变量</a>）方式修改组件主题样式，给 html 加个 class="my-theme"，示例：</p>
     <pre>
       <pre-code class="css">
         html.my-theme {
