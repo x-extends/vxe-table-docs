@@ -1,7 +1,7 @@
 setTimeout(function () {
   var warpperEl = document.createElement('div')
   warpperEl.className = 'vxe-ad-20240622'
-  warpperEl.style = `position: fixed !important;right: 22px !important;top: 68px !important;width: 240px !important;padding: 0 !important;margin: 0 !important;z-index: 999 !important;display: block !important;text-align: left !important;`
+  warpperEl.style = `position: fixed !important;right: 22px !important;top: 100px !important;width: 240px !important;padding: 0 !important;margin: 0 !important;z-index: 999 !important;display: block !important;text-align: left !important;`
   var sponsorEl = document.createElement('div')
   sponsorEl.className = 'vxe-ss-20240622'
   var wwDiv = document.createElement('div')
