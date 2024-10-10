@@ -15,7 +15,7 @@ setTimeout(function () {
     try {
       data = JSON.parse(decodeURIComponent(atob(rest.result.join(''))))
     } catch (e) {}
-    var sponsorEl = document.querySelector('.xe_sponsor_2410')
+    var sponsorEl = document.getElementById('{VXE_AD_SPONSOR_ID}')
     sponsorEl.style = 'display: block !important;'
     if (data && sponsorEl) {
       if (data.length < 5) {

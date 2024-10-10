@@ -24,7 +24,7 @@ function updateMsg (bEl) {
 var adDelay = 60000
 var adTimeout = null
 function checkAd () {
-  var warpperEl = document.getElementById('xe_ad_2410')
+  var warpperEl = document.getElementById('{VXE_AD_WRAPPER_ID}')
   var bEl = document.querySelector('.page-container');
   var wwDiv = warpperEl.querySelector('.wwads-cn');
   var wwImgEl = warpperEl.querySelector('.wwads-img');
@@ -52,16 +52,16 @@ var hdDelay = 10000
 var hdTimeout = null
 function checkHide () {
   var bEl = document.querySelector('.page-container');
-  var warpperEl = document.getElementById('xe_ad_2410');
+  var warpperEl = document.getElementById('{VXE_AD_WRAPPER_ID}');
   var wwDiv = warpperEl.querySelector('.wwads-cn');
   if (warpperEl) {
-    warpperEl.style = 'position: fixed !important;right: 20px !important;top: 50px !important;width: 280px !important;padding: 0 !important;margin: 0 !important;z-index: 99 !important;opacity: 1!important;visibility: visible !important;display: block !important;transform: none !important;'
+    warpperEl.style = '{VXE_AD_WRAPPER_STYLE}'
   } else {
     updateMsg(bEl)
     return
   }
   if (wwDiv) {
-    wwDiv.style = "max-width: 200px !important;;visibility: visible !important;display: block !important;"
+    wwDiv.style = '{VXE_AD_WWADS_STYLE}'
   } else {
     updateMsg(bEl)
     return

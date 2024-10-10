@@ -1,12 +1,12 @@
 setTimeout(function () {
-  var warpperEl = document.getElementById('xe_ad_2410')
+  var warpperEl = document.getElementById('{VXE_AD_WRAPPER_ID}')
   if (!warpperEl) {
     warpperEl = document.createElement('div')
-    warpperEl.id = 'xe_ad_2410'
-    warpperEl.style = `position: fixed !important;right: 20px !important;top: 104px !important;width: 240px !important;padding: 0 !important;margin: 0 !important;z-index: 99 !important;display: block !important;text-align: left !important;`
+    warpperEl.id = '{VXE_AD_WRAPPER_ID}'
+    warpperEl.style = '{VXE_AD_WRAPPER_STYLE}'
     document.body.appendChild(warpperEl)
   }
   var sponsorEl = document.createElement('div')
-  sponsorEl.className = 'xe_sponsor_2410'
+  sponsorEl.id = '{VXE_AD_SPONSOR_ID}'
   warpperEl.appendChild(sponsorEl)
 })
