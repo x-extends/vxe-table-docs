@@ -1,2 +1,1 @@
-export const codeJsMaps: { [key: string]: string } = {}
-export const codeTsMaps: { [key: string]: string } = {}
+export const codeCacheMaps: Record<string, Promise<string>> = {}

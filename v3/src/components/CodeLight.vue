@@ -43,12 +43,29 @@
         <vxe-tooltip :content="$t('app.docs.button.fixDocTip')">
           <vxe-button class="example-btn" mode="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
-        <vxe-button class="example-btn" mode="text" icon="vxe-icon-copy" @click="copyCode" :disabled="!showJsCode && !showTsCode">{{ $t('app.docs.button.copyCode') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showJsCode ? 'primary' : ''" :loading="jsLoading" :icon="showJsCode ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleJsVisible">{{ $t(showJsCode ? 'app.docs.button.hideCode' : 'app.docs.button.showJsCode') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showTsCode ? 'primary' : ''" :loading="tsLoading" :icon="showTsCode ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleTsVisible">{{ $t(showTsCode ? 'app.docs.button.hideCode' : 'app.docs.button.showTsCode') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" :icon="showOptionJS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" :icon="showOptionTS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
       </div>
-      <div class="example-code-warpper" v-show="showJsCode">
-        <div v-for="(item, index) in importJsCodes" :key="index" class="example-code-item">
+      <div class="example-code-warpper" v-show="showOptionJS">
+        <div v-for="(item, index) in importOptionJsCodes" :key="index" class="example-code-item">
+          <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
+            <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
+            <span class="example-code-file-name">{{ item.name }}</span>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click="copyCode(item.text)" :disabled="!item.text">{{ $t('app.docs.button.copyCode') }}</vxe-button>
+          </div>
+          <CodeRender v-if="item.isExpand" :language="item.lang" :code="item.text"></CodeRender>
+        </div>
+        <div class="example-code-item">
+          <div class="example-code-file">
+            <vxe-link icon="vxe-icon-link" :href="`${gitDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank"></vxe-link>
+            <span class="example-code-file-name">{{ getFileName(`${path}.vue`) }}</span>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click="copyCode(optionJsCodeText)" :disabled="!optionJsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
+          </div>
+          <CodeRender language="html" :code="optionJsCodeText"></CodeRender>
+        </div>
+      </div>
+      <div class="example-code-warpper" v-show="showOptionTS">
+        <div v-for="(item, index) in importOptionTsCodes" :key="index" class="example-code-item">
           <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
             <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
             <span class="example-code-file-name">{{ item.name }}</span>
@@ -59,24 +76,9 @@
           <div class="example-code-file">
             <vxe-link icon="vxe-icon-link" :href="`${gitDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank"></vxe-link>
             <span class="example-code-file-name">{{ getFileName(`${path}.vue`) }}</span>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click="copyCode(optionTsCodeText)" :disabled="!optionTsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
           </div>
-          <CodeRender language="html" :code="jsCodeText"></CodeRender>
-        </div>
-      </div>
-      <div class="example-code-warpper" v-show="showTsCode">
-        <div v-for="(item, index) in importTsCodes" :key="index" class="example-code-item">
-          <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
-            <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
-            <span class="example-code-file-name">{{ item.name }}</span>
-          </div>
-          <CodeRender v-if="item.isExpand" :language="item.lang" :code="item.text"></CodeRender>
-        </div>
-        <div class="example-code-item">
-          <div class="example-code-file">
-            <vxe-link icon="vxe-icon-link" :href="`${gitDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank"></vxe-link>
-            <span class="example-code-file-name">{{ getFileName(`${path}.vue`) }}</span>
-          </div>
-          <CodeRender language="html" :code="tsCodeText"></CodeRender>
+          <CodeRender language="html" :code="optionTsCodeText"></CodeRender>
         </div>
       </div>
     </div>
@@ -86,7 +88,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { mapState } from 'vuex'
-import { codeJsMaps, codeTsMaps } from '@/common/cache'
+import { codeCacheMaps } from '@/common/cache'
 import { VxeUI } from 'vxe-pc-ui'
 import AsyncDemo from './AsyncDemo.vue'
 
@@ -113,14 +115,14 @@ export default Vue.extend({
     return {
       showInstall: false,
       showPreview: true,
-      jsCodeText: '',
-      tsCodeText: '',
-      showJsCode: false,
-      showTsCode: false,
-      jsLoading: false,
-      tsLoading: false,
-      importTsCodes: [] as ImportItemVO[],
-      importJsCodes: [] as ImportItemVO[]
+      optionJsCodeText: '',
+      optionTsCodeText: '',
+      showOptionJS: false,
+      showOptionTS: false,
+      optionJsLoading: false,
+      optionTsLoading: false,
+      importOptionTsCodes: [] as ImportItemVO[],
+      importOptionJsCodes: [] as ImportItemVO[]
     }
   },
   computed: {
@@ -160,133 +162,98 @@ export default Vue.extend({
       rest.fileType = rest.fileType.replace('js', 'ts')
       return rest
     },
-    loadJsCode (this: any) {
+    getExampleText (url: string) {
+      if (!codeCacheMaps[url]) {
+        codeCacheMaps[url] = fetch(`${url}?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+          if (response.status >= 200 && response.status < 400) {
+            return response.text()
+          } else {
+            delete codeCacheMaps[url]
+          }
+          return ''
+        })
+      }
+      return codeCacheMaps[url]
+    },
+    loadOptionJsCode (this: any) {
       const compPath = this.path
       if (compPath) {
-        if (codeJsMaps[compPath]) {
-          this.jsCodeText = codeJsMaps[compPath]
-          this.jsLoading = false
-        } else {
-          this.jsLoading = true
-          Promise.all([
-            fetch(`${this.siteBaseUrl}${process.env.BASE_URL}example/js/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
-              if (response.status >= 200 && response.status < 400) {
-                return response.text()
+        this.optionJsLoading = true
+        const exampleBaeUrl = `${this.siteBaseUrl}${process.env.BASE_URL}`
+        Promise.all([
+          this.getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
+          ...(this.extraImports?.map(impPath => {
+            const { filePath, fileType, codeLang } = this.parseJsFilePath(impPath)
+            return this.getExampleText(`${exampleBaeUrl}example/js/${filePath}.${fileType}`).then(text => {
+              return {
+                path: `${filePath}.${fileType}`,
+                name: this.getFileName(`${filePath}.${fileType}`),
+                lang: codeLang,
+                text,
+                isExpand: false
               }
-              return '暂无示例'
-            }),
-            ...(this.extraImports?.map(impPath => {
-              const { filePath, fileType, codeLang } = this.parseJsFilePath(impPath)
-              return fetch(`${this.siteBaseUrl}${process.env.BASE_URL}example/js/${filePath}.${fileType}?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
-                if (response.status >= 200 && response.status < 400) {
-                  return response.text().then(text => {
-                    return {
-                      path: `${filePath}.${fileType}`,
-                      name: this.getFileName(`${filePath}.${fileType}`),
-                      lang: codeLang,
-                      text,
-                      isExpand: false
-                    }
-                  })
-                }
-                return {
-                  path: `${filePath}.${fileType}`,
-                  name: this.getFileName(`${filePath}.${fileType}`),
-                  lang: codeLang,
-                  text: '',
-                  isExpand: false
-                }
-              })
-            }) || [])
-          ]).then(([text1, ...impTexts]) => {
-            this.jsCodeText = text1 || ''
-            codeJsMaps[compPath] = this.jsCodeText
-            this.importJsCodes = impTexts || '暂无'
-            this.jsLoading = false
-          }).catch(() => {
-            this.jsLoading = false
-          })
-        }
-      } else if (this.jsCodeText) {
-        this.jsLoading = false
+            })
+          }) || [])
+        ]).then(([text1, ...impTexts]) => {
+          this.optionJsCodeText = text1 || this.$t('app.docs.button.noExample')
+          this.importOptionJsCodes = impTexts || this.$t('app.docs.button.noExample')
+          this.optionJsLoading = false
+        }).catch(() => {
+          this.optionJsLoading = false
+        })
+      } else {
+        this.optionJsLoading = false
       }
       return Promise.resolve()
     },
-    loadTsCode (this: any) {
+    loadOptionTsCode (this: any) {
       const compPath = this.path
       if (compPath) {
-        if (codeTsMaps[compPath]) {
-          this.tsCodeText = codeTsMaps[compPath]
-          this.tsLoading = false
-        } else {
-          this.tsLoading = true
-          Promise.all([
-            fetch(`${this.siteBaseUrl}${process.env.BASE_URL}example/ts/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
-              if (response.status >= 200 && response.status < 400) {
-                return response.text()
+        this.optionTsLoading = true
+        const exampleBaeUrl = `${this.siteBaseUrl}${process.env.BASE_URL}`
+        Promise.all([
+          this.getExampleText(`${exampleBaeUrl}example/ts/${compPath}.vue`),
+          ...(this.extraImports?.map(impPath => {
+            const { filePath, fileType, codeLang } = this.parseTsFilePath(impPath)
+            return this.getExampleText(`${exampleBaeUrl}example/ts/${filePath}.${fileType}`).then(text => {
+              return {
+                path: `${filePath}.${fileType}`,
+                name: this.getFileName(`${filePath}.${fileType}`),
+                lang: codeLang,
+                text,
+                isExpand: false
               }
-              return '暂无示例'
-            }),
-            ...(this.extraImports?.map(impPath => {
-              const { filePath, fileType, codeLang } = this.parseTsFilePath(impPath)
-              return fetch(`${this.siteBaseUrl}${process.env.BASE_URL}example/ts/${filePath}.${fileType}?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
-                if (response.status >= 200 && response.status < 400) {
-                  return response.text().then(text => {
-                    return {
-                      path: `${filePath}.${fileType}`,
-                      name: this.getFileName(`${filePath}.${fileType}`),
-                      lang: codeLang,
-                      text,
-                      isExpand: false
-                    }
-                  })
-                }
-                return {
-                  path: `${filePath}.${fileType}`,
-                  name: this.getFileName(`${filePath}.${fileType}`),
-                  lang: codeLang,
-                  text: '',
-                  isExpand: false
-                }
-              })
-            }) || [])
-          ]).then(([text1, ...impTexts]) => {
-            this.tsCodeText = text1 || ''
-            codeTsMaps[compPath] = this.tsCodeText
-            this.importTsCodes = impTexts || '暂无'
-            this.tsLoading = false
-          }).catch(() => {
-            this.tsLoading = false
-          })
-        }
-      } else if (this.tsCodeText) {
-        this.tsLoading = false
+            })
+          }) || [])
+        ]).then(([text1, ...impTexts]) => {
+          this.optionTsCodeText = text1 || this.$t('app.docs.button.noExample')
+          this.importOptionTsCodes = impTexts || this.$t('app.docs.button.noExample')
+          this.optionTsLoading = false
+        }).catch(() => {
+          this.optionTsLoading = false
+        })
+      } else {
+        this.optionTsLoading = false
       }
       return Promise.resolve()
     },
-    toggleJsVisible  (this: any) {
-      this.showTsCode = false
-      this.showJsCode = !this.showJsCode
-      if (this.showJsCode) {
-        this.loadJsCode()
+    toggleOptionJsVisible  (this: any) {
+      this.showOptionTS = false
+      this.showOptionJS = !this.showOptionJS
+      if (this.showOptionJS) {
+        this.loadOptionJsCode()
       }
     },
-    toggleTsVisible  (this: any) {
-      this.showJsCode = false
-      this.showTsCode = !this.showTsCode
-      if (this.showTsCode) {
-        this.loadTsCode()
+    toggleOptionTsVisible  (this: any) {
+      this.showOptionJS = false
+      this.showOptionTS = !this.showOptionTS
+      if (this.showOptionTS) {
+        this.loadOptionTsCode()
       }
     },
-    copyCode () {
-      let codeContent = ''
-      if (this.showJsCode) {
-        codeContent = this.jsCodeText
-      } else if (this.showTsCode) {
-        codeContent = this.tsCodeText
-      }
-      if (codeContent) {
-        if (VxeUI.clipboard.copy(codeContent)) {
+    copyCode (content: string) {
+      if (content) {
+        if (VxeUI.clipboard.copy(content)) {
           VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
         }
       }
@@ -350,9 +317,8 @@ export default Vue.extend({
   position: relative;
 }
 .example-code-file {
+  position: relative;
   line-height: 28px;
-  cursor: pointer;
-  user-select: none;
   margin: 6px 0;
   &.is-expand {
     .example-code-file-icon {
@@ -363,6 +329,11 @@ export default Vue.extend({
     display: inline-block;
     transition: transform 0.2s ease-in-out;
     margin-right: 8px;
+  }
+  .example-copy-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 }
 
