@@ -49,6 +49,7 @@ const adCheckJS = UglifyJS.minify(XEUtils.toFormatString(fs.readFileSync('./ad/c
     beautify: false
   }
 })
+
 const adCheckScript = `<script>(function(){${adCheckJS.code}})()</script>`
 const adScript = `<script data-mode="hash" type="text/javascript" charset="UTF-8" src="https://cdn.wwads.cn/js/makemoney.js" async></script>`
 
