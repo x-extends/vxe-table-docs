@@ -352,6 +352,7 @@ body,
         }
       }
     }
+    .is-upgrade,
     .is-warn {
       .nav-link {
         font-size: 15px;
@@ -445,6 +446,7 @@ body,
         }
       }
       & > .footer-link {
+        padding: 40px 120px;
         a{
           font-size: 15px;
           color: var(--vxe-table-docs-font-color);
@@ -453,7 +455,6 @@ body,
             color: #409eff;
           }
         }
-        padding: 40px 120px;
         .pre-link{
           float: left;
           &::before {

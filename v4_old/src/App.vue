@@ -77,12 +77,12 @@
               <ul class="nav-menu">
                 <li v-for="(item, index) in appData.apiList" :key="index" :class="{expand: item.expand}">
                   <a v-if="item.linkUrl" :href="item.linkUrl" :target="item.linkTarget || '_blank'" class="nav-link" style="padding-left: 20px;">{{ item.label }}</a>
-                  <a v-else class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="{'is-new': item.isNew, disabled: item.disabled, active: pageKey === item.value}">
+                  <a v-else class="nav-link" @click="linkEvent(item)" :title="item.disabled ? $t('app.body.other.newFunc') : item.label" :class="[item.className, {'is-new': item.isNew, disabled: item.disabled, active: pageKey === item.value}]">
                     <i class="vxe-icon-arrow-right nav-link-icon"></i>
                     <span v-html="item.label"></span>
                   </a>
                   <ul v-if="item.children" v-show="item.expand" class="nav-child-menu">
-                    <li v-for="(child, cIndex) in item.children" :key="cIndex" :class="{'is-donation': child.locat && ['Donation'].includes(child.locat.name)}">
+                    <li v-for="(child, cIndex) in item.children" :key="cIndex" :class="[child.className, {'is-donation': child.locat && ['Donation'].includes(child.locat.name)}]">
                       <a class="nav-link disabled" v-if="child.disabled" :title="$t('app.body.other.newFunc')" v-html="child.label"></a>
                       <a class="nav-link" v-else-if="child.url" :href="child.url" :title="$t('app.body.other.newFunc')" v-html="child.label" :target="child.linkTarget || '_blank'"></a>
                       <router-link v-else class="nav-link" :to="child.locat" :title="child.label" v-html="child.label"></router-link>
@@ -101,7 +101,7 @@
         <vxe-button class="oper-btn" :icon="appData.showLeft ? 'vxe-icon-arrow-left' : 'vxe-icon-arrow-right'" @click="appData.showLeft = !appData.showLeft"></vxe-button>
       </div>
       <div class="body">
-        <div class="content" :class="{full: ['VXEAPI', 'Donation'].includes($route.name)}">
+        <div class="content" :class="{full: ['VXEAPI', 'Donation'].includes($route.name as string)}">
           <div class="page-view">
             <template v-if="!/\/start|\/module|\/api/.test($route.path)">
               <a v-if="demoLink" class="link todemo" :href="demoLink" target="_blank">{{ $t('app.body.button.runDemo') }}</a>
@@ -174,6 +174,7 @@ const appData = reactive({
       children: [
         {
           label: '版本升级指南',
+          className: 'is-upgrade',
           locat: {
             name: 'StartUpgrade'
           }
