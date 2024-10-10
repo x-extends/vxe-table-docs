@@ -51,7 +51,7 @@
           <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
             <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
             <span class="example-code-file-name">{{ item.name }}</span>
-            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click="copyCode(item.text)" :disabled="!item.text">{{ $t('app.docs.button.copyCode') }}</vxe-button>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(item.text)" :disabled="!item.text">{{ $t('app.docs.button.copyCode') }}</vxe-button>
           </div>
           <CodeRender v-if="item.isExpand" :language="item.lang" :code="item.text"></CodeRender>
         </div>
@@ -59,7 +59,7 @@
           <div class="example-code-file">
             <vxe-link icon="vxe-icon-link" :href="`${gitDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank"></vxe-link>
             <span class="example-code-file-name">{{ getFileName(`${path}.vue`) }}</span>
-            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click="copyCode(optionJsCodeText)" :disabled="!optionJsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(optionJsCodeText)" :disabled="!optionJsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
           </div>
           <CodeRender language="html" :code="optionJsCodeText"></CodeRender>
         </div>
@@ -69,6 +69,7 @@
           <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
             <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
             <span class="example-code-file-name">{{ item.name }}</span>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(item.text)" :disabled="!item.text">{{ $t('app.docs.button.copyCode') }}</vxe-button>
           </div>
           <CodeRender v-if="item.isExpand" :language="item.lang" :code="item.text"></CodeRender>
         </div>
@@ -76,7 +77,7 @@
           <div class="example-code-file">
             <vxe-link icon="vxe-icon-link" :href="`${gitDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank"></vxe-link>
             <span class="example-code-file-name">{{ getFileName(`${path}.vue`) }}</span>
-            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click="copyCode(optionTsCodeText)" :disabled="!optionTsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(optionTsCodeText)" :disabled="!optionTsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
           </div>
           <CodeRender language="html" :code="optionTsCodeText"></CodeRender>
         </div>
