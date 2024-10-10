@@ -35,6 +35,13 @@
       <template #default_typeList="{ row }">
         <span>{{ formatTypeLabel(row.typeList) }}</span>
       </template>
+
+      <template #edit_role="{ row }">
+        <vxe-select v-model="row.role" :options="roleOptions" filterable></vxe-select>
+      </template>
+      <template #default_role="{ row }">
+        <span>{{ formatRoleLabel(row.role) }}</span>
+      </template>
     </vxe-grid>
   </div>
 </template>
@@ -98,10 +105,13 @@ export default Vue.extend({
       }
     ]
 
+    const roleOptions: any[] = []
+
     return {
       gridOptions,
       sexOptions,
-      typeOptions
+      typeOptions,
+      roleOptions
     }
   },
   methods: {
@@ -130,7 +140,24 @@ export default Vue.extend({
         }).join(',')
       }
       return ''
+    },
+    formatRoleLabel (role: string) {
+      const item = this.roleOptions.find(item => item.value === role)
+      return item ? item.label : role
     }
+  },
+  created () {
+    // 模拟后端接口
+    setTimeout(() => {
+      const list: any[] = []
+      for (let i = 0; i < 10000; i++) {
+        list.push({
+          value: `role${i}`,
+          label: `角色${i}`
+        })
+      }
+      this.roleOptions = list
+    }, 100)
   }
 })
 </script>

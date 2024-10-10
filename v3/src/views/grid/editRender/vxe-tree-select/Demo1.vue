@@ -82,7 +82,9 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      regionEditRender,
+      regionListEditRender
     }
   }
 })

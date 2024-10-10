@@ -68,7 +68,9 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      sexEditRender,
+      typeEditRender
     }
   }
 })

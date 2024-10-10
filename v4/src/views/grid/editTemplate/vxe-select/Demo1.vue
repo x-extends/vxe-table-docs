@@ -35,6 +35,13 @@
       <template #default_typeList="{ row }">
         <span>{{ formatTypeLabel(row.typeList) }}</span>
       </template>
+
+      <template #edit_role="{ row }">
+        <vxe-select v-model="row.role" :options="roleOptions" filterable></vxe-select>
+      </template>
+      <template #default_role="{ row }">
+        <span>{{ formatRoleLabel(row.role) }}</span>
+      </template>
     </vxe-grid>
   </div>
 </template>
@@ -75,6 +82,8 @@ const typeOptions = ref([
   }
 ])
 
+const roleOptions = ref<any[]>([])
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   editConfig: {
@@ -87,12 +96,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'sex', title: '下拉框', width: 200, editRender: { }, slots: { edit: 'edit_sex', default: 'default_sex' } },
     { field: 'sexList', title: '下拉框多选', width: 200, editRender: { }, slots: { edit: 'edit_sexList', default: 'default_sexList' } },
     { field: 'type', title: '下拉框分组', width: 200, editRender: { }, slots: { edit: 'edit_type', default: 'default_type' } },
-    { field: 'typeList', title: '下拉框分组多选', width: 200, editRender: { }, slots: { edit: 'edit_typeList', default: 'default_typeList' } }
+    { field: 'typeList', title: '下拉框分组多选', width: 200, editRender: { }, slots: { edit: 'edit_typeList', default: 'default_typeList' } },
+    { field: 'role', title: '大数据量选项', width: 200, editRender: { }, slots: { edit: 'edit_role', default: 'default_role' } }
   ],
   data: [
-    { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },
-    { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
-    { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', sexList: [], type: '', typeList: [] }
+    { id: 10001, name: 'Test1', role: 'role2', sex: '', sexList: [], type: '', typeList: [] },
+    { id: 10002, name: 'Test2', role: 'role10', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
+    { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
   ]
 })
 
@@ -123,4 +133,21 @@ const formatTypeLabel = (typeList: string[]) => {
   }
   return ''
 }
+
+const formatRoleLabel = (role: string) => {
+  const item = roleOptions.value.find(item => item.value === role)
+  return item ? item.label : role
+}
+
+// 模拟后端接口
+setTimeout(() => {
+  const list: any[] = []
+  for (let i = 0; i < 10000; i++) {
+    list.push({
+      value: `role${i}`,
+      label: `角色${i}`
+    })
+  }
+  roleOptions.value = list
+}, 100)
 </script>
