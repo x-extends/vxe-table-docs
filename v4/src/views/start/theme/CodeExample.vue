@@ -25,7 +25,7 @@
     <CodeLight>
       <template #tip>
         <vxe-tip status="primary" title="自定义主题">
-          通过修改 css 变量（<vxe-link href="https://gitee.com/xuliangzhan/vxe-table/blob/master/styles/theme/light.scss" status="primary">查看全部变量</vxe-link>）方式修改组件主题样式，给 html 加个 class="my-theme"，示例：
+          通过修改 css 变量（<vxe-link href="https://gitee.com/xuliangzhan/vxe-table/blob/master/styles/theme/light.scss" status="primary" target="_blank">查看全部变量</vxe-link>）方式修改组件主题样式，给 html 加个 class="my-theme"，示例：
         </vxe-tip>
       </template>
 

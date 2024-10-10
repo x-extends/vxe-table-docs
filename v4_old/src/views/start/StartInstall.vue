@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.install') }}</h2>
-    <div class="red">需要注意：v4.0 可以直接升级 v4.6</div>
-    <div class="red">需要注意：v4.6 不能直接升级 v4.7，需要调整安装方式，如果是使用老版本记得锁定版本号</div>
+    <div class="red">需要注意：v4.0 可以直接升级 v4.6（如果是使用老版本记得锁定版本号）</div>
+    <div class="red">需要注意：v4.6 不能直接升级 v4.7（组件代码基本不用改，变动的是安装方式、全局的主题变量）</div>
     <p class="tip">
       配合 <a class="link" href="https://vxeui.com" target="_blank">Vxe UI</a> 组件库，支持更多可视化组件<br>
       推荐使用 npm 的方式安装，它能更好地和 <a class="link" href="https://webpack.js.org/" target="_blank">webpack</a>、<a class="link" href="https://vitejs.dev/" target="_blank">vite</a> 等打包工具配合使用。<br>

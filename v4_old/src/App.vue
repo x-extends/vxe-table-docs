@@ -173,7 +173,7 @@ const appData = reactive({
       expand: false,
       children: [
         {
-          label: 'v4 升级 v4.7 指南',
+          label: '版本升级指南',
           locat: {
             name: 'StartUpgrade'
           }

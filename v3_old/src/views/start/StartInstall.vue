@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.install') }}</h2>
-    <div class="red">需要注意：v3.0 可以直接升级 v3.8</div>
-    <div class="red">需要注意：v3.8 不能直接升级 v3.9，需要调整安装方式，如果是使用老版本记得锁定版本号</div>
+    <div class="red">v3.0 可以直接升级 v3.8（如果是使用老版本记得锁定版本号）</div>
+    <div class="red">v3.8 不能直接升级 v3.9（组件代码基本不用改，变动的是安装方式、全局的主题变量）</div>
     <p class="tip">
       推荐使用 npm 的方式安装，它能更好地和 <a class="link" href="https://webpack.js.org/">webpack</a>、<a class="link" href="https://vitejs.dev/">vite</a> 等 打包工具配合使用。<br>
       依赖库：<a class="link" href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D">vue 2.6+</a><br>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>v4.0 ~ v4.6 升级到 v4.7</h2>
-    <div class="red">v4.7+ 分离为纯表格 和 UI组件，升级版本，内部代码不需要改动，需调整安装方式及全局变量。</div>
+    <h2>v3.0 ~ v3.8 升级到 v3.9</h2>
+    <div class="red">v3.9+ 分离为纯表格 和 UI组件，升级版本，内部代码不需要改动，需调整安装方式及全局变量。</div>
     <p class="tip">安装方式：</p>
     <div>之前</div>
     <pre>
@@ -34,21 +34,6 @@
         })
       </pre-code>
     </pre>
-    <p class="tip">全局主题 css 变量：</p>
-    <div>之前 --vxe-table-*</div>
-    <pre>
-      <pre-code class="css">
-        // 主题色
-        --vxe-font-color: #{$vxe-font-color};
-      </pre-code>
-    </pre>
-    <div>之后 --vxe-ui-*</div>
-    <pre>
-      <pre-code class="css">
-        // 主题色
-        --vxe-ui-font-primary-color: #409eff;
-      </pre-code>
-    </pre>
     <p class="tip">默认参数恢复：</p>
     <div>新版本默认关闭虚拟滚动，通过以下开启</div>
     <pre>
@@ -79,11 +64,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  setup () {
+<script>
+export default {
+  data () {
     return {
       demoCodes: [
       `
@@ -92,7 +75,7 @@ export default defineComponent({
         import 'vxe-table/lib/style.css'
         // ...
 
-        createApp(App).use(VXETable).mount('#app')
+        Vue.use(VXETable)
         `,
       `
         // ...
@@ -104,10 +87,11 @@ export default defineComponent({
         import 'vxe-pc-ui/lib/style.css'
         // ...
 
-        createApp(App).use(VxeUI).use(VXETable).mount('#app')
+        Vue.use(VxeUI)
+        Vue.use(VXETable)
         `
       ]
     }
   }
-})
+}
 </script>

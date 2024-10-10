@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const StartInstall = () => import('../views/start/StartInstall.vue')
-const StartUse = () => import('../views/start/StartUse.vue')
-const StartIcons = () => import('../views/start/StartIcons.vue')
-const StartGlobal = () => import('../views/start/StartGlobal.vue')
-const StartTheme = () => import('../views/start/StartTheme.vue')
-const StartI18n = () => import('../views/start/StartI18n.vue')
-const StartUseZindex = () => import('../views/start/StartUseZindex.vue')
+import StartUpgrade from '../views/start/StartUpgrade.vue'
+import StartInstall from '../views/start/StartInstall.vue'
+import StartUse from '../views/start/StartUse.vue'
+import StartIcons from '../views/start/StartIcons.vue'
+import StartGlobal from '../views/start/StartGlobal.vue'
+import StartTheme from '../views/start/StartTheme.vue'
+import StartI18n from '../views/start/StartI18n.vue'
+import StartUseZindex from '../views/start/StartUseZindex.vue'
 
 const RendererAPI = () => import('../views/global/renderer/API.vue')
 const RendererFilter = () => import('../views/global/renderer/Filter.vue')
@@ -283,6 +284,11 @@ export default new Router({
       redirect: {
         name: 'StartInstall'
       }
+    },
+    {
+      path: '/table/start/upgrade',
+      name: 'StartUpgrade',
+      component: StartUpgrade
     },
     {
       path: '/table/start/install',

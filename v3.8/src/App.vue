@@ -178,6 +178,12 @@ export default {
           expand: false,
           children: [
             {
+              label: '版本升级指南',
+              locat: {
+                name: 'StartUpgrade'
+              }
+            },
+            {
               label: 'app.aside.nav.install',
               locat: {
                 name: 'StartInstall'

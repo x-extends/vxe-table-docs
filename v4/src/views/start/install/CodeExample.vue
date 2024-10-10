@@ -3,12 +3,12 @@
     <CodeLight>
       <template #tip>
         <vxe-tip status="primary" title="NPM 方式">
-          <div>可以配合 <vxe-link  href="https://webpack.js.org/">webpack</vxe-link>、<vxe-link  href="https://vitejs.dev/">vite</vxe-link> 等打包工具配合使用按需加载。</div>
-          <div>依赖库： <vxe-link  href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D">vue 3.2+</vxe-link></div>
+          <div>可以配合 <vxe-link  href="https://webpack.js.org/" target="_blank">webpack</vxe-link>、<vxe-link  href="https://vitejs.dev/" target="_blank">vite</vxe-link> 等打包工具配合使用。</div>
+          <div>依赖库： <vxe-link  href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D" target="_blank">vue 3.2+</vxe-link></div>
         </vxe-tip>
         <vxe-tip status="error" title="需要注意！！！">
-          <div>v4.0 可以直接升级 v4.6</div>
-          <div>v4.6 不能直接升级 v4.7，需要调整安装方式，如果是使用老版本记得锁定版本号</div>
+          <div>v4.0 可以直接升级 v4.6（如果是使用老版本记得锁定版本号）</div>
+          <div>v4.6 不能直接升级 v4.7（组件代码基本不用改，变动的是安装方式、全局的主题变量）</div>
         </vxe-tip>
       </template>
 

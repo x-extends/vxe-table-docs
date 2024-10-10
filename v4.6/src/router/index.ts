@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
+const StartUpgrade = () => import('../views/start/StartUpgrade.vue')
 const StartInstall = () => import('../views/start/StartInstall.vue')
 const StartQuick = () => import('../views/start/StartQuick.vue')
 const StartUse = () => import('../views/start/StartUse.vue')
@@ -295,6 +296,11 @@ const routes: Array<RouteRecordRaw> = [
     redirect: {
       name: 'StartInstall'
     }
+  },
+  {
+    path: '/table/start/upgrade',
+    name: 'StartUpgrade',
+    component: StartUpgrade
   },
   {
     path: '/table/start/install',
