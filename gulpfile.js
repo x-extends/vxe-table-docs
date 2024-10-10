@@ -54,7 +54,8 @@ const adCheckScript = `<script>(function(){${adCheckJS.code}})()</script>`
 const adScript = `<script data-mode="hash" type="text/javascript" charset="UTF-8" src="https://cdn.wwads.cn/js/makemoney.js" async></script>`
 
 // 访问数量统计
-const hmScript = `<script>var _hmt=_hmt||[];(function(){if(location.host.indexOf("localhost")===-1){var b=document.createElement("script");b.src="https://hm.baidu.com/hm.js?1eb3cea61a6e722c5e3dd0114830306c";b.onload=function(){_hmt.push(["_requirePlugin","UrlChangeTracker",{shouldTrackUrlChange:function(c,d){return c&&d}}])};var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)}})();</script>`
+const bdtjID = '1eb3cea61a6e722c5e3dd0114830306c'
+const hmScript = `<script>var _hmt=_hmt||[];(function(){if(location.host.indexOf("localhost")===-1){var b=document.createElement("script");b.src="https://hm.baidu.com/hm.js?${bdtjID}";b.onload=function(){_hmt.push(["_requirePlugin","UrlChangeTracker",{shouldTrackUrlChange:function(c,d){return c&&d}}])};var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)}})();</script>`
 
 gulp.task('clear_docs_temp', () => {
   return del([
