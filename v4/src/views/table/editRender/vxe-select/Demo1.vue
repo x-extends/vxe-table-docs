@@ -10,6 +10,7 @@
       <vxe-column field="sexList" title="下拉多选" width="200" :edit-render="sexListEditRender"></vxe-column>
       <vxe-column field="type" title="下拉分组单选" width="200" :edit-render="typeEditRender"> </vxe-column>
       <vxe-column field="typeList" title="下拉分组多选" width="200" :edit-render="typeListEditRender"></vxe-column>
+      <vxe-column field="role" title="大数据量选项" min-width="200" :edit-render="roleEditRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -95,9 +96,29 @@ const typeListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSele
   ]
 })
 
+const roleEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
+  name: 'VxeSelect',
+  props: {
+    filterable: true
+  },
+  options: []
+})
+
 const tableData = ref<RowVO[]>([
-  { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },
-  { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
-  { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', sexList: [], type: '', typeList: [] }
+  { id: 10001, name: 'Test1', role: 'role2', sex: '', sexList: [], type: '', typeList: [] },
+  { id: 10002, name: 'Test2', role: 'role10', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
+  { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
 ])
+
+// 模拟后端接口
+setTimeout(() => {
+  const list: any[] = []
+  for (let i = 0; i < 10000; i++) {
+    list.push({
+      value: `role${i}`,
+      label: `角色${i}`
+    })
+  }
+  roleEditRender.options = list
+}, 100)
 </script>

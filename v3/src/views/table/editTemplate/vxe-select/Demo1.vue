@@ -38,6 +38,14 @@
           <span>{{ formatTypeLabel(row.typeList) }}</span>
         </template>
       </vxe-column>
+      <vxe-column field="role" title="大数据量选项" min-width="200" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-select v-model="row.role" :options="roleOptions" filterable></vxe-select>
+        </template>
+        <template #default="{ row }">
+          <span>{{ formatRoleLabel(row.role) }}</span>
+        </template>
+      </vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -58,9 +66,9 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },
-      { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
-      { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', sexList: [], type: '', typeList: [] }
+      { id: 10001, name: 'Test1', role: 'role2', sex: '', sexList: [], type: '', typeList: [] },
+      { id: 10002, name: 'Test2', role: 'role10', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
+      { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
     ]
 
     const sexOptions = [
@@ -85,10 +93,13 @@ export default Vue.extend({
       }
     ]
 
+    const roleOptions: any[] = []
+
     return {
       tableData,
       sexOptions,
-      typeOptions
+      typeOptions,
+      roleOptions
     }
   },
   methods: {
@@ -117,7 +128,24 @@ export default Vue.extend({
         }).join(',')
       }
       return ''
+    },
+    formatRoleLabel (role: string) {
+      const item = this.roleOptions.find(item => item.value === role)
+      return item ? item.label : role
     }
+  },
+  created () {
+    // 模拟后端接口
+    setTimeout(() => {
+      const list: any[] = []
+      for (let i = 0; i < 10000; i++) {
+        list.push({
+          value: `role${i}`,
+          label: `角色${i}`
+        })
+      }
+      this.roleOptions = list
+    }, 100)
   }
 })
 </script>
