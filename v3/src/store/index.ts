@@ -38,7 +38,18 @@ export default new Vuex.Store({
     pluginDocsUrl: process.env.VUE_APP_PLUGIN_DOCS_URL,
     compApiMaps: null as any,
     showAuthMsgFlag: localStorage.getItem('SHOW_AUTH_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
-    showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+    showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
+    versionConfig: {}
+  },
+  getters: {
+    uiCDNLib (status) {
+      const uiConf = status.versionConfig['vxe-pc-ui']
+      return `vxe-pc-ui@${(uiConf ? uiConf[`v${status.docsVersion}-latest`] : '') || status.docsVersion}`
+    },
+    tableCDNLib (status) {
+      const tableConf = status.versionConfig['vxe-table']
+      return `vxe-table@${(tableConf ? tableConf[`v${status.docsVersion}-latest`] : '') || status.docsVersion}`
+    }
   },
   mutations: {
     setPageLoading (state, status: boolean) {
@@ -95,6 +106,9 @@ export default new Vuex.Store({
     readTopMenuMsgFlagVisible (state) {
       state.showTopMenuMsgFlag = false
       localStorage.setItem('SHOW_TOP_MENU_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM-dd'))
+    },
+    setVersionConfig (state, conf: any) {
+      state.versionConfig = conf
     }
   },
   actions: {

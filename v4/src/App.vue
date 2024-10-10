@@ -8,7 +8,13 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useAppStore } from '@/store/app'
+import axios from 'axios'
 
 const appStore = useAppStore()
+const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const pageLoading = computed(() => appStore.pageLoading)
+
+axios.get(`${siteBaseUrl.value}/component-api/vxe-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+  appStore.setVersionConfig(res.data)
+})
 </script>

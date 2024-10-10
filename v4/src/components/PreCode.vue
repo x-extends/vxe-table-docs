@@ -1,21 +1,42 @@
 <template>
-  <code ref="codeElem">
-    <slot>{{ content }}</slot>
+  <code ref="codeRef" :class="['hljs', language]">
+    <slot></slot>
   </code>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, Ref } from 'vue'
+import { nextTick, watch, ref, Ref } from 'vue'
 import hljs from 'highlight.js'
 
-defineProps({
+const props = defineProps({
+  language: {
+    type: String,
+    default: 'javascript'
+  },
   content: String
 })
 
-const codeElem = ref() as Ref<HTMLElement>
+const codeRef = ref() as Ref<HTMLElement>
+
+const handleHigh = () => {
+  nextTick(() => {
+    const codeEl = codeRef.value
+    if (codeEl) {
+      codeEl.innerHTML = hljs.highlight(props.content || '', { language: props.language }).value
+    }
+  })
+}
+
+watch(() => props.content, () => {
+  handleHigh()
+})
 
 nextTick(() => {
-  const block = codeElem.value
-  hljs.highlightBlock(block)
+  if (props.content) {
+    handleHigh()
+  } else {
+    const block = codeRef.value
+    hljs.highlightBlock(block)
+  }
 })
 </script>

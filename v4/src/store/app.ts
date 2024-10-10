@@ -36,7 +36,18 @@ export const useAppStore = defineStore('app', {
       pluginDocsUrl: process.env.VUE_APP_PLUGIN_DOCS_URL,
       compApiMaps: null as any,
       showAuthMsgFlag: localStorage.getItem('SHOW_AUTH_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
-      showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd')
+      showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
+      versionConfig: {}
+    }
+  },
+  getters: {
+    uiCDNLib (status) {
+      const uiConf = status.versionConfig['vxe-pc-ui']
+      return `vxe-pc-ui@${(uiConf ? uiConf[`v${status.docsVersion}-latest`] : '') || status.docsVersion}`
+    },
+    tableCDNLib (status) {
+      const tableConf = status.versionConfig['vxe-table']
+      return `vxe-table@${(tableConf ? tableConf[`v${status.docsVersion}-latest`] : '') || status.docsVersion}`
     }
   },
   actions: {
@@ -94,6 +105,9 @@ export const useAppStore = defineStore('app', {
     readTopMenuMsgFlagVisible () {
       this.showTopMenuMsgFlag = false
       localStorage.setItem('SHOW_TOP_MENU_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM-dd'))
+    },
+    setVersionConfig (conf: any) {
+      this.versionConfig = conf
     }
   }
 })

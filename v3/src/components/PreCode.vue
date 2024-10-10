@@ -1,6 +1,6 @@
 <template>
-  <code ref="codeElem">
-    <slot>{{ content }}</slot>
+  <code ref="codeRef" :class="['hljs', language]">
+    <slot></slot>
   </code>
 </template>
 
@@ -10,12 +10,35 @@ import hljs from 'highlight.js'
 
 export default Vue.extend({
   props: {
+    language: {
+      type: String,
+      default: 'javascript'
+    },
     content: String
+  },
+  methods: {
+    handleHigh  () {
+      this.$nextTick(() => {
+        const codeEl = this.$refs.codeRef as HTMLElement
+        if (codeEl) {
+          codeEl.innerHTML = hljs.highlight(this.content || '', { language: this.language }).value
+        }
+      })
+    }
+  },
+  watch: {
+    content () {
+      this.handleHigh()
+    }
   },
   created () {
     this.$nextTick(() => {
-      const block = this.$refs.codeElem as HTMLElement
-      hljs.highlightBlock(block)
+      if (this.content) {
+        this.handleHigh()
+      } else {
+        const block = this.$refs.codeRef as HTMLElement
+        hljs.highlightBlock(block)
+      }
     })
   }
 })
