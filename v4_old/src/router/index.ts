@@ -287,7 +287,7 @@ const JoinSponsor = () => import('../views/api/JoinSponsor.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/*',
+    path: '/:pathMatch(.*)*',
     redirect: {
       name: 'StartInstall'
     }

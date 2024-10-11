@@ -2631,7 +2631,7 @@ const gridRouteConfig: RouteRecordRaw = {
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/*',
+    path: '/:pathMatch(.*)*',
     redirect: {
       name: 'StartInstall'
     }

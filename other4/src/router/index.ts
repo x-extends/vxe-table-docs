@@ -32,7 +32,7 @@ const Donation = () => import('../views/api/Donation.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/*',
+    path: '/:pathMatch(.*)*',
     redirect: {
       name: 'TablePluginExportXLSX'
     }
