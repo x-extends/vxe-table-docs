@@ -845,14 +845,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '单元格',
           children: [
             { title: '实现一个超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' } },
-            { title: '实现一个图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' } }
+            { title: '实现一个图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' } },
+            { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },
         {
           title: '可编辑',
           children: [
             { title: '实现一个金额输入', routerLink: { name: 'GlobalRendererTableEditMyEditAmount' } },
-            { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' } }
+            { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' } },
+            { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
         {
@@ -875,6 +877,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现一个输入筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterInput' } },
             { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterComplex' } },
             { title: '实现一个显示列表的筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterContent' } },
+            { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/filter/el-input` },
             { title: '更多筛选插件', isEnterprise: true, linkUrl: 'https://vxetable.cn/plugins/' }
           ]
         },
