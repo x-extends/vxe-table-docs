@@ -820,7 +820,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
       i18nKey: 'app.aside.menu.tableGlobalMenus',
       children: [
         { title: 'API', routerLink: { name: 'GlobalMenusTableAPI' } },
-        { title: '右键菜单', routerLink: { name: 'GlobalMenusTableBase' } }
+        { title: '右键菜单', routerLink: { name: 'GlobalMenusTableBase' } },
+        { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-menu/table/full` }
       ]
     },
     {
