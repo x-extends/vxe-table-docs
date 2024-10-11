@@ -13,10 +13,7 @@
       </template>
 
       <template #use>
-        <div>
-          完整安装，可以直接使用完整功能。
-          <vxe-link status="primary" href="https://github.com/xuliangzhan/vxe-table-demo/tree/master/vxe-table-by-vue3-vite-typescript" target="_blank">示例项目</vxe-link>
-        </div>
+        <div>完整安装，可以直接使用完整功能。</div>
         <pre>
           <pre-code
             language="shell"
