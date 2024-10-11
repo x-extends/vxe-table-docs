@@ -161,7 +161,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义前缀', routerLink: { name: 'ComponentTableMenuPrefixConfig' } },
             { title: '自定义后缀', routerLink: { name: 'ComponentTableMenuSuffixConfig' } },
             { title: '完整右键菜单', routerLink: { name: 'ComponentTableMenuFull' } },
-            { title: '菜单权限控制', routerLink: { name: 'ComponentTableMenuPrivilege' } }
+            { title: '菜单权限控制', routerLink: { name: 'ComponentTableMenuPrivilege' } },
+            { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-menu/table/full` }
           ]
         },
         {
@@ -534,7 +535,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义前缀', routerLink: { name: 'ComponentGridMenuPrefixConfig' } },
             { title: '自定义后缀', routerLink: { name: 'ComponentGridMenuSuffixConfig' } },
             { title: '完整右键菜单', routerLink: { name: 'ComponentGridMenuFull' } },
-            { title: '菜单权限控制', routerLink: { name: 'ComponentGridMenuPrivilege' } }
+            { title: '菜单权限控制', routerLink: { name: 'ComponentGridMenuPrivilege' } },
+            { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-menu/grid/full` }
           ]
         },
         {
