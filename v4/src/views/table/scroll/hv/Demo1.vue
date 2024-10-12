@@ -5,9 +5,7 @@
       <vxe-button @click="loadData(1000)">加载1k行</vxe-button>
       <vxe-button @click="loadData(5000)">加载5k行</vxe-button>
       <vxe-button @click="loadData(10000)">加载1w行</vxe-button>
-      <vxe-button @click="loadData(50000)">加载5w行</vxe-button>
-      <vxe-button @click="loadData(100000)">加载10w行</vxe-button>
-      <vxe-button @click="loadData(200000)">加载20w行</vxe-button>
+      <vxe-button @click="loadData(30000)">加载3w行</vxe-button>
     </p>
     <vxe-table
       border
@@ -79,7 +77,6 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-
 import { VxeUI, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
@@ -96,8 +93,6 @@ const loadData = (rowSize: number) => {
   const $table = tableRef.value
   loading.value = true
   setTimeout(() => {
-    const startTime = Date.now()
-
     const dataList: RowVO[] = []
     for (let i = 0; i < rowSize; i++) {
       const item: RowVO = {
@@ -110,6 +105,7 @@ const loadData = (rowSize: number) => {
     }
     loading.value = false
     if ($table) {
+      const startTime = Date.now()
       $table.loadData(dataList).then(() => {
         VxeUI.modal.message({
           content: `加载时间 ${Date.now() - startTime} 毫秒`,

@@ -35,7 +35,11 @@ export default Vue.extend({
       showOverflow: true,
       showHeaderOverflow: true,
       showFooterOverflow: true,
-      height: 600,
+      height: 800,
+      editConfig: {
+        trigger: 'click',
+        mode: 'cell'
+      },
       scrollY: {
         enabled: true,
         gt: 0
@@ -61,7 +65,8 @@ export default Vue.extend({
           colList.push({
             field: `col${i}`,
             title: `标题${i}`,
-            width: 160
+            width: 160,
+            editRender: { name: 'VxeInput' }
           })
         }
         const dataList: RowVO[] = []

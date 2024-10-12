@@ -1,9 +1,9 @@
 <template>
   <div>
     <vxe-table
-      show-footer
       border
       height="300"
+      :show-footer="showFooter"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
@@ -27,6 +27,8 @@ interface RowVO {
   num: string
   address: string
 }
+
+const showFooter = ref(true)
 
 const tableData = ref<RowVO[]>([
   { id: '10001', name: 'Test1', role: 'Develop', sex: 'Man', num: '28', address: 'test abc' },

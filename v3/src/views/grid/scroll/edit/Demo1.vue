@@ -1,12 +1,19 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <p>
+      <vxe-button @click="loadData(500)">加载500行</vxe-button>
+      <vxe-button @click="loadData(1000)">加载1k行</vxe-button>
+      <vxe-button @click="loadData(5000)">加载5k行</vxe-button>
+      <vxe-button @click="loadData(10000)">加载1w行</vxe-button>
+      <vxe-button @click="loadData(30000)">加载3w行</vxe-button>
+    </p>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -50,10 +57,11 @@ export default Vue.extend({
     }
   },
   methods: {
-  // 模拟行数据
-    loadList (size = 200) {
+    // 模拟行数据
+    loadData (size = 200) {
       this.gridOptions.loading = true
       setTimeout(() => {
+        const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
         const dataList: RowVO[] = []
         for (let i = 0; i < size; i++) {
           dataList.push({
@@ -66,14 +74,22 @@ export default Vue.extend({
             address: ''
           })
         }
-        this.gridOptions.data = dataList
         this.gridOptions.loading = false
+        if ($grid) {
+          const startTime = Date.now()
+          $grid.loadData(dataList).then(() => {
+            VxeUI.modal.message({
+              content: `加载时间 ${Date.now() - startTime} 毫秒`,
+              status: 'success'
+            })
+            this.gridOptions.loading = false
+          })
+        }
       }, 350)
     }
-
   },
   created () {
-    this.loadList(500)
+    this.loadData(500)
   }
 })
 </script>

@@ -1,9 +1,10 @@
 <template>
   <div>
+    <vxe-switch v-model="showFooter">表尾开关</vxe-switch>
     <vxe-table
-      show-footer
       border
       height="300"
+      :show-footer="showFooter"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
@@ -46,6 +47,7 @@ export default Vue.extend({
     ]
 
     return {
+      showFooter: true,
       tableData,
       footerData
     }

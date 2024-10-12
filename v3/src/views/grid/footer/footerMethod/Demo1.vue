@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-switch v-model="gridOptions.showFooter">表尾开关</vxe-switch>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>

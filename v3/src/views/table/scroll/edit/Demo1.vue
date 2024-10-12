@@ -1,9 +1,17 @@
 <template>
   <div>
+    <p>
+      <vxe-button @click="loadData(500)">加载500行</vxe-button>
+      <vxe-button @click="loadData(1000)">加载1k行</vxe-button>
+      <vxe-button @click="loadData(5000)">加载5k行</vxe-button>
+      <vxe-button @click="loadData(10000)">加载1w行</vxe-button>
+      <vxe-button @click="loadData(30000)">加载3w行</vxe-button>
+    </p>
     <vxe-table
       border
       show-overflow
-      height="600"
+      ref="tableRef"
+      height="800"
       :scroll-y="{enabled: true, gt: 0}"
       :edit-config="editConfig"
       :loading="loading"
@@ -21,7 +29,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -49,33 +57,38 @@ export default Vue.extend({
     }
   },
   methods: {
-    mockList (size: number) {
-      const list: RowVO[] = []
-      for (let i = 0; i < size; i++) {
-        list.push({
-          id: i,
-          name: `名称${i}`,
-          nickname: '',
-          role: `角色${i}`,
-          age: '18',
-          sex: '',
-          address: ''
-        })
-      }
-      return list
-    },
-    findList () {
+    // 模拟行数据
+    loadData (size = 200) {
       this.loading = true
-      // 模拟后台接口
       setTimeout(() => {
-        const data = this.mockList(600)
+        const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+        const dataList: RowVO[] = []
+        for (let i = 0; i < size; i++) {
+          dataList.push({
+            id: i,
+            name: `名称${i}`,
+            nickname: '',
+            role: `角色${i}`,
+            age: '18',
+            sex: '',
+            address: ''
+          })
+        }
         this.loading = false
-        this.tableData = data
+        if ($table) {
+          const startTime = Date.now()
+          $table.loadData(dataList).then(() => {
+            VxeUI.modal.message({
+              content: `加载时间 ${Date.now() - startTime} 毫秒`,
+              status: 'success'
+            })
+          })
+        }
       }, 350)
     }
   },
   created () {
-    this.findList()
+    this.loadData(500)
   }
 })
 </script>
