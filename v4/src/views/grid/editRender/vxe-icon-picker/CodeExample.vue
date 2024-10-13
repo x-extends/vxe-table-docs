@@ -2,7 +2,9 @@
   <div>
     <CodeLight path="grid/editRender/vxe-icon-picker/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="vxe-icon-picker">图标选择</vxe-tip>
+        <vxe-tip status="primary" title="图标选择">
+          查看 <ApiLink name="icon-picker" redirect/> 文档 API
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>

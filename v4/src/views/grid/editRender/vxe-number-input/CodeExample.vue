@@ -2,7 +2,9 @@
   <div>
     <CodeLight path="grid/editRender/vxe-number-input/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="vxe-number-input">数值输入框</vxe-tip>
+        <vxe-tip status="primary" title="数值输入框">
+          查看 <ApiLink name="number-input" redirect/> 文档 API
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>

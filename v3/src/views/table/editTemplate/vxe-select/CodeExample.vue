@@ -2,7 +2,9 @@
   <div>
     <CodeLight path="table/editTemplate/vxe-select/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="vxe-select">下拉框，支持流畅的加载大数据量选项</vxe-tip>
+        <vxe-tip status="primary" title="下拉框">
+          查看 <ApiLink name="pulldown" redirect/> 文档 API，支持流畅的加载大数据量选项
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>

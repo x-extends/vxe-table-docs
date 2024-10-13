@@ -2,7 +2,9 @@
   <div>
     <CodeLight path="grid/editRender/vxe-date-picker/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="vxe-date-picker">日期选择</vxe-tip>
+        <vxe-tip status="primary" title="日期选择">
+          查看 <ApiLink name="date-picker" redirect/> 文档 API
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>
