@@ -41,8 +41,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const tableData: RowVO[] = [
-    ]
+    const tableData: RowVO[] = []
     return {
       loading: false,
       tableData

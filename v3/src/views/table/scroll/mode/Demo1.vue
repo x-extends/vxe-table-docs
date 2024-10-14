@@ -1,19 +1,20 @@
 <template>
   <div>
-    <vxe-button @click="loadDataAndColumns(5000)">加载5k条</vxe-button>
-    <vxe-button @click="loadDataAndColumns(10000)">加载1w条</vxe-button>
+    <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
+    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
     <vxe-table
       border
       show-overflow
       show-header-overflow
       show-footer-overflow
       height="800"
+      :loading="loading"
       :column-config="{resizable: true}"
       :scroll-x="{enabled: true, gt: 0}"
       :scroll-y="{enabled: true, gt: 0, mode: 'wheel'}"
       :data="tableData">
       <vxe-column field="col0" title="列0" width="100" fixed="left"></vxe-column>
-      <vxe-column field="col1" title="列1" width="80" fixed="left"></vxe-column>
+      <vxe-column field="imgUrl" title="列1" width="80" fixed="left" :cell-render="imgUrlCellRender"></vxe-column>
       <vxe-column field="col2" title="列2" width="90" fixed="left"></vxe-column>
       <vxe-column field="col3" title="列3" width="200"></vxe-column>
       <vxe-column field="col4" title="列4" width="140"></vxe-column>
@@ -100,45 +101,99 @@
       <vxe-column field="col85" title="列85" width="150"></vxe-column>
       <vxe-column field="col86" title="列86" width="800"></vxe-column>
       <vxe-column field="col87" title="列87" width="70" fixed="right"></vxe-column>
-      <vxe-column field="col88" title="列88" width="120" fixed="right"></vxe-column>
-      <vxe-column field="col89" title="列89" width="100" fixed="right"></vxe-column>
+      <vxe-column field="imgList1" title="列88" width="120" fixed="right" :cell-render="imgList1CellRender"></vxe-column>
+      <vxe-column field="flag1" title="列89" width="100" fixed="right" :cell-render="flag1CellRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
-import { VxeColumnProps } from 'vxe-table'
+<script lang="ts">
+import Vue from 'vue'
+import { VxeUI, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
-  [key: string]: string | number
+  [key: string]: string | number | boolean | any[]
 }
 
-const tableData = ref<RowVO[]>([])
+export default Vue.extend({
+  data () {
+    const tableData: RowVO[] = []
 
-// 模拟行与列数据
-const loadDataAndColumns = (rowSize: number) => {
-  const colList: VxeColumnProps[] = []
-  for (let i = 0; i < 120; i++) {
-    colList.push({
-      field: `col${i}`,
-      title: `标题${i}`,
-      width: 160
-    })
-  }
-  const dataList: RowVO[] = []
-  for (let i = 0; i < rowSize; i++) {
-    const item: RowVO = {
-      id: 10000 + i
+    const flag1CellRender: VxeColumnPropTypes.CellRender = {
+      name: 'VxeSwitch'
     }
-    for (let j = 0; j < colList.length; j++) {
-      item[`col${j}`] = `值_${i}_${j}`
-    }
-    dataList.push(item)
-  }
-  tableData.value = dataList
-}
 
-loadDataAndColumns(200)
+    const imgUrlCellRender: VxeColumnPropTypes.CellRender = {
+      name: 'VxeImage',
+      props: {
+        width: 36,
+        height: 36
+      }
+    }
+
+    const imgList1CellRender : VxeColumnPropTypes.CellRender = {
+      name: 'VxeUpload',
+      props: {
+        mode: 'image',
+        readonly: true,
+        moreConfig: {
+          maxCount: 2
+        },
+        imageStyle: {
+          width: 40,
+          height: 40
+        }
+      }
+    }
+
+    return {
+      tableData,
+      loading: false,
+      flag1CellRender,
+      imgUrlCellRender,
+      imgList1CellRender
+    }
+  },
+  methods: {
+    // 模拟行数据
+    loadData (rowSize: number) {
+      const dataList: RowVO[] = []
+      for (let i = 0; i < rowSize; i++) {
+        const item: RowVO = {
+          id: 10000 + i,
+          imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
+          imgList1: i % 4 === 0
+            ? [
+                { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
+              ]
+            : [
+                { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
+                { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
+              ],
+          flag1: i % 5 === 0
+        }
+        for (let j = 0; j < 120; j++) {
+          item[`col${j}`] = `值_${i}_${j}`
+        }
+        dataList.push(item)
+      }
+      this.loading = true
+      setTimeout(() => {
+        const startTime = Date.now()
+        this.tableData = dataList
+        this.loading = false
+        this.$nextTick(() => {
+          VxeUI.modal.message({
+            content: `加载时间 ${Date.now() - startTime} 毫秒`,
+            status: 'success'
+          })
+        })
+      }, 100)
+    }
+  },
+  created () {
+    this.loadData(200)
+  }
+})
 </script>

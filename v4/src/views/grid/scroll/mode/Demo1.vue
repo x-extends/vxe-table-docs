@@ -1,24 +1,52 @@
 <template>
   <div>
-    <vxe-button @click="loadDataAndColumns(5000)">加载5k条</vxe-button>
-    <vxe-button @click="loadDataAndColumns(10000)">加载1w条</vxe-button>
+    <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
+    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import { reactive, nextTick } from 'vue'
+import { VxeUI, VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
-  [key: string]: string | number
+  [key: string]: string | number | boolean | any[]
 }
+
+const flag1CellRender = reactive<VxeColumnPropTypes.CellRender>({
+  name: 'VxeSwitch'
+})
+
+const imgUrlCellRender = reactive<VxeColumnPropTypes.CellRender>({
+  name: 'VxeImage',
+  props: {
+    width: 36,
+    height: 36
+  }
+})
+
+const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender>({
+  name: 'VxeUpload',
+  props: {
+    mode: 'image',
+    readonly: true,
+    moreConfig: {
+      maxCount: 2
+    },
+    imageStyle: {
+      width: 40,
+      height: 40
+    }
+  }
+})
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showHeaderOverflow: true,
   showFooterOverflow: true,
+  loading: false,
   height: 800,
   columnConfig: {
     resizable: true
@@ -34,7 +62,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { title: '列0', field: 'col0', width: 100, fixed: 'left' },
-    { title: '列1', field: 'col1', width: 80, fixed: 'left' },
+    { title: '列1', field: 'imgUrl', width: 80, fixed: 'left', cellRender: imgUrlCellRender },
     { title: '列2', field: 'col2', width: 90, fixed: 'left' },
     { title: '列3', field: 'col3', width: 200 },
     { title: '列4', field: 'col4', width: 140 },
@@ -132,34 +160,47 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { title: '列96', field: 'col96', width: 800 },
     { title: '列97', field: 'col97', width: 400 },
     { title: '列98', field: 'col98', width: 70, fixed: 'right' },
-    { title: '列99', field: 'col99', width: 120, fixed: 'right' },
-    { title: '列100', field: 'col100', width: 100, fixed: 'right' }
+    { title: '列99', field: 'imgList1', width: 120, fixed: 'right', cellRender: imgList1CellRender },
+    { title: '列100', field: 'flag1', width: 100, fixed: 'right', cellRender: flag1CellRender }
   ],
   data: []
 })
 
-// 模拟行与列数据
-const loadDataAndColumns = (rowSize: number) => {
-  const colList: VxeGridPropTypes.Columns = []
-  for (let i = 0; i < 120; i++) {
-    colList.push({
-      field: `col${i}`,
-      title: `标题${i}`,
-      width: 160
-    })
-  }
+// 模拟行数据
+const loadData = (rowSize: number) => {
   const dataList: RowVO[] = []
   for (let i = 0; i < rowSize; i++) {
     const item: RowVO = {
-      id: 10000 + i
+      id: 10000 + i,
+      imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
+      imgList1: i % 4 === 0
+        ? [
+            { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
+          ]
+        : [
+            { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
+            { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
+          ],
+      flag1: i % 5 === 0
     }
-    for (let j = 0; j < colList.length; j++) {
+    for (let j = 0; j < 120; j++) {
       item[`col${j}`] = `值_${i}_${j}`
     }
     dataList.push(item)
   }
-  gridOptions.data = dataList
+  gridOptions.loading = true
+  setTimeout(() => {
+    const startTime = Date.now()
+    gridOptions.data = dataList
+    gridOptions.loading = false
+    nextTick(() => {
+      VxeUI.modal.message({
+        content: `加载时间 ${Date.now() - startTime} 毫秒`,
+        status: 'success'
+      })
+    })
+  }, 100)
 }
 
-loadDataAndColumns(200)
+loadData(200)
 </script>
