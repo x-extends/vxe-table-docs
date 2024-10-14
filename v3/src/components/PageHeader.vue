@@ -328,7 +328,7 @@ export default Vue.extend({
   padding: 8px 0;
   margin: 0;
   list-style: none;
-  width: 280px;
+  width: 320px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   & > li {
     position: relative;
