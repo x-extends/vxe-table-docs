@@ -303,7 +303,7 @@ fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-ve
   padding: 8px 0;
   margin: 0;
   list-style: none;
-  width: 320px;
+  width: 340px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   & > li {
     position: relative;

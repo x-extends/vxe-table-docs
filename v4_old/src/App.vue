@@ -2289,7 +2289,7 @@ nextTick(() => {
   padding: 8px 0;
   margin: 0;
   list-style: none;
-  width: 320px;
+  width: 340px;
   border: 1px solid var(--vxe-table-docs-layout-border-color);
   & > li {
     position: relative;

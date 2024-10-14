@@ -2604,7 +2604,7 @@ nextTick(() => {
   padding: 8px 0;
   margin: 0;
   list-style: none;
-  width: 320px;
+  width: 340px;
   border: 1px solid #dcdfe6;
   & > li {
     position: relative;
