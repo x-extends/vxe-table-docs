@@ -2,6 +2,7 @@
   <div>
     <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
     <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
+    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -46,6 +47,7 @@ export default Vue.extend({
 
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      showOverflow: true,
       showHeaderOverflow: true,
       showFooterOverflow: true,
       loading: false,
