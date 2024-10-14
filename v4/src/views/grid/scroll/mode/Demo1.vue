@@ -17,7 +17,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showHeaderOverflow: true,
   showFooterOverflow: true,
-  height: 600,
+  height: 800,
   columnConfig: {
     resizable: true
   },
@@ -25,10 +25,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     enabled: true,
     gt: 0
   },
+  scrollY: {
+    enabled: true,
+    gt: 0,
+    mode: 'wheel'
+  },
   columns: [
-    { title: '列0', field: 'col0', width: 160 },
-    { title: '列1', field: 'col1', width: 100 },
-    { title: '列2', field: 'col2', width: 160 },
+    { title: '列0', field: 'col0', width: 100, fixed: 'left' },
+    { title: '列1', field: 'col1', width: 80, fixed: 'left' },
+    { title: '列2', field: 'col2', width: 90, fixed: 'left' },
     { title: '列3', field: 'col3', width: 200 },
     { title: '列4', field: 'col4', width: 140 },
     { title: '列5', field: 'col5', width: 300 },
@@ -124,9 +129,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { title: '列95', field: 'col95', width: 150 },
     { title: '列96', field: 'col96', width: 800 },
     { title: '列97', field: 'col97', width: 400 },
-    { title: '列98', field: 'col98', width: 800 },
-    { title: '列99', field: 'col99', width: 360 },
-    { title: '列100', field: 'col100', width: 360 }
+    { title: '列98', field: 'col98', width: 70, fixed: 'right' },
+    { title: '列99', field: 'col99', width: 120, fixed: 'right' },
+    { title: '列100', field: 'col100', width: 100, fixed: 'right' }
   ],
   data: []
 })
@@ -154,5 +159,5 @@ const loadDataAndColumns = (rowSize: number) => {
   gridOptions.data = dataList
 }
 
-loadDataAndColumns(20)
+loadDataAndColumns(200)
 </script>

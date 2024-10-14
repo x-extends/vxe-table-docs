@@ -1233,6 +1233,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/scroll/loadData/CodeExample.vue')
         },
         {
+          path: 'mode',
+          name: 'ComponentTableScrollMode',
+          component: () => import('@/views/table/scroll/mode/CodeExample.vue')
+        },
+        {
           path: 'rowHeight',
           name: 'ComponentTableScrollRowHeight',
           component: () => import('@/views/table/scroll/rowHeight/CodeExample.vue')
@@ -1264,7 +1269,7 @@ const tableRouteConfig: RouteRecordRaw = {
         },
         {
           path: 'hvEdit',
-          name: 'ComponentTableScrollHVhEdit',
+          name: 'ComponentTableScrollHVEdit',
           component: () => import('@/views/table/scroll/hvEdit/CodeExample.vue')
         }
       ]
@@ -2484,6 +2489,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'loadData',
           name: 'ComponentGridScrollLoadData',
           component: () => import('@/views/grid/scroll/loadData/CodeExample.vue')
+        },
+        {
+          path: 'mode',
+          name: 'ComponentGridScrollMode',
+          component: () => import('@/views/grid/scroll/mode/CodeExample.vue')
         },
         {
           path: 'rowHeight',

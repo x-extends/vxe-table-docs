@@ -124,7 +124,7 @@ export default Vue.extend({
     // 模拟行与列数据
     loadDataAndColumns (rowSize: number) {
       const colList: VxeColumnProps[] = []
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 120; i++) {
         colList.push({
           field: `col${i}`,
           title: `标题${i}`,

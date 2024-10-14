@@ -1,17 +1,20 @@
 <template>
   <div>
+    <vxe-button @click="loadDataAndColumns(5000)">加载5k条</vxe-button>
+    <vxe-button @click="loadDataAndColumns(10000)">加载1w条</vxe-button>
     <vxe-table
       border
       show-overflow
       show-header-overflow
       show-footer-overflow
-      height="600"
+      height="800"
       :column-config="{resizable: true}"
       :scroll-x="{enabled: true, gt: 0}"
+      :scroll-y="{enabled: true, gt: 0, mode: 'wheel'}"
       :data="tableData">
-      <vxe-column field="col0" title="列0" width="160"></vxe-column>
-      <vxe-column field="col1" title="列1" width="100"></vxe-column>
-      <vxe-column field="col2" title="列2" width="160"></vxe-column>
+      <vxe-column field="col0" title="列0" width="100" fixed="left"></vxe-column>
+      <vxe-column field="col1" title="列1" width="80" fixed="left"></vxe-column>
+      <vxe-column field="col2" title="列2" width="90" fixed="left"></vxe-column>
       <vxe-column field="col3" title="列3" width="200"></vxe-column>
       <vxe-column field="col4" title="列4" width="140"></vxe-column>
       <vxe-column field="col5" title="列5" width="300"></vxe-column>
@@ -96,9 +99,9 @@
       <vxe-column field="col84" title="列84" width="100"></vxe-column>
       <vxe-column field="col85" title="列85" width="150"></vxe-column>
       <vxe-column field="col86" title="列86" width="800"></vxe-column>
-      <vxe-column field="col87" title="列87" width="400"></vxe-column>
-      <vxe-column field="col88" title="列88" width="800"></vxe-column>
-      <vxe-column field="col89" title="列89" width="360"></vxe-column>
+      <vxe-column field="col87" title="列87" width="70" fixed="right"></vxe-column>
+      <vxe-column field="col88" title="列88" width="120" fixed="right"></vxe-column>
+      <vxe-column field="col89" title="列89" width="100" fixed="right"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -137,5 +140,5 @@ const loadDataAndColumns = (rowSize: number) => {
   tableData.value = dataList
 }
 
-loadDataAndColumns(20)
+loadDataAndColumns(200)
 </script>
