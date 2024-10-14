@@ -7,7 +7,7 @@
     </p>
     <pre>
       <code class="shell">
-        npm install xe-utils vxe-table@1
+        npm install xe-utils@2.7.14 vxe-table@1.15.31
       </code>
       <code class="javascript">
         import Vue from 'vue'
