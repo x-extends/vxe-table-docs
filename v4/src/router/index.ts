@@ -989,6 +989,21 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-button',
           name: 'ComponentTableCellTemplateVxeButton',
           component: () => import('@/views/table/cellTemplate/vxe-button/CodeExample.vue')
+        },
+        {
+          path: 'vxe-image',
+          name: 'ComponentTableCellTemplateVxeImage',
+          component: () => import('@/views/table/cellTemplate/vxe-image/CodeExample.vue')
+        },
+        {
+          path: 'vxe-image-group',
+          name: 'ComponentTableCellTemplateVxeImageGroup',
+          component: () => import('@/views/table/cellTemplate/vxe-image-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-text-ellipsis',
+          name: 'ComponentTableCellTemplateVxeTextEllipsis',
+          component: () => import('@/views/table/cellTemplate/vxe-text-ellipsis/CodeExample.vue')
         }
       ]
     },
@@ -1246,6 +1261,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'edit',
           name: 'ComponentTableScrollEdit',
           component: () => import('@/views/table/scroll/edit/CodeExample.vue')
+        },
+        {
+          path: 'hvEdit',
+          name: 'ComponentTableScrollHVhEdit',
+          component: () => import('@/views/table/scroll/hvEdit/CodeExample.vue')
         }
       ]
     },
@@ -2489,6 +2509,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'edit',
           name: 'ComponentGridScrollEdit',
           component: () => import('@/views/grid/scroll/edit/CodeExample.vue')
+        },
+        {
+          path: 'hvEdit',
+          name: 'ComponentGridScrollHVEdit',
+          component: () => import('@/views/grid/scroll/hvEdit/CodeExample.vue')
         }
       ]
     },

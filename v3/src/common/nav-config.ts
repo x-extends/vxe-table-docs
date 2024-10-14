@@ -249,6 +249,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: 'VxeSwitch', routerLink: { name: 'ComponentTableCellTemplateVxeSwitch' } },
             { title: 'VxeButton', routerLink: { name: 'ComponentTableCellTemplateVxeButton' } },
+            { title: 'VxeImage', routerLink: { name: 'ComponentTableCellTemplateVxeImage' } },
+            { title: 'VxeImageGroup', routerLink: { name: 'ComponentTableCellTemplateVxeImageGroup' } },
+            { title: 'VxeTextEllipsis', routerLink: { name: 'ComponentTableCellTemplateVxeTextEllipsis' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },

@@ -88,6 +88,7 @@ export default Vue.extend({
         { title: '列57', field: 'col57', width: 170 },
         { title: '列58', field: 'col58', width: 400 },
         { title: '列59', field: 'col59', width: 220 },
+        { title: '列60', field: 'col60', width: 650 },
         { title: '列61', field: 'col61', width: 600 },
         { title: '列62', field: 'col62', width: 100 },
         { title: '列63', field: 'col63', width: 490 },
@@ -97,6 +98,7 @@ export default Vue.extend({
         { title: '列67', field: 'col67', width: 400 },
         { title: '列68', field: 'col68', width: 800 },
         { title: '列69', field: 'col69', width: 360 },
+        { title: '列70', field: 'col70', width: 650 },
         { title: '列71', field: 'col71', width: 600 },
         { title: '列72', field: 'col72', width: 100 },
         { title: '列73', field: 'col73', width: 490 },
@@ -106,6 +108,7 @@ export default Vue.extend({
         { title: '列77', field: 'col77', width: 400 },
         { title: '列78', field: 'col78', width: 800 },
         { title: '列79', field: 'col79', width: 360 },
+        { title: '列80', field: 'col80', width: 650 },
         { title: '列81', field: 'col81', width: 600 },
         { title: '列82', field: 'col82', width: 100 },
         { title: '列83', field: 'col83', width: 490 },
@@ -114,7 +117,18 @@ export default Vue.extend({
         { title: '列86', field: 'col86', width: 800 },
         { title: '列87', field: 'col87', width: 400 },
         { title: '列88', field: 'col88', width: 800 },
-        { title: '列89', field: 'col89', width: 360 }
+        { title: '列89', field: 'col89', width: 360 },
+        { title: '列90', field: 'col90', width: 650 },
+        { title: '列91', field: 'col91', width: 600 },
+        { title: '列92', field: 'col92', width: 100 },
+        { title: '列93', field: 'col93', width: 490 },
+        { title: '列94', field: 'col94', width: 100 },
+        { title: '列95', field: 'col95', width: 150 },
+        { title: '列96', field: 'col96', width: 800 },
+        { title: '列97', field: 'col97', width: 400 },
+        { title: '列98', field: 'col98', width: 800 },
+        { title: '列99', field: 'col99', width: 360 },
+        { title: '列100', field: 'col100', width: 360 }
       ],
       data: []
     }
