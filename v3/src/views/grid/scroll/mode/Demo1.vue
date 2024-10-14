@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-button @click="loadDataAndColumns(5000)">加载5k条</vxe-button>
+    <vxe-button @click="loadDataAndColumns(10000)">加载1w条</vxe-button>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
