@@ -2387,7 +2387,7 @@ export default {
   padding: 8px 0;
   margin: 0;
   list-style: none;
-  width: 340px;
+  width: 360px;
   border: 1px solid #dcdfe6;
   & > li {
     position: relative;

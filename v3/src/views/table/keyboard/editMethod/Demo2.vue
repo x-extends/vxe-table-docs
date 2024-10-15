@@ -72,9 +72,7 @@ export default Vue.extend({
       isBack: true,
       isEsc: true,
       editMethod ({ $table, row, column }) {
-        // 先清空原先的值
-        row[column.field] = ''
-        // 再激活编辑状态并输入新值
+        // 重写默认的覆盖式，改为追加式
         $table.setEditCell(row, column)
       }
     }

@@ -3,7 +3,7 @@
     <CodeLight path="table/keyboard/edit/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="重写默认编辑行为">
-          当启用 <ApiLink name="table" prop="keyboard-config"/>.<ApiLink name="table" prop="isEdit"/> 按键编辑功能时，默认情况下是覆盖式编辑，可以通过重写 <ApiLink name="table" prop="keyboard-config"/>.<ApiLink name="table" prop="editMethod"/> 方法来实现追加式编辑
+          当启用 <ApiLink name="table" prop="keyboard-config"/>.<ApiLink name="table" prop="isEdit"/> 按键编辑功能时，默认情况下是覆盖式编辑，可以通过重写 <ApiLink name="table" prop="keyboard-config"/>.<ApiLink name="table" prop="editMethod"/> 方法来自定义逻辑
         </vxe-tip>
       </template>
 
@@ -28,6 +28,14 @@
             | End | 滚动到底部 |
           </pre-code>
         </pre>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="table/keyboard/editMethod/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          实现追加式编辑
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>
