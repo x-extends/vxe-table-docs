@@ -2613,6 +2613,11 @@ const gridRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
+          path: 'scrollTo',
+          name: 'ComponentGridOtherScrollTo',
+          component: () => import('@/views/grid/other/scrollTo/CodeExample.vue')
+        },
+        {
           path: 'reverse',
           name: 'ComponentGridOtherReverse',
           component: () => import('@/views/grid/other/reverse/CodeExample.vue')

@@ -100,9 +100,13 @@
       <vxe-column field="col84" title="列84" width="100"></vxe-column>
       <vxe-column field="col85" title="列85" width="150"></vxe-column>
       <vxe-column field="col86" title="列86" width="800"></vxe-column>
-      <vxe-column field="col87" title="列87" width="70" fixed="right"></vxe-column>
       <vxe-column field="imgList1" title="列88" width="120" fixed="right" :cell-render="imgList1CellRender"></vxe-column>
-      <vxe-column field="flag1" title="列89" width="100" fixed="right" :cell-render="flag1CellRender"></vxe-column>
+      <vxe-column field="flag1" title="列89" width="100" fixed="right" :cell-render="flag1CellRender"></vxe-column><vxe-column field="action" title="操作" width="120" fixed="right">
+        <template #default>
+          <vxe-button mode="text" status="primary">编辑</vxe-button>
+          <vxe-button mode="text" status="error">删除</vxe-button>
+        </template>
+      </vxe-column>
     </vxe-table>
   </div>
 </template>

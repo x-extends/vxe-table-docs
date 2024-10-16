@@ -2,7 +2,7 @@
   <div>
     <vxe-table border :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" width="160">
+      <vxe-column field="name" title="Name" width="200">
         <template #header>
           <div class="first-col">
             <div class="first-col-top">名称</div>
@@ -57,11 +57,11 @@ export default Vue.extend({
   &:before {
     content: "";
     position: absolute;
-    left: -15px;
-    top: 10px;
-    width: 170px;
+    left: -22px;
+    top: 9px;
+    width: 222px;
     height: 1px;
-    transform: rotate(18deg);
+    transform: rotate(25deg);
     background-color: #e8eaec;
   }
   .first-col-top {

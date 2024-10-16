@@ -37,7 +37,7 @@ export default Vue.extend({
       border: true,
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', slots: { header: 'header_name' } },
+        { field: 'name', title: 'Name', width: 200, slots: { header: 'header_name' } },
         {
           title: 'Group1',
           children: [
@@ -70,11 +70,11 @@ export default Vue.extend({
   &:before {
     content: "";
     position: absolute;
-    left: -15px;
-    top: 10px;
-    width: 170px;
+    left: -22px;
+    top: 9px;
+    width: 222px;
     height: 1px;
-    transform: rotate(18deg);
+    transform: rotate(25deg);
     background-color: #e8eaec;
   }
   .first-col-top {

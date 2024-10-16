@@ -27,6 +27,7 @@ export default Vue.extend({
         {
           field: 'name',
           title: 'Name',
+          width: 200,
           slots: {
             header: () => {
               return <div class="first-col">
@@ -81,11 +82,11 @@ export default Vue.extend({
     &:before {
       content: "";
       position: absolute;
-      left: -15px;
-      top: 10px;
-      width: 170px;
+      left: -22px;
+      top: 9px;
+      width: 222px;
       height: 1px;
-      transform: rotate(18deg);
+      transform: rotate(25deg);
       background-color: #e8eaec;
     }
     .first-col-top {

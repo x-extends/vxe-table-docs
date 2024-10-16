@@ -3,7 +3,12 @@
     <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
     <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
     <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #action>
+        <vxe-button mode="text" status="primary">编辑</vxe-button>
+        <vxe-button mode="text" status="error">删除</vxe-button>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
@@ -164,7 +169,8 @@ export default Vue.extend({
         { title: '列97', field: 'col97', width: 400 },
         { title: '列98', field: 'col98', width: 70, fixed: 'right' },
         { title: '列99', field: 'imgList1', width: 120, fixed: 'right', cellRender: imgList1CellRender },
-        { title: '列100', field: 'flag1', width: 100, fixed: 'right', cellRender: flag1CellRender }
+        { title: '列100', field: 'flag1', width: 100, fixed: 'right', cellRender: flag1CellRender },
+        { title: '操作', field: 'action', width: 120, fixed: 'right', slots: { default: 'action' } }
       ],
       data: []
     }

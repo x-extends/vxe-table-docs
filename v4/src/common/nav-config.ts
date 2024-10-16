@@ -186,7 +186,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '允许调整列宽', routerLink: { name: 'ComponentTableCustomResizable' } },
             { title: '允许拖拽列顺序', routerLink: { name: 'ComponentTableCustomSort' } },
             { title: '冻结列最大数量限制', routerLink: { name: 'ComponentTableCustomFixedMax' } },
-            { title: '自定义触发弹出设置', routerLink: { name: 'ComponentTableCustomTemplate' } },
+            { title: '自定义触发按钮', routerLink: { name: 'ComponentTableCustomTemplate' } },
             { title: '自定义弹出位置', routerLink: { name: 'ComponentTableCustomPlacement' } },
             { title: '事件监听', routerLink: { name: 'ComponentTableCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentTableCustomImmediate' } },
@@ -582,7 +582,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '允许调整列冻结', routerLink: { name: 'ComponentGridCustomFixed' } },
             // { title: '允许调整列宽', routerLink: { name: 'ComponentGridCustomResizable' } },
             // { title: '允许拖拽列顺序', routerLink: { name: 'ComponentGridCustomSort' } },
-            // { title: '自定义触发弹出设置', routerLink: { name: 'ComponentGridCustomTemplate' } },
+            // { title: '自定义触发按钮', routerLink: { name: 'ComponentGridCustomTemplate' } },
             { title: '自定义弹出位置', routerLink: { name: 'ComponentGridCustomPlacement' } },
             { title: '事件监听', routerLink: { name: 'ComponentGridCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentGridCustomImmediate' } },
@@ -810,6 +810,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '其他',
           children: [
+            { title: '定位行、定位列', routerLink: { name: 'ComponentGridOtherScrollTo' } },
             { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
             { title: '文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
             { title: '多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
