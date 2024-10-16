@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { VxeUpload, VxeGlobalRendererHandles, VxeUploadPropTypes } from 'vxe-pc-ui'
+import { VxeUpload, VxeGlobalRendererHandles, VxeUploadPropTypes, VxeUploadProps } from 'vxe-pc-ui'
 import axios from 'axios'
 
 export default Vue.extend({
@@ -54,7 +54,7 @@ export default Vue.extend({
   computed: {
     renderProps () {
       const renderOpts: VxeGlobalRendererHandles.RenderFormItemContentOptions = this.renderOpts
-      return Object.assign({ mode: 'file' }, renderOpts.props)
+      return Object.assign({ mode: 'file' }, renderOpts.props) as VxeUploadProps
     }
   },
   methods: {

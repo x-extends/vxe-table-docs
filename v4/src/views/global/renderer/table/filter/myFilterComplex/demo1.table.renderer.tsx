@@ -6,20 +6,20 @@ import DemoFilterComplex from './DemoFilterComplex.vue'
 // 创建一个带条件的筛选渲染器
 VxeUI.renderer.add('MyTableFilterComplex', {
   // 不显示底部按钮，使用自定义的按钮
-  showFilterFooter: false,
+  showTableFilterFooter: false,
   // 自定义筛选模板
-  renderFilter (renderOpts, params) {
+  renderTableFilter (renderOpts, params) {
     return <DemoFilterComplex params={ params } />
   },
   // 自定义重置数据方法
-  filterResetMethod (params) {
+  tableFilterResetMethod (params) {
     const { options } = params
     options.forEach((option) => {
       option.data = { type: 'has', name: '' }
     })
   },
   // 自定义筛选数据方法
-  filterMethod (params) {
+  tableFilterMethod (params) {
     const { option, row, column } = params
     const cellValue = row[column.field]
     const { name, type } = option.data
