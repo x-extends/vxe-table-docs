@@ -940,12 +940,12 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/cellRender/vxe-switch/CodeExample.vue')
         },
         {
-          path: 'vxe-radio',
+          path: 'vxe-radio-group',
           name: 'ComponentTableCellRenderVxeRadioGroup',
           component: () => import('@/views/table/cellRender/vxe-radio-group/CodeExample.vue')
         },
         {
-          path: 'vxe-checkbox',
+          path: 'vxe-checkbox-group',
           name: 'ComponentTableCellRenderVxeCheckboxGroup',
           component: () => import('@/views/table/cellRender/vxe-checkbox-group/CodeExample.vue')
         },
@@ -970,6 +970,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/cellRender/vxe-text-ellipsis/CodeExample.vue')
         },
         {
+          path: 'vxe-rate',
+          name: 'ComponentTableCellRenderVxeRate',
+          component: () => import('@/views/table/cellRender/vxe-rate/CodeExample.vue')
+        },
+        {
           path: 'vxe-upload',
           name: 'ComponentTableCellRenderVxeUpload',
           component: () => import('@/views/table/cellRender/vxe-upload/CodeExample.vue')
@@ -984,6 +989,16 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-switch',
           name: 'ComponentTableCellTemplateVxeSwitch',
           component: () => import('@/views/table/cellTemplate/vxe-switch/CodeExample.vue')
+        },
+        {
+          path: 'vxe-radio-group',
+          name: 'ComponentTableCellTemplateVxeRadioGroup',
+          component: () => import('@/views/table/cellTemplate/vxe-radio-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox-group',
+          name: 'ComponentTableCellTemplateVxeCheckboxGroup',
+          component: () => import('@/views/table/cellTemplate/vxe-checkbox-group/CodeExample.vue')
         },
         {
           path: 'vxe-button',
@@ -1004,6 +1019,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-text-ellipsis',
           name: 'ComponentTableCellTemplateVxeTextEllipsis',
           component: () => import('@/views/table/cellTemplate/vxe-text-ellipsis/CodeExample.vue')
+        },
+        {
+          path: 'vxe-rate',
+          name: 'ComponentTableCellTemplateVxeRate',
+          component: () => import('@/views/table/cellTemplate/vxe-rate/CodeExample.vue')
         }
       ]
     },
@@ -2054,6 +2074,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vxe-text-ellipsis',
           name: 'ComponentGridCellRenderVxeTextEllipsis',
           component: () => import('@/views/grid/cellRender/vxe-text-ellipsis/CodeExample.vue')
+        },
+        {
+          path: 'vxe-rate',
+          name: 'ComponentGridCellRenderVxeRate',
+          component: () => import('@/views/grid/cellRender/vxe-rate/CodeExample.vue')
         },
         {
           path: 'vxe-upload',

@@ -6,8 +6,8 @@
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200"></vxe-column>
-      <vxe-column field="flag1" title="开关" width="200" :cell-render="flag1CellRender"></vxe-column>
-      <vxe-column field="flag2" title="开关" width="200" :cell-render="flag2CellRender"></vxe-column>
+      <vxe-column field="flag1" title="只读" width="200" :cell-render="flag1CellRender"></vxe-column>
+      <vxe-column field="flag2" title="编辑" width="200" :cell-render="flag2CellRender"></vxe-column>
     </vxe-table>
   </div>
 </template>

@@ -30,9 +30,14 @@
         <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/vxe-pc-u" target="_blank"></vxe-link>
       </div>
       <div>
-        2024 开源了后台系统系统模板 <vxe-link status="primary" href="https://vxeui.com/vxe-admin-template/" target="_blank">vxe-admin-template</vxe-link>
+        2024 开源了后台系统系统模板 <vxe-link status="primary" href="https://vxeui.com/admin-template/" target="_blank">vxe-admin-template</vxe-link>
         <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/vxe-admin-template" target="_blank"></vxe-link>
         <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/vxe-admin-template" target="_blank"></vxe-link>
+      </div>
+      <div>
+        2024 开源了可视化设计器模板 <vxe-link status="primary" href="https://vxeui.com/design-template/" target="_blank">vxe-design-template</vxe-link>
+        <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/vxe-design-template" target="_blank"></vxe-link>
+        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/vxe-design-template" target="_blank"></vxe-link>
       </div>
       <div>敬请期待：低代码系统模板、移动端 H5 、小程序组件库、数据图表 </div>
     </vxe-tip>
