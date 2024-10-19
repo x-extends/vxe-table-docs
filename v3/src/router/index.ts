@@ -781,6 +781,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/keyboard/edit/CodeExample.vue')
         },
         {
+          path: 'editMethod',
+          name: 'ComponentTableKeyboardEditMethod',
+          component: () => import('@/views/table/keyboard/editMethod/CodeExample.vue')
+        },
+        {
           path: 'tree',
           name: 'ComponentTableKeyboardTree',
           component: () => import('@/views/table/keyboard/tree/CodeExample.vue')
@@ -897,6 +902,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/edit/drawerForm/CodeExample.vue')
         },
         {
+          path: 'rowHeight',
+          name: 'ComponentTableEditRowHeight',
+          component: () => import('@/views/table/edit/rowHeight/CodeExample.vue')
+        },
+        {
           path: 'uniqueSelect',
           name: 'ComponentTableEditUniqueSelect',
           component: () => import('@/views/table/edit/uniqueSelect/CodeExample.vue')
@@ -968,6 +978,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/cellRender/vxe-rate/CodeExample.vue')
         },
         {
+          path: 'vxe-slider',
+          name: 'ComponentTableCellRenderVxeSlider',
+          component: () => import('@/views/table/cellRender/vxe-slider/CodeExample.vue')
+        },
+        {
           path: 'vxe-upload',
           name: 'ComponentTableCellRenderVxeUpload',
           component: () => import('@/views/table/cellRender/vxe-upload/CodeExample.vue')
@@ -1017,6 +1032,16 @@ const tableRouteConfig: RouteConfig = {
           path: 'vxe-rate',
           name: 'ComponentTableCellTemplateVxeRate',
           component: () => import('@/views/table/cellTemplate/vxe-rate/CodeExample.vue')
+        },
+        {
+          path: 'vxe-slider',
+          name: 'ComponentTableCellTemplateVxeSlider',
+          component: () => import('@/views/table/cellTemplate/vxe-slider/CodeExample.vue')
+        },
+        {
+          path: 'vxe-upload',
+          name: 'ComponentTableCellTemplateVxeUpload',
+          component: () => import('@/views/table/cellTemplate/vxe-upload/CodeExample.vue')
         }
       ]
     },
@@ -1279,6 +1304,16 @@ const tableRouteConfig: RouteConfig = {
           path: 'tree',
           name: 'ComponentTableScrollTree',
           component: () => import('@/views/table/scroll/tree/CodeExample.vue')
+        },
+        {
+          path: 'edit',
+          name: 'ComponentTableScrollEdit',
+          component: () => import('@/views/table/scroll/edit/CodeExample.vue')
+        },
+        {
+          path: 'hvEdit',
+          name: 'ComponentTableScrollHVEdit',
+          component: () => import('@/views/table/scroll/hvEdit/CodeExample.vue')
         }
       ]
     },
@@ -2121,6 +2156,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/keyboard/edit/CodeExample.vue')
         },
         {
+          path: 'editMethod',
+          name: 'ComponentGridKeyboardEditMethod',
+          component: () => import('@/views/grid/keyboard/editMethod/CodeExample.vue')
+        },
+        {
           path: 'tree',
           name: 'ComponentGridKeyboardTree',
           component: () => import('@/views/grid/keyboard/tree/CodeExample.vue')
@@ -2527,6 +2567,16 @@ const gridRouteConfig: RouteConfig = {
           path: 'tree',
           name: 'ComponentGridScrollTree',
           component: () => import('@/views/grid/scroll/tree/CodeExample.vue')
+        },
+        {
+          path: 'edit',
+          name: 'ComponentGridScrollEdit',
+          component: () => import('@/views/grid/scroll/edit/CodeExample.vue')
+        },
+        {
+          path: 'hvEdit',
+          name: 'ComponentGridScrollHVEdit',
+          component: () => import('@/views/grid/scroll/hvEdit/CodeExample.vue')
         }
       ]
     },

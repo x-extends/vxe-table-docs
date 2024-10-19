@@ -975,6 +975,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/cellRender/vxe-rate/CodeExample.vue')
         },
         {
+          path: 'vxe-slider',
+          name: 'ComponentTableCellRenderVxeSlider',
+          component: () => import('@/views/table/cellRender/vxe-slider/CodeExample.vue')
+        },
+        {
           path: 'vxe-upload',
           name: 'ComponentTableCellRenderVxeUpload',
           component: () => import('@/views/table/cellRender/vxe-upload/CodeExample.vue')
@@ -1024,6 +1029,16 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-rate',
           name: 'ComponentTableCellTemplateVxeRate',
           component: () => import('@/views/table/cellTemplate/vxe-rate/CodeExample.vue')
+        },
+        {
+          path: 'vxe-slider',
+          name: 'ComponentTableCellTemplateVxeSlider',
+          component: () => import('@/views/table/cellTemplate/vxe-slider/CodeExample.vue')
+        },
+        {
+          path: 'vxe-upload',
+          name: 'ComponentTableCellTemplateVxeUpload',
+          component: () => import('@/views/table/cellTemplate/vxe-upload/CodeExample.vue')
         }
       ]
     },
