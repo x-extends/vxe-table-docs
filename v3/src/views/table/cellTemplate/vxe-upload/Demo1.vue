@@ -13,7 +13,7 @@
       </vxe-column>
       <vxe-column field="fileList2" title="上传附件" width="300">
         <template #default="{ row }">
-          <vxe-upload v-model="row.fileList2" progress-text="{percent}%" :more-config="{maxCount: 1, layout: 'horizontal'}" :show-button-text="false" multiple></vxe-upload>
+          <vxe-upload v-model="row.fileList2" progress-text="{percent}%" :more-config="{maxCount: 1, layout: 'horizontal'}" :show-button-text="false" :upload-method="uploadMethod" multiple></vxe-upload>
         </template>
       </vxe-column>
       <vxe-column field="imgList1" title="图片列表" width="160">
@@ -23,7 +23,7 @@
       </vxe-column>
       <vxe-column field="imgList2" title="上传图片" width="210">
         <template #default="{ row }">
-          <vxe-upload v-model="row.imgList2" mode="image" progress-text="{percent}%" :more-config="{maxCount: 1}" :image-style="{width: 40,height: 40}" :show-button-text="false" multiple></vxe-upload>
+          <vxe-upload v-model="row.imgList2" mode="image" progress-text="{percent}%" :more-config="{maxCount: 1}" :image-style="{width: 40,height: 40}" :show-button-text="false" :upload-method="uploadMethod" multiple></vxe-upload>
         </template>
       </vxe-column>
     </vxe-table>
@@ -33,6 +33,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { VxeUploadPropTypes } from 'vxe-pc-ui'
+import axios from 'axios'
 
 interface RowVO {
   id: number
@@ -96,6 +97,18 @@ export default Vue.extend({
 
     return {
       tableData
+    }
+  },
+  methods: {
+    uploadMethod ({ file }) {
+      const formData = new FormData()
+      formData.append('file', file)
+      return axios.post('/api/pub/upload/single', formData).then((res) => {
+        // { url: ''}
+        return {
+          ...res.data
+        }
+      })
     }
   }
 })

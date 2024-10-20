@@ -18,6 +18,7 @@
 import Vue from 'vue'
 import type { VxeColumnPropTypes } from 'vxe-table'
 import { VxeUploadProps, VxeUploadPropTypes } from 'vxe-pc-ui'
+import axios from 'axios'
 
 interface RowVO {
   id: number
@@ -100,6 +101,16 @@ export default Vue.extend({
         moreConfig: {
           maxCount: 1,
           layout: 'horizontal'
+        },
+        uploadMethod ({ file }) {
+          const formData = new FormData()
+          formData.append('file', file)
+          return axios.post('/api/pub/upload/single', formData).then((res) => {
+            // { url: ''}
+            return {
+              ...res.data
+            }
+          })
         }
       }
     }
@@ -133,6 +144,16 @@ export default Vue.extend({
         imageStyle: {
           width: 40,
           height: 40
+        },
+        uploadMethod ({ file }) {
+          const formData = new FormData()
+          formData.append('file', file)
+          return axios.post('/api/pub/upload/single', formData).then((res) => {
+            // { url: ''}
+            return {
+              ...res.data
+            }
+          })
         }
       }
     }
