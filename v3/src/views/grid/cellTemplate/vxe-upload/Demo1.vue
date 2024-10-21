@@ -5,7 +5,8 @@
         <vxe-upload
           readonly
           v-model="row.fileList1"
-          :more-config="{maxCount: 1, layout: 'horizontal'}">
+          :more-config="{maxCount: 1, layout: 'horizontal'}"
+          :upload-method="uploadMethod">
         </vxe-upload>
       </template>
 
@@ -14,7 +15,8 @@
           multiple
           v-model="row.fileList2"
           :more-config="{maxCount: 1, layout: 'horizontal'}"
-          :show-button-text="false">
+          :show-button-text="false"
+          :upload-method="uploadMethod">
         </vxe-upload>
       </template>
 
@@ -24,7 +26,8 @@
           v-model="row.imgList1"
           mode="image"
           :more-config="{ maxCount: 1 }"
-          :image-style="{ width: 40, height: 40 }">
+          :image-style="{ width: 40, height: 40 }"
+          :upload-method="uploadMethod">
         </vxe-upload>
       </template>
 
@@ -35,6 +38,7 @@
           mode="image"
           :more-config="{ maxCount: 1 }"
           :image-style="{ width: 40, height: 40 }"
+          :upload-method="uploadMethod"
           :show-button-text="false">
         </vxe-upload>
       </template>
@@ -46,6 +50,7 @@
 import Vue from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 import type { VxeUploadPropTypes } from 'vxe-pc-ui'
+import axios from 'axios'
 
 interface RowVO {
   id: number
@@ -121,6 +126,18 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    uploadMethod ({ file }) {
+      const formData = new FormData()
+      formData.append('file', file)
+      return axios.post('/api/pub/upload/single', formData).then((res) => {
+        // { url: ''}
+        return {
+          ...res.data
+        }
+      })
     }
   }
 })
