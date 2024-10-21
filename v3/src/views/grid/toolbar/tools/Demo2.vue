@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" @toolbar-button-click="toolbarButtonClickEvent"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" @toolbar-tool-click="toolbarToolClickEvent"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -56,7 +56,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    toolbarButtonClickEvent (params) {
+    toolbarToolClickEvent (params) {
       console.log(params.code)
     }
   }

@@ -50,7 +50,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners = {
-  toolbarButtonClick (params) {
+  toolbarToolClick (params) {
     console.log(params.code)
   }
 }
