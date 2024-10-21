@@ -1,11 +1,9 @@
 <template>
   <div>
-    <vxe-toolbar>
-      <template #buttons>
-        <vxe-button @click="expandAllEvent">展开所有</vxe-button>
-        <vxe-button @click="clearExpandEvent">收起所有</vxe-button>
-      </template>
-    </vxe-toolbar>
+    <div>
+      <vxe-button @click="expandAllEvent">展开所有</vxe-button>
+      <vxe-button @click="clearExpandEvent">收起所有</vxe-button>
+    </div>
 
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>

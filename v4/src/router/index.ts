@@ -2566,6 +2566,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/scroll/tree/CodeExample.vue')
         },
         {
+          path: 'hvTree',
+          name: 'ComponentGridScrollHVTree',
+          component: () => import('@/views/grid/scroll/hvTree/CodeExample.vue')
+        },
+        {
           path: 'edit',
           name: 'ComponentGridScrollEdit',
           component: () => import('@/views/grid/scroll/edit/CodeExample.vue')

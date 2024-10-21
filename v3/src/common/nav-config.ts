@@ -628,12 +628,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格 - 渲染 - 配置式',
           children: [
-            { title: 'VxeSwitch', routerLink: { name: 'ComponentGridCellRenderVxeSwitch' } },
-            { title: 'VxeRadioGroup', routerLink: { name: 'ComponentGridCellRenderVxeRadioGroup' } },
-            { title: 'VxeCheckboxGroup', routerLink: { name: 'ComponentGridCellRenderVxeCheckboxGroup' } },
-            { title: 'VxeButtonGroup', routerLink: { name: 'ComponentGridCellRenderVxeButtonGroup' } },
-            { title: 'VxeImage', routerLink: { name: 'ComponentGridCellRenderVxeImage' } },
-            { title: 'VxeImageGroup', routerLink: { name: 'ComponentGridCellRenderVxeImageGroup' } },
+            { title: 'VxeSwitch 开关', routerLink: { name: 'ComponentGridCellRenderVxeSwitch' } },
+            { title: 'VxeRadioGroup 单选组', routerLink: { name: 'ComponentGridCellRenderVxeRadioGroup' } },
+            { title: 'VxeCheckboxGroup 复选组', routerLink: { name: 'ComponentGridCellRenderVxeCheckboxGroup' } },
+            { title: 'VxeButtonGroup 按钮组', routerLink: { name: 'ComponentGridCellRenderVxeButtonGroup' } },
+            { title: 'VxeImage 图片', routerLink: { name: 'ComponentGridCellRenderVxeImage' } },
+            { title: 'VxeImageGroup 图片组', routerLink: { name: 'ComponentGridCellRenderVxeImageGroup' } },
             { title: 'VxeTextEllipsis', routerLink: { name: 'ComponentGridCellRenderVxeTextEllipsis' } },
             { title: 'VxeRate', routerLink: { name: 'ComponentGridCellRenderVxeRate' } },
             { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellRenderVxeUpload' } },
@@ -643,11 +643,11 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格 - 渲染 - 插槽式',
           children: [
-            { title: 'VxeSwitch', routerLink: { name: 'ComponentGridCellTemplateVxeSwitch' } },
-            { title: 'VxeButtonGroup', routerLink: { name: 'ComponentGridCellTemplateVxeButtonGroup' } },
-            { title: 'VxeButton', routerLink: { name: 'ComponentGridCellTemplateVxeButton' } },
-            { title: 'VxeImage', routerLink: { name: 'ComponentGridCellTemplateVxeImage' } },
-            { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellTemplateVxeUpload' } },
+            { title: 'VxeSwitch 开关', routerLink: { name: 'ComponentGridCellTemplateVxeSwitch' } },
+            { title: 'VxeButtonGroup 按钮组', routerLink: { name: 'ComponentGridCellTemplateVxeButtonGroup' } },
+            { title: 'VxeButton 按钮', routerLink: { name: 'ComponentGridCellTemplateVxeButton' } },
+            { title: 'VxeImage 图片', routerLink: { name: 'ComponentGridCellTemplateVxeImage' } },
+            { title: 'VxeUpload 上传', routerLink: { name: 'ComponentGridCellTemplateVxeUpload' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` }
           ]
         },
@@ -776,8 +776,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '设置行高', routerLink: { name: 'ComponentGridScrollRowHeight' } },
             { title: '使用分组表头', routerLink: { name: 'ComponentGridScrollGroup' } },
             { title: '使用表尾', routerLink: { name: 'ComponentGridScrollFooter' } },
-            { title: '树形 + 横向虚拟滚动', routerLink: { name: 'ComponentGridScrollTree' } },
-            { title: '可编辑 + 横向虚拟滚动', routerLink: { name: 'ComponentGridScrollEdit' } },
+            { title: '树形 + 纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollTree' } },
+            { title: '树形 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHVTree' } },
+            { title: '可编辑 + 纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollEdit' } },
             { title: '可编辑 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHVEdit' } }
           ]
         },
@@ -866,6 +867,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '实现一个超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' } },
             { title: '实现一个图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' } },
+            { title: '实现一个金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyAmount' } },
             { title: '使用第三方组件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },
