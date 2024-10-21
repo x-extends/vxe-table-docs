@@ -5,10 +5,6 @@
         <vxe-tip status="primary" title="配置按需加载 - 全局使用方式">
           当只用得到部分组件时，只需三步，通过按需加载插件可以去掉未被使用的组件。
         </vxe-tip>
-        <vxe-tip status="error" title="需要注意！！！">
-          <div>v4.0 可以直接升级 v4.6</div>
-          <div>v4.6 不能直接升级 v4.7，需要调整安装方式，如果是使用老版本记得锁定版本号</div>
-        </vxe-tip>
         <vxe-tip status="success" title="步骤 1. 插件配置"></vxe-tip>
       </template>
 
