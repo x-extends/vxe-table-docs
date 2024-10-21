@@ -39,6 +39,7 @@ import '@/views/global/validators/table/base/demo1.table.validators'
 
 import '@/views/global/renderer/table/default/myCellLink/demo1.table.renderer'
 import '@/views/global/renderer/table/default/myCellImg/demo1.table.renderer'
+import '@/views/global/renderer/table/default/myCellAmount/demo1.table.renderer'
 
 import '@/views/global/renderer/table/edit/myEditAmount/demo1.table.renderer'
 import '@/views/global/renderer/table/edit/myEditPulldown/demo1.table.renderer'
@@ -83,6 +84,9 @@ Vue.component('CodeList', CodeList)
 Vue.component('CodeRender', CodeRender)
 Vue.component('CodeUseVersion', CodeUseVersion)
 Vue.component('ApiLink', ApiLink)
+
+Vue.component('DemoUserSelectPulldown', DemoUserSelectPulldown)
+Vue.component('DemoRoleSelectPulldown', DemoRoleSelectPulldown)
 
 Vue.use(VxeUI)
 Vue.use(VxeTable)

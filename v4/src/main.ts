@@ -37,6 +37,7 @@ import '@/views/global/validators/table/base/demo1.table.validators'
 
 import '@/views/global/renderer/table/default/myCellLink/demo1.table.renderer'
 import '@/views/global/renderer/table/default/myCellImg/demo1.table.renderer'
+import '@/views/global/renderer/table/default/myCellAmount/demo1.table.renderer'
 
 import '@/views/global/renderer/table/edit/myEditAmount/demo1.table.renderer'
 import '@/views/global/renderer/table/edit/myEditPulldown/demo1.table.renderer'

@@ -2992,6 +2992,11 @@ const routes: Array<RouteRecordRaw> = [
                     path: 'myCellImg',
                     name: 'GlobalRendererTableDefaultMyImg',
                     component: () => import('@/views/global/renderer/table/default/myCellImg/CodeExample.vue')
+                  },
+                  {
+                    path: 'myCellAmount',
+                    name: 'GlobalRendererTableDefaultMyAmount',
+                    component: () => import('@/views/global/renderer/table/default/myCellAmount/CodeExample.vue')
                   }
                 ]
               },

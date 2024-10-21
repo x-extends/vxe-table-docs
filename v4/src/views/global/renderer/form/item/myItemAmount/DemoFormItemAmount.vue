@@ -4,7 +4,8 @@
     v-model="currData[currField]"
     type="float"
     digits="2"
-    prefix-icon="vxe-icon-rmb">
+    prefix-icon="vxe-icon-rmb"
+    align="right">
   </VxeInput>
 </template>
 

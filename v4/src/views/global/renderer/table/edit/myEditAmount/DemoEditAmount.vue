@@ -1,5 +1,12 @@
 <template>
-  <vxe-input v-if="currRow && currColumn" type="float" digits="2" prefix-icon="vxe-icon-rmb" v-model="currRow[currColumn.field]"></vxe-input>
+  <vxe-input
+    v-if="currRow && currColumn"
+    v-model="currRow[currColumn.field]"
+    type="float"
+    digits="2"
+    prefix-icon="vxe-icon-rmb"
+    align="right">
+  </vxe-input>
 </template>
 
 <script lang="ts" setup>

@@ -7,6 +7,8 @@ import DemoEditAmount from './DemoEditAmount.vue'
 VxeUI.renderer.add('MyTableEditAmount', {
   // 如果是输入框类型，可以设置为激活自动聚焦 class
   tableAutoFocus: 'input',
+  // 金额右对齐
+  tableCellAlign: 'right',
   // 可编辑激活模板
   renderTableEdit (h, renderOpts, params) {
     return <DemoEditAmount params={ params } />
