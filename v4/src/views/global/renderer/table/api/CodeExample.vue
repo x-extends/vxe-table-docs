@@ -106,6 +106,33 @@ const tableData = ref([
       //   list: []
       // },
       {
+        name: 'tableCellAlign',
+        desc: '单元格对齐方式',
+        version: '4.2.26',
+        type: 'left（左对齐）, center（居中对齐）, right（右对齐）',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'tableHeaderCellAlign',
+        desc: '表头单元格对齐方式',
+        version: '4.2.26',
+        type: 'left（左对齐）, center（居中对齐）, right（右对齐）',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'tableFooterCellAlign',
+        desc: '列尾单元格对齐方式',
+        version: '4.2.26',
+        type: 'left（左对齐）, center（居中对齐）, right（右对齐）',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'tableCellClassName',
         desc: '单元格设置 class',
         version: '',
