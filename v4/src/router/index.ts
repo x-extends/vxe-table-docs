@@ -560,6 +560,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/custom/drawer/CodeExample.vue')
         },
         {
+          path: 'checkMethod',
+          name: 'ComponentTableCustomCheckMethod',
+          component: () => import('@/views/table/custom/checkMethod/CodeExample.vue')
+        },
+        {
           path: 'visible',
           name: 'ComponentTableCustomVisible',
           component: () => import('@/views/table/custom/visible/CodeExample.vue')
@@ -1931,6 +1936,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'drawer',
           name: 'ComponentGridCustomDrawer',
           component: () => import('@/views/grid/custom/drawer/CodeExample.vue')
+        },
+        {
+          path: 'checkMethod',
+          name: 'ComponentGridCustomCheckMethod',
+          component: () => import('@/views/grid/custom/checkMethod/CodeExample.vue')
         },
         // {
         //   path: 'visible',

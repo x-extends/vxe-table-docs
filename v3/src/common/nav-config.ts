@@ -181,6 +181,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '关联工具栏', routerLink: { name: 'ComponentTableCustomToolbar' } },
             { title: '窗口模式', routerLink: { name: 'ComponentTableCustomModal' } },
             { title: '抽屉模式', routerLink: { name: 'ComponentTableCustomDrawer' } },
+            { title: '禁用操作', routerLink: { name: 'ComponentTableCustomCheckMethod' } },
             { title: '允许调整列显示隐藏', routerLink: { name: 'ComponentTableCustomVisible' } },
             { title: '允许调整列冻结', routerLink: { name: 'ComponentTableCustomFixed' } },
             { title: '允许调整列宽', routerLink: { name: 'ComponentTableCustomResizable' } },
@@ -585,6 +586,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '窗口模式', routerLink: { name: 'ComponentGridCustomModal' } },
             { title: '抽屉模式', routerLink: { name: 'ComponentGridCustomDrawer' } },
+            { title: '禁用操作', routerLink: { name: 'ComponentGridCustomCheckMethod' } },
             // { title: '允许调整列显示隐藏', routerLink: { name: 'ComponentGridCustomVisible' } },
             // { title: '允许调整列冻结', routerLink: { name: 'ComponentGridCustomFixed' } },
             // { title: '允许调整列宽', routerLink: { name: 'ComponentGridCustomResizable' } },
