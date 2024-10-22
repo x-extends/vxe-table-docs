@@ -2,10 +2,12 @@
   <div>
     <vxe-button @click="exportEvent">直接导出 CSV 文件</vxe-button>
     <vxe-table
+      show-footer
       ref="tableRef"
       :export-config="{}"
+      :footer-data="footerData"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="no1" title="NO1"></vxe-column>
@@ -36,8 +38,13 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', no1: '02040', no2: '02040' }
     ]
 
+    const footerData = [
+      { seq: '合计', sex: '666', age: '999' }
+    ]
+
     return {
-      tableData
+      tableData,
+      footerData
     }
   },
   methods: {

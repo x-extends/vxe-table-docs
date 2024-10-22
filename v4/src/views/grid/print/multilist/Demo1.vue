@@ -26,6 +26,7 @@ const grid2Ref = ref<VxeGridInstance<RowVO>>()
 
 const grid1Options = reactive<VxeGridProps<RowVO>>({
   border: true,
+  showFooter: true,
   height: 300,
   columns: [
     { field: 'id', title: 'ID', width: 60 },
@@ -38,11 +39,15 @@ const grid1Options = reactive<VxeGridProps<RowVO>>({
     { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
     { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
+  ],
+  footerData: [
+    { id: '合计', name: '666', sex: '999', address: '888' }
   ]
 })
 
 const grid2Options = reactive<VxeGridProps<RowVO>>({
   border: true,
+  showFooter: true,
   height: 300,
   columns: [
     { field: 'id', title: 'ID', width: 60 },
@@ -56,6 +61,10 @@ const grid2Options = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' },
     { id: 10005, name: 'Test5', role: 'PM', sex: 'Man', age: 29, address: 'Shanghai' },
     { id: 10006, name: 'Test6', role: 'Designer', sex: 'Women', age: 38, address: 'Shanghai' }
+  ],
+  footerData: [
+    { id: '合计', role: '555', age: '999' },
+    { id: '平均', role: '555', age: '333' }
   ]
 })
 
