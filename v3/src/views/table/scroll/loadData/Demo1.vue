@@ -11,6 +11,7 @@
       height="800"
       :scroll-y="{enabled: true, gt: 0}"
       :loading="loading">
+      <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180"></vxe-column>
       <vxe-column field="role" title="Role" width="200"></vxe-column>
@@ -53,6 +54,7 @@ export default Vue.extend({
             address: 'shenzhen shen'
           })
         }
+
         const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
         if ($table) {
           const startTime = Date.now()

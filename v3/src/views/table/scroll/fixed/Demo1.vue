@@ -13,9 +13,10 @@
       :scroll-x="{enabled: true, gt: 0}"
       :scroll-y="{enabled: true, gt: 0}"
       :data="tableData">
+      <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column field="col0" title="列0" width="100" fixed="left"></vxe-column>
       <vxe-column field="imgUrl" title="列1" width="80" fixed="left" :cell-render="imgUrlCellRender"></vxe-column>
-      <vxe-column field="col2" title="列2" width="90" fixed="left"></vxe-column>
+      <vxe-column field="col2" title="列2" width="90"></vxe-column>
       <vxe-column field="col3" title="列3" width="200"></vxe-column>
       <vxe-column field="col4" title="列4" width="140"></vxe-column>
       <vxe-column field="col5" title="列5" width="300"></vxe-column>
@@ -162,28 +163,29 @@ export default Vue.extend({
   methods: {
     // 模拟行数据
     loadData (rowSize: number) {
-      const dataList: RowVO[] = []
-      for (let i = 0; i < rowSize; i++) {
-        const item: RowVO = {
-          id: 10000 + i,
-          imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
-          imgList1: i % 4 === 0
-            ? [
-                { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
-              ]
-            : [
-                { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
-                { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
-              ],
-          flag1: i % 5 === 0
-        }
-        for (let j = 0; j < 120; j++) {
-          item[`col${j}`] = `值_${i}_${j}`
-        }
-        dataList.push(item)
-      }
       this.loading = true
       setTimeout(() => {
+        const dataList: RowVO[] = []
+        for (let i = 0; i < rowSize; i++) {
+          const item: RowVO = {
+            id: 10000 + i,
+            imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
+            imgList1: i % 4 === 0
+              ? [
+                  { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
+                ]
+              : [
+                  { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
+                  { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
+                ],
+            flag1: i % 5 === 0
+          }
+          for (let j = 0; j < 120; j++) {
+            item[`col${j}`] = `值_${i}_${j}`
+          }
+          dataList.push(item)
+        }
+
         const startTime = Date.now()
         this.tableData = dataList
         this.loading = false
@@ -193,7 +195,7 @@ export default Vue.extend({
             status: 'success'
           })
         })
-      }, 100)
+      }, 350)
     }
   },
   created () {

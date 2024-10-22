@@ -5,8 +5,8 @@
     <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
     <vxe-grid v-bind="gridOptions">
       <template #action>
-        <vxe-button mode="text" status="primary">编辑</vxe-button>
-        <vxe-button mode="text" status="error">删除</vxe-button>
+        <vxe-button mode="text" status="primary">按钮1</vxe-button>
+        <vxe-button mode="text" status="error">按钮2</vxe-button>
       </template>
     </vxe-grid>
   </div>
@@ -68,9 +68,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     mode: 'wheel'
   },
   columns: [
+    { type: 'checkbox', width: 60, fixed: 'left' },
     { title: '列0', field: 'col0', width: 100, fixed: 'left' },
     { title: '列1', field: 'imgUrl', width: 80, fixed: 'left', cellRender: imgUrlCellRender },
-    { title: '列2', field: 'col2', width: 90, fixed: 'left' },
+    { title: '列2', field: 'col2', width: 90 },
     { title: '列3', field: 'col3', width: 200 },
     { title: '列4', field: 'col4', width: 140 },
     { title: '列5', field: 'col5', width: 300 },
@@ -175,28 +176,29 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 // 模拟行数据
 const loadData = (rowSize: number) => {
-  const dataList: RowVO[] = []
-  for (let i = 0; i < rowSize; i++) {
-    const item: RowVO = {
-      id: 10000 + i,
-      imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
-      imgList1: i % 4 === 0
-        ? [
-            { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
-          ]
-        : [
-            { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
-            { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
-          ],
-      flag1: i % 5 === 0
-    }
-    for (let j = 0; j < 120; j++) {
-      item[`col${j}`] = `值_${i}_${j}`
-    }
-    dataList.push(item)
-  }
   gridOptions.loading = true
   setTimeout(() => {
+    const dataList: RowVO[] = []
+    for (let i = 0; i < rowSize; i++) {
+      const item: RowVO = {
+        id: 10000 + i,
+        imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
+        imgList1: i % 4 === 0
+          ? [
+              { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
+            ]
+          : [
+              { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
+              { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
+            ],
+        flag1: i % 5 === 0
+      }
+      for (let j = 0; j < 120; j++) {
+        item[`col${j}`] = `值_${i}_${j}`
+      }
+      dataList.push(item)
+    }
+
     const startTime = Date.now()
     gridOptions.data = dataList
     gridOptions.loading = false

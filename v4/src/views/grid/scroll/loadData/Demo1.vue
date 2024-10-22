@@ -35,6 +35,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     gt: 0
   },
   columns: [
+    { type: 'checkbox', width: 60 },
     { type: 'seq', title: '序号', width: 100 },
     { field: 'name', title: 'Name', minWidth: 180 },
     { field: 'role', title: 'Role', width: 200 },
@@ -58,6 +59,7 @@ const loadList = (size = 200) => {
         address: 'shenzhen shen'
       })
     }
+
     const $grid = gridRef.value
     if ($grid) {
       const startTime = Date.now()

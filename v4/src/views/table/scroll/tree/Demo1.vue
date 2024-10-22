@@ -15,6 +15,7 @@
       :tree-config="{transform: true}"
       :scroll-y="{enabled: true, gt: 0}"
       :data="tableData">
+      <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="300" tree-node></vxe-column>
       <vxe-column field="id" title="Id"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>

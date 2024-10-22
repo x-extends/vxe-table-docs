@@ -45,6 +45,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     gt: 0
   },
   columns: [
+    { type: 'checkbox', width: 60 },
     { type: 'seq', width: 300, treeNode: true },
     { field: 'id', title: 'Id', width: 200 },
     { field: 'parentId', title: 'Parent Id', width: 200 },

@@ -565,6 +565,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/custom/checkMethod/CodeExample.vue')
         },
         {
+          path: 'visibleMethod',
+          name: 'ComponentTableCustomVisibleMethod',
+          component: () => import('@/views/table/custom/visibleMethod/CodeExample.vue')
+        },
+        {
           path: 'visible',
           name: 'ComponentTableCustomVisible',
           component: () => import('@/views/table/custom/visible/CodeExample.vue')
@@ -1941,6 +1946,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'checkMethod',
           name: 'ComponentGridCustomCheckMethod',
           component: () => import('@/views/grid/custom/checkMethod/CodeExample.vue')
+        },
+        {
+          path: 'visibleMethod',
+          name: 'ComponentGridCustomVisibleMethod',
+          component: () => import('@/views/grid/custom/visibleMethod/CodeExample.vue')
         },
         // {
         //   path: 'visible',

@@ -137,7 +137,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   customConfig: {
     storage: true,
     checkMethod ({ column }) {
-      if (['name', 'desc'].includes(column.field)) {
+      if (['name', 'i18nValue'].includes(column.field)) {
         return false
       }
       return true

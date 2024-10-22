@@ -36,6 +36,7 @@ export default Vue.extend({
         gt: 0
       },
       columns: [
+        { type: 'checkbox', width: 60 },
         { type: 'seq', width: 300, treeNode: true },
         { field: 'id', title: 'Id' },
         { field: 'name', title: 'Name' }

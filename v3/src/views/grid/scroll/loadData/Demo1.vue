@@ -35,6 +35,7 @@ export default Vue.extend({
         gt: 0
       },
       columns: [
+        { type: 'checkbox', width: 60 },
         { type: 'seq', title: '序号', width: 100 },
         { field: 'name', title: 'Name', minWidth: 180 },
         { field: 'role', title: 'Role', width: 200 },
@@ -63,6 +64,7 @@ export default Vue.extend({
             address: 'shenzhen shen'
           })
         }
+
         const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
         if ($grid) {
           const startTime = Date.now()

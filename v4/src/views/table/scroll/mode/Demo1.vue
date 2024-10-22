@@ -13,9 +13,10 @@
       :scroll-x="{enabled: true, gt: 0}"
       :scroll-y="{enabled: true, gt: 0, mode: 'wheel'}"
       :data="tableData">
+      <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column field="col0" title="列0" width="100" fixed="left"></vxe-column>
       <vxe-column field="imgUrl" title="列1" width="80" fixed="left" :cell-render="imgUrlCellRender"></vxe-column>
-      <vxe-column field="col2" title="列2" width="90" fixed="left"></vxe-column>
+      <vxe-column field="col2" title="列2" width="90"></vxe-column>
       <vxe-column field="col3" title="列3" width="200"></vxe-column>
       <vxe-column field="col4" title="列4" width="140"></vxe-column>
       <vxe-column field="col5" title="列5" width="300"></vxe-column>
@@ -104,8 +105,8 @@
       <vxe-column field="flag1" title="列89" width="100" fixed="right" :cell-render="flag1CellRender"></vxe-column>
       <vxe-column field="action" title="操作" width="120" fixed="right">
         <template #default>
-          <vxe-button mode="text" status="primary">编辑</vxe-button>
-          <vxe-button mode="text" status="error">删除</vxe-button>
+          <vxe-button mode="text" status="primary">按钮1</vxe-button>
+          <vxe-button mode="text" status="error">按钮2</vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -153,28 +154,29 @@ const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender>({
 
 // 模拟行数据
 const loadData = (rowSize: number) => {
-  const dataList: RowVO[] = []
-  for (let i = 0; i < rowSize; i++) {
-    const item: RowVO = {
-      id: 10000 + i,
-      imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
-      imgList1: i % 4 === 0
-        ? [
-            { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
-          ]
-        : [
-            { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
-            { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
-          ],
-      flag1: i % 5 === 0
-    }
-    for (let j = 0; j < 120; j++) {
-      item[`col${j}`] = `值_${i}_${j}`
-    }
-    dataList.push(item)
-  }
   loading.value = true
   setTimeout(() => {
+    const dataList: RowVO[] = []
+    for (let i = 0; i < rowSize; i++) {
+      const item: RowVO = {
+        id: 10000 + i,
+        imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
+        imgList1: i % 4 === 0
+          ? [
+              { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
+            ]
+          : [
+              { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
+              { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
+            ],
+        flag1: i % 5 === 0
+      }
+      for (let j = 0; j < 120; j++) {
+        item[`col${j}`] = `值_${i}_${j}`
+      }
+      dataList.push(item)
+    }
+
     const startTime = Date.now()
     tableData.value = dataList
     loading.value = false
