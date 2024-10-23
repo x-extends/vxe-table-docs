@@ -22,6 +22,8 @@ import 'vxe-pc-ui/lib/style.css'
 import VxeTable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 
+import enUS from 'vxe-pc-ui/packages/language/en-US'
+
 import '@/views/table/base/format/demo2.format'
 import '@/views/table/footer/footerFormat/demo2.footerFormat'
 import '@/views/grid/footer/footerFormat/demo2.footerFormat'
@@ -61,7 +63,8 @@ import '@/views/global/renderer/form/item/myItemUpload/demo1.form.renderer'
 import '@/views/global/renderer/form-design/widget/myInputWidget/demo1.form-design.renderer'
 import '@/views/global/renderer/form-design/widget/myTextareaWidget/demo1.form-design.renderer'
 
-import enUS from 'vxe-pc-ui/packages/language/en-US'
+import DemoUserSelectPulldown from '@/views/table/editTemplate/vxe-pulldown/DemoUserSelectPulldown.vue'
+import DemoRoleSelectPulldown from '@/views/table/editTemplate/vxe-pulldown/DemoRoleSelectPulldown.vue'
 
 declare global {
   interface Window {
@@ -83,6 +86,9 @@ app.component('CodeList', CodeList)
 app.component('CodeRender', CodeRender)
 app.component('CodeUseVersion', CodeUseVersion)
 app.component('ApiLink', ApiLink)
+
+app.component('DemoUserSelectPulldown', DemoUserSelectPulldown)
+app.component('DemoRoleSelectPulldown', DemoRoleSelectPulldown)
 
 app.use(VxeUI)
 app.use(VxeTable)
