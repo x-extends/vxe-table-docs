@@ -5,8 +5,8 @@
       :edit-config="{mode: 'row', trigger: 'click'}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" min-width="180" :edit-render="{ name: 'VxeInput', props: { clearable: true } }"></vxe-column>
-      <vxe-column field="num" title="数字" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'number' } }"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="180" :edit-render="nameEditRender"></vxe-column>
+      <vxe-column field="num" title="数字" width="180" :edit-render="numEditRender"></vxe-column>
       <vxe-column field="integer" title="整数" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'integer' } }"></vxe-column>
       <vxe-column field="float" title="小数" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'float' } }"></vxe-column>
       <vxe-column field="date" title="日期" width="180" :edit-render="{ name: 'VxeInput', props: { type: 'date' } }"></vxe-column>
@@ -22,6 +22,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeColumnPropTypes } from 'vxe-table'
+import { VxeInputProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -49,8 +51,21 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', num: '32', integer: '', float: '', date: '2024-06-06', time: '10:30:45', year: '2024', quarter: '2024-01-01', month: '2024-06', week: '2024-06-03', datetime: '2024-06-06 10:30:45', address: 'Shanghai' }
     ]
 
+    const nameEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeInputProps> = {
+      name: 'VxeInput'
+    }
+
+    const numEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeInputProps> = {
+      name: 'VxeInput',
+      props: {
+        type: 'number'
+      }
+    }
+
     return {
-      tableData
+      tableData,
+      nameEditRender,
+      numEditRender
     }
   }
 })

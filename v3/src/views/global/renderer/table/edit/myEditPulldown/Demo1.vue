@@ -6,7 +6,7 @@
       :edit-config="{trigger: 'click',mode: 'cell'}"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
-      <vxe-column field="name" title="name" :edit-render="{name: 'MyTableEditDownTable'}"></vxe-column>
+      <vxe-column field="name" title="name" :edit-render="{name: 'MyTableEditPulldown'}"></vxe-column>
       <vxe-column field="sex" title="sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
     </vxe-table>
