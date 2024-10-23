@@ -166,6 +166,13 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '查询表单',
+          children: [
+            { title: '集成表单', routerLink: { name: 'ComponentTableFormFormData' } },
+            { title: '带折叠的查询表单', routerLink: { name: 'ComponentTableFormCollapse' } }
+          ]
+        },
+        {
           title: '工具栏',
           children: [
             { title: '工具栏布局', routerLink: { name: 'ComponentTableToolbarBasic' } },

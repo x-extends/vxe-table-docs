@@ -510,6 +510,22 @@ const tableRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'form',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'formData',
+          name: 'ComponentTableFormFormData',
+          component: () => import('@/views/table/form/formData/CodeExample.vue')
+        },
+        {
+          path: 'collapse',
+          name: 'ComponentTableFormCollapse',
+          component: () => import('@/views/table/form/collapse/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'toolbar',
       component: RouteLayout,
       children: [

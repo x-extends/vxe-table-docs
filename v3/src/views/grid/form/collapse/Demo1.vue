@@ -13,11 +13,11 @@ import Vue from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
-  id: number
+  id: string
   name: string
   role: string
   sex: string
-  age: number
+  num: string
   address: string
 }
 
@@ -30,20 +30,22 @@ export default Vue.extend({
       formConfig: {
         data: {
           name: '',
-          email: '',
-          nickname: '',
           role: '',
-          age: ''
+          sex: '',
+          num: '',
+          address: ''
         },
         items: [
           { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput' } },
           { field: 'email', title: '邮件', span: 8, itemRender: { name: 'VxeInput' } },
-          { field: 'nickname', title: '昵称', span: 8, folding: true, itemRender: { name: 'VxeInput' } },
+          { field: 'nickname', title: '昵称', span: 8, itemRender: { name: 'VxeInput' } },
           { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: 'VxeInput' } },
+          { field: 'sex', title: '性别', span: 8, folding: true, itemRender: { name: 'VxeInput' } },
           { field: 'age', title: '年龄', span: 8, folding: true, itemRender: { name: 'VxeInput' } },
           {
-            span: 8,
+            span: 24,
             collapseNode: true,
+            align: 'center',
             itemRender: {
               name: 'VxeButtonGroup',
               options: [
@@ -55,21 +57,21 @@ export default Vue.extend({
         ]
       },
       columns: [
-        { type: 'seq', width: 70, fixed: 'left' },
-        { field: 'name', title: 'Name', minWidth: 160 },
-        { field: 'email', title: 'Email', minWidth: 160 },
-        { field: 'nickname', title: 'Nickname', minWidth: 160 },
-        { field: 'age', title: 'Age', width: 100 },
-        { field: 'role', title: 'Role', minWidth: 160 },
-        { field: 'amount', title: 'Amount', width: 140 },
-        { field: 'updateDate', title: 'Update Date', visible: false },
-        { field: 'createDate', title: 'Create Date', visible: false }
+        { field: 'seq', type: 'seq', width: 70 },
+        { field: 'name', title: 'Name' },
+        { field: 'sex', title: 'Sex' },
+        { field: 'num', title: 'Num' },
+        { field: 'address', title: 'Address' }
       ],
       data: [
-        { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-        { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-        { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-        { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
+        { id: '10001', name: 'Test1', role: 'Develop', sex: 'Man', num: '28', address: 'test abc' },
+        { id: '10002', name: 'Test2', role: 'Test', sex: 'Women', num: '22', address: 'Guangzhou' },
+        { id: '10003', name: 'Test3', role: 'PM', sex: 'Man', num: '32', address: 'Shanghai' },
+        { id: '10004', name: 'Test4', role: 'Designer', sex: 'Women', num: '24', address: 'Shanghai' },
+        { id: '10005', name: 'Test5', role: 'Develop', sex: 'Man', num: '42', address: 'Guangzhou' },
+        { id: '10006', name: 'Test6', role: 'Test', sex: 'Women', num: '39', address: 'Shanghai' },
+        { id: '10007', name: 'Test7', role: 'Develop', sex: 'Man', num: '46', address: 'Shanghai' },
+        { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou' }
       ]
     }
 
