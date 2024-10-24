@@ -12,10 +12,14 @@
       </vxe-column>
       <vxe-column field="sex" title="Sex">
         <template #header>
-          <span style="color: red;">Sex</span>
+          <vxe-input v-model="headerSex"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="num" title="Number"></vxe-column>
+      <vxe-column field="num" title="Number">
+        <template #header>
+          <span style="color: red;">自定义列头</span>
+        </template>
+      </vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address"></vxe-column>
     </vxe-table>
@@ -34,6 +38,8 @@ interface RowVO {
   num: number
   address: string
 }
+
+const headerSex = ref('')
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },

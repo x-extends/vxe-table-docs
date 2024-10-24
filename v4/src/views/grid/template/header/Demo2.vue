@@ -5,7 +5,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -17,6 +17,8 @@ interface RowVO {
   num: number
   address: string
 }
+
+const headerSex = ref('')
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -43,7 +45,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
           title: 'Sex',
           slots: {
             header: () => {
-              return <span style="color: red;">Sex</span>
+              return <vxe-input v-model={headerSex.value}></vxe-input>
             }
           }
         },

@@ -12,10 +12,14 @@
       </vxe-column>
       <vxe-column field="sex" title="Sex">
         <template #header>
-          <span style="color: red;">Sex</span>
+          <vxe-input v-model="headerSex"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="num" title="Number"></vxe-column>
+      <vxe-column field="num" title="Number">
+        <template #header>
+          <span style="color: red;">自定义列头</span>
+        </template>
+      </vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address"></vxe-column>
     </vxe-table>
@@ -44,7 +48,8 @@ export default Vue.extend({
     ]
 
     return {
-      tableData
+      tableData,
+      headerSex: ''
     }
   }
 })

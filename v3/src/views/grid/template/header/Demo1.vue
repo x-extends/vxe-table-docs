@@ -8,7 +8,7 @@
         </div>
       </template>
       <template #header_sex>
-        <span style="color: red;">Sex</span>
+        <vxe-input v-model="headerSex"></vxe-input>
       </template>
       <template #header_group1>
         <span style="color: red;">自定义列头</span>
@@ -57,7 +57,8 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      headerSex: ''
     }
   }
 })

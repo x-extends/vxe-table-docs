@@ -22,44 +22,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      columns: [
-        { type: 'seq', width: 70 },
-        {
-          field: 'name',
-          title: 'Name',
-          width: 200,
-          slots: {
-            header: () => {
-              return <div class="first-col">
-                <div class="first-col-top">名称</div>
-                <div class="first-col-bottom">序号</div>
-              </div>
-            }
-          }
-        },
-        {
-          title: 'Group1',
-          children: [
-            {
-              field: 'sex',
-              title: 'Sex',
-              slots: {
-                header: () => {
-                  return <span style="color: red;">Sex</span>
-                }
-              }
-            },
-            { field: 'num', title: 'Number' },
-            { field: 'age', title: 'Age' }
-          ],
-          slots: {
-            header () {
-              return <span style="color: red;">自定义列头</span>
-            }
-          }
-        },
-        { field: 'address', title: 'Address' }
-      ],
+      columns: [],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
         { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
@@ -68,8 +31,49 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      headerSex: ''
     }
+  },
+  created () {
+    this.gridOptions.columns = [
+      { type: 'seq', width: 70 },
+      {
+        field: 'name',
+        title: 'Name',
+        width: 200,
+        slots: {
+          header: () => {
+            return <div class="first-col">
+                <div class="first-col-top">名称</div>
+                <div class="first-col-bottom">序号</div>
+              </div>
+          }
+        }
+      },
+      {
+        title: 'Group1',
+        children: [
+          {
+            field: 'sex',
+            title: 'Sex',
+            slots: {
+              header: () => {
+                return <vxe-input v-model={this.headerSex}></vxe-input>
+              }
+            }
+          },
+          { field: 'num', title: 'Number' },
+          { field: 'age', title: 'Age' }
+        ],
+        slots: {
+          header () {
+            return <span style="color: red;">自定义列头</span>
+          }
+        }
+      },
+      { field: 'address', title: 'Address' }
+    ]
   }
 })
 </script>
