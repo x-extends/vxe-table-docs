@@ -3038,6 +3038,21 @@ const routes: Array<RouteRecordRaw> = [
                     path: 'myCellAmount',
                     name: 'GlobalRendererTableDefaultMyAmount',
                     component: () => import('@/views/global/renderer/table/default/myCellAmount/CodeExample.vue')
+                  },
+                  {
+                    path: 'myHeaderLink',
+                    name: 'GlobalRendererTableDefaultMyHeaderLink',
+                    component: () => import('@/views/global/renderer/table/default/myHeaderLink/CodeExample.vue')
+                  },
+                  {
+                    path: 'myFooterAmount',
+                    name: 'GlobalRendererTableDefaultMyFooterAmount',
+                    component: () => import('@/views/global/renderer/table/default/myFooterAmount/CodeExample.vue')
+                  },
+                  {
+                    path: 'myFullAmount',
+                    name: 'GlobalRendererTableDefaultMyFullAmount',
+                    component: () => import('@/views/global/renderer/table/default/myFullAmount/CodeExample.vue')
                   }
                 ]
               },

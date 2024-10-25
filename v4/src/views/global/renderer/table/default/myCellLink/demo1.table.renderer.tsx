@@ -2,7 +2,7 @@
 
 import { VxeUI, VxeLink } from 'vxe-pc-ui'
 
-// 创建一个超链接渲染器
+// 创建一个单元格超链接
 VxeUI.renderer.add('MyTableCellLink', {
   // 默认显示模板
   renderTableDefault (renderOpts, params) {

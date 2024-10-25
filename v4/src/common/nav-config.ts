@@ -311,7 +311,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeNumberInput 数值输入', routerLink: { name: 'ComponentTableEditRenderVxeNumberInput' } },
             { title: 'VxeDatePicker 日期选择', routerLink: { name: 'ComponentTableEditRenderVxeDatePicker' } },
             { title: 'VxeSelect 下拉框', routerLink: { name: 'ComponentTableEditRenderVxeSelect' } },
-            { title: 'VxeTreeSelect 树形下拉框', routerLink: { name: 'ComponentTableEditRenderVxeTreeSelect' } },
+            { title: 'VxeTreeSelect 下拉树选择器', routerLink: { name: 'ComponentTableEditRenderVxeTreeSelect' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
@@ -321,7 +321,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeInput 输入框', routerLink: { name: 'ComponentTableEditTemplateVxeInput' } },
             { title: 'VxeNumberInput 数值输入', routerLink: { name: 'ComponentTableEditTemplateVxeNumberInput' } },
             { title: 'VxeDatePicker 日期选择', routerLink: { name: 'ComponentTableEditTemplateVxeDatePicker' } },
-            { title: 'VxeSelect 树形下拉框', routerLink: { name: 'ComponentTableEditTemplateVxeSelect' } },
+            { title: 'VxeSelect 下拉树选择器', routerLink: { name: 'ComponentTableEditTemplateVxeSelect' } },
             { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentTableEditTemplateVxePulldown' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
@@ -361,6 +361,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导出 HTML 格式', routerLink: { name: 'ComponentTableExportHtml' } },
             { title: '导出 CSV 格式', routerLink: { name: 'ComponentTableExportCsv' } },
             { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/export` },
+            { title: '导出 PDF 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-pdf/table/export` },
             { title: '格式化单元格内容', routerLink: { name: 'ComponentTableExportExportMethod' } },
             { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } }
           ]
@@ -876,9 +877,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格',
           children: [
-            { title: '实现一个超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' } },
-            { title: '实现一个图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' } },
-            { title: '实现一个金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyAmount' } },
+            { title: '实现单元格超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' } },
+            { title: '实现单元格图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' } },
+            { title: '实现单元格金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyAmount' } },
+            { title: '实现表头超链接', routerLink: { name: 'GlobalRendererTableDefaultMyHeaderLink' } },
+            { title: '实现表尾金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFooterAmount' } },
+            { title: '实现完整金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFullAmount' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },

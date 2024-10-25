@@ -2,7 +2,7 @@
 
 import { VxeUI, VxeImage } from 'vxe-pc-ui'
 
-// 创建一个图片预览渲染器
+// 创建单元格图片预览
 VxeUI.renderer.add('MyTableCellImg', {
   // 默认显示模板
   renderTableDefault (renderOpts, params) {

@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="global/renderer/table/default/myCellImg/Demo1" :extraImports="['./demo1.table.renderer.tsx']">
       <template #tip>
-        <vxe-tip status="primary" title="实现一个图片预览">Table 使用</vxe-tip>
+        <vxe-tip status="primary" title="实现单元格图片预览">Table 使用</vxe-tip>
       </template>
     </CodeLight>
 

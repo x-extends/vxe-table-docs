@@ -3,7 +3,7 @@
 import { VxeUI } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
-// 创建一个金额格式化渲染器
+// 创建单元格金额格式化
 VxeUI.renderer.add('MyTableCellAmount', {
   // 金额右对齐
   tableCellAlign: 'right',
