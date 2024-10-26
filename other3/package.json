@@ -29,7 +29,7 @@
     "vue-i18n": "^8.26.7",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0",
-    "vxe-table": "^3.9.17",
+    "vxe-table": "^3.9.18",
     "vxe-table-plugin-antd": "^3.3.1",
     "vxe-table-plugin-charts": "^3.3.1",
     "vxe-table-plugin-element": "^3.3.1",
@@ -63,7 +63,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.1.4",
     "gulp-typescript": "^5.0.1",
-    "sass": "^1.75.0",
+    "sass": "^1.80.4",
     "sass-loader": "^14.2.1",
     "typescript": "~4.5.5"
   }
