@@ -31,8 +31,8 @@
     <pre>
       <pre-code class="scss">
         @use 'vxe-table/styles/variable.scss' with (
-          $vxe-font-color: #999999,
-          $vxe-primary-color: #ff0000
+          $vxe-ui-font-color: #999999,
+          $vxe-ui-font-primary-color: #ff0000
         );
         @use 'vxe-table/styles/all.scss';
       </pre-code>
