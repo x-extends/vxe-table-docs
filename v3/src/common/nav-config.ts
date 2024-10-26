@@ -312,6 +312,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeDatePicker 日期选择', routerLink: { name: 'ComponentTableEditRenderVxeDatePicker' } },
             { title: 'VxeSelect 下拉框', routerLink: { name: 'ComponentTableEditRenderVxeSelect' } },
             { title: 'VxeTreeSelect 下拉树选择器', routerLink: { name: 'ComponentTableEditRenderVxeTreeSelect' } },
+            { title: 'VxeTableSelect 下拉表格选择器', routerLink: { name: 'ComponentTableEditRenderVxeTableSelect' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
@@ -689,7 +690,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeIconPicker', routerLink: { name: 'ComponentGridEditRenderVxeIconPicker' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridEditRenderVxeDatePicker' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
-            { title: 'VxeTreeSelect', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
+            { title: 'VxeTreeSelect 下拉树选择器', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
+            { title: 'VxeTableSelect 下拉表格选择器', routerLink: { name: 'ComponentGridEditRenderVxeTableSelect' } },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
             { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }

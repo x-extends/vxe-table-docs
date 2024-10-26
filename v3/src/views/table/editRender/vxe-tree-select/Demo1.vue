@@ -14,6 +14,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import type { VxeTreeSelectProps } from 'vxe-pc-ui'
 import type { VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
@@ -32,7 +33,7 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'PM', region: '', regionList: [] }
     ]
 
-    const regionEditRender: VxeColumnPropTypes.EditRender = {
+    const regionEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps> = {
       name: 'VxeTreeSelect',
       options: [
         {
@@ -52,7 +53,7 @@ export default Vue.extend({
       ]
     }
 
-    const regionListEditRender: VxeColumnPropTypes.EditRender = {
+    const regionListEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps> = {
       name: 'VxeTreeSelect',
       props: {
         multiple: true
