@@ -8,7 +8,7 @@
           $vxe-font-color: #999999,
           $vxe-primary-color: #ff0000
         );
-        @use 'vxe-table/styles/modules.scss';
+        @use 'vxe-table/styles/all.scss';
       </pre-code>
     </pre>
   </div>
