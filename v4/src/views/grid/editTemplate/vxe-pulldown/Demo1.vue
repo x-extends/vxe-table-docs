@@ -1,6 +1,13 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
+      <template #edit_name="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+      <template #default_name="{ row }">
+        <span>{{ row.name }}</span>
+      </template>
+
       <template #userNameEdit="{ row }">
         <DemoUserSelectPulldown v-model="row.userName" />
       </template>
@@ -41,7 +48,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'VxeInput' } },
+    { field: 'name', title: 'Name', minWidth: 200, editRender: { autoFocus: 'input' }, slots: { edit: 'edit_name', default: 'default_name' } },
     { field: 'userName', title: '下拉列表', width: 200, editRender: { autoFocus: 'input' }, slots: { edit: 'userNameEdit', default: 'userNameDefault' } },
     { field: 'role', title: '下拉表格', width: 200, editRender: { autoFocus: 'input' }, slots: { edit: 'roleEdit', default: 'roleDefault' } }
   ],

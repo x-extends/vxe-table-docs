@@ -1096,6 +1096,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/editRender/vxe-number-input/CodeExample.vue')
         },
         {
+          path: 'vxe-icon-picker',
+          name: 'ComponentTableEditRenderVxeIconPicker',
+          component: () => import('@/views/table/editTemplate/vxe-icon-picker/CodeExample.vue')
+        },
+        {
           path: 'vxe-date-picker',
           name: 'ComponentTableEditRenderVxeDatePicker',
           component: () => import('@/views/table/editRender/vxe-date-picker/CodeExample.vue')
@@ -1132,6 +1137,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/editTemplate/vxe-number-input/CodeExample.vue')
         },
         {
+          path: 'vxe-icon-picker',
+          name: 'ComponentTableEditTemplateVxeIconPicker',
+          component: () => import('@/views/table/editTemplate/vxe-icon-picker/CodeExample.vue')
+        },
+        {
           path: 'vxe-date-picker',
           name: 'ComponentTableEditTemplateVxeDatePicker',
           component: () => import('@/views/table/editTemplate/vxe-date-picker/CodeExample.vue')
@@ -1140,6 +1150,16 @@ const tableRouteConfig: RouteConfig = {
           path: 'vxe-select',
           name: 'ComponentTableEditTemplateVxeSelect',
           component: () => import('@/views/table/editTemplate/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-tree-select',
+          name: 'ComponentTableEditTemplateVxeTreeSelect',
+          component: () => import('@/views/table/editTemplate/vxe-tree-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-table-select',
+          name: 'ComponentTableEditTemplateVxeTableSelect',
+          component: () => import('@/views/table/editTemplate/vxe-table-select/CodeExample.vue')
         },
         {
           path: 'vxe-pulldown',
@@ -2350,6 +2370,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/editTemplate/vxe-number-input/CodeExample.vue')
         },
         {
+          path: 'vxe-icon-picker',
+          name: 'ComponentGridEditTemplateVxeIconPicker',
+          component: () => import('@/views/grid/editTemplate/vxe-icon-picker/CodeExample.vue')
+        },
+        {
           path: 'vxe-date-picker',
           name: 'ComponentGridEditTemplateVxeDatePicker',
           component: () => import('@/views/grid/editTemplate/vxe-date-picker/CodeExample.vue')
@@ -2358,6 +2383,16 @@ const gridRouteConfig: RouteConfig = {
           path: 'vxe-select',
           name: 'ComponentGridEditTemplateVxeSelect',
           component: () => import('@/views/grid/editTemplate/vxe-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-tree-select',
+          name: 'ComponentGridEditTemplateVxeTreeSelect',
+          component: () => import('@/views/grid/editTemplate/vxe-tree-select/CodeExample.vue')
+        },
+        {
+          path: 'vxe-table-select',
+          name: 'ComponentGridEditTemplateVxeTableSelect',
+          component: () => import('@/views/grid/editTemplate/vxe-table-select/CodeExample.vue')
         },
         {
           path: 'vxe-pulldown',

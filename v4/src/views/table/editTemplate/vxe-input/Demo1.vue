@@ -5,7 +5,7 @@
       :edit-config="{mode: 'row', trigger: 'click'}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" min-width="180" :edit-render="{}">
+      <vxe-column field="name" title="Name" min-width="180" :edit-render="{autoFocus: 'input'}">
         <template #edit="{ row }">
           <vxe-input v-model="row.name" clearable></vxe-input>
         </template>

@@ -5,7 +5,11 @@
       :edit-config="{mode: 'row', trigger: 'click'}"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" min-width="200"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="200" :edit-render="{autoFocus: 'input'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name"></vxe-input>
+        </template>
+      </vxe-column>
       <vxe-column field="sex" title="下拉框" width="200" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-select v-model="row.sex" :options="sexOptions"></vxe-select>

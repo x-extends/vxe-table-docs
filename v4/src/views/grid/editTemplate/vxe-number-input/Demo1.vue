@@ -42,7 +42,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', minWidth: 180, editRender: { }, slots: { edit: 'edit_name' } },
+    { field: 'name', title: 'Name', minWidth: 180, editRender: { autoFocus: 'input' }, slots: { edit: 'edit_name' } },
     { field: 'num', title: '数字', width: 180, editRender: { }, slots: { edit: 'edit_num' } },
     { field: 'integer', title: '整数', width: 180, editRender: { }, slots: { edit: 'edit_integer' } },
     { field: 'float', title: '小数', width: 180, editRender: { }, slots: { edit: 'edit_float' } }
