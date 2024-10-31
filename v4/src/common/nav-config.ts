@@ -277,6 +277,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '手动编辑', routerLink: { name: 'ComponentTableEditManual' } },
             { title: '单击编辑', routerLink: { name: 'ComponentTableEditClick' } },
             { title: '双击编辑', routerLink: { name: 'ComponentTableEditDblclick' } },
+            { title: '编辑与聚焦', routerLink: { name: 'ComponentTableEditAutoFocus' } },
             { title: '关闭自动清除编辑状态', routerLink: { name: 'ComponentTableEditAutoClear' } },
             { title: '编辑状态', routerLink: { name: 'ComponentTableEditStatus' } },
             { title: '空值占位符', routerLink: { name: 'ComponentTableEditCellPlaceholder' } },
@@ -291,11 +292,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '树结构', routerLink: { name: 'ComponentTableEditTree' } },
             { title: '使用合并行与列', routerLink: { name: 'ComponentTableEditSpan' } },
             { title: '使用右键菜单', routerLink: { name: 'ComponentTableEditMenu' } },
+            { title: '设置行高', routerLink: { name: 'ComponentTableEditRowHeight' } },
             { title: '实现附件列表', routerLink: { name: 'ComponentTableEditFileList' } },
             { title: '实现弹窗编辑表单', routerLink: { name: 'ComponentTableEditModalForm' } },
             { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentTableEditDrawerForm' } },
             { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
-            { title: '实现多行文本编辑', routerLink: { name: 'ComponentTableEditRowHeight' } },
+            { title: '实现多行文本编辑', routerLink: { name: 'ComponentTableEditMultiLineText' } },
             { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentTableEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
@@ -305,8 +307,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '可编辑 - 渲染 - 配置式',
           children: [
-            { title: 'input 原生输入框', routerLink: { name: 'ComponentTableEditRenderInput' } },
-            { title: 'select 原生下拉框', routerLink: { name: 'ComponentTableEditRenderSelect' } },
+            { title: 'input 原生-输入框', routerLink: { name: 'ComponentTableEditRenderInput' } },
+            { title: 'select 原生-下拉框', routerLink: { name: 'ComponentTableEditRenderSelect' } },
             { title: 'VxeInput 输入框', routerLink: { name: 'ComponentTableEditRenderVxeInput' } },
             { title: 'VxeNumberInput 数值输入', routerLink: { name: 'ComponentTableEditRenderVxeNumberInput' } },
             { title: 'VxeIconPicker 图标选择', routerLink: { name: 'ComponentTableEditRenderVxeIconPicker' } },
@@ -320,7 +322,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '可编辑 - 渲染 - 插槽式',
           children: [
-            { title: 'VxeInput 输入、框', routerLink: { name: 'ComponentTableEditTemplateVxeInput' } },
+            { title: 'VxeInput 输入框', routerLink: { name: 'ComponentTableEditTemplateVxeInput' } },
             { title: 'VxeNumberInput 数值输入', routerLink: { name: 'ComponentTableEditTemplateVxeNumberInput' } },
             { title: 'VxeIconPicker 图标选择', routerLink: { name: 'ComponentTableEditTemplateVxeIconPicker' } },
             { title: 'VxeDatePicker 日期选择', routerLink: { name: 'ComponentTableEditTemplateVxeDatePicker' } },

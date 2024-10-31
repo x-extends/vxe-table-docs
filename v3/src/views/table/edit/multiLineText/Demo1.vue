@@ -3,12 +3,21 @@
     <vxe-table
       border
       show-overflow
+      :padding="false"
+      :cell-config="{verticalAlign: 'top'}"
       :row-config="{height: 100}"
       :edit-config="editConfig"
       :data="tableData">
-      <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="address" title="Address" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{autoFocus: 'textarea'}">
+        <template #edit="{ row }">
+          <vxe-textarea v-model="row.name" style="height: 100%;"></vxe-textarea>
+        </template>
+      </vxe-column>
+      <vxe-column field="address" title="Address" :edit-render="{autoFocus: 'textarea'}">
+        <template #edit="{ row }">
+          <vxe-textarea v-model="row.address" style="height: 100%;"></vxe-textarea>
+        </template>
+      </vxe-column>
     </vxe-table>
   </div>
 </template>

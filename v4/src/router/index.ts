@@ -840,6 +840,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/edit/dblclick/CodeExample.vue')
         },
         {
+          path: 'autoFocus',
+          name: 'ComponentTableEditAutoFocus',
+          component: () => import('@/views/table/edit/autoFocus/CodeExample.vue')
+        },
+        {
           path: 'autoClear',
           name: 'ComponentTableEditAutoClear',
           component: () => import('@/views/table/edit/autoClear/CodeExample.vue')
@@ -928,6 +933,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'rowHeight',
           name: 'ComponentTableEditRowHeight',
           component: () => import('@/views/table/edit/rowHeight/CodeExample.vue')
+        },
+        {
+          path: 'multiLineText',
+          name: 'ComponentTableEditMultiLineText',
+          component: () => import('@/views/table/edit/multiLineText/CodeExample.vue')
         },
         {
           path: 'uniqueSelect',

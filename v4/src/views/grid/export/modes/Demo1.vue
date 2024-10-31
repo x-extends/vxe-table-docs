@@ -23,20 +23,15 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 
 // 模拟接口导出
 const exportFileApi = (body: any) => {
-  // 模拟后端接口
-  return axios.post('/api/pub/export', body).then(res => {
-    if (res.data.url) {
+  console.log('获取导出参数', body)
+  return new Promise<void>(resolve => {
+    setTimeout(() => {
       VxeUI.modal.message({
-        content: '导出成功，开始下载',
+        content: '导出成功',
         status: 'success'
       })
-      location.href = res.data.url
-    }
-  }).catch(() => {
-    VxeUI.modal.message({
-      content: '导出失败！',
-      status: 'error'
-    })
+      resolve()
+    }, 800)
   })
 }
 
@@ -44,7 +39,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   exportConfig: {
     remote: true,
     modes: [
-      { label: '自定义的数据', value: 'myData' }
+      { label: '自定义的数据', value: 'myData1' },
+      { label: '自定义导出全表数据', value: 'myData2' },
+      { label: '自定义导出当前数据', value: 'myData3' },
+      { label: '自定义导出其他数据', value: 'myData4' }
     ],
     exportMethod ({ options }) {
       // 处理条件参数
