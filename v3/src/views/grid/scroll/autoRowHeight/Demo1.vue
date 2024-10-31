@@ -33,10 +33,6 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
-      scrollX: {
-        enabled: true,
-        gt: 0
-      },
       scrollY: {
         enabled: true,
         gt: 0

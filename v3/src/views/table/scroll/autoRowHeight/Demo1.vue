@@ -8,7 +8,6 @@
       height="800"
       :loading="loading"
       :column-config="{resizable: true}"
-      :scroll-x="{enabled: true, gt: 0}"
       :scroll-y="{enabled: true, gt: 0, mode: 'wheel'}"
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>
