@@ -17,7 +17,7 @@
       <vxe-column field="col2" title="列2" width="90"></vxe-column>
       <vxe-column field="col3" title="列3" width="200"></vxe-column>
       <vxe-column field="col4" title="列4" width="140"></vxe-column>
-      <vxe-column field="col5" title="列5" width="300"></vxe-column>
+      <vxe-column field="col5" title="列5"></vxe-column>
     </vxe-table>
   </div>
 </template>

@@ -49,7 +49,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { title: '列5', field: 'col5', width: 300 },
     { title: '列6', field: 'col6', width: 160 },
     { title: '列7', field: 'col7', width: 120 },
-    { title: '列8', field: 'col8', width: 400 }
+    { title: '列8', field: 'col8' }
   ],
   data: []
 })
