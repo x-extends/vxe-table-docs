@@ -9,9 +9,6 @@
           <div>理论上限：横向平均上限支持 8w 列（最大上限 20w 列）。当 gt 为 0 时为总是启用。</div>
           <div>性能优化：横向虚拟滚动列宽越宽越流畅，列宽设置 column.width | column.min-width</div>
         </vxe-tip>
-        <vxe-tip status="error" title="小提示">
-          <div>启用横向虚拟滚动，必须要开启 show-header-overflow 和 show-footer-overflow</div>
-        </vxe-tip>
       </template>
 
       <template #describe>

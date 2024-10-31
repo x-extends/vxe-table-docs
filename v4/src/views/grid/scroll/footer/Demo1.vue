@@ -35,7 +35,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     labelField: 'id'
   },
   footerData: [
-    { col_0: '合计' }
+    { id: '合计', col_1: '99', col_2: '666', col_6: '888', col_198: '556', col_199: '756' }
   ]
 })
 

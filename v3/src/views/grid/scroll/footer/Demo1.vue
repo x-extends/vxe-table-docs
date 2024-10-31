@@ -82,7 +82,7 @@ export default Vue.extend({
         labelField: 'id'
       },
       footerData: [
-        { id: '合计', col_0: '56', col_1: '300', col_2: '4987' }
+        { id: '合计', col_1: '99', col_2: '666', col_6: '888', col_198: '556', col_199: '756' }
       ]
     }
 

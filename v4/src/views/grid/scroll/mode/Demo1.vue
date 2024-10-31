@@ -169,7 +169,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { title: '列97', field: 'col97', width: 400 },
     { title: '列99', field: 'imgList1', width: 120, fixed: 'right', cellRender: imgList1CellRender },
     { title: '列100', field: 'flag1', width: 100, fixed: 'right', cellRender: flag1CellRender },
-    { title: '操作', field: 'action', width: 120, fixed: 'right', slots: { default: 'action' } }
+    { title: '操作', field: 'action', width: 140, fixed: 'right', slots: { default: 'action' } }
   ],
   data: []
 })

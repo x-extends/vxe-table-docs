@@ -103,7 +103,7 @@
       <vxe-column field="col86" title="列86" width="800"></vxe-column>
       <vxe-column field="imgList1" title="列88" width="120" fixed="right" :cell-render="imgList1CellRender"></vxe-column>
       <vxe-column field="flag1" title="列89" width="100" fixed="right" :cell-render="flag1CellRender"></vxe-column>
-      <vxe-column field="action" title="操作" width="120" fixed="right">
+      <vxe-column field="action" title="操作" width="140" fixed="right">
         <template #default>
           <vxe-button mode="text" status="primary">按钮1</vxe-button>
           <vxe-button mode="text" status="error">按钮2</vxe-button>
