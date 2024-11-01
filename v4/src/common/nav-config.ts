@@ -381,7 +381,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/export` },
             { title: '导出 PDF 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-pdf/table/export` },
             { title: '格式化单元格内容', routerLink: { name: 'ComponentTableExportExportMethod' } },
-            { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } }
+            { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义顶部模板', routerLink: { name: 'ComponentTableExportTemplateTop' } },
+                { title: '自定义底部模板', routerLink: { name: 'ComponentTableExportTemplateBottom' } },
+                { title: '自定义参数设置模板', routerLink: { name: 'ComponentTableExportTemplateParameter' } },
+                { title: '自定义默认模板', routerLink: { name: 'ComponentTableExportTemplateDefault' } }
+              ]
+            }
           ]
         },
         {
@@ -772,7 +781,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '高级导出', routerLink: { name: 'ComponentGridExportAdvanced' } },
             { title: '自定义导出类型', routerLink: { name: 'ComponentGridExportTypes' } },
             { title: '服务端导出', routerLink: { name: 'ComponentGridExportRemote' } },
-            { title: '自定义导出模式', routerLink: { name: 'ComponentGridExportModes' } }
+            { title: '自定义导出模式', routerLink: { name: 'ComponentGridExportModes' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义顶部模板', routerLink: { name: 'ComponentGridExportTemplateTop' } },
+                { title: '自定义底部模板', routerLink: { name: 'ComponentGridExportTemplateBottom' } },
+                { title: '自定义参数设置模板', routerLink: { name: 'ComponentGridExportTemplateParameter' } },
+                { title: '自定义尾部模板', routerLink: { name: 'ComponentGridExportTemplateFooter' } },
+                { title: '自定义默认模板', routerLink: { name: 'ComponentGridExportTemplateDefault' } }
+              ]
+            }
           ]
         },
         {
@@ -784,7 +803,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导入 HTML 格式', routerLink: { name: 'ComponentGridImportHtml' } },
             { title: '导入 CSV 格式', routerLink: { name: 'ComponentGridImportCsv' } },
             { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/grid/import` },
-            { title: '高级导入', routerLink: { name: 'ComponentGridImportAdvanced' } }
+            { title: '高级导入', routerLink: { name: 'ComponentGridImportAdvanced' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义顶部模板', routerLink: { name: 'ComponentGridImportTemplateTop' } },
+                { title: '自定义底部模板', routerLink: { name: 'ComponentGridImportTemplateBottom' } },
+                { title: '自定义尾部模板', routerLink: { name: 'ComponentGridImportTemplateFooter' } },
+                { title: '自定义默认模板', routerLink: { name: 'ComponentGridImportTemplateDefault' } }
+              ]
+            }
           ]
         },
         {

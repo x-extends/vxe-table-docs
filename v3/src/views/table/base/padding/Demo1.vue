@@ -2,9 +2,11 @@
   <div>
     <vxe-table
       border
+      show-footer
       :padding="false"
-      :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      :data="tableData"
+      :footer-data="footerData">
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -33,8 +35,13 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 23, address: 'test abc' }
     ]
 
+    const footerData = [
+      { seq: '合计', age: '888' }
+    ]
+
     return {
-      tableData
+      tableData,
+      footerData
     }
   }
 })

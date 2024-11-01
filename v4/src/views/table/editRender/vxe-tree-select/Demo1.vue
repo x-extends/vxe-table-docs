@@ -30,6 +30,7 @@ const regionEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTreeSe
   options: [
     {
       label: '广东省',
+      value: '1',
       children: [
         { label: '深圳市', value: '1-1' },
         { label: '广州市', value: '1-2' }
@@ -37,6 +38,7 @@ const regionEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTreeSe
     },
     {
       label: '北京',
+      value: '2',
       children: [
         { label: '东城区', value: '2-1' },
         { label: '西城区', value: '2-2' }
@@ -53,6 +55,7 @@ const regionListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTr
   options: [
     {
       label: '广东省',
+      value: '1',
       children: [
         { label: '深圳市', value: '1-1' },
         { label: '广州市', value: '1-2' }
@@ -60,6 +63,7 @@ const regionListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTr
     },
     {
       label: '北京',
+      value: '2',
       children: [
         { label: '东城区', value: '2-1' },
         { label: '西城区', value: '2-2' }

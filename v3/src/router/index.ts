@@ -2541,6 +2541,32 @@ const gridRouteConfig: RouteConfig = {
           path: 'advanced',
           name: 'ComponentGridImportAdvanced',
           component: () => import('@/views/grid/import/advanced/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'top',
+              name: 'ComponentGridImportTemplateTop',
+              component: () => import('@/views/grid/import/template/top/CodeExample.vue')
+            },
+            {
+              path: 'bottom',
+              name: 'ComponentGridImportTemplateBottom',
+              component: () => import('@/views/grid/import/template/bottom/CodeExample.vue')
+            },
+            {
+              path: 'default',
+              name: 'ComponentGridImportTemplateDefault',
+              component: () => import('@/views/grid/import/template/default/CodeExample.vue')
+            },
+            {
+              path: 'footer',
+              name: 'ComponentGridImportTemplateFooter',
+              component: () => import('@/views/grid/import/template/footer/CodeExample.vue')
+            }
+          ]
         }
       ]
     },
@@ -2602,6 +2628,37 @@ const gridRouteConfig: RouteConfig = {
           path: 'modes',
           name: 'ComponentGridExportModes',
           component: () => import('@/views/grid/export/modes/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'top',
+              name: 'ComponentGridExportTemplateTop',
+              component: () => import('@/views/grid/export/template/top/CodeExample.vue')
+            },
+            {
+              path: 'parameter',
+              name: 'ComponentGridExportTemplateParameter',
+              component: () => import('@/views/grid/export/template/parameter/CodeExample.vue')
+            },
+            {
+              path: 'bottom',
+              name: 'ComponentGridExportTemplateBottom',
+              component: () => import('@/views/grid/export/template/bottom/CodeExample.vue')
+            },
+            {
+              path: 'default',
+              name: 'ComponentGridExportTemplateDefault',
+              component: () => import('@/views/grid/export/template/default/CodeExample.vue')
+            },
+            {
+              path: 'footer',
+              name: 'ComponentGridExportTemplateFooter',
+              component: () => import('@/views/grid/export/template/footer/CodeExample.vue')
+            }
+          ]
         }
       ]
     },

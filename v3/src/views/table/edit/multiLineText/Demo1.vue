@@ -9,13 +9,27 @@
       :edit-config="editConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" :edit-render="{autoFocus: 'textarea'}">
+        <template #default="{ row }">
+          <div class="full-cell-wrapper">
+            <span>{{ row.name }}</span>
+          </div>
+        </template>
         <template #edit="{ row }">
-          <vxe-textarea v-model="row.name" style="height: 100%;"></vxe-textarea>
+          <div class="full-edit-wrapper">
+            <vxe-textarea v-model="row.name" class="full-edit-component"></vxe-textarea>
+          </div>
         </template>
       </vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{autoFocus: 'textarea'}">
+        <template #default="{ row }">
+          <div class="full-cell-wrapper">
+            <span>{{ row.address }}</span>
+          </div>
+        </template>
         <template #edit="{ row }">
-          <vxe-textarea v-model="row.address" style="height: 100%;"></vxe-textarea>
+          <div class="full-edit-wrapper">
+            <vxe-textarea v-model="row.address" class="full-edit-component"></vxe-textarea>
+          </div>
         </template>
       </vxe-column>
     </vxe-table>
@@ -56,3 +70,18 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.full-cell-wrapper,
+.full-edit-wrapper,
+.full-edit-component {
+  height: 100%;
+  width: 100%;
+}
+.full-cell-wrapper {
+  padding: 8px;
+}
+.full-edit-wrapper {
+  padding: 1px;
+}
+</style>
