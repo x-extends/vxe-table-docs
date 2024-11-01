@@ -2,7 +2,7 @@
   <div>
     <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
     <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
+    <vxe-button @click="loadData(30000)">加载3w条</vxe-button>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -45,9 +45,9 @@ export default Vue.extend({
         { title: '列3', field: 'col3', width: 200 },
         { title: '列4', field: 'col4', width: 140 },
         { title: '列5', field: 'col5', width: 300 },
-        { title: '列6', field: 'col6', width: 160 },
-        { title: '列7', field: 'col7', width: 120 },
-        { title: '列8', field: 'col8' }
+        { title: '列6', field: 'col6', minWidth: 160 },
+        { title: '列7', field: 'col7', minWidth: 120 },
+        { title: '列8', field: 'col8', minWidth: 120 }
       ],
       data: []
     }
@@ -69,7 +69,9 @@ export default Vue.extend({
             imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif'
           }
           for (let j = 0; j < 10; j++) {
-            if (i % 8 === 0) {
+            if (i % 9 === 0) {
+              item[`col${j}`] = `值_${i}_${j} 内容9内容9 内容9内容9内容9 内容9内容9内容9内容9 内容9内容9内容9内容9 内容9内容9内容9 内容9内容9`
+            } else if (i % 8 === 0) {
               item[`col${j}`] = `值_${i}_${j} 内容8内容8内容8内容8`
             } else if (i % 7 === 0) {
               item[`col${j}`] = `值_${i}_${j} 内容7内容7`
