@@ -381,16 +381,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/export` },
             { title: '导出 PDF 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-pdf/table/export` },
             { title: '格式化单元格内容', routerLink: { name: 'ComponentTableExportExportMethod' } },
-            { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } },
-            {
-              title: '自定义插槽模板',
-              children: [
-                { title: '自定义顶部模板', routerLink: { name: 'ComponentTableExportTemplateTop' } },
-                { title: '自定义底部模板', routerLink: { name: 'ComponentTableExportTemplateBottom' } },
-                { title: '自定义参数设置模板', routerLink: { name: 'ComponentTableExportTemplateParameter' } },
-                { title: '自定义默认模板', routerLink: { name: 'ComponentTableExportTemplateDefault' } }
-              ]
-            }
+            { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } }
           ]
         },
         {
