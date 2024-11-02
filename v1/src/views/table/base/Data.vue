@@ -67,7 +67,7 @@ export default {
   data () {
     return {
       tableData1: [
-        { name: 'Test2', age: 28, sex: '男', role: '后端', content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' },
+        { name: 'Test2', age: 28, sex: '男', role: '后端', content: '<img height="40" src="https://vxeui.com/resource/img/546.gif">' },
         { name: 'Test4', age: 26, sex: '男', role: '前端', content: '<a href="https://github.com/x-extends/vxe-table">我是链接</a>' },
         { name: 'Test3', age: 20, sex: '女', role: '程序员鼓励师', content: '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">' },
         { name: 'Test1', age: 22, sex: '女', role: '设计师', content: '<div><span style="color: red">在线观看.avi</span></div>' }
@@ -85,7 +85,7 @@ export default {
           userInfo: { name: 'Test2', age: 28 },
           other: [
             { sex: '男' },
-            { more: { content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' } }
+            { more: { content: '<img height="40" src="https://vxeui.com/resource/img/546.gif">' } }
           ],
           role: '后端'
         },
@@ -108,7 +108,7 @@ export default {
       ],
       tableData3: [
         [101, 'Test4', '男', 26, '<a href="https://github.com/x-extends/vxe-table">我是链接</a>', '前端'],
-        [102, 'Test2', '男', 28, '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">', '后端'],
+        [102, 'Test2', '男', 28, '<img height="40" src="https://vxeui.com/resource/img/546.gif">', '后端'],
         [103, 'Test1', '女', 22, '<div><span style="color: red">在线观看.avi</span></div>', '设计师'],
         [104, 'Test3', '女', 20, '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">', '程序员鼓励师']
       ],
@@ -129,7 +129,7 @@ export default {
           data () {
             return {
               tableData: [
-                { name: 'Test2', age: 28, sex: '男', role: '后端', content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' },
+                { name: 'Test2', age: 28, sex: '男', role: '后端', content: '<img height="40" src="https://vxeui.com/resource/img/546.gif">' },
                 { name: 'Test4', age: 26, sex: '男', role: '前端', content: '<a href="https://github.com/x-extends/vxe-table">我是链接</a>' },
                 { name: 'Test3', age: 20, sex: '女', role: '程序员鼓励师', content: '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">' },
                 { name: 'Test1', age: 22, sex: '女', role: '设计师', content: '<div><span style="color: red">在线观看.avi</span></div>' }
@@ -166,7 +166,7 @@ export default {
                   userInfo: { name: 'Test2', age: 28 },
                   other: [
                     { sex: '男' },
-                    { more: { content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' } }
+                    { more: { content: '<img height="40" src="https://vxeui.com/resource/img/546.gif">' } }
                   ],
                   role: '后端'
                 },
@@ -209,7 +209,7 @@ export default {
             return {
               tableData: [
                 [101, 'Test4', '男', 26, '<a href="https://github.com/x-extends/vxe-table">我是链接</a>', '前端'],
-                [102, 'Test2', '男', 28, '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">', '后端'],
+                [102, 'Test2', '男', 28, '<img height="40" src="https://vxeui.com/resource/img/546.gif">', '后端'],
                 [103, 'Test1', '女', 22, '<div><span style="color: red">在线观看.avi</span></div>', '设计师'],
                 [104, 'Test3', '女', 20, '<img height="40" src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif">', '程序员鼓励师']
               ]

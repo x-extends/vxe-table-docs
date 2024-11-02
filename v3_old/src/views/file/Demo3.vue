@@ -11,7 +11,7 @@ export default {
   methods: {
     downloadEvent () {
       // 请求文件
-      fetch('https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif')
+      fetch('https://vxeui.com/resource/img/546.gif')
         .then(response => response.blob())
         .then(blob => {
           // 下载到本地

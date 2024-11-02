@@ -57,7 +57,7 @@
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
 
       <template #loading>
-        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 100px;">
+        <img src="https://vxeui.com/resource/img/546.gif" style="width: 100px;">
       </template>
     </vxe-table>
 
@@ -166,7 +166,7 @@ export default {
           <vxe-column field="address" title="Address" show-overflow></vxe-column>
 
           <template #loading>
-            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 100px;">
+            <img src="https://vxeui.com/resource/img/546.gif" style="width: 100px;">
           </template>
         </vxe-table>
         `,

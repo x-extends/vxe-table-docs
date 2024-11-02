@@ -44,7 +44,7 @@ const tableData = ref<RowVO[]>([
     userInfo: { name: 'Test2', age: 28 },
     other: [
       { sex: '男' },
-      { more: { content: '<img height="40" src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">' } }
+      { more: { content: '<img height="40" src="https://vxeui.com/resource/img/546.gif">' } }
     ],
     role: '后端'
   },

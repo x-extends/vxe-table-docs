@@ -32,7 +32,7 @@
       <vxe-table-column field="age" title="Age">
         <template v-slot="{ row, rowIndex }">
           <template v-if="rowIndex % 5 === 0">
-            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 60px;">
+            <img src="https://vxeui.com/resource/img/546.gif" style="width: 60px;">
           </template>
           <template v-else>
             <span>{{ row.age }}</span>
@@ -87,7 +87,7 @@ export default {
           <vxe-table-column field="age" title="Age">
             <template v-slot="{ row, rowIndex }">
               <template v-if="rowIndex % 5 === 0">
-                <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" style="width: 60px;">
+                <img src="https://vxeui.com/resource/img/546.gif" style="width: 60px;">
               </template>
               <template v-else>
                 <span>{{ row.age }}</span>

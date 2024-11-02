@@ -101,9 +101,9 @@
         </span>
       </template>
       <template #right>
-        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
-        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
-        <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+        <img src="https://vxeui.com/resource/img/546.gif" height="34">
+        <img src="https://vxeui.com/resource/img/546.gif" height="34">
+        <img src="https://vxeui.com/resource/img/546.gif" height="34">
       </template>
     </vxe-pager>
 
@@ -214,7 +214,7 @@ export default {
             </template>
           </vxe-column>
         </vxe-table>
-        
+
         <vxe-pager
           :current-page.sync="tablePage.currentPage"
           :page-size.sync="tablePage.pageSize"
@@ -238,9 +238,9 @@ export default {
             </span>
           </template>
           <template #right>
-            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
-            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
-            <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="34">
+            <img src="https://vxeui.com/resource/img/546.gif" height="34">
+            <img src="https://vxeui.com/resource/img/546.gif" height="34">
+            <img src="https://vxeui.com/resource/img/546.gif" height="34">
           </template>
         </vxe-pager>
         `,

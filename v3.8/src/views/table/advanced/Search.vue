@@ -53,7 +53,7 @@
       <vxe-column field="date" title="Date" type="html"></vxe-column>
       <template #empty>
         <span style="color: red;">
-          <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">
+          <img src="https://vxeui.com/resource/img/546.gif">
           <p>搜索不到数据，可能输入的关键字姿势不对！</p>
         </span>
       </template>
@@ -215,7 +215,7 @@ export default {
           <vxe-column field="date" title="Date" type="html"></vxe-column>
           <template #empty>
             <span style="color: red;">
-              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif">
+              <img src="https://vxeui.com/resource/img/546.gif">
               <p>搜索不到数据，可能输入的关键字姿势不对！</p>
             </span>
           </template>
@@ -223,7 +223,7 @@ export default {
         `,
         `
         import XEUtils from 'xe-utils'
-        
+
         export default {
           data () {
             return {

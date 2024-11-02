@@ -65,7 +65,7 @@ export default Vue.extend({
           dataList.push({
             id: i,
             name: `名称${i} 名称名称 称`,
-            imgUrl: 'https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif',
+            imgUrl: 'https://vxeui.com/resource/img/546.gif',
             info: `info ${i}`,
             num: 20,
             address: 'shenzhen shen'

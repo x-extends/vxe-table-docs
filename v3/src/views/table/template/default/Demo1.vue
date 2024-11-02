@@ -17,7 +17,7 @@
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address" width="200">
         <template #default="{ row }">
-          <vxe-image src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" width="36" height="36"></vxe-image>
+          <vxe-image src="https://vxeui.com/resource/img/546.gif" width="36" height="36"></vxe-image>
           <span>{{ row.address }}</span>
           <vxe-image src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" width="36" height="36"></vxe-image>
         </template>

@@ -29,7 +29,7 @@
       </vxe-column>
       <vxe-column field="attr3" title="Image" tree-node>
         <template #default>
-          <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="50">
+          <img src="https://vxeui.com/resource/img/546.gif" height="50">
         </template>
       </vxe-column>
       <vxe-column field="date" title="Date">
@@ -101,7 +101,7 @@ export default {
           </vxe-column>
           <vxe-column field="attr3" title="Image" tree-node>
             <template #default>
-              <img src="https://pic2.zhimg.com/50/v2-f7031359103859e1ed38559715ef5f3f_hd.gif" height="50">
+              <img src="https://vxeui.com/resource/img/546.gif" height="50">
             </template>
           </vxe-column>
           <vxe-column field="date" title="Date">
@@ -113,7 +113,7 @@ export default {
         `,
         `
         import XEUtils from 'xe-utils'
-        
+
         export default {
           data () {
             return {
