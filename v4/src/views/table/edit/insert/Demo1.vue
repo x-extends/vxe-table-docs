@@ -2,9 +2,8 @@
   <div>
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="insertEvent()">新增单行</vxe-button>
-        <vxe-button @click="insertsEvent()">新增多行</vxe-button>
-        <vxe-button @click="insertEvent(tableData[2])">在第3行插入并激活 Sex 单元格</vxe-button>
+        <vxe-button @click="insertEvent()">新增单行，激活name编辑</vxe-button>
+        <vxe-button @click="insertsEvent()">新增多行，激活指定行name编辑</vxe-button>
         <vxe-button @click="insertEvent(-1)">在最后行插入</vxe-button>
         <vxe-button @click="removeSelectRowEvent">删除选中</vxe-button>
         <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
