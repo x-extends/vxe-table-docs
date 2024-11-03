@@ -20,7 +20,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 import VxeUITable from 'vxe-table'
-// import 'vxe-table/lib/style.css'
+import 'vxe-table/lib/style.css'
 
 import VxeUI from 'vxe-pc-ui'
 import 'vxe-pc-ui/lib/style.css'
