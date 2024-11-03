@@ -33,12 +33,12 @@
         <pre>
           <pre-code class="css">
             // 默认主题
-            [data-vxe-ui-theme="light"] {
+            html[data-vxe-ui-theme="light"] {
               --vxe-ui-font-color: #606266;
               --vxe-ui-font-primary-color: #409eff;
             }
             // 暗黑主题
-            [data-vxe-ui-theme="dark"] {
+            html[data-vxe-ui-theme="dark"] {
               --vxe-ui-font-color: #a0a3a7;
               --vxe-ui-font-primary-color: #409eff;
             }
