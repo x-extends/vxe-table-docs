@@ -24,7 +24,7 @@
 
     <CodeLight>
       <template #tip>
-        <vxe-tip status="primary" title="内置主题样式修改">
+        <vxe-tip status="primary" title="（推荐）方式一：内置主题样式修改">
           通过修内置主题 css 变量（<vxe-link href="https://gitee.com/xuliangzhan/vxe-table/blob/main/styles/theme/light.scss" status="primary" target="_blank">查看全部变量</vxe-link>）方式修改内置主题的样式：
         </vxe-tip>
       </template>
@@ -49,7 +49,7 @@
 
     <CodeLight>
       <template #tip>
-        <vxe-tip status="primary" title="自定义主题的样式修改">
+        <vxe-tip status="primary" title="方式二：自定义主题的样式修改">
           通过修改 css 变量（<vxe-link href="https://gitee.com/xuliangzhan/vxe-table/blob/master/styles/theme/light.scss" status="primary" target="_blank">查看全部变量</vxe-link>）方式修改组件样式，给 html 加个 class="my-theme"，示例：
         </vxe-tip>
       </template>
@@ -69,7 +69,7 @@
 
     <CodeLight>
       <template #tip>
-        <vxe-tip status="primary" title="自定义全局 scss 变量">
+        <vxe-tip status="primary" title="方式三：自定义全局 scss 变量">
           通过修改 scss 变量（<vxe-link href="https://gitee.com/xuliangzhan/vxe-table/blob/master/styles/variable.scss" status="primary" target="_blank">查看全部变量</vxe-link>）方式修改全局组件样式，示例：
         </vxe-tip>
       </template>
