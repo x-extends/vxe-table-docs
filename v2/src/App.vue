@@ -86,24 +86,6 @@
         </div>
       </div>
     </div>
-
-    <vxe-modal v-model="newVersionVisible" title="v3.x 预发布" width="500" min-height="200" min-width="400" :position="{left: 20, top: 20}" :mask="false" :lock-view="false" show-footer resize>
-      <template v-slot>
-        <ul>
-          <li>1. 向下兼容 v2.x</li>
-          <li>2. 不再支持 IE，面向现代浏览器</li>
-          <li>3. 重写虚拟渲染，支持虚拟合并</li>
-          <li>4. 支持多字段排序</li>
-          <li>5. 支持导出、打印多级表头</li>
-          <li>5. 分组表头需要 vxe-table-colgroup</li>
-        </ul>
-      </template>
-      <template v-slot:footer>
-        <vxe-button @click="claseNewVersionEvent">不看</vxe-button>
-        <vxe-button status="primary" @click="viewNewVersionEvent">查看更多</vxe-button>
-      </template>
-    </vxe-modal>
-
   </div>
 </template>
 
@@ -129,7 +111,6 @@ export default {
       stableVersionList: [],
       version: '',
       usedJSHeapSize: '0',
-      newVersionVisible: false,
       tableList: [
         {
           label: 'app.aside.nav.start',
@@ -2087,9 +2068,6 @@ export default {
         }
       }, 3000)
     }
-    // setTimeout(() => {
-    //   this.newVersionVisible = localStorage.getItem('VXE_TABLE_NEW_VERSION') !== '3'
-    // }, 5000)
     this.init()
 
     fetch(`https://vxeui.com/component-api/vxe-table-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {

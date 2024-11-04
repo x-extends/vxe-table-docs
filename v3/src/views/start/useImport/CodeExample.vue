@@ -10,42 +10,6 @@
 
       <template #use>
         <div>
-          如果您使用了 vite，借助插件 <vxe-link href="https://www.npmjs.com/package/vite-plugin-lazy-import" target="_blank">vite-plugin-lazy-import</vxe-link> 可以实现按需加载模块。
-        </div>
-        <pre>
-          <pre-code class="shell">
-            npm install vite-plugin-lazy-import -D
-          </pre-code>
-          <pre-code class="javascript">
-            // 修改文件 vue.config.js
-
-            // ...
-            import { lazyImport, VxeResolver } from 'vite-plugin-lazy-import'
-
-            export default defineConfig({
-              plugins: [
-                // ...,
-                lazyImport({
-                  resolvers: [
-                    VxeResolver({
-                      libraryName: 'vxe-table'
-                    }),
-                    VxeResolver({
-                      libraryName: 'vxe-pc-ui'
-                    })
-                  ]
-                })
-                // ...
-              ]
-            })
-          </pre-code>
-        </pre>
-      </template>
-    </CodeLight>
-
-    <CodeLight>
-      <template #use>
-        <div>
           如果您使用了 webpack，借助插件 <vxe-link  href="https://www.npmjs.com/package/babel-plugin-import" target="_blank">babel-plugin-import</vxe-link> 可以实现按需加载模块。
         </div>
         <pre>
@@ -79,69 +43,18 @@
             import {
               VxeUI,
 
-              VxeAlert,
-              VxeAnchor,
-              VxeAnchorLink,
-              VxeBreadcrumb,
-              VxeBreadcrumbItem,
               VxeButton,
               VxeButtonGroup,
-              VxeCalendar,
-              VxeCard,
-              VxeCarousel,
-              VxeCheckbox,
-              VxeCheckboxGroup,
-              VxeCol,
-              VxeCollapse,
-              VxeCollapsePane,
-              VxeDatePicker,
               VxeDrawer,
               VxeForm,
-              VxeFormDesign,
-              VxeFormGather,
+              VxeFormGroup,
               VxeFormItem,
-              VxeFormView,
               VxeIcon,
-              VxeIconPicker,
-              VxeImage,
-              VxeImageGroup,
-              VxeImagePreview,
-              VxeInput,
-              VxeLayoutAside,
-              VxeLayoutBody,
-              VxeLayoutContainer,
-              VxeLayoutFooter,
-              VxeLayoutHeader,
-              VxeLink,
-              VxeListDesign,
-              VxeListView,
-              VxeList,
               VxeLoading,
-              VxeMenu,
               VxeModal,
-              VxeNumberInput,
-              VxeOptgroup,
-              VxeOption,
               VxePager,
-              VxePasswordInput,
-              VxePrintPageBreak,
               VxePrint,
-              VxePulldown,
-              VxeRadio,
-              VxeRadioButton,
-              VxeRadioGroup,
-              VxeRow,
-              VxeSelect,
-              VxeSwitch,
-              VxeTabPane,
-              VxeTabs,
-              VxeTag,
-              VxeText,
-              VxeTextarea,
-              VxeTip,
               VxeTooltip,
-              VxeTree,
-              VxeTreeSelect,
               VxeUpload
             } from 'vxe-pc-ui'
 
@@ -166,69 +79,18 @@
             // 注册组件
             // 如果页面中已经被显性导入了，则可以不用调用注册
             // 如果是配置式的，没有在页面中显性导入，则需要逐个注册
-            VxeUI.component(VxeAlert)
-            VxeUI.component(VxeAnchor)
-            VxeUI.component(VxeAnchorLink)
-            VxeUI.component(VxeBreadcrumb)
-            VxeUI.component(VxeBreadcrumbItem)
             VxeUI.component(VxeButton)
             VxeUI.component(VxeButtonGroup)
-            VxeUI.component(VxeCalendar)
-            VxeUI.component(VxeCard)
-            VxeUI.component(VxeCarousel)
-            VxeUI.component(VxeCheckbox)
-            VxeUI.component(VxeCheckboxGroup)
-            VxeUI.component(VxeCol)
-            VxeUI.component(VxeCollapse)
-            VxeUI.component(VxeCollapsePane)
-            VxeUI.component(VxeDatePicker)
             VxeUI.component(VxeDrawer)
             VxeUI.component(VxeForm)
-            VxeUI.component(VxeFormDesign)
-            VxeUI.component(VxeFormGather)
+            VxeUI.component(VxeFormGroup)
             VxeUI.component(VxeFormItem)
-            VxeUI.component(VxeFormView)
             VxeUI.component(VxeIcon)
-            VxeUI.component(VxeIconPicker)
-            VxeUI.component(VxeImage)
-            VxeUI.component(VxeImageGroup)
-            VxeUI.component(VxeImagePreview)
-            VxeUI.component(VxeInput)
-            VxeUI.component(VxeLayoutAside)
-            VxeUI.component(VxeLayoutBody)
-            VxeUI.component(VxeLayoutContainer)
-            VxeUI.component(VxeLayoutFooter)
-            VxeUI.component(VxeLayoutHeader)
-            VxeUI.component(VxeLink)
-            VxeUI.component(VxeListDesign)
-            VxeUI.component(VxeListView)
-            VxeUI.component(VxeList)
             VxeUI.component(VxeLoading)
-            VxeUI.component(VxeMenu)
             VxeUI.component(VxeModal)
-            VxeUI.component(VxeNumberInput)
-            VxeUI.component(VxeOptgroup)
-            VxeUI.component(VxeOption)
             VxeUI.component(VxePager)
-            VxeUI.component(VxePasswordInput)
-            VxeUI.component(VxePrintPageBreak)
             VxeUI.component(VxePrint)
-            VxeUI.component(VxePulldown)
-            VxeUI.component(VxeRadio)
-            VxeUI.component(VxeRadioButton)
-            VxeUI.component(VxeRadioGroup)
-            VxeUI.component(VxeRow)
-            VxeUI.component(VxeSelect)
-            VxeUI.component(VxeSwitch)
-            VxeUI.component(VxeTabPane)
-            VxeUI.component(VxeTabs)
-            VxeUI.component(VxeTag)
-            VxeUI.component(VxeText)
-            VxeUI.component(VxeTextarea)
-            VxeUI.component(VxeTip)
             VxeUI.component(VxeTooltip)
-            VxeUI.component(VxeTree)
-            VxeUI.component(VxeTreeSelect)
             VxeUI.component(VxeUpload)
 
             VxeUI.component(VxeTable)

@@ -987,8 +987,8 @@ export const navConfigList: NavVO[] = [
     isExpand: true,
     children: [
       { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartInstall' } },
-      // { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUseGlobal' } },
-      // { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartUseImport' } },
+      { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUseGlobal' } },
+      { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartUseImport' } },
       { i18nKey: 'app.aside.menu.useCDN', routerLink: { name: 'StartCDN' } },
       { i18nKey: 'app.aside.menu.globalConfig', routerLink: { name: 'StartConfig' } },
       { i18nKey: 'app.aside.menu.globalTheme', routerLink: { name: 'StartTheme' } },

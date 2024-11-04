@@ -82,27 +82,17 @@
 
               VxeButton,
               VxeButtonGroup,
-              VxeCheckbox,
-              VxeCheckboxGroup,
+              VxeDrawer,
               VxeForm,
-              VxeFormGather,
+              VxeFormGroup,
               VxeFormItem,
               VxeIcon,
-              VxeInput,
-              VxeList,
               VxeLoading,
               VxeModal,
-              VxeOptgroup,
-              VxeOption,
               VxePager,
-              VxePulldown,
-              VxeRadio,
-              VxeRadioButton,
-              VxeRadioGroup,
-              VxeSelect,
-              VxeSwitch,
-              VxeTextarea,
-              VxeTooltip
+              VxePrint,
+              VxeTooltip,
+              VxeUpload
             } from 'vxe-pc-ui'
 
             import {
@@ -128,27 +118,17 @@
             // 如果是配置式的，没有在页面中显性导入，则需要逐个注册
             VxeUI.component(VxeButton)
             VxeUI.component(VxeButtonGroup)
-            VxeUI.component(VxeCheckbox)
-            VxeUI.component(VxeCheckboxGroup)
+            VxeUI.component(VxeDrawer)
             VxeUI.component(VxeForm)
-            VxeUI.component(VxeFormGather)
+            VxeUI.component(VxeFormGroup)
             VxeUI.component(VxeFormItem)
             VxeUI.component(VxeIcon)
-            VxeUI.component(VxeInput)
-            VxeUI.component(VxeList)
             VxeUI.component(VxeLoading)
             VxeUI.component(VxeModal)
-            VxeUI.component(VxeOptgroup)
-            VxeUI.component(VxeOption)
             VxeUI.component(VxePager)
-            VxeUI.component(VxePulldown)
-            VxeUI.component(VxeRadio)
-            VxeUI.component(VxeRadioButton)
-            VxeUI.component(VxeRadioGroup)
-            VxeUI.component(VxeSelect)
-            VxeUI.component(VxeSwitch)
-            VxeUI.component(VxeTextarea)
+            VxeUI.component(VxePrint)
             VxeUI.component(VxeTooltip)
+            VxeUI.component(VxeUpload)
 
             VxeUI.component(VxeTable)
             VxeUI.component(VxeColumn)

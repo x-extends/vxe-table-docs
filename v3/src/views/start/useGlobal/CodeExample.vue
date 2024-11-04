@@ -10,42 +10,6 @@
 
       <template #use>
         <div>
-          如果您使用了 vite，借助插件 <vxe-link href="https://www.npmjs.com/package/vite-plugin-lazy-import" target="_blank">vite-plugin-lazy-import</vxe-link> 可以实现按需加载模块。
-        </div>
-        <pre>
-          <pre-code class="shell">
-            npm install vite-plugin-lazy-import -D
-          </pre-code>
-          <pre-code class="javascript">
-            // 修改文件 vue.config.js
-
-            // ...
-            import { lazyImport, VxeResolver } from 'vite-plugin-lazy-import'
-
-            export default defineConfig({
-              plugins: [
-                // ...,
-                lazyImport({
-                  resolvers: [
-                    VxeResolver({
-                      libraryName: 'vxe-table'
-                    }),
-                    VxeResolver({
-                      libraryName: 'vxe-pc-ui'
-                    })
-                  ]
-                })
-                // ...
-              ]
-            })
-          </pre-code>
-        </pre>
-      </template>
-    </CodeLight>
-
-    <CodeLight>
-      <template #use>
-        <div>
           如果您使用了 webpack，借助插件 <vxe-link  href="https://www.npmjs.com/package/babel-plugin-import" target="_blank">babel-plugin-import</vxe-link> 可以实现按需加载模块。
         </div>
         <pre>
@@ -79,69 +43,18 @@
             import {
               VxeUI,
 
-              VxeAlert,
-              VxeAnchor,
-              VxeAnchorLink,
-              VxeBreadcrumb,
-              VxeBreadcrumbItem,
               VxeButton,
               VxeButtonGroup,
-              VxeCalendar,
-              VxeCard,
-              VxeCarousel,
-              VxeCheckbox,
-              VxeCheckboxGroup,
-              VxeCol,
-              VxeCollapse,
-              VxeCollapsePane,
-              VxeDatePicker,
               VxeDrawer,
               VxeForm,
-              VxeFormDesign,
-              VxeFormGather,
+              VxeFormGroup,
               VxeFormItem,
-              VxeFormView,
               VxeIcon,
-              VxeIconPicker,
-              VxeImage,
-              VxeImageGroup,
-              VxeImagePreview,
-              VxeInput,
-              VxeLayoutAside,
-              VxeLayoutBody,
-              VxeLayoutContainer,
-              VxeLayoutFooter,
-              VxeLayoutHeader,
-              VxeLink,
-              VxeListDesign,
-              VxeListView,
-              VxeList,
               VxeLoading,
-              VxeMenu,
               VxeModal,
-              VxeNumberInput,
-              VxeOptgroup,
-              VxeOption,
               VxePager,
-              VxePasswordInput,
-              VxePrintPageBreak,
               VxePrint,
-              VxePulldown,
-              VxeRadio,
-              VxeRadioButton,
-              VxeRadioGroup,
-              VxeRow,
-              VxeSelect,
-              VxeSwitch,
-              VxeTabPane,
-              VxeTabs,
-              VxeTag,
-              VxeText,
-              VxeTextarea,
-              VxeTip,
               VxeTooltip,
-              VxeTree,
-              VxeTreeSelect,
               VxeUpload
             } from 'vxe-pc-ui'
 
@@ -164,69 +77,18 @@
             VxeUI.setLanguage('zh-CN')
 
             function lazyVxeUI (app) {
-              app.use(VxeAlert)
-              app.use(VxeAnchor)
-              app.use(VxeAnchorLink)
-              app.use(VxeBreadcrumb)
-              app.use(VxeBreadcrumbItem)
               app.use(VxeButton)
               app.use(VxeButtonGroup)
-              app.use(VxeCalendar)
-              app.use(VxeCard)
-              app.use(VxeCarousel)
-              app.use(VxeCheckbox)
-              app.use(VxeCheckboxGroup)
-              app.use(VxeCol)
-              app.use(VxeCollapse)
-              app.use(VxeCollapsePane)
-              app.use(VxeDatePicker)
               app.use(VxeDrawer)
               app.use(VxeForm)
-              app.use(VxeFormDesign)
-              app.use(VxeFormGather)
+              app.use(VxeFormGroup)
               app.use(VxeFormItem)
-              app.use(VxeFormView)
               app.use(VxeIcon)
-              app.use(VxeIconPicker)
-              app.use(VxeImage)
-              app.use(VxeImageGroup)
-              app.use(VxeImagePreview)
-              app.use(VxeInput)
-              app.use(VxeLayoutAside)
-              app.use(VxeLayoutBody)
-              app.use(VxeLayoutContainer)
-              app.use(VxeLayoutFooter)
-              app.use(VxeLayoutHeader)
-              app.use(VxeLink)
-              app.use(VxeListDesign)
-              app.use(VxeListView)
-              app.use(VxeList)
               app.use(VxeLoading)
-              app.use(VxeMenu)
               app.use(VxeModal)
-              app.use(VxeNumberInput)
-              app.use(VxeOptgroup)
-              app.use(VxeOption)
               app.use(VxePager)
-              app.use(VxePasswordInput)
-              app.use(VxePrintPageBreak)
               app.use(VxePrint)
-              app.use(VxePulldown)
-              app.use(VxeRadio)
-              app.use(VxeRadioButton)
-              app.use(VxeRadioGroup)
-              app.use(VxeRow)
-              app.use(VxeSelect)
-              app.use(VxeSwitch)
-              app.use(VxeTabPane)
-              app.use(VxeTabs)
-              app.use(VxeTag)
-              app.use(VxeText)
-              app.use(VxeTextarea)
-              app.use(VxeTip)
               app.use(VxeTooltip)
-              app.use(VxeTree)
-              app.use(VxeTreeSelect)
               app.use(VxeUpload)
             }
 

@@ -83,27 +83,17 @@
 
               VxeButton,
               VxeButtonGroup,
-              VxeCheckbox,
-              VxeCheckboxGroup,
+              VxeDrawer,
               VxeForm,
-              VxeFormGather,
+              VxeFormGroup,
               VxeFormItem,
               VxeIcon,
-              VxeInput,
-              VxeList,
               VxeLoading,
               VxeModal,
-              VxeOptgroup,
-              VxeOption,
               VxePager,
-              VxePulldown,
-              VxeRadio,
-              VxeRadioButton,
-              VxeRadioGroup,
-              VxeSelect,
-              VxeSwitch,
-              VxeTextarea,
-              VxeTooltip
+              VxePrint,
+              VxeTooltip,
+              VxeUpload
             } from 'vxe-pc-ui'
 
             import {
@@ -128,27 +118,17 @@
             function lazyVxeUI (app) {
               app.use(VxeButton)
               app.use(VxeButtonGroup)
-              app.use(VxeCheckbox)
-              app.use(VxeCheckboxGroup)
+              app.use(VxeDrawer)
               app.use(VxeForm)
-              app.use(VxeFormGather)
+              app.use(VxeFormGroup)
               app.use(VxeFormItem)
               app.use(VxeIcon)
-              app.use(VxeInput)
-              app.use(VxeList)
               app.use(VxeLoading)
               app.use(VxeModal)
-              app.use(VxeOptgroup)
-              app.use(VxeOption)
               app.use(VxePager)
-              app.use(VxePulldown)
-              app.use(VxeRadio)
-              app.use(VxeRadioButton)
-              app.use(VxeRadioGroup)
-              app.use(VxeSelect)
-              app.use(VxeSwitch)
-              app.use(VxeTextarea)
+              app.use(VxePrint)
               app.use(VxeTooltip)
+              app.use(VxeUpload)
             }
 
             function lazyVxeTable (app) {
