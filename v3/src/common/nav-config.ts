@@ -981,7 +981,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
 }
 
 export const navConfigList: NavVO[] = [
-  { title: '切回 v3.9 旧版文档', linkUrl: '/v3_old', linkTarget: '_self' },
+  { title: '切换 v3.x 旧版文档', linkUrl: '/v3_old', linkTarget: '_self' },
   {
     i18nKey: 'app.aside.menu.guide',
     isExpand: true,
