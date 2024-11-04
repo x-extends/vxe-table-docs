@@ -11,7 +11,7 @@
       </template>
 
       <template #use>
-        <iframe :src="cdnUrl" style="display: block;width: 100%;height: 360px;border: 1px solid #000;"></iframe>
+        <iframe :src="cdnUrl" style="display: block;width: 100%;height: 480px;border: 1px solid #000;"></iframe>
         <code-render language="html" :code="cdnCode"></code-render>
       </template>
     </CodeLight>
