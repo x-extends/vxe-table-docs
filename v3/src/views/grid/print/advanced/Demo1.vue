@@ -23,10 +23,20 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       printConfig: {},
       columns: [
-        { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name' },
-        { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' }
+        { field: 'seq', type: 'seq', width: 70 },
+        {
+          title: '分组1',
+          children: [
+            { field: 'name', title: 'Name' }
+          ]
+        },
+        {
+          title: '分组2',
+          children: [
+            { field: 'sex', title: 'Sex' },
+            { field: 'age', title: 'Age' }
+          ]
+        }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

@@ -7,9 +7,13 @@
       :footer-data="footerData"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-colgroup title="分组1">
+        <vxe-column field="name" title="Name"></vxe-column>
+      </vxe-colgroup>
+      <vxe-colgroup title="分组2">
+        <vxe-column field="sex" title="Sex"></vxe-column>
+        <vxe-column field="age" title="Age"></vxe-column>
+      </vxe-colgroup>
     </vxe-table>
   </div>
 </template>
