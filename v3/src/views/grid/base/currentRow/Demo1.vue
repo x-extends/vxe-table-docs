@@ -9,7 +9,7 @@
     <vxe-grid
       ref="gridRef"
       v-bind="gridOptions"
-      @current-Change="currentChangeEvent">
+      @current-change="currentChangeEvent">
     </vxe-grid>
   </div>
 </template>
