@@ -67,6 +67,17 @@ export default Vue.extend({
               { code: 'reload', name: '刷新表格', visible: true, disabled: false }
             ],
             [
+              {
+                code: 'fixed',
+                name: '冻结列',
+                children: [
+                  { code: 'cancelFixed', name: '取消冻结' },
+                  { code: 'fixedLeft', name: '冻结在左侧', prefixConfig: { icon: 'vxe-icon-fixed-left' } },
+                  { code: 'fixedRight', name: '冻结在右侧', prefixConfig: { icon: 'vxe-icon-fixed-right' } }
+                ]
+              }
+            ],
+            [
               { code: 'myPrint', name: '打印（Ctrl+P）', prefixConfig: { icon: 'vxe-icon-print' }, visible: true, disabled: false },
               { code: 'myExport', name: '导出.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
             ]
@@ -115,6 +126,9 @@ export default Vue.extend({
             break
           case 'myExport':
             $grid.exportData()
+            break
+          default:
+            VxeUI.modal.message({ content: `点击了 ${menu.code}`, status: 'success' })
             break
         }
       }

@@ -10,7 +10,7 @@
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
       <vxe-column title="图片" width="140" align="center">
         <template #default>
-          <img src="https://vxeui.com/resource/img/546.gif" style="width: 100px;">
+          <vxe-image src="https://vxeui.com/resource/img/546.gif" height="100"></vxe-image>
         </template>
       </vxe-column>
       <vxe-column title="基本信息">

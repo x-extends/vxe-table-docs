@@ -2,7 +2,7 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #imgDefault>
-        <img src="https://vxeui.com/resource/img/546.gif" style="width: 100px;">
+        <vxe-image src="https://vxeui.com/resource/img/546.gif" height="100"></vxe-image>
       </template>
 
       <template #infoDefault="{ row }">
