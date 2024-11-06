@@ -2206,6 +2206,42 @@ const gridRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'validate',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'rules',
+          name: 'ComponentGridValidateRules',
+          component: () => import('@/views/grid/validate/rules/CodeExample.vue')
+        },
+        {
+          path: 'string',
+          name: 'ComponentGridValidateString',
+          component: () => import('@/views/grid/validate/string/CodeExample.vue')
+        },
+        {
+          path: 'number',
+          name: 'ComponentGridValidateNumber',
+          component: () => import('@/views/grid/validate/number/CodeExample.vue')
+        },
+        {
+          path: 'regexp',
+          name: 'ComponentGridValidateRegexp',
+          component: () => import('@/views/grid/validate/regexp/CodeExample.vue')
+        },
+        {
+          path: 'array',
+          name: 'ComponentGridValidateArray',
+          component: () => import('@/views/grid/validate/array/CodeExample.vue')
+        },
+        {
+          path: 'custom',
+          name: 'ComponentGridValidateCustom',
+          component: () => import('@/views/grid/validate/custom/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'cellRender',
       component: RouteLayout,
       children: [

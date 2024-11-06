@@ -732,6 +732,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '数据校验',
+          children: [
+            { title: '校验规则配置', routerLink: { name: 'ComponentGridValidateRules' } },
+            { title: '字符串校验', routerLink: { name: 'ComponentGridValidateString' } },
+            { title: '数值校验', routerLink: { name: 'ComponentGridValidateNumber' } },
+            { title: '正则校验', routerLink: { name: 'ComponentGridValidateRegexp' } },
+            { title: '数组校验', routerLink: { name: 'ComponentGridValidateArray' } },
+            { title: '自定义校验', routerLink: { name: 'ComponentGridValidateCustom' } }
+          ]
+        },
+        {
           title: '可编辑 - 渲染 - 插槽式',
           children: [
             { title: 'VxeInput 输入框', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
