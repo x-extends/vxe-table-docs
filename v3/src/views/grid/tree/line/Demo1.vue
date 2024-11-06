@@ -22,6 +22,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       showOverflow: true,
       border: 'outer',
+      rowConfig: {
+        useKey: true
+      },
       treeConfig: {
         transform: true,
         rowField: 'id',
