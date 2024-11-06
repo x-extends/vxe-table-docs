@@ -3,7 +3,7 @@
     <vxe-table
       border
       :data="tableData"
-      :mergeCells=mergeCells>
+      :merge-cells=mergeCells>
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

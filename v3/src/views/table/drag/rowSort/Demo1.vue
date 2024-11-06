@@ -2,20 +2,21 @@
   <div>
     <vxe-table
       border
-      :data="tableData"
-      :merge-cells="mergeCells">
-      <vxe-column type="seq" width="70"></vxe-column>
+      :row-config="rowConfig"
+      :column-config="columnConfig"
+      :data="tableData">
       <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-column field="role" title="Role" drag-sort></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="address" title="Address" show-overflow></vxe-column>
+      <vxe-column field="address" title="Address"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -35,14 +36,19 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
     ]
 
-    const mergeCells: VxeTablePropTypes.MergeCells = [
-      { row: 0, col: 3, rowspan: 1, colspan: 2 },
-      { row: 2, col: 1, rowspan: 1, colspan: 3 }
-    ]
+    const rowConfig: VxeTablePropTypes.RowConfig<RowVO> = {
+      useKey: true,
+      drag: true
+    }
+
+    const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {
+      useKey: true
+    }
 
     return {
       tableData,
-      mergeCells
+      rowConfig,
+      columnConfig
     }
   }
 })

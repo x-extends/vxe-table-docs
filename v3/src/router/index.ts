@@ -385,6 +385,27 @@ const tableRouteConfig: RouteConfig = {
       ]
     },
     {
+      path: 'drag',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'rowDrag',
+          name: 'ComponentTableDragRowSort',
+          component: () => import('@/views/table/drag/rowSort/CodeExample.vue')
+        },
+        {
+          path: 'rowEvent',
+          name: 'ComponentTableDragRowEvent',
+          component: () => import('@/views/table/drag/rowEvent/CodeExample.vue')
+        },
+        {
+          path: 'rowDragMethod',
+          name: 'ComponentTableDragRowDragMethod',
+          component: () => import('@/views/table/drag/rowDragMethod/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'merge',
       component: RouteLayout,
       children: [
@@ -1750,6 +1771,27 @@ const gridRouteConfig: RouteConfig = {
       ]
     },
     {
+      path: 'drag',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'rowDrag',
+          name: 'ComponentGridDragRowSort',
+          component: () => import('@/views/grid/drag/rowSort/CodeExample.vue')
+        },
+        {
+          path: 'rowEvent',
+          name: 'ComponentGridDragRowEvent',
+          component: () => import('@/views/grid/drag/rowEvent/CodeExample.vue')
+        },
+        {
+          path: 'rowDragMethod',
+          name: 'ComponentGridDragRowDragMethod',
+          component: () => import('@/views/grid/drag/rowDragMethod/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'layout',
       component: RouteLayout,
       children: [
@@ -2700,6 +2742,37 @@ const gridRouteConfig: RouteConfig = {
           path: 'footer',
           name: 'ComponentGridPrintFooter',
           component: () => import('@/views/grid/print/footer/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'top',
+              name: 'ComponentGridPrintTemplateTop',
+              component: () => import('@/views/grid/print/template/top/CodeExample.vue')
+            },
+            {
+              path: 'parameter',
+              name: 'ComponentGridPrintTemplateParameter',
+              component: () => import('@/views/grid/print/template/parameter/CodeExample.vue')
+            },
+            {
+              path: 'bottom',
+              name: 'ComponentGridPrintTemplateBottom',
+              component: () => import('@/views/grid/print/template/bottom/CodeExample.vue')
+            },
+            {
+              path: 'default',
+              name: 'ComponentGridPrintTemplateDefault',
+              component: () => import('@/views/grid/print/template/default/CodeExample.vue')
+            },
+            {
+              path: 'footer',
+              name: 'ComponentGridPrintTemplateFooter',
+              component: () => import('@/views/grid/print/template/footer/CodeExample.vue')
+            }
+          ]
         }
       ]
     },
@@ -2746,6 +2819,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'autoRowHeight',
           name: 'ComponentGridScrollAutoRowHeight',
           component: () => import('@/views/grid/scroll/autoRowHeight/CodeExample.vue')
+        },
+        {
+          path: 'dragRow',
+          name: 'ComponentGridScrollDragRow',
+          component: () => import('@/views/grid/scroll/dragRow/CodeExample.vue')
         },
         {
           path: 'group',
