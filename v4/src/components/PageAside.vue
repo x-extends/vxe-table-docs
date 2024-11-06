@@ -165,6 +165,11 @@ const createNavList = () => {
         routerLink: { name: 'DocsApi', params: { name } },
         children: XEUtils.mapTree(list, obj => {
           obj.title = obj.name
+          obj.routerLink = {
+            name: 'DocsApi',
+            params: { name },
+            query: { q: obj.name }
+          }
           return obj
         }, { children: 'list', mapChildren: 'children' })
       })
@@ -250,7 +255,11 @@ const scrollToNav = (item: NavVO) => {
     if (asideElem && item.routerLink) {
       const linkEl = asideElem.querySelector(`.nav-item-link.${getApiClass(item)}`)
       if (linkEl) {
-        (linkEl as any).scrollIntoViewIfNeeded()
+        if ((linkEl as any).scrollIntoViewIfNeeded) {
+          (linkEl as any).scrollIntoViewIfNeeded()
+        } else if ((linkEl as any).scrollIntoView) {
+          (linkEl as any).scrollIntoView()
+        }
       }
     }
   })
