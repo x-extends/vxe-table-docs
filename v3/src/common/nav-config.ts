@@ -132,8 +132,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '行拖拽',
           children: [
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentTableDragRowSort' } },
-            { title: '行拖拽事件', routerLink: { name: 'ComponentTableDragRowEvent' } },
-            { title: '行拖拽拦截', routerLink: { name: 'ComponentTableDragRowDragMethod' } }
+            { title: '拖拽事件', routerLink: { name: 'ComponentTableDragRowEvent' } },
+            { title: '禁用按钮', routerLink: { name: 'ComponentTableDragRowDisabledMethod' } },
+            { title: '按钮可视', routerLink: { name: 'ComponentTableDragRowVisibleMethod' } },
+            { title: '拖拽拦截', routerLink: { name: 'ComponentTableDragRowDragMethod' } }
           ]
         },
         {
@@ -550,8 +552,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '行拖拽',
           children: [
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridDragRowSort' } },
-            { title: '行拖拽事件', routerLink: { name: 'ComponentGridDragRowEvent' } },
-            { title: '行拖拽拦截', routerLink: { name: 'ComponentGridDragRowDragMethod' } }
+            { title: '拖拽事件', routerLink: { name: 'ComponentGridDragRowEvent' } },
+            { title: '禁用按钮', routerLink: { name: 'ComponentGridDragRowDisabledMethod' } },
+            { title: '按钮可视', routerLink: { name: 'ComponentGridDragRowVisibleMethod' } },
+            { title: '拖拽拦截', routerLink: { name: 'ComponentGridDragRowDragMethod' } }
           ]
         },
         {
@@ -729,6 +733,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
             { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
+          ]
+        },
+        {
+          title: '数据校验',
+          children: [
+            { title: '校验规则配置', routerLink: { name: 'ComponentGridValidateRules' } },
+            { title: '字符串校验', routerLink: { name: 'ComponentGridValidateString' } },
+            { title: '数值校验', routerLink: { name: 'ComponentGridValidateNumber' } },
+            { title: '正则校验', routerLink: { name: 'ComponentGridValidateRegexp' } },
+            { title: '数组校验', routerLink: { name: 'ComponentGridValidateArray' } },
+            { title: '自定义校验', routerLink: { name: 'ComponentGridValidateCustom' } }
           ]
         },
         {

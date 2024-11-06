@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script lang="tsx" setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import { VxeUI, VxeGridProps, VxeGridInstance, VxeColumnPropTypes, VxeSelectProps } from 'vxe-table'
 

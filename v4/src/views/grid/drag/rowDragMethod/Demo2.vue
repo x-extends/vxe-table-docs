@@ -21,7 +21,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   rowConfig: {
     useKey: true,
-    drag: true,
+    drag: true
+  },
+  columnConfig: {
+    useKey: true
+  },
+  dragConfig: {
     async dragEndMethod () {
       const type = await VxeUI.modal.confirm({
         content: '请是否确认调整顺序？'
@@ -36,9 +41,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       }
       return false
     }
-  },
-  columnConfig: {
-    useKey: true
   },
   columns: [
     { field: 'name', title: 'Name' },

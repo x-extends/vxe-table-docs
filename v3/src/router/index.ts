@@ -399,6 +399,16 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/drag/rowEvent/CodeExample.vue')
         },
         {
+          path: 'rowDisabledMethod',
+          name: 'ComponentTableDragRowDisabledMethod',
+          component: () => import('@/views/table/drag/rowDisabledMethod/CodeExample.vue')
+        },
+        {
+          path: 'rowVisibleMethod',
+          name: 'ComponentTableDragRowVisibleMethod',
+          component: () => import('@/views/table/drag/rowVisibleMethod/CodeExample.vue')
+        },
+        {
           path: 'rowDragMethod',
           name: 'ComponentTableDragRowDragMethod',
           component: () => import('@/views/table/drag/rowDragMethod/CodeExample.vue')
@@ -1785,6 +1795,16 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/drag/rowEvent/CodeExample.vue')
         },
         {
+          path: 'rowDisabledMethod',
+          name: 'ComponentGridDragRowDisabledMethod',
+          component: () => import('@/views/grid/drag/rowDisabledMethod/CodeExample.vue')
+        },
+        {
+          path: 'rowVisibleMethod',
+          name: 'ComponentGridDragRowVisibleMethod',
+          component: () => import('@/views/grid/drag/rowVisibleMethod/CodeExample.vue')
+        },
+        {
           path: 'rowDragMethod',
           name: 'ComponentGridDragRowDragMethod',
           component: () => import('@/views/grid/drag/rowDragMethod/CodeExample.vue')
@@ -2205,6 +2225,42 @@ const gridRouteConfig: RouteConfig = {
           path: 'group',
           name: 'ComponentGridTreeGroup',
           component: () => import('@/views/grid/tree/group/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'validate',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'rules',
+          name: 'ComponentGridValidateRules',
+          component: () => import('@/views/grid/validate/rules/CodeExample.vue')
+        },
+        {
+          path: 'string',
+          name: 'ComponentGridValidateString',
+          component: () => import('@/views/grid/validate/string/CodeExample.vue')
+        },
+        {
+          path: 'number',
+          name: 'ComponentGridValidateNumber',
+          component: () => import('@/views/grid/validate/number/CodeExample.vue')
+        },
+        {
+          path: 'regexp',
+          name: 'ComponentGridValidateRegexp',
+          component: () => import('@/views/grid/validate/regexp/CodeExample.vue')
+        },
+        {
+          path: 'array',
+          name: 'ComponentGridValidateArray',
+          component: () => import('@/views/grid/validate/array/CodeExample.vue')
+        },
+        {
+          path: 'custom',
+          name: 'ComponentGridValidateCustom',
+          component: () => import('@/views/grid/validate/custom/CodeExample.vue')
         }
       ]
     },

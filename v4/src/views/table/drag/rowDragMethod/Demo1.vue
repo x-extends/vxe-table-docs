@@ -4,6 +4,7 @@
       border
       :row-config="rowConfig"
       :column-config="columnConfig"
+      :drag-config="dragConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" drag-sort></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
@@ -36,7 +37,14 @@ const tableData = ref<RowVO[]>([
 
 const rowConfig = reactive<VxeTablePropTypes.RowConfig<RowVO>>({
   useKey: true,
-  drag: true,
+  drag: true
+})
+
+const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
+  useKey: true
+})
+
+const dragConfig = reactive<VxeTablePropTypes.DragConfig<RowVO>>({
   dragStartMethod ({ row }) {
     if (row.sex === 'Women') {
       VxeUI.modal.message({
@@ -47,9 +55,5 @@ const rowConfig = reactive<VxeTablePropTypes.RowConfig<RowVO>>({
     }
     return true
   }
-})
-
-const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
-  useKey: true
 })
 </script>

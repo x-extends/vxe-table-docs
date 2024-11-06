@@ -21,7 +21,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   rowConfig: {
     useKey: true,
-    drag: true,
+    drag: true
+  },
+  columnConfig: {
+    useKey: true
+  },
+  dragConfig: {
     dragStartMethod ({ row }) {
       if (row.sex === 'Women') {
         VxeUI.modal.message({
@@ -32,9 +37,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       }
       return true
     }
-  },
-  columnConfig: {
-    useKey: true
   },
   columns: [
     { field: 'name', title: 'Name' },

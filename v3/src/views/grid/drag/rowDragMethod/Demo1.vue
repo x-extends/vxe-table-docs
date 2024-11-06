@@ -23,7 +23,12 @@ export default Vue.extend({
       border: true,
       rowConfig: {
         useKey: true,
-        drag: true,
+        drag: true
+      },
+      columnConfig: {
+        useKey: true
+      },
+      dragConfig: {
         dragStartMethod ({ row }) {
           if (row.sex === 'Women') {
             VxeUI.modal.message({
@@ -34,9 +39,6 @@ export default Vue.extend({
           }
           return true
         }
-      },
-      columnConfig: {
-        useKey: true
       },
       columns: [
         { field: 'name', title: 'Name' },

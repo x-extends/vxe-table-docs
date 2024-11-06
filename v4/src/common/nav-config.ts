@@ -132,8 +132,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '行拖拽',
           children: [
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentTableDragRowSort' } },
-            { title: '行拖拽事件', routerLink: { name: 'ComponentTableDragRowEvent' } },
-            { title: '行拖拽拦截', routerLink: { name: 'ComponentTableDragRowDragMethod' } }
+            { title: '拖拽事件', routerLink: { name: 'ComponentTableDragRowEvent' } },
+            { title: '禁用按钮', routerLink: { name: 'ComponentTableDragRowDisabledMethod' } },
+            { title: '按钮可视', routerLink: { name: 'ComponentTableDragRowVisibleMethod' } },
+            { title: '拖拽拦截', routerLink: { name: 'ComponentTableDragRowDragMethod' } }
           ]
         },
         {
@@ -550,8 +552,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '行拖拽',
           children: [
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridDragRowSort' } },
-            { title: '行拖拽事件', routerLink: { name: 'ComponentGridDragRowEvent' } },
-            { title: '行拖拽拦截', routerLink: { name: 'ComponentGridDragRowDragMethod' } }
+            { title: '拖拽事件', routerLink: { name: 'ComponentGridDragRowEvent' } },
+            { title: '禁用按钮', routerLink: { name: 'ComponentGridDragRowDisabledMethod' } },
+            { title: '按钮可视', routerLink: { name: 'ComponentGridDragRowVisibleMethod' } },
+            { title: '拖拽拦截', routerLink: { name: 'ComponentGridDragRowDragMethod' } }
           ]
         },
         {
