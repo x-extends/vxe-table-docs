@@ -42,7 +42,7 @@ export default Vue.extend({
         { type: 'checkbox', width: 60 },
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
-        { field: 'roleList', title: 'Role', editRender: { name: 'VxeInput' } },
+        { field: 'role', title: 'Role', editRender: { name: 'VxeInput' } },
         { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
         { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
         { field: 'date', title: 'Date', editRender: { name: 'VxeInput' } }

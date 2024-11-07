@@ -56,7 +56,8 @@ export default Vue.extend({
     }
 
     return {
-      tableData
+      tableData,
+      validRules
     }
   },
   methods: {

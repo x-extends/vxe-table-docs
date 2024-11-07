@@ -1,12 +1,9 @@
 <template>
   <div>
-    <p>
-      <vxe-button @click="insertEvent">新增</vxe-button>
-      <vxe-button @click="validEvent">快速校验变动数据</vxe-button>
-      <vxe-button @click="getInsertEvent">获取新增</vxe-button>
-      <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
-      <vxe-button @click="getUpdateEvent">获取修改</vxe-button>
-    </p>
+    <div>
+      <vxe-button @click="validEvent">校验变动数据</vxe-button>
+      <vxe-button @click="fullValidEvent">校验全量数据</vxe-button>
+    </div>
 
     <vxe-table
       border
@@ -19,37 +16,11 @@
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-colgroup title="分组1">
-        <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">
-          <template #edit="params">
-            <vxe-input v-model="params.row.name" type="text" @change="changeCellEvent(params)"></vxe-input>
-          </template>
-        </vxe-column>
-        <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}">
-          <template #edit="params">
-            <vxe-input v-model="params.row.role" type="text" @change="changeCellEvent(params)"></vxe-input>
-          </template>
-        </vxe-column>
-      </vxe-colgroup>
-      <vxe-colgroup title="分组2">
-        <vxe-colgroup title="分组21">
-          <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}">
-            <template #edit="params">
-              <vxe-input v-model="params.row.sex" type="text" @change="changeCellEvent(params)"></vxe-input>
-            </template>
-          </vxe-column>
-          <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}">
-            <template #edit="params">
-              <vxe-input v-model="params.row.age" type="integer" @change="changeCellEvent(params)"></vxe-input>
-            </template>
-          </vxe-column>
-          <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}">
-            <template #edit="params">
-              <vxe-input v-model="params.row.date" type="date" @change="changeCellEvent(params)"></vxe-input>
-            </template>
-          </vxe-column>
-        </vxe-colgroup>
-      </vxe-colgroup>
+      <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -79,47 +50,10 @@ const tableData = ref<RowVO[]>([
 ])
 
 const validRules = ref<VxeTablePropTypes.EditRules<RowVO>>({
-  name: [
-    { required: true, message: '请输入名称' },
-    {
-      validator ({ cellValue }) {
-        // 模拟服务端校验
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            if (cellValue && (cellValue.length < 3 || cellValue.length > 50)) {
-              reject(new Error('名称长度在 3 到 50 个字符之间'))
-            } else {
-              resolve()
-            }
-          }, 100)
-        })
-      }
-    }
-  ],
   role: [
-    {
-      validator ({ cellValue }) {
-        if (cellValue && !['Develop', 'Test', 'Designer', 'PM'].includes(cellValue)) {
-          return new Error('角色输入不正确')
-        }
-      }
-    }
-  ],
-  sex: [
-    { required: true, message: '性别必须填写' },
-    { pattern: /^[0,1]{1}$/, message: '格式不正确' }
-  ],
-  age: [
-    { pattern: '^[0-9]{0,3}$', message: '格式不正确' }
+    { required: true, message: '必须填写' }
   ]
 })
-
-const changeCellEvent = (params: any) => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.updateStatus(params)
-  }
-}
 
 const validEvent = async () => {
   const $table = tableRef.value
@@ -133,39 +67,15 @@ const validEvent = async () => {
   }
 }
 
-const insertEvent = async () => {
+const fullValidEvent = async () => {
   const $table = tableRef.value
   if ($table) {
-    const { row: newRow } = await $table.insert({})
-    // 插入一条数据并触发校验
-    const errMap = await $table.validate(newRow)
+    const errMap = await $table.validate(true)
     if (errMap) {
-      // 校验失败
+      VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+    } else {
+      VxeUI.modal.message({ status: 'success', content: '校验成功！' })
     }
-  }
-}
-
-const getInsertEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(insertRecords.length)
-  }
-}
-
-const getRemoveEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const removeRecords = $table.getRemoveRecords()
-    VxeUI.modal.alert(removeRecords.length)
-  }
-}
-
-const getUpdateEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const updateRecords = $table.getUpdateRecords()
-    VxeUI.modal.alert(updateRecords.length)
   }
 }
 </script>
