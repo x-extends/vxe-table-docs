@@ -132,6 +132,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '行拖拽',
           children: [
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentTableDragRowSort' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentTableDragRowIcon' } },
             { title: '拖拽事件', routerLink: { name: 'ComponentTableDragRowEvent' } },
             { title: '禁用按钮', routerLink: { name: 'ComponentTableDragRowDisabledMethod' } },
             { title: '按钮可视', routerLink: { name: 'ComponentTableDragRowVisibleMethod' } },
@@ -205,7 +206,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '允许调整列宽', routerLink: { name: 'ComponentTableCustomResizable' } },
             { title: '允许拖拽列顺序', routerLink: { name: 'ComponentTableCustomSort' } },
             { title: '冻结列最大数量限制', routerLink: { name: 'ComponentTableCustomFixedMax' } },
-            { title: '自定义触发按钮', routerLink: { name: 'ComponentTableCustomTemplate' } },
+            { title: '自定义触发按钮', routerLink: { name: 'ComponentTableCustomCustomBtn' } },
             { title: '自定义弹出位置', routerLink: { name: 'ComponentTableCustomPlacement' } },
             { title: '事件监听', routerLink: { name: 'ComponentTableCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentTableCustomImmediate' } },
@@ -552,6 +553,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '行拖拽',
           children: [
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridDragRowSort' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentGridDragRowIcon' } },
             { title: '拖拽事件', routerLink: { name: 'ComponentGridDragRowEvent' } },
             { title: '禁用按钮', routerLink: { name: 'ComponentGridDragRowDisabledMethod' } },
             { title: '按钮可视', routerLink: { name: 'ComponentGridDragRowVisibleMethod' } },
@@ -646,7 +648,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实时更新', routerLink: { name: 'ComponentGridCustomImmediate' } },
             { title: '本地保存列设置', routerLink: { name: 'ComponentGridCustomStorage' } },
             { title: '自定义服务端保存', routerLink: { name: 'ComponentGridCustomRemote' } },
-            { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentGridCustomRemoteFull' } }
+            { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentGridCustomRemoteFull' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义顶部模板', routerLink: { name: 'ComponentGridCustomTemplateTop' } },
+                { title: '自定义底部模板', routerLink: { name: 'ComponentGridCustomTemplateBottom' } },
+                { title: '自定义头部模板', routerLink: { name: 'ComponentGridCustomTemplateHeader' } },
+                { title: '自定义尾部模板', routerLink: { name: 'ComponentGridCustomTemplateFooter' } },
+                { title: '自定义默认模板', routerLink: { name: 'ComponentGridCustomTemplateDefault' } }
+              ]
+            }
           ]
         },
         {

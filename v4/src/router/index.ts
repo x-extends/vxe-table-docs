@@ -391,6 +391,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/drag/rowSort/CodeExample.vue')
         },
         {
+          path: 'rowIcon',
+          name: 'ComponentTableDragRowIcon',
+          component: () => import('@/views/table/drag/rowIcon/CodeExample.vue')
+        },
+        {
           path: 'rowEvent',
           name: 'ComponentTableDragRowEvent',
           component: () => import('@/views/table/drag/rowEvent/CodeExample.vue')
@@ -642,9 +647,9 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/custom/sort/CodeExample.vue')
         },
         {
-          path: 'template',
-          name: 'ComponentTableCustomTemplate',
-          component: () => import('@/views/table/custom/template/CodeExample.vue')
+          path: 'customBtn',
+          name: 'ComponentTableCustomCustomBtn',
+          component: () => import('@/views/table/custom/customBtn/CodeExample.vue')
         },
         {
           path: 'placement',
@@ -1787,6 +1792,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/drag/rowSort/CodeExample.vue')
         },
         {
+          path: 'rowIcon',
+          name: 'ComponentGridDragRowIcon',
+          component: () => import('@/views/grid/drag/rowIcon/CodeExample.vue')
+        },
+        {
           path: 'rowEvent',
           name: 'ComponentGridDragRowEvent',
           component: () => import('@/views/grid/drag/rowEvent/CodeExample.vue')
@@ -2160,6 +2170,37 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'remoteFull',
           name: 'ComponentGridCustomRemoteFull',
           component: () => import('@/views/grid/custom/remoteFull/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'top',
+              name: 'ComponentGridCustomTemplateTop',
+              component: () => import('@/views/grid/custom/template/top/CodeExample.vue')
+            },
+            {
+              path: 'header',
+              name: 'ComponentGridCustomTemplateHeader',
+              component: () => import('@/views/grid/custom/template/header/CodeExample.vue')
+            },
+            {
+              path: 'bottom',
+              name: 'ComponentGridCustomTemplateBottom',
+              component: () => import('@/views/grid/custom/template/bottom/CodeExample.vue')
+            },
+            {
+              path: 'default',
+              name: 'ComponentGridCustomTemplateDefault',
+              component: () => import('@/views/grid/custom/template/default/CodeExample.vue')
+            },
+            {
+              path: 'footer',
+              name: 'ComponentGridCustomTemplateFooter',
+              component: () => import('@/views/grid/custom/template/footer/CodeExample.vue')
+            }
+          ]
         }
       ]
     },

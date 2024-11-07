@@ -2,7 +2,7 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #default_imgUrl="{ row }">
-        <vxe-image v-model="row.default_imgUrl" width="36" height="36"></vxe-image>
+        <vxe-image :src="row.imgUrl" width="36" height="36"></vxe-image>
       </template>
     </vxe-grid>
   </div>

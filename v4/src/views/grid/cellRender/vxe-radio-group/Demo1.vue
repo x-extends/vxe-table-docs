@@ -43,8 +43,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200 },
-    { field: 'hobby', title: '兴趣爱好', width: 300, cellRender: hobby1CellRender },
-    { field: 'hobby', title: '兴趣爱好', width: 300, cellRender: hobby2CellRender }
+    { field: 'hobby1', title: '只读', width: 300, cellRender: hobby1CellRender },
+    { field: 'hobby2', title: '编辑', width: 300, cellRender: hobby2CellRender }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', hobby1: '', hobby2: '3' },
