@@ -18,6 +18,10 @@ interface RowVO {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  columnConfig: {
+    resizable: true
+  },
   customConfig: {
     mode: 'drawer'
   },

@@ -2156,6 +2156,11 @@ const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridCustomVisibleMethod',
           component: () => import('@/views/grid/custom/visibleMethod/CodeExample.vue')
         },
+        {
+          path: 'resizableWidth',
+          name: 'ComponentGridCustomResizableWidth',
+          component: () => import('@/views/grid/custom/resizableWidth/CodeExample.vue')
+        },
         // {
         //   path: 'visible',
         //   name: 'ComponentGridCustomVisible',

@@ -25,7 +25,11 @@ export default Vue.extend({
         resizable: true
       },
       customConfig: {
-        mode: 'drawer'
+        mode: 'modal'
+      },
+      resizableConfig: {
+        minWidth: 40,
+        maxWidth: 460
       },
       toolbarConfig: {
         custom: true

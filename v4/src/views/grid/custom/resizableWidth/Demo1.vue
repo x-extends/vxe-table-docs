@@ -25,6 +25,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   customConfig: {
     mode: 'modal'
   },
+  resizableConfig: {
+    minWidth: 40,
+    maxWidth: 460
+  },
   toolbarConfig: {
     custom: true
   },

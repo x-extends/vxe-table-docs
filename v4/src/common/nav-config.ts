@@ -653,6 +653,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '抽屉模式', routerLink: { name: 'ComponentGridCustomDrawer' } },
             { title: '禁用操作操作', routerLink: { name: 'ComponentGridCustomCheckMethod' } },
             { title: '显示/隐藏操作列', routerLink: { name: 'ComponentGridCustomVisibleMethod' } },
+            { title: '列宽限制', routerLink: { name: 'ComponentGridCustomResizableWidth' } },
             // { title: '允许调整列显示隐藏', routerLink: { name: 'ComponentGridCustomVisible' } },
             // { title: '允许调整列冻结', routerLink: { name: 'ComponentGridCustomFixed' } },
             // { title: '允许调整列宽', routerLink: { name: 'ComponentGridCustomResizable' } },

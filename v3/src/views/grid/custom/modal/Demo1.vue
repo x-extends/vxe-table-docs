@@ -20,6 +20,10 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      columnConfig: {
+        resizable: true
+      },
       customConfig: {
         mode: 'modal'
       },

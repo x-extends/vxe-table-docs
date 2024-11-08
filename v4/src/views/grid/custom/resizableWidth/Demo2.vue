@@ -19,19 +19,20 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  columnConfig: {
-    resizable: true
-  },
   customConfig: {
     mode: 'modal'
+  },
+  resizableConfig: {
+    minWidth: 40,
+    maxWidth: 460
   },
   toolbarConfig: {
     custom: true
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
-    { field: 'sex', title: 'Sex' },
+    { field: 'name', title: 'Name', resizable: true },
+    { field: 'sex', title: 'Sex', resizable: true },
     { field: 'age', title: 'Age' }
   ],
   data: [
