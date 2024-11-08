@@ -1,6 +1,7 @@
 <template>
   <div>
-    <vxe-button status="primary" @click="changeRow(2)">修改第三行</vxe-button>
+    <vxe-button status="primary" @click="insertEvent">新增</vxe-button>
+    <vxe-button status="error" @click="changeRow(2)">修改第三行</vxe-button>
     <vxe-button status="success" @click="saveAll()">全部保存</vxe-button>
 
     <vxe-table
@@ -16,8 +17,8 @@
       <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column title="操作" width="320">
         <template #default="{ row }">
-          <vxe-button mode="text" status="primary" @click="changeName(row)">修改 name=xxx</vxe-button>
-          <vxe-button mode="text" status="primary" @click="changeAge(row)">修改 age=18</vxe-button>
+          <vxe-button mode="text" status="error" @click="changeName(row)">修改 name=xxx</vxe-button>
+          <vxe-button mode="text" status="error" @click="changeAge(row)">修改 age=18</vxe-button>
           <vxe-button mode="text" status="success" @click="saveRow(row)">局部保存</vxe-button>
         </template>
       </vxe-column>
@@ -60,6 +61,14 @@ export default Vue.extend({
     }
   },
   methods: {
+    async insertEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        const newRecord = {}
+        const { row: newRow } = await $table.insert(newRecord)
+        $table.setEditRow(newRow)
+      }
+    },
     changeName (row: RowVO) {
       row.name = `Name_${Date.now()}`
     },
@@ -94,9 +103,10 @@ export default Vue.extend({
     saveAll () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
+        const insertRecords = $table.getInsertRecords()
         const updateRecords = $table.getUpdateRecords()
-        if (updateRecords.length) {
-          const newList = [...this.tableData]
+        if (insertRecords.length || updateRecords.length) {
+          const newList = [...insertRecords, ...this.tableData]
           this.tableData = newList
           VxeUI.modal.message({
             content: '保存成功',
