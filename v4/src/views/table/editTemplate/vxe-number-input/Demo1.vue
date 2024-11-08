@@ -9,20 +9,32 @@
         <template #edit="{ row }">
           <vxe-input v-model="row.name"></vxe-input>
         </template>
+        <template #default="{ row }">
+          <span>{{ row.name }}</span>
+        </template>
       </vxe-column>
       <vxe-column field="num" title="数字" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-number-input v-model="row.num"></vxe-number-input>
+        </template>
+        <template #default="{ row }">
+          <span>{{ row.num }}</span>
         </template>
       </vxe-column>
       <vxe-column field="integer" title="整数" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-number-input v-model="row.integer" type="integer"></vxe-number-input>
         </template>
+        <template #default="{ row }">
+          <span>{{ row.integer }}</span>
+        </template>
       </vxe-column>
       <vxe-column field="float" title="小数" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-number-input v-model="row.float" type="float"></vxe-number-input>
+        </template>
+        <template #default="{ row }">
+          <span>{{ row.float }}</span>
         </template>
       </vxe-column>
     </vxe-table>

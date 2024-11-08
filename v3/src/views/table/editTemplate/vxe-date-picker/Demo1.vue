@@ -9,40 +9,64 @@
         <template #edit="{ row }">
           <vxe-input v-model="row.name"></vxe-input>
         </template>
+        <template #default="{ row }">
+          <span>{{ row.integer }}</span>
+        </template>
       </vxe-column>
       <vxe-column field="date" title="日期" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-date-picker v-model="row.date"></vxe-date-picker>
+        </template>
+        <template #default="{ row }">
+          <span>{{ row.date }}</span>
         </template>
       </vxe-column>
       <vxe-column field="year" title="年份" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-date-picker v-model="row.year" type="year"></vxe-date-picker>
         </template>
+        <template #default="{ row }">
+          <span>{{ row.year }}</span>
+        </template>
       </vxe-column>
       <vxe-column field="quarter" title="季度" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-date-picker v-model="row.quarter" type="quarter"></vxe-date-picker>
+        </template>
+        <template #default="{ row }">
+          <span>{{ row.quarter }}</span>
         </template>
       </vxe-column>
       <vxe-column field="month" title="月份" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-date-picker v-model="row.month" type="month"></vxe-date-picker>
         </template>
+        <template #default="{ row }">
+          <span>{{ row.month }}</span>
+        </template>
       </vxe-column>
       <vxe-column field="week" title="周" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-date-picker v-model="row.week" type="week"></vxe-date-picker>
+        </template>
+        <template #default="{ row }">
+          <span>{{ row.week }}</span>
         </template>
       </vxe-column>
       <vxe-column field="time" title="时间" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-date-picker v-model="row.time" type="time"></vxe-date-picker>
         </template>
+        <template #default="{ row }">
+          <span>{{ row.time }}</span>
+        </template>
       </vxe-column>
       <vxe-column field="datetime" title="日期带时间" width="180" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-date-picker v-model="row.datetime" type="datetime"></vxe-date-picker>
+        </template>
+        <template #default="{ row }">
+          <span>{{ row.datetime }}</span>
         </template>
       </vxe-column>
     </vxe-table>

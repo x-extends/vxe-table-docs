@@ -4,7 +4,7 @@
       <template #tip>
         <vxe-tip status="primary" title="工具栏">在没有关联表格之前，工具栏只是一个布局组件。</vxe-tip>
         <vxe-tip status="error">
-          如果是按需加载，打印功能需要导入 Toolbar 组件
+          如果是按需加载，打印功能需要导入 <ApiLink name="toolbar" redirect/> 组件
         </vxe-tip>
       </template>
     </CodeLight>
