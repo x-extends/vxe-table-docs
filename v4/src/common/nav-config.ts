@@ -292,6 +292,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '关闭自动清除编辑状态', routerLink: { name: 'ComponentTableEditAutoClear' } },
             { title: '编辑状态', routerLink: { name: 'ComponentTableEditStatus' } },
             { title: '空值占位符', routerLink: { name: 'ComponentTableEditCellPlaceholder' } },
+            { title: '修改数据', routerLink: { name: 'ComponentTableEditUpdate' } },
             { title: '插入数据', routerLink: { name: 'ComponentTableEditInsert' } },
             { title: '删除数据', routerLink: { name: 'ComponentTableEditRemove' } },
             { title: '标记为删除', routerLink: { name: 'ComponentTableEditPending' } },
@@ -309,6 +310,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentTableEditDrawerForm' } },
             { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
             { title: '实现多行文本编辑', routerLink: { name: 'ComponentTableEditMultiLineText' } },
+            { title: '实现联动禁用', routerLink: { name: 'ComponentTableEditLinkageDisabled' } },
             { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentTableEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
@@ -758,8 +760,22 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeSelect 下拉框', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
             { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
             { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditRenderVxeTableSelect' } },
+            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
-            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
+            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } }
+          ]
+        },
+        {
+          title: '可编辑 - 渲染 - 插槽式',
+          children: [
+            { title: 'VxeInput 输入框', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
+            { title: 'VxeNumberInput 数值输入框', routerLink: { name: 'ComponentGridEditTemplateVxeNumberInput' } },
+            { title: 'VxeIconPicker 图标选择', routerLink: { name: 'ComponentGridEditTemplateVxeIconPicker' } },
+            { title: 'VxeDatePicker 日期选择', routerLink: { name: 'ComponentGridEditTemplateVxeDatePicker' } },
+            { title: 'VxeSelect 下拉框', routerLink: { name: 'ComponentGridEditTemplateVxeSelect' } },
+            { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentGridEditTemplateVxeTreeSelect' } },
+            { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditTemplateVxeTableSelect' } },
+            { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentGridEditTemplateVxePulldown' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
           ]
         },
@@ -780,20 +796,6 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自定义错误提示模板', routerLink: { name: 'ComponentGridValidateTemplateValid' } }
               ]
             }
-          ]
-        },
-        {
-          title: '可编辑 - 渲染 - 插槽式',
-          children: [
-            { title: 'VxeInput 输入框', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
-            { title: 'VxeNumberInput 数值输入框', routerLink: { name: 'ComponentGridEditTemplateVxeNumberInput' } },
-            { title: 'VxeIconPicker 图标选择', routerLink: { name: 'ComponentGridEditTemplateVxeIconPicker' } },
-            { title: 'VxeDatePicker 日期选择', routerLink: { name: 'ComponentGridEditTemplateVxeDatePicker' } },
-            { title: 'VxeSelect 下拉框', routerLink: { name: 'ComponentGridEditTemplateVxeSelect' } },
-            { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentGridEditTemplateVxeTreeSelect' } },
-            { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditTemplateVxeTableSelect' } },
-            { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentGridEditTemplateVxePulldown' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
           ]
         },
         {

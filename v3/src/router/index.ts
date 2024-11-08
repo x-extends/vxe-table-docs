@@ -899,6 +899,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/edit/cellPlaceholder/CodeExample.vue')
         },
         {
+          path: 'update',
+          name: 'ComponentTableEditUpdate',
+          component: () => import('@/views/table/edit/update/CodeExample.vue')
+        },
+        {
           path: 'insert',
           name: 'ComponentTableEditInsert',
           component: () => import('@/views/table/edit/insert/CodeExample.vue')
@@ -977,6 +982,11 @@ const tableRouteConfig: RouteConfig = {
           path: 'multiLineText',
           name: 'ComponentTableEditMultiLineText',
           component: () => import('@/views/table/edit/multiLineText/CodeExample.vue')
+        },
+        {
+          path: 'linkageDisabled',
+          name: 'ComponentTableEditLinkageDisabled',
+          component: () => import('@/views/table/edit/linkageDisabled/CodeExample.vue')
         },
         {
           path: 'uniqueSelect',
