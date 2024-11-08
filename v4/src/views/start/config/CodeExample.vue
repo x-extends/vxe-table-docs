@@ -62,7 +62,8 @@
                   autoClear: true,
                   autoPos: true,
                   message: 'inline',
-                  msgMode: 'single'
+                  msgMode: 'single',
+                  theme: 'normal' // 错误提示框主题样式
                 },
                 columnConfig: {
                   maxFixedSize: 4
