@@ -81,6 +81,7 @@ export default Vue.extend({
         const filterRE = new RegExp(filterVal, 'gi')
         const options = { children: 'children' }
         const searchProps = ['name', 'size', 'type', 'date']
+        // 搜索为克隆数据，不会污染源数据
         const rest = XEUtils.searchTree(this.tableData, item => searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1), options)
         XEUtils.eachTree(rest, item => {
           searchProps.forEach(key => {

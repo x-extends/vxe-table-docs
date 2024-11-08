@@ -65,7 +65,8 @@ export default Vue.extend({
         const searchProps = ['name', 'role', 'age', 'address']
         const rest = this.tableData.filter(item => searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1))
         this.list = rest.map(row => {
-          const item = Object.assign({}, row)
+          // 搜索为克隆数据，不会污染源数据
+          const item = XEUtils.clone(row)
           searchProps.forEach(key => {
             item[key] = String(item[key]).replace(filterRE, match => `<span class="keyword-highlight">${match}</span>`)
           })

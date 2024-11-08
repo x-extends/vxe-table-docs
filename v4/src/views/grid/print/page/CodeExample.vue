@@ -6,7 +6,7 @@
           使用打印组件，可以轻松实现各种各种自定义打印，需要算好每一页的数量，然后按页分割
         </vxe-tip>
         <vxe-tip status="error">
-          如果是按需加载，打印功能需要导入 Print 组件
+          如果是按需加载，打印功能需要导入 <ApiLink name="print" redirect/> 组件
         </vxe-tip>
       </template>
     </CodeLight>

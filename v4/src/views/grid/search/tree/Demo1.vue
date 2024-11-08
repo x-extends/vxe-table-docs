@@ -74,12 +74,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   data: []
 })
 
-const searchEvent = () => {
+const handleSearch = () => {
   const filterVal = XEUtils.toValueString(filterName.value).trim().toLowerCase()
   if (filterVal) {
     const filterRE = new RegExp(filterVal, 'gi')
     const options = { children: 'children' }
     const searchProps = ['name', 'size', 'type', 'date']
+    // 搜索为克隆数据，不会污染源数据
     const rest = XEUtils.searchTree(tableAllData.value, item => searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1), options)
     XEUtils.eachTree(rest, item => {
       searchProps.forEach(key => {
@@ -99,7 +100,12 @@ const searchEvent = () => {
   }
 }
 
-searchEvent()
+// 节流函数,间隔500毫秒触发搜索
+const searchEvent = XEUtils.throttle(function () {
+  handleSearch()
+}, 500, { trailing: true, leading: true })
+
+handleSearch()
 </script>
 
 <style lang="scss" scoped>

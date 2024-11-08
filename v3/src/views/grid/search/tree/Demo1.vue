@@ -80,12 +80,13 @@ export default Vue.extend({
     }
   },
   methods: {
-    searchEvent  () {
+    handleSearch  () {
       const filterVal = XEUtils.toValueString(this.filterName).trim().toLowerCase()
       if (filterVal) {
         const filterRE = new RegExp(filterVal, 'gi')
         const options = { children: 'children' }
         const searchProps = ['name', 'size', 'type', 'date']
+        // 搜索为克隆数据，不会污染源数据
         const rest = XEUtils.searchTree(this.tableAllData, item => searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1), options)
         XEUtils.eachTree(rest, item => {
           searchProps.forEach(key => {
@@ -103,10 +104,14 @@ export default Vue.extend({
       } else {
         this.gridOptions.data = this.tableAllData
       }
-    }
+    },
+    // 节流函数,间隔500毫秒触发搜索
+    searchEvent: XEUtils.throttle(function () {
+      this.handleSearch()
+    }, 500, { trailing: true, leading: true })
   },
   created () {
-    this.searchEvent()
+    this.handleSearch()
   }
 })
 </script>
