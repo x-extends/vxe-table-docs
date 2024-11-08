@@ -1035,6 +1035,27 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'custom',
           name: 'ComponentTableValidateCustom',
           component: () => import('@/views/table/validate/custom/CodeExample.vue')
+        },
+        {
+          path: 'mode',
+          name: 'ComponentTableValidateMode',
+          component: () => import('@/views/table/validate/mode/CodeExample.vue')
+        },
+        {
+          path: 'theme',
+          name: 'ComponentTableValidateTheme',
+          component: () => import('@/views/table/validate/theme/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'valid',
+              name: 'ComponentTableValidateTemplateValid',
+              component: () => import('@/views/table/validate/template/valid/CodeExample.vue')
+            }
+          ]
         }
       ]
     },
@@ -1802,6 +1823,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/drag/rowEvent/CodeExample.vue')
         },
         {
+          path: 'rowTooltipMethod',
+          name: 'ComponentGridDragRowTooltipMethod',
+          component: () => import('@/views/grid/drag/rowTooltipMethod/CodeExample.vue')
+        },
+        {
           path: 'rowDisabledMethod',
           name: 'ComponentGridDragRowDisabledMethod',
           component: () => import('@/views/grid/drag/rowDisabledMethod/CodeExample.vue')
@@ -1815,6 +1841,17 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'rowDragMethod',
           name: 'ComponentGridDragRowDragMethod',
           component: () => import('@/views/grid/drag/rowDragMethod/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'rowTip',
+              name: 'ComponentGridDragTemplateRowTip',
+              component: () => import('@/views/grid/drag/template/rowTip/CodeExample.vue')
+            }
+          ]
         }
       ]
     },
@@ -2299,6 +2336,27 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'custom',
           name: 'ComponentGridValidateCustom',
           component: () => import('@/views/grid/validate/custom/CodeExample.vue')
+        },
+        {
+          path: 'mode',
+          name: 'ComponentGridValidateMode',
+          component: () => import('@/views/grid/validate/mode/CodeExample.vue')
+        },
+        {
+          path: 'theme',
+          name: 'ComponentGridValidateTheme',
+          component: () => import('@/views/grid/validate/theme/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'valid',
+              name: 'ComponentGridValidateTemplateValid',
+              component: () => import('@/views/grid/validate/template/valid/CodeExample.vue')
+            }
+          ]
         }
       ]
     },

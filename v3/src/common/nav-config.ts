@@ -348,11 +348,19 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '数据校验',
           children: [
             { title: '校验规则配置', routerLink: { name: 'ComponentTableValidateRules' } },
-            { title: '字符串校验', routerLink: { name: 'ComponentTableValidateString' } },
-            { title: '数值校验', routerLink: { name: 'ComponentTableValidateNumber' } },
-            { title: '正则校验', routerLink: { name: 'ComponentTableValidateRegexp' } },
-            { title: '数组校验', routerLink: { name: 'ComponentTableValidateArray' } },
-            { title: '自定义校验', routerLink: { name: 'ComponentTableValidateCustom' } }
+            { title: '字符串校验规则', routerLink: { name: 'ComponentTableValidateString' } },
+            { title: '数值校验规则', routerLink: { name: 'ComponentTableValidateNumber' } },
+            { title: '正则校验规则', routerLink: { name: 'ComponentTableValidateRegexp' } },
+            { title: '数组校验规则', routerLink: { name: 'ComponentTableValidateArray' } },
+            { title: '自定义校验规则', routerLink: { name: 'ComponentTableValidateCustom' } },
+            { title: '校验模式', routerLink: { name: 'ComponentTableValidateMode' } },
+            { title: '错误提示样式', routerLink: { name: 'ComponentTableValidateTheme' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义错误提示模板', routerLink: { name: 'ComponentTableValidateTemplateValid' } }
+              ]
+            }
           ]
         },
         {
@@ -555,9 +563,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridDragRowSort' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridDragRowIcon' } },
             { title: '拖拽事件', routerLink: { name: 'ComponentGridDragRowEvent' } },
+            { title: '自定义提示', routerLink: { name: 'ComponentGridDragRowTooltipMethod' } },
             { title: '禁用按钮', routerLink: { name: 'ComponentGridDragRowDisabledMethod' } },
             { title: '按钮可视', routerLink: { name: 'ComponentGridDragRowVisibleMethod' } },
-            { title: '拖拽拦截', routerLink: { name: 'ComponentGridDragRowDragMethod' } }
+            { title: '拖拽拦截', routerLink: { name: 'ComponentGridDragRowDragMethod' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义提示模板', routerLink: { name: 'ComponentGridDragTemplateRowTip' } }
+              ]
+            }
           ]
         },
         {
@@ -751,11 +766,19 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '数据校验',
           children: [
             { title: '校验规则配置', routerLink: { name: 'ComponentGridValidateRules' } },
-            { title: '字符串校验', routerLink: { name: 'ComponentGridValidateString' } },
-            { title: '数值校验', routerLink: { name: 'ComponentGridValidateNumber' } },
-            { title: '正则校验', routerLink: { name: 'ComponentGridValidateRegexp' } },
-            { title: '数组校验', routerLink: { name: 'ComponentGridValidateArray' } },
-            { title: '自定义校验', routerLink: { name: 'ComponentGridValidateCustom' } }
+            { title: '字符串校验规则', routerLink: { name: 'ComponentGridValidateString' } },
+            { title: '数值校验规则', routerLink: { name: 'ComponentGridValidateNumber' } },
+            { title: '正则校验规则', routerLink: { name: 'ComponentGridValidateRegexp' } },
+            { title: '数组校验规则', routerLink: { name: 'ComponentGridValidateArray' } },
+            { title: '自定义校验规则', routerLink: { name: 'ComponentGridValidateCustom' } },
+            { title: '校验模式', routerLink: { name: 'ComponentGridValidateMode' } },
+            { title: '错误提示样式', routerLink: { name: 'ComponentGridValidateTheme' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义错误提示模板', routerLink: { name: 'ComponentGridValidateTemplateValid' } }
+              ]
+            }
           ]
         },
         {
