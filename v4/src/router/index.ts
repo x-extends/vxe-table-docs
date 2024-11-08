@@ -391,9 +391,19 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/drag/rowSort/CodeExample.vue')
         },
         {
+          path: 'rowFixed',
+          name: 'ComponentTableDragRowFixed',
+          component: () => import('@/views/table/drag/rowFixed/CodeExample.vue')
+        },
+        {
           path: 'rowIcon',
           name: 'ComponentTableDragRowIcon',
           component: () => import('@/views/table/drag/rowIcon/CodeExample.vue')
+        },
+        {
+          path: 'rowTree',
+          name: 'ComponentTableDragRowTree',
+          component: () => import('@/views/table/drag/rowTree/CodeExample.vue')
         },
         {
           path: 'rowEvent',
@@ -1823,9 +1833,19 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/drag/rowSort/CodeExample.vue')
         },
         {
+          path: 'rowFixed',
+          name: 'ComponentGridDragRowFixed',
+          component: () => import('@/views/grid/drag/rowFixed/CodeExample.vue')
+        },
+        {
           path: 'rowIcon',
           name: 'ComponentGridDragRowIcon',
           component: () => import('@/views/grid/drag/rowIcon/CodeExample.vue')
+        },
+        {
+          path: 'rowTree',
+          name: 'ComponentGridDragRowTree',
+          component: () => import('@/views/grid/drag/rowTree/CodeExample.vue')
         },
         {
           path: 'rowEvent',
