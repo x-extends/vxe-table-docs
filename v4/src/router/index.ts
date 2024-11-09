@@ -576,9 +576,14 @@ const tableRouteConfig: RouteRecordRaw = {
       component: RouteLayout,
       children: [
         {
-          path: 'basic',
-          name: 'ComponentTableToolbarBasic',
-          component: () => import('@/views/table/toolbar/basic/CodeExample.vue')
+          path: 'buttons',
+          name: 'ComponentTableToolbarButtons',
+          component: () => import('@/views/table/toolbar/buttons/CodeExample.vue')
+        },
+        {
+          path: 'tools',
+          name: 'ComponentTableToolbarTools',
+          component: () => import('@/views/table/toolbar/tools/CodeExample.vue')
         },
         {
           path: 'custom',
@@ -599,6 +604,22 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'export',
           name: 'ComponentTableToolbarExport',
           component: () => import('@/views/table/toolbar/export/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'buttons',
+              name: 'ComponentTableToolbarTemplateButtons',
+              component: () => import('@/views/table/toolbar/template/buttons/CodeExample.vue')
+            },
+            {
+              path: 'tools',
+              name: 'ComponentTableToolbarTemplateTools',
+              component: () => import('@/views/table/toolbar/template/tools/CodeExample.vue')
+            }
+          ]
         }
       ]
     },
@@ -2156,6 +2177,22 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'icon',
           name: 'ComponentGridToolbarIcon',
           component: () => import('@/views/grid/toolbar/icon/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'buttons',
+              name: 'ComponentGridToolbarTemplateButtons',
+              component: () => import('@/views/grid/toolbar/template/buttons/CodeExample.vue')
+            },
+            {
+              path: 'tools',
+              name: 'ComponentGridToolbarTemplateTools',
+              component: () => import('@/views/grid/toolbar/template/tools/CodeExample.vue')
+            }
+          ]
         }
       ]
     },
@@ -3149,6 +3186,27 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'scroll',
           name: 'ComponentGridEventsScroll',
           component: () => import('@/views/grid/events/scroll/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'loadMore',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'horizontal',
+          name: 'ComponentGridLoadMoreHorizontal',
+          component: () => import('@/views/grid/loadMore/horizontal/CodeExample.vue')
+        },
+        {
+          path: 'vertical',
+          name: 'ComponentGridLoadMoreVertical',
+          component: () => import('@/views/grid/loadMore/vertical/CodeExample.vue')
+        },
+        {
+          path: 'vh',
+          name: 'ComponentGridLoadMoreVH',
+          component: () => import('@/views/grid/loadMore/vh/CodeExample.vue')
         }
       ]
     },

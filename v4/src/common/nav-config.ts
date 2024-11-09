@@ -188,11 +188,19 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '工具栏',
           children: [
-            { title: '工具栏布局', routerLink: { name: 'ComponentTableToolbarBasic' } },
+            { title: '左侧按钮', routerLink: { name: 'ComponentTableToolbarButtons' } },
+            { title: '右侧按钮', routerLink: { name: 'ComponentTableToolbarTools' } },
             { title: '自定义列功能', routerLink: { name: 'ComponentTableToolbarCustom' } },
             { title: '打印功能', routerLink: { name: 'ComponentTableToolbarPrint' } },
             { title: '导入功能', routerLink: { name: 'ComponentTableToolbarImport' } },
-            { title: '导出功能', routerLink: { name: 'ComponentTableToolbarExport' } }
+            { title: '导出功能', routerLink: { name: 'ComponentTableToolbarExport' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义左侧模板', routerLink: { name: 'ComponentTableToolbarTemplateButtons' } },
+                { title: '自定义右侧模板', routerLink: { name: 'ComponentTableToolbarTemplateTools' } }
+              ]
+            }
           ]
         },
         {
@@ -649,7 +657,14 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导入数据', routerLink: { name: 'ComponentGridToolbarImport' } },
             { title: '导出数据', routerLink: { name: 'ComponentGridToolbarExport' } },
             { title: '刷新列表', routerLink: { name: 'ComponentGridToolbarRefresh' } },
-            { title: '自定义图标', routerLink: { name: 'ComponentGridToolbarIcon' } }
+            { title: '自定义图标', routerLink: { name: 'ComponentGridToolbarIcon' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义左侧模板', routerLink: { name: 'ComponentGridToolbarTemplateButtons' } },
+                { title: '自定义右侧模板', routerLink: { name: 'ComponentGridToolbarTemplateTools' } }
+              ]
+            }
           ]
         },
         {
@@ -953,6 +968,14 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '点击/双击事件', routerLink: { name: 'ComponentGridEventsClick' } },
             { title: '滚动事件', routerLink: { name: 'ComponentGridEventsScroll' } }
+          ]
+        },
+        {
+          title: '无限加载',
+          children: [
+            { title: '实现加载行', routerLink: { name: 'ComponentGridLoadMoreVertical' } },
+            { title: '实现加载列', routerLink: { name: 'ComponentGridLoadMoreHorizontal' } },
+            { title: '同时加载行与列', routerLink: { name: 'ComponentGridLoadMoreVH' } }
           ]
         },
         {

@@ -61,12 +61,18 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  scroll (params) {
-    console.log(`纵向：${params.isY} 横向：${params.isX} 滚动距离：X：${params.scrollLeft}Y：${params.scrollTop} 滚动条宽高：${params.scrollWidth}*${params.scrollHeight} 滚动容器宽高：${params.bodyWidth}*${params.bodyHeight}`)
-    if (params.scrollTop <= 0) {
-      console.log('已经到顶部了')
-    } else if (params.scrollTop + params.bodyHeight >= params.scrollHeight) {
-      console.log('已经到底部了')
+  scroll ({ isLeft, isRight, isTop, isBottom }) {
+    if (isLeft) {
+      console.log('触碰到左侧')
+    }
+    if (isRight) {
+      console.log('触碰到右侧')
+    }
+    if (isTop) {
+      console.log('触碰到顶部')
+    }
+    if (isBottom) {
+      console.log('触碰到底部')
     }
   }
 }

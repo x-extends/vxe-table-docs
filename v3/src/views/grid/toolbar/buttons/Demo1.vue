@@ -1,12 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions">
-      <template #toolbar_buttons>
-        <vxe-button status="primary" @click="addEvent">新增</vxe-button>
-        <vxe-button status="error" @click="delEvent">删除</vxe-button>
-        <vxe-button status="success" @click="saveEvent">保存</vxe-button>
-      </template>
-    </vxe-grid>
+    <vxe-grid v-bind="gridOptions" @toolbar-button-click="toolbarButtonClickEvent"></vxe-grid>
   </div>
 </template>
 
@@ -31,9 +25,11 @@ export default Vue.extend({
       showOverflow: true,
       height: 400,
       toolbarConfig: {
-        slots: {
-          buttons: 'toolbar_buttons'
-        }
+        buttons: [
+          { name: '新增', code: 'add', status: 'primary' },
+          { name: '删除', code: 'del', status: 'error' },
+          { name: '保存', code: 'save', status: 'success' }
+        ]
       },
       columns: [
         { type: 'checkbox', width: 50 },
@@ -60,14 +56,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    addEvent () {
-      console.log('add')
-    },
-    delEvent () {
-      console.log('del')
-    },
-    saveEvent () {
-      console.log('save')
+    toolbarButtonClickEvent (params) {
+      console.log(params.code)
     }
   }
 })
