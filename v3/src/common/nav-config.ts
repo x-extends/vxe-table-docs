@@ -974,7 +974,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '实现加载行', routerLink: { name: 'ComponentGridLoadMoreVertical' } },
             { title: '实现加载列', routerLink: { name: 'ComponentGridLoadMoreHorizontal' } },
-            { title: '同时加载行与列', routerLink: { name: 'ComponentGridLoadMoreVH' } }
+            { title: '实现同时加载行与列', routerLink: { name: 'ComponentGridLoadMoreVH' } },
+            { title: '指定阈值加载行', routerLink: { name: 'ComponentGridLoadMoreBoundaryY' } },
+            { title: '指定阈值加载列', routerLink: { name: 'ComponentGridLoadMoreBoundaryX' } },
+            { title: '指定阈值同时加载行与列', routerLink: { name: 'ComponentGridLoadMoreBoundaryXY' } }
           ]
         },
         {

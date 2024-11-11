@@ -69,7 +69,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    scrollEvent ({ isLeft, isRight, isTop, isBottom }) {
+    scrollEvent ({ direction, isLeft, isRight, isTop, isBottom }) {
+      console.log(`方向 ${direction}`)
       if (isLeft) {
         console.log('触碰到左侧')
       }

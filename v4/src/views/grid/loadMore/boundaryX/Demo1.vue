@@ -28,7 +28,8 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
   },
   scrollX: {
     enabled: true,
-    gt: 0
+    gt: 0,
+    threshold: 30
   },
   columns: [],
   data: []
@@ -72,13 +73,21 @@ const loadDataAndColumns = (rowSize: number, colSize: number) => {
 }
 
 const gridEvents: VxeGridListeners = {
-  scroll ({ isLeft, isRight }) {
-    if (isLeft) {
-      console.log('触碰到左侧')
-    }
-    if (isRight) {
-      console.log('触碰到右侧')
-      loadDataAndColumns(0, 15)
+  scrollBoundary ({ direction }) {
+    switch (direction) {
+      case 'top':
+        console.log('触发顶部阈值')
+        break
+      case 'bottom':
+        console.log('触发底部阈值')
+        break
+      case 'left':
+        console.log('触发左侧阈值')
+        break
+      case 'right':
+        console.log('触发右侧阈值')
+        loadDataAndColumns(0, 15)
+        break
     }
   }
 }

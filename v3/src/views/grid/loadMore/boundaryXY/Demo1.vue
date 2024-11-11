@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" @scroll="scrollEvent"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" @scroll-boundary="scrollBoundaryEvent"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps, VxeGridPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: string
@@ -15,10 +15,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & {
-      data: RowVO[]
-      columns: VxeGridPropTypes.Columns
-    } = {
+    const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       loading: false,
       showOverflow: true,
@@ -31,15 +28,18 @@ export default Vue.extend({
       scrollX: {
         enabled: true,
         gt: 0
-      },
-      columns: [],
-      data: []
+      }
     }
+
+    const tableColumn: VxeGridPropTypes.Columns = []
+    const tableData: RowVO[] = []
 
     return {
       gridOptions,
       rowKey: 0,
-      colKey: 0
+      colKey: 0,
+      tableColumn,
+      tableData
     }
   },
   methods: {
@@ -59,7 +59,7 @@ export default Vue.extend({
             width: 160
           })
         }
-        const columnList = [...this.gridOptions.columns, ...colList]
+        const columnList = [...this.tableColumn, ...colList]
         const dataList: RowVO[] = []
         for (let i = 0; i < rowSize; i++) {
           this.rowKey++
@@ -71,18 +71,32 @@ export default Vue.extend({
           }
           dataList.push(item)
         }
-        this.gridOptions.columns = columnList
-        this.gridOptions.data = [...this.gridOptions.data, ...dataList]
-        this.gridOptions.loading = false
+        const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+        if ($grid) {
+          this.tableColumn = columnList
+          this.tableData = [...this.tableData, ...dataList]
+          $grid.loadColumn(this.tableColumn)
+          $grid.loadData(this.tableData)
+          this.gridOptions.loading = false
+        }
       }, 500)
     },
-    scrollEvent ({ isLeft, isRight }) {
-      if (isLeft) {
-        console.log('触碰到左侧')
-      }
-      if (isRight) {
-        console.log('触碰到右侧')
-        this.loadDataAndColumns(0, 15)
+    scrollBoundaryEvent ({ direction }) {
+      switch (direction) {
+        case 'top':
+          console.log('触发顶部阈值范围')
+          break
+        case 'bottom':
+          console.log('触发底部阈值范围')
+          this.loadDataAndColumns(20, 0)
+          break
+        case 'left':
+          console.log('触发左侧阈值范围')
+          break
+        case 'right':
+          console.log('触发右侧阈值范围')
+          this.loadDataAndColumns(0, 15)
+          break
       }
     }
   },

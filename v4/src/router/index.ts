@@ -3207,6 +3207,21 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vh',
           name: 'ComponentGridLoadMoreVH',
           component: () => import('@/views/grid/loadMore/vh/CodeExample.vue')
+        },
+        {
+          path: 'boundaryX',
+          name: 'ComponentGridLoadMoreBoundaryX',
+          component: () => import('@/views/grid/loadMore/boundaryX/CodeExample.vue')
+        },
+        {
+          path: 'boundaryY',
+          name: 'ComponentGridLoadMoreBoundaryY',
+          component: () => import('@/views/grid/loadMore/boundaryY/CodeExample.vue')
+        },
+        {
+          path: 'boundaryXY',
+          name: 'ComponentGridLoadMoreBoundaryXY',
+          component: () => import('@/views/grid/loadMore/boundaryXY/CodeExample.vue')
         }
       ]
     },

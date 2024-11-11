@@ -1,22 +1,21 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import { VxeGridProps, VxeGridPropTypes, VxeGridListeners } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeGridInstance, VxeGridProps, VxeGridPropTypes, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: string
   [key: string]: string | number
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  data: RowVO[]
-  columns: VxeGridPropTypes.Columns
-}>({
+const gridRef = ref<VxeGridInstance<RowVO>>()
+
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   loading: false,
   showOverflow: true,
@@ -29,16 +28,20 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
   scrollX: {
     enabled: true,
     gt: 0
-  },
-  columns: [],
-  data: []
+  }
 })
 
 let rowKey = 0
 let colKey = 0
 
+let tableColumn: VxeGridPropTypes.Columns = []
+let tableData: RowVO[] = []
+
 // 模拟行与列数据
 const loadDataAndColumns = (rowSize: number, colSize: number) => {
+  if (gridOptions.loading) {
+    return
+  }
   gridOptions.loading = true
   setTimeout(() => {
     const colList: VxeGridPropTypes.Columns = []
@@ -50,7 +53,7 @@ const loadDataAndColumns = (rowSize: number, colSize: number) => {
         width: 160
       })
     }
-    const columnList = [...gridOptions.columns, ...colList]
+    const columnList = [...tableColumn, ...colList]
     const dataList: RowVO[] = []
     for (let i = 0; i < rowSize; i++) {
       rowKey++
@@ -62,9 +65,14 @@ const loadDataAndColumns = (rowSize: number, colSize: number) => {
       }
       dataList.push(item)
     }
-    gridOptions.columns = columnList
-    gridOptions.data = [...gridOptions.data, ...dataList]
-    gridOptions.loading = false
+    const $grid = gridRef.value
+    if ($grid) {
+      tableColumn = columnList
+      tableData = [...tableData, ...dataList]
+      $grid.loadColumn(tableColumn)
+      $grid.loadData(tableData)
+      gridOptions.loading = false
+    }
   }, 500)
 }
 

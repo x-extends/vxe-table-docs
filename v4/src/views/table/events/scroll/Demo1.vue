@@ -59,7 +59,8 @@ const tableData = ref<RowVO[]>([
   { id: 100028, name: 'Test28', role: 'Test', sex: 'Man', age: 46, address: 'test abc' }
 ])
 
-const scrollEvent: VxeTableEvents.Scroll<RowVO> = ({ isLeft, isRight, isTop, isBottom }) => {
+const scrollEvent: VxeTableEvents.Scroll<RowVO> = ({ direction, isLeft, isRight, isTop, isBottom }) => {
+  console.log(`方向 ${direction}`)
   if (isLeft) {
     console.log('触碰到左侧')
   }

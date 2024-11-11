@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" @scroll="scrollEvent"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" @scroll-boundary="scrollBoundaryEvent"></vxe-grid>
   </div>
 </template>
 
@@ -30,7 +30,8 @@ export default Vue.extend({
       },
       scrollX: {
         enabled: true,
-        gt: 0
+        gt: 0,
+        threshold: 30
       },
       columns: [],
       data: []
@@ -76,13 +77,21 @@ export default Vue.extend({
         this.gridOptions.loading = false
       }, 500)
     },
-    scrollEvent ({ isLeft, isRight }) {
-      if (isLeft) {
-        console.log('触碰到左侧')
-      }
-      if (isRight) {
-        console.log('触碰到右侧')
-        this.loadDataAndColumns(0, 15)
+    scrollBoundaryEvent ({ direction }) {
+      switch (direction) {
+        case 'top':
+          console.log('触发顶部阈值范围')
+          break
+        case 'bottom':
+          console.log('触发底部阈值范围')
+          break
+        case 'left':
+          console.log('触发左侧阈值范围')
+          break
+        case 'right':
+          console.log('触发右侧阈值范围')
+          this.loadDataAndColumns(0, 15)
+          break
       }
     }
   },
