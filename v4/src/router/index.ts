@@ -3060,6 +3060,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/scroll/footer/CodeExample.vue')
         },
         {
+          path: 'merge',
+          name: 'ComponentGridScrollMerge',
+          component: () => import('@/views/grid/scroll/merge/CodeExample.vue')
+        },
+        {
           path: 'tree',
           name: 'ComponentGridScrollTree',
           component: () => import('@/views/grid/scroll/tree/CodeExample.vue')

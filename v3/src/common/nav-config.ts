@@ -929,6 +929,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridScrollDragRow' } },
             { title: '使用分组表头', routerLink: { name: 'ComponentGridScrollGroup' } },
             { title: '使用表尾', routerLink: { name: 'ComponentGridScrollFooter' } },
+            { title: '合并行与列', routerLink: { name: 'ComponentGridScrollMerge' } },
             { title: '树形 + 纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollTree' } },
             { title: '树形 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHVTree' } },
             { title: '可编辑 + 纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollEdit' } },
