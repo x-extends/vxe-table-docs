@@ -24,7 +24,7 @@ export default Vue.extend({
       height: 300,
       showFooter: true,
       columns: [
-        { type: 'seq', width: 70 },
+        { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
         { field: 'sex', title: 'Sex' },
         { field: 'num', title: 'Num' },

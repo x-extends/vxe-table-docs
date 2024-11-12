@@ -9,11 +9,11 @@
         <vxe-column field="name" title="Name" fixed="left" width="180"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="更多信息">
-        <vxe-column field="role" title="Role" width="300"></vxe-column>
-        <vxe-column field="age" title="Age" width="200"></vxe-column>
+        <vxe-column field="role" title="Role" width="400"></vxe-column>
+        <vxe-column field="age" title="Age" min-width="200"></vxe-column>
         <vxe-colgroup title="详细信息">
-          <vxe-column field="sex" title="Sex" width="200"></vxe-column>
-          <vxe-column field="num" title="Num" width="200"></vxe-column>
+          <vxe-column field="sex" title="Sex" min-width="600"></vxe-column>
+          <vxe-column field="num" title="Num" min-width="500"></vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
       <vxe-colgroup title="额外信息" fixed="right">

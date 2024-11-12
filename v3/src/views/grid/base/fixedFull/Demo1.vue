@@ -31,9 +31,9 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70, fixed: 'left' },
         { field: 'name', title: 'Name', width: 300 },
-        { field: 'role', title: 'Role', width: 300 },
-        { field: 'sex', title: 'Sex', width: 300 },
-        { field: 'date', title: 'Date', width: 300 },
+        { field: 'role', title: 'Role', minWidth: 300 },
+        { field: 'sex', title: 'Sex', minWidth: 500 },
+        { field: 'date', title: 'Date', minWidth: 600 },
         { field: 'action', title: '操作', fixed: 'right', width: 200, slots: { default: '#action' } }
       ],
       data: [

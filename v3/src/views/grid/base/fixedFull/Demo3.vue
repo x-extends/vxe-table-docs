@@ -34,13 +34,13 @@ export default Vue.extend({
         {
           title: '更多信息',
           children: [
-            { field: 'role', title: 'Role', width: 300 },
-            { field: 'age', title: 'Age', width: 200 },
+            { field: 'role', title: 'Role', width: 400 },
+            { field: 'age', title: 'Age', minWidth: 200 },
             {
               title: '详细信息',
               children: [
-                { field: 'sex', title: 'Sex', width: 200 },
-                { field: 'num', title: 'Num', width: 200 }
+                { field: 'sex', title: 'Sex', minWidth: 600 },
+                { field: 'num', title: 'Num', minWidth: 500 }
               ]
             }
           ]

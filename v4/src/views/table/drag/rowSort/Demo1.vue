@@ -1,7 +1,9 @@
 <template>
   <div>
+    <vxe-button status="success" @click="resultEvent"></vxe-button>
     <vxe-table
       border
+      ref="tableRef"
       :row-config="rowConfig"
       :column-config="columnConfig"
       :data="tableData">
@@ -16,7 +18,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
+import type { VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -26,6 +28,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -42,4 +46,12 @@ const rowConfig = reactive<VxeTablePropTypes.RowConfig<RowVO>>({
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
   useKey: true
 })
+
+const resultEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    const { visibleData } = $table.getTableData()
+    console.log(visibleData)
+  }
+}
 </script>

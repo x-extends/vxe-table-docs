@@ -1,12 +1,13 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button status="success" @click="resultEvent"></vxe-button>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -16,6 +17,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -40,4 +43,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
+
+const resultEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const { visibleData } = $grid.getTableData()
+    console.log(visibleData)
+  }
+}
 </script>

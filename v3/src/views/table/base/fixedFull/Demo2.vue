@@ -15,9 +15,9 @@
       :data="tableData">
       <vxe-column type="seq" width="70" :fixed="colFixeds.col0"></vxe-column>
       <vxe-column field="name" title="Name" width="300" :fixed="colFixeds.col1"></vxe-column>
-      <vxe-column field="role" title="Role" width="300"></vxe-column>
-      <vxe-column field="sex" title="Sex" width="300"></vxe-column>
-      <vxe-column field="date" title="Date" width="300" :fixed="colFixeds.col4"></vxe-column>
+      <vxe-column field="role" title="Role" minWidth="300"></vxe-column>
+      <vxe-column field="sex" title="Sex" minWidth="500"></vxe-column>
+      <vxe-column field="date" title="Date" minWidth="600" :fixed="colFixeds.col4"></vxe-column>
       <vxe-column title="操作" width="200" :fixed="colFixeds.col5">
         <template #default>
           <vxe-button status="primary">按钮1</vxe-button>

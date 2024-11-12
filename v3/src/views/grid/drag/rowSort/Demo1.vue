@@ -1,12 +1,13 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button status="success" @click="resultEvent"></vxe-button>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -45,6 +46,15 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    resultEvent  () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const { visibleData } = $grid.getTableData()
+        console.log(visibleData)
+      }
     }
   }
 })

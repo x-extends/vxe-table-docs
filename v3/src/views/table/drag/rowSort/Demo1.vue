@@ -1,7 +1,9 @@
 <template>
   <div>
+    <vxe-button status="success" @click="resultEvent"></vxe-button>
     <vxe-table
       border
+      ref="tableRef"
       :row-config="rowConfig"
       :column-config="columnConfig"
       :data="tableData">
@@ -16,7 +18,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeTablePropTypes } from 'vxe-table'
+import { VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -49,6 +51,15 @@ export default Vue.extend({
       tableData,
       rowConfig,
       columnConfig
+    }
+  },
+  methods: {
+    resultEvent  () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        const { visibleData } = $table.getTableData()
+        console.log(visibleData)
+      }
     }
   }
 })
