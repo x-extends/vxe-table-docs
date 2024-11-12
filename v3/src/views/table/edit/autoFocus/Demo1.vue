@@ -6,11 +6,24 @@
       :edit-config="editConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.name"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{}">
+        <template #edit="{ row }">
+          <input v-model="row.sex" type="text">
+        </template>
+      </vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{autoFocus: '.my-input'}">
         <template #edit="{ row }">
           <input class="my-input" v-model="row.age" type="number">
+        </template>
+      </vxe-column>
+      <vxe-column field="address" title="Address" :edit-render="{autoFocus: 'input'}">
+        <template #edit="{ row }">
+          <input v-model="row.address" type="text">
         </template>
       </vxe-column>
     </vxe-table>

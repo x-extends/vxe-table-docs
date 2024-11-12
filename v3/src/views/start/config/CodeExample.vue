@@ -19,7 +19,6 @@
 
               emptyCell: '　',
               table: {
-                fit: true,
                 showHeader: true,
                 delayHover: 250,
                 autoResize: true,
