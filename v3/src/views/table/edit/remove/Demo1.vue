@@ -3,7 +3,7 @@
     <vxe-toolbar>
       <template #buttons>
         <vxe-button @click="insertEvent()">在第1行插入</vxe-button>
-        <vxe-button @click="removeEvent(tableData[1])">删除第2行</vxe-button>
+        <vxe-button @click="removeRow(tableData[1])">删除第2行</vxe-button>
         <vxe-button @click="removeSelectRowEvent">删除选中</vxe-button>
         <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
         <vxe-button @click="getSelectionEvent">获取选中</vxe-button>
@@ -32,6 +32,11 @@
       <vxe-column field="age" title="Age" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-input v-model="row.age" type="text"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="action" title="操作" width="100">
+        <template #default="{row }">
+          <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
         </template>
       </vxe-column>
     </vxe-table>
@@ -83,7 +88,7 @@ export default Vue.extend({
         $table.removeCheckboxRow()
       }
     },
-    async removeEvent  (row: RowVO) {
+    async removeRow  (row: RowVO) {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
         const type = await VxeUI.modal.confirm('您确定要删除该数据?')
