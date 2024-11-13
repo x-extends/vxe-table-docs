@@ -1212,6 +1212,11 @@ const tableRouteConfig: RouteConfig = {
           path: 'vxe-upload',
           name: 'ComponentTableCellTemplateVxeUpload',
           component: () => import('@/views/table/cellTemplate/vxe-upload/CodeExample.vue')
+        },
+        {
+          path: 'allEdit',
+          name: 'ComponentTableCellTemplateAllEdit',
+          component: () => import('@/views/table/cellTemplate/allEdit/CodeExample.vue')
         }
       ]
     },
@@ -2509,6 +2514,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'vxe-upload',
           name: 'ComponentGridCellTemplateVxeUpload',
           component: () => import('@/views/grid/cellTemplate/vxe-upload/CodeExample.vue')
+        },
+        {
+          path: 'allEdit',
+          name: 'ComponentGridCellTemplateAllEdit',
+          component: () => import('@/views/grid/cellTemplate/allEdit/CodeExample.vue')
         }
       ]
     },

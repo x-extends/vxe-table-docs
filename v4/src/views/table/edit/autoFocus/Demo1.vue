@@ -11,9 +11,14 @@
           <vxe-input v-model="row.name"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{autoFocus: '.my-input input'}">
+      <vxe-column field="role" title="Role" :edit-render="{autoFocus: true}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.sex" class="my-input" type="text"></vxe-input>
+          <vxe-input v-model="row.role"></vxe-input>
+        </template>
+      </vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="{autoFocus: '.my-input .vxe-input--inner'}">
+        <template #edit="{ row }">
+          <vxe-input v-model="row.sex" class="my-input"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{autoFocus: '.my-input'}">
