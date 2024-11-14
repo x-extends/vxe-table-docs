@@ -7,5 +7,21 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/editTemplate/vxe-select/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          下拉分组选项
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="table/editTemplate/vxe-select/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">
+          下拉大数据量选项
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

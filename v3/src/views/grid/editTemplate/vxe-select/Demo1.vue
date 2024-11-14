@@ -21,27 +21,6 @@
       <template #default_sexList="{ row }">
         <span>{{ formatSexLabel(row.sexList) }}</span>
       </template>
-
-      <template #edit_type="{ row }">
-        <vxe-select v-model="row.type" :optionGroups="typeOptions"></vxe-select>
-      </template>
-      <template #default_type="{ row }">
-        <span>{{ formatTypeLabel([row.type]) }}</span>
-      </template>
-
-      <template #edit_typeList="{ row }">
-        <vxe-select v-model="row.typeList" :optionGroups="typeOptions" multiple></vxe-select>
-      </template>
-      <template #default_typeList="{ row }">
-        <span>{{ formatTypeLabel(row.typeList) }}</span>
-      </template>
-
-      <template #edit_role="{ row }">
-        <vxe-select v-model="row.role" :options="roleOptions" filterable></vxe-select>
-      </template>
-      <template #default_role="{ row }">
-        <span>{{ formatRoleLabel(row.role) }}</span>
-      </template>
     </vxe-grid>
   </div>
 </template>
@@ -72,9 +51,7 @@ export default Vue.extend({
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 200, editRender: { }, slots: { edit: 'edit_name', default: 'default_name' } },
         { field: 'sex', title: '下拉框', width: 200, editRender: { }, slots: { edit: 'edit_sex', default: 'default_sex' } },
-        { field: 'sexList', title: '下拉框多选', width: 200, editRender: { }, slots: { edit: 'edit_sexList', default: 'default_sexList' } },
-        { field: 'type', title: '下拉框分组', width: 200, editRender: { }, slots: { edit: 'edit_type', default: 'default_type' } },
-        { field: 'typeList', title: '下拉框分组多选', width: 200, editRender: { }, slots: { edit: 'edit_typeList', default: 'default_typeList' } }
+        { field: 'sexList', title: '下拉框多选', width: 200, editRender: { }, slots: { edit: 'edit_sexList', default: 'default_sexList' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },
@@ -88,30 +65,9 @@ export default Vue.extend({
       { label: '男', value: 'Man' }
     ]
 
-    const typeOptions = [
-      {
-        label: '分类1',
-        options: [
-          { label: '苹果', value: '1-1' },
-          { label: '雪梨', value: '1-2' }
-        ]
-      },
-      {
-        label: '分类2',
-        options: [
-          { label: '草莓', value: '2-1' },
-          { label: '猕猴桃', value: '2-2' }
-        ]
-      }
-    ]
-
-    const roleOptions: any[] = []
-
     return {
       gridOptions,
-      sexOptions,
-      typeOptions,
-      roleOptions
+      sexOptions
     }
   },
   methods: {
@@ -123,41 +79,7 @@ export default Vue.extend({
         }).join(',')
       }
       return ''
-    },
-    formatTypeLabel  (typeList: string[]) {
-      if (typeList) {
-        return typeList.map(type => {
-          for (let i = 0; i < this.typeOptions.length; i++) {
-            const group = this.typeOptions[i]
-            for (let j = 0; j < group.options.length; j++) {
-              const item = group.options[j]
-              if (item.value === type) {
-                return item.label
-              }
-            }
-          }
-          return type
-        }).join(',')
-      }
-      return ''
-    },
-    formatRoleLabel (role: string) {
-      const item = this.roleOptions.find(item => item.value === role)
-      return item ? item.label : role
     }
-  },
-  created () {
-    // 模拟后端接口
-    setTimeout(() => {
-      const list: any[] = []
-      for (let i = 0; i < 10000; i++) {
-        list.push({
-          value: `role${i}`,
-          label: `角色${i}`
-        })
-      }
-      this.roleOptions = list
-    }, 100)
   }
 })
 </script>

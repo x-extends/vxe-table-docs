@@ -8,18 +8,11 @@
         <span>{{ row.name }}</span>
       </template>
 
-      <template #edit_sex="{ row }">
-        <vxe-select v-model="row.sex" :options="sexOptions"></vxe-select>
+      <template #edit_role="{ row }">
+        <vxe-select v-model="row.role" :options="roleOptions" filterable></vxe-select>
       </template>
-      <template #default_sex="{ row }">
-        <span>{{ formatSexLabel([row.sex]) }}</span>
-      </template>
-
-      <template #edit_sexList="{ row }">
-        <vxe-select v-model="row.sexList" :options="sexOptions" multiple></vxe-select>
-      </template>
-      <template #default_sexList="{ row }">
-        <span>{{ formatSexLabel(row.sexList) }}</span>
+      <template #default_role="{ row }">
+        <span>{{ formatRoleLabel(row.role) }}</span>
       </template>
     </vxe-grid>
   </div>
@@ -39,10 +32,7 @@ interface RowVO {
   typeList: string[]
 }
 
-const sexOptions = ref([
-  { label: '女', value: 'Women' },
-  { label: '男', value: 'Man' }
-])
+const roleOptions = ref<any[]>([])
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -53,8 +43,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200, editRender: { autoFocus: 'input' }, slots: { edit: 'edit_name', default: 'default_name' } },
-    { field: 'sex', title: '下拉框', width: 200, editRender: { }, slots: { edit: 'edit_sex', default: 'default_sex' } },
-    { field: 'sexList', title: '下拉框多选', width: 200, editRender: { }, slots: { edit: 'edit_sexList', default: 'default_sexList' } }
+    { field: 'role', title: '大数据量选项', width: 200, editRender: { }, slots: { edit: 'edit_role', default: 'default_role' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'role2', sex: '', sexList: [], type: '', typeList: [] },
@@ -63,13 +52,20 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const formatSexLabel = (sexList: string[]) => {
-  if (sexList) {
-    return sexList.map(sex => {
-      const item = sexOptions.value.find(item => item.value === sex)
-      return item ? item.label : sex
-    }).join(',')
-  }
-  return ''
+const formatRoleLabel = (role: string) => {
+  const item = roleOptions.value.find(item => item.value === role)
+  return item ? item.label : role
 }
+
+// 模拟后端接口
+setTimeout(() => {
+  const list: any[] = []
+  for (let i = 0; i < 10000; i++) {
+    list.push({
+      value: `role${i}`,
+      label: `角色${i}`
+    })
+  }
+  roleOptions.value = list
+}, 100)
 </script>

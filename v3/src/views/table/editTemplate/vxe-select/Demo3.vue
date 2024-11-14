@@ -10,20 +10,12 @@
           <vxe-input v-model="row.name"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="下拉框" width="200" :edit-render="{}">
+      <vxe-column field="role" title="大数据量选项" min-width="200" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-select v-model="row.sex" :options="sexOptions"></vxe-select>
+          <vxe-select v-model="row.role" :options="roleOptions" filterable></vxe-select>
         </template>
         <template #default="{ row }">
-          <span>{{ formatSexLabel([row.sex]) }}</span>
-        </template>
-      </vxe-column>
-      <vxe-column field="sexList" title="下拉框多选" width="200" :edit-render="{}">
-        <template #edit="{ row }">
-          <vxe-select v-model="row.sexList" :options="sexOptions" multiple></vxe-select>
-        </template>
-        <template #default="{ row }">
-          <span>{{ formatSexLabel(row.sexList) }}</span>
+          <span>{{ formatRoleLabel(row.role) }}</span>
         </template>
       </vxe-column>
     </vxe-table>
@@ -51,26 +43,31 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
     ]
 
-    const sexOptions = [
-      { label: '女', value: 'Women' },
-      { label: '男', value: 'Man' }
-    ]
+    const roleOptions: any[] = []
 
     return {
       tableData,
-      sexOptions
+      roleOptions
     }
   },
   methods: {
-    formatSexLabel (sexList: string[]) {
-      if (sexList) {
-        return sexList.map(sex => {
-          const item = this.sexOptions.find(item => item.value === sex)
-          return item ? item.label : sex
-        }).join(',')
-      }
-      return ''
+    formatRoleLabel (role: string) {
+      const item = this.roleOptions.find(item => item.value === role)
+      return item ? item.label : role
     }
+  },
+  created () {
+    // 模拟后端接口
+    setTimeout(() => {
+      const list: any[] = []
+      for (let i = 0; i < 10000; i++) {
+        list.push({
+          value: `role${i}`,
+          label: `角色${i}`
+        })
+      }
+      this.roleOptions = list
+    }, 100)
   }
 })
 </script>

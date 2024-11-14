@@ -10,20 +10,20 @@
           <vxe-input v-model="row.name" clearable></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="下拉框" width="200" :edit-render="{}">
+      <vxe-column field="type" title="下拉框分组" width="200" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-select v-model="row.sex" :options="sexOptions"></vxe-select>
+          <vxe-select v-model="row.type" :optionGroups="typeOptions"></vxe-select>
         </template>
         <template #default="{ row }">
-          <span>{{ formatSexLabel([row.sex]) }}</span>
+          <span>{{ formatTypeLabel([row.type]) }}</span>
         </template>
       </vxe-column>
-      <vxe-column field="sexList" title="下拉框多选" width="200" :edit-render="{}">
+      <vxe-column field="typeList" title="下拉框分组多选" width="200" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-select v-model="row.sexList" :options="sexOptions" multiple></vxe-select>
+          <vxe-select v-model="row.typeList" :optionGroups="typeOptions" multiple></vxe-select>
         </template>
         <template #default="{ row }">
-          <span>{{ formatSexLabel(row.sexList) }}</span>
+          <span>{{ formatTypeLabel(row.typeList) }}</span>
         </template>
       </vxe-column>
     </vxe-table>
@@ -49,16 +49,36 @@ const tableData = ref<RowVO[]>([
   { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
 ])
 
-const sexOptions = ref([
-  { label: '女', value: 'Women' },
-  { label: '男', value: 'Man' }
+const typeOptions = ref([
+  {
+    label: '分类1',
+    options: [
+      { label: '苹果', value: '1-1' },
+      { label: '雪梨', value: '1-2' }
+    ]
+  },
+  {
+    label: '分类2',
+    options: [
+      { label: '草莓', value: '2-1' },
+      { label: '猕猴桃', value: '2-2' }
+    ]
+  }
 ])
 
-const formatSexLabel = (sexList: string[]) => {
-  if (sexList) {
-    return sexList.map(sex => {
-      const item = sexOptions.value.find(item => item.value === sex)
-      return item ? item.label : sex
+const formatTypeLabel = (typeList: string[]) => {
+  if (typeList) {
+    return typeList.map(type => {
+      for (let i = 0; i < typeOptions.value.length; i++) {
+        const group = typeOptions.value[i]
+        for (let j = 0; j < group.options.length; j++) {
+          const item = group.options[j]
+          if (item.value === type) {
+            return item.label
+          }
+        }
+      }
+      return type
     }).join(',')
   }
   return ''
