@@ -22,7 +22,7 @@ const handleHigh = () => {
   nextTick(() => {
     const codeEl = codeRef.value
     if (codeEl) {
-      codeEl.innerHTML = hljs.highlight(props.content || '', { language: props.language }).value
+      codeEl.innerHTML = hljs.highlight(decodeURIComponent(props.content || ''), { language: props.language }).value
     }
   })
 }

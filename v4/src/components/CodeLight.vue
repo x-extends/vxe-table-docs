@@ -20,13 +20,15 @@
       <slot name="use"></slot>
     </div>
 
-    <div v-if="$slots.preview" class="example-preview">
+    <div v-if="previewPath || $slots.preview" class="example-preview">
       <h2 class="example-preview-header" :class="{active: showPreview}" @click="showPreview = !showPreview">
         <vxe-icon class="example-preview-icon" name="arrow-right"></vxe-icon>
         <span class="example-preview-title">操作&预览</span>
       </h2>
       <div v-show="showPreview" class="example-preview-body">
-        <slot name="preview"></slot>
+        <slot name="preview">
+          <vxe-image :src="`${siteBaseUrl}${previewPath}`"></vxe-image>
+        </slot>
       </div>
     </div>
 
@@ -40,7 +42,7 @@
 
     <div v-if="path" class="example-code">
       <div class="example-btns">
-        <vxe-tooltip :content="$t('app.docs.button.fixDocTip')">
+        <vxe-tooltip v-if="!isPluginDocs" :content="$t('app.docs.button.fixDocTip')">
           <vxe-button class="example-btn" mode="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" :icon="showOptionJS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
@@ -122,6 +124,7 @@ interface ImportItemVO {
 
 const props = defineProps({
   path: String,
+  previewPath: String,
   extraImports: {
     type: Array as PropType<string[]>,
     default: () => []
@@ -129,6 +132,7 @@ const props = defineProps({
 })
 
 const appStore = useAppStore()
+const isPluginDocs = computed(() => appStore.isPluginDocs)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const showInstall = ref(false)

@@ -21,7 +21,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         const codeEl = this.$refs.codeRef as HTMLElement
         if (codeEl) {
-          codeEl.innerHTML = hljs.highlight(this.content || '', { language: this.language }).value
+          codeEl.innerHTML = hljs.highlight(decodeURIComponent(this.content || ''), { language: this.language }).value
         }
       })
     }
