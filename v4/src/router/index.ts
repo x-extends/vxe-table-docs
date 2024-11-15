@@ -2420,6 +2420,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/validate/mode/CodeExample.vue')
         },
         {
+          path: 'validateField',
+          name: 'ComponentGridValidateValidateField',
+          component: () => import('@/views/grid/validate/validateField/CodeExample.vue')
+        },
+        {
           path: 'theme',
           name: 'ComponentGridValidateTheme',
           component: () => import('@/views/grid/validate/theme/CodeExample.vue')

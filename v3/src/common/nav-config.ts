@@ -795,6 +795,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '数组校验规则', routerLink: { name: 'ComponentGridValidateArray' } },
             { title: '自定义校验规则', routerLink: { name: 'ComponentGridValidateCustom' } },
             { title: '校验模式', routerLink: { name: 'ComponentGridValidateMode' } },
+            { title: '校验指定单元格', routerLink: { name: 'ComponentGridValidateValidateField' } },
             { title: '错误提示样式', routerLink: { name: 'ComponentGridValidateTheme' } },
             {
               title: '自定义插槽模板',
