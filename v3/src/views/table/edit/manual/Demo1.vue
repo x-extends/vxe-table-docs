@@ -16,7 +16,7 @@
         <template #default="{ row }">
           <template v-if="hasEditStatus(row)">
             <vxe-button @click="saveRowEvent(row)">保存</vxe-button>
-            <vxe-button @click="cancelRowEvent(row)">取消</vxe-button>
+            <vxe-button @click="cancelRowEvent()">取消</vxe-button>
           </template>
           <template v-else>
             <vxe-button @click="editRowEvent(row)">编辑</vxe-button>
@@ -79,7 +79,7 @@ export default Vue.extend({
         })
       }
     },
-    cancelRowEvent  (row: RowVO) {
+    cancelRowEvent  () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
         $table.clearEdit()

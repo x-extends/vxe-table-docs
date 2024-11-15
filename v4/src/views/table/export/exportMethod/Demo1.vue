@@ -53,7 +53,7 @@ const headerAgeExportMethod: VxeColumnPropTypes.HeaderExportMethod<RowVO> = ({ c
   return `自定义：${column.title}`
 }
 
-const exportAgeMethod: VxeColumnPropTypes.ExportMethod<RowVO> = ({ row, column }) => {
+const exportAgeMethod: VxeColumnPropTypes.ExportMethod<RowVO> = ({ row }) => {
   return `自定义：${row.age}`
 }
 

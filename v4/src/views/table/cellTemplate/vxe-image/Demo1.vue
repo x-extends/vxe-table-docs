@@ -16,8 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import type { VxeColumnPropTypes } from 'vxe-table'
+import { ref } from 'vue'
 
 interface RowVO {
   id: number
