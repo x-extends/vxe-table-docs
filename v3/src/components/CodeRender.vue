@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import hljs from 'highlight.js'
 
 export default Vue.extend({
   props: {
@@ -21,7 +20,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         const codeEl = this.$refs.codeRef as HTMLElement
         if (codeEl) {
-          codeEl.innerHTML = hljs.highlight(this.code || '', { language: this.language }).value
+          codeEl.innerHTML = window.hljs.highlight(this.code || '', { language: this.language }).value
         }
       })
     }

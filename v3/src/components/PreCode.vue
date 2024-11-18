@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import hljs from 'highlight.js'
 
 export default Vue.extend({
   props: {
@@ -21,7 +20,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         const codeEl = this.$refs.codeRef as HTMLElement
         if (codeEl) {
-          codeEl.innerHTML = hljs.highlight(decodeURIComponent(this.content || ''), { language: this.language }).value
+          codeEl.innerHTML = window.hljs.highlight(decodeURIComponent(this.content || ''), { language: this.language }).value
         }
       })
     }
@@ -37,7 +36,7 @@ export default Vue.extend({
         this.handleHigh()
       } else {
         const block = this.$refs.codeRef as HTMLElement
-        hljs.highlightBlock(block)
+        window.hljs.highlightBlock(block)
       }
     })
   }

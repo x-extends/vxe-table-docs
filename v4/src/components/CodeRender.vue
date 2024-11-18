@@ -6,7 +6,6 @@
 
 <script lang="ts" setup>
 import { ref, watch, PropType, nextTick } from 'vue'
-import hljs from 'highlight.js'
 
 const props = defineProps({
   language: {
@@ -22,7 +21,7 @@ const handleHigh = () => {
   nextTick(() => {
     const codeEl = codeRef.value
     if (codeEl) {
-      codeEl.innerHTML = hljs.highlight(props.code || '', { language: props.language }).value
+      codeEl.innerHTML = window.hljs.highlight(props.code || '', { language: props.language }).value
     }
   })
 }

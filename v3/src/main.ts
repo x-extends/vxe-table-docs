@@ -72,12 +72,13 @@ import DemoRoleSelectPulldown from '@/views/table/editTemplate/vxe-pulldown/Demo
 declare global {
   interface Window {
     XEUtils: typeof XEUtils;
+    hljs: any
   }
 }
 
 window.XEUtils = XEUtils
 
-axios.defaults.baseURL = 'https://api.vxetable.cn/demo'
+axios.defaults.baseURL = process.env.VUE_APP_SERVE_API_URL
 
 VxeUI.setI18n('en-US', enUS)
 
