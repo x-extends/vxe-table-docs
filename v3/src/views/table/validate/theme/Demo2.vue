@@ -1,6 +1,11 @@
 <template>
   <div>
     <div>
+      <vxe-radio-group v-model="validConfig.theme">
+        <vxe-radio-button label="normal" content="简化"></vxe-radio-button>
+        <vxe-radio-button label="beautify" content="高亮"></vxe-radio-button>
+      </vxe-radio-group>
+
       <vxe-button @click="validEvent">校验变动数据</vxe-button>
       <vxe-button @click="fullValidEvent">校验全量数据</vxe-button>
     </div>

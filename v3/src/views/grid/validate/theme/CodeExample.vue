@@ -5,6 +5,7 @@
         <vxe-tip status="primary">
           通过设置 <ApiLink name="grid" prop="valid-config"/>.<ApiLink name="grid" prop="theme"/>='beautify' 设置为美化样式
         </vxe-tip>
+        <vxe-tip status="success">建议通过<vxe-link status="primary" :router-link="{ name: 'StartConfig'}">全局参数</vxe-link>设置，保持统一的样式</vxe-tip>
       </template>
     </CodeLight>
 

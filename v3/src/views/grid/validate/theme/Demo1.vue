@@ -1,6 +1,11 @@
 <template>
   <div>
     <div>
+      <vxe-radio-group v-model="gridOptions.validConfig.theme">
+        <vxe-radio-button label="normal" content="简化"></vxe-radio-button>
+        <vxe-radio-button label="beautify" content="高亮"></vxe-radio-button>
+      </vxe-radio-group>
+
       <vxe-button @click="validEvent">校验变动数据</vxe-button>
       <vxe-button @click="fullValidEvent">校验全量数据</vxe-button>
     </div>
@@ -10,7 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeTablePropTypes, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -23,7 +28,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> & { validConfig: VxeTablePropTypes.ValidConfig } = {
       border: true,
       showOverflow: true,
       keepSource: true,
