@@ -7,6 +7,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import type { VxeGridProps } from 'vxe-table'
+import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: number
@@ -44,12 +45,11 @@ const list = [
 ]
 
 // 模拟接口
-const findPageList = (pageSize: number, currentPage: number, filterList: any[]) => {
-  const filterItem = filterList[0]
-  const filterRoles = filterItem ? filterItem.values : []
+const findPageList = (pageSize: number, currentPage: number, sorts: any[]) => {
+  const sortItem = sorts[0]
   console.log(`调用查询接口 pageSize=${pageSize} currentPage=${currentPage}`)
-  if (filterItem) {
-    console.log(`筛选参数 ${filterItem.field}=${filterItem.values}}`)
+  if (sortItem) {
+    console.log(`排序参数 ${sortItem.field}=${sortItem.order}`)
   }
   return new Promise<{
     result: RowVO[]
@@ -58,7 +58,12 @@ const findPageList = (pageSize: number, currentPage: number, filterList: any[]) 
     }
   }>(resolve => {
     setTimeout(() => {
-      const currList = filterRoles.length ? list.filter(item => filterRoles.includes(item.role)) : list
+      const currList = sortItem
+        ? XEUtils.orderBy(list, {
+          field: sortItem.field,
+          order: sortItem.order
+        })
+        : list
       resolve({
         result: currList.slice((currentPage - 1) * pageSize, currentPage * pageSize),
         page: {
@@ -75,7 +80,7 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       height: 500,
-      filterConfig: {
+      sortConfig: {
         remote: true
       },
       pagerConfig: {},
@@ -84,28 +89,19 @@ export default Vue.extend({
         //   result: 'result', // 配置响应结果列表字段
         //   total: 'page.total' // 配置响应结果总页数字段
         // },
-        filter: true, // 启用筛选请求代理
+        sort: true, // 启用排序请求代理
         ajax: {
-          query: ({ page, filters }) => {
+          query: ({ page, sorts }) => {
             // 默认接收 Promise<{ result: [], page: { total: 100 } }>
-            return findPageList(page.pageSize, page.currentPage, filters)
+            return findPageList(page.pageSize, page.currentPage, sorts)
           }
         }
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name' },
+        { field: 'name', title: 'Name', sortable: true },
         { field: 'nickname', title: 'Nickname' },
-        {
-          field: 'role',
-          title: 'Role',
-          filters: [
-            { label: 'Develop', value: 'Develop' },
-            { label: 'Test', value: 'Test' },
-            { label: 'PM', value: 'PM' },
-            { label: 'Designer', value: 'Designer' }
-          ]
-        },
+        { field: 'role', title: 'Role', sortable: true },
         { field: 'address', title: 'Address' }
       ]
     }

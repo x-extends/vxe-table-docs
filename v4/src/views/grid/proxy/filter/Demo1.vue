@@ -49,7 +49,7 @@ const findPageList = (pageSize: number, currentPage: number, filterList: any[]) 
   const filterRoles = filterItem ? filterItem.values : []
   console.log(`调用查询接口 pageSize=${pageSize} currentPage=${currentPage}`)
   if (filterItem) {
-    console.log(`筛选参数 [${filterItem.field}]=${filterItem.values}}`)
+    console.log(`筛选参数 ${filterItem.field}=${filterItem.values}}`)
   }
   return new Promise<{
     result: RowVO[]

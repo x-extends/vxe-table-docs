@@ -979,6 +979,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '查询接口', routerLink: { name: 'ComponentGridProxyQuery' } },
             { title: '分页查询接口', routerLink: { name: 'ComponentGridProxyPager' } },
+            { title: '集成排序查询', routerLink: { name: 'ComponentGridProxySort' } },
             { title: '集成筛选查询', routerLink: { name: 'ComponentGridProxyFilter' } },
             { title: '集成表单查询', routerLink: { name: 'ComponentGridProxyForm' } },
             { title: '集成分页序号', routerLink: { name: 'ComponentGridProxySeq' } },
