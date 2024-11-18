@@ -131,14 +131,27 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '行拖拽',
           children: [
-            { title: '拖拽调整行顺序', routerLink: { name: 'ComponentTableDragRowSort' } },
-            { title: '冻结列', routerLink: { name: 'ComponentTableDragRowFixed' } },
-            { title: '自定义图标', routerLink: { name: 'ComponentTableDragRowIcon' } },
-            { title: '树结构', routerLink: { name: 'ComponentTableDragRowTree' } },
-            { title: '拖拽事件', routerLink: { name: 'ComponentTableDragRowEvent' } },
-            { title: '禁用按钮', routerLink: { name: 'ComponentTableDragRowDisabledMethod' } },
-            { title: '按钮可视', routerLink: { name: 'ComponentTableDragRowVisibleMethod' } },
-            { title: '拖拽拦截', routerLink: { name: 'ComponentTableDragRowDragMethod' } }
+            { title: '拖拽调整行顺序', routerLink: { name: 'ComponentTableRowDragSort' } },
+            { title: '冻结列', routerLink: { name: 'ComponentTableRowDragFixed' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentTableRowDragIcon' } },
+            { title: '树结构', routerLink: { name: 'ComponentTableRowDragTree' } },
+            { title: '拖拽事件', routerLink: { name: 'ComponentTableRowDragEvents' } },
+            { title: '禁用按钮', routerLink: { name: 'ComponentTableRowDragDisabledMethod' } },
+            { title: '按钮可视', routerLink: { name: 'ComponentTableRowDragVisibleMethod' } },
+            { title: '拖拽拦截', routerLink: { name: 'ComponentTableRowDragDragMethod' } }
+          ]
+        },
+        {
+          title: '列拖拽',
+          children: [
+            { title: '拖拽调整列顺序', routerLink: { name: 'ComponentTableColDragSort' } },
+            { title: '冻结列', routerLink: { name: 'ComponentTableColDragFixed' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentTableColDragIcon' } },
+            { title: '分组表头', routerLink: { name: 'ComponentTableColDragGroup' } },
+            { title: '拖拽事件', routerLink: { name: 'ComponentTableColDragEvents' } },
+            { title: '禁用按钮', routerLink: { name: 'ComponentTableColDragDisabledMethod' } },
+            { title: '按钮可视', routerLink: { name: 'ComponentTableColDragVisibleMethod' } },
+            { title: '拖拽拦截', routerLink: { name: 'ComponentTableColDragDragMethod' } }
           ]
         },
         {
@@ -573,21 +586,42 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '行拖拽',
           children: [
-            { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridDragRowSort' } },
-            { title: '冻结列', routerLink: { name: 'ComponentGridDragRowFixed' } },
-            { title: '自定义图标', routerLink: { name: 'ComponentGridDragRowIcon' } },
-            { title: '树结构', routerLink: { name: 'ComponentGridDragRowTree' } },
-            { title: '拖拽事件', routerLink: { name: 'ComponentGridDragRowEvent' } },
-            { title: '自定义提示', routerLink: { name: 'ComponentGridDragRowTooltipMethod' } },
-            { title: '禁用按钮', routerLink: { name: 'ComponentGridDragRowDisabledMethod' } },
-            { title: '按钮可视', routerLink: { name: 'ComponentGridDragRowVisibleMethod' } },
-            { title: '拖拽拦截', routerLink: { name: 'ComponentGridDragRowDragMethod' } },
+            { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridRowDragSort' } },
+            { title: '冻结列', routerLink: { name: 'ComponentGridRowDragFixed' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentGridRowDragIcon' } },
+            { title: '树结构', routerLink: { name: 'ComponentGridRowDragTree' } },
+            { title: '拖拽事件', routerLink: { name: 'ComponentGridRowDragEvents' } },
+            { title: '自定义提示', routerLink: { name: 'ComponentGridRowDragTooltipMethod' } },
+            { title: '禁用按钮', routerLink: { name: 'ComponentGridRowDragDisabledMethod' } },
+            { title: '按钮可视', routerLink: { name: 'ComponentGridRowDragVisibleMethod' } },
+            { title: '拖拽拦截', routerLink: { name: 'ComponentGridRowDragDragMethod' } },
             {
               title: '自定义插槽模板',
               children: [
-                { title: '自定义提示模板', routerLink: { name: 'ComponentGridDragTemplateRowTip' } }
+                { title: '自定义提示模板', routerLink: { name: 'ComponentGridRowDragTemplateTip' } }
               ]
             }
+          ]
+        },
+        {
+          title: '列拖拽',
+          children: [
+            { title: '拖拽调整列顺序', routerLink: { name: 'ComponentGridColDragSort' } },
+            { title: '冻结列', routerLink: { name: 'ComponentGridColDragFixed' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentGridColDragIcon' } },
+            { title: '分组表头', routerLink: { name: 'ComponentGridColDragGroup' } },
+            { title: '拖拽事件', routerLink: { name: 'ComponentGridColDragEvents' } },
+            { title: '自定义提示', routerLink: { name: 'ComponentGridColDragTooltipMethod' } },
+            { title: '禁用按钮', routerLink: { name: 'ComponentGridColDragDisabledMethod' } },
+            { title: '按钮可视', routerLink: { name: 'ComponentGridColDragVisibleMethod' } },
+            { title: '拖拽拦截', routerLink: { name: 'ComponentGridColDragDragMethod' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义提示模板', routerLink: { name: 'ComponentGridColDragTemplateTip' } }
+              ]
+            },
+            { title: '同时行与列拖拽', routerLink: { name: 'ComponentGridColDragRowCol' } }
           ]
         },
         {
@@ -931,6 +965,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '设置行高', routerLink: { name: 'ComponentGridScrollRowHeight' } },
             { title: '自适应行高', routerLink: { name: 'ComponentGridScrollAutoRowHeight' } },
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridScrollDragRow' } },
+            { title: '拖拽调整列顺序', routerLink: { name: 'ComponentGridScrollDragCol' } },
             { title: '使用分组表头', routerLink: { name: 'ComponentGridScrollGroup' } },
             { title: '使用表尾', routerLink: { name: 'ComponentGridScrollFooter' } },
             { title: '合并行与列', routerLink: { name: 'ComponentGridScrollMerge' } },
