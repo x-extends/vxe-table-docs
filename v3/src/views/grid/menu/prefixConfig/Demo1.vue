@@ -92,7 +92,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    menuClickEvent ({ menu, row, column }) {
+    menuClickEvent ({ menu }) {
       VxeUI.modal.alert(`点击了 ${menu.name} 选项`)
     }
   }

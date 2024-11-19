@@ -92,13 +92,11 @@ export default Vue.extend({
   },
   methods: {
     async init () {
-      let tableColumn: VxeGridPropTypes.Columns = []
       this.gridOptions.loading = true
       await Promise.all([
         findColumnList(200).then(columns => {
           const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
           if ($grid) {
-            tableColumn = columns
             $grid.loadColumn(columns)
           }
         }),

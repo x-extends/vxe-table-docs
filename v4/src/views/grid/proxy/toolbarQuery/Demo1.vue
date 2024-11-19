@@ -44,8 +44,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 500,
   toolbarConfig: {
     buttons: [
-      { code: 'query', name: '点击查询' },
-      { code: 'reload', name: '点击刷新' }
+      { code: 'query', name: '点击查询（不重置条件）' },
+      { code: 'reload', name: '点击刷新（重置条件）' }
     ],
     refresh: true
   },

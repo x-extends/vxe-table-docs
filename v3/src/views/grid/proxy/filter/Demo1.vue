@@ -40,7 +40,14 @@ const list = [
   { id: 100019, name: 'Test19', nickname: 'T19', role: 'Develop', sex: 'Man', age: 39, address: 'Guangzhou' },
   { id: 100020, name: 'Test20', nickname: 'T20', role: 'Test', sex: 'Women', age: 35, address: 'Guangzhou' },
   { id: 100021, name: 'Test21', nickname: 'T21', role: 'Test', sex: 'Man', age: 39, address: 'Shanghai' },
-  { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
+  { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' },
+  { id: 100019, name: 'Test23', nickname: 'T23', role: 'Develop', sex: 'Man', age: 39, address: 'Guangzhou' },
+  { id: 100020, name: 'Test24', nickname: 'T24', role: 'Test', sex: 'Women', age: 38, address: 'Guangzhou' },
+  { id: 100021, name: 'Test25', nickname: 'T25', role: 'Test', sex: 'Man', age: 37, address: 'Shanghai' },
+  { id: 100022, name: 'Test26', nickname: 'T26', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' },
+  { id: 100019, name: 'Test27', nickname: 'T27', role: 'Develop', sex: 'Man', age: 55, address: 'Guangzhou' },
+  { id: 100020, name: 'Test28', nickname: 'T28', role: 'Test', sex: 'Women', age: 51, address: 'Guangzhou' },
+  { id: 100021, name: 'Test29', nickname: 'T29', role: 'Test', sex: 'Man', age: 48, address: 'Shanghai' }
 ]
 
 // 模拟接口
@@ -75,6 +82,13 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       height: 500,
+      toolbarConfig: {
+        buttons: [
+          { code: 'query', name: '点击查询（不重置条件）' },
+          { code: 'reload', name: '点击刷新（重置条件）' }
+        ],
+        refresh: true
+      },
       filterConfig: {
         remote: true
       },

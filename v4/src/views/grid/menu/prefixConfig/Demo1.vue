@@ -86,7 +86,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  menuClick ({ menu, row, column }) {
+  menuClick ({ menu }) {
     VxeUI.modal.alert(`点击了 ${menu.name} 选项`)
   }
 }

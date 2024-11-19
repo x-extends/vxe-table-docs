@@ -83,6 +83,13 @@ export default Vue.extend({
       sortConfig: {
         remote: true
       },
+      toolbarConfig: {
+        buttons: [
+          { code: 'query', name: '点击查询（不重置条件）' },
+          { code: 'reload', name: '点击刷新（重置条件）' }
+        ],
+        refresh: true
+      },
       pagerConfig: {},
       proxyConfig: {
         // props: {

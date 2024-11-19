@@ -8,7 +8,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
-import axios from 'axios'
 
 interface RowVO {
   id: number

@@ -82,6 +82,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     remote: true
   },
   pagerConfig: {},
+  toolbarConfig: {
+    buttons: [
+      { code: 'query', name: '点击查询（不重置条件）' },
+      { code: 'reload', name: '点击刷新（重置条件）' }
+    ],
+    refresh: true
+  },
   proxyConfig: {
     // props: {
     //   result: 'result', // 配置响应结果列表字段
