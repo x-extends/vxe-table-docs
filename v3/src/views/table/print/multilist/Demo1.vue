@@ -75,31 +75,25 @@ export default Vue.extend({
     }
   },
   methods: {
-    printEvent () {
+    async printEvent () {
       const $table1 = this.$refs.table1Ref as VxeTableInstance<RowVO>
       const $table2 = this.$refs.table1Ref as VxeTableInstance<RowVO>
       if ($table1 && $table2) {
-        Promise.all(
-          [
-            $table1.getPrintHtml().then(({ html }) => {
-              return {
-                headerHtml: '<div style="text-align: center;font-size: 28px;">第一张表</div>',
-                bodyHtml: html
-              }
-            }),
-            $table2.getPrintHtml().then(({ html }) => {
-              return {
-                headerHtml: '<div style="text-align: center;font-size: 28px;">第二张表</div>',
-                bodyHtml: html
-              }
-            })
+        const printRest1 = await $table1.getPrintHtml()
+        const printRest2 = await $table2.getPrintHtml()
+        VxeUI.print({
+          title: '打印多张表',
+          showPageNumber: true,
+          pageBreaks: [
+            {
+              headerHtml: '<div style="text-align: center;font-size: 28px;">第一张表</div>',
+              bodyHtml: printRest1.html
+            },
+            {
+              headerHtml: '<div style="text-align: center;font-size: 28px;">第二张表</div>',
+              bodyHtml: printRest2.html
+            }
           ]
-        ).then(pageBreaks => {
-          VxeUI.print({
-            title: '打印多张表',
-            showPageNumber: true,
-            pageBreaks
-          })
         })
       }
     }

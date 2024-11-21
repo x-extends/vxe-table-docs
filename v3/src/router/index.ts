@@ -1489,6 +1489,11 @@ const tableRouteConfig: RouteConfig = {
           path: 'multilist',
           name: 'ComponentTablePrintMultilist',
           component: () => import('@/views/table/print/multilist/CodeExample.vue')
+        },
+        {
+          path: 'order',
+          name: 'ComponentTablePrintOrder',
+          component: () => import('@/views/table/print/order/CodeExample.vue')
         }
       ]
     },
@@ -3128,6 +3133,11 @@ const gridRouteConfig: RouteConfig = {
               component: () => import('@/views/grid/print/template/footer/CodeExample.vue')
             }
           ]
+        },
+        {
+          path: 'order',
+          name: 'ComponentGridPrintOrder',
+          component: () => import('@/views/grid/print/order/CodeExample.vue')
         }
       ]
     },

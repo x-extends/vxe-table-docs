@@ -68,31 +68,25 @@ const grid2Options = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const printEvent = () => {
+const printEvent = async () => {
   const $grid1 = grid1Ref.value
   const $grid2 = grid2Ref.value
   if ($grid1 && $grid2) {
-    Promise.all(
-      [
-        $grid1.getPrintHtml().then(({ html }) => {
-          return {
-            headerHtml: '<div style="text-align: center;font-size: 28px;">第一张表</div>',
-            bodyHtml: html
-          }
-        }),
-        $grid2.getPrintHtml().then(({ html }) => {
-          return {
-            headerHtml: '<div style="text-align: center;font-size: 28px;">第二张表</div>',
-            bodyHtml: html
-          }
-        })
+    const printRest1 = await $grid1.getPrintHtml()
+    const printRest2 = await $grid2.getPrintHtml()
+    VxeUI.print({
+      title: '打印多张表',
+      showPageNumber: true,
+      pageBreaks: [
+        {
+          headerHtml: '<div style="text-align: center;font-size: 28px;">第一张表</div>',
+          bodyHtml: printRest1.html
+        },
+        {
+          headerHtml: '<div style="text-align: center;font-size: 28px;">第二张表</div>',
+          bodyHtml: printRest2.html
+        }
       ]
-    ).then(pageBreaks => {
-      VxeUI.print({
-        title: '打印多张表',
-        showPageNumber: true,
-        pageBreaks
-      })
     })
   }
 }

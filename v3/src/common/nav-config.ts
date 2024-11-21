@@ -442,7 +442,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '打印表格', routerLink: { name: 'ComponentTablePrintBase' } },
             { title: '高级打印', routerLink: { name: 'ComponentTablePrintAdvanced' } },
             { title: '实现将表格切割为多页打印', routerLink: { name: 'ComponentTablePrintPage' } },
-            { title: '实现打印多张表格', routerLink: { name: 'ComponentTablePrintMultilist' } }
+            { title: '实现打印多张表格', routerLink: { name: 'ComponentTablePrintMultilist' } },
+            { title: '实现打印出货单', routerLink: { name: 'ComponentTablePrintOrder' } }
           ]
         },
         {
@@ -938,8 +939,6 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '高级打印', routerLink: { name: 'ComponentGridPrintAdvanced' } },
             { title: '自定义页眉/标题', routerLink: { name: 'ComponentGridPrintHeader' } },
             { title: '自定义页尾/页码', routerLink: { name: 'ComponentGridPrintFooter' } },
-            { title: '实现将表格切割为多页打印', routerLink: { name: 'ComponentGridPrintPage' } },
-            { title: '实现打印多张表格', routerLink: { name: 'ComponentGridPrintMultilist' } },
             {
               title: '自定义插槽模板',
               children: [
@@ -949,7 +948,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自定义尾部模板', routerLink: { name: 'ComponentGridPrintTemplateFooter' } },
                 { title: '自定义默认模板', routerLink: { name: 'ComponentGridPrintTemplateDefault' } }
               ]
-            }
+            },
+            { title: '实现将表格切割为多页打印', routerLink: { name: 'ComponentGridPrintPage' } },
+            { title: '实现打印多张表格', routerLink: { name: 'ComponentGridPrintMultilist' } },
+            { title: '实现打印出货单', routerLink: { name: 'ComponentGridPrintOrder' } }
           ]
         },
         {
