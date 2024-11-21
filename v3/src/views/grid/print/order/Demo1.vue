@@ -85,18 +85,6 @@ export default Vue.extend({
         const bottomHtml = bottomEl ? bottomEl.innerHTML : ''
         VxeUI.print({
           title: '出货单据',
-          // 打印样式设置
-          customStyle: `
-          .vxe-table th {
-            color: red;
-          }
-          .vxe-table td {
-            color: green;
-          }
-          .vxe-table, .vxe-table th, .vxe-table td {
-            border-color: blue;
-          }
-          `,
           pageBreaks: [
             // 第一页
             {
