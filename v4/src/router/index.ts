@@ -1207,6 +1207,11 @@ const tableRouteConfig: RouteRecordRaw = {
       component: RouteLayout,
       children: [
         {
+          path: 'vxe-tag',
+          name: 'ComponentTableCellTemplateVxeTag',
+          component: () => import('@/views/table/cellTemplate/vxe-tag/CodeExample.vue')
+        },
+        {
           path: 'vxe-switch',
           name: 'ComponentTableCellTemplateVxeSwitch',
           component: () => import('@/views/table/cellTemplate/vxe-switch/CodeExample.vue')
@@ -2615,6 +2620,11 @@ const gridRouteConfig: RouteRecordRaw = {
       path: 'cellTemplate',
       component: RouteLayout,
       children: [
+        {
+          path: 'vxe-tag',
+          name: 'ComponentGridCellTemplateVxeTag',
+          component: () => import('@/views/grid/cellTemplate/vxe-tag/CodeExample.vue')
+        },
         {
           path: 'vxe-switch',
           name: 'ComponentGridCellTemplateVxeSwitch',

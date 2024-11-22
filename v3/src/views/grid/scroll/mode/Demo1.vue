@@ -4,6 +4,12 @@
     <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
     <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
     <vxe-grid v-bind="gridOptions">
+      <template #status="{ row }">
+        <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
+        <vxe-tag v-else-if="row.status === '1'" status="primary">待处理</vxe-tag>
+        <vxe-tag v-else status="success">已完成</vxe-tag>
+      </template>
+
       <template #action>
         <vxe-button mode="text" status="primary">按钮1</vxe-button>
         <vxe-button mode="text" status="error">按钮2</vxe-button>
@@ -73,7 +79,7 @@ export default Vue.extend({
         { type: 'checkbox', width: 60, fixed: 'left' },
         { title: '列0', field: 'col0', width: 100, fixed: 'left' },
         { title: '列1', field: 'imgUrl', width: 80, fixed: 'left', cellRender: imgUrlCellRender },
-        { title: '列2', field: 'col2', width: 90 },
+        { title: '状态', field: 'status', width: 90, slots: { default: 'status' } },
         { title: '列3', field: 'col3', width: 200 },
         { title: '列4', field: 'col4', width: 140 },
         { title: '列5', field: 'col5', width: 300 },
@@ -193,6 +199,7 @@ export default Vue.extend({
         for (let i = 0; i < rowSize; i++) {
           const item: RowVO = {
             id: 10000 + i,
+            status: i % 3 === 0 ? '1' : (i % 2 === 0 ? '2' : '0'),
             imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
             imgList1: i % 4 === 0
               ? [

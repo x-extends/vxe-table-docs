@@ -16,7 +16,13 @@
       <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column field="col0" title="列0" width="100" fixed="left"></vxe-column>
       <vxe-column field="imgUrl" title="列1" width="80" fixed="left" :cell-render="imgUrlCellRender"></vxe-column>
-      <vxe-column field="col2" title="列2" width="90"></vxe-column>
+      <vxe-column field="status" title="状态" width="100">
+        <template #default="{ row }">
+          <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
+          <vxe-tag v-else-if="row.status === '1'" status="primary">待处理</vxe-tag>
+          <vxe-tag v-else status="success">已完成</vxe-tag>
+        </template>
+      </vxe-column>
       <vxe-column field="col3" title="列3" width="200"></vxe-column>
       <vxe-column field="col4" title="列4" width="140"></vxe-column>
       <vxe-column field="col5" title="列5" width="300"></vxe-column>
@@ -169,6 +175,7 @@ export default Vue.extend({
         for (let i = 0; i < rowSize; i++) {
           const item: RowVO = {
             id: 10000 + i,
+            status: i % 3 === 0 ? '1' : (i % 2 === 0 ? '2' : '0'),
             imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
             imgList1: i % 4 === 0
               ? [

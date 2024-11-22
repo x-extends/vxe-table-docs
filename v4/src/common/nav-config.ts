@@ -292,6 +292,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格 - 渲染 - 插槽式',
           children: [
+            { title: 'VxeTag 标签', routerLink: { name: 'ComponentTableCellTemplateVxeTag' } },
             { title: 'VxeSwitch 开关', routerLink: { name: 'ComponentTableCellTemplateVxeSwitch' } },
             { title: 'VxeRadioGroup 单选组', routerLink: { name: 'ComponentTableCellTemplateVxeRadioGroup' } },
             { title: 'VxeCheckboxGroup 复选组', routerLink: { name: 'ComponentTableCellTemplateVxeCheckboxGroup' } },
@@ -779,6 +780,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格 - 渲染 - 插槽式',
           children: [
+            { title: 'VxeTag 标签', routerLink: { name: 'ComponentGridCellTemplateVxeTag' } },
             { title: 'VxeSwitch 开关', routerLink: { name: 'ComponentGridCellTemplateVxeSwitch' } },
             { title: 'VxeButtonGroup 按钮组', routerLink: { name: 'ComponentGridCellTemplateVxeButtonGroup' } },
             { title: 'VxeButton 按钮', routerLink: { name: 'ComponentGridCellTemplateVxeButton' } },
