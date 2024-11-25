@@ -1210,6 +1210,11 @@ const tableRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
+          path: 'vxe-tag',
+          name: 'ComponentTableCellTemplateVxeTag',
+          component: () => import('@/views/table/cellTemplate/vxe-tag/CodeExample.vue')
+        },
+        {
           path: 'vxe-switch',
           name: 'ComponentTableCellTemplateVxeSwitch',
           component: () => import('@/views/table/cellTemplate/vxe-switch/CodeExample.vue')
@@ -1540,6 +1545,11 @@ const tableRouteConfig: RouteConfig = {
           path: 'autoRowHeight',
           name: 'ComponentTableScrollAutoRowHeight',
           component: () => import('@/views/table/scroll/autoRowHeight/CodeExample.vue')
+        },
+        {
+          path: 'autoRowVH',
+          name: 'ComponentTableScrollAutoRowVH',
+          component: () => import('@/views/table/scroll/autoRowVH/CodeExample.vue')
         },
         {
           path: 'group',
@@ -2619,6 +2629,11 @@ const gridRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
+          path: 'vxe-tag',
+          name: 'ComponentGridCellTemplateVxeTag',
+          component: () => import('@/views/grid/cellTemplate/vxe-tag/CodeExample.vue')
+        },
+        {
           path: 'vxe-switch',
           name: 'ComponentGridCellTemplateVxeSwitch',
           component: () => import('@/views/grid/cellTemplate/vxe-switch/CodeExample.vue')
@@ -3184,6 +3199,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'autoRowHeight',
           name: 'ComponentGridScrollAutoRowHeight',
           component: () => import('@/views/grid/scroll/autoRowHeight/CodeExample.vue')
+        },
+        {
+          path: 'autoRowVH',
+          name: 'ComponentGridScrollAutoRowVH',
+          component: () => import('@/views/grid/scroll/autoRowVH/CodeExample.vue')
         },
         {
           path: 'dragRow',

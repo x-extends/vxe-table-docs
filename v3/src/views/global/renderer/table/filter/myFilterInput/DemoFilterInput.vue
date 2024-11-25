@@ -1,6 +1,6 @@
 <template>
   <div v-if="currOption" class="my-filter-input">
-    <vxe-input mode="text" v-model="currOption.data" placeholder="支持回车筛选" @keyup="keyupEvent" @input="changeOptionEvent"></vxe-input>
+    <vxe-input mode="text" v-model="currOption.data" placeholder="按回车筛选" @keyup="keyupEvent" @change="changeOptionEvent"></vxe-input>
   </div>
 </template>
 
@@ -40,17 +40,17 @@ export default Vue.extend({
       const { params } = this
       const option = this.currOption
       if (params && option) {
-        const { $panel } = params
+        const { $table } = params
         const checked = !!option.data
-        $panel.changeOption(null, checked, option)
+        $table.updateFilterOptionStatus(option, checked)
       }
     },
     keyupEvent ({ $event }) {
       const { params } = this
       if (params) {
-        const { $panel } = params
-        if ($event.keyCode === 13) {
-          $panel.confirmFilter($event)
+        const { $table } = params
+        if ($event.key === 'Enter') {
+          $table.saveFilterPanel()
         }
       }
     }

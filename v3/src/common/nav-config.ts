@@ -201,7 +201,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '工具栏',
           children: [
-            { title: '工具栏布局', routerLink: { name: 'ComponentTableToolbarBasic' } },
+            { title: '左侧按钮', routerLink: { name: 'ComponentTableToolbarButtons' } },
+            { title: '右侧按钮', routerLink: { name: 'ComponentTableToolbarTools' } },
             { title: '自定义列功能', routerLink: { name: 'ComponentTableToolbarCustom' } },
             { title: '打印功能', routerLink: { name: 'ComponentTableToolbarPrint' } },
             { title: '导入功能', routerLink: { name: 'ComponentTableToolbarImport' } },
@@ -291,6 +292,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格 - 渲染 - 插槽式',
           children: [
+            { title: 'VxeTag 标签', routerLink: { name: 'ComponentTableCellTemplateVxeTag' } },
             { title: 'VxeSwitch 开关', routerLink: { name: 'ComponentTableCellTemplateVxeSwitch' } },
             { title: 'VxeRadioGroup 单选组', routerLink: { name: 'ComponentTableCellTemplateVxeRadioGroup' } },
             { title: 'VxeCheckboxGroup 复选组', routerLink: { name: 'ComponentTableCellTemplateVxeCheckboxGroup' } },
@@ -457,6 +459,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '滚动模式 + 复杂渲染', routerLink: { name: 'ComponentTableScrollMode' } },
             { title: '设置行高', routerLink: { name: 'ComponentTableScrollRowHeight' } },
             { title: '自适应行高', routerLink: { name: 'ComponentTableScrollAutoRowHeight' } },
+            { title: '自适应行高 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentTableScrollAutoRowVH' } },
             { title: '使用分组表头', routerLink: { name: 'ComponentTableScrollGroup' } },
             { title: '按键导航', routerLink: { name: 'ComponentTableScrollKeyboard' } },
             { title: '单元格合并', routerLink: { name: 'ComponentTableScrollMerge' } },
@@ -778,6 +781,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格 - 渲染 - 插槽式',
           children: [
+            { title: 'VxeTag 标签', routerLink: { name: 'ComponentGridCellTemplateVxeTag' } },
             { title: 'VxeSwitch 开关', routerLink: { name: 'ComponentGridCellTemplateVxeSwitch' } },
             { title: 'VxeButtonGroup 按钮组', routerLink: { name: 'ComponentGridCellTemplateVxeButtonGroup' } },
             { title: 'VxeButton 按钮', routerLink: { name: 'ComponentGridCellTemplateVxeButton' } },
@@ -815,8 +819,22 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeSelect 下拉框', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
             { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
             { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditRenderVxeTableSelect' } },
+            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
-            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
+            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } }
+          ]
+        },
+        {
+          title: '可编辑 - 渲染 - 插槽式',
+          children: [
+            { title: 'VxeInput 输入框', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
+            { title: 'VxeNumberInput 数值输入框', routerLink: { name: 'ComponentGridEditTemplateVxeNumberInput' } },
+            { title: 'VxeIconPicker 图标选择', routerLink: { name: 'ComponentGridEditTemplateVxeIconPicker' } },
+            { title: 'VxeDatePicker 日期选择', routerLink: { name: 'ComponentGridEditTemplateVxeDatePicker' } },
+            { title: 'VxeSelect 下拉框', routerLink: { name: 'ComponentGridEditTemplateVxeSelect' } },
+            { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentGridEditTemplateVxeTreeSelect' } },
+            { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditTemplateVxeTableSelect' } },
+            { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentGridEditTemplateVxePulldown' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
           ]
         },
@@ -838,20 +856,6 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自定义错误提示模板', routerLink: { name: 'ComponentGridValidateTemplateValid' } }
               ]
             }
-          ]
-        },
-        {
-          title: '可编辑 - 渲染 - 插槽式',
-          children: [
-            { title: 'VxeInput 输入框', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
-            { title: 'VxeNumberInput 数值输入框', routerLink: { name: 'ComponentGridEditTemplateVxeNumberInput' } },
-            { title: 'VxeIconPicker 图标选择', routerLink: { name: 'ComponentGridEditTemplateVxeIconPicker' } },
-            { title: 'VxeDatePicker 日期选择', routerLink: { name: 'ComponentGridEditTemplateVxeDatePicker' } },
-            { title: 'VxeSelect 下拉框', routerLink: { name: 'ComponentGridEditTemplateVxeSelect' } },
-            { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentGridEditTemplateVxeTreeSelect' } },
-            { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditTemplateVxeTableSelect' } },
-            { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentGridEditTemplateVxePulldown' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
           ]
         },
         {
@@ -965,6 +969,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '滚动模式 + 复杂渲染', routerLink: { name: 'ComponentGridScrollMode' } },
             { title: '设置行高', routerLink: { name: 'ComponentGridScrollRowHeight' } },
             { title: '自适应行高', routerLink: { name: 'ComponentGridScrollAutoRowHeight' } },
+            { title: '自适应行高 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollAutoRowVH' } },
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridScrollDragRow' } },
             { title: '拖拽调整列顺序', routerLink: { name: 'ComponentGridScrollDragCol' } },
             { title: '使用分组表头', routerLink: { name: 'ComponentGridScrollGroup' } },

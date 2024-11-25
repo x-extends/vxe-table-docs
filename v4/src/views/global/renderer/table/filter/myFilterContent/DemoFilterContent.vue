@@ -85,18 +85,18 @@ const confirmFilterEvent = () => {
   const option = currOption.value
   if (params && option) {
     const { data } = option
-    const { $panel } = params
+    const { $table } = params
     data.vals = columnValList.value.filter((item) => item.checked).map((item) => item.value)
-    $panel.changeOption(null, true, option)
-    $panel.confirmFilter()
+    $table.updateFilterOptionStatus(option, true)
+    $table.saveFilterPanel()
   }
 }
 
 const resetFilterEvent = () => {
   const { params } = props
   if (params) {
-    const { $panel } = params
-    $panel.resetFilter()
+    const { $table } = params
+    $table.resetFilterPanel()
   }
 }
 

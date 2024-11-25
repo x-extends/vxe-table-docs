@@ -31,18 +31,18 @@ const changeOptionEvent = () => {
   const { params } = props
   const option = currOption.value
   if (params && option) {
-    const { $panel } = params
+    const { $table } = params
     const checked = !!option.data
-    $panel.changeOption(null, checked, option)
+    $table.updateFilterOptionStatus(option, checked)
   }
 }
 
 const keyupEvent: VxeInputEvents.Keyup = ({ $event }) => {
   const { params } = props
   if (params) {
-    const { $panel } = params
-    if ($event.keyCode === 13) {
-      $panel.confirmFilter($event)
+    const { $table } = params
+    if ($event.key === 'Enter') {
+      $table.saveFilterPanel()
     }
   }
 }

@@ -86,17 +86,17 @@ export default Vue.extend({
       const option = this.currOption
       if (params && option) {
         const { data } = option
-        const { $panel } = params
+        const { $table } = params
         data.vals = this.columnValList.filter((item) => item.checked).map((item) => item.value)
-        $panel.changeOption(null, true, option)
-        $panel.confirmFilter()
+        $table.updateFilterOptionStatus(option, true)
+        $table.saveFilterPanel()
       }
     },
     resetFilterEvent  () {
       const { params } = this
       if (params) {
-        const { $panel } = params
-        $panel.resetFilter()
+        const { $table } = params
+        $table.resetFilterPanel()
       }
     }
   },

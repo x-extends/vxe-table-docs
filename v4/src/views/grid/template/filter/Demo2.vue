@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="tsx" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 import { VxeInput } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -18,6 +18,8 @@ interface RowVO {
   num: number
   address: string,
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -34,9 +36,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         return option.data === cellValue
       },
       slots: {
-        filter ({ $panel, column }) {
+        filter ({ column }) {
           return column.filters.map((option, index) => {
-            return <VxeInput v-model={option.data} key={index} onChange={ (params) => changeFilterEvent(params, option, $panel) }></VxeInput>
+            return <VxeInput
+              v-model={option.data}
+              key={index}
+              onChange={
+                () => {
+                  changeFilterEvent(option)
+                }
+              }>
+              </VxeInput>
           })
         }
       }
@@ -52,7 +62,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const changeFilterEvent = (params: any, option: any, $panel: any) => {
-  $panel.changeOption(params.$event, !!option.data, option)
+const changeFilterEvent = (option: any) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.updateFilterOptionStatus(option, !!option.data)
+  }
 }
 </script>

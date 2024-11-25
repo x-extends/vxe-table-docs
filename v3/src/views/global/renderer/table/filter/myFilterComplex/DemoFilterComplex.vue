@@ -5,7 +5,7 @@
       <vxe-radio v-model="currOption.data.type" name="fType" label="eq">等于</vxe-radio>
     </div>
     <div class="my-fc-name">
-      <vxe-input v-model="currOption.data.name" class="my-fc-input" mode="text" placeholder="请输入名称" @input="changeOptionEvent()"></vxe-input>
+      <vxe-input v-model="currOption.data.name" class="my-fc-input" mode="text" placeholder="请输入名称" @change="changeOptionEvent()"></vxe-input>
     </div>
     <div class="my-fc-footer">
       <vxe-button @click="resetEvent">重置</vxe-button>
@@ -44,23 +44,23 @@ export default Vue.extend({
       const { params } = this
       const option = this.currOption
       if (params && option) {
-        const { $panel } = params
+        const { $table } = params
         const checked = !!option.data.name
-        $panel.changeOption(null, checked, option)
+        $table.updateFilterOptionStatus(option, checked)
       }
     },
     confirmEvent  () {
       const { params } = this
       if (params) {
-        const { $panel } = params
-        $panel.confirmFilter()
+        const { $table } = params
+        $table.saveFilterPanel()
       }
     },
     resetEvent  () {
       const { params } = this
       if (params) {
-        const { $panel } = params
-        $panel.resetFilter()
+        const { $table } = params
+        $table.resetFilterPanel()
       }
     }
   },

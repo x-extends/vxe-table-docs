@@ -2,10 +2,8 @@
   <div>
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="filterNameEvent">筛选 Name</vxe-button>
-        <vxe-button @click="filterAgeEvent">筛选 Age</vxe-button>
-        <vxe-button @click="clearFilterEvent1">清除 Age 的筛选条件</vxe-button>
-        <vxe-button @click="clearFilterEvent2()">清除所有的筛选条件</vxe-button>
+        <vxe-button @click="openFilterEvent">弹出筛选面板</vxe-button>
+        <vxe-button @click="closeFilterEvent">关闭筛选面板</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -16,10 +14,10 @@
       :loading="loading"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
-      <vxe-column field="sex" title="Sex" :filter-multiple="false" :filters="sexOptions"></vxe-column>
-      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod" :filter-recover-method="filterAgeRecoverMethod">
+      <vxe-column field="sex" title="Sex"></vxe-column>
+      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod">
         <template #filter="{ column }">
           <vxe-input v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="changeOptionEvent(option)"></vxe-input>
         </template>
@@ -32,8 +30,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
-import { VxeButtonEvents } from 'vxe-pc-ui'
-import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: number
@@ -48,16 +44,6 @@ const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
 const tableData = ref<RowVO[]>([])
-
-const nameOptions = ref<VxeColumnPropTypes.Filters>([
-  { label: '包含 6', value: '6' },
-  { label: '包含 4', value: '4' }
-])
-
-const sexOptions = ref<VxeColumnPropTypes.Filters>([
-  { label: 'Man', value: 'Man' },
-  { label: 'Women', value: 'Women' }
-])
 
 const ageOptions = ref<VxeColumnPropTypes.Filters>([
   { data: '' }
@@ -85,46 +71,8 @@ const findList = () => {
   })
 }
 
-const filterNameMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ value, row }) => {
-  return XEUtils.toValueString(row.name).toLowerCase().indexOf(value) > -1
-}
-
 const filterAgeMethod: VxeColumnPropTypes.FilterMethod<RowVO> = ({ option, row }) => {
   return row.age === Number(option.data)
-}
-
-const filterAgeRecoverMethod: VxeColumnPropTypes.FilterRecoverMethod<RowVO> = ({ option }) => {
-  // 如果是自定义筛选模板，当为点击确认时，该选项将被恢复为默认值
-  option.data = ''
-}
-
-const filterNameEvent: VxeButtonEvents.Click = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const column = $table.getColumnByField('name')
-    if (column) {
-      // 修改第二个选项为勾选状态
-      const option = column.filters[1]
-      option.checked = true
-      // 如果是直接修复筛选条件，则需要手动调用 updateData 处理表格数据
-      $table.updateData()
-    }
-  }
-}
-
-const filterAgeEvent: VxeButtonEvents.Click = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const column = $table.getColumnByField('age')
-    if (column) {
-      // 修改第一个选项为勾选状态
-      const option = column.filters[0]
-      option.data = '32'
-      option.checked = true
-      // 如果是直接修复筛选条件，则需要手动调用 updateData 处理表格数据
-      $table.updateData()
-    }
-  }
 }
 
 const changeOptionEvent = (option: any) => {
@@ -134,17 +82,17 @@ const changeOptionEvent = (option: any) => {
   }
 }
 
-const clearFilterEvent1 = () => {
+const closeFilterEvent = () => {
   const $table = tableRef.value
   if ($table) {
-    $table.clearFilter($table.getColumnByField('age'))
+    $table.closeFilter()
   }
 }
 
-const clearFilterEvent2 = () => {
+const openFilterEvent = () => {
   const $table = tableRef.value
   if ($table) {
-    $table.clearFilter()
+    $table.openFilter('age')
   }
 }
 

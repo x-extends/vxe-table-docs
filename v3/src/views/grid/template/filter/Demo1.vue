@@ -1,8 +1,8 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions">
-      <template #sex_filter="{ $panel, column }">
-        <vxe-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeFilterEvent($event, option, $panel)"></vxe-input>
+    <vxe-grid ref="gridRef" v-bind="gridOptions">
+      <template #sex_filter="{ column }">
+        <vxe-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeFilterEvent(option)"></vxe-input>
       </template>
     </vxe-grid>
   </div>
@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -58,8 +58,11 @@ export default Vue.extend({
     }
   },
   methods: {
-    changeFilterEvent  (params: any, option: any, $panel: any) {
-      $panel.changeOption(params.$event, !!option.data, option)
+    changeFilterEvent  (option: any) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.updateFilterOptionStatus(option, !!option.data)
+      }
     }
   }
 })

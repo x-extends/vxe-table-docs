@@ -2,10 +2,8 @@
   <div>
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button @click="filterNameEvent">筛选 Name</vxe-button>
-        <vxe-button @click="filterAgeEvent">筛选 Age</vxe-button>
-        <vxe-button @click="clearFilterEvent1">清除 Age 的筛选条件</vxe-button>
-        <vxe-button @click="clearFilterEvent2()">清除所有的筛选条件</vxe-button>
+        <vxe-button @click="openFilterEvent">弹出筛选面板</vxe-button>
+        <vxe-button @click="closeFilterEvent">关闭筛选面板</vxe-button>
       </template>
     </vxe-toolbar>
 
@@ -16,10 +14,10 @@
       :loading="loading"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :filters="nameOptions" :filter-method="filterNameMethod"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
-      <vxe-column field="sex" title="Sex" :filter-multiple="false" :filters="sexOptions"></vxe-column>
-      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod" :filter-recover-method="filterAgeRecoverMethod">
+      <vxe-column field="sex" title="Sex"></vxe-column>
+      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-method="filterAgeMethod">
         <template #filter="{ column }">
           <vxe-input v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="changeOptionEvent(option)"></vxe-input>
         </template>
@@ -32,7 +30,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
-import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: number
@@ -47,16 +44,6 @@ export default Vue.extend({
   data () {
     const tableData: RowVO[] = []
 
-    const nameOptions: VxeColumnPropTypes.Filters = [
-      { label: '包含 6', value: '6' },
-      { label: '包含 4', value: '4' }
-    ]
-
-    const sexOptions: VxeColumnPropTypes.Filters = [
-      { label: 'Man', value: 'Man' },
-      { label: 'Women', value: 'Women' }
-    ]
-
     const ageOptions: VxeColumnPropTypes.Filters = [
       { data: '' }
     ]
@@ -64,8 +51,6 @@ export default Vue.extend({
     return {
       tableData,
       loading: false,
-      nameOptions,
-      sexOptions,
       ageOptions
     }
   },
@@ -91,42 +76,8 @@ export default Vue.extend({
         }, 300)
       })
     },
-    filterNameMethod ({ value, row }) {
-      return XEUtils.toValueString(row.name).toLowerCase().indexOf(value) > -1
-    },
     filterAgeMethod ({ option, row }) {
       return row.age === Number(option.data)
-    },
-    filterAgeRecoverMethod ({ option }) {
-      // 如果是自定义筛选模板，当为点击确认时，该选项将被恢复为默认值
-      option.data = ''
-    },
-    filterNameEvent () {
-      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-      if ($table) {
-        const column = $table.getColumnByField('name')
-        if (column) {
-          // 修改第二个选项为勾选状态
-          const option = column.filters[1]
-          option.checked = true
-          // 如果是直接修复筛选条件，则需要手动调用 updateData 处理表格数据
-          $table.updateData()
-        }
-      }
-    },
-    filterAgeEvent () {
-      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-      if ($table) {
-        const column = $table.getColumnByField('age')
-        if (column) {
-          // 修改第一个选项为勾选状态
-          const option = column.filters[0]
-          option.data = '32'
-          option.checked = true
-          // 如果是直接修复筛选条件，则需要手动调用 updateData 处理表格数据
-          $table.updateData()
-        }
-      }
     },
     changeOptionEvent (option: any) {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
@@ -134,16 +85,16 @@ export default Vue.extend({
         $table.updateFilterOptionStatus(option, !!option.data)
       }
     },
-    clearFilterEvent1 () {
+    closeFilterEvent () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        $table.clearFilter($table.getColumnByField('age'))
+        $table.closeFilter()
       }
     },
-    clearFilterEvent2 () {
+    openFilterEvent () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        $table.clearFilter()
+        $table.openFilter('age')
       }
     }
   },

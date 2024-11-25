@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="tsx">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -42,9 +42,17 @@ export default Vue.extend({
             return option.data === cellValue
           },
           slots: {
-            filter: ({ $panel, column }) => {
+            filter: ({ column }) => {
               return column.filters.map((option, index) => {
-                return <vxe-input v-model={option.data} key={index} onChange={ (params) => this.changeFilterEvent(params, option, $panel) }></vxe-input>
+                return <vxe-input
+                v-model={option.data}
+                key={index}
+                onChange={
+                  () => {
+                    this.changeFilterEvent(option)
+                  }
+                }>
+                </vxe-input>
               })
             }
           }
@@ -61,8 +69,11 @@ export default Vue.extend({
     }
   },
   methods: {
-    changeFilterEvent (params: any, option: any, $panel: any) {
-      $panel.changeOption(params.$event, !!option.data, option)
+    changeFilterEvent (option: any) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.updateFilterOptionStatus(option, !!option.data)
+      }
     }
   }
 })

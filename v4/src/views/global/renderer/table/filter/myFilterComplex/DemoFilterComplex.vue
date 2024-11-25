@@ -41,25 +41,25 @@ const changeOptionEvent = () => {
   const { params } = props
   const option = currOption.value
   if (params && option) {
-    const { $panel } = params
+    const { $table } = params
     const checked = !!option.data.name
-    $panel.changeOption(null, checked, option)
+    $table.updateFilterOptionStatus(option, checked)
   }
 }
 
 const confirmEvent = () => {
   const { params } = props
   if (params) {
-    const { $panel } = params
-    $panel.confirmFilter()
+    const { $table } = params
+    $table.saveFilterPanel()
   }
 }
 
 const resetEvent = () => {
   const { params } = props
   if (params) {
-    const { $panel } = params
-    $panel.resetFilter()
+    const { $table } = params
+    $table.resetFilterPanel()
   }
 }
 

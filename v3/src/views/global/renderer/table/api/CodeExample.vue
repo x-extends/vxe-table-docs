@@ -66,7 +66,7 @@ export default Vue.extend({
             name: 'renderTableFilter',
             desc: '自定义筛选渲染内容',
             version: '',
-            type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $panel }) => JSX',
+            type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
             enum: '',
             defVal: '',
             list: []
