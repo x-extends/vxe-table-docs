@@ -708,6 +708,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '自定义列',
           children: [
+            { title: '使用工具栏', routerLink: { name: 'ComponentGridCustomToolbar' } },
             { title: '窗口模式', routerLink: { name: 'ComponentGridCustomModal' } },
             { title: '抽屉模式', routerLink: { name: 'ComponentGridCustomDrawer' } },
             { title: '禁用操作操作', routerLink: { name: 'ComponentGridCustomCheckMethod' } },
@@ -801,6 +802,23 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } },
             { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
             { title: '行编辑', routerLink: { name: 'ComponentGridEditRowValid' } },
+            {
+              title: '临时数据 - 内置增删改',
+              children: [
+                { title: '新增', routerLink: { name: 'ComponentGridEditHandleTempInsert' } },
+                { title: '删除', routerLink: { name: 'ComponentGridEditHandleTempRemove' } },
+                { title: '标记', routerLink: { name: 'ComponentGridEditHandleTempPending' } },
+                { title: '修改', routerLink: { name: 'ComponentGridEditHandleTempUpdate' } }
+              ]
+            },
+            {
+              title: '数据源 - 实现增删改',
+              children: [
+                { title: '新增', routerLink: { name: 'ComponentGridEditHandleOriginalInsert' } },
+                { title: '删除', routerLink: { name: 'ComponentGridEditHandleOriginalRemove' } },
+                { title: '修改', routerLink: { name: 'ComponentGridEditHandleOriginalUpdate' } }
+              ]
+            },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } },
             { title: '实现弹窗编辑', routerLink: { name: 'ComponentGridEditModalForm' } },
