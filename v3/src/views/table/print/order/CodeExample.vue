@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="table/print/order/Demo1">
+    <CodeLight path="table/print/order/Demo1" previewPath="/resource/docsImg/table_print_order.gif">
       <template #tip>
         <vxe-tip status="primary" title="实现打印出货单"></vxe-tip>
       </template>

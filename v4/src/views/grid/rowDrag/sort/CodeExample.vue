@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/rowDrag/sort/Demo1">
+    <CodeLight path="grid/rowDrag/sort/Demo1" previewPath="/resource/docsImg/table_rowDrag_sort.gif">
       <template #tip>
         <vxe-tip status="primary" title="行拖拽">
           通过 <ApiLink name="grid" prop="row-config"/>.<ApiLink name="grid" prop="drag"/> 和列设置 <ApiLink name="column" prop="drag-sort"/> 启用行拖拽排序功能
