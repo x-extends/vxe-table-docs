@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -26,6 +26,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
       border: true,
       showOverflow: true,
+      height: 400,
       editConfig: {
         trigger: 'click',
         mode: 'cell'
@@ -50,8 +51,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    addEvent () {
-      const record: RowVO = {
+    async addEvent () {
+      const newRow: RowVO = {
         id: new Date().getTime(),
         name: `Name_${new Date().getTime()}`,
         role: '',
@@ -59,8 +60,14 @@ export default Vue.extend({
         age: 18,
         address: ''
       }
-      this.gridOptions.data.unshift(record)
-      this.insertRecords.push(record)
+      this.gridOptions.data.unshift(newRow)
+      this.insertRecords.push(newRow)
+      this.$nextTick(() => {
+        const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+        if ($grid) {
+          $grid.setEditRow(newRow)
+        }
+      })
     },
     getInsertEvent () {
       VxeUI.modal.alert(`新增：${this.insertRecords.length} 行`)

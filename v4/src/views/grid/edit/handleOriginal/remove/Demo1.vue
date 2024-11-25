@@ -27,6 +27,7 @@ const removeRecords: RowVO[] = []
 const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   border: true,
   showOverflow: true,
+  height: 400,
   editConfig: {
     trigger: 'click',
     mode: 'cell'

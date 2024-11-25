@@ -45,13 +45,14 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const addEvent = () => {
+const addEvent = async () => {
   const $grid = gridRef.value
   if ($grid) {
     const record = {
       name: `Name_${new Date().getTime()}`
     }
-    $grid.insert(record)
+    const { row: newRow } = await $grid.insert(record)
+    $grid.setEditRow(newRow)
   }
 }
 

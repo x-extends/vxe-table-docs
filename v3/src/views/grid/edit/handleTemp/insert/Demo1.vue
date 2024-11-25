@@ -50,13 +50,14 @@ export default Vue.extend({
     }
   },
   methods: {
-    addEvent () {
+    async addEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         const record = {
           name: `Name_${new Date().getTime()}`
         }
-        $grid.insert(record)
+        const { row: newRow } = await $grid.insert(record)
+        $grid.setEditRow(newRow)
       }
     },
     getInsertEvent () {

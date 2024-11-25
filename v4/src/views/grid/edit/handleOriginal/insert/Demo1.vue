@@ -2,13 +2,13 @@
   <div>
     <vxe-button status="primary" @click="addEvent">新增</vxe-button>
     <vxe-button status="success" @click="getInsertEvent">获取新增的数据</vxe-button>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import { VxeUI, VxeGridProps } from 'vxe-table'
+import { ref, nextTick, reactive } from 'vue'
+import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -19,11 +19,14 @@ interface RowVO {
   address: string
 }
 
+const gridRef = ref<VxeGridInstance<RowVO>>()
+
 const insertRecords: RowVO[] = []
 
 const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   border: true,
   showOverflow: true,
+  height: 400,
   editConfig: {
     trigger: 'click',
     mode: 'cell'
@@ -43,7 +46,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
 })
 
 const addEvent = () => {
-  const record: RowVO = {
+  const newRow: RowVO = {
     id: new Date().getTime(),
     name: `Name_${new Date().getTime()}`,
     role: '',
@@ -51,8 +54,14 @@ const addEvent = () => {
     age: 18,
     address: ''
   }
-  gridOptions.data.unshift(record)
-  insertRecords.push(record)
+  gridOptions.data.unshift(newRow)
+  insertRecords.push(newRow)
+  nextTick(() => {
+    const $grid = gridRef.value
+    if ($grid) {
+      $grid.setEditRow(newRow)
+    }
+  })
 }
 
 const getInsertEvent = () => {
