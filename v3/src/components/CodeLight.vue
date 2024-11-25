@@ -151,7 +151,7 @@ export default Vue.extend({
       return path.replace(/^\.\//, `${this.compDir}/`)
     },
     parseFilePath  (this: any, path: string) {
-      const [fullPath, filePath, fileType] = path.match(/(.*)\.(vue|js|jsx|ts|tsx)$/) || [path, '.vue', 'vue']
+      const [, filePath, fileType] = path.match(/(.*)\.(vue|js|jsx|ts|tsx)$/) || [path, '.vue', 'vue']
       return {
         filePath: this.transformFilePath(filePath),
         codeLang: ['js', 'ts', 'jsx', 'tsx'].includes(fileType) ? 'javascript' : 'html',

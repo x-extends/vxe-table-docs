@@ -36,7 +36,7 @@
         </template>
       </vxe-pulldown>
 
-      <vxe-select v-if="!isPluginDocs" v-model="currSysVersion" class="switch-version" size="mini" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
+      <vxe-select v-model="currSysVersion" class="switch-version" size="mini" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
 
       <vxe-switch
         class="link switch-theme"
@@ -141,7 +141,7 @@ export default Vue.extend({
     sysVersionOptions () {
       return this.systemVersionList.map(item => {
         return {
-          label: this.$t(`app.version.${process.env.VUE_APP_PACKAGE_NAME}.v${item.version.replace('.', 'd')}`),
+          label: this.$t(`app.version.${process.env.VUE_APP_PACKAGE_NAME}.v${(item.i18nKey || item.version).replace('.', 'd')}`),
           value: item.version,
           disabled: !!item.isDisabled,
           className: item.isStop ? 'due-to-stop' : (item.isAbandoned ? 'about-to-stop' : '')
@@ -190,11 +190,19 @@ export default Vue.extend({
       })
     })
 
-    fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-      res.json().then(data => {
-        this.systemVersionList = data
+    if (this.isPluginDocs) {
+      fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        res.json().then(data => {
+          this.systemVersionList = data
+        })
       })
-    })
+    } else {
+      fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        res.json().then(data => {
+          this.systemVersionList = data
+        })
+      })
+    }
   }
 })
 </script>
