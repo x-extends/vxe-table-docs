@@ -10,7 +10,7 @@
           <div>性能优化：纵向虚拟滚动行高越高越流畅，行高设置 row-config.height</div>
         </vxe-tip>
         <vxe-tip status="error" title="小提示">
-          <div>启用纵向虚拟滚动，必须要开启 show-overflow</div>
+          <div>启用纵向虚拟滚动，建议开启 show-overflow 获得最高渲染性能</div>
         </vxe-tip>
       </template>
 

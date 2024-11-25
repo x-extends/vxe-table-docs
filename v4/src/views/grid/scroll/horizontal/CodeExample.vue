@@ -10,7 +10,7 @@
           <div>性能优化：横向虚拟滚动列宽越宽越流畅，列宽设置 column.width | column.min-width</div>
         </vxe-tip>
         <vxe-tip status="error" title="小提示">
-          <div>启用横向虚拟滚动，必须要开启 show-header-overflow 和 show-footer-overflow</div>
+          <div>启用横向虚拟滚动，建议开启 show-header-overflow 和 show-footer-overflow 获得最高渲染性能</div>
         </vxe-tip>
       </template>
 
