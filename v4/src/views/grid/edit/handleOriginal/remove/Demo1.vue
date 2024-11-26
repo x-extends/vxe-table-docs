@@ -50,6 +50,10 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
 const removeRow = async (row: RowVO) => {
   gridOptions.data = gridOptions.data.filter(item => item.id !== row.id)
   removeRecords.push(row)
+  VxeUI.modal.message({
+    content: '数据已删除',
+    status: 'success'
+  })
 }
 
 const getRemoveEvent = () => {

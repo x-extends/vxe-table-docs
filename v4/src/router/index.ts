@@ -972,30 +972,82 @@ const tableRouteConfig: RouteRecordRaw = {
           name: 'ComponentTableEditCellPlaceholder',
           component: () => import('@/views/table/edit/cellPlaceholder/CodeExample.vue')
         },
+        // {
+        //   path: 'update',
+        //   name: 'ComponentTableEditUpdate',
+        //   component: () => import('@/views/table/edit/update/CodeExample.vue')
+        // },
+        // {
+        //   path: 'insert',
+        //   name: 'ComponentTableEditInsert',
+        //   component: () => import('@/views/table/edit/insert/CodeExample.vue')
+        // },
+        // {
+        //   path: 'remove',
+        //   name: 'ComponentTableEditRemove',
+        //   component: () => import('@/views/table/edit/remove/CodeExample.vue')
+        // },
+        // {
+        //   path: 'pending',
+        //   name: 'ComponentTableEditPending',
+        //   component: () => import('@/views/table/edit/pending/CodeExample.vue')
+        // },
+        // {
+        //   path: 'revert',
+        //   name: 'ComponentTableEditRevert',
+        //   component: () => import('@/views/table/edit/revert/CodeExample.vue')
+        // },
         {
-          path: 'update',
-          name: 'ComponentTableEditUpdate',
-          component: () => import('@/views/table/edit/update/CodeExample.vue')
+          path: 'handleTemp',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'insert',
+              name: 'ComponentTableEditHandleTempInsert',
+              component: () => import('@/views/table/edit/handleTemp/insert/CodeExample.vue')
+            },
+            {
+              path: 'remove',
+              name: 'ComponentTableEditHandleTempRemove',
+              component: () => import('@/views/table/edit/handleTemp/remove/CodeExample.vue')
+            },
+            {
+              path: 'pending',
+              name: 'ComponentTableEditHandleTempPending',
+              component: () => import('@/views/table/edit/handleTemp/pending/CodeExample.vue')
+            },
+            {
+              path: 'update',
+              name: 'ComponentTableEditHandleTempUpdate',
+              component: () => import('@/views/table/edit/handleTemp/update/CodeExample.vue')
+            },
+            {
+              path: 'revert',
+              name: 'ComponentTableEditHandleTempRevert',
+              component: () => import('@/views/table/edit/handleTemp/revert/CodeExample.vue')
+            }
+          ]
         },
         {
-          path: 'insert',
-          name: 'ComponentTableEditInsert',
-          component: () => import('@/views/table/edit/insert/CodeExample.vue')
-        },
-        {
-          path: 'remove',
-          name: 'ComponentTableEditRemove',
-          component: () => import('@/views/table/edit/remove/CodeExample.vue')
-        },
-        {
-          path: 'pending',
-          name: 'ComponentTableEditPending',
-          component: () => import('@/views/table/edit/pending/CodeExample.vue')
-        },
-        {
-          path: 'revert',
-          name: 'ComponentTableEditRevert',
-          component: () => import('@/views/table/edit/revert/CodeExample.vue')
+          path: 'handleOriginal',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'insert',
+              name: 'ComponentTableEditHandleOriginalInsert',
+              component: () => import('@/views/table/edit/handleOriginal/insert/CodeExample.vue')
+            },
+            {
+              path: 'remove',
+              name: 'ComponentTableEditHandleOriginalRemove',
+              component: () => import('@/views/table/edit/handleOriginal/remove/CodeExample.vue')
+            },
+            {
+              path: 'update',
+              name: 'ComponentTableEditHandleOriginalUpdate',
+              component: () => import('@/views/table/edit/handleOriginal/update/CodeExample.vue')
+            }
+          ]
         },
         {
           path: 'cellDisable',
@@ -2765,6 +2817,11 @@ const gridRouteConfig: RouteRecordRaw = {
               path: 'update',
               name: 'ComponentGridEditHandleTempUpdate',
               component: () => import('@/views/grid/edit/handleTemp/update/CodeExample.vue')
+            },
+            {
+              path: 'revert',
+              name: 'ComponentGridEditHandleTempRevert',
+              component: () => import('@/views/grid/edit/handleTemp/revert/CodeExample.vue')
             }
           ]
         },

@@ -58,6 +58,10 @@ export default Vue.extend({
     removeRow (row: RowVO) {
       this.gridOptions.data = this.gridOptions.data.filter(item => item.id !== row.id)
       this.removeRecords.push(row)
+      VxeUI.modal.message({
+        content: '数据已删除',
+        status: 'success'
+      })
     },
     getRemoveEvent () {
       VxeUI.modal.alert(`删除：${this.removeRecords.length} 行`)

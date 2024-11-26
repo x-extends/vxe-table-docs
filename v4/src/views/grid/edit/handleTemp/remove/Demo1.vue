@@ -53,6 +53,10 @@ const removeRow = async (row: RowVO) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.remove(row)
+    VxeUI.modal.message({
+      content: '数据已删除',
+      status: 'success'
+    })
   }
 }
 

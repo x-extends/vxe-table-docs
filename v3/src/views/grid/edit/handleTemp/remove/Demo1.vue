@@ -58,6 +58,10 @@ export default Vue.extend({
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         $grid.remove(row)
+        VxeUI.modal.message({
+          content: '数据已删除',
+          status: 'success'
+        })
       }
     },
     getRemoveEvent () {

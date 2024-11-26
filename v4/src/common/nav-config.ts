@@ -317,11 +317,29 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '关闭自动清除编辑状态', routerLink: { name: 'ComponentTableEditAutoClear' } },
             { title: '编辑状态', routerLink: { name: 'ComponentTableEditStatus' } },
             { title: '空值占位符', routerLink: { name: 'ComponentTableEditCellPlaceholder' } },
-            { title: '修改数据', routerLink: { name: 'ComponentTableEditUpdate' } },
-            { title: '插入数据', routerLink: { name: 'ComponentTableEditInsert' } },
-            { title: '删除数据', routerLink: { name: 'ComponentTableEditRemove' } },
-            { title: '标记为删除', routerLink: { name: 'ComponentTableEditPending' } },
-            { title: '还原数据', routerLink: { name: 'ComponentTableEditRevert' } },
+            // { title: '修改数据', routerLink: { name: 'ComponentTableEditUpdate' } },
+            // { title: '插入数据', routerLink: { name: 'ComponentTableEditInsert' } },
+            // { title: '删除数据', routerLink: { name: 'ComponentTableEditRemove' } },
+            // { title: '标记为删除', routerLink: { name: 'ComponentTableEditPending' } },
+            // { title: '还原数据', routerLink: { name: 'ComponentTableEditRevert' } },
+            {
+              title: '临时数据 - 内置增删改',
+              children: [
+                { title: '新增', routerLink: { name: 'ComponentTableEditHandleTempInsert' } },
+                { title: '删除', routerLink: { name: 'ComponentTableEditHandleTempRemove' } },
+                { title: '标记', routerLink: { name: 'ComponentTableEditHandleTempPending' } },
+                { title: '修改', routerLink: { name: 'ComponentTableEditHandleTempUpdate' } },
+                { title: '恢复', routerLink: { name: 'ComponentTableEditHandleTempRevert' } }
+              ]
+            },
+            {
+              title: '同步数据源 - 实现增删改',
+              children: [
+                { title: '新增', routerLink: { name: 'ComponentTableEditHandleOriginalInsert' } },
+                { title: '删除', routerLink: { name: 'ComponentTableEditHandleOriginalRemove' } },
+                { title: '修改', routerLink: { name: 'ComponentTableEditHandleOriginalUpdate' } }
+              ]
+            },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentTableEditCellDisable' } },
             { title: '禁用行编辑', routerLink: { name: 'ComponentTableEditRowDisable' } },
             { title: '单元格校验', routerLink: { name: 'ComponentTableEditCellValid' } },
@@ -798,9 +816,6 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '手动编辑', routerLink: { name: 'ComponentGridEditManual' } },
             { title: '单击编辑', routerLink: { name: 'ComponentGridEditClick' } },
             { title: '双击编辑', routerLink: { name: 'ComponentGridEditDblclick' } },
-            { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },
-            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } },
-            { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
             { title: '行编辑', routerLink: { name: 'ComponentGridEditRowValid' } },
             {
               title: '临时数据 - 内置增删改',
@@ -808,17 +823,21 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '新增', routerLink: { name: 'ComponentGridEditHandleTempInsert' } },
                 { title: '删除', routerLink: { name: 'ComponentGridEditHandleTempRemove' } },
                 { title: '标记', routerLink: { name: 'ComponentGridEditHandleTempPending' } },
-                { title: '修改', routerLink: { name: 'ComponentGridEditHandleTempUpdate' } }
+                { title: '修改', routerLink: { name: 'ComponentGridEditHandleTempUpdate' } },
+                { title: '恢复', routerLink: { name: 'ComponentGridEditHandleTempRevert' } }
               ]
             },
             {
-              title: '数据源 - 实现增删改',
+              title: '同步数据源 - 实现增删改',
               children: [
                 { title: '新增', routerLink: { name: 'ComponentGridEditHandleOriginalInsert' } },
                 { title: '删除', routerLink: { name: 'ComponentGridEditHandleOriginalRemove' } },
                 { title: '修改', routerLink: { name: 'ComponentGridEditHandleOriginalUpdate' } }
               ]
             },
+            { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },
+            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } },
+            { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } },
             { title: '实现弹窗编辑', routerLink: { name: 'ComponentGridEditModalForm' } },
