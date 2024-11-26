@@ -36,6 +36,7 @@ const roleOptions = ref<any[]>([])
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  showOverflow: true,
   editConfig: {
     trigger: 'click',
     mode: 'row'

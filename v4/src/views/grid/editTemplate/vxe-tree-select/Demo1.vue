@@ -91,6 +91,7 @@ const formatRegionListLabel = (vals: string[]) => {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  showOverflow: true,
   editConfig: {
     trigger: 'click',
     mode: 'row'

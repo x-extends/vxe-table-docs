@@ -2254,6 +2254,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'childTable',
           name: 'ComponentGridExpandChildTable',
           component: () => import('@/views/grid/expand/childTable/CodeExample.vue')
+        },
+        {
+          path: 'selectModalTable',
+          name: 'ComponentGridExpandSelectModalTable',
+          component: () => import('@/views/grid/expand/selectModalTable/CodeExample.vue')
         }
       ]
     },
@@ -2713,6 +2718,16 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/cellTemplate/vxe-upload/CodeExample.vue')
         },
         {
+          path: 'vxe-modal',
+          name: 'ComponentGridCellTemplateVxeModal',
+          component: () => import('@/views/grid/cellTemplate/vxe-modal/CodeExample.vue')
+        },
+        {
+          path: 'vxe-drawer',
+          name: 'ComponentGridCellTemplateVxeDrawer',
+          component: () => import('@/views/grid/cellTemplate/vxe-drawer/CodeExample.vue')
+        },
+        {
           path: 'allEdit',
           name: 'ComponentGridCellTemplateAllEdit',
           component: () => import('@/views/grid/cellTemplate/allEdit/CodeExample.vue')
@@ -2972,6 +2987,16 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vxe-pulldown',
           name: 'ComponentGridEditTemplateVxePulldown',
           component: () => import('@/views/grid/editTemplate/vxe-pulldown/CodeExample.vue')
+        },
+        {
+          path: 'vxe-modal',
+          name: 'ComponentGridEditTemplateVxeModal',
+          component: () => import('@/views/grid/editTemplate/vxe-modal/CodeExample.vue')
+        },
+        {
+          path: 'vxe-drawer',
+          name: 'ComponentGridEditTemplateVxeDrawer',
+          component: () => import('@/views/grid/editTemplate/vxe-drawer/CodeExample.vue')
         }
       ]
     },
