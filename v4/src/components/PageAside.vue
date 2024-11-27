@@ -52,7 +52,12 @@
       <div v-if="item1.isExpand && item1.children && item1.children.length" class="nav-subs">
         <div class="nav-item nav-level2" v-for="(item2, index2) in item1.children" :key="`${index1}${index2}`" :class="[{'is-expand': item2.isExpand}]">
           <div class="nav-name" :class="{'is-plugin': item2.isPlugin, 'is-enterprise': item2.isEnterprise}" :title="item2.title" @click="toggleExpand(item2)">
-            <vxe-link v-if="item2.routerLink" :class="['nav-item-link', getApiClass(item2)]" :router-link="item2.routerLink" :content="item2.title"></vxe-link>
+            <vxe-link v-if="item2.routerLink" :class="['nav-item-link', getApiClass(item2)]" :router-link="item2.routerLink">
+              <span>{{ item2.title }}</span>
+              <span v-if="item2.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
+              <span v-else-if="item2.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+              <span v-else-if="item2.isTemplate" class="nav-item-template-icon">{{ $t('app.aside.templateVersion') }}</span>
+            </vxe-link>
             <vxe-link v-else-if="item2.linkUrl" class="nav-item-link" :status="item2.linkStatus" :href="item2.linkUrl" :target="item2.linkTarget || '_blank'">
               <span>{{ item2.title }}</span>
               <span v-if="item2.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
@@ -64,7 +69,12 @@
           <div v-if="!['API'].includes(item1.title || '') && item2.isExpand && item2.children && item2.children.length" class="nav-subs">
             <div class="nav-item nav-level3" v-for="(item3, index3) in item2.children" :key="`${index1}${index2}${index3}`" :class="[{'is-expand': item3.isExpand}]">
               <div class="nav-name" :class="{'is-plugin': item3.isPlugin, 'is-enterprise': item3.isEnterprise}" :title="item3.title" @click="toggleExpand(item3)">
-                <vxe-link v-if="item3.routerLink" :class="['nav-item-link', getApiClass(item3)]" :router-link="item3.routerLink" :content="item3.title"></vxe-link>
+                <vxe-link v-if="item3.routerLink" :class="['nav-item-link', getApiClass(item3)]" :router-link="item3.routerLink">
+                  <span>{{ item3.title }}</span>
+                  <span v-if="item3.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
+                  <span v-else-if="item3.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                  <span v-else-if="item3.isTemplate" class="nav-item-template-icon">{{ $t('app.aside.templateVersion') }}</span>
+                </vxe-link>
                 <vxe-link v-else-if="item3.linkUrl" class="nav-item-link" :status="item3.linkStatus" :href="item3.linkUrl" :target="item3.linkTarget || '_blank'">
                   <span>{{ item3.title }}</span>
                   <span v-if="item3.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
@@ -76,7 +86,12 @@
               <div v-if="item3.isExpand && item3.children && item3.children.length" class="nav-subs">
                 <div class="nav-item nav-level4" v-for="(item4, index4) in item3.children" :key="`${index1}${index2}${index3}${index4}`" :class="[{'is-expand': item4.isExpand}]">
                   <div class="nav-name" :class="{'is-plugin': item4.isPlugin, 'is-enterprise': item4.isEnterprise}" :title="item4.title" @click="toggleExpand(item4)">
-                    <vxe-link v-if="item4.routerLink" :class="['nav-item-link', getApiClass(item4)]" :router-link="item4.routerLink" :content="item4.title"></vxe-link>
+                    <vxe-link v-if="item4.routerLink" :class="['nav-item-link', getApiClass(item4)]" :router-link="item4.routerLink">
+                      <span>{{ item4.title }}</span>
+                      <span v-if="item4.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
+                      <span v-else-if="item4.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                      <span v-else-if="item4.isTemplate" class="nav-item-template-icon">{{ $t('app.aside.templateVersion') }}</span>
+                    </vxe-link>
                     <vxe-link v-else-if="item4.linkUrl" class="nav-item-link" :status="item4.linkStatus" :href="item4.linkUrl" :target="item4.linkTarget || '_blank'">
                       <span>{{ item4.title }}</span>
                       <span v-if="item4.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
@@ -88,7 +103,12 @@
                   <div v-if="item4.isExpand && item4.children && item4.children.length" class="nav-subs">
                     <div class="nav-item nav-level5" v-for="(item5, index5) in item4.children" :key="`${index1}${index2}${index3}${index5}`" :class="[{'is-expand': item5.isExpand}]">
                       <div class="nav-name" :class="{'is-plugin': item5.isPlugin, 'is-enterprise': item5.isEnterprise}" :title="item5.title" @click="toggleExpand(item5)">
-                        <vxe-link v-if="item5.routerLink" :class="['nav-item-link', getApiClass(item5)]" :router-link="item5.routerLink" :content="item5.title"></vxe-link>
+                        <vxe-link v-if="item5.routerLink" :class="['nav-item-link', getApiClass(item5)]" :router-link="item5.routerLink">
+                          <span>{{ item5.title }}</span>
+                          <span v-if="item5.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
+                          <span v-else-if="item5.isPlugin" class="nav-item-plugin-icon">{{ $t('app.aside.pluginVersion') }}</span>
+                          <span v-else-if="item5.isTemplate" class="nav-item-template-icon">{{ $t('app.aside.templateVersion') }}</span>
+                        </vxe-link>
                         <vxe-link v-else-if="item5.linkUrl" class="nav-item-link" :status="item5.linkStatus" :href="item5.linkUrl" :target="item5.linkTarget || '_blank'">
                           <span>{{ item5.title }}</span>
                           <span v-if="item5.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterpriseVersion') }}</span>
