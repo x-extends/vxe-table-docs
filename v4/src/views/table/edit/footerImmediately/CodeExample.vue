@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="table/edit/footerImmediately/Demo1">
+    <CodeLight path="table/edit/footerImmediately/Demo1" previewPath="/resource/docsImg/table_edit_footer_Immediately.gif">
       <template #tip>
         <vxe-tip status="primary" title="单击编辑">
           <div>通过表尾来实现合计功能，数据发生变化时实时统计</div>

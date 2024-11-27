@@ -20,7 +20,7 @@ const appStore = useAppStore()
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const previewUrl = computed(() => {
-  return `${siteBaseUrl.value}/resource/docsImg/${route.params.previewCode}.gif`
+  return `${siteBaseUrl.value}/resource/docsImg/${route.params.previewCode}.gif?v=${process.env.VUE_APP_DATE_NOW}`
 })
 
 const openEvent = () => {

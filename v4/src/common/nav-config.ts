@@ -402,6 +402,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义校验规则', routerLink: { name: 'ComponentTableValidateCustom' } },
             { title: '校验模式', routerLink: { name: 'ComponentTableValidateMode' } },
             { title: '错误提示样式', routerLink: { name: 'ComponentTableValidateTheme' } },
+            { title: '复制粘贴与数据校验', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_edit_valid' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaEditValid' } } },
             {
               title: '自定义插槽模板',
               children: [
@@ -895,6 +896,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '校验模式', routerLink: { name: 'ComponentGridValidateMode' } },
             { title: '校验指定单元格', routerLink: { name: 'ComponentGridValidateValidateField' } },
             { title: '错误提示样式', routerLink: { name: 'ComponentGridValidateTheme' } },
+            { title: '复制粘贴与数据校验', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_edit_valid' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaEditValid' } } },
             {
               title: '自定义插槽模板',
               children: [

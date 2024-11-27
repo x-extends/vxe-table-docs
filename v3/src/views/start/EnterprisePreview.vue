@@ -24,7 +24,7 @@ export default Vue.extend({
       'siteBaseUrl'
     ]),
     previewUrl () {
-      return `${(this as any).siteBaseUrl}/resource/docsImg/${this.$route.params.previewCode}.gif`
+      return `${(this as any).siteBaseUrl}/resource/docsImg/${this.$route.params.previewCode}.gif?v=${process.env.VUE_APP_DATE_NOW}`
     }
   },
   methods: {
