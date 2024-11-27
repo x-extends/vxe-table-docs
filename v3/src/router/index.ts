@@ -1318,6 +1318,16 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/cellTemplate/vxe-upload/CodeExample.vue')
         },
         {
+          path: 'vxe-modal',
+          name: 'ComponentTableCellTemplateVxeModal',
+          component: () => import('@/views/table/cellTemplate/vxe-modal/CodeExample.vue')
+        },
+        {
+          path: 'vxe-drawer',
+          name: 'ComponentTableCellTemplateVxeDrawer',
+          component: () => import('@/views/table/cellTemplate/vxe-drawer/CodeExample.vue')
+        },
+        {
           path: 'allEdit',
           name: 'ComponentTableCellTemplateAllEdit',
           component: () => import('@/views/table/cellTemplate/allEdit/CodeExample.vue')
@@ -1418,6 +1428,16 @@ const tableRouteConfig: RouteConfig = {
           path: 'vxe-pulldown',
           name: 'ComponentTableEditTemplateVxePulldown',
           component: () => import('@/views/table/editTemplate/vxe-pulldown/CodeExample.vue')
+        },
+        {
+          path: 'vxe-modal',
+          name: 'ComponentTableEditTemplateVxeModal',
+          component: () => import('@/views/table/editTemplate/vxe-modal/CodeExample.vue')
+        },
+        {
+          path: 'vxe-drawer',
+          name: 'ComponentTableEditTemplateVxeDrawer',
+          component: () => import('@/views/table/editTemplate/vxe-drawer/CodeExample.vue')
         }
       ]
     },
@@ -2571,6 +2591,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'group',
           name: 'ComponentGridTreeGroup',
           component: () => import('@/views/grid/tree/group/CodeExample.vue')
+        },
+        {
+          path: 'groupFields',
+          name: 'ComponentGridTreeGroupFields',
+          component: () => import('@/views/grid/tree/groupFields/CodeExample.vue')
         }
       ]
     },

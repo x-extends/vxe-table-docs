@@ -303,6 +303,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeRate 评分', routerLink: { name: 'ComponentTableCellTemplateVxeRate' } },
             { title: 'VxeSlider 滑块', routerLink: { name: 'ComponentTableCellTemplateVxeSlider' } },
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentTableCellTemplateVxeUpload' } },
+            { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentTableCellTemplateVxeModal' } },
+            { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentTableCellTemplateVxeDrawer' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` },
             { title: '实现全部单元格可编辑', routerLink: { name: 'ComponentTableCellTemplateAllEdit' } }
           ]
@@ -388,6 +390,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentTableEditTemplateVxeTreeSelect' } },
             { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentTableEditTemplateVxeTableSelect' } },
             { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentTableEditTemplateVxePulldown' } },
+            { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentTableEditTemplateVxeModal' } },
+            { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentTableEditTemplateVxeDrawer' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
@@ -782,7 +786,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '显示连接线', routerLink: { name: 'ComponentGridTreeLine' } },
             { title: '单选框', routerLink: { name: 'ComponentGridTreeRadio' } },
             { title: '复选框', routerLink: { name: 'ComponentGridTreeCheckbox' } },
-            { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } }
+            { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } },
+            { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } }
           ]
         },
         {

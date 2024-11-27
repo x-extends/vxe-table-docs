@@ -8,7 +8,7 @@
 
     <CodeLight path="grid/tree/group/Demo2">
       <template #tip>
-        <vxe-tip status="primary" title="实现多字段分组"></vxe-tip>
+        <vxe-tip status="primary">不显示分组字段</vxe-tip>
       </template>
     </CodeLight>
   </div>

@@ -69,7 +69,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   pagerConfig: {},
   formConfig: {
     items: [
-      { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput' } },
+      { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput', defaultValue: '111' } },
       { field: 'email', title: '邮件', span: 8, itemRender: { name: 'VxeInput' } },
       { field: 'nickname', title: '昵称', span: 8, itemRender: { name: 'VxeInput' } },
       { field: 'role', title: '角色', span: 8, folding: true, itemRender: { name: 'VxeInput' } },

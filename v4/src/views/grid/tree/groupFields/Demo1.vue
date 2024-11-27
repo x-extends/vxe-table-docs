@@ -1,15 +1,16 @@
 <template>
   <div>
-    <vxe-button status="primary" @click="listToGroup('date')">按时间分组</vxe-button>
-    <vxe-button status="primary" @click="listToGroup('type')">按类型分组</vxe-button>
+    <vxe-button status="primary" @click="listToGroup()">取消分组</vxe-button>
+    <vxe-button status="primary" @click="listToGroup(['name', 'type'])">按名称+类型分组</vxe-button>
+    <vxe-button status="primary" @click="listToGroup(['type', 'date'])">按类型+时间分组</vxe-button>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import type { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+<script lang="ts" setup>
+import { reactive } from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -42,57 +43,40 @@ const allList = [
   { id: 24577, name: 'Test1', type: 'js', size: '1024', date: '2021-06-01' }
 ]
 
-const allColumns: VxeGridPropTypes.Columns = [
-  { field: 'name', title: 'Name', treeNode: true },
-  { field: 'size', title: 'Size' },
-  { field: 'type', title: 'Type' },
-  { field: 'date', title: 'Date' }
-]
-
-export default Vue.extend({
-  data () {
-    const gridOptions: VxeGridProps<RowVO> = {
-      height: 400,
-      border: 'inner',
-      loading: false,
-      showOverflow: true,
-      treeConfig: {},
-      columns: [],
-      data: allList
-    }
-
-    return {
-      gridOptions,
-      idKey: 1
-    }
-  },
-  methods: {
-    handleGroupByField  (list: RowVO[], field: string) {
-      const result: RowVO[] = []
-      XEUtils.each(XEUtils.groupBy(list, field), (childList, field) => {
-        result.push({
-          id: this.idKey++,
-          name: field,
-          type: '',
-          size: '',
-          date: '',
-          children: childList
-        })
-      })
-      return result
-    },
-    listToGroup  (field?: string) {
-      this.gridOptions.columns = allColumns.filter(conf => conf.field !== field)
-      this.gridOptions.data = []
-      this.gridOptions.loading = true
-      setTimeout(() => {
-        this.gridOptions.data = field ? this.handleGroupByField(allList, field) : allList
-        this.gridOptions.loading = false
-      }, 200)
-    }
-  },
-  created () {
-    this.listToGroup('date')
-  }
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  height: 400,
+  border: 'inner',
+  showOverflow: true,
+  treeConfig: {},
+  columns: [
+    { field: 'name', title: 'Name', treeNode: true },
+    { field: 'size', title: 'Size' },
+    { field: 'type', title: 'Type' },
+    { field: 'date', title: 'Date' }
+  ],
+  data: allList
 })
+
+let idKey = 1
+const handleGroupByField = (list: RowVO[], fields: string[]) => {
+  if (fields && fields.length) {
+    const result: RowVO[] = []
+    XEUtils.each(XEUtils.groupBy(list, fields[0]), (childList, field) => {
+      result.push({
+        id: idKey++,
+        name: field,
+        type: '',
+        size: '',
+        date: '',
+        children: handleGroupByField(childList, fields.slice(1))
+      })
+    })
+    return result
+  }
+  return list
+}
+
+const listToGroup = (fields?: string[]) => {
+  gridOptions.data = fields ? handleGroupByField(allList, fields) : allList
+}
 </script>
