@@ -112,7 +112,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用', routerLink: { name: 'ComponentTableCheckboxCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentTableCheckboxVisibleMethod' } },
             { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentTableCheckboxRange' } },
-            { title: '区域与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' },
+            { title: '单元格选择-复选框', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_checkbox' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaCheckbox' } } },
             { title: '自定义模板', routerLink: { name: 'ComponentTableCheckboxTemplate' } }
           ]
         },
@@ -357,7 +357,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentTableEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
-            { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } }
+            { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } },
+            { title: 'Excel复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_clip' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaClip' } } },
+            { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaBasicsEchart' } } }
           ]
         },
         {
@@ -430,8 +432,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '重写默认编辑行为', routerLink: { name: 'ComponentTableKeyboardEditMethod' } },
             { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
-            { title: 'Excel 单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/singleArea' },
-            { title: 'Excel 复制与粘贴', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/areaClip' }
+            { title: '单元格选择-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_keypad' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaKeypad' } } }
           ]
         },
         {
@@ -491,7 +492,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '实现表格搜索', routerLink: { name: 'ComponentTableSearchList' } },
             { title: '实现树形表格搜索', routerLink: { name: 'ComponentTableSearchTree' } },
-            { title: '查找与替换', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/table/areaFNR' }
+            { title: '查找与替换', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_fnr' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaFNR' } } }
           ]
         },
         {
@@ -593,7 +594,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用', routerLink: { name: 'ComponentGridCheckboxCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentGridCheckboxVisibleMethod' } },
             { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentGridCheckboxRange' } },
-            { title: '区域与单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaCheckbox' },
+            { title: '单元格选择-复选框', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_checkbox' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaCheckbox' } } },
             { title: '自定义模板', routerLink: { name: 'ComponentGridCheckboxTemplate' } }
           ]
         },
@@ -844,7 +845,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } },
             { title: '实现弹窗编辑', routerLink: { name: 'ComponentGridEditModalForm' } },
-            { title: '实现抽屉编辑', routerLink: { name: 'ComponentGridEditDrawerForm' } }
+            { title: '实现抽屉编辑', routerLink: { name: 'ComponentGridEditDrawerForm' } },
+            { title: 'Excel复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_clip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaClip' } } },
+            { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaBasicsEchart' } } }
           ]
         },
         {
@@ -924,8 +927,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '重写默认编辑行为', routerLink: { name: 'ComponentGridKeyboardEditMethod' } },
             { title: '树结构按键操作', routerLink: { name: 'ComponentGridKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentGridKeyboardTreeEdit' } },
-            { title: 'Excel 单元格选取', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/singleArea' },
-            { title: 'Excel 复制与粘贴', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaClip' }
+            { title: '单元格选择-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_keypad' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaKeypad' } } }
           ]
         },
         {
@@ -1049,7 +1051,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '实现表格搜索', routerLink: { name: 'ComponentGridSearchList' } },
             { title: '实现树形表格搜索', routerLink: { name: 'ComponentGridSearchTree' } },
-            { title: '查找与替换', isEnterprise: true, linkUrl: 'https://vxetable.cn/pluginDocs/table/#/extendCellArea/grid/areaFNR' }
+            { title: '查找与替换', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_fnr' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaFNR' } } }
           ]
         },
         {
