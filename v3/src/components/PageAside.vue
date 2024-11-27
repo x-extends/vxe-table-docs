@@ -293,6 +293,9 @@ export default Vue.extend({
           return false
         }
         if (routerLink.name === routeName) {
+          if (routeName === 'EnterprisePreview') {
+            return !!((routerLink.params && routerLink.params.previewCode === route.params.previewCode) && (routerLink.query && routerLink.query.previewPath === route.query.previewPath))
+          }
           if (item.isSelfAPI) {
             return !!(routerLink.params && routerLink.params.name === apiKey)
           }
