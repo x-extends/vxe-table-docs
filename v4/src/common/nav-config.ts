@@ -508,6 +508,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '可视化图表',
+          children: [
+            { title: '单元格图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaBasicsEchart' } } }
+          ]
+        },
+        {
           title: '其他',
           children: [
             { title: '多行文本溢出省略', routerLink: { name: 'ComponentTableOtherLineEllipsis' } }
@@ -1077,6 +1083,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '指定阈值加载行', routerLink: { name: 'ComponentGridLoadMoreBoundaryY' } },
             { title: '指定阈值加载列', routerLink: { name: 'ComponentGridLoadMoreBoundaryX' } },
             { title: '指定阈值同时加载行与列', routerLink: { name: 'ComponentGridLoadMoreBoundaryXY' } }
+          ]
+        },
+        {
+          title: '可视化图表',
+          children: [
+            { title: '单元格图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaBasicsEchart' } } }
           ]
         },
         {
