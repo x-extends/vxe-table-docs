@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="preview-btn">
-      <vxe-button status="warning" icon="vxe-icon-question-circle" title="点击查看企业版" @click="openEvent">点击查看</vxe-button>
-    </div>
-    <div class="preview-img">
-      <vxe-image :key="previewCode" :src="previewUrl"></vxe-image>
-    </div>
+    <CodeLight :previewPath="previewUrl">
+      <template #describe>
+        <div style="text-align: center;">
+          <vxe-button status="error" title="点击查看企业版" @click="openEvent">点击查看</vxe-button>
+        </div>
+      </template>
+    </CodeLight>
   </div>
 </template>
 
@@ -20,7 +21,7 @@ const appStore = useAppStore()
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const previewCode = computed(() => {
-  return route.params.previewCode || 0
+  return route.params.previewCode || ''
 })
 
 const previewUrl = computed(() => {
@@ -34,14 +35,3 @@ const openEvent = () => {
   open(`https://vxetable.cn/pluginDocs/table${process.env.VUE_APP_VXE_VERSION}/#${decodeURIComponent(`${route.query.previewPath || ''}`)}`)
 }
 </script>
-
-<style lang="scss" scoped>
-.preview-btn {
-  text-align: center;
-  padding-bottom: 16px;
-}
-.preview-img {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-</style>

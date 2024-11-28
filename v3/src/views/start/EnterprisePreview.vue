@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="preview-btn">
-      <vxe-button status="warning" icon="vxe-icon-question-circle" title="点击查看企业版" @click="openEvent">点击查看</vxe-button>
-    </div>
-    <div class="preview-img">
-      <vxe-image :src="previewUrl"></vxe-image>
-    </div>
+    <CodeLight :previewPath="previewUrl">
+      <template #describe>
+        <div style="text-align: center;">
+          <vxe-button status="error" title="点击查看企业版" @click="openEvent">点击查看</vxe-button>
+        </div>
+      </template>
+    </CodeLight>
   </div>
 </template>
 
@@ -24,7 +25,7 @@ export default Vue.extend({
       'siteBaseUrl'
     ]),
     previewCode () {
-      return this.$route.params.previewCode || 0
+      return this.$route.params.previewCode || ''
     },
     previewUrl () {
       if (this.previewCode) {
@@ -40,14 +41,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss" scoped>
-.preview-btn {
-  text-align: center;
-  padding-bottom: 16px;
-}
-.preview-img {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-</style>

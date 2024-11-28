@@ -20,14 +20,14 @@
       <slot name="use"></slot>
     </div>
 
-    <div v-if="previewPath || $slots.preview" class="example-preview">
+    <div v-if="previewUrl || $slots.preview" class="example-preview">
       <h2 class="example-preview-header" :class="{active: showPreview}" @click="showPreview = !showPreview">
         <vxe-icon class="example-preview-icon" name="arrow-right"></vxe-icon>
         <span class="example-preview-title">操作&预览</span>
       </h2>
       <div v-show="showPreview" class="example-preview-body">
         <slot name="preview">
-          <vxe-image :src="`${siteBaseUrl}${previewPath}`"></vxe-image>
+          <vxe-image :src="previewUrl"></vxe-image>
         </slot>
       </div>
     </div>
@@ -141,6 +141,16 @@ export default Vue.extend({
     compDir () {
       const paths = this.path?.split('/') || []
       return paths.slice(0, paths.length - 1).join('/')
+    },
+    previewUrl () {
+      const { previewPath } = this
+      if (previewPath) {
+        if (/^http/.test(previewPath)) {
+          return previewPath
+        }
+        return `${(this as any).siteBaseUrl}${previewPath}`
+      }
+      return ''
     }
   },
   methods: {
