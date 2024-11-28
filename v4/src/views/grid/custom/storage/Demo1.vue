@@ -26,6 +26,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   customConfig: {
     storage: true
   },
+  columnConfig: {
+    drag: true
+  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },

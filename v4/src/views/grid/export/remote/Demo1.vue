@@ -44,7 +44,7 @@ const exportFileApi = (body: any) => {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   exportConfig: {
     remote: true,
-    exportMethod ({ options }) {
+    async exportMethod ({ options }) {
       // 处理条件参数
       const body = {
         filename: options.filename,
@@ -60,7 +60,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
           }
         })
       }
-      return exportFileApi(body)
+      await exportFileApi(body)
     }
   },
   columns: [

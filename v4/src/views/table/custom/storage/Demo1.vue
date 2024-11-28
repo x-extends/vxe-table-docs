@@ -6,8 +6,9 @@
       id="myCustomStorage"
       ref="tableRef"
       :custom-config="customConfig"
+      :column-config="columnConfig"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column type="seq" width="90"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -42,6 +43,10 @@ const tableData = ref<RowVO[]>([
 
 const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
   storage: true
+})
+
+const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
+  drag: true
 })
 
 onMounted(() => {

@@ -44,7 +44,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       exportConfig: {
         remote: true,
-        exportMethod ({ options }) {
+        async exportMethod ({ options }) {
           // 处理条件参数
           const body = {
             filename: options.filename,
@@ -60,7 +60,7 @@ export default Vue.extend({
               }
             })
           }
-          return exportFileApi(body)
+          await exportFileApi(body)
         }
       },
       columns: [

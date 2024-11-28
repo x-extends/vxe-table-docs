@@ -83,7 +83,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '将多列进行合并', routerLink: { name: 'ComponentTableMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentTableMergeAll' } },
             { title: '表尾合并', routerLink: { name: 'ComponentTableMergeFooter' } },
-            { title: '实现横向合并树', routerLink: { name: 'ComponentTableMergeHorizontal' } }
+            { title: '实现横向合并树', routerLink: { name: 'ComponentTableMergeHorizontal' } },
+            { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%23%2FextendCellArea%2Ftable%2FareaMerge' } } }
           ]
         },
         {
@@ -477,19 +478,20 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '纵向虚拟滚动', routerLink: { name: 'ComponentTableScrollVertical' } },
             { title: '横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHorizontal' } },
-            { title: '纵向和横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHV' } },
+            { title: '纵向和横向', routerLink: { name: 'ComponentTableScrollHV' } },
             { title: '函数式加载数据', routerLink: { name: 'ComponentTableScrollLoadData' } },
             { title: '冻结列 + 复杂渲染', routerLink: { name: 'ComponentTableScrollFixed' } },
             { title: '滚动模式 + 复杂渲染', routerLink: { name: 'ComponentTableScrollMode' } },
             { title: '设置行高', routerLink: { name: 'ComponentTableScrollRowHeight' } },
             { title: '自适应行高', routerLink: { name: 'ComponentTableScrollAutoRowHeight' } },
-            { title: '自适应行高 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentTableScrollAutoRowVH' } },
+            { title: '自适应行高 + 纵向和横向', routerLink: { name: 'ComponentTableScrollAutoRowVH' } },
+            { title: '自适应行高 + 复杂渲染', routerLink: { name: 'ComponentTableScrollAutoRowFixed' } },
             { title: '使用分组表头', routerLink: { name: 'ComponentTableScrollGroup' } },
             { title: '按键导航', routerLink: { name: 'ComponentTableScrollKeyboard' } },
             { title: '单元格合并', routerLink: { name: 'ComponentTableScrollMerge' } },
-            { title: '树形 + 横向虚拟滚动', routerLink: { name: 'ComponentTableScrollTree' } },
-            { title: '可编辑 + 横向虚拟滚动', routerLink: { name: 'ComponentTableScrollEdit' } },
-            { title: '可编辑 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHVEdit' } }
+            { title: '树形 + 横向', routerLink: { name: 'ComponentTableScrollTree' } },
+            { title: '可编辑 + 横向', routerLink: { name: 'ComponentTableScrollEdit' } },
+            { title: '可编辑 + 纵向和横向', routerLink: { name: 'ComponentTableScrollHVEdit' } }
           ]
         },
         {
@@ -576,7 +578,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '将多列进行合并', routerLink: { name: 'ComponentGridMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } },
             { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } },
-            { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } }
+            { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } },
+            { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%23%2FextendCellArea%2Fgrid%2FareaMerge' } } }
           ]
         },
         {
@@ -981,6 +984,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导入 CSV 格式', routerLink: { name: 'ComponentGridImportCsv' } },
             { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/grid/import` },
             { title: '高级导入', routerLink: { name: 'ComponentGridImportAdvanced' } },
+            { title: '服务端导入', routerLink: { name: 'ComponentGridImportRemote' } },
             {
               title: '自定义插槽模板',
               children: [
@@ -1020,22 +1024,23 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollVertical' } },
             { title: '横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHorizontal' } },
-            { title: '纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHV' } },
+            { title: '纵向和横向', routerLink: { name: 'ComponentGridScrollHV' } },
             { title: '函数式加载数据', routerLink: { name: 'ComponentGridScrollLoadData' } },
             { title: '冻结列 + 复杂渲染', routerLink: { name: 'ComponentGridScrollFixed' } },
             { title: '滚动模式 + 复杂渲染', routerLink: { name: 'ComponentGridScrollMode' } },
             { title: '设置行高', routerLink: { name: 'ComponentGridScrollRowHeight' } },
             { title: '自适应行高', routerLink: { name: 'ComponentGridScrollAutoRowHeight' } },
-            { title: '自适应行高 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollAutoRowVH' } },
+            { title: '自适应行高 + 纵向和横向', routerLink: { name: 'ComponentGridScrollAutoRowVH' } },
+            { title: '自适应行高 + 复杂渲染', routerLink: { name: 'ComponentGridScrollAutoRowFixed' } },
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridScrollDragRow' } },
             { title: '拖拽调整列顺序', routerLink: { name: 'ComponentGridScrollDragCol' } },
             { title: '使用分组表头', routerLink: { name: 'ComponentGridScrollGroup' } },
             { title: '使用表尾', routerLink: { name: 'ComponentGridScrollFooter' } },
             { title: '合并行与列', routerLink: { name: 'ComponentGridScrollMerge' } },
-            { title: '树形 + 纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollTree' } },
-            { title: '树形 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHVTree' } },
-            { title: '可编辑 + 纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollEdit' } },
-            { title: '可编辑 + 纵向和横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHVEdit' } }
+            { title: '树形 + 纵向', routerLink: { name: 'ComponentGridScrollTree' } },
+            { title: '树形 + 纵向和横向', routerLink: { name: 'ComponentGridScrollHVTree' } },
+            { title: '可编辑 + 纵向', routerLink: { name: 'ComponentGridScrollEdit' } },
+            { title: '可编辑 + 纵向和横向', routerLink: { name: 'ComponentGridScrollHVEdit' } }
           ]
         },
         {

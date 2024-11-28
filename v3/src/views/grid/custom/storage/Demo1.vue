@@ -28,6 +28,9 @@ export default Vue.extend({
       customConfig: {
         storage: true
       },
+      columnConfig: {
+        drag: true
+      },
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },

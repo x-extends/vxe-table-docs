@@ -1622,6 +1622,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/scroll/autoRowVH/CodeExample.vue')
         },
         {
+          path: 'autoRowFixed',
+          name: 'ComponentTableScrollAutoRowFixed',
+          component: () => import('@/views/table/scroll/autoRowFixed/CodeExample.vue')
+        },
+        {
           path: 'group',
           name: 'ComponentTableScrollGroup',
           component: () => import('@/views/table/scroll/group/CodeExample.vue')
@@ -3117,6 +3122,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/import/advanced/CodeExample.vue')
         },
         {
+          path: 'remote',
+          name: 'ComponentGridImportRemote',
+          component: () => import('@/views/grid/import/remote/CodeExample.vue')
+        },
+        {
           path: 'template',
           component: RouteLayout,
           children: [
@@ -3361,6 +3371,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'autoRowVH',
           name: 'ComponentGridScrollAutoRowVH',
           component: () => import('@/views/grid/scroll/autoRowVH/CodeExample.vue')
+        },
+        {
+          path: 'autoRowFixed',
+          name: 'ComponentGridScrollAutoRowFixed',
+          component: () => import('@/views/grid/scroll/autoRowFixed/CodeExample.vue')
         },
         {
           path: 'dragRow',

@@ -43,9 +43,14 @@ export default Vue.extend({
       storage: true
     }
 
+    const columnConfig: VxeTablePropTypes.ColumnConfig = {
+      drag: true
+    }
+
     return {
       tableData,
-      customConfig
+      customConfig,
+      columnConfig
     }
   },
   mounted () {
