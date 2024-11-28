@@ -23,8 +23,14 @@ export default Vue.extend({
     ...mapState([
       'siteBaseUrl'
     ]),
+    previewCode () {
+      return this.$route.params.previewCode || 0
+    },
     previewUrl () {
-      return `${(this as any).siteBaseUrl}/resource/docsImg/${this.$route.params.previewCode}.gif?v=${process.env.VUE_APP_DATE_NOW}`
+      if (this.previewCode) {
+        return `${(this as any).siteBaseUrl}/resource/docsImg/${(this as any).previewCode}.gif?v=${process.env.VUE_APP_DATE_NOW}`
+      }
+      return ''
     }
   },
   methods: {
