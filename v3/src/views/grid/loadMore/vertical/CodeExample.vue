@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/loadMore/vertical/Demo1">
+    <CodeLight path="grid/loadMore/vertical/Demo1" previewPath="/resource/docsImg/table_load_more_vertical.gif">
       <template #tip>
         <vxe-tip status="primary" title="实现加载行">
           通过 <ApiLink name="grid" prop="scroll"/> 事件，配合虚拟滚动实现流畅的无限加载数据的解决方案。

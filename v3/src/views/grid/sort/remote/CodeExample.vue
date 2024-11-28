@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/sort/remote/Demo1">
+    <CodeLight path="grid/sort/remote/Demo1" previewPath="/resource/docsImg/table_sort_remote.gif">
       <template #tip>
         <vxe-tip status="primary">配置 <ApiLink name="grid" prop="sort-config"/>.<ApiLink name="grid" prop="remote"/> 和 <ApiLink name="grid" prop="sort-change"/> 事件，实现服务端排序</vxe-tip>
       </template>

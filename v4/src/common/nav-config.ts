@@ -83,7 +83,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '将多列进行合并', routerLink: { name: 'ComponentTableMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentTableMergeAll' } },
             { title: '表尾合并', routerLink: { name: 'ComponentTableMergeFooter' } },
-            { title: '实现横向合并树', routerLink: { name: 'ComponentTableMergeHorizontal' } }
+            { title: '实现横向合并树', routerLink: { name: 'ComponentTableMergeHorizontal' } },
+            { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%23%2FextendCellArea%2Ftable%2FareaMerge' } } }
           ]
         },
         {
@@ -576,7 +577,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '将多列进行合并', routerLink: { name: 'ComponentGridMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } },
             { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } },
-            { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } }
+            { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } },
+            { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%23%2FextendCellArea%2Fgrid%2FareaMerge' } } }
           ]
         },
         {
