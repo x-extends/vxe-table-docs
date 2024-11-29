@@ -32,7 +32,7 @@ export default Vue.extend({
         drag: true
       },
       columns: [
-        { type: 'seq', width: 70 },
+        { type: 'seq', width: 90 },
         { field: 'name', title: 'Name' },
         { field: 'role', title: 'role' },
         { field: 'sex', title: 'Sex' },

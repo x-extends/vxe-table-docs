@@ -353,7 +353,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '设置行高', routerLink: { name: 'ComponentTableEditRowHeight' } },
             { title: '实现附件列表', routerLink: { name: 'ComponentTableEditFileList' } },
             { title: '实现弹窗编辑表单', routerLink: { name: 'ComponentTableEditModalForm' } },
+            { title: '实现弹窗选择数据', routerLink: { name: 'ComponentTableEditModalSelect' } },
             { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentTableEditDrawerForm' } },
+            { title: '实现抽屉选择数据', routerLink: { name: 'ComponentTableEditDrawerSelect' } },
             { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
             { title: '实现多行文本编辑', routerLink: { name: 'ComponentTableEditMultiLineText' } },
             { title: '实现联动禁用', routerLink: { name: 'ComponentTableEditLinkageDisabled' } },
@@ -859,8 +861,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } },
-            { title: '实现弹窗编辑', routerLink: { name: 'ComponentGridEditModalForm' } },
-            { title: '实现抽屉编辑', routerLink: { name: 'ComponentGridEditDrawerForm' } },
+            { title: '实现弹窗编辑表单', routerLink: { name: 'ComponentGridEditModalForm' } },
+            { title: '实现弹窗选择数据', routerLink: { name: 'ComponentGridEditModalSelect' } },
+            { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentGridEditDrawerForm' } },
+            { title: '实现抽屉选择数据', routerLink: { name: 'ComponentGridEditDrawerSelect' } },
             { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_clip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaClip' } } },
             { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaBasicsEchart' } } }
           ]

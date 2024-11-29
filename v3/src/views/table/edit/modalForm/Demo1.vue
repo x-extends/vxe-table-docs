@@ -67,10 +67,10 @@ const defaultData: RowVO = {
 export default Vue.extend({
   data () {
     const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', nickname: '', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-      { id: 10002, name: 'Test2', nickname: 'Test 2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-      { id: 10003, name: 'Test3', nickname: '', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-      { id: 10004, name: 'Test4', nickname: 'Test 4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
+      { id: 10001, name: 'Test1', nickname: '', role: 'Develop', sex: '', age: 28, address: 'test abc' },
+      { id: 10002, name: 'Test2', nickname: 'Test 2', role: 'Test', sex: '', age: null, address: 'Guangzhou' },
+      { id: 10003, name: 'Test3', nickname: '', role: 'PM', sex: 'Man', age: null, address: 'Shanghai' },
+      { id: 10004, name: 'Test4', nickname: 'Test 4', role: 'Designer', sex: '', age: 24, address: 'Shanghai' }
     ]
 
     const sexItemRender: VxeFormItemPropTypes.ItemRender<RowVO, VxeSelectProps> = {

@@ -1096,9 +1096,19 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/edit/modalForm/CodeExample.vue')
         },
         {
+          path: 'modalSelect',
+          name: 'ComponentTableEditModalSelect',
+          component: () => import('@/views/table/edit/modalSelect/CodeExample.vue')
+        },
+        {
           path: 'drawerForm',
           name: 'ComponentTableEditDrawerForm',
           component: () => import('@/views/table/edit/drawerForm/CodeExample.vue')
+        },
+        {
+          path: 'drawerSelect',
+          name: 'ComponentTableEditDrawerSelect',
+          component: () => import('@/views/table/edit/drawerSelect/CodeExample.vue')
         },
         {
           path: 'rowHeight',
@@ -2903,14 +2913,24 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/edit/footerImmediately/CodeExample.vue')
         },
         {
-          path: 'modal',
+          path: 'modalForm',
           name: 'ComponentGridEditModalForm',
           component: () => import('@/views/grid/edit/modalForm/CodeExample.vue')
         },
         {
-          path: 'drawer',
+          path: 'modalSelect',
+          name: 'ComponentGridEditModalSelect',
+          component: () => import('@/views/grid/edit/modalSelect/CodeExample.vue')
+        },
+        {
+          path: 'drawerForm',
           name: 'ComponentGridEditDrawerForm',
           component: () => import('@/views/grid/edit/drawerForm/CodeExample.vue')
+        },
+        {
+          path: 'drawerSelect',
+          name: 'ComponentGridEditDrawerSelect',
+          component: () => import('@/views/grid/edit/drawerSelect/CodeExample.vue')
         }
       ]
     },
