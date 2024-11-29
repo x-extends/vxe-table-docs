@@ -5,9 +5,10 @@
       border
       ref="tableRef"
       :column-config="columnConfig"
+      :row-config="rowConfig"
       :custom-config="customConfig"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column type="seq" width="90"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -39,15 +40,21 @@ const tableData = ref<RowVO[]>([
 ])
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
-  resizable: true
+  resizable: true,
+  drag: true,
+  useKey: true
+})
+
+const rowConfig = reactive<VxeTablePropTypes.RowConfig>({
+  useKey: true
 })
 
 const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
   mode: 'drawer',
   allowVisible: false,
   allowFixed: false,
-  allowResizable: true,
-  allowSort: false
+  allowResizable: false,
+  allowSort: true
 })
 
 onMounted(() => {

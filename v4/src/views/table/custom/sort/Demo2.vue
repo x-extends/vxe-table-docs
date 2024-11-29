@@ -3,9 +3,11 @@
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       ref="tableRef"
+      :column-config="columnConfig"
+      :row-config="rowConfig"
       :custom-config="customConfig"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column type="seq" width="90"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -35,6 +37,16 @@ const tableData = ref<RowVO[]>([
   { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
+
+const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
+  resizable: true,
+  drag: true,
+  useKey: true
+})
+
+const rowConfig = reactive<VxeTablePropTypes.RowConfig>({
+  useKey: true
+})
 
 const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
   mode: 'modal',

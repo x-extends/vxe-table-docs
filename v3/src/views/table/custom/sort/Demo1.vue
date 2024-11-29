@@ -3,6 +3,8 @@
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       ref="tableRef"
+      :column-config="columnConfig"
+      :row-config="rowConfig"
       :custom-config="customConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -35,6 +37,15 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
     ]
 
+    const columnConfig: VxeTablePropTypes.ColumnConfig = {
+      drag: true,
+      useKey: true
+    }
+
+    const rowConfig: VxeTablePropTypes.RowConfig = {
+      useKey: true
+    }
+
     const customConfig: VxeTablePropTypes.CustomConfig = {
       allowVisible: false,
       allowFixed: false,
@@ -44,6 +55,8 @@ export default Vue.extend({
 
     return {
       tableData,
+      columnConfig,
+      rowConfig,
       customConfig
     }
   },

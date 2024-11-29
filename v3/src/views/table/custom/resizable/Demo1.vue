@@ -2,7 +2,9 @@
   <div>
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
+      border
       ref="tableRef"
+      :column-config="columnConfig"
       :custom-config="customConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -35,6 +37,10 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
     ]
 
+    const columnConfig: VxeTablePropTypes.ColumnConfig = {
+      resizable: true
+    }
+
     const customConfig: VxeTablePropTypes.CustomConfig = {
       mode: 'drawer',
       allowVisible: false,
@@ -45,6 +51,7 @@ export default Vue.extend({
 
     return {
       tableData,
+      columnConfig,
       customConfig
     }
   },
