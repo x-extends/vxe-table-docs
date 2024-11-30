@@ -84,7 +84,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '合并行与列', routerLink: { name: 'ComponentTableMergeAll' } },
             { title: '表尾合并', routerLink: { name: 'ComponentTableMergeFooter' } },
             { title: '实现横向合并树', routerLink: { name: 'ComponentTableMergeHorizontal' } },
-            { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%23%2FextendCellArea%2Ftable%2FareaMerge' } } }
+            { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaMerge' } } }
           ]
         },
         {
@@ -272,7 +272,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '同时使用展开行', routerLink: { name: 'ComponentTableTreeExpand' } },
             { title: '同时使用展开行 - 懒加载', routerLink: { name: 'ComponentTableTreeExpandLazy' } },
             { title: '实现数据分组', routerLink: { name: 'ComponentTableTreeGroup' } },
-            { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%23%2FextendCellArea%2Ftable%2FareaTree' } } }
+            { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaTree' } } }
           ]
         },
         {
@@ -441,6 +441,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '重写默认编辑行为', routerLink: { name: 'ComponentTableKeyboardEditMethod' } },
             { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
+            { title: '树结构-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaTree' } } },
+            { title: '右键菜单-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_menu' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaMenu' } } },
             { title: '单元格选择-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_keypad' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaKeypad' } } }
           ]
         },
@@ -582,7 +584,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } },
             { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } },
             { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } },
-            { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%23%2FextendCellArea%2Fgrid%2FareaMerge' } } }
+            { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaMerge' } } }
           ]
         },
         {
@@ -800,7 +802,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '复选框', routerLink: { name: 'ComponentGridTreeCheckbox' } },
             { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } },
             { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
-            { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%23%2FextendCellArea%2Fgrid%2FareaTree' } } }
+            { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } }
           ]
         },
         {
@@ -949,6 +951,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '重写默认编辑行为', routerLink: { name: 'ComponentGridKeyboardEditMethod' } },
             { title: '树结构按键操作', routerLink: { name: 'ComponentGridKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentGridKeyboardTreeEdit' } },
+            { title: '树结构-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } },
+            { title: '右键菜单-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_menu' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaMenu' } } },
             { title: '单元格选择-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_keypad' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaKeypad' } } }
           ]
         },
