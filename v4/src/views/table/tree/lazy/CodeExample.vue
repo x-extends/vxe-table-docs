@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="table/tree/lazy/Demo1">
+    <CodeLight path="table/tree/lazy/Demo1" previewPath="/resource/docsImg/table_tree_lazy.gif">
       <template #tip>
         <vxe-tip status="primary">
           树表格的懒加载，通过配置 <ApiLink name="table" prop="row-config"/>.<ApiLink name="table" prop="keyField"/> 和 <ApiLink name="table" prop="tree-config"/>={<ApiLink name="table" prop="lazy"/>, <ApiLink name="table" prop="loadMethod"/>} 加载方法来开启树形懒加载<br>
