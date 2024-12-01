@@ -32,6 +32,7 @@ interface RowVO {
   size: number
   date: string
 }
+
 export default Vue.extend({
   data () {
     const tableData: RowVO[] = [

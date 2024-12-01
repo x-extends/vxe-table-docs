@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       border
-      :tree-config="{rowField: 'id', childrenField: 'children'}"
+      :tree-config="treeConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="300" tree-node></vxe-column>
@@ -14,7 +14,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -96,4 +97,9 @@ const tableData = ref<RowVO[]>([
       { id: 24577, name: 'Test18', type: 'js', size: 1024, date: '2021-06-01' }]
   }
 ])
+
+const treeConfig = reactive<VxeTablePropTypes.TreeConfig<RowVO>>({
+  rowField: 'id',
+  childrenField: 'children'
+})
 </script>

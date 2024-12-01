@@ -1,10 +1,12 @@
 <template>
   <div>
+    <vxe-button status="error" @click="removeSelectEvent">批量删除</vxe-button>
     <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
     <vxe-table
       border
       show-overflow
       height="400"
+      ref="tableRef"
       :edit-config="editConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -22,7 +24,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeTablePropTypes } from 'vxe-table'
+import { VxeUI, VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -32,6 +34,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const removeRecords: RowVO[] = []
 
@@ -54,6 +58,26 @@ const removeRow = async (row: RowVO) => {
     content: '数据已删除',
     status: 'success'
   })
+}
+
+const removeSelectEvent = async () => {
+  const $table = tableRef.value
+  if ($table) {
+    const selectRecords = $table.getCheckboxRecords()
+    if (selectRecords.length > 0) {
+      tableData.value = tableData.value.filter(item => !selectRecords.some(row => row.id === item.id))
+      removeRecords.push(...selectRecords)
+      VxeUI.modal.message({
+        content: '已删除选中',
+        status: 'success'
+      })
+    } else {
+      VxeUI.modal.message({
+        content: '未选择数据',
+        status: 'info'
+      })
+    }
+  }
 }
 
 const getRemoveEvent = () => {

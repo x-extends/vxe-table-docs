@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-button status="error" @click="removeSelectEvent">批量删除</vxe-button>
     <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
@@ -35,7 +36,7 @@ export default Vue.extend({
         showStatus: true
       },
       columns: [
-        { type: 'seq', width: 70 },
+        { type: 'checkbox', width: 70 },
         { field: 'name', title: 'Name', editRender: { name: 'input' } },
         { field: 'sex', title: 'Sex', editRender: { name: 'input' } },
         { field: 'age', title: 'Age', editRender: { name: 'input' } },
@@ -62,6 +63,24 @@ export default Vue.extend({
           content: '数据已删除',
           status: 'success'
         })
+      }
+    },
+    removeSelectEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const selectRecords = $grid.getCheckboxRecords()
+        if (selectRecords.length > 0) {
+          $grid.removeCheckboxRow()
+          VxeUI.modal.message({
+            content: '已删除选中',
+            status: 'success'
+          })
+        } else {
+          VxeUI.modal.message({
+            content: '未选择数据',
+            status: 'info'
+          })
+        }
       }
     },
     getRemoveEvent () {

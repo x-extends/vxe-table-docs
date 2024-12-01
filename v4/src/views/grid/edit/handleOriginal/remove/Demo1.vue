@@ -1,7 +1,8 @@
 <template>
   <div>
+    <vxe-button status="error" @click="removeSelectEvent">批量删除</vxe-button>
     <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
-    <vxe-grid v-bind="gridOptions">
+    <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
         <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
       </template>
@@ -10,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import { VxeUI, VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -21,6 +22,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const removeRecords: RowVO[] = []
 
@@ -33,7 +36,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
     mode: 'cell'
   },
   columns: [
-    { type: 'seq', width: 70 },
+    { type: 'checkbox', width: 70 },
     { field: 'name', title: 'Name', editRender: { name: 'input' } },
     { field: 'sex', title: 'Sex', editRender: { name: 'input' } },
     { field: 'age', title: 'Age', editRender: { name: 'input' } },
@@ -54,6 +57,26 @@ const removeRow = async (row: RowVO) => {
     content: '数据已删除',
     status: 'success'
   })
+}
+
+const removeSelectEvent = async () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const selectRecords = $grid.getCheckboxRecords()
+    if (selectRecords.length > 0) {
+      gridOptions.data = gridOptions.data.filter(item => !selectRecords.some(row => row.id === item.id))
+      removeRecords.push(...selectRecords)
+      VxeUI.modal.message({
+        content: '已删除选中',
+        status: 'success'
+      })
+    } else {
+      VxeUI.modal.message({
+        content: '未选择数据',
+        status: 'info'
+      })
+    }
+  }
 }
 
 const getRemoveEvent = () => {

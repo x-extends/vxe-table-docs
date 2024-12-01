@@ -812,6 +812,16 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/tree/hierarchy/CodeExample.vue')
         },
         {
+          path: 'stripe',
+          name: 'ComponentTableTreeStripe',
+          component: () => import('@/views/table/tree/stripe/CodeExample.vue')
+        },
+        {
+          path: 'seqMode',
+          name: 'ComponentTableTreeSeqMode',
+          component: () => import('@/views/table/tree/seqMode/CodeExample.vue')
+        },
+        {
           path: 'icon',
           name: 'ComponentTableTreeIcon',
           component: () => import('@/views/table/tree/icon/CodeExample.vue')
@@ -2583,6 +2593,16 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'hierarchy',
           name: 'ComponentGridTreeHierarchy',
           component: () => import('@/views/grid/tree/hierarchy/CodeExample.vue')
+        },
+        {
+          path: 'stripe',
+          name: 'ComponentGridTreeStripe',
+          component: () => import('@/views/grid/tree/stripe/CodeExample.vue')
+        },
+        {
+          path: 'seqMode',
+          name: 'ComponentGridTreeSeqMode',
+          component: () => import('@/views/grid/tree/seqMode/CodeExample.vue')
         },
         {
           path: 'line',

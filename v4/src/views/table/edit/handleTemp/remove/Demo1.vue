@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-button status="error" @click="removeSelectEvent">批量删除</vxe-button>
     <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
     <vxe-table
       border
@@ -9,7 +10,7 @@
       ref="tableRef"
       :edit-config="editConfig"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column type="checkbox" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
@@ -58,6 +59,25 @@ const removeRow = async (row: RowVO) => {
       content: '数据已删除',
       status: 'success'
     })
+  }
+}
+
+const removeSelectEvent = async () => {
+  const $table = tableRef.value
+  if ($table) {
+    const selectRecords = $table.getCheckboxRecords()
+    if (selectRecords.length > 0) {
+      $table.removeCheckboxRow()
+      VxeUI.modal.message({
+        content: '已删除选中',
+        status: 'success'
+      })
+    } else {
+      VxeUI.modal.message({
+        content: '未选择数据',
+        status: 'info'
+      })
+    }
   }
 }
 

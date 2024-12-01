@@ -57,7 +57,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    async pendingRow (row: RowVO, status: boolean) {
+    pendingRow (row: RowVO, status: boolean) {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
         $table.setPendingRow(row, status)

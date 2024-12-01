@@ -1,0 +1,19 @@
+<template>
+  <div>
+    <CodeLight path="table/tree/seqMode/Demo1">
+      <template #tip>
+        <vxe-tip status="primary" title="序号">
+          树形结构默认的序号是按层级的
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="table/tree/seqMode/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          通过 <ApiLink name="table" prop="tree-config"/>.<ApiLink name="table" prop="seqMode"/>='increasing' 设置为自增序号
+        </vxe-tip>
+      </template>
+    </CodeLight>
+  </div>
+</template>
