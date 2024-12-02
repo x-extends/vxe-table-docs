@@ -21,32 +21,45 @@ export default {
         `
         import { VXETable } from 'vxe-table'
 
-        import zhCN from 'vxe-table/lib/language/zh-CN'
-        // import zhHK from 'vxe-table/lib/language/zh-HK'
-        // import zhTW from 'vxe-table/lib/language/zh-TW'
-        // import zhMO from 'vxe-table/lib/language/zh-MO'
-        import enUS from 'vxe-table/lib/language/en-US'
-        // import jaJP from 'vxe-table/lib/language/ja-JP'
-        // import esES from 'vxe-table/lib/language/es-ES'
-        // import ptBR from 'vxe-table/lib/language/pt-BR'
-        // import viVN from 'vxe-table/lib/language/vi-VN'
-        // import koKR from 'vxe-table/lib/language/ko-KR'
-        // import huHU from 'vxe-table/lib/language/hu-HU'
-        // import ruRU from 'vxe-table/lib/language/ru-RU'
+        import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
+        // import zhHK from 'vxe-pc-ui/lib/language/zh-HK'
+        // import zhTW from 'vxe-pc-ui/lib/language/zh-TW'
+        // import zhMO from 'vxe-pc-ui/lib/language/zh-MO'
+        // import arEG from 'vxe-pc-ui/lib/language/ar-EG'
+        // import deDE from 'vxe-pc-ui/lib/language/de-DE'
+        import enUS from 'vxe-pc-ui/lib/language/en-US'
+        // import esES from 'vxe-pc-ui/lib/language/es-ES'
+        // import frFR from 'vxe-pc-ui/lib/language/fr-FR'
+        // import huHU from 'vxe-pc-ui/lib/language/hu-HU'
+        // import hyAM from 'vxe-pc-ui/lib/language/hy-AM'
+        // import jaJP from 'vxe-pc-ui/lib/language/ja-JP'
+        // import koKR from 'vxe-pc-ui/lib/language/ko-KR'
+        // import nbNO from 'vxe-pc-ui/lib/language/nb-NO'
+        // import ptBR from 'vxe-pc-ui/lib/language/pt-BR'
+        // import ruRU from 'vxe-pc-ui/lib/language/ru-RU'
+        // import ugCN from 'vxe-pc-ui/lib/language/ug-CN'
+        // import ukUA from 'vxe-pc-ui/lib/language/uk-UA'
+        // import viVN from 'vxe-pc-ui/lib/language/vi-VN'
 
         // 注册语言
         VxeUI.setI18n('zh-CN', zhCN)
-        // VXETable.setI18n('zh-HK', zhHK)
-        // VXETable.setI18n('zh-TW', zhTW)
-        // VXETable.setI18n('zh-MO', zhMO)
-        VXETable.setI18n('en-US', enUS)
-        // VXETable.setI18n('ja-JP', jaJP)
-        // VXETable.setI18n('es-ES', esES)
-        // VXETable.setI18n('pt-BR', ptBR)
-        // VXETable.setI18n('vi-VN', viVN)
-        // VXETable.setI18n('ko-KR', koKR)
-        // VXETable.setI18n('hu-HU', huHU)
-        // VXETable.setI18n('ru-RU', ruRU)
+        // VxeUI.setI18n('zh-HK', zhHK)
+        // VxeUI.setI18n('zh-TW', zhTW)
+        // VxeUI.setI18n('zh-MO', zhMO)
+        // VxeUI.setI18n('arEG', arEG)
+        // VxeUI.setI18n('deDE', deDE)
+        VxeUI.setI18n('en-US', enUS)
+        // VxeUI.setI18n('es-ES', esES)
+        // VxeUI.setI18n('fr-FR', frFR)
+        // VxeUI.setI18n('huH-U', huHU)
+        // VxeUI.setI18n('ja-JP', jaJP)
+        // VxeUI.setI18n('ko-KR', koKR)
+        // VxeUI.setI18n('nb-NO', nbNO)
+        // VxeUI.setI18n('pt-BR', ptBR)
+        // VxeUI.setI18n('ru-RU', ruRU)
+        // VxeUI.setI18n('ug-CN', ugCN)
+        // VxeUI.setI18n('ukU-A', ukUA)
+        // VxeUI.setI18n('vi-VN', viVN)
 
         // 切换语言
         VXETable.setLanguage('zh-CN')
