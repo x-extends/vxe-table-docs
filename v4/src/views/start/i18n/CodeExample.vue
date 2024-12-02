@@ -74,17 +74,7 @@
           <pre-code class="javascript">
             import { createI18n } from 'vue-i18n'
             import zhCN from 'vxe-table/lib/language/zh-CN'
-            // import zhHK from 'vxe-table/lib/language/zh-HK'
-            // import zhTW from 'vxe-table/lib/language/zh-TW'
-            // import zhMO from 'vxe-table/lib/language/zh-MO'
             import enUS from 'vxe-table/lib/language/en-US'
-            // import jaJP from 'vxe-table/lib/language/ja-JP'
-            // import esES from 'vxe-table/lib/language/es-ES'
-            // import ptBR from 'vxe-table/lib/language/pt-BR'
-            // import viVN from 'vxe-table/lib/language/vi-VN'
-            // import koKR from 'vxe-table/lib/language/ko-KR'
-            // import huHU from 'vxe-table/lib/language/hu-HU'
-            // import ruRU from 'vxe-table/lib/language/ru-RU'
 
             const i18n = createI18n({
               locale: 'zh_CN',
