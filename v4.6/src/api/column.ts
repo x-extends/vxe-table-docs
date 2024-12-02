@@ -355,7 +355,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'String',
-            enum: 'input, textarea, select, VxeInput, VxeTextarea, VxeSelect',
+            enum: 'input, textarea, select, $input, $textarea, $select, VxeInput, VxeTextarea, VxeSelect',
             defVal: '',
             list: []
           },
@@ -568,7 +568,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'string',
-            enum: 'VxeButton, VxeButtonGroup, VxeSwitch',
+            enum: '$button, $buttons, VxeButton, VxeButtonGroup, VxeSwitch',
             defVal: '',
             list: []
           },
@@ -668,7 +668,7 @@ const apis = [
             desc: '渲染器名称',
             version: '',
             type: 'string',
-            enum: 'input, textarea, select, VxeInput, VxeSelect, VxeSwitch',
+            enum: 'input, textarea, select, $input, $textarea, $select, VxeInput, VxeSelect, VxeSwitch',
             defVal: '',
             list: []
           },
