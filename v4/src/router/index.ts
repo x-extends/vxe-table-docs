@@ -1736,6 +1736,11 @@ const tableRouteConfig: RouteRecordRaw = {
       component: RouteLayout,
       children: [
         {
+          path: 'tabs',
+          name: 'ComponentTableOtherTabs',
+          component: () => import('@/views/table/other/tabs/CodeExample.vue')
+        },
+        {
           path: 'lineEllipsis',
           name: 'ComponentTableOtherLineEllipsis',
           component: () => import('@/views/table/other/lineEllipsis/CodeExample.vue')
@@ -3664,6 +3669,11 @@ const gridRouteConfig: RouteRecordRaw = {
       path: 'other',
       component: RouteLayout,
       children: [
+        {
+          path: 'tabs',
+          name: 'ComponentGridOtherTabs',
+          component: () => import('@/views/grid/other/tabs/CodeExample.vue')
+        },
         {
           path: 'scrollTo',
           name: 'ComponentGridOtherScrollTo',

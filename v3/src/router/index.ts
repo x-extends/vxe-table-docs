@@ -432,6 +432,27 @@ const tableRouteConfig: RouteConfig = {
       ]
     },
     {
+      path: 'colResizable',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'mode',
+          name: 'ComponentTableColResizableMode',
+          component: () => import('@/views/table/colResizable/mode/CodeExample.vue')
+        },
+        {
+          path: 'group',
+          name: 'ComponentTableColResizableGroup',
+          component: () => import('@/views/table/colResizable/group/CodeExample.vue')
+        },
+        {
+          path: 'fixed',
+          name: 'ComponentTableColResizableFixed',
+          component: () => import('@/views/table/colResizable/fixed/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'colDrag',
       component: RouteLayout,
       children: [
@@ -1718,6 +1739,11 @@ const tableRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
+          path: 'tabs',
+          name: 'ComponentTableOtherTabs',
+          component: () => import('@/views/table/other/tabs/CodeExample.vue')
+        },
+        {
           path: 'lineEllipsis',
           name: 'ComponentTableOtherLineEllipsis',
           component: () => import('@/views/table/other/lineEllipsis/CodeExample.vue')
@@ -2012,64 +2038,23 @@ const gridRouteConfig: RouteConfig = {
       ]
     },
     {
-      path: 'rowDrag',
+      path: 'colResizable',
       component: RouteLayout,
       children: [
         {
-          path: 'sort',
-          name: 'ComponentGridRowDragSort',
-          component: () => import('@/views/grid/rowDrag/sort/CodeExample.vue')
-        },
-        {
-          path: 'fixed',
-          name: 'ComponentGridRowDragFixed',
-          component: () => import('@/views/grid/rowDrag/fixed/CodeExample.vue')
-        },
-        {
-          path: 'icon',
-          name: 'ComponentGridRowDragIcon',
-          component: () => import('@/views/grid/rowDrag/icon/CodeExample.vue')
+          path: 'mode',
+          name: 'ComponentGridColResizableMode',
+          component: () => import('@/views/grid/colResizable/mode/CodeExample.vue')
         },
         {
           path: 'group',
-          name: 'ComponentGridRowDragTree',
-          component: () => import('@/views/grid/rowDrag/tree/CodeExample.vue')
+          name: 'ComponentGridColResizableGroup',
+          component: () => import('@/views/grid/colResizable/group/CodeExample.vue')
         },
         {
-          path: 'events',
-          name: 'ComponentGridRowDragEvents',
-          component: () => import('@/views/grid/rowDrag/events/CodeExample.vue')
-        },
-        {
-          path: 'tooltipMethod',
-          name: 'ComponentGridRowDragTooltipMethod',
-          component: () => import('@/views/grid/rowDrag/tooltipMethod/CodeExample.vue')
-        },
-        {
-          path: 'disabledMethod',
-          name: 'ComponentGridRowDragDisabledMethod',
-          component: () => import('@/views/grid/rowDrag/disabledMethod/CodeExample.vue')
-        },
-        {
-          path: 'visibleMethod',
-          name: 'ComponentGridRowDragVisibleMethod',
-          component: () => import('@/views/grid/rowDrag/visibleMethod/CodeExample.vue')
-        },
-        {
-          path: 'dragMethod',
-          name: 'ComponentGridRowDragDragMethod',
-          component: () => import('@/views/grid/rowDrag/dragMethod/CodeExample.vue')
-        },
-        {
-          path: 'template',
-          component: RouteLayout,
-          children: [
-            {
-              path: 'tip',
-              name: 'ComponentGridRowDragTemplateTip',
-              component: () => import('@/views/grid/rowDrag/template/tip/CodeExample.vue')
-            }
-          ]
+          path: 'fixed',
+          name: 'ComponentGridColResizableFixed',
+          component: () => import('@/views/grid/colResizable/fixed/CodeExample.vue')
         }
       ]
     },
@@ -2137,6 +2122,68 @@ const gridRouteConfig: RouteConfig = {
           path: 'rowCol',
           name: 'ComponentGridColDragRowCol',
           component: () => import('@/views/grid/colDrag/rowCol/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'rowDrag',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'sort',
+          name: 'ComponentGridRowDragSort',
+          component: () => import('@/views/grid/rowDrag/sort/CodeExample.vue')
+        },
+        {
+          path: 'fixed',
+          name: 'ComponentGridRowDragFixed',
+          component: () => import('@/views/grid/rowDrag/fixed/CodeExample.vue')
+        },
+        {
+          path: 'icon',
+          name: 'ComponentGridRowDragIcon',
+          component: () => import('@/views/grid/rowDrag/icon/CodeExample.vue')
+        },
+        {
+          path: 'group',
+          name: 'ComponentGridRowDragTree',
+          component: () => import('@/views/grid/rowDrag/tree/CodeExample.vue')
+        },
+        {
+          path: 'events',
+          name: 'ComponentGridRowDragEvents',
+          component: () => import('@/views/grid/rowDrag/events/CodeExample.vue')
+        },
+        {
+          path: 'tooltipMethod',
+          name: 'ComponentGridRowDragTooltipMethod',
+          component: () => import('@/views/grid/rowDrag/tooltipMethod/CodeExample.vue')
+        },
+        {
+          path: 'disabledMethod',
+          name: 'ComponentGridRowDragDisabledMethod',
+          component: () => import('@/views/grid/rowDrag/disabledMethod/CodeExample.vue')
+        },
+        {
+          path: 'visibleMethod',
+          name: 'ComponentGridRowDragVisibleMethod',
+          component: () => import('@/views/grid/rowDrag/visibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'dragMethod',
+          name: 'ComponentGridRowDragDragMethod',
+          component: () => import('@/views/grid/rowDrag/dragMethod/CodeExample.vue')
+        },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'tip',
+              name: 'ComponentGridRowDragTemplateTip',
+              component: () => import('@/views/grid/rowDrag/template/tip/CodeExample.vue')
+            }
+          ]
         }
       ]
     },
@@ -3625,6 +3672,11 @@ const gridRouteConfig: RouteConfig = {
       path: 'other',
       component: RouteLayout,
       children: [
+        {
+          path: 'tabs',
+          name: 'ComponentGridOtherTabs',
+          component: () => import('@/views/grid/other/tabs/CodeExample.vue')
+        },
         {
           path: 'scrollTo',
           name: 'ComponentGridOtherScrollTo',

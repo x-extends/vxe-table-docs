@@ -23,5 +23,11 @@
         <vxe-tip status="primary">设置为 <ApiLink name="table" prop="auto-resize"/> 响应式就可以自动跟随父容器宽、高动态变化</vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/base/autoHeight/Demo4">
+      <template #tip>
+        <vxe-tip status="primary">自适应页签高度</vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
