@@ -11,7 +11,6 @@
       <template #use>
         <div>
           如果您使用了 vite，借助插件 <vxe-link href="https://www.npmjs.com/package/vite-plugin-lazy-import" target="_blank">vite-plugin-lazy-import</vxe-link> 可以实现按需加载模块。
-          <vxe-link status="primary" href="https://github.com/xuliangzhan/vxe-table-demo/tree/master/vxe-table-by-vue3-vite-typescript-demand" target="_blank">示例项目</vxe-link>
         </div>
         <pre>
           <pre-code class="shell">
@@ -48,7 +47,6 @@
       <template #use>
         <div>
           如果您使用了 webpack，借助插件 <vxe-link  href="https://www.npmjs.com/package/babel-plugin-import" target="_blank">babel-plugin-import</vxe-link> 可以实现按需加载模块。
-          <vxe-link status="primary" href="https://github.com/xuliangzhan/vxe-table-demo/tree/master/vxe-table-by-vue3-typescript-demand" target="_blank">示例项目</vxe-link>
         </div>
         <pre>
           <pre-code class="shell">

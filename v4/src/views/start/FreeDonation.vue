@@ -22,7 +22,7 @@
       <div>
         2018 开源了表格库 <vxe-link status="primary" href="https://vxetable.cn" target="_blank">vxe-table</vxe-link>
         <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/vxe-table" target="_blank"></vxe-link>
-        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/xuliangzhan/vxe-table" target="_blank"></vxe-link>
+        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/vxe-table" target="_blank"></vxe-link>
       </div>
       <div>
         2024 开源了组件库 <vxe-link status="primary" href="https://vxeui.com" target="_blank">vxe-pc-ui</vxe-link>

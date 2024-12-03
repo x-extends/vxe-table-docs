@@ -17,7 +17,7 @@
     </pre>
 
     <p class="tip">
-      通过修改 css 变量（<a href="https://gitee.com/xuliangzhan/vxe-table/blob/master/styles/theme/light.scss" status="primary" target="_blank">查看全部变量</a>）方式修改组件样式，给 html 加个 class="my-theme"，示例：
+      通过修改 css 变量（<a href="https://gitee.com/x-extends/vxe-table/blob/master/styles/theme/light.scss" status="primary" target="_blank">查看全部变量</a>）方式修改组件样式，给 html 加个 class="my-theme"，示例：
     </p>
     <pre>
       <pre-code class="css">
@@ -30,7 +30,7 @@
     </pre>
 
     <p class="tip">
-      通过修改 scss 变量（<a href="https://gitee.com/xuliangzhan/vxe-table/blob/master/styles/variable.scss" status="primary" target="_blank">查看全部变量</a>）方式修改组件样式，示例：
+      通过修改 scss 变量（<a href="https://gitee.com/x-extends/vxe-table/blob/master/styles/variable.scss" status="primary" target="_blank">查看全部变量</a>）方式修改组件样式，示例：
     </p>
     <pre>
       <pre-code class="css">

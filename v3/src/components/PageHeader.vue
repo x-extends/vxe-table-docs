@@ -5,10 +5,7 @@
         <img src="/logo.png">
         <span class="title">{{ pageTitle }}</span>
       </a>
-      <a v-if="packName === 'vxe-table'" href='https://gitee.com/xuliangzhan/vxe-table/stargazers'>
-        <img src='https://gitee.com/xuliangzhan/vxe-table/badge/star.svg?theme=gvp' alt='star'>
-      </a>
-      <a v-else :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
+      <a :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
         <img :src='`https://gitee.com/x-extends/${packName}/badge/star.svg?theme=gvp`' alt='star'>
       </a>
       <a :href="`http://npm-stat.com/charts.html?package=${packName}`">
@@ -133,9 +130,6 @@ export default Vue.extend({
       return `https://github.com/x-extends/${this.packName}`
     },
     giteeUrl () {
-      if (this.packName === 'vxe-table') {
-        return 'https://gitee.com/xuliangzhan/vxe-table'
-      }
       return `https://gitee.com/x-extends/${this.packName}`
     },
     sysVersionOptions () {

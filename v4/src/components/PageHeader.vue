@@ -5,10 +5,7 @@
         <img src="/logo.png">
         <span class="title">{{ appStore.pageTitle }}</span>
       </a>
-      <a v-if="appStore.packName === 'vxe-table'" href='https://gitee.com/xuliangzhan/vxe-table/stargazers'>
-        <img src='https://gitee.com/xuliangzhan/vxe-table/badge/star.svg?theme=gvp' alt='star'>
-      </a>
-      <a v-else :href='`https://gitee.com/x-extends/${appStore.packName}/stargazers`'>
+      <a :href='`https://gitee.com/x-extends/${appStore.packName}/stargazers`'>
         <img :src='`https://gitee.com/x-extends/${appStore.packName}/badge/star.svg?theme=gvp`' alt='star'>
       </a>
       <a :href="`http://npm-stat.com/charts.html?package=${appStore.packName}`">
@@ -114,9 +111,6 @@ const githubUrl = computed(() => {
 })
 
 const giteeUrl = computed(() => {
-  if (appStore.packName === 'vxe-table') {
-    return 'https://gitee.com/xuliangzhan/vxe-table'
-  }
   return `https://gitee.com/x-extends/${appStore.packName}`
 })
 
