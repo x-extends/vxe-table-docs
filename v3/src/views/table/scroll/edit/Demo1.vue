@@ -21,15 +21,16 @@
       <vxe-column field="nickname" title="Nickname" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="role" title="Role" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="address" title="Address" :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="sexEditRender"></vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{name: 'VxeDatePicker'}"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
+import { VxeSelectProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -38,7 +39,7 @@ interface RowVO {
   role: string
   age: string
   sex: string
-  address: string
+  date: string
 }
 
 export default Vue.extend({
@@ -50,10 +51,19 @@ export default Vue.extend({
       mode: 'cell'
     }
 
+    const sexEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps> = {
+      name: 'VxeSelect',
+      options: [
+        { label: '女', value: 'Women' },
+        { label: '男', value: 'Man' }
+      ]
+    }
+
     return {
       loading: false,
       tableData,
-      editConfig
+      editConfig,
+      sexEditRender
     }
   },
   methods: {
@@ -71,7 +81,7 @@ export default Vue.extend({
             role: `角色${i}`,
             age: '18',
             sex: '',
-            address: ''
+            date: ''
           })
         }
         this.loading = false

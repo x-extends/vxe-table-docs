@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridInstance, VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -22,11 +22,16 @@ interface RowVO {
   role: string
   age: string
   sex: string
-  address: string
+  date: string
 }
 
 export default Vue.extend({
   data () {
+    const editConfig: VxeTablePropTypes.EditConfig = {
+      trigger: 'click',
+      mode: 'cell'
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
@@ -45,15 +50,16 @@ export default Vue.extend({
         { field: 'name', title: 'Name', editRender: { name: 'input' } },
         { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
         { field: 'role', title: 'Role', editRender: { name: 'input' } },
-        { field: 'age', title: 'Age', editRender: { name: 'input' } },
+        { field: 'age', title: 'Age', editRender: editConfig },
         { field: 'sex', title: 'Sex', editRender: { name: 'input' } },
-        { field: 'address', title: 'Address', editRender: { name: 'input' } }
+        { field: 'date', title: 'Date', editRender: { name: 'VxeDatePicker' } }
       ],
       data: []
     }
 
     return {
-      gridOptions
+      gridOptions,
+      editConfig
     }
   },
   methods: {
@@ -71,7 +77,7 @@ export default Vue.extend({
             role: `角色${i}`,
             age: '18',
             sex: '',
-            address: ''
+            date: ''
           })
         }
         this.gridOptions.loading = false

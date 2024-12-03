@@ -16,19 +16,20 @@
       :edit-config="editConfig"
       :loading="loading">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="nickname" title="Nickname" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="role" title="Role" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="address" title="Address" :edit-render="{name: 'input'}"></vxe-column>
+      <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="nickname" title="Nickname" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="sex" title="Sex" :edit-render="sexEditRender"></vxe-column>
+      <vxe-column field="date" title="Date" :edit-render="{name: 'VxeDatePicker'}"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
+import { VxeSelectProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -37,7 +38,7 @@ interface RowVO {
   role: string
   age: string
   sex: string
-  address: string
+  date: string
 }
 
 const tableRef = ref<VxeTableInstance>()
@@ -47,6 +48,14 @@ const loading = ref(false)
 const editConfig = ref<VxeTablePropTypes.EditConfig>({
   trigger: 'click',
   mode: 'cell'
+})
+
+const sexEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
+  name: 'VxeSelect',
+  options: [
+    { label: '女', value: 'Women' },
+    { label: '男', value: 'Man' }
+  ]
 })
 
 // 模拟行数据
@@ -63,7 +72,7 @@ const loadData = (size = 200) => {
         role: `角色${i}`,
         age: '18',
         sex: '',
-        address: ''
+        date: ''
       })
     }
     loading.value = false

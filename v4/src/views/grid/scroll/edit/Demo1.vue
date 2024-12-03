@@ -13,7 +13,8 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridInstance, VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import { VxeSelectProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -22,10 +23,18 @@ interface RowVO {
   role: string
   age: string
   sex: string
-  address: string
+  date: string
 }
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
+
+const sexEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
+  name: 'VxeSelect',
+  options: [
+    { label: '女', value: 'Women' },
+    { label: '男', value: 'Man' }
+  ]
+})
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -42,12 +51,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', editRender: { name: 'input' } },
-    { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
-    { field: 'role', title: 'Role', editRender: { name: 'input' } },
-    { field: 'age', title: 'Age', editRender: { name: 'input' } },
-    { field: 'sex', title: 'Sex', editRender: { name: 'input' } },
-    { field: 'address', title: 'Address', editRender: { name: 'input' } }
+    { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
+    { field: 'nickname', title: 'Nickname', editRender: { name: 'VxeInput' } },
+    { field: 'role', title: 'Role', editRender: { name: 'VxeInput' } },
+    { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
+    { field: 'sex', title: 'Sex', editRender: sexEditRender },
+    { field: 'date', title: 'Date', editRender: { name: 'VxeDatePicker' } }
   ]
 })
 
@@ -65,7 +74,7 @@ const loadData = (size = 200) => {
         role: `角色${i}`,
         age: '18',
         sex: '',
-        address: ''
+        date: ''
       })
     }
     gridOptions.loading = false
