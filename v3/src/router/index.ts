@@ -3062,6 +3062,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'rowDisable',
           name: 'ComponentGridEditRenderRowDisable',
           component: () => import('@/views/grid/editRender/rowDisable/CodeExample.vue')
+        },
+        {
+          path: 'readonly',
+          name: 'ComponentGridEditRenderReadonly',
+          component: () => import('@/views/grid/editRender/readonly/CodeExample.vue')
         }
       ]
     },

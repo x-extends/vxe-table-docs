@@ -3,7 +3,7 @@
     <p>
       <vxe-button @click="getTreeExpansionEvent">获取已展开</vxe-button>
       <vxe-button @click="expandAllEvent">展开所有</vxe-button>
-      <vxe-button @click="claseExpandEvent">关闭所有</vxe-button>
+      <vxe-button @click="clearExpandEvent">关闭所有</vxe-button>
     </p>
 
     <vxe-table
@@ -90,7 +90,7 @@ export default Vue.extend({
         $table.setAllTreeExpand(true)
       }
     },
-    claseExpandEvent () {
+    clearExpandEvent () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
         $table.clearTreeExpand()
