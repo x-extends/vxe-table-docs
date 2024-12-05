@@ -3,6 +3,9 @@
     <CodeLight path="table/base/data/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="标准结构">使用对象数组形式</vxe-tip>
+        <vxe-tip status="error">
+          需要注意字段名不允许出现 "." 关键字，该关键字用于层深层结构的数据
+        </vxe-tip>
       </template>
     </CodeLight>
 
