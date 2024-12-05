@@ -26,6 +26,7 @@ export const useAppStore = defineStore('app', {
       pageLoading: false,
       pageTitle: process.env.VUE_APP_PAGE_TITLE,
       packName: process.env.VUE_APP_PACKAGE_NAME,
+      isExtendDocs: process.env.VUE_APP_IS_EXTEND_DOCS === 'true',
       isPluginDocs: process.env.VUE_APP_IS_PLUGIN_DOCS === 'true',
       theme: currTheme,
       docsVersion: '4',

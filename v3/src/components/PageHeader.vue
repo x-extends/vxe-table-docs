@@ -102,6 +102,7 @@ export default Vue.extend({
       'theme',
       'language',
       'pageTitle',
+      'isExtendDocs',
       'isPluginDocs',
       'siteBaseUrl',
       'pluginBuyUrl',
@@ -115,6 +116,7 @@ export default Vue.extend({
       language(): string
       siteBaseUrl(): string
       pageTitle(): string
+      isExtendDocs(): boolean
       isPluginDocs(): boolean
       pluginBuyUrl(): string
       showTopMenuMsgFlag(): boolean
@@ -204,14 +206,19 @@ export default Vue.extend({
       })
     })
 
-    fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-      res.json().then(data => {
-        this.pluginUrlMaps = data
-      })
-    })
-
     if (this.isPluginDocs) {
+      fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        res.json().then(data => {
+          this.pluginUrlMaps = data
+        })
+      })
       fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        res.json().then(data => {
+          this.systemVersionList = data
+        })
+      })
+    } else if (this.isExtendDocs) {
+      fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-extend-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
         res.json().then(data => {
           this.systemVersionList = data
         })

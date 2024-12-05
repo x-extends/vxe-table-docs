@@ -76,6 +76,7 @@ import { VxePulldownEvents } from 'vxe-pc-ui'
 import i18n from '@/i18n'
 
 const appStore = useAppStore()
+const isExtendDocs = computed(() => appStore.isExtendDocs)
 const isPluginDocs = computed(() => appStore.isPluginDocs)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
@@ -178,14 +179,19 @@ fetch(`${siteBaseUrl.value}/component-api/system-list.json?v=?v=${process.env.VU
   })
 })
 
-fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-  res.json().then(data => {
-    pluginUrlMaps.value = data
-  })
-})
-
 if (isPluginDocs.value) {
+  fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+    res.json().then(data => {
+      pluginUrlMaps.value = data
+    })
+  })
   fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+    res.json().then(data => {
+      systemVersionList.value = data
+    })
+  })
+} else if (isExtendDocs.value) {
+  fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-extend-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       systemVersionList.value = data
     })
