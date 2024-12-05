@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -19,7 +19,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> & { keyboardConfig: VxeTablePropTypes.KeyboardConfig<RowVO> } = {
       border: true,
       showOverflow: true,
       keepSource: true,
@@ -35,14 +35,7 @@ export default Vue.extend({
         isDel: true,
         isBack: true,
         isEsc: true,
-        editMethod ({ $table, row, column }) {
-          // 清空值
-          // if (column.field) {
-          //   row[column.field] = ''
-          // }
-          // 激活编辑状态
-          $table.setEditCell(row, column)
-        }
+        isLastEnterAppendRow: true
       },
       editConfig: {
         trigger: 'dblclick',

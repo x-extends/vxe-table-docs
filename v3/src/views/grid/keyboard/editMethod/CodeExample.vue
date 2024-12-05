@@ -2,8 +2,8 @@
   <div>
     <CodeLight path="grid/keyboard/editMethod/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="重写默认编辑行为">
-          当启用 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="isEdit"/> 按键编辑功能时，默认情况下是覆盖式编辑，可以通过重写 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="editMethod"/> 方法来自定义逻辑
+        <vxe-tip status="primary" title="实现追加方式编辑">
+          通过 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="editMode"/> 设置按键编辑方式
         </vxe-tip>
       </template>
 
@@ -34,7 +34,7 @@
     <CodeLight path="grid/keyboard/editMethod/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          实现追加式编辑
+          通过 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="editMethod"/> 自定义实现追加式编辑
         </vxe-tip>
       </template>
     </CodeLight>

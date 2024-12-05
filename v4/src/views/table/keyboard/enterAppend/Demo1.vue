@@ -1,10 +1,5 @@
 <template>
   <div>
-    <vxe-radio-group v-model="keyboardConfig.editMode">
-      <vxe-radio-button label="coverage" content="覆盖式编辑"></vxe-radio-button>
-      <vxe-radio-button label="insert" content="追加式编辑"></vxe-radio-button>
-    </vxe-radio-group>
-
     <vxe-table
       border
       show-overflow
@@ -76,6 +71,6 @@ const keyboardConfig = ref<VxeTablePropTypes.KeyboardConfig<RowVO>>({
   isDel: true,
   isBack: true,
   isEsc: true,
-  editMode: 'insert'
+  isLastEnterAppendRow: true
 })
 </script>

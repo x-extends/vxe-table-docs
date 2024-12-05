@@ -449,8 +449,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '单元格选中', routerLink: { name: 'ComponentTableKeyboardSelected' } },
             { title: '按键操作', routerLink: { name: 'ComponentTableKeyboardKeyboard' } },
+            { title: '回车自动新增一行', routerLink: { name: 'ComponentTableKeyboardEnterAppend' } },
             { title: '可编辑按键操作', routerLink: { name: 'ComponentTableKeyboardEdit' } },
-            { title: '重写默认编辑行为', routerLink: { name: 'ComponentTableKeyboardEditMethod' } },
+            { title: '设置为追加式编辑', routerLink: { name: 'ComponentTableKeyboardEditMethod' } },
             { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
             { title: '树结构-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaTree' } } },
@@ -973,8 +974,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '单元格选中', routerLink: { name: 'ComponentGridKeyboardSelected' } },
             { title: '按键操作', routerLink: { name: 'ComponentGridKeyboardKeyboard' } },
+            { title: '回车自动新增一行', routerLink: { name: 'ComponentGridKeyboardEnterAppend' } },
             { title: '可编辑按键操作', routerLink: { name: 'ComponentGridKeyboardEdit' } },
-            { title: '重写默认编辑行为', routerLink: { name: 'ComponentGridKeyboardEditMethod' } },
+            { title: '设置为追加式编辑', routerLink: { name: 'ComponentGridKeyboardEditMethod' } },
             { title: '树结构按键操作', routerLink: { name: 'ComponentGridKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentGridKeyboardTreeEdit' } },
             { title: '树结构-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } },
@@ -1140,7 +1142,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
             { title: '文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
             { title: '多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
-            { title: '动态生成月份表头', routerLink: { name: 'ComponentGridOtherYearMonth' } }
+            { title: '动态生成月份表头', routerLink: { name: 'ComponentGridOtherYearMonth' } },
+            { title: '实现粘贴上传', routerLink: { name: 'ComponentGridOtherPasteToUpload' } }
           ]
         }
       ]

@@ -1,8 +1,14 @@
 <template>
   <div>
+    <vxe-radio-group v-model="keyboardConfig.editMode">
+      <vxe-radio-button label="coverage" content="覆盖式编辑"></vxe-radio-button>
+      <vxe-radio-button label="insert" content="追加式编辑"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-table
       border
       show-overflow
+      keep-source
       height="400"
       :edit-config="editConfig"
       :keyboard-config="keyboardConfig"
@@ -56,7 +62,8 @@ export default Vue.extend({
 
     const editConfig: VxeTablePropTypes.EditConfig = {
       trigger: 'dblclick',
-      mode: 'cell'
+      mode: 'cell',
+      showStatus: true
     }
 
     const mouseConfig: VxeTablePropTypes.MouseConfig = {
@@ -71,12 +78,7 @@ export default Vue.extend({
       isDel: true,
       isBack: true,
       isEsc: true,
-      editMethod ({ $table, row, column }) {
-        // 先清空原先的值
-        row[column.field] = ''
-        // 再激活编辑状态并输入新值
-        $table.setEditCell(row, column)
-      }
+      editMode: 'insert'
     }
 
     return {

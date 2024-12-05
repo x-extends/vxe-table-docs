@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,7 +17,7 @@ interface RowVO {
   address: string
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
+const gridOptions = reactive<VxeGridProps<RowVO> & { keyboardConfig: VxeTablePropTypes.KeyboardConfig<RowVO> }>({
   border: true,
   showOverflow: true,
   keepSource: true,
@@ -33,14 +33,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     isDel: true,
     isBack: true,
     isEsc: true,
-    editMethod ({ $table, row, column }) {
-      // 清空值
-      // if (column.field) {
-      //   row[column.field] = ''
-      // }
-      // 激活编辑状态
-      $table.setEditCell(row, column)
-    }
+    isLastEnterAppendRow: true
   },
   editConfig: {
     trigger: 'dblclick',

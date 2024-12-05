@@ -3,6 +3,7 @@
     <vxe-table
       border
       show-overflow
+      keep-source
       height="400"
       :edit-config="editConfig"
       :keyboard-config="keyboardConfig"
@@ -54,7 +55,8 @@ const tableData = ref<RowVO[]>([
 
 const editConfig = ref<VxeTablePropTypes.EditConfig>({
   trigger: 'dblclick',
-  mode: 'cell'
+  mode: 'cell',
+  showStatus: true
 })
 
 const mouseConfig = ref<VxeTablePropTypes.MouseConfig>({
@@ -70,7 +72,11 @@ const keyboardConfig = ref<VxeTablePropTypes.KeyboardConfig<RowVO>>({
   isBack: true,
   isEsc: true,
   editMethod ({ $table, row, column }) {
-    // 重写默认的覆盖式，改为追加式
+    // 清空值
+    // if (column.field) {
+    //   row[column.field] = ''
+    // }
+    // 激活编辑状态
     $table.setEditCell(row, column)
   }
 })

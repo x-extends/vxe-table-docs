@@ -1,12 +1,17 @@
 <template>
   <div>
+    <vxe-radio-group v-model="gridOptions.keyboardConfig.editMode">
+      <vxe-radio-button label="coverage" content="覆盖式编辑"></vxe-radio-button>
+      <vxe-radio-button label="insert" content="追加式编辑"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -19,9 +24,10 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> & { keyboardConfig: VxeTablePropTypes.KeyboardConfig<RowVO> } = {
       border: true,
       showOverflow: true,
+      keepSource: true,
       height: 400,
       mouseConfig: {
         selected: true
@@ -34,16 +40,12 @@ export default Vue.extend({
         isDel: true,
         isBack: true,
         isEsc: true,
-        editMethod ({ $table, row, column }) {
-          // 先清空原先的值
-          row[column.field] = ''
-          // 再激活编辑状态并输入新值
-          $table.setEditCell(row, column)
-        }
+        editMode: 'insert'
       },
       editConfig: {
         trigger: 'dblclick',
-        mode: 'cell'
+        mode: 'cell',
+        showStatus: true
       },
       columns: [
         { type: 'seq', width: 70 },
