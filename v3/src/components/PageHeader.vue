@@ -58,8 +58,8 @@
         </template>
       </vxe-pulldown>
 
-      <a v-if="isPluginDocs" :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="pluginBuyUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
-      <a v-else :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="pluginBuyUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a>
+      <a v-if="isPluginDocs" :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
+      <a v-else :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a>
 
       <vxe-link v-if="!isPluginDocs" class="free-donation" status="success" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
 
@@ -74,19 +74,26 @@ import Vue from 'vue'
 import { mapMutations, mapState } from 'vuex'
 
 export default Vue.extend({
+  inject: {
+    pluginType: {
+      default: ''
+    }
+  },
   data () {
     return {
       showSystemMenu: false,
       systemMenuList: [] as any[],
 
+      prevSysVersion: process.env.VUE_APP_VXE_VERSION as string,
       currSysVersion: process.env.VUE_APP_VXE_VERSION as string,
       systemVersionList: [] as any[],
 
       langOptions: [] as {
         value: string
         label: string
-      }[]
+      }[],
 
+      pluginUrlMaps: {} as Record<string, string>
     }
   },
   computed: {
@@ -102,6 +109,7 @@ export default Vue.extend({
       'showAuthMsgFlag'
     ]),
     ...({} as {
+      pluginType () : string
       theme(): string
       packName(): string
       language(): string
@@ -112,6 +120,13 @@ export default Vue.extend({
       showTopMenuMsgFlag(): boolean
       showAuthMsgFlag(): boolean
     }),
+    currBuyPluginBUrl () {
+      const { pluginType, pluginUrlMaps } = this
+      if (pluginUrlMaps[pluginType]) {
+        return `${this.pluginBuyUrl}/#${pluginUrlMaps[pluginType]}`
+      }
+      return this.pluginBuyUrl
+    },
     currTheme: {
       get () {
         return this.theme
@@ -164,7 +179,12 @@ export default Vue.extend({
     vChangeEvent (this: any) {
       const selectSysItem = this.selectSysVersion
       if (selectSysItem) {
-        location.href = selectSysItem.url
+        const oldItem = this.systemVersionList.find(item => item.version === this.prevSysVersion)
+        if (oldItem && oldItem.isSync && selectSysItem.isSync) {
+          location.href = selectSysItem.url + location.hash
+        } else {
+          location.href = selectSysItem.url
+        }
       }
     },
     openPluginEvent (this: any) {
@@ -181,6 +201,12 @@ export default Vue.extend({
     fetch(`${this.siteBaseUrl}/component-api/system-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
       res.json().then(data => {
         this.systemMenuList = data
+      })
+    })
+
+    fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+      res.json().then(data => {
+        this.pluginUrlMaps = data
       })
     })
 

@@ -33,7 +33,7 @@
         </template>
       </vxe-pulldown>
 
-      <vxe-select v-if="!appStore.isPluginDocs" v-model="currSysVersion" class="switch-version" size="mini" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
+      <vxe-select v-model="currSysVersion" class="switch-version" size="mini" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
 
       <vxe-switch
         class="link switch-theme"
@@ -58,10 +58,10 @@
         </template>
       </vxe-pulldown>
 
-      <a v-if="appStore.isPluginDocs" :class="['plugin-shopping', {'unread': appStore.showAuthMsgFlag}]" :href="appStore.pluginBuyUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
-      <a v-else :class="['plugin-shopping', {'unread': appStore.showAuthMsgFlag}]" :href="appStore.pluginBuyUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a>
+      <a v-if="isPluginDocs" :class="['plugin-shopping', {'unread': appStore.showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
+      <a v-else :class="['plugin-shopping', {'unread': appStore.showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a>
 
-      <vxe-link v-if="!appStore.isPluginDocs" class="free-donation" status="success" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
+      <vxe-link v-if="!isPluginDocs" class="free-donation" status="success" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
 
       <vxe-link class="git-btn" status="error" :href="giteeUrl" icon="vxe-icon-gitee-fill" target="_blank"></vxe-link>
       <vxe-link class="git-btn" :href="githubUrl" icon="vxe-icon-github-fill" target="_blank"></vxe-link>
@@ -70,19 +70,31 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref, computed, inject } from 'vue'
 import { useAppStore } from '@/store/app'
 import { VxePulldownEvents } from 'vxe-pc-ui'
 import i18n from '@/i18n'
 
 const appStore = useAppStore()
+const isPluginDocs = computed(() => appStore.isPluginDocs)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
+
+const pluginType = inject('pluginType', '' as string)
 
 const showSystemMenu = ref(false)
 const systemMenuList = ref<any[]>()
 
+const prevSysVersion = ref(process.env.VUE_APP_VXE_VERSION)
 const currSysVersion = ref(process.env.VUE_APP_VXE_VERSION)
 const systemVersionList = ref<any[]>([])
+const pluginUrlMaps = ref<Record<string, string>>({})
+
+const currBuyPluginBUrl = computed(() => {
+  if (pluginUrlMaps.value[pluginType]) {
+    return `${appStore.pluginBuyUrl}/#${pluginUrlMaps.value[pluginType]}`
+  }
+  return appStore.pluginBuyUrl
+})
 
 const currTheme = computed({
   get () {
@@ -117,7 +129,7 @@ const giteeUrl = computed(() => {
 const sysVersionOptions = computed(() => {
   return systemVersionList.value.map(item => {
     return {
-      label: i18n.global.t(`app.version.${process.env.VUE_APP_PACKAGE_NAME}.v${item.version.replace('.', 'd')}`),
+      label: i18n.global.t(`app.version.${process.env.VUE_APP_PACKAGE_NAME}.v${(item.i18nKey || item.version).replace('.', 'd')}`),
       value: item.version,
       disabled: !!item.isDisabled,
       className: item.isStop ? 'due-to-stop' : (item.isAbandoned ? 'about-to-stop' : '')
@@ -141,7 +153,12 @@ const toggleSystemMenuEvent = () => {
 const vChangeEvent = () => {
   const selectSysItem = selectSysVersion.value
   if (selectSysItem) {
-    location.href = selectSysItem.url
+    const oldItem = systemVersionList.value.find(item => item.version === prevSysVersion.value)
+    if (oldItem && oldItem.isSync && selectSysItem.isSync) {
+      location.href = selectSysItem.url + location.hash
+    } else {
+      location.href = selectSysItem.url
+    }
   }
 }
 
@@ -161,11 +178,25 @@ fetch(`${siteBaseUrl.value}/component-api/system-list.json?v=?v=${process.env.VU
   })
 })
 
-fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
-    systemVersionList.value = data
+    pluginUrlMaps.value = data
   })
 })
+
+if (isPluginDocs.value) {
+  fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+    res.json().then(data => {
+      systemVersionList.value = data
+    })
+  })
+} else {
+  fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+    res.json().then(data => {
+      systemVersionList.value = data
+    })
+  })
+}
 </script>
 
 <style lang="scss" scoped>
