@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/proxy/sort/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          默认排序
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
