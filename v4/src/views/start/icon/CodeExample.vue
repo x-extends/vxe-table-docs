@@ -34,6 +34,8 @@
               TABLE_RADIO_UNCHECKED: 'vxe-icon-radio-unchecked',
               TABLE_CUSTOM_SORT: 'vxe-icon-drag-handle',
               TABLE_MENU_OPTIONS: 'vxe-icon-arrow-right',
+              TABLE_DRAG_ROW: 'vxe-icon-drag-handle',
+              TABLE_DRAG_COLUMN: 'vxe-icon-drag-handle',
 
               // toolbar
               TOOLBAR_TOOLS_REFRESH: 'vxe-icon-repeat',

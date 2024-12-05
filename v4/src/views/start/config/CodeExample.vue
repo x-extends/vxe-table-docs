@@ -20,7 +20,6 @@
 
               emptyCell: '　',
               table: {
-                fit: true,
                 showHeader: true,
                 delayHover: 250,
                 autoResize: true,
@@ -44,11 +43,21 @@
                 //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
                 // },
                 resizeConfig: {
-                  refreshDelay: 250
+                  // refreshDelay: 250
+                },
+                resizableConfig: {
+                  dragMode: 'auto',
+                  showDragTip: true
                 },
                 radioConfig: {
                   // trigger: 'default'
                   strict: true
+                },
+                rowDragConfig: {
+                  showIcon: true
+                },
+                columnDragConfig: {
+                  showIcon: true
                 },
                 checkboxConfig: {
                   // trigger: 'default',
@@ -63,7 +72,7 @@
                   autoPos: true,
                   message: 'inline',
                   msgMode: 'single',
-                  theme: 'normal' // 错误提示框主题样式
+                  theme: 'beautify'
                 },
                 columnConfig: {
                   maxFixedSize: 4
@@ -121,8 +130,20 @@
                   autoFocus: true
                 },
                 importConfig: {
+                  _typeMaps: {
+                    csv: 1,
+                    html: 1,
+                    xml: 1,
+                    txt: 1
+                  }
                 },
                 exportConfig: {
+                  _typeMaps: {
+                    csv: 1,
+                    html: 1,
+                    xml: 1,
+                    txt: 1
+                  }
                 },
                 printConfig: {
                 },
@@ -134,7 +155,8 @@
                 },
                 areaConfig: {
                   autoClear: true,
-                  selectCellByHeader: true
+                  selectCellByHeader: true,
+                  selectCellByBody: true
                 },
                 clipConfig: {
                   isCopy: true,
@@ -146,12 +168,12 @@
                   isReplace: true
                 },
                 scrollX: {
-                  // enabled: false, // 是否默认开启虚拟滚动
+                  // enabled: false,
                   gt: 60
                   // oSize: 0
                 },
                 scrollY: {
-                  // enabled: false, // 是否默认开启虚拟滚动
+                  // enabled: false,
                   gt: 100
                   // oSize: 0
                 }

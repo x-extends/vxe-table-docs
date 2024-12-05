@@ -19,191 +19,214 @@
 
               emptyCell: '　',
               table: {
-                showHeader: true,
-                delayHover: 250,
-                autoResize: true,
-                padding: true,
-                minHeight: 144,
-                // keepSource: false,
-                // showOverflow: null,
-                // showHeaderOverflow: null,
-                // showFooterOverflow: null,
-                // resizeInterval: 500,
-                // size: null,
-                // zIndex: null,
-                // stripe: false,
-                // border: false,
-                // round: false,
-                // emptyText: '暂无数据',
-                // emptyRender: {
-                //   name: ''
-                // },
-                // rowConfig: {
-                //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
-                // },
-                resizeConfig: {
-                  refreshDelay: 250
-                },
-                radioConfig: {
-                  // trigger: 'default'
-                  strict: true
-                },
-                checkboxConfig: {
-                  // trigger: 'default',
-                  strict: true
-                },
-                tooltipConfig: {
-                  enterable: true
-                },
-                validConfig: {
-                  showMessage: true,
-                  autoClear: true,
-                  autoPos: true,
-                  message: 'inline',
-                  msgMode: 'single',
-                  theme: 'normal' // 错误提示框主题样式
-                },
-                columnConfig: {
-                  maxFixedSize: 4
-                },
-                // menuConfig: {
-                //   visibleMethod () {}
-                // },
-                customConfig: {
-                  allowVisible: true,
-                  allowResizable: true,
-                  allowFixed: true,
-                  allowSort: true,
-                  showFooter: true,
-                  placement: 'top-right',
-                  //  storage: false,
-                  //  checkMethod () {},
-                  modalOptions: {
-                    showMaximize: true,
-                    mask: true,
-                    lockView: true,
-                    resize: true,
-                    escClosable: true
-                  }
-                },
-                sortConfig: {
-                  // remote: false,
-                  // trigger: 'default',
-                  // orders: ['asc', 'desc', null],
-                  // sortMethod: null,
-                  showIcon: true,
-                  iconLayout: 'vertical'
-                },
-                filterConfig: {
-                  // remote: false,
-                  // filterMethod: null,
-                  showIcon: true
-                },
-                treeConfig: {
-                  rowField: 'id',
-                  parentField: 'parentId',
-                  childrenField: 'children',
-                  hasChildField: 'hasChild',
-                  mapChildrenField: '_X_ROW_CHILD',
-                  indent: 20,
-                  showIcon: true
-                },
-                expandConfig: {
-                  // trigger: 'default',
-                  showIcon: true
-                },
-                editConfig: {
-                  // mode: 'cell',
-                  showIcon: true,
-                  showAsterisk: true,
-                  autoFocus: true
-                },
-                importConfig: {
-                },
-                exportConfig: {
-                },
-                printConfig: {
-                },
-                mouseConfig: {
-                  extension: true
-                },
-                keyboardConfig: {
-                  isEsc: true
-                },
-                areaConfig: {
-                  autoClear: true,
-                  selectCellByHeader: true
-                },
-                clipConfig: {
-                  isCopy: true,
-                  isCut: true,
-                  isPaste: true
-                },
-                fnrConfig: {
-                  isFind: true,
-                  isReplace: true
-                },
-                scrollX: {
-                  // enabled: false, // 是否默认开启虚拟滚动
-                  gt: 60
-                  // oSize: 0
-                },
-                scrollY: {
-                  // enabled: false, // 是否默认开启虚拟滚动
-                  gt: 100
-                  // oSize: 0
-                }
-              },
-              // export: {
-              //   types: {}
+              showHeader: true,
+              delayHover: 250,
+              autoResize: true,
+              padding: true,
+              minHeight: 144,
+              // keepSource: false,
+              // showOverflow: null,
+              // showHeaderOverflow: null,
+              // showFooterOverflow: null,
+              // resizeInterval: 500,
+              // size: null,
+              // zIndex: null,
+              // stripe: false,
+              // border: false,
+              // round: false,
+              // emptyText: '暂无数据',
+              // emptyRender: {
+              //   name: ''
               // },
-              grid: {
-                // size: null,
-                // zoomConfig: {
-                //   escRestore: true
-                // },
-                formConfig: {
-                  enabled: true
-                },
-                pagerConfig: {
-                  enabled: true
-                  // perfect: false
-                },
-                toolbarConfig: {
-                  enabled: true
-                  // perfect: false
-                },
-                proxyConfig: {
-                  enabled: true,
-                  autoLoad: true,
-                  showResponseMsg: true,
-                  showActiveMsg: true,
-                  props: {
-                    list: null,
-                    result: 'result',
-                    total: 'page.total',
-                    message: 'message'
-                  }
-                  // beforeItem: null,
-                  // beforeColumn: null,
-                  // beforeQuery: null,
-                  // afterQuery: null,
-                  // beforeDelete: null,
-                  // afterDelete: null,
-                  // beforeSave: null,
-                  // afterSave: null
+              // rowConfig: {
+              //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
+              // },
+              resizeConfig: {
+                // refreshDelay: 250
+              },
+              resizableConfig: {
+                dragMode: 'auto',
+                showDragTip: true
+              },
+              radioConfig: {
+                // trigger: 'default'
+                strict: true
+              },
+              rowDragConfig: {
+                showIcon: true
+              },
+              columnDragConfig: {
+                showIcon: true
+              },
+              checkboxConfig: {
+                // trigger: 'default',
+                strict: true
+              },
+              tooltipConfig: {
+                enterable: true
+              },
+              validConfig: {
+                showMessage: true,
+                autoClear: true,
+                autoPos: true,
+                message: 'inline',
+                msgMode: 'single',
+                theme: 'beautify'
+              },
+              columnConfig: {
+                maxFixedSize: 4
+              },
+              // menuConfig: {
+              //   visibleMethod () {}
+              // },
+              customConfig: {
+                allowVisible: true,
+                allowResizable: true,
+                allowFixed: true,
+                allowSort: true,
+                showFooter: true,
+                placement: 'top-right',
+                //  storage: false,
+                //  checkMethod () {},
+                modalOptions: {
+                  showMaximize: true,
+                  mask: true,
+                  lockView: true,
+                  resize: true,
+                  escClosable: true
                 }
               },
-              toolbar: {
-                // size: null,
-                // import: {
-                //   mode: 'covering'
-                // },
-                // export: {
-                //   types: ['csv', 'html', 'xml', 'txt']
-                // },
-                // buttons: []
+              sortConfig: {
+                // remote: false,
+                // trigger: 'default',
+                // orders: ['asc', 'desc', null],
+                // sortMethod: null,
+                showIcon: true,
+                iconLayout: 'vertical'
+              },
+              filterConfig: {
+                // remote: false,
+                // filterMethod: null,
+                showIcon: true
+              },
+              treeConfig: {
+                rowField: 'id',
+                parentField: 'parentId',
+                childrenField: 'children',
+                hasChildField: 'hasChild',
+                mapChildrenField: '_X_ROW_CHILD',
+                indent: 20,
+                showIcon: true
+              },
+              expandConfig: {
+                // trigger: 'default',
+                showIcon: true
+              },
+              editConfig: {
+                // mode: 'cell',
+                showIcon: true,
+                showAsterisk: true,
+                autoFocus: true
+              },
+              importConfig: {
+                _typeMaps: {
+                  csv: 1,
+                  html: 1,
+                  xml: 1,
+                  txt: 1
+                }
+              },
+              exportConfig: {
+                _typeMaps: {
+                  csv: 1,
+                  html: 1,
+                  xml: 1,
+                  txt: 1
+                }
+              },
+              printConfig: {
+              },
+              mouseConfig: {
+                extension: true
+              },
+              keyboardConfig: {
+                isEsc: true
+              },
+              areaConfig: {
+                autoClear: true,
+                selectCellByHeader: true,
+                selectCellByBody: true
+              },
+              clipConfig: {
+                isCopy: true,
+                isCut: true,
+                isPaste: true
+              },
+              fnrConfig: {
+                isFind: true,
+                isReplace: true
+              },
+              scrollX: {
+                // enabled: false,
+                gt: 60
+                // oSize: 0
+              },
+              scrollY: {
+                // enabled: false,
+                gt: 100
+                // oSize: 0
               }
+            },
+            // export: {
+            //   types: {}
+            // },
+            grid: {
+              // size: null,
+              // zoomConfig: {
+              //   escRestore: true
+              // },
+              formConfig: {
+                enabled: true
+              },
+              pagerConfig: {
+                enabled: true
+                // perfect: false
+              },
+              toolbarConfig: {
+                enabled: true
+                // perfect: false
+              },
+              proxyConfig: {
+                enabled: true,
+                autoLoad: true,
+                showResponseMsg: true,
+                showActiveMsg: true,
+                props: {
+                  list: null,
+                  result: 'result',
+                  total: 'page.total',
+                  message: 'message'
+                }
+                // beforeItem: null,
+                // beforeColumn: null,
+                // beforeQuery: null,
+                // afterQuery: null,
+                // beforeDelete: null,
+                // afterDelete: null,
+                // beforeSave: null,
+                // afterSave: null
+              }
+            },
+            toolbar: {
+              // size: null,
+              // import: {
+              //   mode: 'covering'
+              // },
+              // export: {
+              //   types: ['csv', 'html', 'xml', 'txt']
+              // },
+              // buttons: []
+            }
             })
           </pre-code>
         </pre>
