@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
 import DemoFilterContent from './DemoFilterContent.vue'
 
 // 创建一个显示列表的筛选的筛选渲染器
@@ -8,7 +8,7 @@ VxeUI.renderer.add('MyTableFilterContent', {
   // 不显示底部按钮，使用自定义的按钮
   showTableFilterFooter: false,
   // 自定义筛选模板
-  renderTableFilter (renderOpts, params) {
+  renderTableFilter (h, renderOpts, params) {
     return <DemoFilterContent params={ params } />
   },
   // 自定义重置数据方法

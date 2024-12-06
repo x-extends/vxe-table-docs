@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
 
 // 创建一个空内容渲染
 VxeUI.renderer.add('MyTableEmptyImg', {

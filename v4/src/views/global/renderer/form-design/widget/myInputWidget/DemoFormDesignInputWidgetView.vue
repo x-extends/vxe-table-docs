@@ -9,23 +9,47 @@
   </vxe-form-item>
 </template>
 
-<script lang="ts" setup>
-import { PropType } from 'vue'
-import { VxeUI, VxeGlobalRendererHandles } from 'vxe-pc-ui'
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+import { VxeGlobalRendererHandles, VxeFormDesignDefines } from 'vxe-pc-ui'
 import { FormDesignWidgetInputProps } from './demoFormDesignInputWidget'
 
-const { useWidgetView } = VxeUI.formDesign
-
-const props = defineProps({
-  renderOpts: {
-    type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetViewOptions>,
-    default: () => ({})
+export default Vue.extend({
+  mixins: [
+    {
+      computed: {
+        widgetModel: {
+          get (this: any) {
+            const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetInputProps>
+            const { $formView, widget } = renderParams
+            return $formView ? $formView.getItemValue(widget) : null
+          },
+          set (this: any, value) {
+            const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetInputProps>
+            const { $formView, widget } = renderParams
+            if ($formView) {
+              $formView.setItemValue(widget, value)
+            }
+          }
+        }
+      }
+    }
+  ],
+  props: {
+    renderOpts: {
+      type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetViewOptions>,
+      default: () => ({} as VxeGlobalRendererHandles.RenderFormDesignWidgetViewOptions)
+    },
+    renderParams: {
+      type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetInputProps>>,
+      default: () => ({} as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetInputProps>)
+    }
   },
-  renderParams: {
-    type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetInputProps>>,
-    default: () => ({})
+  computed: {
+    currWidget (): VxeFormDesignDefines.WidgetObjItem<FormDesignWidgetInputProps> {
+      const { renderParams } = this
+      return renderParams.widget
+    }
   }
 })
-
-const { currWidget, widgetModel } = useWidgetView<FormDesignWidgetInputProps>(props)
 </script>

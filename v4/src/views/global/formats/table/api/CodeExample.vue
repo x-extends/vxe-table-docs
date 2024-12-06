@@ -20,53 +20,61 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
+<script lang="ts">
+import Vue from 'vue'
 
-const tableData = ref([
-  {
-    name: 'add(code, option)',
-    desc: '添加',
-    type: '',
-    enum: '',
-    defVal: 'code: string, option: any',
-    list: [
+export default Vue.extend({
+  data () {
+    const tableData = [
       {
-        name: 'tableCellFormatMethod',
-        version: '',
-        desc: '表格 - 自定义单元格格式化方法',
+        name: 'add(code, option)',
+        desc: '添加',
         type: '',
         enum: '',
-        defVal: '({ cellValue, row, column }) => string | number',
+        defVal: 'code: string, option: any',
+        list: [
+          {
+            name: 'tableCellFormatMethod',
+            version: '',
+            desc: '表格 - 自定义单元格格式化方法',
+            type: '',
+            enum: '',
+            defVal: '({ cellValue, row, column }) => string | number',
+            list: []
+          },
+          {
+            name: 'tableFooterCellFormatMethod',
+            version: '4.0.65',
+            desc: '表格 - 自定义表尾单元格格式化方法',
+            type: '',
+            enum: '',
+            defVal: '({ itemValue, row, column }) => string | number',
+            list: []
+          }
+        ]
+      },
+      {
+        name: 'mixin(opts)',
+        desc: '添加多个，参数跟 add 一致',
+        version: '',
+        type: '',
+        enum: '',
+        defVal: 'options: Record<string, option>',
         list: []
       },
       {
-        name: 'tableFooterCellFormatMethod',
-        version: '4.0.65',
-        desc: '表格 - 自定义表尾单元格格式化方法',
+        name: 'delete(code)',
+        desc: '删除',
         type: '',
         enum: '',
-        defVal: '({ itemValue, row, column }) => string | number',
+        defVal: 'code: string',
         list: []
       }
     ]
-  },
-  {
-    name: 'mixin(opts)',
-    desc: '添加多个，参数跟 add 一致',
-    version: '',
-    type: '',
-    enum: '',
-    defVal: 'options: Record<string, option>',
-    list: []
-  },
-  {
-    name: 'delete(code)',
-    desc: '删除',
-    type: '',
-    enum: '',
-    defVal: 'code: string',
-    list: []
+
+    return {
+      tableData
+    }
   }
-])
+})
 </script>

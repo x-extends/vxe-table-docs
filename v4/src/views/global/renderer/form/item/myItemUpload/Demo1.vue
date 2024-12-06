@@ -18,9 +18,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
-import type { VxeUploadPropTypes } from 'vxe-pc-ui'
+<script lang="ts">
+import Vue from 'vue'
+import { VxeUploadPropTypes } from 'vxe-pc-ui'
 
 interface FormDataVO {
   name: string
@@ -30,11 +30,19 @@ interface FormDataVO {
   imgList: VxeUploadPropTypes.ModelValue
 }
 
-const formData = ref<FormDataVO>({
-  name: 'test1',
-  nickname: 'Testing',
-  sex: '',
-  fileList: [],
-  imgList: []
+export default Vue.extend({
+  data () {
+    const formData: FormDataVO = {
+      name: 'test1',
+      nickname: 'Testing',
+      sex: '',
+      fileList: [],
+      imgList: []
+    }
+
+    return {
+      formData
+    }
+  }
 })
 </script>

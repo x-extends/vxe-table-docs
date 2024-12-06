@@ -20,43 +20,51 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
+<script lang="ts">
+import Vue from 'vue'
 
-const tableData = ref([
-  {
-    name: 'add(code, option)',
-    desc: '添加',
-    type: '',
-    enum: '',
-    defVal: 'code: string, option: any',
-    list: [
+export default Vue.extend({
+  data () {
+    const tableData = [
       {
-        name: 'tableCellValidatorMethod',
-        desc: '自定义单元格校验方法',
+        name: 'add(code, option)',
+        desc: '添加',
         type: '',
         enum: '',
-        defVal: '(params: { cellValue, field, row, rowIndex, column, columnIndex, rule, rules, $table })  => void | Error | Promise<any>',
+        defVal: 'code: string, option: any',
+        list: [
+          {
+            name: 'tableCellValidatorMethod',
+            desc: '自定义单元格校验方法',
+            type: '',
+            enum: '',
+            defVal: '(params: { cellValue, field, row, rowIndex, column, columnIndex, rule, rules, $table })  => void | Error | Promise<any>',
+            list: []
+          }
+        ]
+      },
+      {
+        name: 'mixin(opts)',
+        desc: '添加多个，参数跟 add 一致',
+        version: '',
+        type: '',
+        enum: '',
+        defVal: 'options: Record<string, option>',
+        list: []
+      },
+      {
+        name: 'delete(code)',
+        desc: '删除',
+        type: '',
+        enum: '',
+        defVal: 'code: string',
         list: []
       }
     ]
-  },
-  {
-    name: 'mixin(opts)',
-    desc: '添加多个，参数跟 add 一致',
-    version: '',
-    type: '',
-    enum: '',
-    defVal: 'options: Record<string, option>',
-    list: []
-  },
-  {
-    name: 'delete(code)',
-    desc: '删除',
-    type: '',
-    enum: '',
-    defVal: 'code: string',
-    list: []
+
+    return {
+      tableData
+    }
   }
-])
+})
 </script>

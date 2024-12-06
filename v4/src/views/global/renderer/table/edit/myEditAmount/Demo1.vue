@@ -13,8 +13,8 @@
   </div>
 </template>
 
-<script lang="tsx" setup>
-import { ref } from 'vue'
+<script lang="ts">
+import Vue from 'vue'
 
 interface RowVO {
   id: number
@@ -23,10 +23,18 @@ interface RowVO {
   num: number
 }
 
-const tableData = ref<RowVO[]>([
-  { id: 10001, name: 'Test1', amount: '65', num: 28 },
-  { id: 10002, name: 'Test2', amount: '31', num: 22 },
-  { id: 10003, name: 'Test3', amount: '20', num: 32 },
-  { id: 10004, name: 'Test4', amount: '12', num: 23 }
-])
+export default Vue.extend({
+  data () {
+    const tableData: RowVO[] = [
+      { id: 10001, name: 'Test1', amount: '65', num: 28 },
+      { id: 10002, name: 'Test2', amount: '31', num: 22 },
+      { id: 10003, name: 'Test3', amount: '20', num: 32 },
+      { id: 10004, name: 'Test4', amount: '12', num: 23 }
+    ]
+
+    return {
+      tableData
+    }
+  }
+})
 </script>

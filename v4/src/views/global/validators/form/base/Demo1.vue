@@ -19,8 +19,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { reactive, ref } from 'vue'
+<script lang="ts">
+import Vue from 'vue'
 import { VxeFormPropTypes } from 'vxe-pc-ui'
 
 interface FormDataVO {
@@ -29,18 +29,27 @@ interface FormDataVO {
   email: string
 }
 
-const formData = ref<FormDataVO>({
-  name: '',
-  mobile: '',
-  email: ''
-})
+export default Vue.extend({
+  data () {
+    const formData: FormDataVO = {
+      name: '',
+      mobile: '',
+      email: ''
+    }
 
-const formRules = reactive<VxeFormPropTypes.Rules>({
-  mobile: [
-    { required: true, validator: 'ValidMobile' }
-  ],
-  email: [
-    { required: true, validator: 'ValidEmail' }
-  ]
+    const formRules: VxeFormPropTypes.Rules = {
+      mobile: [
+        { required: true, validator: 'ValidMobile' }
+      ],
+      email: [
+        { required: true, validator: 'ValidEmail' }
+      ]
+    }
+
+    return {
+      formData,
+      formRules
+    }
+  }
 })
 </script>

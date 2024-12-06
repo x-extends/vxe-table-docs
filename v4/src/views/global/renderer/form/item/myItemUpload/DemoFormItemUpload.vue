@@ -9,56 +9,64 @@
   </VxeUpload>
 </template>
 
-<script lang="ts" setup>
-import { ref, PropType, watch, computed } from 'vue'
-import { VxeUpload, VxeGlobalRendererHandles, VxeUploadPropTypes, VxeUploadProps, VxeFormItemPropTypes } from 'vxe-pc-ui'
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+import { VxeUpload, VxeGlobalRendererHandles, VxeUploadPropTypes, VxeUploadProps } from 'vxe-pc-ui'
 import axios from 'axios'
 
-const props = defineProps({
-  renderOpts: {
-    type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentOptions>,
-    default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentOptions)
+export default Vue.extend({
+  components: {
+    VxeUpload
   },
-  params: {
-    type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentParams>,
-    default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentParams)
+  props: {
+    renderOpts: {
+      type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentOptions>,
+      default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentOptions)
+    },
+    params: {
+      type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentParams>,
+      default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentParams)
+    }
+  },
+  data () {
+    const uploadMethod: VxeUploadPropTypes.UploadMethod = ({ file, updateProgress }) => {
+      const formData = new FormData()
+      formData.append('file', file)
+      return axios.post('/api/pub/upload/single', formData, {
+        onUploadProgress (progressEvent) {
+          const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
+          // 更新进度
+          updateProgress(percentCompleted)
+        }
+      }).then((res) => {
+        return {
+          ...res.data
+        }
+      })
+    }
+
+    return {
+      currData: null as any,
+      currField: '',
+      uploadMethod
+    }
+  },
+  computed: {
+    renderProps () {
+      const renderOpts: VxeGlobalRendererHandles.RenderFormItemContentOptions = this.renderOpts
+      return Object.assign({ mode: 'file' }, renderOpts.props) as VxeUploadProps
+    }
+  },
+  methods: {
+    load () {
+      const params = this.params
+      const { data, field } = params
+      this.currData = data
+      this.currField = field
+    }
+  },
+  created () {
+    this.load()
   }
 })
-
-const currData = ref<any>()
-const currField = ref<VxeFormItemPropTypes.Field>('')
-
-const renderProps = computed(() => {
-  const { renderOpts } = props
-  return Object.assign({ mode: 'file' }, renderOpts.props) as VxeUploadProps
-})
-
-const uploadMethod: VxeUploadPropTypes.UploadMethod = ({ file, updateProgress }) => {
-  const formData = new FormData()
-  formData.append('file', file)
-  return axios.post('/api/pub/upload/single', formData, {
-    onUploadProgress (progressEvent) {
-      const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
-      // 更新进度
-      updateProgress(percentCompleted)
-    }
-  }).then((res) => {
-    return {
-      ...res.data
-    }
-  })
-}
-
-const load = () => {
-  const { params } = props
-  const { data, field } = params
-  currData.value = data
-  currField.value = field
-}
-
-watch(() => props.params, () => {
-  load()
-})
-
-load()
 </script>

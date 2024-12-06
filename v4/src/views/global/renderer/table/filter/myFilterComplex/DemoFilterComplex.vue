@@ -1,74 +1,78 @@
 <template>
   <div v-if="currOption" class="my-filter-complex">
     <div class="my-fc-type">
-      <VxeRadio v-model="currOption.data.type" name="fType" label="has">包含</VxeRadio>
-      <VxeRadio v-model="currOption.data.type" name="fType" label="eq">等于</VxeRadio>
+      <vxe-radio v-model="currOption.data.type" name="fType" label="has">包含</vxe-radio>
+      <vxe-radio v-model="currOption.data.type" name="fType" label="eq">等于</vxe-radio>
     </div>
     <div class="my-fc-name">
-      <VxeInput v-model="currOption.data.name" class="my-fc-input" mode="text" placeholder="请输入名称" @input="changeOptionEvent()"></VxeInput>
+      <vxe-input v-model="currOption.data.name" class="my-fc-input" mode="text" placeholder="请输入名称" @change="changeOptionEvent()"></vxe-input>
     </div>
     <div class="my-fc-footer">
-      <VxeButton @click="resetEvent">重置</VxeButton>
-      <VxeButton status="primary" @click="confirmEvent">确认</VxeButton>
+      <vxe-button @click="resetEvent">重置</vxe-button>
+      <vxe-button status="primary" @click="confirmEvent">确认</vxe-button>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { watch, PropType, ref } from 'vue'
-import { VxeInput, VxeRadio, VxeButton, VxeGlobalRendererHandles } from 'vxe-pc-ui'
+<script lang="ts">
+import Vue, { PropType } from 'vue'
+import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { VxeTableDefines } from 'vxe-table'
 
-const props = defineProps({
-  params: {
-    type: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>,
-    default: () => ({})
+export default Vue.extend({
+  props: {
+    params: {
+      type: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>,
+      default: () => ({} as VxeGlobalRendererHandles.RenderTableFilterParams)
+    }
+  },
+  data () {
+    return {
+      currOption: null as VxeTableDefines.FilterOption | null
+    }
+  },
+  methods: {
+    load  () {
+      const { params } = this
+      if (params) {
+        const { column } = params
+        const option = column.filters[0]
+        this.currOption = option
+      }
+    },
+    changeOptionEvent () {
+      const { params } = this
+      const option = this.currOption
+      if (params && option) {
+        const { $table } = params
+        const checked = !!option.data.name
+        $table.updateFilterOptionStatus(option, checked)
+      }
+    },
+    confirmEvent  () {
+      const { params } = this
+      if (params) {
+        const { $table } = params
+        $table.saveFilterPanel()
+      }
+    },
+    resetEvent  () {
+      const { params } = this
+      if (params) {
+        const { $table } = params
+        $table.resetFilterPanel()
+      }
+    }
+  },
+  watch: {
+    'params.column' () {
+      this.load()
+    }
+  },
+  created () {
+    this.load()
   }
 })
-
-const currOption = ref<VxeTableDefines.FilterOption>()
-
-const load = () => {
-  const { params } = props
-  if (params) {
-    const { column } = params
-    const option = column.filters[0]
-    currOption.value = option
-  }
-}
-
-const changeOptionEvent = () => {
-  const { params } = props
-  const option = currOption.value
-  if (params && option) {
-    const { $table } = params
-    const checked = !!option.data.name
-    $table.updateFilterOptionStatus(option, checked)
-  }
-}
-
-const confirmEvent = () => {
-  const { params } = props
-  if (params) {
-    const { $table } = params
-    $table.saveFilterPanel()
-  }
-}
-
-const resetEvent = () => {
-  const { params } = props
-  if (params) {
-    const { $table } = params
-    $table.resetFilterPanel()
-  }
-}
-
-watch(() => {
-  const { column } = props.params || {}
-  return column
-}, load)
-
-load()
 </script>
 
 <style lang="scss" scoped>
