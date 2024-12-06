@@ -15,8 +15,8 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { VxeInput, VxePulldown, VxePagerEvents, VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines, VxeTableEvents, VxeGridProps, VxeGrid } from 'vxe-table'
+import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
+import { VxeTableDefines, VxeGridProps } from 'vxe-table'
 
 export default Vue.extend({
   props: {

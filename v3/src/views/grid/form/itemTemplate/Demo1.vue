@@ -23,7 +23,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps, VxeFormInstance } from 'vxe-table'
+import { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: string
@@ -34,20 +35,23 @@ interface RowVO {
   address: string
 }
 
+const defaultData = {
+  id: '',
+  name: '',
+  role: '',
+  sex: '',
+  num: '',
+  address: ''
+}
+
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> & { formConfig: VxeGridPropTypes.FormConfig } = {
       showOverflow: true,
       border: true,
       height: 500,
       formConfig: {
-        data: {
-          name: '',
-          role: '',
-          sex: '',
-          num: '',
-          address: ''
-        },
+        data: XEUtils.clone(defaultData, true),
         items: [
           { field: 'name', title: '名称', span: 8, itemRender: {}, slots: { default: 'nameItem' } },
           { field: 'sex', title: '性别', span: 8, itemRender: { }, slots: { default: 'sexItem' } },
@@ -80,14 +84,11 @@ export default Vue.extend({
   },
   methods: {
     async searchEvent () {
-      console.log('search form', this.gridOptions.formConfig?.data)
+      console.log('search grid form', this.gridOptions.formConfig.data)
     },
     resetEvent  () {
-      const $form = this.$refs.formRef as VxeFormInstance
-      if ($form) {
-        $form.reset()
-      }
-      console.log('reset form')
+      this.gridOptions.formConfig.data = XEUtils.clone(defaultData, true)
+      console.log('reset grid form')
     }
   }
 })

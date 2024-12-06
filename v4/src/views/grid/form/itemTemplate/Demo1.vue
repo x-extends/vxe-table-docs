@@ -23,7 +23,8 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeGridProps, VxeFormInstance } from 'vxe-table'
+import { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: string
@@ -34,20 +35,21 @@ interface RowVO {
   address: string
 }
 
-const formRef = ref<VxeFormInstance>()
+const defaultData = {
+  id: '',
+  name: '',
+  role: '',
+  sex: '',
+  num: '',
+  address: ''
+}
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
+const gridOptions = reactive<VxeGridProps<RowVO> & { formConfig: VxeGridPropTypes.FormConfig }>({
   showOverflow: true,
   border: true,
   height: 500,
   formConfig: {
-    data: {
-      name: '',
-      role: '',
-      sex: '',
-      num: '',
-      address: ''
-    },
+    data: XEUtils.clone(defaultData, true),
     items: [
       { field: 'name', title: '名称', span: 8, itemRender: {}, slots: { default: 'nameItem' } },
       { field: 'sex', title: '性别', span: 8, itemRender: { }, slots: { default: 'sexItem' } },
@@ -75,14 +77,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const searchEvent = async () => {
-  console.log('search form', gridOptions.formConfig?.data)
+  console.log('search grid form', gridOptions.formConfig.data)
 }
 
 const resetEvent = () => {
-  const $form = formRef.value
-  if ($form) {
-    $form.reset()
-  }
-  console.log('reset form')
+  gridOptions.formConfig.data = XEUtils.clone(defaultData, true)
+  console.log('reset grid form')
 }
 </script>
