@@ -9,34 +9,27 @@
   </vxe-input>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue'
+<script lang="ts" setup>
+import { PropType, ref } from 'vue'
 import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { VxeTableDefines } from 'vxe-table'
 
-export default Vue.extend({
-  props: {
-    params: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderTableEditParams>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderTableEditParams)
-    }
-  },
-  data () {
-    return {
-      currColumn: null as VxeTableDefines.ColumnInfo | null,
-      currRow: null as any
-    }
-  },
-  methods: {
-    load () {
-      const { params } = this
-      const { row, column } = params
-      this.currRow = row
-      this.currColumn = column
-    }
-  },
-  created () {
-    this.load()
+const props = defineProps({
+  params: {
+    type: Object as PropType<VxeGlobalRendererHandles.RenderTableEditParams>,
+    default: () => ({})
   }
 })
+
+const currColumn = ref<VxeTableDefines.ColumnInfo>()
+const currRow = ref()
+
+const load = () => {
+  const { params } = props
+  const { row, column } = params
+  currRow.value = row
+  currColumn.value = column
+}
+
+load()
 </script>

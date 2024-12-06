@@ -20,51 +20,43 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default Vue.extend({
-  data () {
-    const tableData = [
+const tableData = ref([
+  {
+    name: 'add(code, option)',
+    desc: '添加',
+    type: '',
+    enum: '',
+    defVal: 'code: string, option: any',
+    list: [
       {
-        name: 'add(code, option)',
-        desc: '添加',
+        name: 'tableCommandMethod',
+        desc: '表格 - 自定义工具栏或数据代理的指令方法',
         type: '',
         enum: '',
-        defVal: 'code: string, option: any',
-        list: [
-          {
-            name: 'tableCommandMethod',
-            desc: '表格 - 自定义工具栏或数据代理的指令方法',
-            type: '',
-            enum: '',
-            defVal: '({ code, button, $table }) => void',
-            list: []
-          }
-        ]
-      },
-      {
-        name: 'mixin(opts)',
-        desc: '添加多个，参数跟 add 一致',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: 'options: Record<string, option>',
-        list: []
-      },
-      {
-        name: 'delete(code)',
-        desc: '删除',
-        type: '',
-        enum: '',
-        defVal: 'code: string',
+        defVal: '({ code, button, $table }) => void',
         list: []
       }
     ]
-
-    return {
-      tableData
-    }
+  },
+  {
+    name: 'mixin(opts)',
+    desc: '添加多个，参数跟 add 一致',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'options: Record<string, option>',
+    list: []
+  },
+  {
+    name: 'delete(code)',
+    desc: '删除',
+    type: '',
+    enum: '',
+    defVal: 'code: string',
+    list: []
   }
-})
+])
 </script>

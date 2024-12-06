@@ -1,6 +1,6 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoEditAmount from './DemoEditAmount.vue'
 
 // 创建一个金额输入渲染器
@@ -10,11 +10,11 @@ VxeUI.renderer.add('MyTableEditAmount', {
   // 金额右对齐
   tableCellAlign: 'right',
   // 可编辑激活模板
-  renderTableEdit (h, renderOpts, params) {
+  renderTableEdit (renderOpts, params) {
     return <DemoEditAmount params={ params } />
   },
   // 可编辑显示模板
-  renderTableCell (h, renderOpts, params) {
+  renderTableCell (renderOpts, params) {
     const { row, column } = params
     return <span>￥{ row[column.field] }</span>
   }

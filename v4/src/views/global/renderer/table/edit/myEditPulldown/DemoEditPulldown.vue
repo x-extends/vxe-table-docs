@@ -13,121 +13,120 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue'
-import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines, VxeGridProps } from 'vxe-table'
+<script lang="ts" setup>
+import { PropType, reactive, ref } from 'vue'
+import { VxeInput, VxePulldown, VxePagerEvents, VxeGlobalRendererHandles } from 'vxe-pc-ui'
+import { VxeTableDefines, VxeTableEvents, VxeGridProps, VxeGrid } from 'vxe-table'
 
-export default Vue.extend({
-  props: {
-    params: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderTableEditParams>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderTableEditParams)
-    }
-  },
-  data () {
-    const gridOptions: VxeGridProps = {
-      autoResize: true,
-      height: 'auto',
-      loading: false,
-      rowConfig: {
-        isHover: true
-      },
-      pagerConfig: {
-        enabled: true,
-        total: 0,
-        currentPage: 1,
-        pageSize: 10
-      },
-      columns: [
-        { type: 'seq' },
-        { field: 'name', title: 'Name' },
-        { field: 'role', title: 'Role' },
-        { field: 'sex', title: 'Sex' }
-      ],
-      data: []
-    }
-
-    return {
-      currColumn: null as VxeTableDefines.ColumnInfo | null,
-      currRow: null as any,
-      showPopup: false,
-      gridOptions
-    }
-  },
-  methods: {
-    getData  () {
-      return new Promise<any[]>(resolve => {
-        setTimeout(() => {
-          const list = [
-            { name: 'Test1', role: '前端', sex: '男' },
-            { name: 'Test2', role: '后端', sex: '男' },
-            { name: 'Test3', role: '测试', sex: '男' },
-            { name: 'Test4', role: '设计师', sex: '女' },
-            { name: 'Test5', role: '前端', sex: '男' },
-            { name: 'Test6', role: '前端', sex: '男' },
-            { name: 'Test7', role: '前端', sex: '男' }
-          ]
-          resolve(list)
-        }, 100)
-      })
-    },
-    load () {
-      const { params } = this
-      const { row, column } = params
-      this.currRow = row
-      this.currColumn = column
-      this.getData().then((data) => {
-        this.gridOptions.data = data
-      })
-    },
-    clickEvent () {
-      this.showPopup = true
-    },
-    keyupEvent  () {
-      const row = this.currRow
-      const column = this.currColumn
-      if (column) {
-        const cellValue = row[column.field]
-        this.gridOptions.loading = true
-        this.getData().then((data) => {
-          this.gridOptions.loading = false
-          if (cellValue) {
-            this.gridOptions.data = data.filter((item) => item.name.indexOf(cellValue) > -1)
-          } else {
-            this.gridOptions.data = data
-          }
-        })
-      }
-    },
-    suffixClick () {
-      this.showPopup = !this.showPopup
-    },
-    pageChangeEvent ({ currentPage, pageSize }) {
-      const { pagerConfig } = this.gridOptions
-      if (pagerConfig) {
-        pagerConfig.currentPage = currentPage
-        pagerConfig.pageSize = pageSize
-      }
-      this.gridOptions.loading = true
-      this.getData().then((data) => {
-        this.gridOptions.loading = false
-        this.gridOptions.data = data
-      })
-    },
-    selectEvent (params) {
-      const row = this.currRow
-      const column = this.currColumn
-      if (column) {
-        row[column.field] = params.row.name
-        this.showPopup = false
-      }
-    }
-  },
-  created () {
-    this.load()
+const props = defineProps({
+  params: {
+    type: Object as PropType<VxeGlobalRendererHandles.RenderTableEditParams>,
+    default: () => ({})
   }
 })
+
+const currColumn = ref<VxeTableDefines.ColumnInfo>()
+const currRow = ref()
+
+const showPopup = ref(false)
+
+const gridOptions = reactive<VxeGridProps>({
+  autoResize: true,
+  height: 'auto',
+  loading: false,
+  rowConfig: {
+    isHover: true
+  },
+  pagerConfig: {
+    enabled: true,
+    total: 0,
+    currentPage: 1,
+    pageSize: 10
+  },
+  columns: [
+    { type: 'seq' },
+    { field: 'name', title: 'Name' },
+    { field: 'role', title: 'Role' },
+    { field: 'sex', title: 'Sex' }
+  ],
+  data: []
+})
+
+const getData = () => {
+  return new Promise<any[]>(resolve => {
+    setTimeout(() => {
+      const list = [
+        { name: 'Test1', role: '前端', sex: '男' },
+        { name: 'Test2', role: '后端', sex: '男' },
+        { name: 'Test3', role: '测试', sex: '男' },
+        { name: 'Test4', role: '设计师', sex: '女' },
+        { name: 'Test5', role: '前端', sex: '男' },
+        { name: 'Test6', role: '前端', sex: '男' },
+        { name: 'Test7', role: '前端', sex: '男' }
+      ]
+      resolve(list)
+    }, 100)
+  })
+}
+
+const load = () => {
+  const { params } = props
+  const { row, column } = params
+  currRow.value = row
+  currColumn.value = column
+  getData().then((data) => {
+    gridOptions.data = data
+  })
+}
+
+const clickEvent = () => {
+  showPopup.value = true
+}
+
+const keyupEvent = () => {
+  const row = currRow.value
+  const column = currColumn.value
+  if (column) {
+    const cellValue = row[column.field]
+    gridOptions.loading = true
+    getData().then((data) => {
+      gridOptions.loading = false
+      if (cellValue) {
+        gridOptions.data = data.filter((item) => item.name.indexOf(cellValue) > -1)
+      } else {
+        gridOptions.data = data
+      }
+    })
+  }
+}
+
+const suffixClick = () => {
+  showPopup.value = !showPopup.value
+}
+
+const pageChangeEvent: VxePagerEvents.PageChange = ({ currentPage, pageSize }) => {
+  const { pagerConfig } = gridOptions
+  if (pagerConfig) {
+    pagerConfig.currentPage = currentPage
+    pagerConfig.pageSize = pageSize
+  }
+  gridOptions.loading = true
+  getData().then((data) => {
+    gridOptions.loading = false
+    gridOptions.data = data
+  })
+}
+
+const selectEvent: VxeTableEvents.CellClick = (params) => {
+  const row = currRow.value
+  const column = currColumn.value
+  if (column) {
+    row[column.field] = params.row.name
+    showPopup.value = false
+  }
+}
+
+load()
 </script>
 
 <style lang="scss" scoped>

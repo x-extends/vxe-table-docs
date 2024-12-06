@@ -14,9 +14,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+<script lang="tsx" setup>
+import { ref } from 'vue'
 
 interface RowVO {
   id: number
@@ -25,20 +24,11 @@ interface RowVO {
   age: number
 }
 
-export default Vue.extend({
-  data () {
-    const tableData: RowVO[] = []
+const tableData = ref<RowVO[]>([])
+const loading = ref(false)
 
-    return {
-      loading: false,
-      tableData
-    }
-  },
-  created () {
-    this.loading = true
-    setTimeout(() => {
-      this.loading = false
-    }, 500)
-  }
-})
+loading.value = true
+setTimeout(() => {
+  loading.value = false
+}, 500)
 </script>

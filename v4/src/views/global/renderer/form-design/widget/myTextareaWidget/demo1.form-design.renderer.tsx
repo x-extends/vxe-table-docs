@@ -10,11 +10,11 @@ VxeUI.renderer.add('MyFormDesignTextareaWidget', {
   // 定义左侧控件
   createFormDesignWidgetConfig: getFormDesignWidgetTextareaConfig,
   // 渲染控件的表单视图
-  renderFormDesignWidgetView (h, renderOpts, renderParams) {
+  renderFormDesignWidgetView (renderOpts, renderParams) {
     return <DemoFormDesignTextareaWidgetView renderOpts={renderOpts} renderParams={renderParams} />
   },
   // 渲染控件右侧的属性配置视图
-  renderFormDesignWidgetFormView (h, renderOpts, renderParams) {
+  renderFormDesignWidgetFormView (renderOpts, renderParams) {
     return <DemoFormDesignTextareaWidgetProps renderOpts={renderOpts} renderParams={renderParams} />
   }
 })

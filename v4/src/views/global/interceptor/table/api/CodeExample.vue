@@ -20,114 +20,106 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default Vue.extend({
-  data () {
-    const tableData = [
+const tableData = ref([
+  {
+    name: 'add(code, option)',
+    desc: '添加',
+    type: '',
+    enum: '',
+    defVal: 'code: string, option: any',
+    list: [
       {
-        name: 'add(code, option)',
-        desc: '添加',
+        name: 'tableInterceptorMethod',
+        desc: '表格 - 拦截器处理方法',
         type: '',
         enum: '',
-        defVal: 'code: string, option: any',
+        defVal: '(params: any) => any',
         list: [
           {
-            name: 'tableInterceptorMethod',
-            desc: '表格 - 拦截器处理方法',
-            type: '',
+            name: 'event.clearEdit',
+            desc: '清除激活单元格之前触发，允许返回 false 阻止默认行为',
+            type: 'boolean',
             enum: '',
-            defVal: '(params: any) => any',
-            list: [
-              {
-                name: 'event.clearEdit',
-                desc: '清除激活单元格之前触发，允许返回 false 阻止默认行为',
-                type: 'boolean',
-                enum: '',
-                defVal: '',
-                list: []
-              },
-              {
-                name: 'event.clearFilter',
-                desc: '清除筛选面板之前触发，允许返回 false 阻止默认行为',
-                version: '',
-                type: 'Boolean',
-                enum: '',
-                defVal: '',
-                list: []
-              },
-              {
-                name: 'event.clearAreas',
-                desc: '如果功能被支持，清除单元格区域之前触发，允许返回 false 阻止默认行为',
-                version: '',
-                type: 'Boolean',
-                enum: '',
-                defVal: '',
-                list: []
-              },
-              {
-                name: 'event.keydown',
-                desc: '键盘按下之前触发，允许返回 false 阻止默认行为',
-                version: '',
-                type: 'Boolean',
-                enum: '',
-                defVal: '',
-                list: []
-              },
-              {
-                name: 'event.showMenu',
-                desc: '显示右键菜单之前触发，允许返回 false 阻止默认行为',
-                version: '',
-                type: 'Boolean',
-                enum: '',
-                defVal: '',
-                list: []
-              },
-              {
-                name: 'event.import',
-                desc: '工具栏中导入之前触发，允许返回 false 阻止默认行为',
-                version: '',
-                type: 'Boolean',
-                enum: '',
-                defVal: '',
-                list: []
-              },
-              {
-                name: 'event.export',
-                desc: '工具栏中导出之前触发，允许返回 false 阻止默认行为',
-                version: '',
-                type: 'Boolean',
-                enum: '',
-                defVal: '',
-                list: []
-              }
-            ]
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'event.clearFilter',
+            desc: '清除筛选面板之前触发，允许返回 false 阻止默认行为',
+            version: '',
+            type: 'Boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'event.clearAreas',
+            desc: '如果功能被支持，清除单元格区域之前触发，允许返回 false 阻止默认行为',
+            version: '',
+            type: 'Boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'event.keydown',
+            desc: '键盘按下之前触发，允许返回 false 阻止默认行为',
+            version: '',
+            type: 'Boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'event.showMenu',
+            desc: '显示右键菜单之前触发，允许返回 false 阻止默认行为',
+            version: '',
+            type: 'Boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'event.import',
+            desc: '工具栏中导入之前触发，允许返回 false 阻止默认行为',
+            version: '',
+            type: 'Boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'event.export',
+            desc: '工具栏中导出之前触发，允许返回 false 阻止默认行为',
+            version: '',
+            type: 'Boolean',
+            enum: '',
+            defVal: '',
+            list: []
           }
         ]
-      },
-      {
-        name: 'mixin(opts)',
-        desc: '添加多个，参数跟 add 一致',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: 'options: Record<string, option>',
-        list: []
-      },
-      {
-        name: 'delete(code)',
-        desc: '删除',
-        type: '',
-        enum: '',
-        defVal: 'code: string',
-        list: []
       }
     ]
-
-    return {
-      tableData
-    }
+  },
+  {
+    name: 'mixin(opts)',
+    desc: '添加多个，参数跟 add 一致',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'options: Record<string, option>',
+    list: []
+  },
+  {
+    name: 'delete(code)',
+    desc: '删除',
+    type: '',
+    enum: '',
+    defVal: 'code: string',
+    list: []
   }
-})
+])
 </script>

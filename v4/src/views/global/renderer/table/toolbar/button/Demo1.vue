@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="tsx" setup>
+import { ref, onMounted } from 'vue'
 import { VxeTableInstance, VxeToolbarInstance, VxeToolbarPropTypes } from 'vxe-table'
 
 interface RowVO {
@@ -28,30 +28,25 @@ interface RowVO {
   address: string
 }
 
-export default Vue.extend({
-  data () {
-    const toolbarButtons: VxeToolbarPropTypes.Buttons = [
-      { buttonRender: { name: 'ToolbarBtnDownload' } }
-    ]
+const toolbarRef = ref<VxeToolbarInstance>()
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
-    const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
-      { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-      { id: 10003, name: 'Test3', nickname: 'T3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-      { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: 'Women', age: 23, address: 'Shenzhen' }
-    ]
+const toolbarButtons = ref<VxeToolbarPropTypes.Buttons>([
+  { buttonRender: { name: 'ToolbarBtnDownload' } }
+])
 
-    return {
-      toolbarButtons,
-      tableData
-    }
-  },
-  mounted () {
-    const $table = this.$refs.tableRef as VxeTableInstance
-    const $toolbar = this.$refs.toolbarRef as VxeToolbarInstance
-    if ($table && $toolbar) {
-      $table.connect($toolbar)
-    }
+const tableData = ref<RowVO[]>([
+  { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
+  { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
+  { id: 10003, name: 'Test3', nickname: 'T3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
+  { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: 'Women', age: 23, address: 'Shenzhen' }
+])
+
+onMounted(() => {
+  const $table = tableRef.value
+  const $toolbar = toolbarRef.value
+  if ($table && $toolbar) {
+    $table.connect($toolbar)
   }
 })
 </script>

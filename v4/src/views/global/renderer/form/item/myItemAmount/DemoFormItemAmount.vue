@@ -9,45 +9,34 @@
   </VxeInput>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue'
-import { VxeInput, VxeGlobalRendererHandles } from 'vxe-pc-ui'
+<script lang="ts" setup>
+import { ref, PropType, watch } from 'vue'
+import { VxeInput, VxeGlobalRendererHandles, VxeFormItemPropTypes } from 'vxe-pc-ui'
 
-export default Vue.extend({
-  components: {
-    VxeInput
+const props = defineProps({
+  renderOpts: {
+    type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentOptions>,
+    default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentOptions)
   },
-  props: {
-    renderOpts: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentOptions>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentOptions)
-    },
-    params: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentParams>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentParams)
-    }
-  },
-  data () {
-    return {
-      currData: null as any,
-      currField: ''
-    }
-  },
-  methods: {
-    load () {
-      const { params } = this
-      const { data, field } = params
-      this.currData = data
-      this.currField = field
-    }
-  },
-  watch: {
-    params () {
-      this.load()
-    }
-  },
-  created () {
-    this.load()
+  params: {
+    type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentParams>,
+    default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentParams)
   }
 })
+
+const currData = ref<any>()
+const currField = ref<VxeFormItemPropTypes.Field>('')
+
+const load = () => {
+  const { params } = props
+  const { data, field } = params
+  currData.value = data
+  currField.value = field
+}
+
+watch(() => props.params, () => {
+  load()
+})
+
+load()
 </script>

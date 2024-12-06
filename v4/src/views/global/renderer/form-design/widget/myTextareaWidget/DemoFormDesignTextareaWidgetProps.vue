@@ -26,31 +26,24 @@
   </vxe-form>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue'
-import { VxeGlobalRendererHandles, VxeFormDesignDefines } from 'vxe-pc-ui'
+<script lang="ts" setup>
+import { computed, PropType } from 'vue'
+import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { FormDesignWidgetTextareaProps } from './demoFormDesignTextareaWidget'
 
-export default Vue.extend({
-  mixins: [
-    {
-      computed: {
-        currWidget (this: any): VxeFormDesignDefines.WidgetObjItem<FormDesignWidgetTextareaProps> {
-          const { renderParams } = this
-          return renderParams.widget
-        }
-      }
-    }
-  ],
-  props: {
-    renderOpts: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetFormViewOptions>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderFormDesignWidgetFormViewOptions)
-    },
-    renderParams: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetFormViewParams<FormDesignWidgetTextareaProps>>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderFormDesignWidgetFormViewParams<FormDesignWidgetTextareaProps>)
-    }
+const props = defineProps({
+  renderOpts: {
+    type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetFormViewOptions>,
+    default: () => ({})
+  },
+  renderParams: {
+    type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetFormViewParams<FormDesignWidgetTextareaProps>>,
+    default: () => ({})
   }
+})
+
+const currWidget = computed(() => {
+  const { renderParams } = props
+  return renderParams.widget
 })
 </script>

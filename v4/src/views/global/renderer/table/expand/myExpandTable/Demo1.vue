@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="tsx" setup>
+import { ref } from 'vue'
 
 interface RowVO {
   id: number
@@ -25,40 +25,32 @@ interface RowVO {
   subList: any[]
 }
 
-export default Vue.extend({
-  data () {
-    const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', sex: 'Man', age: 28, subList: [] },
-      {
-        id: 10002,
-        name: 'Test2',
-        sex: 'Women',
-        age: 22,
-        subList: [
-          { name: 'Test322', sex: 'Man', age: 52 },
-          { name: 'Test344', sex: 'Women', age: 42 },
-          { name: 'Test3768', sex: 'Women', age: 42 },
-          { name: 'Test3879', sex: 'Women', age: 42 },
-          { name: 'Test3678', sex: 'Man', age: 23 },
-          { name: 'Test389', sex: 'Man', age: 45 },
-          { name: 'Test3909', sex: 'Women', age: 42 }
-        ]
-      },
-      {
-        id: 10002,
-        name: 'Test2',
-        sex: 'Women',
-        age: 22,
-        subList: [
-          { name: 'Test222', sex: 'Man', age: 66 }
-        ]
-      },
-      { id: 10004, name: 'Test4', sex: 'Women', age: 23, subList: [] }
+const tableData = ref<RowVO[]>([
+  { id: 10001, name: 'Test1', sex: 'Man', age: 28, subList: [] },
+  {
+    id: 10002,
+    name: 'Test2',
+    sex: 'Women',
+    age: 22,
+    subList: [
+      { name: 'Test322', sex: 'Man', age: 52 },
+      { name: 'Test344', sex: 'Women', age: 42 },
+      { name: 'Test3768', sex: 'Women', age: 42 },
+      { name: 'Test3879', sex: 'Women', age: 42 },
+      { name: 'Test3678', sex: 'Man', age: 23 },
+      { name: 'Test389', sex: 'Man', age: 45 },
+      { name: 'Test3909', sex: 'Women', age: 42 }
     ]
-
-    return {
-      tableData
-    }
-  }
-})
+  },
+  {
+    id: 10002,
+    name: 'Test2',
+    sex: 'Women',
+    age: 22,
+    subList: [
+      { name: 'Test222', sex: 'Man', age: 66 }
+    ]
+  },
+  { id: 10004, name: 'Test4', sex: 'Women', age: 23, subList: [] }
+])
 </script>

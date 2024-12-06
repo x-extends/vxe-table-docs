@@ -30,207 +30,199 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default Vue.extend({
-  data () {
-    const tableData = [
+const tableData = ref([
+  {
+    name: 'add(name, option)',
+    desc: '添加',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'name: string, option: any',
+    list: [
       {
-        name: 'add(name, option)',
-        desc: '添加',
+        name: 'renderFormDesignWidgetItem',
+        desc: '渲染左侧控件项',
         version: '',
-        type: '',
+        type: '(renderOpts: {}, params: { $formDesign }) => JSX',
         enum: '',
-        defVal: 'name: string, option: any',
-        list: [
-          {
-            name: 'renderFormDesignWidgetItem',
-            desc: '渲染左侧控件项',
-            version: '',
-            type: '(renderOpts: {}, params: { $formDesign }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'createFormDesignSettingFormConfig',
-            desc: '创建设计器-表单属性数据',
-            version: '',
-            type: '(params: {}) => Record<string, any>',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignSettingFormView',
-            desc: '渲染设计器-属性表单',
-            version: '',
-            type: '(renderOpts: {}, params: { $formDesign }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignStyleFormView',
-            desc: '渲染设计器-电脑端表单',
-            version: '',
-            type: '(renderOpts: {}, params: { formConfig, $formDesign }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignMobileStyleFormView',
-            desc: '渲染设计器-手机端表单',
-            version: '',
-            type: '(renderOpts: {}, params: { formConfig, $formDesign }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'createFormDesignWidgetConfig',
-            desc: '创建控件-定义控件信息和控件表单数据',
-            version: '',
-            type: '(params: { name, $formDesign }) => any',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignWidgetFormView',
-            desc: '渲染右侧-控件表单',
-            version: '',
-            type: '(renderOpts: { name }, params: { widget, $formDesign }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignWidgetEdit',
-            desc: '表单控件渲染（设计时），如果不设置，则使用 renderFormDesignWidgetView 渲染',
-            version: '',
-            type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignWidgetPreview',
-            desc: '表单控件渲染（预览时 - 电脑端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
-            version: '',
-            type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignWidgetMobilePreview',
-            desc: '表单控件渲染（预览时 - 手机端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
-            version: '',
-            type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignWidgetView',
-            desc: '表单控件渲染（默认）',
-            version: '',
-            type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignWidgetSubtableDefaultView',
-            desc: '子表控件渲染（只读模式）',
-            version: '4.1.14',
-            type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignWidgetSubtableCellView',
-            desc: '子表控件渲染（编辑模式-查看），如果不设置，则使用 renderFormDesignWidgetSubtableDefaultView',
-            version: '4.1.14',
-            type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormDesignWidgetSubtableEditView',
-            desc: '子表控件渲染（编辑模式-编辑）',
-            version: '4.1.14',
-            type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'createFormDesignWidgetFieldValue',
-            desc: '创建控件字段的默认值',
-            version: '',
-            type: '(params: { widget, $formDesign }) => any',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'createFormDesignWidgetFieldRules',
-            desc: '创建控件字段的校验规则',
-            version: '',
-            type: '(params: { widget, $formDesign }) => FormRule[]',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'createFormViewFormConfig',
-            desc: '创建渲染电脑端表单',
-            version: '',
-            type: '(params: { viewRender, formConfig }) => VxeFormProps',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'createFormViewMobileFormConfig',
-            desc: '创建渲染手机端端表单',
-            version: '',
-            type: '(params: { viewRender, formConfig }) => VxeFormProps',
-            enum: '',
-            defVal: '',
-            list: []
-          }
-        ]
-      },
-      {
-        name: 'mixin(options)',
-        desc: '添加多个，参数跟 add 一致',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: 'options: Record<string, option>',
+        defVal: '',
         list: []
       },
       {
-        name: 'delete(name)',
-        desc: '删除',
+        name: 'createFormDesignSettingFormConfig',
+        desc: '创建设计器-表单属性数据',
         version: '',
-        type: '',
+        type: '(params: {}) => Record<string, any>',
         enum: '',
-        defVal: 'name',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignSettingFormView',
+        desc: '渲染设计器-属性表单',
+        version: '',
+        type: '(renderOpts: {}, params: { $formDesign }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignStyleFormView',
+        desc: '渲染设计器-电脑端表单',
+        version: '',
+        type: '(renderOpts: {}, params: { formConfig, $formDesign }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignMobileStyleFormView',
+        desc: '渲染设计器-手机端表单',
+        version: '',
+        type: '(renderOpts: {}, params: { formConfig, $formDesign }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'createFormDesignWidgetConfig',
+        desc: '创建控件-定义控件信息和控件表单数据',
+        version: '',
+        type: '(params: { name, $formDesign }) => any',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetFormView',
+        desc: '渲染右侧-控件表单',
+        version: '',
+        type: '(renderOpts: { name }, params: { widget, $formDesign }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetEdit',
+        desc: '表单控件渲染（设计时），如果不设置，则使用 renderFormDesignWidgetView 渲染',
+        version: '',
+        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetPreview',
+        desc: '表单控件渲染（预览时 - 电脑端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
+        version: '',
+        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetMobilePreview',
+        desc: '表单控件渲染（预览时 - 手机端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
+        version: '',
+        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetView',
+        desc: '表单控件渲染（默认）',
+        version: '',
+        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetSubtableDefaultView',
+        desc: '子表控件渲染（只读模式）',
+        version: '4.1.14',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetSubtableCellView',
+        desc: '子表控件渲染（编辑模式-查看），如果不设置，则使用 renderFormDesignWidgetSubtableDefaultView',
+        version: '4.1.14',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormDesignWidgetSubtableEditView',
+        desc: '子表控件渲染（编辑模式-编辑）',
+        version: '4.1.14',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'createFormDesignWidgetFieldValue',
+        desc: '创建控件字段的默认值',
+        version: '',
+        type: '(params: { widget, $formDesign }) => any',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'createFormDesignWidgetFieldRules',
+        desc: '创建控件字段的校验规则',
+        version: '',
+        type: '(params: { widget, $formDesign }) => FormRule[]',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'createFormViewFormConfig',
+        desc: '创建渲染电脑端表单',
+        version: '',
+        type: '(params: { viewRender, formConfig }) => VxeFormProps',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'createFormViewMobileFormConfig',
+        desc: '创建渲染手机端端表单',
+        version: '',
+        type: '(params: { viewRender, formConfig }) => VxeFormProps',
+        enum: '',
+        defVal: '',
         list: []
       }
     ]
-
-    return {
-      tableData
-    }
+  },
+  {
+    name: 'mixin(options)',
+    desc: '添加多个，参数跟 add 一致',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'options: Record<string, option>',
+    list: []
+  },
+  {
+    name: 'delete(name)',
+    desc: '删除',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'name',
+    list: []
   }
-})
+])
 </script>

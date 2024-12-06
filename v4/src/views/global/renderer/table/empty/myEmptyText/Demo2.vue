@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="tsx" setup>
+import { reactive } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -15,33 +15,24 @@ interface RowVO {
   age: number
 }
 
-export default Vue.extend({
-  data () {
-    const gridOptions: VxeGridProps<RowVO> = {
-      border: true,
-      height: 300,
-      loading: false,
-      emptyRender: {
-        name: 'MyTableEmptyText'
-      },
-      columns: [
-        { type: 'seq', width: 50 },
-        { field: 'name', title: 'name' },
-        { field: 'sex', title: 'sex' },
-        { field: 'age', title: 'Age' }
-      ],
-      data: []
-    }
-
-    return {
-      gridOptions
-    }
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  height: 300,
+  loading: false,
+  emptyRender: {
+    name: 'MyTableEmptyText'
   },
-  created () {
-    this.gridOptions.loading = true
-    setTimeout(() => {
-      this.gridOptions.loading = false
-    }, 1000)
-  }
+  columns: [
+    { type: 'seq', width: 50 },
+    { field: 'name', title: 'name' },
+    { field: 'sex', title: 'sex' },
+    { field: 'age', title: 'Age' }
+  ],
+  data: []
 })
+
+gridOptions.loading = true
+setTimeout(() => {
+  gridOptions.loading = false
+}, 1000)
 </script>

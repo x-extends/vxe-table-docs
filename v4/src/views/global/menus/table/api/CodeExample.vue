@@ -20,51 +20,43 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default Vue.extend({
-  data () {
-    const tableData = [
+const tableData = ref([
+  {
+    name: 'add(code, option)',
+    desc: '添加',
+    type: '',
+    enum: '',
+    defVal: 'code: string, option: any',
+    list: [
       {
-        name: 'add(code, option)',
-        desc: '添加',
+        name: 'tableMenuMethod',
+        desc: '表格 - 自定义菜单方法',
         type: '',
         enum: '',
-        defVal: 'code: string, option: any',
-        list: [
-          {
-            name: 'tableMenuMethod',
-            desc: '表格 - 自定义菜单方法',
-            type: '',
-            enum: '',
-            defVal: '({ menu, type, row, rowIndex, column, columnIndex, $grid, $table, $event }) => void',
-            list: []
-          }
-        ]
-      },
-      {
-        name: 'mixin(opts)',
-        desc: '添加多个，参数跟 add 一致',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: 'options: Record<string, option>',
-        list: []
-      },
-      {
-        name: 'delete(code)',
-        desc: '删除',
-        type: '',
-        enum: '',
-        defVal: 'code: string',
+        defVal: '({ menu, type, row, rowIndex, column, columnIndex, $grid, $table, $event }) => void',
         list: []
       }
     ]
-
-    return {
-      tableData
-    }
+  },
+  {
+    name: 'mixin(opts)',
+    desc: '添加多个，参数跟 add 一致',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'options: Record<string, option>',
+    list: []
+  },
+  {
+    name: 'delete(code)',
+    desc: '删除',
+    type: '',
+    enum: '',
+    defVal: 'code: string',
+    list: []
   }
-})
+])
 </script>

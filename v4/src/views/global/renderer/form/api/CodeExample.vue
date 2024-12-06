@@ -30,144 +30,136 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default Vue.extend({
-  data () {
-    const tableData = [
+const tableData = ref([
+  {
+    name: 'add(name, option)',
+    desc: '添加',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'name: string, option: any',
+    list: [
+      // {
+      //   name: 'formItemAutoFocus',
+      //   desc: '设置自动聚焦元素 class',
+      //   version: '',
+      //   type: 'string | ((params: { field, data, , $form }) => HTMLElement)',
+      //   enum: '',
+      //   defVal: '',
+      //   list: []
+      // },
       {
-        name: 'add(name, option)',
-        desc: '添加',
+        name: 'formItemClassName',
+        desc: '设置表单项的 class',
         version: '',
-        type: '',
+        type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
         enum: '',
-        defVal: 'name: string, option: any',
-        list: [
-          // {
-          //   name: 'formItemAutoFocus',
-          //   desc: '设置自动聚焦元素 class',
-          //   version: '',
-          //   type: 'string | ((params: { field, data, , $form }) => HTMLElement)',
-          //   enum: '',
-          //   defVal: '',
-          //   list: []
-          // },
-          {
-            name: 'formItemClassName',
-            desc: '设置表单项的 class',
-            version: '',
-            type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'formItemStyle',
-            desc: '设置表单项的样式',
-            version: '',
-            type: 'Record<string, any> | ((renderOpts, params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'formItemContentClassName',
-            desc: '设置表单项内容元素的 class',
-            version: '',
-            type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'formItemContentStyle',
-            desc: '设置表单项内容元素的样式',
-            version: '',
-            type: 'Record<string, any> | ((params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'formItemTitleClassName',
-            desc: '设置表单项标题元素的 class',
-            version: '',
-            type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'formItemTitleStyle',
-            desc: '设置表单项标题元素的样式',
-            version: '',
-            type: 'Record<string, any> | ((params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormItemTitle',
-            desc: '渲染表单项标题',
-            version: '',
-            type: '(params: { data, item, field, disabled, readonly, $form }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'renderFormItemContent',
-            desc: '渲染表单项内容',
-            version: '',
-            type: '(params: { data, item, field, disabled, readonly, $form }) => JSX',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'formItemVisibleMethod',
-            desc: '自定义表单项被显示隐藏逻辑',
-            version: '',
-            type: '(params: { data, field }) => boolean',
-            enum: '',
-            defVal: '',
-            list: []
-          },
-          {
-            name: 'formItemResetMethod',
-            desc: '自定义表单项被重置时的逻辑',
-            version: '',
-            type: '(params: { data, field }) => void',
-            enum: '',
-            defVal: '',
-            list: []
-          }
-        ]
-      },
-      {
-        name: 'mixin(options)',
-        desc: '添加多个，参数跟 add 一致',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: 'options: Record<string, option>',
+        defVal: '',
         list: []
       },
       {
-        name: 'delete(name)',
-        desc: '删除',
+        name: 'formItemStyle',
+        desc: '设置表单项的样式',
         version: '',
-        type: '',
+        type: 'Record<string, any> | ((renderOpts, params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
         enum: '',
-        defVal: 'name',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'formItemContentClassName',
+        desc: '设置表单项内容元素的 class',
+        version: '',
+        type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'formItemContentStyle',
+        desc: '设置表单项内容元素的样式',
+        version: '',
+        type: 'Record<string, any> | ((params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'formItemTitleClassName',
+        desc: '设置表单项标题元素的 class',
+        version: '',
+        type: 'string | ((params: { data, field, disabled, readonly, $form }) => string)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'formItemTitleStyle',
+        desc: '设置表单项标题元素的样式',
+        version: '',
+        type: 'Record<string, any> | ((params: { data, field, disabled, readonly, $form }) => Record<string, any>)',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormItemTitle',
+        desc: '渲染表单项标题',
+        version: '',
+        type: '(params: { data, item, field, disabled, readonly, $form }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'renderFormItemContent',
+        desc: '渲染表单项内容',
+        version: '',
+        type: '(params: { data, item, field, disabled, readonly, $form }) => JSX',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'formItemVisibleMethod',
+        desc: '自定义表单项被显示隐藏逻辑',
+        version: '',
+        type: '(params: { data, field }) => boolean',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
+        name: 'formItemResetMethod',
+        desc: '自定义表单项被重置时的逻辑',
+        version: '',
+        type: '(params: { data, field }) => void',
+        enum: '',
+        defVal: '',
         list: []
       }
     ]
-
-    return {
-      tableData
-    }
+  },
+  {
+    name: 'mixin(options)',
+    desc: '添加多个，参数跟 add 一致',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'options: Record<string, option>',
+    list: []
+  },
+  {
+    name: 'delete(name)',
+    desc: '删除',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'name',
+    list: []
   }
-})
+])
 </script>

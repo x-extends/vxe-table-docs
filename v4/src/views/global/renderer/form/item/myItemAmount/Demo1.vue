@@ -17,8 +17,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
 interface FormDataVO {
   name: string
@@ -27,18 +27,10 @@ interface FormDataVO {
   address: string
 }
 
-export default Vue.extend({
-  data () {
-    const formData: FormDataVO = {
-      name: 'test1',
-      nickname: 'Testing',
-      amount: '',
-      address: ''
-    }
-
-    return {
-      formData
-    }
-  }
+const formData = ref<FormDataVO>({
+  name: 'test1',
+  nickname: 'Testing',
+  amount: '',
+  address: ''
 })
 </script>

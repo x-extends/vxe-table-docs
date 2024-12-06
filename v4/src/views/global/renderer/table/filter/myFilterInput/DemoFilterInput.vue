@@ -1,69 +1,58 @@
 <template>
   <div v-if="currOption" class="my-filter-input">
-    <vxe-input mode="text" v-model="currOption.data" placeholder="按回车筛选" @keyup="keyupEvent" @change="changeOptionEvent"></vxe-input>
+    <vxe-input mode="text" v-model="currOption.data" placeholder="支持回车筛选" @keyup="keyupEvent" @input="changeOptionEvent"></vxe-input>
   </div>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue'
-import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines } from 'vxe-table'
+<script lang="ts" setup>
+import { watch, PropType, ref } from 'vue'
+import type { VxeGlobalRendererHandles, VxeInputEvents } from 'vxe-pc-ui'
+import type { VxeTableDefines } from 'vxe-table'
 
-interface RowVO {
-  id: number
-  name: string
-  sex: string
-  age: number
-}
-export default Vue.extend({
-  props: {
-    params: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderTableFilterParams)
-    }
-  },
-  data () {
-    return {
-      currOption: null as VxeTableDefines.FilterOption|null
-    }
-  },
-  methods: {
-    load () {
-      const { params } = this
-      if (params) {
-        const { column } = params
-        const option = column.filters[0]
-        this.currOption = option
-      }
-    },
-    changeOptionEvent  () {
-      const { params } = this
-      const option = this.currOption
-      if (params && option) {
-        const { $table } = params
-        const checked = !!option.data
-        $table.updateFilterOptionStatus(option, checked)
-      }
-    },
-    keyupEvent ({ $event }) {
-      const { params } = this
-      if (params) {
-        const { $table } = params
-        if ($event.key === 'Enter') {
-          $table.saveFilterPanel()
-        }
-      }
-    }
-  },
-  watch: {
-    'props.params' () {
-      this.load()
-    }
-  },
-  created () {
-    this.load()
+const props = defineProps({
+  params: {
+    type: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>,
+    default: () => ({})
   }
 })
+
+const currOption = ref<VxeTableDefines.FilterOption>()
+
+const load = () => {
+  const { params } = props
+  if (params) {
+    const { column } = params
+    const option = column.filters[0]
+    currOption.value = option
+  }
+}
+
+const changeOptionEvent = () => {
+  const { params } = props
+  const option = currOption.value
+  if (params && option) {
+    const { $table } = params
+    const checked = !!option.data
+    $table.updateFilterOptionStatus(option, checked)
+  }
+}
+
+const keyupEvent: VxeInputEvents.Keyup = ({ $event }) => {
+  const { params } = props
+  if (params) {
+    const { $table } = params
+    if ($event.key === 'Enter') {
+      $table.saveFilterPanel()
+    }
+  }
+}
+
+watch(() => {
+  const { column } = props.params || {}
+  return column
+}, load)
+
+load()
 </script>
 
 <style scoped>

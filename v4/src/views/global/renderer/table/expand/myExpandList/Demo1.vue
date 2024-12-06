@@ -14,9 +14,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+<script lang="tsx" setup>
+import { ref } from 'vue'
 
 interface RowVO {
   id: number
@@ -25,18 +24,10 @@ interface RowVO {
   age: number
 }
 
-export default Vue.extend({
-  data () {
-    const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', sex: 'Man', age: 28 },
-      { id: 10002, name: 'Test2', sex: 'Women', age: 22 },
-      { id: 10003, name: 'Test3', sex: 'Man', age: 32 },
-      { id: 10004, name: 'Test4', sex: 'Women', age: 23 }
-    ]
-
-    return {
-      tableData
-    }
-  }
-})
+const tableData = ref<RowVO[]>([
+  { id: 10001, name: 'Test1', sex: 'Man', age: 28 },
+  { id: 10002, name: 'Test2', sex: 'Women', age: 22 },
+  { id: 10003, name: 'Test3', sex: 'Man', age: 32 },
+  { id: 10004, name: 'Test4', sex: 'Women', age: 23 }
+])
 </script>

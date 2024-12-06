@@ -20,54 +20,46 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default Vue.extend({
-  data () {
-    const tableData = [
+const tableData = ref([
+  {
+    name: 'add(name, option)',
+    desc: '添加',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'name: string, option: any',
+    list: [
       {
-        name: 'add(name, option)',
-        desc: '添加',
+        name: 'formItemValidatorMethod',
+        desc: '自定义表单项校验方法',
         version: '',
-        type: '',
+        type: '(params: { itemValue, data, field, rule, rules, $form }) => void | Error | Promise<any>',
         enum: '',
-        defVal: 'name: string, option: any',
-        list: [
-          {
-            name: 'formItemValidatorMethod',
-            desc: '自定义表单项校验方法',
-            version: '',
-            type: '(params: { itemValue, data, field, rule, rules, $form }) => void | Error | Promise<any>',
-            enum: '',
-            defVal: '',
-            list: []
-          }
-        ]
-      },
-      {
-        name: 'mixin(options)',
-        desc: '添加多个，参数跟 add 一致',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: 'options: Record<string, option>',
-        list: []
-      },
-      {
-        name: 'delete(name)',
-        desc: '删除',
-        version: '',
-        type: '',
-        enum: '',
-        defVal: 'name',
+        defVal: '',
         list: []
       }
     ]
-
-    return {
-      tableData
-    }
+  },
+  {
+    name: 'mixin(options)',
+    desc: '添加多个，参数跟 add 一致',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'options: Record<string, option>',
+    list: []
+  },
+  {
+    name: 'delete(name)',
+    desc: '删除',
+    version: '',
+    type: '',
+    enum: '',
+    defVal: 'name',
+    list: []
   }
-})
+])
 </script>

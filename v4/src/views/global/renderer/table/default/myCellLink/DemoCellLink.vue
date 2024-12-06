@@ -1,49 +1,42 @@
 <template>
-  <vxe-link :href="cellUrl" status="primary" target="_blank">{{ cellLabel }}</vxe-link>
+  <VxeLink :href="cellUrl" status="primary" target="_blank">{{ cellLabel }}</VxeLink>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue'
-import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
+<script lang="ts" setup>
+import { PropType, ref, computed } from 'vue'
+import { VxeLink, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { VxeTableDefines } from 'vxe-table'
 
-export default Vue.extend({
-  props: {
-    params: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderTableDefaultParams>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderTableDefaultParams)
-    }
-  },
-  data () {
-    return {
-      currColumn: null as VxeTableDefines.ColumnInfo | null,
-      currRow: null as any
-    }
-  },
-  computed: {
-    cellUrl (this: any) {
-      if (this.currRow && this.currColumn) {
-        return this.currRow.url
-      }
-      return ''
-    },
-    cellLabel (this: any) {
-      if (this.currRow && this.currColumn) {
-        return this.currRow[this.currColumn.field]
-      }
-      return ''
-    }
-  },
-  methods: {
-    load () {
-      const { params } = this
-      const { row, column } = params
-      this.currRow = row
-      this.currColumn = column
-    }
-  },
-  created () {
-    this.load()
+const props = defineProps({
+  params: {
+    type: Object as PropType<VxeGlobalRendererHandles.RenderTableDefaultParams>,
+    default: () => ({})
   }
 })
+
+const currColumn = ref<VxeTableDefines.ColumnInfo>()
+const currRow = ref()
+
+const cellUrl = computed(() => {
+  if (currRow.value && currColumn.value) {
+    return currRow.value.url
+  }
+  return ''
+})
+
+const cellLabel = computed(() => {
+  if (currRow.value && currColumn.value) {
+    return currRow[currColumn.value.field]
+  }
+  return ''
+})
+
+const load = () => {
+  const { params } = props
+  const { row, column } = params
+  currRow.value = row
+  currColumn.value = column
+}
+
+load()
 </script>

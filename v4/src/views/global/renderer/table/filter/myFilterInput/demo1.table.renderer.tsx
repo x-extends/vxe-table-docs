@@ -1,12 +1,12 @@
 // main.js
 
-import { VxeUI } from 'vxe-pc-ui'
+import { VxeUI } from 'vxe-table'
 import DemoFilterInput from './DemoFilterInput.vue'
 
 // 创建一个简单的输入框筛选渲染器
 VxeUI.renderer.add('MyTableFilterInput', {
   // 自定义筛选模板
-  renderTableFilter (h, renderOpts, params) {
+  renderTableFilter (renderOpts, params) {
     return <DemoFilterInput params={ params } />
   },
   // 自定义重置数据方法

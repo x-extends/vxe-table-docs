@@ -29,86 +29,83 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue'
+<script lang="ts" setup>
+import { watch, PropType, ref } from 'vue'
 import { VxeGlobalRendererHandles, VxeTableDefines } from 'vxe-table'
 import XEUtils from 'xe-utils'
+
+const props = defineProps({
+  params: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
+})
 
 interface ColValItem {
   checked: boolean
   value: string
 }
 
-export default Vue.extend({
-  props: {
-    params: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
-  },
-  data () {
-    return {
-      currOption: null as VxeTableDefines.FilterOption | null,
-      isCheckedAll: false,
-      allValList: [] as ColValItem[],
-      columnValList: [] as ColValItem[]
-    }
-  },
-  methods: {
-    load  () {
-      const { params } = this
-      if (params) {
-        const { $table, column } = params
-        const { fullData } = $table.getTableData()
-        const option = column.filters[0]
-        const { vals } = option.data
-        const colValList = Object.keys(XEUtils.groupBy(fullData, column.field)).map((val) => {
-          return {
-            checked: vals.includes(val),
-            value: val
-          }
-        })
-        this.currOption = option
-        this.allValList = colValList
-        this.columnValList = colValList
+const currOption = ref<VxeTableDefines.FilterOption>()
+const isCheckedAll = ref(false)
+const allValList = ref<ColValItem[]>([])
+const columnValList = ref<ColValItem[]>([])
+
+const load = () => {
+  const { params } = props
+  if (params) {
+    const { $table, column } = params
+    const { fullData } = $table.getTableData()
+    const option = column.filters[0]
+    const { vals } = option.data
+    const colValList = Object.keys(XEUtils.groupBy(fullData, column.field)).map((val) => {
+      return {
+        checked: vals.includes(val),
+        value: val
       }
-    },
-    searchEvent  () {
-      const option = this.currOption
-      if (option) {
-        this.columnValList = option.data.sVal ? this.allValList.filter((item) => item.value.indexOf(option.data.sVal) > -1) : this.allValList
-      }
-    },
-    changeAllEvent  () {
-      this.columnValList.forEach((item) => {
-        item.checked = this.isCheckedAll
-      })
-    },
-    confirmFilterEvent  () {
-      const { params } = this
-      const option = this.currOption
-      if (params && option) {
-        const { data } = option
-        const { $table } = params
-        data.vals = this.columnValList.filter((item) => item.checked).map((item) => item.value)
-        $table.updateFilterOptionStatus(option, true)
-        $table.saveFilterPanel()
-      }
-    },
-    resetFilterEvent  () {
-      const { params } = this
-      if (params) {
-        const { $table } = params
-        $table.resetFilterPanel()
-      }
-    }
-  },
-  watch: {
-    'props.params' () {
-      this.load()
-    }
-  },
-  created () {
-    this.load()
+    })
+    currOption.value = option
+    allValList.value = colValList
+    columnValList.value = colValList
   }
-})
+}
+
+const searchEvent = () => {
+  const option = currOption.value
+  if (option) {
+    columnValList.value = option.data.sVal ? allValList.value.filter((item) => item.value.indexOf(option.data.sVal) > -1) : allValList.value
+  }
+}
+
+const changeAllEvent = () => {
+  columnValList.value.forEach((item) => {
+    item.checked = isCheckedAll.value
+  })
+}
+
+const confirmFilterEvent = () => {
+  const { params } = props
+  const option = currOption.value
+  if (params && option) {
+    const { data } = option
+    const { $table } = params
+    data.vals = columnValList.value.filter((item) => item.checked).map((item) => item.value)
+    $table.updateFilterOptionStatus(option, true)
+    $table.saveFilterPanel()
+  }
+}
+
+const resetFilterEvent = () => {
+  const { params } = props
+  if (params) {
+    const { $table } = params
+    $table.resetFilterPanel()
+  }
+}
+
+watch(() => {
+  const { column } = props.params || {}
+  return column
+}, load)
+
+load()
 </script>
 
 <style lang="scss" scoped>

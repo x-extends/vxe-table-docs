@@ -5,40 +5,33 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="tsx" setup>
+import { ref } from 'vue'
 import { VxeFormDesignInstance, VxeFormDesignPropTypes } from 'vxe-pc-ui'
 
-export default Vue.extend({
-  data () {
-    const formDesignWidgets: VxeFormDesignPropTypes.Widgets = [
-      {
-        group: 'layout',
-        children: [
-          'title',
-          'row',
-          'subtable'
-        ]
-      },
-      {
-        customGroup: '我的控件',
-        children: [
-          'MyFormDesignInputWidget'
-        ]
-      }
-    ]
+const formDesignRef = ref<VxeFormDesignInstance>()
 
-    return {
-      formDesignWidgets
-    }
+const formDesignWidgets = ref<VxeFormDesignPropTypes.Widgets>([
+  {
+    group: 'layout',
+    children: [
+      'title',
+      'row',
+      'subtable'
+    ]
   },
-  methods: {
-    clickEvent () {
-      const $formDesign = this.$refs.formDesignRef as VxeFormDesignInstance
-      if ($formDesign) {
-        console.log(JSON.stringify($formDesign.getConfig()))
-      }
-    }
+  {
+    customGroup: '我的控件',
+    children: [
+      'MyFormDesignInputWidget'
+    ]
   }
-})
+])
+
+const clickEvent = () => {
+  const $formDesign = formDesignRef.value
+  if ($formDesign) {
+    console.log(JSON.stringify($formDesign.getConfig()))
+  }
+}
 </script>

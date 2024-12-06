@@ -1,7 +1,7 @@
 // main.js
 
 import { VxeUI } from 'vxe-pc-ui'
-import DemoCellImg from './DemoCellAmount.vue'
+import DemoCellImg from './DemoCellImg.vue'
 
 // 创建单元格图片预览
 VxeUI.renderer.add('MyTableCellImg', {

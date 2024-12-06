@@ -1,7 +1,7 @@
 // main.js
 
 import { VxeUI } from 'vxe-pc-ui'
-import DemoCellLink from './DemoCellAmount.vue'
+import DemoCellLink from './DemoCellLink.vue'
 
 // 创建单元格超链接
 VxeUI.renderer.add('MyTableCellLink', {
