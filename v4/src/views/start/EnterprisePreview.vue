@@ -35,3 +35,12 @@ const openEvent = () => {
   open(`https://vxetable.cn/pluginDocs/table${process.env.VUE_APP_VXE_VERSION}/#${decodeURIComponent(`${route.query.previewPath || ''}`)}`)
 }
 </script>
+
+<style lang="scss" scoped>
+::v-deep(.example-preview-body) {
+  .vxe-image {
+    min-width: 1200px;
+    max-height: 600px;
+  }
+}
+</style>
