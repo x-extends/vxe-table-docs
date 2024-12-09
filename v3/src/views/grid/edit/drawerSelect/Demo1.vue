@@ -12,7 +12,6 @@
       show-cancel-button
       v-model="showPopup"
       title="关联订单"
-      height="400"
       width="800"
       @show="showSubEvent"
       @confirm="confirmSubEvent">
