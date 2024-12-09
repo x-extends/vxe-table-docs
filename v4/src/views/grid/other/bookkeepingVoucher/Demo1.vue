@@ -1,9 +1,26 @@
 <template>
   <div>
+    <div ref="topElemRef">
+      <h1 style="text-align: center;">记账凭证</h1>
+    </div>
+
+    <div>
+      <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+      <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+    </div>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents">
       <template #toolbarButtons>
-        <vxe-button status="primary" @click="addEvent">新增</vxe-button>
-        <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+        <vxe-form :data="formData">
+          <vxe-form-item title="凭证号" field="certNO" :item-render="{name: 'VxeInput'}"></vxe-form-item>
+          <vxe-form-item title="凭证日期" field="certDate" :item-render="{name: 'VxeDatePicker'}"></vxe-form-item>
+          <vxe-form-item title="附件数量" field="fileNumber" :item-render="{name: 'VxeNumberInput', props: {type: 'integer'}}"></vxe-form-item>
+        </vxe-form>
+      </template>
+
+      <template #active="{ row }">
+          <vxe-button mode="text" status="primary" icon="vxe-icon-add" @click="insertRow(row)"></vxe-button>
+          <vxe-button mode="text" status="error" icon="vxe-icon-delete" @click="removeRow(row)"></vxe-button>
       </template>
     </vxe-grid>
 
@@ -46,9 +63,21 @@ interface RowVO {
   creditObj: AmountObjVO
 }
 
+interface FormDataVO {
+  certNO: string
+  certDate: string
+  fileNumber: number
+}
+
 const gridRef = ref<VxeGridInstance<RowVO>>()
 const topElemRef = ref<HTMLDivElement>()
 const bottomElemRef = ref<HTMLDivElement>()
+
+const formData = reactive<FormDataVO>({
+  certNO: '',
+  certDate: '',
+  fileNumber: 1
+})
 
 const footerRow = reactive({
   seq: '合计',
@@ -130,7 +159,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         { field: 'creditObj.m2', title: '分', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } }
       ]
     },
-    { field: 'x2', title: '√', width: 40 }
+    { field: 'x2', title: '√', width: 40 },
+    { field: 'active', title: '操作', width: 80, fixed: 'right', slots: { default: 'active' } }
   ]
 })
 
@@ -220,6 +250,23 @@ const addEvent = async () => {
   if ($grid) {
     const record = {}
     await $grid.insertAt(record, -1)
+    updateFooter()
+  }
+}
+
+const insertRow = async (row: RowVO) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const record = {}
+    await $grid.insertAt(record, row)
+    updateFooter()
+  }
+}
+
+const removeRow = async (row: RowVO) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    await $grid.remove(row)
     updateFooter()
   }
 }

@@ -1,11 +1,24 @@
 <template>
   <div>
+    <div ref="topElemRef">
+      <h1 style="text-align: center;">记账凭证</h1>
+    </div>
+
+    <div>
+      <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+      <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+    </div>
+
     <vxe-toolbar ref="toolbarRef" print export>
       <template #buttons>
-        <vxe-button status="primary" @click="addEvent">新增</vxe-button>
-        <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+        <vxe-form :data="formData">
+          <vxe-form-item title="凭证号" field="certNO" :item-render="{name: 'VxeInput'}"></vxe-form-item>
+          <vxe-form-item title="凭证日期" field="certDate" :item-render="{name: 'VxeDatePicker'}"></vxe-form-item>
+          <vxe-form-item title="附件数量" field="fileNumber" :item-render="{name: 'VxeNumberInput', props: {type: 'integer'}}"></vxe-form-item>
+        </vxe-form>
       </template>
     </vxe-toolbar>
+
     <vxe-table
       border
       show-overflow
@@ -51,6 +64,12 @@
         <vxe-column field="creditObj.m2" title="分" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
       </vxe-colgroup>
       <vxe-column field="x2" title="√" width="40"></vxe-column>
+      <vxe-column field="active" title="操作" width="100" fixed="right">
+        <template #default="{ row }">
+          <vxe-button mode="text" status="primary" icon="vxe-icon-add" @click="insertRow(row)"></vxe-button>
+          <vxe-button mode="text" status="error" icon="vxe-icon-delete" @click="removeRow(row)"></vxe-button>
+        </template>
+      </vxe-column>
     </vxe-table>
 
     <div ref="bottomElemRef" style="display: flex;padding: 8px;">
@@ -92,10 +111,22 @@ interface RowVO {
   creditObj: AmountObjVO
 }
 
+interface FormDataVO {
+  certNO: string
+  certDate: string
+  fileNumber: number
+}
+
 const toolbarRef = ref<VxeToolbarInstance>()
 const tableRef = ref<VxeTableInstance<RowVO>>()
 const topElemRef = ref<HTMLDivElement>()
 const bottomElemRef = ref<HTMLDivElement>()
+
+const formData = reactive<FormDataVO>({
+  certNO: '',
+  certDate: '',
+  fileNumber: 1
+})
 
 const footerRow = reactive({
   seq: '合计',
@@ -215,6 +246,23 @@ const addEvent = async () => {
   if ($table) {
     const record = {}
     await $table.insertAt(record, -1)
+    updateFooter()
+  }
+}
+
+const insertRow = async (row: RowVO) => {
+  const $table = tableRef.value
+  if ($table) {
+    const record = {}
+    await $table.insertAt(record, row)
+    updateFooter()
+  }
+}
+
+const removeRow = async (row: RowVO) => {
+  const $table = tableRef.value
+  if ($table) {
+    await $table.remove(row)
     updateFooter()
   }
 }

@@ -1,9 +1,26 @@
 <template>
   <div>
+    <div ref="topElemRef">
+      <h1 style="text-align: center;">记账凭证</h1>
+    </div>
+
+    <div>
+      <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+      <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+    </div>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions" @edit-closed="editClosedEvent">
       <template #toolbarButtons>
-        <vxe-button status="primary" @click="addEvent">新增</vxe-button>
-        <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+        <vxe-form :data="formData">
+          <vxe-form-item title="凭证号" field="certNO" :item-render="{name: 'VxeInput'}"></vxe-form-item>
+          <vxe-form-item title="凭证日期" field="certDate" :item-render="{name: 'VxeDatePicker'}"></vxe-form-item>
+          <vxe-form-item title="附件数量" field="fileNumber" :item-render="{name: 'VxeNumberInput', props: {type: 'integer'}}"></vxe-form-item>
+        </vxe-form>
+      </template>
+
+      <template #active="{ row }">
+          <vxe-button mode="text" status="primary" icon="vxe-icon-add" @click="insertRow(row)"></vxe-button>
+          <vxe-button mode="text" status="error" icon="vxe-icon-delete" @click="removeRow(row)"></vxe-button>
       </template>
     </vxe-grid>
 
@@ -46,8 +63,20 @@ interface RowVO {
   creditObj: AmountObjVO
 }
 
+interface FormDataVO {
+  certNO: string
+  certDate: string
+  fileNumber: number
+}
+
 export default Vue.extend({
   data () {
+    const formData: FormDataVO = {
+      certNO: '',
+      certDate: '',
+      fileNumber: 1
+    }
+
     const footerRow = {
       seq: '合计',
       debtorObj: {},
@@ -128,12 +157,14 @@ export default Vue.extend({
             { field: 'creditObj.m2', title: '分', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } }
           ]
         },
-        { field: 'x2', title: '√', width: 40 }
+        { field: 'x2', title: '√', width: 40 },
+        { field: 'active', title: '操作', width: 80, fixed: 'right', slots: { default: 'active' } }
       ]
     }
 
     return {
       gridOptions,
+      formData,
       footerRow
     }
   },
@@ -208,6 +239,21 @@ export default Vue.extend({
       if ($grid) {
         const record = {}
         await $grid.insertAt(record, -1)
+        this.updateFooter()
+      }
+    },
+    async insertRow (row: RowVO) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const record = {}
+        await $grid.insertAt(record, row)
+        this.updateFooter()
+      }
+    },
+    async removeRow (row: RowVO) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        await $grid.remove(row)
         this.updateFooter()
       }
     },
