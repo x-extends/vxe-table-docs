@@ -45,8 +45,8 @@ const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
 const resultEvent = () => {
   const $table = tableRef.value
   if ($table) {
-    const { visibleColumn } = $table.getTableColumn()
-    console.log(visibleColumn)
+    const tableColumn = $table.getFullColumns()
+    console.log(tableColumn)
   }
 }
 </script>

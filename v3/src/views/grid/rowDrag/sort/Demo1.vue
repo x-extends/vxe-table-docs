@@ -52,8 +52,8 @@ export default Vue.extend({
     resultEvent  () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        const { visibleData } = $grid.getTableData()
-        console.log(visibleData)
+        const tableData = $grid.getFullData()
+        console.log(tableData)
       }
     }
   }

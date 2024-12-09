@@ -41,6 +41,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/base/align/CodeExample.vue')
         },
         {
+          path: 'visible',
+          name: 'ComponentTableBaseVisible',
+          component: () => import('@/views/table/base/visible/CodeExample.vue')
+        },
+        {
           path: 'width',
           name: 'ComponentTableBaseWidth',
           component: () => import('@/views/table/base/width/CodeExample.vue')
@@ -402,9 +407,40 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/rowDrag/icon/CodeExample.vue')
         },
         {
+          path: 'showGuidesStatus',
+          name: 'ComponentTableRowDragShowGuidesStatus',
+          component: () => import('@/views/table/rowDrag/showGuidesStatus/CodeExample.vue')
+        },
+        {
           path: 'tree',
-          name: 'ComponentTableRowDragTree',
-          component: () => import('@/views/table/rowDrag/tree/CodeExample.vue')
+          component: RouteLayout,
+          children: [
+            {
+              path: 'base',
+              name: 'ComponentTableRowDragTreeBase',
+              component: () => import('@/views/table/rowDrag/tree/base/CodeExample.vue')
+            },
+            {
+              path: 'cossDrag',
+              name: 'ComponentTableRowDragTreeCossDrag',
+              component: () => import('@/views/table/rowDrag/tree/cossDrag/CodeExample.vue')
+            },
+            {
+              path: 'selfToChildDrag',
+              name: 'ComponentTableRowDragTreeSelfToChildDrag',
+              component: () => import('@/views/table/rowDrag/tree/selfToChildDrag/CodeExample.vue')
+            },
+            {
+              path: 'showGuidesStatus',
+              name: 'ComponentTableRowDragTreeShowGuidesStatus',
+              component: () => import('@/views/table/rowDrag/tree/showGuidesStatus/CodeExample.vue')
+            },
+            {
+              path: 'dragMethod',
+              name: 'ComponentTableRowDragTreeDragMethod',
+              component: () => import('@/views/table/rowDrag/tree/dragMethod/CodeExample.vue')
+            }
+          ]
         },
         {
           path: 'events',
@@ -467,6 +503,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'icon',
           name: 'ComponentTableColDragIcon',
           component: () => import('@/views/table/colDrag/icon/CodeExample.vue')
+        },
+        {
+          path: 'showGuidesStatus',
+          name: 'ComponentTableColDragShowGuidesStatus',
+          component: () => import('@/views/table/colDrag/showGuidesStatus/CodeExample.vue')
         },
         {
           path: 'group',
@@ -1589,6 +1630,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'advanced',
           name: 'ComponentTableExportAdvanced',
           component: () => import('@/views/table/export/advanced/CodeExample.vue')
+        },
+        {
+          path: 'columns',
+          name: 'ComponentTableExportColumns',
+          component: () => import('@/views/table/export/columns/CodeExample.vue')
         }
       ]
     },
@@ -1754,6 +1800,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'lineEllipsis',
           name: 'ComponentTableOtherLineEllipsis',
           component: () => import('@/views/table/other/lineEllipsis/CodeExample.vue')
+        },
+        {
+          path: 'bookkeepingVoucher',
+          name: 'ComponentTableOtherBookkeepingVoucher',
+          component: () => import('@/views/table/other/bookkeepingVoucher/CodeExample.vue')
         }
       ]
     }
@@ -1782,6 +1833,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'align',
           name: 'ComponentGridBaseAlign',
           component: () => import('@/views/grid/base/align/CodeExample.vue')
+        },
+        {
+          path: 'visible',
+          name: 'ComponentGridBaseVisible',
+          component: () => import('@/views/grid/base/visible/CodeExample.vue')
         },
         {
           path: 'width',
@@ -2085,6 +2141,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/colDrag/icon/CodeExample.vue')
         },
         {
+          path: 'showGuidesStatus',
+          name: 'ComponentGridColDragShowGuidesStatus',
+          component: () => import('@/views/grid/colDrag/showGuidesStatus/CodeExample.vue')
+        },
+        {
           path: 'group',
           name: 'ComponentGridColDragGroup',
           component: () => import('@/views/grid/colDrag/group/CodeExample.vue')
@@ -2152,9 +2213,40 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/rowDrag/icon/CodeExample.vue')
         },
         {
-          path: 'group',
-          name: 'ComponentGridRowDragTree',
-          component: () => import('@/views/grid/rowDrag/tree/CodeExample.vue')
+          path: 'showGuidesStatus',
+          name: 'ComponentGridRowDragShowGuidesStatus',
+          component: () => import('@/views/grid/rowDrag/showGuidesStatus/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          component: RouteLayout,
+          children: [
+            {
+              path: 'base',
+              name: 'ComponentGridRowDragTreeBase',
+              component: () => import('@/views/grid/rowDrag/tree/base/CodeExample.vue')
+            },
+            {
+              path: 'cossDrag',
+              name: 'ComponentGridRowDragTreeCossDrag',
+              component: () => import('@/views/grid/rowDrag/tree/cossDrag/CodeExample.vue')
+            },
+            {
+              path: 'selfToChildDrag',
+              name: 'ComponentGridRowDragTreeSelfToChildDrag',
+              component: () => import('@/views/grid/rowDrag/tree/selfToChildDrag/CodeExample.vue')
+            },
+            {
+              path: 'showGuidesStatus',
+              name: 'ComponentGridRowDragTreeShowGuidesStatus',
+              component: () => import('@/views/grid/rowDrag/tree/showGuidesStatus/CodeExample.vue')
+            },
+            {
+              path: 'dragMethod',
+              name: 'ComponentGridRowDragTreeDragMethod',
+              component: () => import('@/views/grid/rowDrag/tree/dragMethod/CodeExample.vue')
+            }
+          ]
         },
         {
           path: 'events',
@@ -3311,6 +3403,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/export/advanced/CodeExample.vue')
         },
         {
+          path: 'columns',
+          name: 'ComponentGridExportColumns',
+          component: () => import('@/views/grid/export/columns/CodeExample.vue')
+        },
+        {
           path: 'types',
           name: 'ComponentGridExportTypes',
           component: () => import('@/views/grid/export/types/CodeExample.vue')
@@ -3723,6 +3820,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'yearMonth',
           name: 'ComponentGridOtherYearMonth',
           component: () => import('@/views/grid/other/yearMonth/CodeExample.vue')
+        },
+        {
+          path: 'bookkeepingVoucher',
+          name: 'ComponentGridOtherBookkeepingVoucher',
+          component: () => import('@/views/grid/other/bookkeepingVoucher/CodeExample.vue')
         },
         {
           path: 'pasteToUpload',

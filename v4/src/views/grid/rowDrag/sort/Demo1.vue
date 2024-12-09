@@ -47,8 +47,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 const resultEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
-    const { visibleData } = $grid.getTableData()
-    console.log(visibleData)
+    const tableData = $grid.getFullData()
+    console.log(tableData)
   }
 }
 </script>

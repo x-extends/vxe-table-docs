@@ -49,8 +49,8 @@ export default Vue.extend({
     resultEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        const { visibleColumn } = $grid.getTableColumn()
-        console.log(visibleColumn)
+        const tableColumn = $grid.getFullColumns()
+        console.log(tableColumn)
       }
     }
   }

@@ -57,8 +57,8 @@ export default Vue.extend({
     resultEvent  () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        const { visibleData } = $table.getTableData()
-        console.log(visibleData)
+        const tableData = $table.getFullData()
+        console.log(tableData)
       }
     }
   }

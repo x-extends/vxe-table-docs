@@ -50,8 +50,8 @@ export default Vue.extend({
     resultEvent () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        const { visibleColumn } = $table.getTableColumn()
-        console.log(visibleColumn)
+        const tableColumn = $table.getFullColumns()
+        console.log(tableColumn)
       }
     }
   }

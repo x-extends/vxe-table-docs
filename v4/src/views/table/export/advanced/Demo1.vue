@@ -4,7 +4,7 @@
     <vxe-table
       show-footer
       ref="tableRef"
-      :export-config="{}"
+      :export-config="exportConfig"
       :footer-data="footerData"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import type { VxeTableInstance } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -41,10 +41,13 @@ const tableData = ref<RowVO[]>([
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
 
-const footerData = ref([
+const footerData = ref<VxeTablePropTypes.FooterData>([
   { seq: '合计', sex: '666', age: '999' },
   { seq: '平均', sex: '888', age: '333' }
 ])
+
+const exportConfig = reactive<VxeTablePropTypes.ExportConfig>({
+})
 
 const exportEvent = () => {
   const $table = tableRef.value

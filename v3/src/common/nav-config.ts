@@ -42,6 +42,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' } },
             { title: '边距', routerLink: { name: 'ComponentTableBasePadding' } },
             { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' } },
+            { title: '列可视', routerLink: { name: 'ComponentTableBaseVisible' } },
             { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' } },
             { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
             { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' } },
@@ -143,6 +144,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '拖拽调整列顺序', routerLink: { name: 'ComponentTableColDragSort' } },
             { title: '冻结列', routerLink: { name: 'ComponentTableColDragFixed' } },
             { title: '自定义图标', routerLink: { name: 'ComponentTableColDragIcon' } },
+            { title: '拖拽辅助样式', routerLink: { name: 'ComponentTableColDragShowGuidesStatus' } },
             { title: '分组表头', routerLink: { name: 'ComponentTableColDragGroup' } },
             { title: '拖拽事件', routerLink: { name: 'ComponentTableColDragEvents' } },
             { title: '禁用按钮', routerLink: { name: 'ComponentTableColDragDisabledMethod' } },
@@ -156,7 +158,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentTableRowDragSort' } },
             { title: '冻结列', routerLink: { name: 'ComponentTableRowDragFixed' } },
             { title: '自定义图标', routerLink: { name: 'ComponentTableRowDragIcon' } },
-            { title: '树结构', routerLink: { name: 'ComponentTableRowDragTree' } },
+            { title: '拖拽辅助样式', routerLink: { name: 'ComponentTableRowDragShowGuidesStatus' } },
+            {
+              title: '树结构',
+              children: [
+                { title: '树拖拽', routerLink: { name: 'ComponentTableRowDragTreeBase' } },
+                { title: '跨层级拖拽', routerLink: { name: 'ComponentTableRowDragTreeCossDrag' } },
+                { title: '自己拖拽给自己', routerLink: { name: 'ComponentTableRowDragTreeSelfToChildDrag' } },
+                { title: '拖拽辅助样式', routerLink: { name: 'ComponentTableRowDragTreeShowGuidesStatus' } },
+                { title: '拖拽二次确认', routerLink: { name: 'ComponentTableRowDragTreeDragMethod' } }
+              ]
+            },
             { title: '拖拽事件', routerLink: { name: 'ComponentTableRowDragEvents' } },
             { title: '禁用按钮', routerLink: { name: 'ComponentTableRowDragDisabledMethod' } },
             { title: '按钮可视', routerLink: { name: 'ComponentTableRowDragVisibleMethod' } },
@@ -471,7 +483,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/export` },
             { title: '导出 PDF 格式', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-pdf/table/export` },
             { title: '格式化单元格内容', routerLink: { name: 'ComponentTableExportExportMethod' } },
-            { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } }
+            { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } },
+            { title: '指定默认列', routerLink: { name: 'ComponentTableExportColumns' } }
           ]
         },
         {
@@ -535,10 +548,11 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
-          title: '其他',
+          title: '功能示例',
           children: [
             { title: '在页签中使用', routerLink: { name: 'ComponentTableOtherTabs' } },
-            { title: '多行文本溢出省略', routerLink: { name: 'ComponentTableOtherLineEllipsis' } }
+            { title: '实现多行文本溢出省略', routerLink: { name: 'ComponentTableOtherLineEllipsis' } },
+            { title: '实现记账凭证', routerLink: { name: 'ComponentTableOtherBookkeepingVoucher' } }
           ]
         }
       ]
@@ -558,6 +572,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '圆角', routerLink: { name: 'ComponentGridBaseRound' } },
             { title: '边距', routerLink: { name: 'ComponentGridBasePadding' } },
             { title: '对齐方式', routerLink: { name: 'ComponentGridBaseAlign' } },
+            { title: '列可视', routerLink: { name: 'ComponentGridBaseVisible' } },
             { title: '列宽', routerLink: { name: 'ComponentGridBaseWidth' } },
             { title: '自动换行', routerLink: { name: 'ComponentGridBaseAutoBreak' } },
             { title: '溢出隐藏', routerLink: { name: 'ComponentGridBaseOverflow' } },
@@ -653,6 +668,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '拖拽调整列顺序', routerLink: { name: 'ComponentGridColDragSort' } },
             { title: '冻结列', routerLink: { name: 'ComponentGridColDragFixed' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridColDragIcon' } },
+            { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridColDragShowGuidesStatus' } },
             { title: '分组表头', routerLink: { name: 'ComponentGridColDragGroup' } },
             { title: '拖拽事件', routerLink: { name: 'ComponentGridColDragEvents' } },
             { title: '自定义提示', routerLink: { name: 'ComponentGridColDragTooltipMethod' } },
@@ -674,7 +690,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridRowDragSort' } },
             { title: '冻结列', routerLink: { name: 'ComponentGridRowDragFixed' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridRowDragIcon' } },
-            { title: '树结构', routerLink: { name: 'ComponentGridRowDragTree' } },
+            { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridRowDragShowGuidesStatus' } },
+            {
+              title: '树结构',
+              children: [
+                { title: '树拖拽', routerLink: { name: 'ComponentGridRowDragTreeBase' } },
+                { title: '跨层级拖拽', routerLink: { name: 'ComponentGridRowDragTreeCossDrag' } },
+                { title: '自己拖拽给自己', routerLink: { name: 'ComponentGridRowDragTreeSelfToChildDrag' } },
+                { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridRowDragTreeShowGuidesStatus' } },
+                { title: '拖拽二次确认', routerLink: { name: 'ComponentGridRowDragTreeDragMethod' } }
+              ]
+            },
             { title: '拖拽事件', routerLink: { name: 'ComponentGridRowDragEvents' } },
             { title: '自定义提示', routerLink: { name: 'ComponentGridRowDragTooltipMethod' } },
             { title: '禁用按钮', routerLink: { name: 'ComponentGridRowDragDisabledMethod' } },
@@ -999,6 +1025,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义数据', routerLink: { name: 'ComponentGridExportData' } },
             { title: '格式化导出内容', routerLink: { name: 'ComponentGridExportExportMethod' } },
             { title: '高级导出', routerLink: { name: 'ComponentGridExportAdvanced' } },
+            { title: '设置默认列', routerLink: { name: 'ComponentGridExportColumns' } },
             { title: '自定义导出类型', routerLink: { name: 'ComponentGridExportTypes' } },
             { title: '服务端导出', routerLink: { name: 'ComponentGridExportRemote' } },
             { title: '自定义导出模式', routerLink: { name: 'ComponentGridExportModes' } },
@@ -1137,14 +1164,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
-          title: '其他',
+          title: '功能示例',
           children: [
             { title: '在页签中使用', routerLink: { name: 'ComponentGridOtherTabs' } },
-            { title: '定位行、定位列', routerLink: { name: 'ComponentGridOtherScrollTo' } },
-            { title: '反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
-            { title: '文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
-            { title: '多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
-            { title: '动态生成月份表头', routerLink: { name: 'ComponentGridOtherYearMonth' } },
+            { title: '定位行、定位列的使用', routerLink: { name: 'ComponentGridOtherScrollTo' } },
+            { title: '实现反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
+            { title: '实现上传文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
+            { title: '实现多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
+            { title: '实现动态生成月份表头', routerLink: { name: 'ComponentGridOtherYearMonth' } },
+            { title: '实现记账凭证', routerLink: { name: 'ComponentGridOtherBookkeepingVoucher' } },
             { title: '实现粘贴上传', routerLink: { name: 'ComponentGridOtherPasteToUpload' } }
           ]
         }
