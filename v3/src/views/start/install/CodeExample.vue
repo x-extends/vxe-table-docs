@@ -12,6 +12,9 @@
         <vxe-tip status="success" title="方式1.完整安装表格和配套 UI 库">
           搭配强大的 UI 库可以使用全功能组件
         </vxe-tip>
+        <vxe-tip status="error">
+          需要注意 vxe-table v3.9+ 开始支持 Vxe UI，不兼容老版本
+        </vxe-tip>
         <pre>
           <pre-code
             language="shell"
