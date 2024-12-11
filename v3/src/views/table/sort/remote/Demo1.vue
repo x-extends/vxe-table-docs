@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeTablePropTypes, VxeTableEvents, VxeColumnPropTypes } from 'vxe-table'
+import { VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {

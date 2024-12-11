@@ -9,6 +9,14 @@
           启用拖动功能需要设置 <ApiLink name="grid" prop="row-config"/>.<ApiLink name="grid" prop="useKey"/> 与 <ApiLink name="grid" prop="column-config"/>.<ApiLink name="grid" prop="useKey"/>
         </vxe-tip>
       </template>
+
+      <template #describe>
+        <pre>
+          <pre-code>
+            | MouseLeft | 移动到指定行的上面或者下面 |
+          </pre-code>
+        </pre>
+      </template>
     </CodeLight>
 
     <CodeLight path="grid/rowDrag/sort/Demo2">

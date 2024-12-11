@@ -6,6 +6,14 @@
           树结构的拖动，默认情况下可以拖拽第一级的数据
         </vxe-tip>
       </template>
+
+      <template #describe>
+        <pre>
+          <pre-code>
+            | MouseLeft | 移动到指定行的上面或者下面 |
+          </pre-code>
+        </pre>
+      </template>
     </CodeLight>
   </div>
 </template>

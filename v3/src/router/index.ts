@@ -348,11 +348,6 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/sort/defaultSort/CodeExample.vue')
         },
         {
-          path: 'remote',
-          name: 'ComponentTableSortRemote',
-          component: () => import('@/views/table/sort/remote/CodeExample.vue')
-        },
-        {
           path: 'sortType',
           name: 'ComponentTableSortSortType',
           component: () => import('@/views/table/sort/sortType/CodeExample.vue')
@@ -361,6 +356,16 @@ const tableRouteConfig: RouteConfig = {
           path: 'sortMethod',
           name: 'ComponentTableSortSortMethod',
           component: () => import('@/views/table/sort/sortMethod/CodeExample.vue')
+        },
+        {
+          path: 'remote',
+          name: 'ComponentTableSortRemote',
+          component: () => import('@/views/table/sort/remote/CodeExample.vue')
+        },
+        {
+          path: 'setSort',
+          name: 'ComponentTableSortSetSort',
+          component: () => import('@/views/table/sort/setSort/CodeExample.vue')
         }
       ]
     },
@@ -369,24 +374,19 @@ const tableRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
-          path: 'options',
-          name: 'ComponentTableFilterOptions',
-          component: () => import('@/views/table/filter/options/CodeExample.vue')
-        },
-        {
           path: 'remote',
           name: 'ComponentTableFilterRemote',
           component: () => import('@/views/table/filter/remote/CodeExample.vue')
         },
         {
-          path: 'header',
-          name: 'ComponentTableFilterHeader',
-          component: () => import('@/views/table/filter/header/CodeExample.vue')
+          path: 'setFilter',
+          name: 'ComponentTableFilterSetFilter',
+          component: () => import('@/views/table/filter/setFilter/CodeExample.vue')
         },
         {
-          path: 'manual',
-          name: 'ComponentTableFilterManual',
-          component: () => import('@/views/table/filter/manual/CodeExample.vue')
+          path: 'headerFilter',
+          name: 'ComponentTableFilterHeaderFilter',
+          component: () => import('@/views/table/filter/headerFilter/CodeExample.vue')
         }
       ]
     },
@@ -432,6 +432,11 @@ const tableRouteConfig: RouteConfig = {
               path: 'selfToChildDrag',
               name: 'ComponentTableRowDragTreeSelfToChildDrag',
               component: () => import('@/views/table/rowDrag/tree/selfToChildDrag/CodeExample.vue')
+            },
+            {
+              path: 'toChildDrag',
+              name: 'ComponentTableRowDragTreeToChildDrag',
+              component: () => import('@/views/table/rowDrag/tree/toChildDrag/CodeExample.vue')
             },
             {
               path: 'showGuidesStatus',
@@ -2037,6 +2042,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'remote',
           name: 'ComponentGridSortRemote',
           component: () => import('@/views/grid/sort/remote/CodeExample.vue')
+        },
+        {
+          path: 'setSort',
+          name: 'ComponentGridSortSetSort',
+          component: () => import('@/views/grid/sort/setSort/CodeExample.vue')
         }
       ]
     },
@@ -2045,14 +2055,14 @@ const gridRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
-          path: 'options',
-          name: 'ComponentGridFilterOptions',
-          component: () => import('@/views/grid/filter/options/CodeExample.vue')
-        },
-        {
           path: 'remote',
           name: 'ComponentGridFilterRemote',
           component: () => import('@/views/grid/filter/remote/CodeExample.vue')
+        },
+        {
+          path: 'setFilter',
+          name: 'ComponentGridFilterSetFilter',
+          component: () => import('@/views/grid/filter/setFilter/CodeExample.vue')
         },
         {
           path: 'headerFilter',
@@ -2238,6 +2248,11 @@ const gridRouteConfig: RouteConfig = {
               path: 'selfToChildDrag',
               name: 'ComponentGridRowDragTreeSelfToChildDrag',
               component: () => import('@/views/grid/rowDrag/tree/selfToChildDrag/CodeExample.vue')
+            },
+            {
+              path: 'toChildDrag',
+              name: 'ComponentGridRowDragTreeToChildDrag',
+              component: () => import('@/views/grid/rowDrag/tree/toChildDrag/CodeExample.vue')
             },
             {
               path: 'showGuidesStatus',

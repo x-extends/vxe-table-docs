@@ -125,9 +125,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '触发方式', routerLink: { name: 'ComponentTableSortTrigger' } },
             { title: '自定义轮询', routerLink: { name: 'ComponentTableSortOrders' } },
             { title: '设置默认排序', routerLink: { name: 'ComponentTableSortDefaultSort' } },
-            { title: '服务端排序', routerLink: { name: 'ComponentTableSortRemote' } },
             { title: '设置值的类型', routerLink: { name: 'ComponentTableSortSortType' } },
-            { title: '自定义排序方法', routerLink: { name: 'ComponentTableSortSortMethod' } }
+            { title: '自定义排序方法', routerLink: { name: 'ComponentTableSortSortMethod' } },
+            { title: '服务端排序', routerLink: { name: 'ComponentTableSortRemote' } },
+            { title: '手动操作排序', routerLink: { name: 'ComponentTableSortSetSort' } }
           ]
         },
         {
@@ -165,6 +166,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '树拖拽', routerLink: { name: 'ComponentTableRowDragTreeBase' } },
                 { title: '跨层级拖拽', routerLink: { name: 'ComponentTableRowDragTreeCossDrag' } },
                 { title: '自己拖拽给自己', routerLink: { name: 'ComponentTableRowDragTreeSelfToChildDrag' } },
+                { title: '拖拽成子级', routerLink: { name: 'ComponentTableRowDragTreeToChildDrag' } },
                 { title: '拖拽辅助样式', routerLink: { name: 'ComponentTableRowDragTreeShowGuidesStatus' } },
                 { title: '拖拽二次确认', routerLink: { name: 'ComponentTableRowDragTreeDragMethod' } }
               ]
@@ -178,10 +180,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '筛选',
           children: [
-            { title: '修改筛选选项', routerLink: { name: 'ComponentTableFilterOptions' } },
             { title: '服务端筛选', routerLink: { name: 'ComponentTableFilterRemote' } },
-            { title: '实现列头筛选', routerLink: { name: 'ComponentTableFilterHeader' } },
-            { title: '手动操作筛选', routerLink: { name: 'ComponentTableFilterManual' } },
+            { title: '手动操作筛选', routerLink: { name: 'ComponentTableFilterSetFilter' } },
+            { title: '实现列头筛选', routerLink: { name: 'ComponentTableFilterHeaderFilter' } },
             { title: '输入筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_complex_input_table_complex_string_filter' }, query: { previewPath: '%2FfiltersComplexInput%2Ftable%2Fcomplex%2FstringFilter' } } },
             { title: '组合筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_combination_table_combination_string_filter' }, query: { previewPath: '%2FfiltersCombination%2Ftable%2Fcombination%2FstringFilter' } } }
           ]
@@ -651,7 +652,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '排序',
           children: [
             { title: '多字段排序', routerLink: { name: 'ComponentGridSortMultiple' } },
-            { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } }
+            { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } },
+            { title: '手动排序', routerLink: { name: 'ComponentGridSortSetSort' } }
           ]
         },
         {
@@ -697,6 +699,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '树拖拽', routerLink: { name: 'ComponentGridRowDragTreeBase' } },
                 { title: '跨层级拖拽', routerLink: { name: 'ComponentGridRowDragTreeCossDrag' } },
                 { title: '自己拖拽给自己', routerLink: { name: 'ComponentGridRowDragTreeSelfToChildDrag' } },
+                { title: '拖拽成子级', routerLink: { name: 'ComponentGridRowDragTreeToChildDrag' } },
                 { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridRowDragTreeShowGuidesStatus' } },
                 { title: '拖拽二次确认', routerLink: { name: 'ComponentGridRowDragTreeDragMethod' } }
               ]
@@ -728,9 +731,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '筛选',
           children: [
-            { title: '修改筛选选项', routerLink: { name: 'ComponentGridFilterOptions' } },
             { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } },
-            { title: '实现列头中自定义筛选', routerLink: { name: 'ComponentGridFilterHeaderFilter' } },
+            { title: '手动操作筛选', routerLink: { name: 'ComponentGridFilterSetFilter' } },
+            { title: '实现列头筛选', routerLink: { name: 'ComponentGridFilterHeaderFilter' } },
             { title: '输入筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_complex_input_table_complex_string_filter' }, query: { previewPath: '%2FfiltersComplexInput%2Fgrid%2Fcomplex%2FstringFilter' } } },
             { title: '组合筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_combination_table_combination_string_filter' }, query: { previewPath: '%2FfiltersCombination%2Fgrid%2Fcombination%2FstringFilter' } } }
           ]
