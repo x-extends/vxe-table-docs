@@ -23,11 +23,9 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columnConfig: {
-    useKey: true,
     drag: true
   },
   rowConfig: {
-    useKey: true,
     drag: true
   },
   columns: [
@@ -48,9 +46,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 const resultEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
-    const { visibleColumn } = $grid.getTableColumn()
-    const { visibleData } = $grid.getTableData()
-    console.log(visibleColumn, visibleData)
+    const tableColumn = $grid.getFullColumns()
+    const tableData = $grid.getFullData()
+    console.log('列：', tableColumn)
+    console.log('数据：', tableData)
   }
 }
 </script>

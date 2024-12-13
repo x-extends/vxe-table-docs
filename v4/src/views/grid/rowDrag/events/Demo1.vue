@@ -20,11 +20,9 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   rowConfig: {
-    useKey: true,
     drag: true
   },
   columnConfig: {
-    useKey: true
   },
   columns: [
     { field: 'name', title: 'Name' },
@@ -45,8 +43,8 @@ const gridEvents: VxeGridListeners<RowVO> = {
   rowDragstart ({ row }) {
     console.log(`拖拽开始 ${row.name}`)
   },
-  rowDragend ({ newRow, oldRow }) {
-    console.log(`拖拽完成，旧行 ${oldRow.name} 新行 ${newRow.name}`)
+  rowDragend ({ newRow, oldRow, dragPos }) {
+    console.log(`拖拽完成，被拖拽行：${oldRow.name} 目标行：${newRow.name} 目标位置：${dragPos}`)
   }
 }
 </script>

@@ -24,6 +24,9 @@ export default Vue.extend({
       toolbarConfig: {
         custom: true
       },
+      columnConfig: {
+        resizable: true
+      },
       customConfig: {
         immediate: true
       },

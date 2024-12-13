@@ -36,7 +36,6 @@ const tableData = ref<RowVO[]>([
 ])
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
-  useKey: true,
   drag: true
 })
 

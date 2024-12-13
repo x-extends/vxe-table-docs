@@ -158,7 +158,7 @@ export default Vue.extend({
           ]
         },
         { field: 'x2', title: '√', width: 40 },
-        { field: 'active', title: '操作', width: 80, fixed: 'right', slots: { default: 'active' } }
+        { field: 'active', title: '操作', width: 100, fixed: 'right', slots: { default: 'active' } }
       ]
     }
 

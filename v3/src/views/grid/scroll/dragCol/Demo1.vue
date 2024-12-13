@@ -23,7 +23,6 @@ export default Vue.extend({
       height: 600,
       columnConfig: {
         resizable: true,
-        useKey: true,
         drag: true
       },
       scrollX: {

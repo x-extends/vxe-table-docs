@@ -38,12 +38,10 @@ export default Vue.extend({
     ]
 
     const columnConfig: VxeTablePropTypes.ColumnConfig = {
-      drag: true,
-      useKey: true
+      drag: true
     }
 
     const rowConfig: VxeTablePropTypes.RowConfig = {
-      useKey: true
     }
 
     const customConfig: VxeTablePropTypes.CustomConfig = {

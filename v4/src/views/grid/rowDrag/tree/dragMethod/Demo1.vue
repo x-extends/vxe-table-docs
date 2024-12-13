@@ -20,7 +20,6 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   rowConfig: {
-    useKey: true,
     drag: true
   },
   rowDragConfig: {
@@ -43,7 +42,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     }
   },
   columnConfig: {
-    useKey: true
   },
   treeConfig: {
     transform: true,

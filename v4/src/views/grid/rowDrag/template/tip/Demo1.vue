@@ -24,11 +24,9 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   rowConfig: {
-    useKey: true,
     drag: true
   },
   columnConfig: {
-    useKey: true
   },
   rowDragConfig: {
     slots: {

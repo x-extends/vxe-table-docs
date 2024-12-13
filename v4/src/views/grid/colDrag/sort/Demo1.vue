@@ -23,7 +23,6 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columnConfig: {
-    useKey: true,
     drag: true
   },
   columns: [

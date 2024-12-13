@@ -672,6 +672,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义图标', routerLink: { name: 'ComponentGridColDragIcon' } },
             { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridColDragShowGuidesStatus' } },
             { title: '分组表头', routerLink: { name: 'ComponentGridColDragGroup' } },
+            { title: '跨层级拖拽', routerLink: { name: 'ComponentGridColDragCrossDrag' } },
+            { title: '自己拖拽给自己', routerLink: { name: 'ComponentGridColDragSelfToChildDrag' } },
+            { title: '拖拽成子级', routerLink: { name: 'ComponentGridColDragToChildDrag' } },
             { title: '拖拽事件', routerLink: { name: 'ComponentGridColDragEvents' } },
             { title: '自定义提示', routerLink: { name: 'ComponentGridColDragTooltipMethod' } },
             { title: '禁用按钮', routerLink: { name: 'ComponentGridColDragDisabledMethod' } },
@@ -1175,6 +1178,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现上传文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
             { title: '实现多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
             { title: '实现动态生成月份表头', routerLink: { name: 'ComponentGridOtherYearMonth' } },
+            { title: '实现分页复选框选择', routerLink: { name: 'ComponentGridOtherPageCheckbox' } },
             { title: '实现记账凭证', routerLink: { name: 'ComponentGridOtherBookkeepingVoucher' } },
             { title: '实现粘贴上传', routerLink: { name: 'ComponentGridOtherPasteToUpload' } }
           ]

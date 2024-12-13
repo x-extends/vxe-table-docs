@@ -17,7 +17,7 @@ interface RowVO {
   address: string
 }
 
-const AllList = [
+const allList = [
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
   { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
   { id: 10003, name: 'Test3', nickname: 'T3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
@@ -42,13 +42,13 @@ const AllList = [
   { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
 ]
 
-// 前端分页
+// 模拟前端分页
 const handlePageData = () => {
   gridOptions.loading = true
   setTimeout(() => {
     const { pageSize, currentPage } = gridOptions.pagerConfig
-    gridOptions.pagerConfig.total = AllList.length
-    gridOptions.data = AllList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    gridOptions.pagerConfig.total = allList.length
+    gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     gridOptions.loading = false
   }, 100)
 }
@@ -80,12 +80,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
     { field: 'updateDate', title: 'Update Date', visible: false },
     { field: 'createDate', title: 'Create Date', visible: false }
   ],
-  data: [
-    { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-    { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-    { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-    { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
-  ]
+  data: []
 })
 
 const gridEvents: VxeGridListeners = {

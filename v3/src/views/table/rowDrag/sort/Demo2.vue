@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -38,12 +38,10 @@ export default Vue.extend({
     ]
 
     const rowConfig: VxeTablePropTypes.RowConfig<RowVO> = {
-      useKey: true,
       drag: true
     }
 
     const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {
-      useKey: true
     }
 
     return {

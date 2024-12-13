@@ -54,7 +54,6 @@ export default Vue.extend({
     ]
 
     const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {
-      useKey: true,
       drag: true
     }
 

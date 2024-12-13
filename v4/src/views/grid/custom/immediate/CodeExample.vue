@@ -5,5 +5,11 @@
         <vxe-tip status="primary">通过设置 <ApiLink name="grid" prop="immediate"/> 开启操作后实时更新</vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/custom/immediate/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">弹窗模式</vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

@@ -2161,6 +2161,21 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/colDrag/group/CodeExample.vue')
         },
         {
+          path: 'crossDrag',
+          name: 'ComponentGridColDragCrossDrag',
+          component: () => import('@/views/grid/colDrag/crossDrag/CodeExample.vue')
+        },
+        {
+          path: 'selfToChildDrag',
+          name: 'ComponentGridColDragSelfToChildDrag',
+          component: () => import('@/views/grid/colDrag/selfToChildDrag/CodeExample.vue')
+        },
+        {
+          path: 'toChildDrag',
+          name: 'ComponentGridColDragToChildDrag',
+          component: () => import('@/views/grid/colDrag/toChildDrag/CodeExample.vue')
+        },
+        {
           path: 'events',
           name: 'ComponentGridColDragEvents',
           component: () => import('@/views/grid/colDrag/events/CodeExample.vue')
@@ -3835,6 +3850,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'yearMonth',
           name: 'ComponentGridOtherYearMonth',
           component: () => import('@/views/grid/other/yearMonth/CodeExample.vue')
+        },
+        {
+          path: 'pageCheckbox',
+          name: 'ComponentGridOtherPageCheckbox',
+          component: () => import('@/views/grid/other/pageCheckbox/CodeExample.vue')
         },
         {
           path: 'bookkeepingVoucher',

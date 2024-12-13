@@ -22,6 +22,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   toolbarConfig: {
     custom: true
   },
+  columnConfig: {
+    resizable: true
+  },
   customConfig: {
     immediate: true
   },

@@ -39,12 +39,10 @@ const tableData = ref<RowVO[]>([
 ])
 
 const rowConfig = reactive<VxeTablePropTypes.RowConfig<RowVO>>({
-  useKey: true,
   drag: true
 })
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
-  useKey: true
 })
 
 const resultEvent = () => {

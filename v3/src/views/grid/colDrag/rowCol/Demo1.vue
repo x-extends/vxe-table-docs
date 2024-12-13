@@ -23,11 +23,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       columnConfig: {
-        useKey: true,
         drag: true
       },
       rowConfig: {
-        useKey: true,
         drag: true
       },
       columns: [
@@ -53,8 +51,10 @@ export default Vue.extend({
     resultEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        const { visibleColumn } = $grid.getTableColumn()
-        console.log(visibleColumn)
+        const tableColumn = $grid.getFullColumns()
+        const tableData = $grid.getFullData()
+        console.log('列：', tableColumn)
+        console.log('数据：', tableData)
       }
     }
   }

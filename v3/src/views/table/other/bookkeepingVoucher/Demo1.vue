@@ -64,7 +64,7 @@
         <vxe-column field="creditObj.m2" title="分" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
       </vxe-colgroup>
       <vxe-column field="x2" title="√" width="40"></vxe-column>
-      <vxe-column field="active" title="操作" width="80" fixed="right">
+      <vxe-column field="active" title="操作" width="100" fixed="right">
         <template #default="{ row }">
           <vxe-button mode="text" status="primary" icon="vxe-icon-add" @click="insertRow(row)"></vxe-button>
           <vxe-button mode="text" status="error" icon="vxe-icon-delete" @click="removeRow(row)"></vxe-button>

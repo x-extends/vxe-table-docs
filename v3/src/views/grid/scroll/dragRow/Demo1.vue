@@ -24,11 +24,9 @@ export default Vue.extend({
       showOverflow: true,
       height: 600,
       rowConfig: {
-        useKey: true,
         drag: true
       },
       columnConfig: {
-        useKey: true
       },
       scrollY: {
         enabled: true,

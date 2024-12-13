@@ -39,12 +39,10 @@ export default Vue.extend({
     ]
 
     const rowConfig: VxeTablePropTypes.RowConfig<RowVO> = {
-      useKey: true,
       drag: true
     }
 
     const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {
-      useKey: true
     }
 
     return {
@@ -57,8 +55,8 @@ export default Vue.extend({
     rowDragstartEvent ({ row }) {
       console.log(`拖拽开始 ${row.name}`)
     },
-    rowDragendEvent ({ newRow, oldRow }) {
-      console.log(`拖拽完成，旧行 ${oldRow.name} 新行 ${newRow.name}`)
+    rowDragendEvent ({ newRow, oldRow, dragPos }) {
+      console.log(`拖拽完成，被拖拽行：${oldRow.name} 目标行：${newRow.name} 目标位置：${dragPos}`)
     }
   }
 })

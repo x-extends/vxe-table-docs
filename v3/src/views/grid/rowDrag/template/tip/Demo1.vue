@@ -26,11 +26,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       rowConfig: {
-        useKey: true,
         drag: true
       },
       columnConfig: {
-        useKey: true
       },
       rowDragConfig: {
         slots: {

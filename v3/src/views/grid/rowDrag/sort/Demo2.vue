@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -22,11 +22,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       rowConfig: {
-        useKey: true,
         drag: true
       },
       columnConfig: {
-        useKey: true
       },
       columns: [
         { field: 'name', title: 'Name', dragSort: true },

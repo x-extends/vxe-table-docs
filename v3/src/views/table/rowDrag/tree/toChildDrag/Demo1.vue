@@ -53,7 +53,6 @@ export default Vue.extend({
     ]
 
     const rowConfig: VxeTablePropTypes.RowConfig<RowVO> = {
-      useKey: true,
       drag: true
     }
 
@@ -64,7 +63,6 @@ export default Vue.extend({
     }
 
     const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {
-      useKey: true
     }
 
     const treeConfig: VxeTablePropTypes.TreeConfig<RowVO> = {

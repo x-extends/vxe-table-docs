@@ -22,16 +22,15 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       rowConfig: {
-        useKey: true,
         drag: true
       },
       rowDragConfig: {
         isCrossDrag: true,
         isSelfToChildDrag: true,
+        isToChildDrag: true,
         showGuidesStatus: true
       },
       columnConfig: {
-        useKey: true
       },
       treeConfig: {
         transform: true,

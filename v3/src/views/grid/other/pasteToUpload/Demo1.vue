@@ -16,6 +16,7 @@ interface RowVO {
   fileList2: VxeUploadPropTypes.ModelValue
   imgList2: VxeUploadPropTypes.ModelValue
 }
+
 export default Vue.extend({
   data () {
     const fileList2CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
