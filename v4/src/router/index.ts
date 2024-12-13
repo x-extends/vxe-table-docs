@@ -1476,6 +1476,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-table-select',
           name: 'ComponentTableEditRenderVxeTableSelect',
           component: () => import('@/views/table/editRender/vxe-table-select/CodeExample.vue')
+        },
+        {
+          path: 'events',
+          name: 'ComponentTableEditRenderEvents',
+          component: () => import('@/views/table/editRender/events/CodeExample.vue')
         }
       ]
     },
@@ -3191,6 +3196,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vxe-table-select',
           name: 'ComponentGridEditRenderVxeTableSelect',
           component: () => import('@/views/grid/editRender/vxe-table-select/CodeExample.vue')
+        },
+        {
+          path: 'events',
+          name: 'ComponentGridEditRenderEvents',
+          component: () => import('@/views/grid/editRender/events/CodeExample.vue')
         },
         {
           path: 'cellDisable',

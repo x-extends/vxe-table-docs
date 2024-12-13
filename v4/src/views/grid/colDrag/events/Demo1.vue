@@ -41,8 +41,8 @@ const gridEvents: VxeGridListeners<RowVO> = {
   columnDragstart ({ column }) {
     console.log(`拖拽开始 ${column.field}`)
   },
-  columnDragend ({ newColumn, oldColumn }) {
-    console.log(`拖拽完成，旧行 ${oldColumn.field} 新行 ${newColumn.field}`)
+  columnDragend ({ newColumn, oldColumn, dragPos }) {
+    console.log(`拖拽完成，被拖拽列：${oldColumn.field} 目标列：${newColumn.field} 目标位置：${dragPos}`)
   }
 }
 </script>
