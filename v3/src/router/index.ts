@@ -2808,8 +2808,28 @@ const gridRouteConfig: RouteConfig = {
         },
         {
           path: 'checkbox',
-          name: 'ComponentGridTreeCheckbox',
-          component: () => import('@/views/grid/tree/checkbox/CodeExample.vue')
+          children: [
+            {
+              path: 'base',
+              name: 'ComponentGridTreeCheckboxBase',
+              component: () => import('@/views/grid/tree/checkbox/base/CodeExample.vue')
+            },
+            {
+              path: 'labelField',
+              name: 'ComponentGridTreeCheckboxLabelField',
+              component: () => import('@/views/grid/tree/checkbox/labelField/CodeExample.vue')
+            },
+            {
+              path: 'checkStrictly',
+              name: 'ComponentGridTreeCheckboxCheckStrictly',
+              component: () => import('@/views/grid/tree/checkbox/checkStrictly/CodeExample.vue')
+            },
+            {
+              path: 'strictlyHeader',
+              name: 'ComponentGridTreeCheckboxStrictlyHeader',
+              component: () => import('@/views/grid/tree/checkbox/strictlyHeader/CodeExample.vue')
+            }
+          ]
         },
         {
           path: 'group',

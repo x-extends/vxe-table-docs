@@ -861,7 +861,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '序号模式', routerLink: { name: 'ComponentGridTreeSeqMode' } },
             { title: '显示连接线', routerLink: { name: 'ComponentGridTreeLine' } },
             { title: '单选框', routerLink: { name: 'ComponentGridTreeRadio' } },
-            { title: '复选框', routerLink: { name: 'ComponentGridTreeCheckbox' } },
+            {
+              title: '复选框',
+              children: [
+                { title: '基础', routerLink: { name: 'ComponentGridTreeCheckboxBase' } },
+                { title: '显示字段内容', routerLink: { name: 'ComponentGridTreeCheckboxLabelField' } },
+                { title: '父子不关联', routerLink: { name: 'ComponentGridTreeCheckboxCheckStrictly' } },
+                { title: '父子不关联与全选', routerLink: { name: 'ComponentGridTreeCheckboxStrictlyHeader' } }
+              ]
+            },
             { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } },
             { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
             { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } }
