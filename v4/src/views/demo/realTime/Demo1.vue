@@ -159,7 +159,7 @@ const loadMockData = (rSize: number) => {
 }
 
 let isStop = false
-let udTime: number | undefined
+let udTime: any
 
 const stopUpdateData = () => {
   isStop = true

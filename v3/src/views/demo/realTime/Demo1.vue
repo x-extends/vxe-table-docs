@@ -135,7 +135,7 @@ export default Vue.extend({
       formatAmount,
       formatWanAmount,
       isStop: false,
-      udTime: undefined as number | undefined
+      udTime: undefined as any
     }
   },
   methods: {
