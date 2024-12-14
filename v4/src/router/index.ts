@@ -3,6 +3,11 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import RouteLayout from '@/components/RouteLayout.vue'
 import PageLayout from '@/components/PageLayout.vue'
 
+import DemoListPreview from '@/views/demo/list/CodeExample.vue'
+import DemoRealTimeReview from '@/views/demo/realTime/CodeExample.vue'
+import DemoTreePreview from '@/views/demo/tree/CodeExample.vue'
+import DemoCrudPreview from '@/views/demo/crud/CodeExample.vue'
+
 import StartInstall from '@/views/start/install/CodeExample.vue'
 import StartUseGlobal from '@/views/start/useGlobal/CodeExample.vue'
 import StartUseImport from '@/views/start/useImport/CodeExample.vue'
@@ -3911,8 +3916,34 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: {
-      name: 'StartInstall'
+      name: 'DemoListPreview'
     }
+  },
+  {
+    path: '/demo',
+    component: PageLayout,
+    children: [
+      {
+        path: 'list',
+        name: 'DemoListPreview',
+        component: DemoListPreview
+      },
+      {
+        path: 'realTime',
+        name: 'DemoRealTimeReview',
+        component: DemoRealTimeReview
+      },
+      {
+        path: 'tree',
+        name: 'DemoTreePreview',
+        component: DemoTreePreview
+      },
+      {
+        path: 'crud',
+        name: 'DemoCrudPreview',
+        component: DemoCrudPreview
+      }
+    ]
   },
   {
     path: '/start',

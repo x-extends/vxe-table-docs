@@ -1296,6 +1296,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
 export const navConfigList: NavVO[] = [
   { title: '切换 v3.x 旧版文档', linkUrl: '/v3_old', linkTarget: '_self' },
   {
+    i18nKey: 'app.aside.menu.demoTitle',
+    isExpand: true,
+    children: [
+      { i18nKey: 'app.aside.menu.demoList', routerLink: { name: 'DemoListPreview' } },
+      { i18nKey: 'app.aside.menu.demoRealTime', routerLink: { name: 'DemoRealTimeReview' } },
+      { i18nKey: 'app.aside.menu.demoTree', routerLink: { name: 'DemoTreePreview' } },
+      { i18nKey: 'app.aside.menu.demoCrud', routerLink: { name: 'DemoCrudPreview' } }
+    ]
+  },
+  {
     i18nKey: 'app.aside.menu.guide',
     isExpand: true,
     children: [

@@ -50,3 +50,9 @@ body {
   color: red;
   text-decoration: line-through;
 }
+
+.demo-page-wrapper {
+  height: calc(100vh - 400px);
+  max-width: 1800px;
+  overflow: hidden;
+}

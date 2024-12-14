@@ -35,7 +35,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/views/demo/components/TableView2.vue", "src/views/demo/components/TableView2.vue"  ],
   "exclude": [
     "node_modules"
   ]

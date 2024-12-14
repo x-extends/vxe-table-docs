@@ -10,6 +10,7 @@
     "format:examples": "eslint --fix dist/example/**/*.{js,ts,vue}"
   },
   "dependencies": {
+    "@vxe-ui/plugin-render-chart": "^3.0.0",
     "axios": "^1.7.2",
     "core-js": "^3.8.3",
     "highlight.js": "^11.9.0",
@@ -17,7 +18,7 @@
     "vuex": "^3.4.0",
     "vue-i18n": "^8.15.1",
     "vue-router": "^3.5.1",
-    "vxe-table": "^3.11.30"
+    "vxe-table": "^3.11.31"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "~6.21.0",

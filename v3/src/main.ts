@@ -22,6 +22,9 @@ import 'vxe-pc-ui/es/style.css'
 import VxeTable from 'vxe-table'
 import 'vxe-table/es/style.css'
 
+import VxeUIPluginRenderChart from '@vxe-ui/plugin-render-chart'
+import '@vxe-ui/plugin-render-chart/dist/style.css'
+
 import enUS from 'vxe-pc-ui/lib/language/en-US'
 
 import '@/views/table/base/format/demo2.format'
@@ -81,6 +84,7 @@ window.XEUtils = XEUtils
 axios.defaults.baseURL = process.env.VUE_APP_SERVE_API_URL
 
 VxeUI.setI18n('en-US', enUS)
+VxeUI.use(VxeUIPluginRenderChart)
 
 Vue.component('PreCode', PreCode)
 Vue.component('CodeLight', CodeLight)
