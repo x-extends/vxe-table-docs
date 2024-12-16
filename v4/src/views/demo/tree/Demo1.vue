@@ -88,6 +88,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   columnDragConfig: {
+    trigger: 'cell',
+    showIcon: false,
     isCrossDrag: true,
     isToChildDrag: true,
     isSelfToChildDrag: true,

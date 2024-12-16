@@ -19,36 +19,21 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  columnConfig: {
+  rowConfig: {
     drag: true
   },
-  columnDragConfig: {
-    isCrossDrag: true
+  columnConfig: {
+  },
+  rowDragConfig: {
+    trigger: 'cell',
+    showGuidesStatus: true
   },
   columns: [
     { field: 'name', title: 'Name' },
-    { field: 'role', title: 'Role' },
-    {
-      title: '分组1',
-      field: 'group1',
-      children: [
-        { field: 'sex', title: 'Sex' }
-      ]
-    },
-    {
-      title: '分组6',
-      field: 'group6',
-      children: [
-        {
-          title: '分组9',
-          field: 'group9',
-          children: [
-            { field: 'age', title: 'Age' },
-            { field: 'address', title: 'Address' }
-          ]
-        }
-      ]
-    }
+    { field: 'role', title: 'Role', dragSort: true },
+    { field: 'sex', title: 'Sex' },
+    { field: 'age', title: 'Age' },
+    { field: 'address', title: 'Address' }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

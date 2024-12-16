@@ -112,6 +112,8 @@ export default Vue.extend({
         resizable: true
       },
       columnDragConfig: {
+        trigger: 'cell',
+        showIcon: false,
         isCrossDrag: true,
         isToChildDrag: true,
         isSelfToChildDrag: true,

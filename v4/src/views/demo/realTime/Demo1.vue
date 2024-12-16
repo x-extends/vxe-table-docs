@@ -49,7 +49,13 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   showOverflow: true,
   height: '100%',
   columnConfig: {
+    drag: true,
     resizable: true
+  },
+  columnDragConfig: {
+    trigger: 'cell',
+    showIcon: false,
+    showGuidesStatus: true
   },
   rowConfig: {
     isHover: true

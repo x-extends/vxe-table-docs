@@ -23,7 +23,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     drag: true
   },
   columnDragConfig: {
-    isCrossDrag: true
+    isCrossDrag: true,
+    showGuidesStatus: true,
+    showIcon: false,
+    trigger: 'cell'
   },
   columns: [
     { field: 'name', title: 'Name' },
