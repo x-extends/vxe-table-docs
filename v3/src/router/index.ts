@@ -389,6 +389,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/filter/setFilter/CodeExample.vue')
         },
         {
+          path: 'manual',
+          name: 'ComponentTableFilterManual',
+          component: () => import('@/views/table/filter/manual/CodeExample.vue')
+        },
+        {
           path: 'headerFilter',
           name: 'ComponentTableFilterHeaderFilter',
           component: () => import('@/views/table/filter/headerFilter/CodeExample.vue')
@@ -2073,6 +2078,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'setFilter',
           name: 'ComponentGridFilterSetFilter',
           component: () => import('@/views/grid/filter/setFilter/CodeExample.vue')
+        },
+        {
+          path: 'manual',
+          name: 'ComponentGridFilterManual',
+          component: () => import('@/views/grid/filter/manual/CodeExample.vue')
         },
         {
           path: 'headerFilter',

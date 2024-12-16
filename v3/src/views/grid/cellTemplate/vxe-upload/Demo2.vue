@@ -143,7 +143,7 @@ export default Vue.extend({
               more-config={
                 { maxCount: 1 }
               }
-              image-style={
+              image-config={
                 { width: 40, height: 40 }
               }
               upload-method={this.uploadMethod}>
@@ -164,7 +164,7 @@ export default Vue.extend({
               more-config={
                 { maxCount: 1 }
               }
-              image-style={
+              image-config={
                 { width: 40, height: 40 }
               }
               upload-method={this.uploadMethod}

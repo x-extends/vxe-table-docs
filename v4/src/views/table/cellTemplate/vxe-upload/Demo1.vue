@@ -18,12 +18,12 @@
       </vxe-column>
       <vxe-column field="imgList1" title="图片列表" width="160">
         <template #default="{ row }">
-          <vxe-upload v-model="row.imgList1" mode="image" progress-text="{percent}%" :more-config="{maxCount: 1}" :image-style="{width: 40, height: 40}" :show-button-text="false" readonly></vxe-upload>
+          <vxe-upload v-model="row.imgList1" mode="image" progress-text="{percent}%" :more-config="{maxCount: 1}" :image-config="{width: 40, height: 40}" :show-button-text="false" readonly></vxe-upload>
         </template>
       </vxe-column>
       <vxe-column field="imgList2" title="上传图片" width="210">
         <template #default="{ row }">
-          <vxe-upload v-model="row.imgList2" mode="image" progress-text="{percent}%" :more-config="{maxCount: 1}" :image-style="{width: 40,height: 40}" :show-button-text="false" :upload-method="uploadMethod" multiple></vxe-upload>
+          <vxe-upload v-model="row.imgList2" mode="image" progress-text="{percent}%" :more-config="{maxCount: 1}" :image-config="{width: 40,height: 40}" :show-button-text="false" :upload-method="uploadMethod" multiple></vxe-upload>
         </template>
       </vxe-column>
     </vxe-table>

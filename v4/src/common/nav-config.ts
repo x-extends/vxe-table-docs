@@ -181,7 +181,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '筛选',
           children: [
             { title: '服务端筛选', routerLink: { name: 'ComponentTableFilterRemote' } },
-            { title: '手动操作筛选', routerLink: { name: 'ComponentTableFilterSetFilter' } },
+            { title: '手动弹出', routerLink: { name: 'ComponentTableFilterManual' } },
+            { title: '手动筛选', routerLink: { name: 'ComponentTableFilterSetFilter' } },
             { title: '实现列头筛选', routerLink: { name: 'ComponentTableFilterHeaderFilter' } },
             { title: '输入筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_complex_input_table_complex_string_filter' }, query: { previewPath: '%2FfiltersComplexInput%2Ftable%2Fcomplex%2FstringFilter' } } },
             { title: '组合筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_combination_table_combination_string_filter' }, query: { previewPath: '%2FfiltersCombination%2Ftable%2Fcombination%2FstringFilter' } } }
@@ -737,8 +738,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '筛选',
           children: [
             { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } },
-            { title: '手动操作筛选', routerLink: { name: 'ComponentGridFilterSetFilter' } },
-            { title: '实现列头筛选', routerLink: { name: 'ComponentGridFilterHeaderFilter' } },
+            { title: '手动弹出', routerLink: { name: 'ComponentGridFilterManual' } },
+            { title: '手动筛选', routerLink: { name: 'ComponentGridFilterSetFilter' } },
             { title: '输入筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_complex_input_table_complex_string_filter' }, query: { previewPath: '%2FfiltersComplexInput%2Fgrid%2Fcomplex%2FstringFilter' } } },
             { title: '组合筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_combination_table_combination_string_filter' }, query: { previewPath: '%2FfiltersCombination%2Fgrid%2Fcombination%2FstringFilter' } } }
           ]
