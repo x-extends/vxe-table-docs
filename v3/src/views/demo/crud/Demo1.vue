@@ -33,6 +33,8 @@ interface RowVO {
   city: string
   avatarUrl: string
   levelNum: number
+  imgList: any[]
+  fileList: any[]
   annualStatement: {
     m1: number | null,
     m2: number | null,
@@ -72,6 +74,15 @@ const asmMpas = {
   m12: XEUtils.shuffle(XEUtils.range(800, 1200))
 }
 const fgList = XEUtils.shuffle(XEUtils.range(1, 60).map(num => (num % 2) === 0))
+const allFileList = [
+  { name: 'fj586.png', url: 'https://vxeui.com/resource/img/fj586.png' },
+  { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' },
+  { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' },
+  { name: 'fj124.jpeg', url: 'https://vxeui.com/resource/img/fj124.jpeg' }
+]
+const flList = XEUtils.shuffle(XEUtils.range(1, 20).map(num => XEUtils.sample(allFileList, XEUtils.random(0, 3))))
+const allImageList = ['https://vxeui.com/resource/img/fj577.jpg', 'https://vxeui.com/resource/img/fj562.png', 'https://vxeui.com/resource/img/fj579.png', 'https://vxeui.com/resource/img/fj573.jpeg', 'https://vxeui.com/resource/img/fj586.png']
+const igList = XEUtils.shuffle(XEUtils.range(1, 20).map(num => XEUtils.sample(allImageList, XEUtils.random(0, 3))))
 const cacheList: RowVO[] = []
 
 export default Vue.extend({
@@ -97,15 +108,89 @@ export default Vue.extend({
         urlMode: true,
         showButtonText: false,
         pasteToUpload: true,
+        progressText: '{percent}%',
         imageConfig: {
           circle: true,
           width: 40,
           height: 40
         },
-        uploadMethod ({ file }) {
+        uploadMethod ({ file, updateProgress }) {
           const formData = new FormData()
           formData.append('file', file)
-          return axios.post('/api/pub/upload/single', formData).then((res) => {
+          return axios.post('/api/pub/upload/single', formData, {
+            // 显示进度
+            onUploadProgress (progressEvent) {
+              const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
+              updateProgress(percentCompleted)
+            }
+          }).then((res) => {
+            // { url: ''}
+            return {
+              ...res.data
+            }
+          })
+        }
+      }
+    }
+
+    const imgListCellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
+      name: 'VxeUpload',
+      props: {
+        mode: 'image',
+        multiple: true,
+        showButtonText: false,
+        pasteToUpload: true,
+        dragSort: true,
+        progressText: '{percent}%',
+        moreConfig: {
+          maxCount: 1
+        },
+        imageConfig: {
+          width: 40,
+          height: 40
+        },
+        uploadMethod ({ file, updateProgress }) {
+          const formData = new FormData()
+          formData.append('file', file)
+          return axios.post('/api/pub/upload/single', formData, {
+            // 显示进度
+            onUploadProgress (progressEvent) {
+              const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
+              updateProgress(percentCompleted)
+            }
+          }).then((res) => {
+            // { url: ''}
+            return {
+              ...res.data
+            }
+          })
+        }
+      }
+    }
+
+    const fileListCellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
+      name: 'VxeUpload',
+      props: {
+        multiple: true,
+        showButtonText: false,
+        pasteToUpload: true,
+        dragSort: true,
+        progressText: '{percent}%',
+        moreConfig: {
+          maxCount: 1,
+          layout: 'horizontal'
+        },
+        uploadMethod ({ file, updateProgress }) {
+          const formData = new FormData()
+          formData.append('file', file)
+          return axios.post('/api/pub/upload/single', formData, {
+            // 显示进度
+            onUploadProgress (progressEvent) {
+              const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
+              updateProgress(percentCompleted)
+            }
+          }).then((res) => {
+            // { url: ''}
             return {
               ...res.data
             }
@@ -208,8 +293,16 @@ export default Vue.extend({
             { field: 'email', title: '邮箱', width: 220, editRender: { name: 'VxeInput' } }
           ]
         },
-        { field: 'flag', title: '是否启用', width: 120, cellRender: flag1CellRender },
+        { field: 'flag', title: '是否启用', width: 140, cellRender: flag1CellRender },
         { field: 'levelNum', title: '评分', width: 160, cellRender: levelNumCellRender },
+        {
+          title: '存档信息',
+          field: 'archive',
+          children: [
+            { field: 'imgList', title: '图片列表', width: 210, cellRender: imgListCellRender },
+            { field: 'fileList', title: '附件列表', width: 300, cellRender: fileListCellRender }
+          ]
+        },
         {
           title: '年度账单',
           field: 'annualStatement',
@@ -236,6 +329,8 @@ export default Vue.extend({
       selectRowSize,
       dataOptions,
       avatarUrlCellRender,
+      imgListCellRender,
+      fileListCellRender,
       levelNumCellRender,
       flag1CellRender,
       sexEditRender,
@@ -258,6 +353,8 @@ export default Vue.extend({
             city: cyList[i % cyList.length],
             avatarUrl: arList[i % arList.length],
             levelNum: lnList[i % lnList.length],
+            imgList: igList[i % igList.length],
+            fileList: XEUtils.clone(flList[i % flList.length], true),
             annualStatement: {
               m1: asmMpas.m1[i % asmMpas.m1.length],
               m2: asmMpas.m2[i % asmMpas.m2.length],
