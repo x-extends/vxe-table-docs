@@ -237,6 +237,7 @@ export default Vue.extend({
         resizable: true
       },
       rowConfig: {
+        useKey: true,
         isHover: true
       },
       toolbarConfig: {

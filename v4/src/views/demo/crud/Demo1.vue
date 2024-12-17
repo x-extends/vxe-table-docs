@@ -204,6 +204,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   rowConfig: {
+    useKey: true,
     isHover: true
   },
   toolbarConfig: {
