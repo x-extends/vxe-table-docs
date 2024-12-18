@@ -46,6 +46,7 @@ const fileList2CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUpl
   props: {
     multiple: true,
     showButtonText: false,
+    dragSort: true,
     progressText: '{percent}%',
     moreConfig: {
       maxCount: 1,
@@ -73,7 +74,7 @@ const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
     moreConfig: {
       maxCount: 1
     },
-    imageStyle: {
+    imageConfig: {
       width: 40,
       height: 40
     },
@@ -96,11 +97,12 @@ const imgList2CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
     mode: 'image',
     multiple: true,
     showButtonText: false,
+    dragSort: true,
     progressText: '{percent}%',
     moreConfig: {
       maxCount: 1
     },
-    imageStyle: {
+    imageConfig: {
       width: 40,
       height: 40
     },

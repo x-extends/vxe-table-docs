@@ -151,7 +151,7 @@ const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender>({
     moreConfig: {
       maxCount: 2
     },
-    imageStyle: {
+    imageConfig: {
       width: 40,
       height: 40
     }

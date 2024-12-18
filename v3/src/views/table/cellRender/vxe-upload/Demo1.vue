@@ -97,6 +97,7 @@ export default Vue.extend({
       props: {
         multiple: true,
         showButtonText: false,
+        dragSort: true,
         progressText: '{percent}%',
         moreConfig: {
           maxCount: 1,
@@ -124,7 +125,7 @@ export default Vue.extend({
         moreConfig: {
           maxCount: 1
         },
-        imageStyle: {
+        imageConfig: {
           width: 40,
           height: 40
         }
@@ -137,11 +138,12 @@ export default Vue.extend({
         mode: 'image',
         multiple: true,
         showButtonText: false,
+        dragSort: true,
         progressText: '{percent}%',
         moreConfig: {
           maxCount: 1
         },
-        imageStyle: {
+        imageConfig: {
           width: 40,
           height: 40
         },

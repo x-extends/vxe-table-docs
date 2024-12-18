@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      stripe
       :row-config="rowConfig"
       :tree-config="treeConfig"
       :data="tableData">

@@ -50,7 +50,7 @@ const imgList2CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
     moreConfig: {
       maxCount: 1
     },
-    imageStyle: {
+    imageConfig: {
       width: 40,
       height: 40
     },

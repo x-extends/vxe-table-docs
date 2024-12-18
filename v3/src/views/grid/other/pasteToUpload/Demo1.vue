@@ -52,7 +52,7 @@ export default Vue.extend({
         moreConfig: {
           maxCount: 1
         },
-        imageStyle: {
+        imageConfig: {
           width: 40,
           height: 40
         },

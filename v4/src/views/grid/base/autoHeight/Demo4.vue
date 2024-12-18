@@ -37,6 +37,7 @@ const tableHeight = ref(200)
 
 const gridOptions1 = reactive<VxeGridProps<RowVO>>({
   border: true,
+  height: '100%',
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
@@ -53,6 +54,7 @@ const gridOptions1 = reactive<VxeGridProps<RowVO>>({
 
 const gridOptions2 = reactive<VxeGridProps<RowVO>>({
   border: true,
+  height: '100%',
   columns: [
     { type: 'checkbox', width: 70 },
     { field: 'role', title: 'Role' },
@@ -68,6 +70,7 @@ const gridOptions2 = reactive<VxeGridProps<RowVO>>({
 
 const gridOptions3 = reactive<VxeGridProps<RowVO>>({
   border: true,
+  height: '100%',
   columns: [
     { type: 'radio', width: 70 },
     { field: 'name', title: 'Name' },

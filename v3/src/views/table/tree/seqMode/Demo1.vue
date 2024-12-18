@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      stripe
       :tree-config="treeConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
