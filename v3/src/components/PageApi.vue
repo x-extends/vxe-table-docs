@@ -9,6 +9,12 @@
         <vxe-input clearable class="search-input" v-model="searchName" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
       </template>
 
+      <template #default_name="{ row }">
+        <span class="api-name">
+          <span class="api-name-text" v-html="row.name"></span>
+          <span class="api-name-version" v-if="row.version">{{ row.version }}</span>
+        </span>
+      </template>
       <template #default_version="{ row }">
         <template v-if="row.version === 'extend-cell-area'">
           <a class="link enterprise-version" :href="pluginBuyUrl" target="_blank">{{ $t('api.enterpriseVersion') }}</a>
@@ -138,7 +144,8 @@ export default Vue.extend({
             { label: 'Slots', value: 'Slots' },
             { label: 'Events', value: 'Events' },
             { label: 'Methods', value: 'Methods' }
-          ]
+          ],
+          slots: { default: 'default_name' }
         },
         { field: 'i18nValue', title: this.$t('api.title.desc'), type: 'html', minWidth: 300 },
         { field: 'type', title: this.$t('api.title.type'), type: 'html', minWidth: 140 },
@@ -263,6 +270,24 @@ export default Vue.extend({
   font-size: 12px;
   padding: 2px 8px;
   color: #606266;
+}
+.api-name {
+  position: relative;
+  .api-name-version {
+    position: absolute;
+    bottom: 8px;
+    color: var(--vxe-ui-docs-primary-color);
+    border: 1px solid var(--vxe-ui-docs-primary-color);;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 14px;
+    height: 16px;
+    padding: 0 2px;
+    transform: translateX(2px);
+    border-radius: 4px;
+  }
 }
 ::v-deep(.vxe-body--row) {
   .vxe-body--column {
