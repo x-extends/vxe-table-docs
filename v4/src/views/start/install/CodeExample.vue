@@ -13,7 +13,7 @@
           搭配强大的 UI 库可以使用全功能组件
         </vxe-tip>
         <vxe-tip status="error">
-          需要注意 vxe-table v4.7+ 开始支持 Vxe UI，不兼容老版本
+          需要注意 vxe-table v4.7+ 开始支持 Vxe UI，代码完全兼容，安装方式不兼容老版本
         </vxe-tip>
         <pre>
           <pre-code
