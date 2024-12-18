@@ -12,7 +12,10 @@
       <template #default_name="{ row }">
         <span class="api-name">
           <span class="api-name-text" v-html="row.name"></span>
-          <span class="api-name-version" v-if="row.version">{{ row.version }}</span>
+          <span class="api-name-version" v-if="row.version">
+            <span v-if="row.version === 'extend-cell-area'">{{ $t('api.enterpriseVersion') }}</span>
+            <span v-else>{{ row.version }}</span>
+          </span>
         </span>
       </template>
       <template #default_version="{ row }">
