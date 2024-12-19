@@ -163,7 +163,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         { field: 'annualStatement.m6', title: '六月', width: 140, formatter: formatAmount },
         { field: 'annualStatement.m7', title: '七月', width: 140, formatter: formatAmount },
         { field: 'annualStatement.m8', title: '八月', width: 140, formatter: formatAmount },
-        { field: 'annualStatement.m9', title: '久月', width: 140, formatter: formatAmount },
+        { field: 'annualStatement.m9', title: '九月', width: 140, formatter: formatAmount },
         { field: 'annualStatement.m10', title: '十月', width: 140, formatter: formatAmount },
         { field: 'annualStatement.m11', title: '十一月', width: 140, formatter: formatAmount },
         { field: 'annualStatement.m12', title: '十二月', width: 140, formatter: formatAmount }
