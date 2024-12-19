@@ -320,10 +320,11 @@ export default Vue.extend({
     pageChangeEvent ({ pageSize }) {
       this.gridOptions.pagerConfig.pageSize = pageSize
     },
-    changeRowSizeEvent () {
+    async changeRowSizeEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        $grid.commitProxy('reload')
+        await this.$nextTick()
+        await $grid.commitProxy('reload')
       }
     }
   }

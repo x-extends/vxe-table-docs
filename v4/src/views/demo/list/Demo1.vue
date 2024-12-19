@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, nextTick } from 'vue'
 import { VxeGridInstance, VxeGridProps, VxeGridPropTypes, VxeColumnPropTypes, VxeGridListeners } from 'vxe-table'
 import { VxeFormItemPropTypes, VxeSelectProps } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
@@ -310,10 +310,11 @@ const loadMockData = (rSize: number) => {
   })
 }
 
-const changeRowSizeEvent = () => {
+const changeRowSizeEvent = async () => {
   const $grid = gridRef.value
   if ($grid) {
-    $grid.commitProxy('reload')
+    await nextTick()
+    await $grid.commitProxy('reload')
   }
 }
 </script>
