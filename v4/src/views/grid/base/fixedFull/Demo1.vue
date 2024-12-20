@@ -1,6 +1,11 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #action>
+        <vxe-button mode="text">按钮1</vxe-button>
+        <vxe-button mode="text">按钮2</vxe-button>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
@@ -32,7 +37,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'role', title: 'Role', minWidth: 300 },
     { field: 'sex', title: 'Sex', minWidth: 500 },
     { field: 'date', title: 'Date', minWidth: 600 },
-    { field: 'action', title: '操作', fixed: 'right', width: 200, slots: { default: '#action' } }
+    { field: 'action', title: '操作', fixed: 'right', width: 200, slots: { default: 'action' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

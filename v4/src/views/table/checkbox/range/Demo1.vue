@@ -2,11 +2,14 @@
   <div>
     <vxe-table
       border
+      ref="tableRef"
       height="500"
       :column-config="{resizable: true}"
       :row-config="{isCurrent: true, isHover: true}"
       :data="tableData"
-      :checkbox-config="{labelField: 'name', highlight: true, range: true}">
+      :checkbox-config="{labelField: 'name', highlight: true, range: true}"
+      @checkbox-range-start="checkboxRangeStartEvent"
+      @checkbox-range-end="checkboxRangeEndEvent">
       <vxe-column type="checkbox" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -17,6 +20,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -26,6 +30,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -42,4 +48,16 @@ const tableData = ref<RowVO[]>([
   { id: 10012, name: 'Test12', role: 'Test', sex: 'Man', age: 39, address: 'Guangzhou' },
   { id: 10013, name: 'Test13', role: 'Develop', sex: 'Women', age: 38, address: 'Shanghai' }
 ])
+
+const checkboxRangeStartEvent = () => {
+  console.log('开始拖拽选择')
+}
+
+const checkboxRangeEndEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    const selectRecords = $table.getCheckboxRecords()
+    console.log('结束拖拽选择', selectRecords.length)
+  }
+}
 </script>

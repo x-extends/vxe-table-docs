@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-pc-ui'
+import { ref, reactive } from 'vue'
+import { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -16,6 +16,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -53,4 +55,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10013, name: 'Test13', role: 'Develop', sex: 'Women', age: 38, address: 'Shanghai' }
   ]
 })
+
+const gridEvents: VxeGridListeners<RowVO> = {
+  checkboxRangeStart () {
+    console.log('开始拖拽选择')
+  },
+  checkboxRangeEnd () {
+    const $grid = gridRef.value
+    if ($grid) {
+      const selectRecords = $grid.getCheckboxRecords()
+      console.log('结束拖拽选择', selectRecords.length)
+    }
+  }
+}
 </script>

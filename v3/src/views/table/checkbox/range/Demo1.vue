@@ -2,11 +2,14 @@
   <div>
     <vxe-table
       border
+      ref="tableRef"
       height="500"
       :column-config="{resizable: true}"
       :row-config="{isCurrent: true, isHover: true}"
       :data="tableData"
-      :checkbox-config="{labelField: 'name', highlight: true, range: true}">
+      :checkbox-config="{labelField: 'name', highlight: true, range: true}"
+      @checkbox-range-start="checkboxRangeStartEvent"
+      @checkbox-range-end="checkboxRangeEndEvent">
       <vxe-column type="checkbox" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -17,6 +20,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -47,6 +51,18 @@ export default Vue.extend({
 
     return {
       tableData
+    }
+  },
+  methods: {
+    checkboxRangeStartEvent () {
+      console.log('开始拖拽选择')
+    },
+    checkboxRangeEndEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        const selectRecords = $table.getCheckboxRecords()
+        console.log('结束拖拽选择', selectRecords.length)
+      }
     }
   }
 })

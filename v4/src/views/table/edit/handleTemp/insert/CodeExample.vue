@@ -10,5 +10,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/edit/handleTemp/insert/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          树节点插入临时数据
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

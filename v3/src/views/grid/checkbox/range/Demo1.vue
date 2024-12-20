@@ -1,12 +1,17 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid
+      ref="gridRef"
+      v-bind="gridOptions"
+      @checkbox-range-start="checkboxRangeStartEvent"
+      @checkbox-range-end="checkboxRangeEndEvent">
+    </vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-pc-ui'
+import { VxeGridInstance, VxeGridProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -58,6 +63,18 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    checkboxRangeStartEvent () {
+      console.log('开始拖拽选择')
+    },
+    checkboxRangeEndEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const selectRecords = $grid.getCheckboxRecords()
+        console.log('结束拖拽选择', selectRecords.length)
+      }
     }
   }
 })
