@@ -1,17 +1,40 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { VxeUI, VxeGlobalI18nLocale } from 'vxe-pc-ui'
+import { VxeUI, VxeGlobalI18nLocale, VxeComponentSizeType } from 'vxe-pc-ui'
+import tinycolor2 from 'tinycolor2'
 import axios from 'axios'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 
+function updatePrimaryColor (color: string) {
+  if (color) {
+    document.documentElement.style.setProperty('--vxe-ui-font-primary-color', color)
+    document.documentElement.style.setProperty('--vxe-ui-font-primary-tinge-color', tinycolor2(color).lighten(28).toString())
+    document.documentElement.style.setProperty('--vxe-ui-font-primary-lighten-color', tinycolor2(color).lighten(6).toString())
+    document.documentElement.style.setProperty('--vxe-ui-font-primary-darken-color', tinycolor2(color).darken(12).toString())
+    document.documentElement.style.setProperty('--vxe-ui-font-primary-disabled-color', tinycolor2(color).lighten(15).toString())
+  } else {
+    document.documentElement.style.removeProperty('--vxe-ui-font-primary-color')
+    document.documentElement.style.removeProperty('--vxe-ui-font-primary-tinge-color')
+    document.documentElement.style.removeProperty('--vxe-ui-font-primary-lighten-color')
+    document.documentElement.style.removeProperty('--vxe-ui-font-primary-darken-color')
+    document.documentElement.style.removeProperty('--vxe-ui-font-primary-disabled-color')
+  }
+}
+
 const currTheme = (localStorage.getItem('VXE_DOCS_THEME') || 'light') as 'dark' | 'light'
+const currPrimaryColor = localStorage.getItem('VXE_DOCS_PRIMARY_COLOR')
+const currComponentsSize = (localStorage.getItem('VXE_DOCS_COMPONENTS_SIZE') || '') as VxeComponentSizeType
 const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as VxeGlobalI18nLocale
 
 VxeUI.setLanguage(currLanguage)
 setTimeout(() => {
   VxeUI.setTheme(currTheme)
 })
+
+if (currPrimaryColor) {
+  updatePrimaryColor(currPrimaryColor)
+}
 
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
@@ -23,6 +46,13 @@ const i18nStatus: Record<string, boolean> = {
 
 Vue.use(Vuex)
 
+function handleLibVersion (libName: string) {
+  return function (status: any) {
+    const uiConf = status.versionConfig[libName]
+    return `${libName}@${(uiConf ? uiConf[`v${status.docsVersion}-latest`] : '') || status.docsVersion}`
+  }
+}
+
 export default new Vuex.Store({
   state: {
     pageLoading: false,
@@ -31,6 +61,8 @@ export default new Vuex.Store({
     isExtendDocs: process.env.VUE_APP_IS_EXTEND_DOCS === 'true',
     isPluginDocs: process.env.VUE_APP_IS_PLUGIN_DOCS === 'true',
     theme: currTheme,
+    primaryColor: currPrimaryColor,
+    componentsSize: currComponentsSize,
     docsVersion: '3',
     serveTY: new Date().getFullYear(),
     language: currLanguage,
@@ -43,14 +75,18 @@ export default new Vuex.Store({
     versionConfig: {}
   },
   getters: {
-    uiCDNLib (status) {
-      const uiConf = status.versionConfig['vxe-pc-ui']
-      return `vxe-pc-ui@${(uiConf ? uiConf[`v${status.docsVersion}-latest`] : '') || status.docsVersion}`
-    },
-    tableCDNLib (status) {
-      const tableConf = status.versionConfig['vxe-table']
-      return `vxe-table@${(tableConf ? tableConf[`v${status.docsVersion}-latest`] : '') || status.docsVersion}`
-    }
+    uiCDNLib: handleLibVersion('vxe-pc-ui'),
+    tableCDNLib: handleLibVersion('vxe-table'),
+    pluginExportPdfCDNLib: handleLibVersion('@vxe-ui/plugin-export-pdf'),
+    pluginExportXlsxCDNLib: handleLibVersion('@vxe-ui/plugin-export-xlsx'),
+    pluginMenuCDNLib: handleLibVersion('@vxe-ui/plugin-menu'),
+    pluginRenderAntdCDNLib: handleLibVersion('@vxe-ui/plugin-render-antd'),
+    pluginRenderChartCDNLib: handleLibVersion('@vxe-ui/plugin-render-chart'),
+    pluginRenderEchartsCDNLib: handleLibVersion('@vxe-ui/plugin-render-echarts'),
+    pluginRenderElementCDNLib: handleLibVersion('@vxe-ui/plugin-render-element'),
+    pluginRenderWangEditorCDNLib: handleLibVersion('@vxe-ui/plugin-render-wangeditor'),
+    pluginValidatorCDNLib: handleLibVersion('@vxe-ui/plugin-validator'),
+    pluginShortcutKeyCDNLib: handleLibVersion('@vxe-ui/plugin-shortcut-key')
   },
   mutations: {
     setPageLoading (state, status: boolean) {
@@ -61,6 +97,15 @@ export default new Vuex.Store({
       VxeUI.setTheme(name)
       document.documentElement.setAttribute('vxe-docs-theme', name)
       localStorage.setItem('VXE_DOCS_THEME', name)
+    },
+    setPrimaryColor (state, color: string) {
+      updatePrimaryColor(color)
+      state.primaryColor = color
+      localStorage.setItem('VXE_DOCS_PRIMARY_COLOR', color)
+    },
+    setComponentsSize (state, size: VxeComponentSizeType) {
+      state.componentsSize = size
+      localStorage.setItem('VXE_DOCS_COMPONENTS_SIZE', size || '')
     },
     setLanguage (state, language: VxeGlobalI18nLocale) {
       if (i18nStatus[language]) {

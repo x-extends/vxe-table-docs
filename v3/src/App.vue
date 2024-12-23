@@ -1,5 +1,5 @@
 <template>
-  <VxeLayoutContainer>
+  <VxeLayoutContainer :size="componentsSize">
     <RouterView />
     <vxe-loading :value="pageLoading"></vxe-loading>
   </VxeLayoutContainer>
@@ -14,7 +14,8 @@ export default Vue.extend({
   computed: {
     ...mapState([
       'siteBaseUrl',
-      'pageLoading'
+      'pageLoading',
+      'componentsSize'
     ])
   },
   methods: {

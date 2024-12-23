@@ -1483,7 +1483,12 @@ const tableRouteConfig: RouteConfig = {
         {
           path: 'vxe-icon-picker',
           name: 'ComponentTableEditRenderVxeIconPicker',
-          component: () => import('@/views/table/editTemplate/vxe-icon-picker/CodeExample.vue')
+          component: () => import('@/views/table/editRender/vxe-icon-picker/CodeExample.vue')
+        },
+        {
+          path: 'vxe-color-picker',
+          name: 'ComponentTableEditRenderVxeColorPicker',
+          component: () => import('@/views/table/editRender/vxe-color-picker/CodeExample.vue')
         },
         {
           path: 'vxe-date-picker',
@@ -3244,6 +3249,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'vxe-icon-picker',
           name: 'ComponentGridEditRenderVxeIconPicker',
           component: () => import('@/views/grid/editRender/vxe-icon-picker/CodeExample.vue')
+        },
+        {
+          path: 'vxe-color-picker',
+          name: 'ComponentGridEditRenderVxeColorPicker',
+          component: () => import('@/views/grid/editRender/vxe-color-picker/CodeExample.vue')
         },
         {
           path: 'vxe-date-picker',

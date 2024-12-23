@@ -48,7 +48,6 @@ module.exports = defineConfig({
       hints: false
     },
     externals: {
-      'highlight.js': 'hljs',
       axios: 'axios'
     }
   },

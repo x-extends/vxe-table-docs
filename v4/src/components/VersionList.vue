@@ -2,11 +2,11 @@
   <div class="version-list">
     <template v-if="stableVersionList.length">
       <span class="title">{{  $t('app.aside.stableVersion')}}</span>
-      <vxe-select class="stable-select" v-model="selectStableVersion" size="mini" :options="stableVersionList"></vxe-select>
+      <vxe-select class="stable-select" v-model="selectStableVersion" :options="stableVersionList"></vxe-select>
     </template>
     <template v-if="showBetaVersion">
       <span class="title">{{  $t('app.aside.latestVersion')}}</span>
-      <vxe-select class="latest-select" v-model="selectBetaVersion" size="mini" :options="newBetsVersionList"></vxe-select>
+      <vxe-select class="latest-select" v-model="selectBetaVersion" :options="newBetsVersionList"></vxe-select>
     </template>
   </div>
 </template>
