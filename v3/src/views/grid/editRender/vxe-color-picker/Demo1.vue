@@ -11,16 +11,16 @@ import type { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 interface RowVO {
   id: number
   name: string
-  icon1: string
-  icon2: string
+  color1: string
+  color2: string
 }
 
 export default Vue.extend({
   data () {
-    const icon2EditRender: VxeColumnPropTypes.EditRender<RowVO> = {
-      name: 'VxeIconPicker',
+    const color2EditRender: VxeColumnPropTypes.EditRender<RowVO> = {
+      name: 'VxeColorPicker',
       options: [
-        'home', 'company', 'comment', 'setting', 'send', 'envelope', 'envelope-open', 'bell', 'search', 'print', 'pc', 'goods', 'chart-line', 'edit', 'delete', 'save', 'sunny', 'rmb', 'usd', 'user'
+        '#DC143C', '#FF1493', '#FF00FF', '#9932CC', '#6A5ACD', '#0000FF', '#00008B', '#778899', '#1E90FF', '#00BFFF', '#5F9EA0', '#00FFFF', '#008080', '#7FFFAA', '#3CB371', '#FFFF00', '#808000', '#EEE8AA', '#FFD700', '#FFA500'
       ]
     }
 
@@ -34,18 +34,18 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 180, editRender: { name: 'VxeInput', props: { clearable: true } } },
-        { field: 'icon1', title: '图标1', width: 100, editRender: { name: 'VxeIconPicker' } },
-        { field: 'icon2', title: '图标2', width: 100, editRender: icon2EditRender }
+        { field: 'color1', title: '颜色1', width: 100, editRender: { name: 'VxeColorPicker' } },
+        { field: 'color2', title: '颜色2', width: 100, editRender: color2EditRender }
       ],
       data: [
-        { id: 10001, name: 'Test1', icon1: '', icon2: 'vxe-icon-home' },
-        { id: 10002, name: 'Test2', icon1: 'vxe-icon-home', icon2: '' }
+        { id: 10001, name: 'Test1', color1: '', color2: '#FF00FF' },
+        { id: 10002, name: 'Test2', color1: '#409eff', color2: '' }
       ]
     }
 
     return {
       gridOptions,
-      icon2EditRender
+      color2EditRender
     }
   }
 })

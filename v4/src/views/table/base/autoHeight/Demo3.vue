@@ -14,7 +14,7 @@
         border
         auto-resize
         show-footer
-        height="auto"
+        height="100%"
         :data="tableData"
         :footer-data="footerData">
         <vxe-column type="seq" width="70" fixed="left"></vxe-column>

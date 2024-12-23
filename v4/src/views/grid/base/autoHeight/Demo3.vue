@@ -36,7 +36,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   autoResize: true,
   showFooter: true,
-  height: 'auto',
+  height: '100%',
   columns: [
     { type: 'seq', field: 'seq', width: 60, fixed: 'left' },
     { field: 'name', title: 'Name', width: 300 },

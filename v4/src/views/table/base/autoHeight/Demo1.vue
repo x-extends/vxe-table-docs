@@ -3,7 +3,7 @@
     <div style="overflow: hidden; width: 100%; height: 300px;">
       <vxe-table
         border
-        height="auto"
+        height="100%"
         :data="tableData">
         <vxe-column type="seq" width="70"></vxe-column>
         <vxe-column field="name" title="Name"></vxe-column>
