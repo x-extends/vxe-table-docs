@@ -75,7 +75,7 @@ gulp.task('handle_vue_tstojs', gulp.series('handle_vue_tmpltojs', () => {
     .pipe(gulp.dest('dist/example/js'))
 }))
 
-gulp.task('handle_tstojs', () => {
+gulp.task('handle_tstojs', gulp.series('handle_vue_tstojs', () => {
   return gulp.src([
     'src/**/*.d.ts',
     'src/views/**/demo*.ts',
@@ -102,9 +102,9 @@ gulp.task('handle_tstojs', () => {
       ]
     }))
     .pipe(gulp.dest('dist/example/js'))
-})
+}))
 
-gulp.task('build_vue_tstojs', gulp.series('handle_vue_tstojs', 'handle_tstojs', () => {
+gulp.task('build_vue_tstojs', gulp.series('handle_tstojs', () => {
   return del([
     'temp'
   ])
