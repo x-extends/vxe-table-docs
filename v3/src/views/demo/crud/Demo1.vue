@@ -1,6 +1,6 @@
 <template>
   <div class="demo-page-wrapper">
-    <vxe-grid ref="gridRef" v-bind="gridOptions">
+    <vxe-grid ref="gridRef" v-bind="gridOptions" @edit-closed="editClosedEvent">
       <template #toolbarButtons>
         <vxe-select v-model="selectRowSize" :options="dataOptions" @change="changeRowSizeEvent"></vxe-select>
         <vxe-button status="primary" icon="vxe-icon-add" @click="addEvent">新增</vxe-button>
@@ -200,7 +200,8 @@ export default Vue.extend({
     }
 
     const levelNumCellRender: VxeColumnPropTypes.CellRender = {
-      name: 'VxeRate'
+      name: 'VxeRate',
+      events: {}
     }
 
     const flag1CellRender: VxeColumnPropTypes.CellRender = {
@@ -226,11 +227,32 @@ export default Vue.extend({
       ]
     }
 
+    const countRow = {
+      seq: '合计',
+      name: '',
+      levelNum: 0,
+      annualStatement: {
+        m1: 0,
+        m2: 0,
+        m3: 0,
+        m4: 0,
+        m5: 0,
+        m6: 0,
+        m7: 0,
+        m8: 0,
+        m9: 0,
+        m10: 0,
+        m11: 0,
+        m12: 0
+      }
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       loading: false,
       stripe: true,
       showOverflow: true,
+      showFooter: true,
       keepSource: true,
       height: '100%',
       columnConfig: {
@@ -323,6 +345,9 @@ export default Vue.extend({
           ]
         },
         { field: 'active', title: '操作', fixed: 'right', width: 80, slots: { default: 'active' } }
+      ],
+      footerData: [
+        countRow
       ]
     }
 
@@ -336,7 +361,8 @@ export default Vue.extend({
       flag1CellRender,
       sexEditRender,
       cityEditRender,
-      gridOptions
+      gridOptions,
+      countRow
     }
   },
   methods: {
@@ -376,13 +402,66 @@ export default Vue.extend({
         }
         const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
         if ($grid) {
-          $grid.reloadData(cacheList.slice(0, rSize))
+          $grid.reloadData(cacheList.slice(0, rSize)).then(() => {
+            this.updateFooterCount()
+          })
         }
         this.gridOptions.loading = false
       }, 150)
     },
     changeRowSizeEvent () {
       this.loadMockData(this.selectRowSize)
+    },
+    updateFooterCount () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const tableData = $grid.getFullData()
+        let countM1 = 0
+        let countM2 = 0
+        let countM3 = 0
+        let countM4 = 0
+        let countM5 = 0
+        let countM6 = 0
+        let countM7 = 0
+        let countM8 = 0
+        let countM9 = 0
+        let countM10 = 0
+        let countM11 = 0
+        let countM12 = 0
+        let countLN = 0
+        tableData.forEach(row => {
+          countM1 += XEUtils.toNumber(row.annualStatement.m1)
+          countM2 += XEUtils.toNumber(row.annualStatement.m2)
+          countM3 += XEUtils.toNumber(row.annualStatement.m3)
+          countM4 += XEUtils.toNumber(row.annualStatement.m4)
+          countM5 += XEUtils.toNumber(row.annualStatement.m5)
+          countM6 += XEUtils.toNumber(row.annualStatement.m6)
+          countM7 += XEUtils.toNumber(row.annualStatement.m7)
+          countM8 += XEUtils.toNumber(row.annualStatement.m8)
+          countM9 += XEUtils.toNumber(row.annualStatement.m9)
+          countM10 += XEUtils.toNumber(row.annualStatement.m10)
+          countM11 += XEUtils.toNumber(row.annualStatement.m11)
+          countM12 += XEUtils.toNumber(row.annualStatement.m12)
+          countLN += XEUtils.toNumber(row.levelNum)
+        })
+        this.countRow.name = `${tableData.length}人`
+        this.countRow.levelNum = countLN
+        this.countRow.annualStatement.m1 = countM1
+        this.countRow.annualStatement.m2 = countM2
+        this.countRow.annualStatement.m3 = countM3
+        this.countRow.annualStatement.m4 = countM4
+        this.countRow.annualStatement.m5 = countM5
+        this.countRow.annualStatement.m6 = countM6
+        this.countRow.annualStatement.m7 = countM7
+        this.countRow.annualStatement.m8 = countM8
+        this.countRow.annualStatement.m9 = countM9
+        this.countRow.annualStatement.m10 = countM10
+        this.countRow.annualStatement.m11 = countM11
+        this.countRow.annualStatement.m12 = countM12
+      }
+    },
+    editClosedEvent () {
+      this.updateFooterCount()
     },
     async addEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
@@ -391,7 +470,8 @@ export default Vue.extend({
           name: XEUtils.sample(neList)
         }
         const { row: newRow } = await $grid.insertAt(record, null)
-        $grid.setEditRow(newRow)
+        await $grid.setEditRow(newRow)
+        this.updateFooterCount()
       }
     },
     async pendingSelect (checked: boolean) {
@@ -409,10 +489,11 @@ export default Vue.extend({
         }
       }
     },
-    removeRow (row: RowVO) {
+    async removeRow (row: RowVO) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        $grid.remove(row)
+        await $grid.remove(row)
+        this.updateFooterCount()
       }
     },
     async saveEvent () {
@@ -428,6 +509,13 @@ export default Vue.extend({
           title: 'CRUD 管理器',
           content: `新增：${insertRecords.length} 行，已删除：${removeRecords.length} 行，待删除：${pendingRecords.length} 行，修改：${updateRecords.length} 行`
         })
+      }
+    }
+  },
+  created () {
+    this.levelNumCellRender.events = {
+      change: () => {
+        this.updateFooterCount()
       }
     }
   },

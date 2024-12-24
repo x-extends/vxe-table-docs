@@ -1,6 +1,6 @@
 <template>
   <div class="demo-page-wrapper">
-    <vxe-grid ref="gridRef" v-bind="gridOptions">
+    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents">
       <template #toolbarButtons>
         <vxe-select v-model="selectRowSize" :options="dataOptions" @change="changeRowSizeEvent"></vxe-select>
         <vxe-button status="primary" icon="vxe-icon-add" @click="addEvent">新增</vxe-button>
@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, nextTick } from 'vue'
-import { VxeGridInstance, VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps, VxeColumnPropTypes, VxeGridListeners } from 'vxe-table'
 import { VxeUI, VxeSelectProps, VxeUploadProps } from 'vxe-pc-ui'
 import axios from 'axios'
 import XEUtils from 'xe-utils'
@@ -53,6 +53,26 @@ interface RowVO {
 }
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
+
+const countRow = reactive({
+  seq: '合计',
+  name: '',
+  levelNum: 0,
+  annualStatement: {
+    m1: 0,
+    m2: 0,
+    m3: 0,
+    m4: 0,
+    m5: 0,
+    m6: 0,
+    m7: 0,
+    m8: 0,
+    m9: 0,
+    m10: 0,
+    m11: 0,
+    m12: 0
+  }
+})
 
 const selectRowSize = ref(100)
 const dataOptions = ref([
@@ -167,7 +187,12 @@ const fileListCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
 })
 
 const levelNumCellRender = reactive<VxeColumnPropTypes.CellRender>({
-  name: 'VxeRate'
+  name: 'VxeRate',
+  events: {
+    change: () => {
+      updateFooterCount()
+    }
+  }
 })
 
 const flag1CellRender = reactive<VxeColumnPropTypes.CellRender>({
@@ -198,6 +223,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   loading: false,
   stripe: true,
   showOverflow: true,
+  showFooter: true,
   keepSource: true,
   height: '100%',
   columnConfig: {
@@ -290,8 +316,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       ]
     },
     { field: 'active', title: '操作', fixed: 'right', width: 80, slots: { default: 'active' } }
+  ],
+  footerData: [
+    countRow
   ]
 })
+
+const gridEvents: VxeGridListeners = {
+  editClosed () {
+    updateFooterCount()
+  }
+}
 
 const arList = XEUtils.shuffle(XEUtils.range(1, 21).map(num => `https://vxeui.com/resource/avatarImg/avatar${num}.jpeg`))
 const neList = XEUtils.shuffle(['张三', '李四', '王五', '小徐', '老张', '老六', '小明', '老徐', '小张', '小赵', '老高', '老铁', '赵高', '小王', '老王'])
@@ -362,7 +397,9 @@ const loadMockData = (rSize: number) => {
     }
     const $grid = gridRef.value
     if ($grid) {
-      $grid.reloadData(cacheList.slice(0, rSize))
+      $grid.reloadData(cacheList.slice(0, rSize)).then(() => {
+        updateFooterCount()
+      })
     }
     gridOptions.loading = false
   }, 150)
@@ -372,6 +409,55 @@ const changeRowSizeEvent = () => {
   loadMockData(selectRowSize.value)
 }
 
+const updateFooterCount = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const tableData = $grid.getFullData()
+    let countM1 = 0
+    let countM2 = 0
+    let countM3 = 0
+    let countM4 = 0
+    let countM5 = 0
+    let countM6 = 0
+    let countM7 = 0
+    let countM8 = 0
+    let countM9 = 0
+    let countM10 = 0
+    let countM11 = 0
+    let countM12 = 0
+    let countLN = 0
+    tableData.forEach(row => {
+      countM1 += XEUtils.toNumber(row.annualStatement.m1)
+      countM2 += XEUtils.toNumber(row.annualStatement.m2)
+      countM3 += XEUtils.toNumber(row.annualStatement.m3)
+      countM4 += XEUtils.toNumber(row.annualStatement.m4)
+      countM5 += XEUtils.toNumber(row.annualStatement.m5)
+      countM6 += XEUtils.toNumber(row.annualStatement.m6)
+      countM7 += XEUtils.toNumber(row.annualStatement.m7)
+      countM8 += XEUtils.toNumber(row.annualStatement.m8)
+      countM9 += XEUtils.toNumber(row.annualStatement.m9)
+      countM10 += XEUtils.toNumber(row.annualStatement.m10)
+      countM11 += XEUtils.toNumber(row.annualStatement.m11)
+      countM12 += XEUtils.toNumber(row.annualStatement.m12)
+      countLN += XEUtils.toNumber(row.levelNum)
+    })
+    countRow.name = `${tableData.length}人`
+    countRow.levelNum = countLN
+    countRow.annualStatement.m1 = countM1
+    countRow.annualStatement.m2 = countM2
+    countRow.annualStatement.m3 = countM3
+    countRow.annualStatement.m4 = countM4
+    countRow.annualStatement.m5 = countM5
+    countRow.annualStatement.m6 = countM6
+    countRow.annualStatement.m7 = countM7
+    countRow.annualStatement.m8 = countM8
+    countRow.annualStatement.m9 = countM9
+    countRow.annualStatement.m10 = countM10
+    countRow.annualStatement.m11 = countM11
+    countRow.annualStatement.m12 = countM12
+  }
+}
+
 const addEvent = async () => {
   const $grid = gridRef.value
   if ($grid) {
@@ -379,7 +465,8 @@ const addEvent = async () => {
       name: XEUtils.sample(neList)
     }
     const { row: newRow } = await $grid.insertAt(record, null)
-    $grid.setEditRow(newRow)
+    await $grid.setEditRow(newRow)
+    updateFooterCount()
   }
 }
 
@@ -399,10 +486,11 @@ const pendingSelect = async (checked: boolean) => {
   }
 }
 
-const removeRow = (row: RowVO) => {
+const removeRow = async (row: RowVO) => {
   const $grid = gridRef.value
   if ($grid) {
-    $grid.remove(row)
+    await $grid.remove(row)
+    updateFooterCount()
   }
 }
 
