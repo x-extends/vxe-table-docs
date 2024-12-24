@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive, onUnmounted } from 'vue'
-import { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import { VxeGridProps, VxeColumnPropTypes, VxeTablePropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -42,11 +42,15 @@ const formatWanAmount: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => 
   return ''
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
+const gridOptions = reactive<VxeGridProps<RowVO> & {
+  data: RowVO[]
+  footerData: VxeTablePropTypes.FooterData
+}>({
   border: true,
   loading: false,
   stripe: true,
   showOverflow: true,
+  showFooter: true,
   height: '100%',
   columnConfig: {
     drag: true,
@@ -67,6 +71,31 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
     range: true
   },
   cellStyle ({ column, row }) {
+    const cellValue = row[column.field]
+    switch (column.field) {
+      case 'increaseRatio':
+      case 'udRatio':
+      case 'expansionRatio':
+      case 'netInflow':
+      case 'theCommittee':
+        return {
+          color: cellValue < 0 ? 'green' : 'red'
+        }
+      case 'volumeRatio':
+        return {
+          color: cellValue < 1 ? 'green' : 'red'
+        }
+      case 'maxNum':
+        return {
+          color: row.increaseRatio < 0 ? 'green' : 'red'
+        }
+      case 'minNum':
+        return {
+          color: row.expansionRatio < 0 ? 'green' : 'red'
+        }
+    }
+  },
+  footerCellStyle ({ column, row }) {
     const cellValue = row[column.field]
     switch (column.field) {
       case 'increaseRatio':
@@ -128,7 +157,13 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
     { field: 'totalMarketValue', title: '总市值', minWidth: 100, formatter: formatWanAmount },
     { field: 'circulatingMarketValue', title: '流通市值', minWidth: 100, formatter: formatWanAmount }
   ],
-  data: []
+  data: [],
+  footerData: [
+    {},
+    {},
+    {},
+    {}
+  ]
 })
 
 const neList = XEUtils.shuffle(['最牛科技', '老六软件', '智能科技', '非凡科技', '发展软件', '超级元宇宙', '航天概念', '短视频概念', '东方科技', '中华科技股', '中国最强概念股', '消费概念', '农业概念', '东方智能', '传播科技', '智慧企业', '智慧科技', '智能汽车', '区块链'])
@@ -158,7 +193,30 @@ const loadMockData = (rSize: number) => {
       }
       cacheList.push(item)
     }
+    const footItems: RowVO[] = []
+    for (let i = 0; i < 4; i++) {
+      const item: RowVO = {
+        id: 1000000 + i,
+        name: neList[i % neList.length],
+        currentPrice: 0,
+        increaseRatio: 0,
+        udRatio: 0,
+        expansionRatio: 0,
+        transactionQuantity: 0,
+        netInflow: 0,
+        maxNum: 0,
+        minNum: 0,
+        theCommittee: 0,
+        volumeRatio: 0,
+        turnoverRate: 0,
+        priceEarningsRatio: 0,
+        totalMarketValue: 0,
+        circulatingMarketValue: 0
+      }
+      footItems.push(item)
+    }
     gridOptions.data = cacheList.slice(0, rSize)
+    gridOptions.footerData = footItems
     gridOptions.loading = false
     startUpdateData()
   }, 150)
@@ -181,6 +239,24 @@ const startUpdateData = () => {
     return
   }
   gridOptions.data.forEach(row => {
+    Object.assign(row, {
+      currentPrice: XEUtils.random(99999, 999999),
+      increaseRatio: XEUtils.random(1, 999) / 100 * (XEUtils.random(0, 1) ? 1 : -1),
+      udRatio: XEUtils.random(1, 99) / 100 * (XEUtils.random(0, 1) ? 1 : -1),
+      expansionRatio: XEUtils.random(1, 99) / 100 * (XEUtils.random(0, 1) ? 1 : -1),
+      transactionQuantity: XEUtils.random(899999, 999999),
+      netInflow: XEUtils.random(1, 9999) * (XEUtils.random(0, 1) ? 1 : -1),
+      maxNum: XEUtils.random(899999, 999999),
+      minNum: XEUtils.random(99999, 109999),
+      theCommittee: XEUtils.random(1, 99) * (XEUtils.random(0, 1) ? 1 : -1),
+      volumeRatio: XEUtils.random(1, 20) / 10,
+      turnoverRate: XEUtils.random(1, 50) / 10,
+      priceEarningsRatio: XEUtils.random(99, 99999) * (XEUtils.random(0, 1) ? 1 : -1),
+      totalMarketValue: XEUtils.random(999999, 9999999),
+      circulatingMarketValue: XEUtils.random(999999, 9999999)
+    })
+  })
+  gridOptions.footerData.forEach(row => {
     Object.assign(row, {
       currentPrice: XEUtils.random(99999, 999999),
       increaseRatio: XEUtils.random(1, 999) / 100 * (XEUtils.random(0, 1) ? 1 : -1),

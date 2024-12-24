@@ -223,6 +223,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   loading: false,
   stripe: true,
   showOverflow: true,
+  showFooterOverflow: true,
   showFooter: true,
   keepSource: true,
   height: '100%',

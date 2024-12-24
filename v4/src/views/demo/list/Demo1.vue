@@ -116,11 +116,50 @@ const formatAmount: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
   return ''
 }
 
+const countRow = reactive({
+  seq: '合计',
+  name: 0,
+  annualStatement: {
+    m1: 0,
+    m2: 0,
+    m3: 0,
+    m4: 0,
+    m5: 0,
+    m6: 0,
+    m7: 0,
+    m8: 0,
+    m9: 0,
+    m10: 0,
+    m11: 0,
+    m12: 0
+  }
+})
+
+const meanRow = reactive({
+  seq: '平均',
+  name: 0,
+  annualStatement: {
+    m1: 0,
+    m2: 0,
+    m3: 0,
+    m4: 0,
+    m5: 0,
+    m6: 0,
+    m7: 0,
+    m8: 0,
+    m9: 0,
+    m10: 0,
+    m11: 0,
+    m12: 0
+  }
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTypes.PagerConfig }>({
   border: true,
   loading: false,
   stripe: true,
   showOverflow: true,
+  showFooter: true,
   height: '100%',
   columnConfig: {
     resizable: true
@@ -236,12 +275,19 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
         return loadMockData(page.pageSize)
       }
     }
-  }
+  },
+  footerData: [
+    countRow,
+    meanRow
+  ]
 })
 
 const gridEvents: VxeGridListeners = {
   pageChange ({ pageSize }) {
     gridOptions.pagerConfig.pageSize = pageSize
+  },
+  proxyQuery () {
+    updateFooterCount()
   }
 }
 
@@ -315,6 +361,69 @@ const changeRowSizeEvent = async () => {
   if ($grid) {
     await nextTick()
     await $grid.commitProxy('reload')
+  }
+}
+
+const updateFooterCount = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const tableData = $grid.getFullData()
+    let countM1 = 0
+    let countM2 = 0
+    let countM3 = 0
+    let countM4 = 0
+    let countM5 = 0
+    let countM6 = 0
+    let countM7 = 0
+    let countM8 = 0
+    let countM9 = 0
+    let countM10 = 0
+    let countM11 = 0
+    let countM12 = 0
+    let countLN = 0
+    tableData.forEach(row => {
+      countM1 += XEUtils.toNumber(row.annualStatement.m1)
+      countM2 += XEUtils.toNumber(row.annualStatement.m2)
+      countM3 += XEUtils.toNumber(row.annualStatement.m3)
+      countM4 += XEUtils.toNumber(row.annualStatement.m4)
+      countM5 += XEUtils.toNumber(row.annualStatement.m5)
+      countM6 += XEUtils.toNumber(row.annualStatement.m6)
+      countM7 += XEUtils.toNumber(row.annualStatement.m7)
+      countM8 += XEUtils.toNumber(row.annualStatement.m8)
+      countM9 += XEUtils.toNumber(row.annualStatement.m9)
+      countM10 += XEUtils.toNumber(row.annualStatement.m10)
+      countM11 += XEUtils.toNumber(row.annualStatement.m11)
+      countM12 += XEUtils.toNumber(row.annualStatement.m12)
+      countLN += XEUtils.toNumber(row.levelNum)
+    })
+    countRow.name = tableData.length
+    countRow.annualStatement.m1 = countM1
+    countRow.annualStatement.m2 = countM2
+    countRow.annualStatement.m3 = countM3
+    countRow.annualStatement.m4 = countM4
+    countRow.annualStatement.m5 = countM5
+    countRow.annualStatement.m6 = countM6
+    countRow.annualStatement.m7 = countM7
+    countRow.annualStatement.m8 = countM8
+    countRow.annualStatement.m9 = countM9
+    countRow.annualStatement.m10 = countM10
+    countRow.annualStatement.m11 = countM11
+    countRow.annualStatement.m12 = countM12
+
+    meanRow.name = 12
+    meanRow.annualStatement.m1 = XEUtils.round(countM1 / tableData.length, 2)
+    meanRow.annualStatement.m1 = XEUtils.round(countM1 / tableData.length, 2)
+    meanRow.annualStatement.m2 = XEUtils.round(countM2 / tableData.length, 2)
+    meanRow.annualStatement.m3 = XEUtils.round(countM3 / tableData.length, 2)
+    meanRow.annualStatement.m4 = XEUtils.round(countM4 / tableData.length, 2)
+    meanRow.annualStatement.m5 = XEUtils.round(countM5 / tableData.length, 2)
+    meanRow.annualStatement.m6 = XEUtils.round(countM6 / tableData.length, 2)
+    meanRow.annualStatement.m7 = XEUtils.round(countM7 / tableData.length, 2)
+    meanRow.annualStatement.m8 = XEUtils.round(countM8 / tableData.length, 2)
+    meanRow.annualStatement.m9 = XEUtils.round(countM9 / tableData.length, 2)
+    meanRow.annualStatement.m10 = XEUtils.round(countM10 / tableData.length, 2)
+    meanRow.annualStatement.m11 = XEUtils.round(countM11 / tableData.length, 2)
+    meanRow.annualStatement.m12 = XEUtils.round(countM12 / tableData.length, 2)
   }
 }
 </script>

@@ -1,6 +1,9 @@
 <template>
   <div class="demo-page-wrapper">
-    <vxe-grid ref="gridRef" v-bind="gridOptions" @edit-closed="editClosedEvent">
+    <vxe-grid
+      ref="gridRef"
+      v-bind="gridOptions"
+      @edit-closed="editClosedEvent">
       <template #toolbarButtons>
         <vxe-select v-model="selectRowSize" :options="dataOptions" @change="changeRowSizeEvent"></vxe-select>
         <vxe-button status="primary" icon="vxe-icon-add" @click="addEvent">新增</vxe-button>
@@ -252,6 +255,7 @@ export default Vue.extend({
       loading: false,
       stripe: true,
       showOverflow: true,
+      showFooterOverflow: true,
       showFooter: true,
       keepSource: true,
       height: '100%',
