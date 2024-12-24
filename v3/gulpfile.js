@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 const gulp = require('gulp')
 const replace = require('gulp-replace')
 const rename = require('gulp-rename')
@@ -15,7 +16,7 @@ gulp.task('handle_vue_tmpltojs', () => {
       const rest = text.match(/<script [^>]*?>([\s\S]*)<\/script>/)
       if (rest) {
         if (text.indexOf('lang="tsx"') > -1) {
-          const codePath = `${this.file.dirname}\\${this.file.basename}`
+          const codePath = path.join(this.file.dirname, this.file.basename)
           cacheTsxMaps[codePath] = 1
         }
         return rest[1]
@@ -37,7 +38,7 @@ gulp.task('handle_vue_tmpltojs', () => {
       resolveJsonModule: true,
       allowSyntheticDefaultImports: true,
       noImplicitAny: false,
-      sourceMap: true,
+      sourceMap: false,
       lib: [
         'esnext',
         'dom',
@@ -56,8 +57,8 @@ gulp.task('handle_vue_tstojs', gulp.series('handle_vue_tmpltojs', () => {
     'src/views/**/Demo*.vue'
   ])
     .pipe(replace(/[\s\S]*/, function (text) {
-      const codePath = `${this.file.dirname}\\${this.file.basename}`
-      const handlePath = `${this.file.dirname}\\${this.file.basename}`.replace('\\src\\', '\\temp\\').replace('.vue', '.js')
+      const codePath = path.join(this.file.dirname, this.file.basename)
+      const handlePath = codePath.replace(/(\\|\/)src(\\|\/)/, '$1temp$2').replace('.vue', '.js')
       if (fs.existsSync(handlePath)) {
         return text.replace(/<script [^>]*?>([\s\S]*)<\/script>/, () => {
           let codeContent = fs.readFileSync(handlePath, 'utf-8').replace('import Vue from \'vue\';', '').replace('export default Vue.extend({', 'export default {').trim().replace(/\}\);$/, '};')
@@ -93,7 +94,7 @@ gulp.task('handle_tstojs', gulp.series('handle_vue_tstojs', () => {
       resolveJsonModule: true,
       allowSyntheticDefaultImports: true,
       noImplicitAny: false,
-      sourceMap: true,
+      sourceMap: false,
       lib: [
         'esnext',
         'dom',
