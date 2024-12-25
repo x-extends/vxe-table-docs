@@ -131,7 +131,7 @@ getVersion()
     width: 74px;
   }
   .latest-select {
-    width: 110px;
+    width: 120px;
   }
 }
 </style>
