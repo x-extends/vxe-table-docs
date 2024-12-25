@@ -335,6 +335,11 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.vxe-layout-aside.is--collapse {
+  .page-aside {
+    visibility: hidden;
+  }
+}
 .page-aside {
   .nav-top {
     position: sticky;
