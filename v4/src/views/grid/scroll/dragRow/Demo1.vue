@@ -19,6 +19,7 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  showFooter: true,
   showOverflow: true,
   height: 600,
   rowConfig: {
@@ -37,7 +38,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' }
   ],
-  data: []
+  data: [],
+  footerData: [
+    { nickname: '合计', name: '333', role: '444', age: '888' }
+  ]
 })
 
 // 模拟行数据

@@ -27,7 +27,7 @@ export default Vue.extend({
       columnConfig: {
       },
       rowDragConfig: {
-        showGuidesStatus: true
+        showGuidesStatus: false
       },
       columns: [
         { field: 'name', title: 'Name' },

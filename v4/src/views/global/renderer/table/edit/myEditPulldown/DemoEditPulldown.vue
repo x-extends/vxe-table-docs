@@ -32,7 +32,7 @@ const showPopup = ref(false)
 
 const gridOptions = reactive<VxeGridProps>({
   autoResize: true,
-  height: 'auto',
+  height: '100%',
   loading: false,
   rowConfig: {
     isHover: true

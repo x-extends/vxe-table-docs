@@ -25,7 +25,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
   },
   rowDragConfig: {
-    showGuidesStatus: true
+    showGuidesStatus: false
   },
   columns: [
     { field: 'name', title: 'Name' },

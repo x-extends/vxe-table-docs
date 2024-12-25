@@ -1,7 +1,7 @@
 <template>
   <div v-if="currRow && currColumn" class="demo-expand-table">
     <vxe-table
-      height="auto"
+      height="100%"
       :data="currRow.subList">
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
@@ -15,14 +15,6 @@
 import Vue, { PropType } from 'vue'
 import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { VxeTableDefines } from 'vxe-table'
-
-interface RowVO {
-  id: number
-  name: string
-  sex: string
-  age: number
-  subList: any[]
-}
 
 export default Vue.extend({
   props: {

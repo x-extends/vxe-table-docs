@@ -60,7 +60,7 @@ export default Vue.extend({
       isCrossDrag: true,
       isSelfToChildDrag: true,
       isToChildDrag: true,
-      showGuidesStatus: true
+      showGuidesStatus: false
     }
 
     const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {

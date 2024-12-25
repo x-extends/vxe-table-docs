@@ -1,6 +1,6 @@
-@import './theme/light.scss';
-@import './theme/dark.scss';
-@import './base.scss';
+@use './theme/light.scss';
+@use './theme/dark.scss';
+@use './base.scss';
 
 html,
 body,

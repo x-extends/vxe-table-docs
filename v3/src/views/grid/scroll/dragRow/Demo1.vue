@@ -21,6 +21,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      showFooter: true,
       showOverflow: true,
       height: 600,
       rowConfig: {
@@ -39,7 +40,10 @@ export default Vue.extend({
         { field: 'sex', title: 'Sex' },
         { field: 'age', title: 'Age' }
       ],
-      data: []
+      data: [],
+      footerData: [
+        { nickname: '合计', name: '333', role: '444', age: '888' }
+      ]
     }
 
     return {

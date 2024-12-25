@@ -41,7 +41,7 @@ export default Vue.extend({
     }
 
     const columnDragConfig: VxeTablePropTypes.ColumnDragConfig<RowVO> = {
-      showGuidesStatus: true
+      showGuidesStatus: false
     }
 
     return {

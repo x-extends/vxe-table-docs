@@ -31,7 +31,7 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 180, editRender: { name: 'VxeInput' } },
-        { field: 'num', title: '数字', width: 180, editRender: { name: 'VxeNumberInput', props: { type: 'number' } } },
+        { field: 'num', title: '数字', width: 180, editRender: { name: 'VxeNumberInput' } },
         { field: 'integer', title: '整数', width: 180, editRender: { name: 'VxeNumberInput', props: { type: 'integer' } } },
         { field: 'float', title: '小数', width: 180, editRender: { name: 'VxeNumberInput', props: { type: 'float' } } },
         { field: 'money', title: '金额', width: 180, editRender: { name: 'VxeNumberInput', props: { type: 'amount' } } }

@@ -28,7 +28,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps = {
       autoResize: true,
-      height: 'auto',
+      height: '100%',
       loading: false,
       rowConfig: {
         isHover: true

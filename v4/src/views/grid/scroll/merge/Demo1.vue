@@ -13,6 +13,8 @@ interface RowVO {
   name: string
   role: string
   sex: string
+  age: number
+  address: string
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
@@ -36,14 +38,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ],
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
-    { field: 'role', title: 'Role' },
-    { field: 'sex', title: 'Sex' }
+    { field: 'name', title: 'Name', minWidth: 300 },
+    { field: 'role', title: 'Role', minWidth: 300 },
+    { field: 'sex', title: 'Sex', minWidth: 300 },
+    { field: 'age', title: 'Age', minWidth: 300 },
+    { field: 'address', title: 'Address', minWidth: 500 }
   ],
   data: [],
   footerData: [
-    { seq: '合计', name: '666', role: '888', sex: '999' },
-    { seq: '均值', name: '222', role: '333', sex: '777' }
+    { seq: '合计', name: '666', role: '888', sex: '999', age: '234', address: '453' },
+    { seq: '均值', name: '222', role: '333', sex: '777', age: '876', address: '134' }
   ]
 })
 
@@ -55,7 +59,9 @@ const loadList = (size = 200) => {
       id: 10000 + i,
       name: 'Test' + i,
       role: 'Developer',
-      sex: '男'
+      sex: '男',
+      age: 20,
+      address: 'Address abc'
     })
   }
   gridOptions.data = dataList

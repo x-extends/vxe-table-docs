@@ -43,6 +43,6 @@ const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
 })
 
 const rowDragConfig = reactive<VxeTablePropTypes.RowDragConfig<RowVO>>({
-  showGuidesStatus: true
+  showGuidesStatus: false
 })
 </script>

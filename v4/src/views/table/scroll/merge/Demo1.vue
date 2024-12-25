@@ -12,9 +12,11 @@
       :data="tableData"
       :footer-data="footerData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="Role"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="300"></vxe-column>
+      <vxe-column field="role" title="Role" min-width="300"></vxe-column>
+      <vxe-column field="sex" title="Sex" min-width="300"></vxe-column>
+      <vxe-column field="age" title="Age" min-width="300"></vxe-column>
+      <vxe-column field="address" title="Address" min-width="500"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -28,13 +30,15 @@ interface RowVO {
   name: string
   role: string
   sex: string
+  age: number
+  address: string
 }
 
 const tableData = ref<VxeTablePropTypes.Data<RowVO>>([])
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
-  { seq: '合计', name: '666', role: '888', sex: '999' },
-  { seq: '均值', name: '222', role: '333', sex: '777' }
+  { seq: '合计', name: '666', role: '888', sex: '999', age: '234', address: '453' },
+  { seq: '均值', name: '222', role: '333', sex: '777', age: '876', address: '134' }
 ])
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
@@ -66,7 +70,9 @@ const loadList = (size = 200) => {
       id: 10000 + i,
       name: 'Test' + i,
       role: 'Developer',
-      sex: '男'
+      sex: '男',
+      age: 20,
+      address: 'Address abc'
     })
   }
   tableData.value = dataList

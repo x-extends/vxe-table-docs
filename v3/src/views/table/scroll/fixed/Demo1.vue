@@ -4,6 +4,7 @@
     <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
     <vxe-table
       border
+      show-footer
       show-overflow
       show-header-overflow
       show-footer-overflow
@@ -12,8 +13,9 @@
       :column-config="{resizable: true}"
       :scroll-x="{enabled: true, gt: 0}"
       :scroll-y="{enabled: true, gt: 0}"
-      :data="tableData">
-      <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
+      :data="tableData"
+      :footer-data="footerData">
+      <vxe-column field="checkbox" type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column field="col0" title="列0" width="100" fixed="left"></vxe-column>
       <vxe-column field="imgUrl" title="列1" width="80" fixed="left" :cell-render="imgUrlCellRender"></vxe-column>
       <vxe-column field="status" title="状态" width="100">
@@ -131,6 +133,11 @@ export default Vue.extend({
   data () {
     const tableData: RowVO[] = []
 
+    const footerData = [
+      { checkbox: '均值', col0: '45', col1: '56', col3: '67', col5: '78', col7: '94', col97: '37', imgList1: '83' },
+      { checkbox: '合计', col0: '222', col1: '333', col3: '444', col5: '888', col7: '555', col97: '444', imgList1: '777' }
+    ]
+
     const flag1CellRender: VxeColumnPropTypes.CellRender = {
       name: 'VxeSwitch'
     }
@@ -160,6 +167,7 @@ export default Vue.extend({
 
     return {
       tableData,
+      footerData,
       loading: false,
       flag1CellRender,
       imgUrlCellRender,

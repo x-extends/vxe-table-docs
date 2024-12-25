@@ -17,6 +17,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      showFooter: true,
       showOverflow: true,
       showHeaderOverflow: true,
       showFooterOverflow: true,
@@ -132,7 +133,10 @@ export default Vue.extend({
         { title: '列99', field: 'col99', width: 360 },
         { title: '列100', field: 'col100', width: 360 }
       ],
-      data: []
+      data: [],
+      footerData: [
+        { col0: '合计', col1: '333', col3: '444', col5: '888', col7: '555', col97: '444', col100: '777' }
+      ]
     }
 
     return {

@@ -56,6 +56,7 @@ const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender>({
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  showFooter: true,
   showOverflow: true,
   showHeaderOverflow: true,
   showFooterOverflow: true,
@@ -74,7 +75,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     mode: 'wheel'
   },
   columns: [
-    { type: 'checkbox', width: 60, fixed: 'left' },
+    { field: 'checkbox', type: 'checkbox', width: 60, fixed: 'left' },
     { title: '列0', field: 'col0', width: 100, fixed: 'left' },
     { title: '列1', field: 'imgUrl', width: 80, fixed: 'left', cellRender: imgUrlCellRender },
     { title: '状态', field: 'status', width: 90, slots: { default: 'status' } },
@@ -177,7 +178,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { title: '列100', field: 'flag1', width: 100, fixed: 'right', cellRender: flag1CellRender },
     { title: '操作', field: 'action', width: 140, fixed: 'right', slots: { default: 'action' } }
   ],
-  data: []
+  data: [],
+  footerData: [
+    { checkbox: '均值', col0: '45', col1: '56', col3: '67', col5: '78', col7: '94', col97: '37', imgList1: '83' },
+    { checkbox: '合计', col0: '222', col1: '333', col3: '444', col5: '888', col7: '555', col97: '444', imgList1: '777' }
+  ]
 })
 
 // 模拟行数据

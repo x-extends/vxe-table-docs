@@ -3,7 +3,18 @@
     <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
     <vxe-button @click="loadData(30000)">加载3w条</vxe-button>
     <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions">
+      <template #status="{ row }">
+        <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
+        <vxe-tag v-else-if="row.status === '1'" status="primary">待处理</vxe-tag>
+        <vxe-tag v-else status="success">已完成</vxe-tag>
+      </template>
+
+      <template #action>
+        <vxe-button mode="text" status="primary">编辑</vxe-button>
+        <vxe-button mode="text" status="error">删除</vxe-button>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
@@ -48,6 +59,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       loading: false,
+      showFooter: true,
       height: 800,
       columnConfig: {
         resizable: true
@@ -61,7 +73,7 @@ export default Vue.extend({
         gt: 0
       },
       columns: [
-        { type: 'checkbox', width: 60, fixed: 'left' },
+        { field: 'checkbox', type: 'checkbox', width: 60, fixed: 'left' },
         { title: '列0', field: 'col0', width: 100, fixed: 'left' },
         { title: '列1', field: 'imgUrl', width: 80, fixed: 'left', cellRender: imgUrlCellRender },
         { title: '状态', field: 'status', width: 90, slots: { default: 'status' } },
@@ -166,7 +178,11 @@ export default Vue.extend({
         { title: '列100', field: 'flag1', width: 100, fixed: 'right', cellRender: flag1CellRender },
         { title: '操作', field: 'action', width: 120, fixed: 'right', slots: { default: 'action' } }
       ],
-      data: []
+      data: [],
+      footerData: [
+        { checkbox: '均值', col0: '45', col1: '56', col3: '67', col5: '78', col7: '94', col97: '37', imgList1: '83' },
+        { checkbox: '合计', col0: '222', col1: '333', col3: '444', col5: '888', col7: '555', col97: '444', imgList1: '777' }
+      ]
     }
 
     return {
