@@ -162,7 +162,8 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
   showFooter: true,
   height: '100%',
   columnConfig: {
-    resizable: true
+    resizable: true,
+    drag: true
   },
   rowConfig: {
     isHover: true

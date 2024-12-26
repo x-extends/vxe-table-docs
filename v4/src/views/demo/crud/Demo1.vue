@@ -228,7 +228,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   keepSource: true,
   height: '100%',
   columnConfig: {
-    resizable: true
+    resizable: true,
+    drag: true
+  },
+  columnDragConfig: {
+    trigger: 'cell',
+    showIcon: false,
+    showGuidesStatus: true
   },
   rowConfig: {
     useKey: true,

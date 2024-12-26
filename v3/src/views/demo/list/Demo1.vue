@@ -231,7 +231,8 @@ export default Vue.extend({
       showFooter: true,
       height: '100%',
       columnConfig: {
-        resizable: true
+        resizable: true,
+        drag: true
       },
       rowConfig: {
         isHover: true
