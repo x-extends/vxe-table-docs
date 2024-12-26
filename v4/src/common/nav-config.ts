@@ -171,7 +171,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自己拖拽给自己', routerLink: { name: 'ComponentTableRowDragTreeSelfToChildDrag' } },
                 { title: '拖拽成子级', routerLink: { name: 'ComponentTableRowDragTreeToChildDrag' } },
                 { title: '拖拽辅助样式', routerLink: { name: 'ComponentTableRowDragTreeShowGuidesStatus' } },
-                { title: '拖拽二次确认', routerLink: { name: 'ComponentTableRowDragTreeDragMethod' } }
+                { title: '拖拽二次确认', routerLink: { name: 'ComponentTableRowDragTreeDragMethod' } },
+                { title: '懒加载', routerLink: { name: 'ComponentTableRowDragTreeLazy' } }
               ]
             },
             { title: '拖拽事件', routerLink: { name: 'ComponentTableRowDragEvents' } },
@@ -714,7 +715,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自己拖拽给自己', routerLink: { name: 'ComponentGridRowDragTreeSelfToChildDrag' } },
                 { title: '拖拽成子级', routerLink: { name: 'ComponentGridRowDragTreeToChildDrag' } },
                 { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridRowDragTreeShowGuidesStatus' } },
-                { title: '拖拽二次确认', routerLink: { name: 'ComponentGridRowDragTreeDragMethod' } }
+                { title: '拖拽二次确认', routerLink: { name: 'ComponentGridRowDragTreeDragMethod' } },
+                { title: '懒加载', routerLink: { name: 'ComponentGridRowDragTreeLazy' } }
               ]
             },
             { title: '拖拽事件', routerLink: { name: 'ComponentGridRowDragEvents' } },
@@ -880,6 +882,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             },
             { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } },
             { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
+            { title: '懒加载', routerLink: { name: 'ComponentGridTreeLazy' } },
             { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } }
           ]
         },

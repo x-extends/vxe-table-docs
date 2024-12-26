@@ -56,7 +56,7 @@ export default Vue.extend({
       { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
       { id: 10050, parentId: null, name: 'Test2', type: 'mp4', size: 0, date: '2021-04-01', hasChild: true },
       { id: 23666, parentId: null, name: 'Test23', type: 'mp4', size: 0, date: '2021-01-02', hasChild: true },
-      { id: 24555, parentId: null, name: 'test abc9', type: 'avi', size: 224, date: '2020-10-01' }
+      { id: 24555, parentId: null, name: 'test abc9', type: 'avi', size: 224, date: '2020-10-01', hasChild: true }
     ]
 
     const treeConfig: VxeTablePropTypes.TreeConfig<RowVO> = {
