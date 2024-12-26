@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>v3.0 ~ v3.8 升级到 v3.9</h2>
+    <h2>v3.0.x ~ v3.8.x 升级到 v3.9+</h2>
     <div class="red">v3.9+ 分离为纯表格 和 UI组件，升级版本，内部代码不需要改动，需调整安装方式及全局变量。</div>
     <p class="tip">安装方式：</p>
     <div>之前</div>
@@ -35,7 +35,7 @@
       </pre-code>
     </pre>
     <p class="tip">默认参数恢复：</p>
-    <div>新版本默认关闭虚拟滚动，通过以下开启</div>
+    <div>新版本默认关闭虚拟滚动，通过以下开启全局默认启用虚拟滚动</div>
     <pre>
       <pre-code class="typescript">
         import { VXETable } from 'vxe-table'

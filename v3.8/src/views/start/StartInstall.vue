@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.install') }}</h2>
-    <div class="red">需要注意：v3.0 可以直接升级 v3.8</div>
-    <div class="red">需要注意：v3.8 不能直接升级 v3.9，需要调整安装方式，如果是使用老版本记得锁定版本号</div>
+    <div class="red">需要注意：v3.0.x 可以直接升级 v3.8.x</div>
+    <div class="red">需要注意：v3.8.x 不能直接升级 v3.9+，需要调整安装方式，如果是使用老版本记得锁定版本号</div>
     <div style="color: #21c966;padding: 16px;margin: 16px 0;border: 2px solid #21c966;font-size: 1.2em;">
       <div>锁定版本方式，修改 package.json</div>
       <div>手动将对应的版本号修改为 "vxe-table": "~3.8.25"</div>
