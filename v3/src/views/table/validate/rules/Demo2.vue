@@ -14,13 +14,15 @@
       :data="tableData"
       :edit-rules="validRules"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
-      <vxe-column type="checkbox" width="60"></vxe-column>
-      <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="date" title="Date" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
+      <vxe-column type="seq" width="70" fixed="left"></vxe-column>
+      <vxe-column field="name" title="Name" width="100" fixed="left" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="nickname" title="Nickname" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="role" title="Role" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="sex" title="Sex" min-width="00" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="address" title="Address" min-width="500" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="age" title="Age" min-width="200" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="date" title="Date" width="160" fixed="right" :edit-render="{name: 'VxeInput'}"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -34,16 +36,16 @@ interface RowVO {
   name: string
   role: string
   sex: string
-  age: number
+  age: number | null
   address: string
 }
 
 export default Vue.extend({
   data () {
     const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
+      { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: null, address: 'test abc' },
       { id: 10002, name: '', role: 'Test', sex: '1', age: 22, address: 'Guangzhou' },
-      { id: 10003, name: 'Test3', role: 'PM', sex: '', age: 32, address: 'Shanghai' },
+      { id: 10003, name: 'Test3', role: 'PM', sex: '', age: null, address: 'Shanghai' },
       { id: 10004, name: 'Test4', role: 'Designer', sex: '', age: 23, address: 'test abc' },
       { id: 10005, name: '', role: '', sex: '1', age: 30, address: 'Shanghai' },
       { id: 10006, name: 'Test6', role: 'Designer', sex: '1', age: 21, address: 'test abc' }
@@ -53,7 +55,16 @@ export default Vue.extend({
       name: [
         { required: true, message: '必须填写' }
       ],
+      nickname: [
+        { required: true, message: '必须填写' }
+      ],
       role: [
+        { required: true, message: '必须填写' }
+      ],
+      age: [
+        { required: true, message: '必须填写' }
+      ],
+      date: [
         { required: true, message: '必须填写' }
       ]
     }

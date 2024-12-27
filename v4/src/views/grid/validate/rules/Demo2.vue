@@ -17,7 +17,7 @@ interface RowVO {
   name: string
   role: string
   sex: string
-  age: number
+  age: number | null
   address: string
 }
 
@@ -37,23 +37,34 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     name: [
       { required: true, message: '必须填写' }
     ],
+    nickname: [
+      { required: true, message: '必须填写' }
+    ],
     role: [
+      { required: true, message: '必须填写' }
+    ],
+    age: [
+      { required: true, message: '必须填写' }
+    ],
+    date: [
       { required: true, message: '必须填写' }
     ]
   },
   columns: [
-    { type: 'checkbox', width: 60 },
-    { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
-    { field: 'role', title: 'Role', editRender: { name: 'VxeInput' } },
-    { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
-    { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
-    { field: 'date', title: 'Date', editRender: { name: 'VxeInput' } }
+    { type: 'checkbox', fixed: 'left', width: 60 },
+    { type: 'seq', fixed: 'left', width: 70 },
+    { field: 'name', title: 'Name', fixed: 'left', width: 180, editRender: { name: 'VxeInput' } },
+    { field: 'nickname', title: 'Nickname', minWidth: 260, editRender: { name: 'VxeInput' } },
+    { field: 'role', title: 'Role', minWidth: 260, editRender: { name: 'VxeInput' } },
+    { field: 'sex', title: 'Sex', minWidth: 300, editRender: { name: 'VxeInput' } },
+    { field: 'address', title: 'Address', minWidth: 500, editRender: { name: 'VxeInput' } },
+    { field: 'age', title: 'Age', minWidth: 200, editRender: { name: 'VxeInput' } },
+    { field: 'date', title: 'Date', fixed: 'right', width: 160, editRender: { name: 'VxeInput' } }
   ],
   data: [
-    { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
+    { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: null, address: 'test abc' },
     { id: 10002, name: '', role: 'Test', sex: '1', age: 22, address: 'Guangzhou' },
-    { id: 10003, name: 'Test3', role: 'PM', sex: '', age: 32, address: 'Shanghai' },
+    { id: 10003, name: 'Test3', role: 'PM', sex: '', age: null, address: 'Shanghai' },
     { id: 10004, name: 'Test4', role: 'Designer', sex: '', age: 23, address: 'test abc' },
     { id: 10005, name: '', role: '', sex: '1', age: 30, address: 'Shanghai' },
     { id: 10006, name: 'Test6', role: 'Designer', sex: '1', age: 21, address: 'test abc' }
