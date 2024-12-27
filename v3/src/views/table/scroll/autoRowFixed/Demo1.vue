@@ -1,8 +1,6 @@
 <template>
   <div>
-    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(30000)">加载3w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
+    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadData()"></vxe-select>
     <vxe-table
       border
       show-footer
@@ -136,6 +134,18 @@ export default Vue.extend({
       { checkbox: '合计', col0: '222', col1: '333', col3: '444', col5: '888', col7: '555', col97: '444', imgList1: '777' }
     ]
 
+    const rowSize = 100
+    const dataOptions = [
+      { label: '加载 3 行', value: 3 },
+      { label: '加载 20 行', value: 20 },
+      { label: '加载 100 行', value: 100 },
+      { label: '加载 500 行', value: 500 },
+      { label: '加载 1000 行', value: 1000 },
+      { label: '加载 5000 行', value: 5000 },
+      { label: '加载 10000 行', value: 10000 },
+      { label: '加载 30000 行', value: 30000 }
+    ]
+
     const flag1CellRender: VxeColumnPropTypes.CellRender = {
       name: 'VxeSwitch'
     }
@@ -164,6 +174,8 @@ export default Vue.extend({
     }
 
     return {
+      rowSize,
+      dataOptions,
       tableData,
       footerData,
       loading: false,
@@ -174,14 +186,24 @@ export default Vue.extend({
   },
   methods: {
     // 模拟行数据
-    loadData (rowSize: number) {
+    loadData () {
       this.loading = true
       setTimeout(() => {
         const dataList: RowVO[] = []
-        for (let i = 0; i < rowSize; i++) {
+        for (let i = 0; i < this.rowSize; i++) {
           const item: RowVO = {
             id: 10000 + i,
-            imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif'
+            status: i % 3 === 0 ? '1' : (i % 2 === 0 ? '2' : '0'),
+            imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
+            imgList1: i % 4 === 0
+              ? [
+                  { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
+                ]
+              : [
+                  { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
+                  { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
+                ],
+            flag1: i % 5 === 0
           }
           for (let j = 0; j < 100; j++) {
             if (i % 9 === 0) {
@@ -216,7 +238,7 @@ export default Vue.extend({
     }
   },
   created () {
-    this.loadData(200)
+    this.loadData()
   }
 })
 </script>

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(30000)">加载3w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
+    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadData()"></vxe-select>
     <vxe-table
       border
       height="800"
@@ -37,6 +35,18 @@ export default Vue.extend({
   data () {
     const tableData: RowVO[] = []
 
+    const rowSize = 100
+    const dataOptions = [
+      { label: '加载 3 行', value: 3 },
+      { label: '加载 20 行', value: 20 },
+      { label: '加载 100 行', value: 100 },
+      { label: '加载 500 行', value: 500 },
+      { label: '加载 1000 行', value: 1000 },
+      { label: '加载 5000 行', value: 5000 },
+      { label: '加载 10000 行', value: 10000 },
+      { label: '加载 30000 行', value: 30000 }
+    ]
+
     const imgUrlCellRender: VxeColumnPropTypes.CellRender = {
       name: 'VxeImage',
       props: {
@@ -46,6 +56,8 @@ export default Vue.extend({
     }
 
     return {
+      rowSize,
+      dataOptions,
       tableData,
       loading: false,
       imgUrlCellRender
@@ -53,11 +65,11 @@ export default Vue.extend({
   },
   methods: {
     // 模拟行数据
-    loadData (rowSize: number) {
+    loadData () {
       this.loading = true
       setTimeout(() => {
         const dataList: RowVO[] = []
-        for (let i = 0; i < rowSize; i++) {
+        for (let i = 0; i < this.rowSize; i++) {
           const item: RowVO = {
             id: 10000 + i,
             imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif'
@@ -95,7 +107,7 @@ export default Vue.extend({
     }
   },
   created () {
-    this.loadData(200)
+    this.loadData()
   }
 })
 </script>

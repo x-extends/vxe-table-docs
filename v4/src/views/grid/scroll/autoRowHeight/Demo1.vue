@@ -1,20 +1,30 @@
 <template>
   <div>
-    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(30000)">加载3w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
+    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadData()"></vxe-select>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, nextTick } from 'vue'
+import { ref, reactive, nextTick } from 'vue'
 import { VxeUI, VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
   [key: string]: string | number | boolean | any[]
 }
+
+const rowSize = ref(100)
+const dataOptions = ref([
+  { label: '加载 3 行', value: 3 },
+  { label: '加载 20 行', value: 20 },
+  { label: '加载 100 行', value: 100 },
+  { label: '加载 500 行', value: 500 },
+  { label: '加载 1000 行', value: 1000 },
+  { label: '加载 5000 行', value: 5000 },
+  { label: '加载 10000 行', value: 10000 },
+  { label: '加载 30000 行', value: 30000 }
+])
 
 const imgUrlCellRender = reactive<VxeColumnPropTypes.CellRender>({
   name: 'VxeImage',
@@ -51,11 +61,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 // 模拟行数据
-const loadData = (rowSize: number) => {
+const loadData = () => {
   gridOptions.loading = true
   setTimeout(() => {
     const dataList: RowVO[] = []
-    for (let i = 0; i < rowSize; i++) {
+    for (let i = 0; i < rowSize.value; i++) {
       const item: RowVO = {
         id: 10000 + i,
         imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif'
@@ -92,5 +102,5 @@ const loadData = (rowSize: number) => {
   }, 350)
 }
 
-loadData(200)
+loadData()
 </script>
