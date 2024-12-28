@@ -125,6 +125,7 @@ const imgListCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUploa
   props: {
     mode: 'image',
     multiple: true,
+    urlMode: true,
     showButtonText: false,
     pasteToUpload: true,
     dragSort: true,
@@ -159,6 +160,7 @@ const fileListCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
   name: 'VxeUpload',
   props: {
     multiple: true,
+    urlMode: true,
     showButtonText: false,
     pasteToUpload: true,
     dragSort: true,
@@ -357,12 +359,7 @@ const asmMpas = {
   m12: XEUtils.shuffle(XEUtils.range(800, 1200))
 }
 const fgList = XEUtils.shuffle(XEUtils.range(1, 60).map(num => (num % 2) === 0))
-const allFileList = [
-  { name: 'fj586.png', url: 'https://vxeui.com/resource/img/fj586.png' },
-  { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' },
-  { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' },
-  { name: 'fj124.jpeg', url: 'https://vxeui.com/resource/img/fj124.jpeg' }
-]
+const allFileList = ['https://vxeui.com/resource/img/fj586.png', 'https://vxeui.com/resource/img/fj577.jpg', 'https://vxeui.com/resource/img/fj562.png', 'https://vxeui.com/resource/img/fj124.jpeg']
 const flList = XEUtils.shuffle(XEUtils.range(1, 20).map(num => XEUtils.sample(allFileList, XEUtils.random(0, 3))))
 const allImageList = ['https://vxeui.com/resource/img/fj577.jpg', 'https://vxeui.com/resource/img/fj562.png', 'https://vxeui.com/resource/img/fj579.png', 'https://vxeui.com/resource/img/fj573.jpeg', 'https://vxeui.com/resource/img/fj586.png']
 const igList = XEUtils.shuffle(XEUtils.range(1, 20).map(num => XEUtils.sample(allImageList, XEUtils.random(0, 3))))
