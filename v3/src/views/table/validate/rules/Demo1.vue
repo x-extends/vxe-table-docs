@@ -19,7 +19,9 @@
       <vxe-column field="name" title="Name" width="100" fixed="left" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="nickname" title="Nickname" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="role" title="Role" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" min-width="00" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="sex" title="Sex" min-width="300" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="attr1" title="Attr1" min-width="250" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="attr2" title="Attr2" min-width="300" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="address" title="Address" min-width="500" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="age" title="Age" min-width="200" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="date" title="Date" width="160" fixed="right" :edit-render="{name: 'VxeInput'}"></vxe-column>

@@ -1195,6 +1195,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '功能示例',
           children: [
+            { title: '操作列的显示隐藏', routerLink: { name: 'ComponentGridOtherVisibleColumn' } },
             { title: '在页签中使用', routerLink: { name: 'ComponentGridOtherTabs' } },
             { title: '定位行、定位列的使用', routerLink: { name: 'ComponentGridOtherScrollTo' } },
             { title: '实现反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },

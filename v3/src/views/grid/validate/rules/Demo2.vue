@@ -57,6 +57,8 @@ export default Vue.extend({
         { field: 'nickname', title: 'Nickname', minWidth: 260, editRender: { name: 'VxeInput' } },
         { field: 'role', title: 'Role', minWidth: 260, editRender: { name: 'VxeInput' } },
         { field: 'sex', title: 'Sex', minWidth: 300, editRender: { name: 'VxeInput' } },
+        { field: 'attr1', title: 'Attr1', minWidth: 250, editRender: { name: 'VxeInput' } },
+        { field: 'attr2', title: 'Attr2', minWidth: 300, editRender: { name: 'VxeInput' } },
         { field: 'address', title: 'Address', minWidth: 500, editRender: { name: 'VxeInput' } },
         { field: 'age', title: 'Age', minWidth: 200, editRender: { name: 'VxeInput' } },
         { field: 'date', title: 'Date', fixed: 'right', width: 160, editRender: { name: 'VxeInput' } }

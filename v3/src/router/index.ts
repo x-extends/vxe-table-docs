@@ -3925,6 +3925,11 @@ const gridRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
+          path: 'visibleColumn',
+          name: 'ComponentGridOtherVisibleColumn',
+          component: () => import('@/views/grid/other/visibleColumn/CodeExample.vue')
+        },
+        {
           path: 'tabs',
           name: 'ComponentGridOtherTabs',
           component: () => import('@/views/grid/other/tabs/CodeExample.vue')
