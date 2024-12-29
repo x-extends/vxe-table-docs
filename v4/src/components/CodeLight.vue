@@ -46,10 +46,11 @@
           <vxe-button class="example-btn" mode="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" :icon="showOptionJS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" :icon="showOptionTS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupJS ? 'primary' : ''" :loading="setupJsLoading" :icon="showSetupJS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleSetupJsVisible">{{ $t('app.docs.button.showSetupJS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupTS ? 'primary' : ''" :loading="setupTsLoading" :icon="showSetupTS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleSetupTsVisible">{{ $t('app.docs.button.showSetupTS') }}</vxe-button>
       </div>
-      <div class="example-code-warpper" v-show="showOptionJS">
+      <div class="example-code-wrapper" v-show="showOptionJS">
         <div v-for="(item, index) in importOptionJsCodes" :key="index" class="example-code-item">
           <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
             <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
@@ -67,7 +68,25 @@
           <CodeRender language="html" :code="optionJsCodeText"></CodeRender>
         </div>
       </div>
-      <div class="example-code-warpper" v-show="showSetupJS">
+      <div class="example-code-wrapper" v-show="showOptionTS">
+        <div v-for="(item, index) in importOptionTsCodes" :key="index" class="example-code-item">
+          <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
+            <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
+            <span class="example-code-file-name">{{ item.name }}</span>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(item.text)" :disabled="!item.text">{{ $t('app.docs.button.copyCode') }}</vxe-button>
+          </div>
+          <CodeRender v-if="item.isExpand" :language="item.lang" :code="item.text"></CodeRender>
+        </div>
+        <div class="example-code-item">
+          <div class="example-code-file">
+            <vxe-link icon="vxe-icon-link" :href="`${gitDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank"></vxe-link>
+            <span class="example-code-file-name">{{ getFileName(`${path}.vue`) }}</span>
+            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(optionTsCodeText)" :disabled="!optionTsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
+          </div>
+          <CodeRender language="html" :code="optionTsCodeText"></CodeRender>
+        </div>
+      </div>
+      <div class="example-code-wrapper" v-show="showSetupJS">
         <div v-for="(item, index) in importSetupJsCodes" :key="index" class="example-code-item">
           <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
             <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
@@ -85,7 +104,7 @@
           <CodeRender language="html" :code="setupJsCodeText"></CodeRender>
         </div>
       </div>
-      <div class="example-code-warpper" v-show="showSetupTS">
+      <div class="example-code-wrapper" v-show="showSetupTS">
         <div v-for="(item, index) in importSetupTsCodes" :key="index" class="example-code-item">
           <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
             <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
@@ -139,17 +158,22 @@ const showInstall = ref(false)
 const showPreview = ref(true)
 
 const optionJsCodeText = ref('')
+const optionTsCodeText = ref('')
 const setupJsCodeText = ref('')
 const setupTsCodeText = ref('')
 
 const showOptionJS = ref(false)
+const showOptionTS = ref(false)
 const showSetupJS = ref(false)
 const showSetupTS = ref(false)
+
 const optionJsLoading = ref(false)
+const optionTsLoading = ref(false)
 const setupJsLoading = ref(false)
 const setupTsLoading = ref(false)
 
 const importOptionJsCodes = ref<ImportItemVO[]>([])
+const importOptionTsCodes = ref<ImportItemVO[]>([])
 const importSetupJsCodes = ref<ImportItemVO[]>([])
 const importSetupTsCodes = ref<ImportItemVO[]>([])
 
@@ -250,6 +274,38 @@ const loadOptionJsCode = () => {
   return Promise.resolve()
 }
 
+const loadOptionTsCode = () => {
+  const compPath = props.path
+  if (compPath) {
+    optionTsLoading.value = true
+    const exampleBaeUrl = `${siteBaseUrl.value}${process.env.BASE_URL.replace('4', '3')}`
+    Promise.all([
+      getExampleText(`${exampleBaeUrl}example/ts/${compPath}.vue`),
+      ...(props.extraImports?.map(impPath => {
+        const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
+        return getExampleText(`${exampleBaeUrl}example/ts/${filePath}.${fileType}`).then(text => {
+          return {
+            path: `${filePath}.${fileType}`,
+            name: getFileName(`${filePath}.${fileType}`),
+            lang: codeLang,
+            text,
+            isExpand: false
+          }
+        })
+      }) || [])
+    ]).then(([text1, ...impTexts]) => {
+      optionTsCodeText.value = text1 || i18n.global.t('app.docs.button.noExample')
+      importOptionTsCodes.value = impTexts || i18n.global.t('app.docs.button.noExample')
+      optionTsLoading.value = false
+    }).catch(() => {
+      optionTsLoading.value = false
+    })
+  } else {
+    optionTsLoading.value = false
+  }
+  return Promise.resolve()
+}
+
 const loadSetupJsCode = () => {
   const compPath = props.path
   if (compPath) {
@@ -316,6 +372,7 @@ const loadSetupTsCode = () => {
 
 const toggleOptionJsVisible = () => {
   showOptionJS.value = !showOptionJS.value
+  showOptionTS.value = false
   showSetupJS.value = false
   showSetupTS.value = false
   if (showOptionJS.value) {
@@ -323,8 +380,19 @@ const toggleOptionJsVisible = () => {
   }
 }
 
+const toggleOptionTsVisible = () => {
+  showOptionJS.value = false
+  showOptionTS.value = !showOptionTS.value
+  showSetupJS.value = false
+  showSetupTS.value = false
+  if (showOptionTS.value) {
+    loadOptionTsCode()
+  }
+}
+
 const toggleSetupJsVisible = () => {
   showOptionJS.value = false
+  showOptionTS.value = false
   showSetupJS.value = !showSetupJS.value
   showSetupTS.value = false
   if (showSetupJS.value) {
@@ -334,6 +402,7 @@ const toggleSetupJsVisible = () => {
 
 const toggleSetupTsVisible = () => {
   showOptionJS.value = false
+  showOptionTS.value = false
   showSetupJS.value = false
   showSetupTS.value = !showSetupTS.value
   if (showSetupTS.value) {
@@ -390,7 +459,7 @@ const openDocs = () => {
     min-width: 100px;
   }
 }
-.example-code-warpper {
+.example-code-wrapper {
   padding: 0 30px;
   margin: 0;
   pre {
