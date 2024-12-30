@@ -452,6 +452,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             {
               title: '自定义插槽模板',
               children: [
+                { title: '自定义编辑模板', routerLink: { name: 'ComponentTableValidateTemplateEdit' } },
                 { title: '自定义错误提示模板', routerLink: { name: 'ComponentTableValidateTemplateValid' } }
               ]
             }
@@ -1014,6 +1015,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             {
               title: '自定义插槽模板',
               children: [
+                { title: '自定义编辑模板', routerLink: { name: 'ComponentGridValidateTemplateEdit' } },
                 { title: '自定义错误提示模板', routerLink: { name: 'ComponentGridValidateTemplateValid' } }
               ]
             }
