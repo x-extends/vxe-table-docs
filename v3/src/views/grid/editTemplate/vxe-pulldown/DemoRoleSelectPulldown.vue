@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps } from 'vxe-pc-ui'
+import { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   name: string

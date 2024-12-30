@@ -13,8 +13,7 @@
 
 <script lang="ts" setup>
 import { nextTick, ref, reactive } from 'vue'
-
-import { VxeGridProps, VxeGridEvents } from 'vxe-pc-ui'
+import { VxeGridProps, VxeGridEvents } from 'vxe-table'
 
 interface RowVO {
   name: string

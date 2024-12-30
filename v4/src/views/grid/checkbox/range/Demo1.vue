@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-pc-ui'
+import { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
