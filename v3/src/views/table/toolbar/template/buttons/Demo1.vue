@@ -2,9 +2,9 @@
   <div>
     <vxe-toolbar>
       <template #buttons>
-        <vxe-button status="primary">新增</vxe-button>
-        <vxe-button>删除</vxe-button>
-        <vxe-button>保存</vxe-button>
+        <vxe-button status="primary">按钮1</vxe-button>
+        <vxe-button status="primary">按钮2</vxe-button>
+        <vxe-button status="primary">按钮3</vxe-button>
       </template>
     </vxe-toolbar>
     <vxe-table

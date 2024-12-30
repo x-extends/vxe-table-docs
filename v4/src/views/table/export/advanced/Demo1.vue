@@ -47,6 +47,12 @@ const footerData = ref<VxeTablePropTypes.FooterData>([
 ])
 
 const exportConfig = reactive<VxeTablePropTypes.ExportConfig>({
+  filename () {
+    return `导出文件名${Date.now()}`
+  },
+  sheetName () {
+    return `导出标题${Date.now()}`
+  }
 })
 
 const exportEvent = () => {

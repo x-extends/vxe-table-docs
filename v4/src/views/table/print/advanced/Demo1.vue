@@ -4,7 +4,7 @@
     <vxe-table
       show-footer
       ref="tableRef"
-      :print-config="{}"
+      :print-config="printConfig"
       :footer-data="footerData"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import type { VxeTableInstance } from 'vxe-table'
+import { reactive, ref } from 'vue'
+import type { VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -45,6 +45,12 @@ const footerData = ref([
   { seq: '合计', sex: '666', age: '999' },
   { seq: '平均', sex: '888', age: '333' }
 ])
+
+const printConfig = reactive<VxeTablePropTypes.PrintConfig>({
+  sheetName () {
+    return `打印标题${Date.now()}`
+  }
+})
 
 const printEvent = () => {
   const $table = tableRef.value

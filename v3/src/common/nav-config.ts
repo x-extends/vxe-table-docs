@@ -240,7 +240,11 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
               title: '自定义插槽模板',
               children: [
                 { title: '自定义左侧模板', routerLink: { name: 'ComponentTableToolbarTemplateButtons' } },
-                { title: '自定义右侧模板', routerLink: { name: 'ComponentTableToolbarTemplateTools' } }
+                { title: '自定义左侧前缀模板', routerLink: { name: 'ComponentTableToolbarTemplateButtonPrefix' } },
+                { title: '自定义左侧后缀模板', routerLink: { name: 'ComponentTableToolbarTemplateButtonSuffix' } },
+                { title: '自定义右侧模板', routerLink: { name: 'ComponentTableToolbarTemplateTools' } },
+                { title: '自定义右侧前缀模板', routerLink: { name: 'ComponentTableToolbarTemplateToolPrefix' } },
+                { title: '自定义右侧后缀模板', routerLink: { name: 'ComponentTableToolbarTemplateToolSuffix' } }
               ]
             }
           ]
@@ -808,7 +812,11 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
               title: '自定义插槽模板',
               children: [
                 { title: '自定义左侧模板', routerLink: { name: 'ComponentGridToolbarTemplateButtons' } },
-                { title: '自定义右侧模板', routerLink: { name: 'ComponentGridToolbarTemplateTools' } }
+                { title: '自定义左侧前缀模板', routerLink: { name: 'ComponentGridToolbarTemplateButtonPrefix' } },
+                { title: '自定义左侧后缀模板', routerLink: { name: 'ComponentGridToolbarTemplateButtonSuffix' } },
+                { title: '自定义右侧模板', routerLink: { name: 'ComponentGridToolbarTemplateTools' } },
+                { title: '自定义右侧前缀模板', routerLink: { name: 'ComponentGridToolbarTemplateToolPrefix' } },
+                { title: '自定义右侧后缀模板', routerLink: { name: 'ComponentGridToolbarTemplateToolSuffix' } }
               ]
             }
           ]

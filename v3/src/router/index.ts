@@ -762,9 +762,29 @@ const tableRouteConfig: RouteConfig = {
               component: () => import('@/views/table/toolbar/template/buttons/CodeExample.vue')
             },
             {
+              path: 'buttonPrefix',
+              name: 'ComponentTableToolbarTemplateButtonPrefix',
+              component: () => import('@/views/table/toolbar/template/buttonPrefix/CodeExample.vue')
+            },
+            {
+              path: 'buttonSuffix',
+              name: 'ComponentTableToolbarTemplateButtonSuffix',
+              component: () => import('@/views/table/toolbar/template/buttonSuffix/CodeExample.vue')
+            },
+            {
               path: 'tools',
               name: 'ComponentTableToolbarTemplateTools',
               component: () => import('@/views/table/toolbar/template/tools/CodeExample.vue')
+            },
+            {
+              path: 'toolPrefix',
+              name: 'ComponentTableToolbarTemplateToolPrefix',
+              component: () => import('@/views/table/toolbar/template/toolPrefix/CodeExample.vue')
+            },
+            {
+              path: 'toolSuffix',
+              name: 'ComponentTableToolbarTemplateToolSuffix',
+              component: () => import('@/views/table/toolbar/template/toolSuffix/CodeExample.vue')
             }
           ]
         }
@@ -2671,9 +2691,29 @@ const gridRouteConfig: RouteConfig = {
               component: () => import('@/views/grid/toolbar/template/buttons/CodeExample.vue')
             },
             {
+              path: 'buttonPrefix',
+              name: 'ComponentGridToolbarTemplateButtonPrefix',
+              component: () => import('@/views/grid/toolbar/template/buttonPrefix/CodeExample.vue')
+            },
+            {
+              path: 'buttonSuffix',
+              name: 'ComponentGridToolbarTemplateButtonSuffix',
+              component: () => import('@/views/grid/toolbar/template/buttonSuffix/CodeExample.vue')
+            },
+            {
               path: 'tools',
               name: 'ComponentGridToolbarTemplateTools',
               component: () => import('@/views/grid/toolbar/template/tools/CodeExample.vue')
+            },
+            {
+              path: 'toolPrefix',
+              name: 'ComponentGridToolbarTemplateToolPrefix',
+              component: () => import('@/views/grid/toolbar/template/toolPrefix/CodeExample.vue')
+            },
+            {
+              path: 'toolSuffix',
+              name: 'ComponentGridToolbarTemplateToolSuffix',
+              component: () => import('@/views/grid/toolbar/template/toolSuffix/CodeExample.vue')
             }
           ]
         }

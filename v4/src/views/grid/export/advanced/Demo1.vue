@@ -22,7 +22,14 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   showFooter: true,
-  exportConfig: {},
+  exportConfig: {
+    filename () {
+      return `导出文件名${Date.now()}`
+    },
+    sheetName () {
+      return `导出标题${Date.now()}`
+    }
+  },
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
     {

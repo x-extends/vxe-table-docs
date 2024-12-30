@@ -1,10 +1,10 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-      <template #toolbar_buttons>
-        <vxe-button status="primary" @click="addEvent">新增</vxe-button>
-        <vxe-button status="error" @click="delEvent">删除</vxe-button>
-        <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+      <template #toolbarButtons>
+        <vxe-button status="primary">按钮1</vxe-button>
+        <vxe-button status="primary">按钮2</vxe-button>
+        <vxe-button status="primary">按钮3</vxe-button>
       </template>
     </vxe-grid>
   </div>
@@ -32,7 +32,7 @@ export default Vue.extend({
       height: 400,
       toolbarConfig: {
         slots: {
-          buttons: 'toolbar_buttons'
+          buttons: 'toolbarButtons'
         }
       },
       columns: [
@@ -57,17 +57,6 @@ export default Vue.extend({
 
     return {
       gridOptions
-    }
-  },
-  methods: {
-    addEvent () {
-      console.log('add')
-    },
-    delEvent () {
-      console.log('del')
-    },
-    saveEvent () {
-      console.log('save')
     }
   }
 })

@@ -2,9 +2,9 @@
   <div>
     <vxe-toolbar>
       <template #tools>
-        <vxe-button icon="vxe-icon-upload"></vxe-button>
-        <vxe-button icon="vxe-icon-setting"></vxe-button>
-        <vxe-button icon="vxe-icon-ellipsis-h"></vxe-button>
+        <vxe-button status="primary">按钮1</vxe-button>
+        <vxe-button status="primary">按钮2</vxe-button>
+        <vxe-button status="primary">按钮3</vxe-button>
       </template>
     </vxe-toolbar>
     <vxe-table

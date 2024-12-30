@@ -21,7 +21,11 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
-      printConfig: {},
+      printConfig: {
+        sheetName () {
+          return `打印标题${Date.now()}`
+        }
+      },
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         {

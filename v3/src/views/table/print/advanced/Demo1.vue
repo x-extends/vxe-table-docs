@@ -3,7 +3,7 @@
     <vxe-button @click="printEvent">高级打印</vxe-button>
     <vxe-table
       ref="tableRef"
-      :print-config="{}"
+      :print-config="printConfig"
       :footer-data="footerData"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTableInstance } from 'vxe-table'
+import type { VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -45,9 +45,16 @@ export default Vue.extend({
       { seq: '平均', sex: '888', age: '333' }
     ]
 
+    const printConfig: VxeTablePropTypes.PrintConfig = {
+      sheetName () {
+        return `打印标题${Date.now()}`
+      }
+    }
+
     return {
       tableData,
-      footerData
+      footerData,
+      printConfig
     }
   },
   methods: {
