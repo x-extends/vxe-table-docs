@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeGridPropTypes, VxeTablePropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -51,12 +51,18 @@ const allColumns: VxeGridPropTypes.Columns = [
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> & {
+      treeConfig: VxeTablePropTypes.TreeConfig<RowVO>
+    } = {
       height: 400,
       border: 'inner',
       loading: false,
       showOverflow: true,
-      treeConfig: {},
+      treeConfig: {
+        transform: true,
+        rowField: 'id',
+        parentField: 'parentId'
+      },
       columns: [],
       data: allList
     }
@@ -79,14 +85,20 @@ export default Vue.extend({
           children: childList
         })
       })
-      return result
+      return XEUtils.toTreeArray(result, { key: 'id', parentKey: 'parentId', children: 'children' })
     },
     listToGroup  (field?: string) {
       this.gridOptions.columns = allColumns.filter(conf => conf.field !== field)
       this.gridOptions.data = []
       this.gridOptions.loading = true
       setTimeout(() => {
-        this.gridOptions.data = field ? this.handleGroupByField(allList, field) : allList
+        if (field) {
+          this.gridOptions.treeConfig.transform = true
+          this.gridOptions.data = this.handleGroupByField(allList, field)
+        } else {
+          this.gridOptions.treeConfig.transform = false
+          this.gridOptions.data = allList
+        }
         this.gridOptions.loading = false
       }, 200)
     }

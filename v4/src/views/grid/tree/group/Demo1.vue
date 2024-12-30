@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -44,11 +44,17 @@ const allList = [
   { id: 24577, name: 'Test1', type: 'js', size: '1024', date: '2021-06-01' }
 ]
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
+const gridOptions = reactive<VxeGridProps<RowVO> & {
+  treeConfig: VxeTablePropTypes.TreeConfig<RowVO>
+}>({
   height: 400,
   border: 'inner',
   showOverflow: true,
-  treeConfig: {},
+  treeConfig: {
+    transform: true,
+    rowField: 'id',
+    parentField: 'parentId'
+  },
   columns: [
     { field: 'name', title: 'Name', treeNode: true },
     { field: 'size', title: 'Size' },
@@ -71,10 +77,16 @@ const handleGroupByField = (list: RowVO[], field: string) => {
       children: childList
     })
   })
-  return result
+  return XEUtils.toTreeArray(result, { key: 'id', parentKey: 'parentId', children: 'children' })
 }
 
 const listToGroup = (field?: string) => {
-  gridOptions.data = field ? handleGroupByField(allList, field) : allList
+  if (field) {
+    gridOptions.treeConfig.transform = true
+    gridOptions.data = handleGroupByField(allList, field)
+  } else {
+    gridOptions.treeConfig.transform = false
+    gridOptions.data = allList
+  }
 }
 </script>

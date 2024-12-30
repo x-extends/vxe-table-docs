@@ -9,7 +9,7 @@
       show-overflow
       border="inner"
       height="400"
-      :tree-config="{}"
+      :tree-config="treeConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -21,6 +21,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -66,18 +67,31 @@ const handleGroupByField = (list: RowVO[], field: string) => {
       children: childList
     })
   })
-  return result
+  return XEUtils.toTreeArray(result, { key: 'id', parentKey: 'parentId', children: 'children' })
 }
 
 export default Vue.extend({
   data () {
+    const treeConfig: VxeTablePropTypes.TreeConfig<RowVO> = {
+      transform: true,
+      rowField: 'id',
+      parentField: 'parentId'
+    }
+
     return {
+      treeConfig,
       tableData: allList
     }
   },
   methods: {
     listToGroup (field?: string) {
-      this.tableData = field ? handleGroupByField(allList, field) : allList
+      if (field) {
+        this.treeConfig.transform = true
+        this.tableData = handleGroupByField(allList, field)
+      } else {
+        this.treeConfig.transform = false
+        this.tableData = allList
+      }
     }
   }
 })
