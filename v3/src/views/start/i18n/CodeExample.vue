@@ -31,6 +31,8 @@
             // import ugCN from 'vxe-table/lib/language/ug-CN'
             // import ukUA from 'vxe-table/lib/language/uk-UA'
             // import viVN from 'vxe-table/lib/language/vi-VN'
+            // import thTH from 'vxe-pc-ui/lib/language/th-TH'
+            // import itIT from 'vxe-pc-ui/lib/language/it-IT'
 
             // 注册语言
             VxeUI.setI18n('zh-CN', zhCN)
@@ -51,6 +53,8 @@
             // VxeUI.setI18n('ug-CN', ugCN)
             // VxeUI.setI18n('ukU-A', ukUA)
             // VxeUI.setI18n('vi-VN', viVN)
+            // VxeUI.setI18n('th-TH', thTH)
+            // VxeUI.setI18n('it-IT', itIT)
 
             // 切换语言
             VxeUI.setLanguage('zh-CN')
