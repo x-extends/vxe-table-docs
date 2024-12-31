@@ -2236,6 +2236,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/colDrag/group/CodeExample.vue')
         },
         {
+          path: 'peerDrag',
+          name: 'ComponentGridColDragPeerDrag',
+          component: () => import('@/views/grid/colDrag/peerDrag/CodeExample.vue')
+        },
+        {
           path: 'crossDrag',
           name: 'ComponentGridColDragCrossDrag',
           component: () => import('@/views/grid/colDrag/crossDrag/CodeExample.vue')
@@ -2335,6 +2340,11 @@ const gridRouteConfig: RouteRecordRaw = {
               path: 'base',
               name: 'ComponentGridRowDragTreeBase',
               component: () => import('@/views/grid/rowDrag/tree/base/CodeExample.vue')
+            },
+            {
+              path: 'peerDrag',
+              name: 'ComponentGridRowDragTreePeerDrag',
+              component: () => import('@/views/grid/rowDrag/tree/peerDrag/CodeExample.vue')
             },
             {
               path: 'cossDrag',
