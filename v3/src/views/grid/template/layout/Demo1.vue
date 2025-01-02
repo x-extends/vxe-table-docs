@@ -29,11 +29,11 @@
         <vxe-notice-bar direction="right" content="自定义底部区域" style="background: palegreen;"></vxe-notice-bar>
       </template>
 
-      <template #aside-left>
+      <template #asideLeft>
         <div style="background: darkcyan;width: 140px;height: 100%;">自定义左侧区域</div>
       </template>
 
-      <template #aside-right>
+      <template #asideRight>
         <div style="background: aqua;width: 140px;height: 100%;">自定义右侧区域</div>
       </template>
 
