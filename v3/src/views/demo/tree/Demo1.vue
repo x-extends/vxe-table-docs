@@ -150,7 +150,8 @@ export default Vue.extend({
         showGuidesStatus: true
       },
       toolbarConfig: {
-        custom: true
+        custom: true,
+        zoom: true
       },
       treeConfig: {
         transform: true,

@@ -244,6 +244,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   toolbarConfig: {
     custom: true,
+    zoom: true,
     slots: {
       buttons: 'toolbarButtons'
     }

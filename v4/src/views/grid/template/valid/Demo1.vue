@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #toolbar_buttons>
+      <template #toolbarButtons>
         <vxe-button status="primary" @click="validEvent">校验</vxe-button>
       </template>
 
@@ -47,7 +47,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   toolbarConfig: {
     slots: {
-      buttons: 'toolbar_buttons'
+      buttons: 'toolbarButtons'
     }
   },
   columns: [

@@ -271,6 +271,7 @@ export default Vue.extend({
       },
       toolbarConfig: {
         custom: true,
+        zoom: true,
         slots: {
           buttons: 'toolbarButtons'
         }

@@ -199,6 +199,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
   toolbarConfig: {
     custom: true,
     refresh: true,
+    zoom: true,
     slots: {
       buttons: 'toolbarButtons'
     }

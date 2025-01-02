@@ -70,7 +70,8 @@ export default Vue.extend({
         isHover: true
       },
       toolbarConfig: {
-        custom: true
+        custom: true,
+        zoom: true
       },
       checkboxConfig: {
         range: true

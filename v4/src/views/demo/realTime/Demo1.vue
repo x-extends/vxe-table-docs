@@ -65,7 +65,8 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
     isHover: true
   },
   toolbarConfig: {
-    custom: true
+    custom: true,
+    zoom: true
   },
   checkboxConfig: {
     range: true

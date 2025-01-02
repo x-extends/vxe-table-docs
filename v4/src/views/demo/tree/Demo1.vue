@@ -126,7 +126,8 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
     showGuidesStatus: true
   },
   toolbarConfig: {
-    custom: true
+    custom: true,
+    zoom: true
   },
   treeConfig: {
     transform: true,

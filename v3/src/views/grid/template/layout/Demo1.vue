@@ -2,35 +2,43 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #form>
-        <div style="background: blue;">自定义表单区域</div>
+        <vxe-notice-bar direction="right" style="background: dodgerblue;">自定义表单区域</vxe-notice-bar>
       </template>
 
-      <template #toolbar_buttons>
-        <div style="background: orchid;width: 100%;">自定义工具栏左侧</div>
+      <template #toolbarButtons>
+        <vxe-notice-bar direction="left" style="background: cadetblue;width: 100%;">自定义工具栏左侧</vxe-notice-bar>
       </template>
 
-      <template #toolbar_tools>
-        <div style="background: orange;">自定义工具栏右侧</div>
+      <template #toolbarTools>
+        <vxe-notice-bar direction="right" style="background: orange;">自定义工具栏右侧</vxe-notice-bar>
       </template>
 
       <template #top>
-        <vxe-notice-bar content="自定义顶部区域" style="background: green;color: #fff;"></vxe-notice-bar>
+        <vxe-notice-bar direction="right" content="自定义顶部区域" style="background: green;color: #fff;"></vxe-notice-bar>
       </template>
 
       <template #left>
-        <div style="background: cadetblue;width: 140px;height: 100%;">自定义左侧区域</div>
+        <div style="background: orchid;width: 140px;height: 100%;">自定义表格左边区域</div>
       </template>
 
       <template #right>
-        <div style="background: bisque;width: 140px;height: 100%;">自定义右侧区域</div>
+        <div style="background: bisque;width: 140px;height: 100%;">自定义表格右边区域</div>
       </template>
 
       <template #bottom>
         <vxe-notice-bar direction="right" content="自定义底部区域" style="background: palegreen;"></vxe-notice-bar>
       </template>
 
+      <template #aside-left>
+        <div style="background: darkcyan;width: 140px;height: 100%;">自定义左侧区域</div>
+      </template>
+
+      <template #aside-right>
+        <div style="background: aqua;width: 140px;height: 100%;">自定义右侧区域</div>
+      </template>
+
       <template #pager>
-        <div style="background: red;">自定义分页区域</div>
+        <vxe-notice-bar direction="left" style="background: red;">自定义分页区域</vxe-notice-bar>
       </template>
     </vxe-grid>
   </div>
@@ -61,9 +69,10 @@ export default Vue.extend({
       },
       toolbarConfig: {
         custom: true,
+        zoom: true,
         slots: {
-          buttons: 'toolbar_buttons',
-          tools: 'toolbar_tools'
+          buttons: 'toolbarButtons',
+          tools: 'toolbarTools'
         }
       },
       columns: [
