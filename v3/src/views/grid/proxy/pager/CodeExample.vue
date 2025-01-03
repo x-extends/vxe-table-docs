@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/proxy/pager/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          手动操作分页
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

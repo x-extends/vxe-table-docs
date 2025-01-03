@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" @row-dragend="rowDragendEvent"></vxe-grid>
   </div>
 </template>
 
@@ -67,6 +67,11 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    rowDragendEvent ({ dragToChild }) {
+      console.log(`拖成子级=${dragToChild}`)
     }
   }
 })

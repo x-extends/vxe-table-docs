@@ -20,5 +20,24 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/template/layout/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          自定义布局，非常灵活任意组合布局，想怎么拼接就怎么拼接
+        </vxe-tip>
+        <vxe-tip status="error">
+          自定义布局由 3 部分组成的二维数组，[[头部], [主体+支持侧边栏], [尾部]]
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/template/layout/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">
+          去掉左右两侧
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

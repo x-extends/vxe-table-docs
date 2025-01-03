@@ -938,7 +938,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '手动编辑', routerLink: { name: 'ComponentGridEditManual' } },
             { title: '单击编辑', routerLink: { name: 'ComponentGridEditClick' } },
             { title: '双击编辑', routerLink: { name: 'ComponentGridEditDblclick' } },
-            { title: '行编辑', routerLink: { name: 'ComponentGridEditRowValid' } },
+            { title: '编辑模式', routerLink: { name: 'ComponentGridEditMode' } },
             {
               title: '临时数据 - 内置增删改',
               children: [
@@ -957,8 +957,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '修改', routerLink: { name: 'ComponentGridEditHandleOriginalUpdate' } }
               ]
             },
-            { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },
+            { title: '行校验', routerLink: { name: 'ComponentGridEditRowValid' } },
             { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } },
+            { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },
             { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentGridEditFooterImmediately' } },
