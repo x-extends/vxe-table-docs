@@ -26,11 +26,5 @@
         <vxe-tip status="primary">两种方式混合使用</vxe-tip>
       </template>
     </CodeLight>
-
-    <CodeLight path="grid/base/radio/Demo6">
-      <template #tip>
-        <vxe-tip status="primary">通过 <ApiLink name="grid" prop="trigger"/> 指定触发方式</vxe-tip>
-      </template>
-    </CodeLight>
   </div>
 </template>

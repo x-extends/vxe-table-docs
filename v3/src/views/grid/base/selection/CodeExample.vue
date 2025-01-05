@@ -6,12 +6,6 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="grid/base/selection/Demo5">
-      <template #tip>
-        <vxe-tip status="primary">通过配置 <ApiLink name="grid" prop="trigger"/>=row 设置触发方式，点击行可勾选</vxe-tip>
-      </template>
-    </CodeLight>
-
     <CodeLight path="grid/base/selection/Demo6">
       <template #tip>
         <vxe-tip status="primary">

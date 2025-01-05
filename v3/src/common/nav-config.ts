@@ -647,6 +647,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '高亮选择行', routerLink: { name: 'ComponentGridRadioHighlight' } },
             { title: '禁用', routerLink: { name: 'ComponentGridRadioCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentGridRadioVisibleMethod' } },
+            { title: '触发方式', routerLink: { name: 'ComponentGridRadioTrigger' } },
+            { title: '自定义列头按钮', routerLink: { name: 'ComponentGridRadioHeaderBtn' } },
             { title: '自定义模板', routerLink: { name: 'ComponentGridRadioTemplate' } }
           ]
         },
@@ -657,6 +659,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '绑定字段', routerLink: { name: 'ComponentGridCheckboxField' } },
             { title: '禁用', routerLink: { name: 'ComponentGridCheckboxCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentGridCheckboxVisibleMethod' } },
+            { title: '触发方式', routerLink: { name: 'ComponentGridCheckboxTrigger' } },
             { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentGridCheckboxRange' } },
             { title: '单元格选择-复选框', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_checkbox' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaCheckbox' } } },
             { title: '自定义模板', routerLink: { name: 'ComponentGridCheckboxTemplate' } }
@@ -667,7 +670,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '多字段排序', routerLink: { name: 'ComponentGridSortMultiple' } },
             { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } },
-            { title: '手动排序', routerLink: { name: 'ComponentGridSortSetSort' } }
+            { title: '手动排序', routerLink: { name: 'ComponentGridSortSetSort' } },
+            { title: '排序图标', routerLink: { name: 'ComponentGridSortIconVisibleMethod' } }
           ]
         },
         {
@@ -675,7 +679,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '拖拽模式', routerLink: { name: 'ComponentGridColResizableMode' } },
             { title: '分组列头', routerLink: { name: 'ComponentGridColResizableGroup' } },
-            { title: '冻结列', routerLink: { name: 'ComponentGridColResizableFixed' } }
+            { title: '冻结列', routerLink: { name: 'ComponentGridColResizableFixed' } },
+            { title: '双击自适应列宽', routerLink: { name: 'ComponentGridColResizableDblclickAutoWidth' } }
           ]
         },
         {
@@ -761,6 +766,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } },
             { title: '手动弹出', routerLink: { name: 'ComponentGridFilterManual' } },
             { title: '手动筛选', routerLink: { name: 'ComponentGridFilterSetFilter' } },
+            { title: '实现列头筛选', routerLink: { name: 'ComponentGridFilterHeaderFilter' } },
+            { title: '筛选图表', routerLink: { name: 'ComponentGridFilterIconVisibleMethod' } },
             { title: '输入筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_complex_input_table_complex_string_filter' }, query: { previewPath: '%2FfiltersComplexInput%2Fgrid%2Fcomplex%2FstringFilter' } } },
             { title: '组合筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_combination_table_combination_string_filter' }, query: { previewPath: '%2FfiltersCombination%2Fgrid%2Fcombination%2FstringFilter' } } }
           ]

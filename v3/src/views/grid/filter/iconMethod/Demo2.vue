@@ -8,20 +8,35 @@
       </template>
 
       <template #dateHeader="{ column }">
+        <span v-for="(option, index) in column.filters" :key="index">
+          <vxe-date-picker v-model="option.data" @change="confirmFilterEvent(option)" clearable style="width: 140px;"></vxe-date-picker>
+        </span>
+      </template>
+      <template #dateFilter="{ column }">
         <div v-for="(option, index) in column.filters" :key="index">
-          <vxe-input v-model="option.data" type="date" @change="confirmFilterEvent(option)" placeholder="请选择" clearable transfer style="width: 100%;"></vxe-input>
+          <vxe-date-picker v-model="option.data" @change="changeFilterOptionEvent(option)" clearable></vxe-date-picker>
         </div>
       </template>
 
       <template #sexHeader="{ column }">
+        <span v-for="(option, index) in column.filters" :key="index">
+          <vxe-select v-model="option.data" :options="sexList" clearable @change="confirmFilterEvent(option)" style="width: 140px;"></vxe-select>
+        </span>
+      </template>
+      <template #sexFilter="{ column }">
         <div v-for="(option, index) in column.filters" :key="index">
-          <vxe-select v-model="option.data" :options="sexList" clearable @change="confirmFilterEvent(option)" style="width: 100%;"></vxe-select>
+          <vxe-select v-model="option.data" :options="sexList" clearable @change="changeFilterOptionEvent(option)"></vxe-select>
         </div>
       </template>
 
       <template #addressHeader="{ column }">
+        <span v-for="(option, index) in column.filters" :key="index">
+          <vxe-input v-model="option.data" clearable @change="confirmFilterEvent(option)" style="width: 240px;"></vxe-input>
+        </span>
+      </template>
+      <template #addressFilter="{ column }">
         <div v-for="(option, index) in column.filters" :key="index">
-          <vxe-input v-model="option.data" clearable @change="confirmFilterEvent(option)" style="width: 100%;"></vxe-input>
+          <vxe-input v-model="option.data" clearable @change="changeFilterOptionEvent(option)"></vxe-input>
         </div>
       </template>
     </vxe-grid>
@@ -60,12 +75,20 @@ export default Vue.extend({
   },
   methods: {
     confirmFilterEvent (option) {
+      this.changeFilterOptionEvent(option)
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        // 修改条件之后，需要手动调用 updateData 处理表格数据
+        $grid.updateData()
+        // 关闭筛选面板
+        $grid.closeFilter()
+      }
+    },
+    changeFilterOptionEvent (option) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         // 设置为选中状态
         $grid.updateFilterOptionStatus(option, !!option.data)
-        // 修改条件之后，需要手动调用 updateData 处理表格数据
-        $grid.updateData()
       }
     }
   },
@@ -75,7 +98,12 @@ export default Vue.extend({
       loading: false,
       height: 500,
       filterConfig: {
-        showIcon: false
+        iconVisibleMethod: ({ column }) => {
+          if (column.field === 'name') {
+            return false
+          }
+          return true
+        }
       },
       columns: [
         { type: 'seq', width: 70 },
@@ -116,7 +144,8 @@ export default Vue.extend({
                 return true
               },
               slots: {
-                header: 'dateHeader'
+                header: 'dateHeader',
+                filter: 'dateFilter'
               }
             }
           ]
@@ -128,20 +157,21 @@ export default Vue.extend({
               field: 'sex',
               width: 200,
               formatter: ({ cellValue }) => {
-                const item = (this as any).sexList.find(item => item.value === cellValue)
+                const item = this.sexList.find(item => item.value === cellValue)
                 return item ? item.label : ''
               },
               filters: [
                 { data: '' }
               ],
-              filterMethod: ({ option, row, column }) => {
+              filterMethod ({ option, row, column }) {
                 if (option.data) {
                   return row[column.field] === option.data
                 }
                 return true
               },
               slots: {
-                header: 'sexHeader'
+                header: 'sexHeader',
+                filter: 'sexFilter'
               }
             }
           ]
@@ -162,7 +192,8 @@ export default Vue.extend({
                 return true
               },
               slots: {
-                header: 'addressHeader'
+                header: 'addressHeader',
+                filter: 'addressFilter'
               }
             }
           ]

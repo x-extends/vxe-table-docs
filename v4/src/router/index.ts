@@ -2114,6 +2114,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'setSort',
           name: 'ComponentGridSortSetSort',
           component: () => import('@/views/grid/sort/setSort/CodeExample.vue')
+        },
+        {
+          path: 'iconVisibleMethod',
+          name: 'ComponentGridSortIconVisibleMethod',
+          component: () => import('@/views/grid/sort/iconVisibleMethod/CodeExample.vue')
         }
       ]
     },
@@ -2140,6 +2145,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'headerFilter',
           name: 'ComponentGridFilterHeaderFilter',
           component: () => import('@/views/grid/filter/headerFilter/CodeExample.vue')
+        },
+        {
+          path: 'iconVisibleMethod',
+          name: 'ComponentGridFilterIconVisibleMethod',
+          component: () => import('@/views/grid/filter/iconVisibleMethod/CodeExample.vue')
         }
       ]
     },
@@ -2203,6 +2213,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'fixed',
           name: 'ComponentGridColResizableFixed',
           component: () => import('@/views/grid/colResizable/fixed/CodeExample.vue')
+        },
+        {
+          path: 'dblclickAutoWidth',
+          name: 'ComponentGridColResizableDblclickAutoWidth',
+          component: () => import('@/views/grid/colResizable/dblclickAutoWidth/CodeExample.vue')
         }
       ]
     },
@@ -2473,9 +2488,19 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/radio/checkMethod/CodeExample.vue')
         },
         {
+          path: 'trigger',
+          name: 'ComponentGridRadioTrigger',
+          component: () => import('@/views/grid/radio/trigger/CodeExample.vue')
+        },
+        {
           path: 'visibleMethod',
           name: 'ComponentGridRadioVisibleMethod',
           component: () => import('@/views/grid/radio/visibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'headerBtn',
+          name: 'ComponentGridRadioHeaderBtn',
+          component: () => import('@/views/grid/radio/headerBtn/CodeExample.vue')
         },
         {
           path: 'template',
@@ -2507,6 +2532,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'visibleMethod',
           name: 'ComponentGridCheckboxVisibleMethod',
           component: () => import('@/views/grid/checkbox/visibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'trigger',
+          name: 'ComponentGridCheckboxTrigger',
+          component: () => import('@/views/grid/checkbox/trigger/CodeExample.vue')
         },
         {
           path: 'range',
