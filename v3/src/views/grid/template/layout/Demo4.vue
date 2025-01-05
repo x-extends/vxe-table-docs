@@ -76,7 +76,6 @@ export default Vue.extend({
         }
       },
       layouts: [
-        [],
         ['Form', 'Toolbar', 'Top', 'Table', 'Bottom', 'Pager']
       ],
       columns: [

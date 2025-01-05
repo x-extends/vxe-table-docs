@@ -35,6 +35,14 @@
     <CodeLight path="grid/template/layout/Demo3">
       <template #tip>
         <vxe-tip status="primary">
+          左右两侧，中间内容区
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/template/layout/Demo4">
+      <template #tip>
+        <vxe-tip status="primary">
           去掉左右两侧
         </vxe-tip>
       </template>

@@ -74,6 +74,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     }
   },
   layouts: [
+    [],
     ['Form', 'Toolbar', 'Top', 'Table', 'Bottom', 'Pager']
   ],
   columns: [

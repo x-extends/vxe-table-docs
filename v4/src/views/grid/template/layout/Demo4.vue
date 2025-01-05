@@ -44,8 +44,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { reactive } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -58,47 +58,38 @@ interface RowVO {
   address: string
 }
 
-export default Vue.extend({
-  data () {
-    const gridOptions: VxeGridProps<RowVO> = {
-      border: true,
-      height: 400,
-      showOverflow: true,
-      customConfig: {
-        mode: 'drawer'
-      },
-      toolbarConfig: {
-        custom: true,
-        zoom: true,
-        slots: {
-          buttons: 'toolbarButtons',
-          tools: 'toolbarTools'
-        }
-      },
-      layouts: [
-        [],
-        ['Form', 'Toolbar', 'Top', 'Table', 'Bottom', 'Pager']
-      ],
-      columns: [
-        { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name' },
-        { field: 'sex', title: 'Sex' },
-        { field: 'num', title: 'Number' },
-        { field: 'age', title: 'Age' },
-        { field: 'address', title: 'Address' }
-      ],
-      data: [
-        { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
-        { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
-        { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' },
-        { id: 10004, name: 'Test4', role: 'PM', sex: '0', age: 39, num: 43, address: 'Shanghai' },
-        { id: 10005, name: 'Test5', role: 'PM', sex: '0', age: 46, num: 12, address: 'Guangzhou' }
-      ]
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
+  height: 400,
+  showOverflow: true,
+  customConfig: {
+    mode: 'drawer'
+  },
+  toolbarConfig: {
+    custom: true,
+    zoom: true,
+    slots: {
+      buttons: 'toolbarButtons',
+      tools: 'toolbarTools'
     }
-
-    return {
-      gridOptions
-    }
-  }
+  },
+  layouts: [
+    ['Form', 'Toolbar', 'Top', 'Table', 'Bottom', 'Pager']
+  ],
+  columns: [
+    { type: 'seq', width: 70 },
+    { field: 'name', title: 'Name' },
+    { field: 'sex', title: 'Sex' },
+    { field: 'num', title: 'Number' },
+    { field: 'age', title: 'Age' },
+    { field: 'address', title: 'Address' }
+  ],
+  data: [
+    { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
+    { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
+    { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' },
+    { id: 10004, name: 'Test4', role: 'PM', sex: '0', age: 39, num: 43, address: 'Shanghai' },
+    { id: 10005, name: 'Test5', role: 'PM', sex: '0', age: 46, num: 12, address: 'Guangzhou' }
+  ]
 })
 </script>
