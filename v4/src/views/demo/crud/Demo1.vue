@@ -242,6 +242,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     useKey: true,
     isHover: true
   },
+  resizableConfig: {
+    isDblclickAutoWidth: true
+  },
   toolbarConfig: {
     custom: true,
     zoom: true,

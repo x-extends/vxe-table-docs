@@ -165,8 +165,16 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
     resizable: true,
     drag: true
   },
+  columnDragConfig: {
+    trigger: 'cell',
+    showIcon: false,
+    showGuidesStatus: true
+  },
   rowConfig: {
     isHover: true
+  },
+  resizableConfig: {
+    isDblclickAutoWidth: true
   },
   formConfig: {
     titleWidth: 80,

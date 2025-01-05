@@ -234,8 +234,16 @@ export default Vue.extend({
         resizable: true,
         drag: true
       },
+      columnDragConfig: {
+        trigger: 'cell',
+        showIcon: false,
+        showGuidesStatus: true
+      },
       rowConfig: {
         isHover: true
+      },
+      resizableConfig: {
+        isDblclickAutoWidth: true
       },
       formConfig: {
         titleWidth: 80,
