@@ -132,7 +132,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       children: [
         {
           field: 'address',
-          width: 300,
+          minWidth: 300,
           filters: [
             { data: '' }
           ],

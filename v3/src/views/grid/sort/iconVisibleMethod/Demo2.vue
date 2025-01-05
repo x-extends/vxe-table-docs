@@ -25,7 +25,7 @@ export default Vue.extend({
       border: true,
       height: 300,
       sortConfig: {
-        trigger: 'row',
+        trigger: 'cell',
         iconVisibleMethod ({ column }) {
           if (column.field === 'name') {
             return false

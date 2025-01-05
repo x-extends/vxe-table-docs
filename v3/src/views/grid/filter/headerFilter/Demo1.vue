@@ -151,7 +151,7 @@ export default Vue.extend({
           children: [
             {
               field: 'address',
-              width: 300,
+              minWidth: 300,
               filters: [
                 { data: '' }
               ],
