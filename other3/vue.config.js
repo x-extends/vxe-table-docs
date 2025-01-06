@@ -20,11 +20,6 @@ module.exports = {
   configureWebpack: {
     performance: {
       hints: false
-    }
-  },
-  configureWebpack: {
-    performance: {
-      hints: false
     },
     externals: {
       'highlight.js': 'hljs',
