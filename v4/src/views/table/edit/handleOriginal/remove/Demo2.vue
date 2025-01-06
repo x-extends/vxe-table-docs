@@ -29,6 +29,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import { VxeUI, VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
+import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: number
@@ -40,6 +41,8 @@ interface RowVO {
 }
 
 const tableRef = ref<VxeTableInstance<RowVO>>()
+
+const removeRecords: RowVO[] = []
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'Test1', type: 'mp3', size: 1024, date: '2020-08-01' },
@@ -69,7 +72,8 @@ const rowConfig = reactive<VxeTablePropTypes.RowConfig>({
 const treeConfig = reactive<VxeTablePropTypes.TreeConfig>({
   transform: true,
   rowField: 'id',
-  parentField: 'parentId'
+  parentField: 'parentId',
+  childrenField: 'children'
 })
 
 const editConfig = reactive<VxeTablePropTypes.EditConfig>({
@@ -79,14 +83,18 @@ const editConfig = reactive<VxeTablePropTypes.EditConfig>({
 })
 
 const removeRow = async (row: RowVO) => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.remove(row)
-    VxeUI.modal.message({
-      content: '数据已删除',
-      status: 'success'
-    })
-  }
+  const delIds: number[] = []
+  XEUtils.eachTree([row], item => {
+    if (!removeRecords.some(obj => item.id === obj.id)) {
+      delIds.push(item.id)
+      removeRecords.push(item)
+    }
+  }, { children: 'children' })
+  tableData.value = tableData.value.filter(item => !delIds.includes(item.id))
+  VxeUI.modal.message({
+    content: '数据已删除',
+    status: 'success'
+  })
 }
 
 const removeSelectEvent = async () => {
@@ -94,7 +102,14 @@ const removeSelectEvent = async () => {
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
     if (selectRecords.length > 0) {
-      $table.removeCheckboxRow()
+      const delIds: number[] = []
+      XEUtils.eachTree(selectRecords, item => {
+        if (!removeRecords.some(obj => item.id === obj.id)) {
+          delIds.push(item.id)
+          removeRecords.push(item)
+        }
+      }, { children: 'children' })
+      tableData.value = tableData.value.filter(item => !delIds.includes(item.id))
       VxeUI.modal.message({
         content: '已删除选中',
         status: 'success'
@@ -109,10 +124,6 @@ const removeSelectEvent = async () => {
 }
 
 const getRemoveEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const removeRecords = $table.getRemoveRecords()
-    VxeUI.modal.alert(`删除：${removeRecords.length} 行`)
-  }
+  VxeUI.modal.alert(`删除：${removeRecords.length} 行`)
 }
 </script>

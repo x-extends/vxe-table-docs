@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/edit/handleOriginal/remove/Demo2">
+      <template #tip>
+        <vxe-tip status="primary" title="删除">
+          树节点移除临时数据
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

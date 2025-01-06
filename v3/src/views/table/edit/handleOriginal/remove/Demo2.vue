@@ -29,6 +29,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { VxeUI, VxeTablePropTypes, VxeTableInstance } from 'vxe-table'
+import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: number
@@ -62,6 +63,8 @@ export default Vue.extend({
       { id: 24577, parentId: 24555, name: 'Test18', type: 'js', size: 1024, date: '2021-06-01' }
     ]
 
+    const removeRecords: RowVO[] = []
+
     const rowConfig : VxeTablePropTypes.RowConfig = {
       keyField: 'id'
     }
@@ -69,7 +72,8 @@ export default Vue.extend({
     const treeConfig: VxeTablePropTypes.TreeConfig = {
       transform: true,
       rowField: 'id',
-      parentField: 'parentId'
+      parentField: 'parentId',
+      childrenField: 'children'
     }
 
     const editConfig: VxeTablePropTypes.EditConfig = {
@@ -82,26 +86,38 @@ export default Vue.extend({
       tableData,
       rowConfig,
       treeConfig,
-      editConfig
+      editConfig,
+      removeRecords
     }
   },
   methods: {
-    async removeRow (row: RowVO) {
-      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-      if ($table) {
-        $table.remove(row)
-        VxeUI.modal.message({
-          content: '数据已删除',
-          status: 'success'
-        })
-      }
+    removeRow (row: RowVO) {
+      const delIds: number[] = []
+      XEUtils.eachTree([row], item => {
+        if (!this.removeRecords.some(obj => item.id === obj.id)) {
+          delIds.push(item.id)
+          this.removeRecords.push(item)
+        }
+      }, { children: 'children' })
+      this.tableData = this.tableData.filter(item => !delIds.includes(item.id))
+      VxeUI.modal.message({
+        content: '数据已删除',
+        status: 'success'
+      })
     },
     async removeSelectEvent () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
         const selectRecords = $table.getCheckboxRecords()
         if (selectRecords.length > 0) {
-          $table.removeCheckboxRow()
+          const delIds: number[] = []
+          XEUtils.eachTree(selectRecords, item => {
+            if (!this.removeRecords.some(obj => item.id === obj.id)) {
+              delIds.push(item.id)
+              this.removeRecords.push(item)
+            }
+          }, { children: 'children' })
+          this.tableData = this.tableData.filter(item => !delIds.includes(item.id))
           VxeUI.modal.message({
             content: '已删除选中',
             status: 'success'
@@ -115,11 +131,7 @@ export default Vue.extend({
       }
     },
     getRemoveEvent () {
-      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-      if ($table) {
-        const removeRecords = $table.getRemoveRecords()
-        VxeUI.modal.alert(`删除：${removeRecords.length} 行`)
-      }
+      VxeUI.modal.alert(`删除：${this.removeRecords.length} 行`)
     }
   }
 })
