@@ -156,15 +156,17 @@ export default Vue.extend({
       ]
     }
 
+    const cityOptions = [
+      { label: '深圳市', value: 'sz' },
+      { label: '广州市', value: 'gz' },
+      { label: '北京市', value: 'bj' },
+      { label: '上海市', value: 'sh' },
+      { label: '杭州市', value: 'hz' }
+    ]
+
     const cityItemRender: VxeFormItemPropTypes.ItemRender<RowVO, VxeSelectProps> = {
       name: 'VxeSelect',
-      options: [
-        { label: '深圳市', value: 'sz' },
-        { label: '广州市', value: 'gz' },
-        { label: '北京市', value: 'bj' },
-        { label: '上海市', value: 'sh' },
-        { label: '杭州市', value: 'hz' }
-      ]
+      options: cityOptions
     }
 
     const formatSex: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
@@ -175,7 +177,8 @@ export default Vue.extend({
     }
 
     const formatCity: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
-      return cellValue
+      const item = cityOptions.find(item => item.value === cellValue)
+      return item ? item.label : cellValue
     }
 
     const formatAmount: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
