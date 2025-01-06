@@ -88,11 +88,11 @@ const sexItemRender = reactive<VxeFormItemPropTypes.ItemRender<RowVO, VxeSelectP
 })
 
 const cityOptions = [
-  { label: '深圳市', value: 'sz' },
-  { label: '广州市', value: 'gz' },
+  { label: '广东省深圳市', value: 'sz' },
+  { label: '广东省广州市', value: 'gz' },
   { label: '北京市', value: 'bj' },
   { label: '上海市', value: 'sh' },
-  { label: '杭州市', value: 'hz' }
+  { label: '浙江省杭州市', value: 'hz' }
 ]
 
 const cityItemRender = reactive<VxeFormItemPropTypes.ItemRender<RowVO, VxeSelectProps>>({
