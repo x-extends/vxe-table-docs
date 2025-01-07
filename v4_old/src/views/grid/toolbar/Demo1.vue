@@ -36,11 +36,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     storage: true
   },
   columns: [
-    { type: 'checkbox', width: 50 },
-    { type: 'seq', width: 60 },
+    { field: 'checkbox', type: 'checkbox', width: 50 },
+    { field: 'seq', type: 'seq', width: 60 },
     { field: 'name', title: 'Name' },
     {
       title: '分类',
+      field: 'group1',
       children: [
         { field: 'nickname', title: 'Nickname' },
         { field: 'role', title: 'Role' }

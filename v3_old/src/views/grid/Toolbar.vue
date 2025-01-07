@@ -74,11 +74,12 @@ export default {
         custom: true
       },
       tableColumn: [
-        { type: 'checkbox', width: 50 },
-        { type: 'seq', width: 60 },
+        { field: 'checkbox', type: 'checkbox', width: 50 },
+        { field: 'seq', type: 'seq', width: 60 },
         { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
         {
           title: '分类',
+          field: 'group1',
           children: [
             { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
             { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } }
@@ -152,11 +153,12 @@ export default {
                 custom: true
               },
               tableColumn: [
-                { type: 'checkbox', width: 50 },
-                { type: 'seq', width: 60 },
+                { field: 'checkbox', type: 'checkbox', width: 50 },
+                { field: 'seq', type: 'seq', width: 60 },
                 { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
                 {
                   title: '分类',
+                  field: 'group1',
                   children: [
                     { field: 'nickname', title: 'Nickname', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'nickname_edit' } },
                     { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } }
