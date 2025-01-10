@@ -43,8 +43,6 @@
         import { VXETable } from 'vxe-table'
         //  setup({})
         VXETable.setConfig({
-          // 恢复老版本校验样式
-          cellVaildMode: 'obsolete',
           // 恢复窗口默认显示确认按钮
           mode: {
             showConfirmButton: true
