@@ -1361,13 +1361,13 @@ export const navConfigList: NavVO[] = [
       { i18nKey: 'app.aside.menu.globalPermission', routerLink: { name: 'StartPermission' } }
     ]
   },
-  // {
-  //   i18nKey: 'app.aside.menu.tools',
-  //   children: [
-  //     // { title: '函数库' },
-  //     { i18nKey: 'app.aside.menu.clipboard', routerLink: { name: 'ToolClipboard' } }
-  //   ]
-  // },
+  {
+    i18nKey: 'app.aside.menu.tools',
+    children: [
+      { i18nKey: 'app.aside.menu.clipboard', routerLink: { name: 'ToolClipboard' } },
+      { i18nKey: 'app.aside.menu.functions', linkUrl: 'https://vxetable.cn/xe-utils/' }
+    ]
+  },
   ...tableNavConfig.children,
   {
     title: 'API',

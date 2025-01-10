@@ -5,10 +5,12 @@
     <p class="tip">安装方式：</p>
     <div>之前</div>
     <pre>
+      <pre-code class="typescript">npm install vxe-table@3.8.25</pre-code>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>
     <div>之后</div>
     <pre>
+      <pre-code class="typescript">npm install vxe-pc-ui@3.3.73 vxe-table@3.12.9</pre-code>
       <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
     </pre>
     <p class="tip">全局图标设置：</p>

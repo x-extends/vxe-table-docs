@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-button @click="copyEvent">点击复制</vxe-button>
+    <vxe-button @click="copyEvent">点击复制 123456789</vxe-button>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import { VxeUI } from 'vxe-pc-ui'
 export default Vue.extend({
   methods: {
     copyEvent  () {
-      if (VxeUI.clipboard.copy('复制文本到剪贴板')) {
+      if (VxeUI.clipboard.copy('123456789')) {
         VxeUI.modal.message({
           status: 'success',
           content: '复制成功',
