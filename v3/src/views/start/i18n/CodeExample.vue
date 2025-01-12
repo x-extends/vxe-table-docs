@@ -12,27 +12,27 @@
           <pre-code class="javascript">
             import { VxeUI } from 'vxe-table'
 
-            import zhCN from 'vxe-table/lib/language/zh-CN'
-            // import zhHK from 'vxe-table/lib/language/zh-HK'
-            // import zhTW from 'vxe-table/lib/language/zh-TW'
-            // import zhMO from 'vxe-table/lib/language/zh-MO'
-            // import arEG from 'vxe-table/lib/language/ar-EG'
-            // import deDE from 'vxe-table/lib/language/de-DE'
-            import enUS from 'vxe-table/lib/language/en-US'
-            // import esES from 'vxe-table/lib/language/es-ES'
-            // import frFR from 'vxe-table/lib/language/fr-FR'
-            // import huHU from 'vxe-table/lib/language/hu-HU'
-            // import hyAM from 'vxe-table/lib/language/hy-AM'
-            // import jaJP from 'vxe-table/lib/language/ja-JP'
-            // import koKR from 'vxe-table/lib/language/ko-KR'
-            // import nbNO from 'vxe-table/lib/language/nb-NO'
-            // import ptBR from 'vxe-table/lib/language/pt-BR'
-            // import ruRU from 'vxe-table/lib/language/ru-RU'
-            // import ugCN from 'vxe-table/lib/language/ug-CN'
-            // import ukUA from 'vxe-table/lib/language/uk-UA'
-            // import viVN from 'vxe-table/lib/language/vi-VN'
-            // import thTH from 'vxe-table/lib/language/th-TH'
-            // import itIT from 'vxe-table/lib/language/it-IT'
+            import zhCN from 'vxe-table/locale/lang/zh-CN'
+            // import zhHK from 'vxe-table/locale/lang/zh-HK'
+            // import zhTW from 'vxe-table/locale/lang/zh-TW'
+            // import zhMO from 'vxe-table/locale/lang/zh-MO'
+            // import arEG from 'vxe-table/locale/lang/ar-EG'
+            // import deDE from 'vxe-table/locale/lang/de-DE'
+            import enUS from 'vxe-table/locale/lang/en-US'
+            // import esES from 'vxe-table/locale/lang/es-ES'
+            // import frFR from 'vxe-table/locale/lang/fr-FR'
+            // import huHU from 'vxe-table/locale/lang/hu-HU'
+            // import hyAM from 'vxe-table/locale/lang/hy-AM'
+            // import jaJP from 'vxe-table/locale/lang/ja-JP'
+            // import koKR from 'vxe-table/locale/lang/ko-KR'
+            // import nbNO from 'vxe-table/locale/lang/nb-NO'
+            // import ptBR from 'vxe-table/locale/lang/pt-BR'
+            // import ruRU from 'vxe-table/locale/lang/ru-RU'
+            // import ugCN from 'vxe-table/locale/lang/ug-CN'
+            // import ukUA from 'vxe-table/locale/lang/uk-UA'
+            // import viVN from 'vxe-table/locale/lang/vi-VN'
+            // import thTH from 'vxe-table/locale/lang/th-TH'
+            // import itIT from 'vxe-table/locale/lang/it-IT'
 
             // 注册语言
             VxeUI.setI18n('zh-CN', zhCN)
@@ -77,8 +77,8 @@
         <pre>
           <pre-code class="javascript">
             import VueI18n from 'vue-i18n'
-            import zhCN from 'vxe-table/lib/language/zh-CN'
-            import enUS from 'vxe-table/lib/language/en-US'
+            import zhCN from 'vxe-table/locale/lang/zh-CN'
+            import enUS from 'vxe-table/locale/lang/en-US'
 
             Vue.use(VueI18n)
 

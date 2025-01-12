@@ -71,7 +71,7 @@
             import 'vxe-pc-ui/styles/cssvar.scss'
 
             // 导入默认的语言
-            import zhCN from 'vxe-table/lib/language/zh-CN'
+            import zhCN from 'vxe-table/locale/lang/zh-CN'
 
             VxeUI.setI18n('zh-CN', zhCN)
             VxeUI.setLanguage('zh-CN')
