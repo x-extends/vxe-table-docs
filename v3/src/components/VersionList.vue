@@ -135,7 +135,7 @@ export default Vue.extend({
     margin: 0 6px;
   }
   .stable-select {
-    width: 74px;
+    width: 78px;
   }
   .latest-select {
     width: 128px;
