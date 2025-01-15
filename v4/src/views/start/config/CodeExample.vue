@@ -59,6 +59,15 @@
                 columnDragConfig: {
                   showIcon: true
                 },
+                cellConfig: {
+                  padding: true
+                },
+                headerCellConfig: {
+                  padding: true
+                },
+                footerCellConfig: {
+                  padding: true
+                },
                 checkboxConfig: {
                   // trigger: 'default',
                   strict: true
