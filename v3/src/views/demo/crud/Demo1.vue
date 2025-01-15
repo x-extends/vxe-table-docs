@@ -106,6 +106,7 @@ export default Vue.extend({
         urlMode: true,
         showButtonText: false,
         pasteToUpload: true,
+        autoHiddenButton: true,
         progressText: '{percent}%',
         imageConfig: {
           circle: true,

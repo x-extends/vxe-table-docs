@@ -164,6 +164,7 @@ const fileListCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
     showButtonText: false,
     pasteToUpload: true,
     dragSort: true,
+    autoHiddenButton: true,
     progressText: '{percent}%',
     moreConfig: {
       maxCount: 1,
