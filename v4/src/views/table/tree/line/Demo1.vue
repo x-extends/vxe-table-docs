@@ -3,9 +3,9 @@
     <vxe-table
       show-overflow
       border="outer"
-      :row-config="{useKey: true}"
-      :column-config="{resizable: true}"
-      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId', showLine: true}"
+      :row-config="rowConfig"
+      :column-config="columnConfig"
+      :tree-config="treeConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -16,7 +16,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -26,6 +27,21 @@ interface RowVO {
   size: number
   date: string
 }
+
+const rowConfig = reactive<VxeTablePropTypes.RowConfig>({
+  useKey: true
+})
+
+const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
+  resizable: true
+})
+
+const treeConfig = reactive<VxeTablePropTypes.TreeConfig>({
+  transform: true,
+  rowField: 'id',
+  parentField: 'parentId',
+  showLine: true
+})
 
 const tableData = ref<RowVO[]>([
   { id: 10000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },

@@ -21,6 +21,8 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      showFooter: true,
       exportConfig: {
         filename () {
           return `导出文件名${Date.now()}`
@@ -31,6 +33,7 @@ export default Vue.extend({
       },
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
+        { field: 'checkbox', type: 'checkbox', width: 70 },
         {
           title: '分组1',
           children: [
@@ -50,6 +53,10 @@ export default Vue.extend({
         { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
         { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
         { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
+      ],
+      footerData: [
+        { seq: '合计', sex: '666', age: '999' },
+        { seq: '平均', sex: '888', age: '333' }
       ]
     }
 

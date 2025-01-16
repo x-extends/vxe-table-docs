@@ -1,18 +1,28 @@
 <template>
   <div>
+    <vxe-radio-group v-model="headerAlign">
+      <vxe-radio-button label="left" content="居左"></vxe-radio-button>
+      <vxe-radio-button label="center" content="居中"></vxe-radio-button>
+      <vxe-radio-button label="right" content="居右"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-table
       border
-      :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="整列居中" align="center"></vxe-column>
-      <vxe-column field="sex" title="头部居中" header-align="center"></vxe-column>
-      <vxe-column field="age" title="头部居中，内容居右" header-align="center" align="right"></vxe-column>
+      show-footer
+      :header-align="headerAlign"
+      :data="tableData"
+      :footer-data="footerData">
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-column field="sex" title="Sex"></vxe-column>
+      <vxe-column field="age" title="Age"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -25,6 +35,8 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const headerAlign: VxeTablePropTypes.FooterAlign = 'left'
+
     const tableData: RowVO[] = [
       { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
       { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
@@ -32,8 +44,14 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
     ]
 
+    const footerData: VxeTablePropTypes.FooterData = [
+      { seq: '合计', name: '777', sex: '333', age: '111' }
+    ]
+
     return {
-      tableData
+      headerAlign,
+      tableData,
+      footerData
     }
   }
 })

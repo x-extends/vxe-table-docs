@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-button @click="exportEvent">高级导出</vxe-button>
+    <vxe-button status="primary" @click="exportEvent">点击导出</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -21,6 +21,7 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
   showFooter: true,
   exportConfig: {
     columns: [

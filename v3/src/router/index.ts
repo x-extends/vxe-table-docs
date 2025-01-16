@@ -2100,6 +2100,14 @@ const gridRouteConfig: RouteConfig = {
       ]
     },
     {
+      path: 'cell',
+      component: RouteLayout,
+      children: [
+        { path: 'padding', name: 'ComponentGridCellPadding', component: () => import('@/views/grid/cell/padding/CodeExample.vue') },
+        { path: 'height', name: 'ComponentGridCellHeight', component: () => import('@/views/grid/cell/height/CodeExample.vue') }
+      ]
+    },
+    {
       path: 'sort',
       component: RouteLayout,
       children: [
@@ -2221,6 +2229,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'dblclickAutoWidth',
           name: 'ComponentGridColResizableDblclickAutoWidth',
           component: () => import('@/views/grid/colResizable/dblclickAutoWidth/CodeExample.vue')
+        },
+        {
+          path: 'manual',
+          name: 'ComponentGridColResizableManual',
+          component: () => import('@/views/grid/colResizable/manual/CodeExample.vue')
         }
       ]
     },
@@ -2318,6 +2331,37 @@ const gridRouteConfig: RouteConfig = {
           path: 'rowCol',
           name: 'ComponentGridColDragRowCol',
           component: () => import('@/views/grid/colDrag/rowCol/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'rowResizable',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'base',
+          name: 'ComponentGridRowResizableBase',
+          component: () => import('@/views/grid/rowResizable/base/CodeExample.vue')
+        },
+        {
+          path: 'fixed',
+          name: 'ComponentGridRowResizableFixed',
+          component: () => import('@/views/grid/rowResizable/fixed/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentGridRowResizableTree',
+          component: () => import('@/views/grid/rowResizable/tree/CodeExample.vue')
+        },
+        {
+          path: 'rowResize',
+          name: 'ComponentGridRowResizableRowResize',
+          component: () => import('@/views/grid/rowResizable/rowResize/CodeExample.vue')
+        },
+        {
+          path: 'manual',
+          name: 'ComponentGridRowResizableManual',
+          component: () => import('@/views/grid/rowResizable/manual/CodeExample.vue')
         }
       ]
     },
@@ -3703,6 +3747,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/print/advanced/CodeExample.vue')
         },
         {
+          path: 'columns',
+          name: 'ComponentGridPrintColumns',
+          component: () => import('@/views/grid/print/columns/CodeExample.vue')
+        },
+        {
           path: 'page',
           name: 'ComponentGridPrintPage',
           component: () => import('@/views/grid/print/page/CodeExample.vue')
@@ -3944,6 +3993,22 @@ const gridRouteConfig: RouteConfig = {
           path: 'manualSave',
           name: 'ComponentGridProxyManualSave',
           component: () => import('@/views/grid/proxy/manualSave/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'scrollbar',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'barStyle',
+          name: 'ComponentGridScrollbarBarStyle',
+          component: () => import('@/views/grid/scrollbar/barStyle/CodeExample.vue')
+        },
+        {
+          path: 'barPos',
+          name: 'ComponentGridScrollbarBarPos',
+          component: () => import('@/views/grid/scrollbar/barPos/CodeExample.vue')
         }
       ]
     },

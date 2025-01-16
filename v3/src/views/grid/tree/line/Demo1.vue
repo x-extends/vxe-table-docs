@@ -25,6 +25,9 @@ export default Vue.extend({
       rowConfig: {
         useKey: true
       },
+      columnConfig: {
+        resizable: true
+      },
       treeConfig: {
         transform: true,
         rowField: 'id',

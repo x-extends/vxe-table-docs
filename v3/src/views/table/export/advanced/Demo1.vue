@@ -2,12 +2,14 @@
   <div>
     <vxe-button @click="exportEvent">高级导出</vxe-button>
     <vxe-table
+      border
       show-footer
       ref="tableRef"
       :export-config="exportConfig"
       :footer-data="footerData"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
+      <vxe-column field="checkbox" type="checkbox" width="70"></vxe-column>
       <vxe-colgroup title="分组1">
         <vxe-column field="name" title="Name"></vxe-column>
       </vxe-colgroup>

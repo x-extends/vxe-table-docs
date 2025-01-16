@@ -23,6 +23,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   rowConfig: {
     useKey: true
   },
+  columnConfig: {
+    resizable: true
+  },
   treeConfig: {
     transform: true,
     rowField: 'id',

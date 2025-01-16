@@ -1,11 +1,14 @@
 <template>
   <div>
-    <vxe-button status="primary" @click="changeBorder">切换边框</vxe-button>
+    <vxe-switch v-model="border"></vxe-switch>
+
     <vxe-table
+      show-footer
       height="200"
       :border="border"
-      :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      :data="tableData"
+      :footer-data="footerData">
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -16,7 +19,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -36,7 +39,7 @@ const tableData = ref<RowVO[]>([
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
 
-const changeBorder = () => {
-  border.value = !border.value
-}
+const footerData = ref<VxeTablePropTypes.FooterData>([
+  { seq: '合计', name: '777', sex: '333', age: '111' }
+])
 </script>

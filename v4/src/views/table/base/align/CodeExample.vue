@@ -8,7 +8,13 @@
 
     <CodeLight path="table/base/align/Demo2">
       <template #tip>
-        <vxe-tip status="primary">指定列对齐方式</vxe-tip>
+        <vxe-tip status="primary">通过 header-align 设置表头对齐方式</vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="table/base/align/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">通过 header-align 设置表尾对齐方式</vxe-tip>
       </template>
     </CodeLight>
   </div>

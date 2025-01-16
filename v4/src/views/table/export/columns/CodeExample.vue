@@ -7,5 +7,21 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/export/columns/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          通过 <ApiLink name="table" prop="export-config"/>.<ApiLink name="table" prop="includeFields"/> 可以默认指定字段
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="table/export/columns/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">
+          通过 <ApiLink name="table" prop="export-config"/>.<ApiLink name="table" prop="excludeFields"/> 可以默认排除字段
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

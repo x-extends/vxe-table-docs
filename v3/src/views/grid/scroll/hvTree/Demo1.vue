@@ -33,6 +33,9 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
+      rowConfig: {
+        useKey: true
+      },
       treeConfig: {
         transform: true
       },

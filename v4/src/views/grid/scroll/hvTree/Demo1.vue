@@ -33,6 +33,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     resizable: true
   },
+  rowConfig: {
+    useKey: true
+  },
   treeConfig: {
     transform: true
   },

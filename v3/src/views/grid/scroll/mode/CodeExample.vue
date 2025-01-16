@@ -2,11 +2,8 @@
   <div>
     <CodeLight path="grid/scroll/mode/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="优化模式">
-          支持原生和优化两种模式，可以通过 <ApiLink name="grid" prop="scroll-y"/>.mode='wheel' 设置为优化模式
-        </vxe-tip>
-        <vxe-tip status="success">
-          优化模式可以解决虚拟滚动的渲染空白期
+        <vxe-tip status="primary" title="滚动模式 + 复杂渲染">
+          虚拟滚动和左右固定列以及各种复杂渲染
         </vxe-tip>
       </template>
     </CodeLight>

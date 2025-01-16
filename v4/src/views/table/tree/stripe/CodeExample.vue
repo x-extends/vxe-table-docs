@@ -13,9 +13,7 @@
 
     <CodeLight path="table/tree/stripe/Demo2">
       <template #tip>
-        <vxe-tip status="primary">
-          <vxe-tip status="primary">使用 <ApiLink name="table" prop="row-config"/>.<ApiLink name="table" prop="isHover"/> 属性启用 hover 行高亮</vxe-tip>
-        </vxe-tip>
+        <vxe-tip status="primary">使用 <ApiLink name="table" prop="row-config"/>.<ApiLink name="table" prop="isHover"/> 属性启用 hover 行高亮</vxe-tip>
       </template>
     </CodeLight>
   </div>

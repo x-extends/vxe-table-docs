@@ -40,7 +40,8 @@
     </div>
     <div class="nav-item nav-level1" v-for="(item1, index1) in navList" :key="index1" :class="[{'is-expand': item1.isExpand}]">
       <div class="nav-name" :class="{'is-plugin': item1.isPlugin, 'is-enterprise': item1.isEnterprise}" :title="item1.title" @click="toggleExpand(item1)">
-        <vxe-link v-if="item1.linkUrl" class="nav-item-link" :status="item1.linkStatus" :href="item1.linkUrl" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
+        <vxe-link v-if="item1.routerLink" class="nav-item-link" :status="item1.linkStatus" :router-link="item1.routerLink" :content="item1.title"></vxe-link>
+        <vxe-link v-else-if="item1.linkUrl" class="nav-item-link" :status="item1.linkStatus" :href="item1.linkUrl" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
         <span v-else>
           <span class="vxe-icon-arrow-right nav-link-icon"></span>
           <span class="nav-item-text">
@@ -151,6 +152,7 @@ const searchName = ref('')
 const showSearchList = ref(false)
 const searchLoading = ref(false)
 const searchList = ref<NavVO[]>([])
+let isInit = false
 
 const handleNavApiParams = (item: NavVO) => {
   if (item.isSelfAPI) {
@@ -277,8 +279,9 @@ const scrollToNav = (item: NavVO) => {
       if (linkEl) {
         if ((linkEl as any).scrollIntoViewIfNeeded) {
           (linkEl as any).scrollIntoViewIfNeeded()
-        } else if ((linkEl as any).scrollIntoView) {
+        } else if (!isInit && (linkEl as any).scrollIntoView) {
           (linkEl as any).scrollIntoView()
+          isInit = true
         }
       }
     }

@@ -59,12 +59,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         {
           title: '详细信息',
           children: [
-            { field: 'address', title: '标题溢出显示tooltip内容内容内容内容内容内容', width: 160 }
+            { type: 'html', field: 'address', title: '不换行不换行不换行不换行不换行不换行不换行不换行不换行', width: 160, showHeaderOverflow: true, showOverflow: true }
           ]
         }
       ]
-    },
-    { type: 'html', field: 'address', title: '不换行不换行不换行不换行不换行不换行不换行不换行不换行', width: 160, showHeaderOverflow: true, showOverflow: true }
+    }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

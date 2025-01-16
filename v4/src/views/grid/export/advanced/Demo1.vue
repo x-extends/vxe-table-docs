@@ -21,6 +21,7 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
   showFooter: true,
   exportConfig: {
     filename () {
@@ -32,6 +33,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
+    { field: 'checkbox', type: 'checkbox', width: 70 },
     {
       title: '分组1',
       children: [
