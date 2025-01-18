@@ -128,10 +128,10 @@ getVersion()
     margin: 0 6px;
   }
   .stable-select {
-    width: 78px;
+    width: 82px;
   }
   .latest-select {
-    width: 128px;
+    width: 130px;
   }
 }
 </style>
