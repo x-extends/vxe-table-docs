@@ -95,6 +95,7 @@ const avatarUrlCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUpl
     urlMode: true,
     showButtonText: false,
     pasteToUpload: true,
+    autoHiddenButton: true,
     progressText: '{percent}%',
     imageConfig: {
       circle: true,
@@ -164,7 +165,6 @@ const fileListCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
     showButtonText: false,
     pasteToUpload: true,
     dragSort: true,
-    autoHiddenButton: true,
     progressText: '{percent}%',
     moreConfig: {
       maxCount: 1,
