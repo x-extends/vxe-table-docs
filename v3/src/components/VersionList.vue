@@ -138,7 +138,7 @@ export default Vue.extend({
     width: 82px;
   }
   .latest-select {
-    width: 130px;
+    width: 136px;
   }
 }
 </style>
