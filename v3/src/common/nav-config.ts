@@ -156,6 +156,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '行高调整',
+          children: [
+            { title: '行高拖拽', routerLink: { name: 'ComponentTableRowResizableBase' } },
+            { title: '冻结列', routerLink: { name: 'ComponentTableRowResizableFixed' } },
+            { title: '树结构', routerLink: { name: 'ComponentTableRowResizableTree' } },
+            { title: '拖拽按钮位置', routerLink: { name: 'ComponentTableRowResizableRowResize' } },
+            { title: '手动操作行高', routerLink: { name: 'ComponentTableRowResizableManual' } }
+          ]
+        },
+        {
           title: '行拖拽',
           children: [
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentTableRowDragSort' } },
@@ -687,7 +697,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '拖拽模式', routerLink: { name: 'ComponentGridColResizableMode' } },
             { title: '分组列头', routerLink: { name: 'ComponentGridColResizableGroup' } },
             { title: '冻结列', routerLink: { name: 'ComponentGridColResizableFixed' } },
-            { title: '双击自适应列宽', routerLink: { name: 'ComponentGridColResizableDblclickAutoWidth' } }
+            { title: '双击自适应列宽', routerLink: { name: 'ComponentGridColResizableDblclickAutoWidth' } },
+            { title: '手动操作列宽', routerLink: { name: 'ComponentGridColResizableManual' } }
           ]
         },
         {
@@ -728,7 +739,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '行高拖拽', routerLink: { name: 'ComponentGridRowResizableBase' } },
             { title: '冻结列', routerLink: { name: 'ComponentGridRowResizableFixed' } },
             { title: '树结构', routerLink: { name: 'ComponentGridRowResizableTree' } },
-            { title: '拖拽按钮位置', routerLink: { name: 'ComponentGridRowResizableRowResize' } }
+            { title: '拖拽按钮位置', routerLink: { name: 'ComponentGridRowResizableRowResize' } },
+            { title: '手动操作行高', routerLink: { name: 'ComponentGridRowResizableManual' } }
           ]
         },
         {
@@ -1095,7 +1107,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义数据', routerLink: { name: 'ComponentGridExportData' } },
             { title: '格式化导出内容', routerLink: { name: 'ComponentGridExportExportMethod' } },
             { title: '高级导出', routerLink: { name: 'ComponentGridExportAdvanced' } },
-            { title: '设置默认列', routerLink: { name: 'ComponentGridExportColumns' } },
+            { title: '指定列', routerLink: { name: 'ComponentGridExportColumns' } },
             { title: '自定义导出类型', routerLink: { name: 'ComponentGridExportTypes' } },
             { title: '服务端导出', routerLink: { name: 'ComponentGridExportRemote' } },
             { title: '自定义导出模式', routerLink: { name: 'ComponentGridExportModes' } },
@@ -1139,6 +1151,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '打印表格', routerLink: { name: 'ComponentGridPrintBase' } },
             { title: '自定义顶部和底部', routerLink: { name: 'ComponentGridPrintBeforeMethod' } },
             { title: '高级打印', routerLink: { name: 'ComponentGridPrintAdvanced' } },
+            { title: '指定列', routerLink: { name: 'ComponentGridPrintColumns' } },
             { title: '自定义页眉/标题', routerLink: { name: 'ComponentGridPrintHeader' } },
             { title: '自定义页尾/页码', routerLink: { name: 'ComponentGridPrintFooter' } },
             {

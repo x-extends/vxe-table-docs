@@ -13,7 +13,7 @@
 
     <CodeLight path="table/edit/handleTemp/remove/Demo2">
       <template #tip>
-        <vxe-tip status="primary" title="删除">
+        <vxe-tip status="primary">
           树节点移除临时数据
         </vxe-tip>
       </template>

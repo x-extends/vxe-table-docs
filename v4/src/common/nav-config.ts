@@ -156,6 +156,16 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '行高调整',
+          children: [
+            { title: '行高拖拽', routerLink: { name: 'ComponentTableRowResizableBase' } },
+            { title: '冻结列', routerLink: { name: 'ComponentTableRowResizableFixed' } },
+            { title: '树结构', routerLink: { name: 'ComponentTableRowResizableTree' } },
+            { title: '拖拽按钮位置', routerLink: { name: 'ComponentTableRowResizableRowResize' } },
+            { title: '手动操作行高', routerLink: { name: 'ComponentTableRowResizableManual' } }
+          ]
+        },
+        {
           title: '行拖拽',
           children: [
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentTableRowDragSort' } },

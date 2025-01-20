@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/edit/handleTemp/pending/Demo1">
+    <CodeLight path="grid/edit/handleTemp/pending/Demo1" previewPath="/resource/docsImg/table_handleTemp_pending.gif">
       <template #tip>
         <vxe-tip status="primary" title="标记">
           标记为待删除状态，通过调用 <ApiLink name="grid" prop="setPendingRow"/> 方法标记为待删除状态

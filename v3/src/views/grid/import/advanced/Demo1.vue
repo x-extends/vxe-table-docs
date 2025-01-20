@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-button @click="exportEvent">高级导出</vxe-button>
     <vxe-button @click="importEvent">高级导入</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -22,6 +23,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       importConfig: {},
+      exportConfig: {},
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -41,6 +43,12 @@ export default Vue.extend({
     }
   },
   methods: {
+    exportEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.openExport()
+      }
+    },
     importEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {

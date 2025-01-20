@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-button status="error" @click="pendingSelectEvent(true)">批量标记除</vxe-button>
+    <vxe-button status="info" @click="pendingSelectEvent(false)">批量取消标记</vxe-button>
     <vxe-button status="success" @click="getPendingEvent">获取已标记数据</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
@@ -36,7 +38,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     showStatus: true
   },
   columns: [
-    { type: 'seq', width: 70 },
+    { type: 'checkbox', width: 70 },
     { field: 'name', title: 'Name', editRender: { name: 'input' } },
     { field: 'sex', title: 'Sex', editRender: { name: 'input' } },
     { field: 'age', title: 'Age', editRender: { name: 'input' } },
@@ -54,6 +56,22 @@ const pendingRow = async (row: RowVO, status: boolean) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.setPendingRow(row, status)
+  }
+}
+
+const pendingSelectEvent = async (status: boolean) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const selectRecords = $grid.getCheckboxRecords()
+    if (selectRecords.length > 0) {
+      await $grid.setPendingRow(selectRecords, status)
+      await $grid.clearCheckboxRow()
+    } else {
+      VxeUI.modal.message({
+        content: '未选择数据',
+        status: 'info'
+      })
+    }
   }
 }
 

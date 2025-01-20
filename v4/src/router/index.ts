@@ -403,6 +403,37 @@ const tableRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'rowResizable',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'base',
+          name: 'ComponentTableRowResizableBase',
+          component: () => import('@/views/table/rowResizable/base/CodeExample.vue')
+        },
+        {
+          path: 'fixed',
+          name: 'ComponentTableRowResizableFixed',
+          component: () => import('@/views/table/rowResizable/fixed/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentTableRowResizableTree',
+          component: () => import('@/views/table/rowResizable/tree/CodeExample.vue')
+        },
+        {
+          path: 'rowResize',
+          name: 'ComponentTableRowResizableRowResize',
+          component: () => import('@/views/table/rowResizable/rowResize/CodeExample.vue')
+        },
+        {
+          path: 'manual',
+          name: 'ComponentTableRowResizableManual',
+          component: () => import('@/views/table/rowResizable/manual/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'rowDrag',
       component: RouteLayout,
       children: [
