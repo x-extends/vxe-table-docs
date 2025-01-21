@@ -3,35 +3,16 @@
     <vxe-table
       border
       show-overflow
-      :padding="false"
-      :cell-config="{verticalAlign: 'top'}"
-      :row-config="{height: 100}"
+      :column-config="columnConfig"
+      :header-cell-config="headerCellConfig"
+      :cell-config="cellConfig"
+      :row-config="rowConfig"
+      :resizable-config="resizableConfig"
       :edit-config="editConfig"
       :data="tableData">
-      <vxe-column field="name" title="Name" :edit-render="{autoFocus: 'textarea'}">
-        <template #default="{ row }">
-          <div class="full-cell-wrapper">
-            <span>{{ row.name }}</span>
-          </div>
-        </template>
-        <template #edit="{ row }">
-          <div class="full-edit-wrapper">
-            <vxe-textarea v-model="row.name" class="full-edit-component"></vxe-textarea>
-          </div>
-        </template>
-      </vxe-column>
-      <vxe-column field="address" title="Address" :edit-render="{autoFocus: 'textarea'}">
-        <template #default="{ row }">
-          <div class="full-cell-wrapper">
-            <span>{{ row.address }}</span>
-          </div>
-        </template>
-        <template #edit="{ row }">
-          <div class="full-edit-wrapper">
-            <vxe-textarea v-model="row.address" class="full-edit-component"></vxe-textarea>
-          </div>
-        </template>
-      </vxe-column>
+      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column field="name" title="Name" :padding="false" vertical-align="top" :edit-render="{name: 'textarea'}" row-resize></vxe-column>
+      <vxe-column field="address" title="Address" :padding="false" vertical-align="top" :edit-render="{name: 'textarea'}"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -56,23 +37,29 @@ const tableData = ref<RowVO[]>([
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
 
+const columnConfig = ref<VxeTablePropTypes.ColumnConfig>({
+  resizable: true
+})
+
+const resizableConfig = ref<VxeTablePropTypes.ResizableConfig>({
+  isDblclickAutoWidth: true,
+  isDblclickAutoHeight: true
+})
+
+const rowConfig = ref<VxeTablePropTypes.RowConfig>({
+  resizable: true
+})
+
+const cellConfig = ref<VxeTablePropTypes.CellConfig>({
+  height: 100
+})
+
+const headerCellConfig = ref<VxeTablePropTypes.HeaderCellConfig>({
+  height: 'unset'
+})
+
 const editConfig = ref<VxeTablePropTypes.EditConfig>({
   trigger: 'click',
   mode: 'cell'
 })
 </script>
-
-<style lang="scss" scoped>
-.full-cell-wrapper,
-.full-edit-wrapper,
-.full-edit-component {
-  height: 100%;
-  width: 100%;
-}
-.full-cell-wrapper {
-  padding: 8px;
-}
-.full-edit-wrapper {
-  padding: 1px;
-}
-</style>
