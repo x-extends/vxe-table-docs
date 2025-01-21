@@ -82,7 +82,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
           return '合计'
         }
         if (['date'].includes(column.field)) {
-          return '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+          return '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx长文本内容长文本内容xxxxxxxxxxxxx'
         }
         if (['rate'].includes(column.field)) {
           return '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行'
