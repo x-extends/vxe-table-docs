@@ -4,7 +4,6 @@
       border
       show-overflow
       :column-config="columnConfig"
-      :header-cell-config="headerCellConfig"
       :cell-config="cellConfig"
       :row-config="rowConfig"
       :resizable-config="resizableConfig"
@@ -52,10 +51,6 @@ const rowConfig = ref<VxeTablePropTypes.RowConfig>({
 
 const cellConfig = ref<VxeTablePropTypes.CellConfig>({
   height: 100
-})
-
-const headerCellConfig = ref<VxeTablePropTypes.HeaderCellConfig>({
-  height: 'unset'
 })
 
 const editConfig = ref<VxeTablePropTypes.EditConfig>({

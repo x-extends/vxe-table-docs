@@ -4,7 +4,6 @@
       border
       show-overflow
       :column-config="columnConfig"
-      :header-cell-config="headerCellConfig"
       :cell-config="cellConfig"
       :row-config="rowConfig"
       :resizable-config="resizableConfig"
@@ -56,10 +55,6 @@ export default Vue.extend({
       height: 100
     }
 
-    const headerCellConfig: VxeTablePropTypes.HeaderCellConfig = {
-      height: 'unset'
-    }
-
     const editConfig: VxeTablePropTypes.EditConfig = {
       trigger: 'click',
       mode: 'cell'
@@ -71,7 +66,6 @@ export default Vue.extend({
       resizableConfig,
       rowConfig,
       cellConfig,
-      headerCellConfig,
       editConfig
     }
   }

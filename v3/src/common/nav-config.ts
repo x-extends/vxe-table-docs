@@ -740,6 +740,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '冻结列', routerLink: { name: 'ComponentGridRowResizableFixed' } },
             { title: '树结构', routerLink: { name: 'ComponentGridRowResizableTree' } },
             { title: '拖拽按钮位置', routerLink: { name: 'ComponentGridRowResizableRowResize' } },
+            { title: '双击自适应行高', routerLink: { name: 'ComponentGridRowResizableDblclickAutoHeight' } },
             { title: '手动操作行高', routerLink: { name: 'ComponentGridRowResizableManual' } }
           ]
         },

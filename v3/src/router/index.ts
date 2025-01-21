@@ -2390,6 +2390,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/rowResizable/rowResize/CodeExample.vue')
         },
         {
+          path: 'dblclickAutoHeight',
+          name: 'ComponentGridRowResizableDblclickAutoHeight',
+          component: () => import('@/views/grid/rowResizable/dblclickAutoHeight/CodeExample.vue')
+        },
+        {
           path: 'manual',
           name: 'ComponentGridRowResizableManual',
           component: () => import('@/views/grid/rowResizable/manual/CodeExample.vue')
