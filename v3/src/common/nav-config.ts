@@ -125,6 +125,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '多字段排序', routerLink: { name: 'ComponentTableSortMultiple' } },
             { title: '触发方式', routerLink: { name: 'ComponentTableSortTrigger' } },
             { title: '自定义轮询', routerLink: { name: 'ComponentTableSortOrders' } },
+            { title: '按钮控制', routerLink: { name: 'ComponentTableSortAllowBtn' } },
             { title: '设置默认排序', routerLink: { name: 'ComponentTableSortDefaultSort' } },
             { title: '设置值的类型', routerLink: { name: 'ComponentTableSortSortType' } },
             { title: '自定义排序方法', routerLink: { name: 'ComponentTableSortSortMethod' } },

@@ -353,6 +353,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/sort/orders/CodeExample.vue')
         },
         {
+          path: 'allowBtn',
+          name: 'ComponentTableSortAllowBtn',
+          component: () => import('@/views/table/sort/allowBtn/CodeExample.vue')
+        },
+        {
           path: 'defaultSort',
           name: 'ComponentTableSortDefaultSort',
           component: () => import('@/views/table/sort/defaultSort/CodeExample.vue')
