@@ -2,7 +2,7 @@
   <div>
     <h2>v4.0.x ~ v4.6.x 升级到 v4.7+</h2>
     <div class="red">v4.7+ 分离为纯表格 和 UI组件，升级版本，内部代码不需要改动，需调整安装方式及全局变量。</div>
-    <p class="tip">安装方式：</p>
+    <p class="tip">全局安装方式（<span class="red">如果是按需，请按照新版文档重新安装</span>）：</p>
     <div>之前</div>
     <pre>
       <pre-code class="typescript">npm install vxe-table@4.6.21</pre-code>
@@ -12,29 +12,6 @@
     <pre>
       <pre-code class="typescript">npm install vxe-pc-ui@4.3.68 vxe-table@4.10.5</pre-code>
       <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
-    </pre>
-    <p class="tip">全局图标设置：</p>
-    <div>之前</div>
-    <pre>
-      <pre-code class="typescript">
-        import { VXETable } from 'vxe-table'
-        //  setup({})
-        VXETable.setConfig({
-          icon: {
-            // ...
-          }
-        })
-      </pre-code>
-    </pre>
-    <div>之后</div>
-    <pre>
-      <pre-code class="typescript">
-        import { VXETable } from 'vxe-table'
-        //  setup({})
-        VXETable.setIcon({
-          // ...
-        })
-      </pre-code>
     </pre>
     <p class="tip">全局主题 css 变量：</p>
     <div>之前 --vxe-table-*</div>
