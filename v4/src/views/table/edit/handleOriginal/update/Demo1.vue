@@ -6,7 +6,8 @@
       show-overflow
       height="400"
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+      @edit-closed="editClosedEvent">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
@@ -57,6 +58,12 @@ const updateRow1 = (row: RowVO) => {
 
 const updateRow2 = (row: RowVO) => {
   row.age++
+  if (!updateRecords.some(item => item.id === row.id)) {
+    updateRecords.push(row)
+  }
+}
+
+const editClosedEvent = ({ row }) => {
   if (!updateRecords.some(item => item.id === row.id)) {
     updateRecords.push(row)
   }

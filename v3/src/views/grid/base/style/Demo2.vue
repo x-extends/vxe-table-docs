@@ -23,9 +23,24 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> = {}
+
+    return {
+      gridOptions,
+      selectRow: null as RowVO | null,
+      selectColumn: null as VxeTableDefines.ColumnInfo<RowVO> | null
+    }
+  },
+  methods: {
+    cellClickEvent ({ row, column }) {
+      this.selectRow = row
+      this.selectColumn = column
+    }
+  },
+  created () {
+    this.gridOptions = {
       border: true,
-      cellClassName (this: any, { row, column }) {
+      cellClassName: ({ row, column }) => {
         if (row === this.selectRow && column === this.selectColumn) {
           return 'col-orange'
         }
@@ -49,18 +64,6 @@ export default Vue.extend({
         { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'test abc' },
         { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
       ]
-    }
-
-    return {
-      gridOptions,
-      selectRow: null as RowVO | null,
-      selectColumn: null as VxeTableDefines.ColumnInfo<RowVO> | null
-    }
-  },
-  methods: {
-    cellClickEvent ({ row, column }) {
-      this.selectRow = row
-      this.selectColumn = column
     }
   }
 })

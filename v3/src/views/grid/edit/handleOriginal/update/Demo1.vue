@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-button status="success" @click="getUpdateEvent">获取已修改数据</vxe-button>
-    <vxe-grid v-bind="gridOptions">
+    <vxe-grid v-bind="gridOptions" @edit-closed="editClosedEvent">
       <template #action="{ row }">
         <vxe-button mode="text" status="primary" @click="updateRow1(row)">修改1</vxe-button>
         <vxe-button mode="text" status="primary" @click="updateRow2(row)">修改2</vxe-button>
@@ -64,6 +64,11 @@ export default Vue.extend({
     },
     updateRow2 (row: RowVO) {
       row.age++
+      if (!this.updateRecords.some(item => item.id === row.id)) {
+        this.updateRecords.push(row)
+      }
+    },
+    editClosedEvent ({ row }) {
       if (!this.updateRecords.some(item => item.id === row.id)) {
         this.updateRecords.push(row)
       }

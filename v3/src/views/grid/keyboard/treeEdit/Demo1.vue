@@ -22,6 +22,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: 'inner',
       height: 500,
+      showOverflow: true,
       rowConfig: {
         isCurrent: true,
         isHover: true

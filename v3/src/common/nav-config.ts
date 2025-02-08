@@ -699,6 +699,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '分组列头', routerLink: { name: 'ComponentGridColResizableGroup' } },
             { title: '冻结列', routerLink: { name: 'ComponentGridColResizableFixed' } },
             { title: '双击自适应列宽', routerLink: { name: 'ComponentGridColResizableDblclickAutoWidth' } },
+            { title: '所有单元格可拖拽', routerLink: { name: 'ComponentGridColResizableAllColumnDrag' } },
             { title: '手动操作列宽', routerLink: { name: 'ComponentGridColResizableManual' } }
           ]
         },
@@ -742,6 +743,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '树结构', routerLink: { name: 'ComponentGridRowResizableTree' } },
             { title: '拖拽按钮位置', routerLink: { name: 'ComponentGridRowResizableRowResize' } },
             { title: '双击自适应行高', routerLink: { name: 'ComponentGridRowResizableDblclickAutoHeight' } },
+            { title: '所有单元格可拖拽', routerLink: { name: 'ComponentGridRowResizableAllRowDrag' } },
             { title: '手动操作行高', routerLink: { name: 'ComponentGridRowResizableManual' } }
           ]
         },

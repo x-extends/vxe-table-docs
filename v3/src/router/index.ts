@@ -2267,6 +2267,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/colResizable/dblclickAutoWidth/CodeExample.vue')
         },
         {
+          path: 'allColumnDrag',
+          name: 'ComponentGridColResizableAllColumnDrag',
+          component: () => import('@/views/grid/colResizable/allColumnDrag/CodeExample.vue')
+        },
+        {
           path: 'manual',
           name: 'ComponentGridColResizableManual',
           component: () => import('@/views/grid/colResizable/manual/CodeExample.vue')
@@ -2398,6 +2403,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'dblclickAutoHeight',
           name: 'ComponentGridRowResizableDblclickAutoHeight',
           component: () => import('@/views/grid/rowResizable/dblclickAutoHeight/CodeExample.vue')
+        },
+        {
+          path: 'allRowDrag',
+          name: 'ComponentGridRowResizableAllRowDrag',
+          component: () => import('@/views/grid/rowResizable/allRowDrag/CodeExample.vue')
         },
         {
           path: 'manual',

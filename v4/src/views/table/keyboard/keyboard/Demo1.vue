@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      show-overflow
       height="500"
       :keyboard-config="{isArrow: true, isEnter: true, isTab: true, isDel: true}"
       :mouse-config="{selected: true}"

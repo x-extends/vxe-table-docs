@@ -21,6 +21,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      showOverflow: true,
       height: 500,
       mouseConfig: {
         selected: true

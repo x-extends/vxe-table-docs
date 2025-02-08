@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-button status="success" @click="getUpdateEvent">获取已修改数据</vxe-button>
-    <vxe-grid v-bind="gridOptions">
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents">
       <template #action="{ row }">
         <vxe-button mode="text" status="primary" @click="updateRow1(row)">修改1</vxe-button>
         <vxe-button mode="text" status="primary" @click="updateRow2(row)">修改2</vxe-button>
@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeUI, VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -47,6 +47,14 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
+
+const gridEvents: VxeGridListeners<RowVO> = {
+  editClosed ({ row }) {
+    if (!updateRecords.some(item => item.id === row.id)) {
+      updateRecords.push(row)
+    }
+  }
+}
 
 const updateRow1 = (row: RowVO) => {
   row.name = `Name_${new Date().getTime()}`

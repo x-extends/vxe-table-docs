@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-table
+      show-overflow
       border="inner"
       :edit-config="{trigger: 'dblclick', mode: 'cell'}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"

@@ -22,6 +22,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 500,
+      showOverflow: true,
       mouseConfig: {
         selected: true
       },
@@ -41,8 +42,8 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
-        { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput', props: { type: 'number' } } },
-        { field: 'age', title: 'Age', editRender: { name: 'VxeNumberInput' } }
+        { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
+        { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
