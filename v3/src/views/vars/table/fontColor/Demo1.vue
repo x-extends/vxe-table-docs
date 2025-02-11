@@ -1,13 +1,14 @@
 <template>
   <div>
-    <vxe-radio-group v-model="gridOptions.size">
-      <vxe-radio-button label="" content="默认"></vxe-radio-button>
-      <vxe-radio-button label="medium" content="中"></vxe-radio-button>
-      <vxe-radio-button label="small" content="小"></vxe-radio-button>
-      <vxe-radio-button label="mini" content="迷你"></vxe-radio-button>
-    </vxe-radio-group>
+    <vxe-color-picker v-model="headerColor" :colors="colorList" clearable></vxe-color-picker>
+    <vxe-color-picker v-model="bodyColor" :colors="colorList" clearable></vxe-color-picker>
+    <vxe-color-picker v-model="footerColor" :colors="colorList" clearable></vxe-color-picker>
 
-    <vxe-grid class="my-table-row-height" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" :style="{
+      '--vxe-ui-font-color': bodyColor,
+      '--vxe-ui-table-header-font-color': headerColor,
+      '--vxe-ui-table-footer-font-color': footerColor
+    }"></vxe-grid>
   </div>
 </template>
 
@@ -29,7 +30,6 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showFooter: true,
-      size: '',
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -48,17 +48,19 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      headerColor: '#00BFFF',
+      bodyColor: '#FF0000',
+      footerColor: '#7CFC00',
+      colorList: [
+        '#DC143C', '#FF1493', '#FF00FF', '#9932CC', '#6A5ACD',
+        '#0000FF', '#00008B', '#778899', '#1E90FF', '#00BFFF',
+        '#5F9EA0', '#00FFFF', '#008080', '#7FFFAA', '#3CB371',
+        '#8FBC8F', '#008000', '#7CFC00', '#556B2F', '#FFFFE0',
+        '#FFFF00', '#808000', '#EEE8AA', '#FFD700', '#FFA500',
+        '#FF4500', '#FA8072', '#FF0000', '#800000', '#C0C0C0'
+      ]
     }
   }
 })
 </script>
-
-<style lang="scss" scoped>
-.my-table-row-height {
-  --vxe-ui-table-row-height-default: 80px;
-  --vxe-ui-table-row-height-medium: 60px;
-  --vxe-ui-table-row-height-small: 40px;
-  --vxe-ui-table-row-height-mini: 20px;
-}
-</style>

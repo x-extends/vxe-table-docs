@@ -1,18 +1,17 @@
 <template>
   <div>
-    <vxe-radio-group v-model="gridOptions.size">
+    <vxe-radio-group v-model="borderColor">
       <vxe-radio-button label="" content="默认"></vxe-radio-button>
-      <vxe-radio-button label="medium" content="中"></vxe-radio-button>
-      <vxe-radio-button label="small" content="小"></vxe-radio-button>
-      <vxe-radio-button label="mini" content="迷你"></vxe-radio-button>
+      <vxe-radio-button label="my-table-red" content="红色"></vxe-radio-button>
+      <vxe-radio-button label="my-table-blue" content="蓝色"></vxe-radio-button>
     </vxe-radio-group>
 
-    <vxe-grid class="my-table-row-height" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid :class="borderColor" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -24,10 +23,11 @@ interface RowVO {
   address: string
 }
 
+const borderColor = ref('')
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
-  size: '',
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
@@ -47,10 +47,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 </script>
 
 <style lang="scss" scoped>
-.my-table-row-height {
-  --vxe-ui-table-row-height-default: 80px;
-  --vxe-ui-table-row-height-medium: 60px;
-  --vxe-ui-table-row-height-small: 40px;
-  --vxe-ui-table-row-height-mini: 20px;
+.my-table-red {
+  --vxe-ui-table-border-color: red;
+}
+.my-table-blue {
+  --vxe-ui-table-border-color: blue;
 }
 </style>

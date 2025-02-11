@@ -1,13 +1,12 @@
 <template>
   <div>
-    <vxe-radio-group v-model="gridOptions.size">
+    <vxe-radio-group v-model="borderColor">
       <vxe-radio-button label="" content="默认"></vxe-radio-button>
-      <vxe-radio-button label="medium" content="中"></vxe-radio-button>
-      <vxe-radio-button label="small" content="小"></vxe-radio-button>
-      <vxe-radio-button label="mini" content="迷你"></vxe-radio-button>
+      <vxe-radio-button label="my-table-red" content="红色"></vxe-radio-button>
+      <vxe-radio-button label="my-table-blue" content="蓝色"></vxe-radio-button>
     </vxe-radio-group>
 
-    <vxe-grid class="my-table-row-height" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid :class="borderColor" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -29,7 +28,6 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showFooter: true,
-      size: '',
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -48,6 +46,7 @@ export default Vue.extend({
     }
 
     return {
+      borderColor: '',
       gridOptions
     }
   }
@@ -55,10 +54,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.my-table-row-height {
-  --vxe-ui-table-row-height-default: 80px;
-  --vxe-ui-table-row-height-medium: 60px;
-  --vxe-ui-table-row-height-small: 40px;
-  --vxe-ui-table-row-height-mini: 20px;
+.my-table-red {
+  --vxe-ui-table-border-color: red;
+}
+.my-table-blue {
+  --vxe-ui-table-border-color: blue;
 }
 </style>

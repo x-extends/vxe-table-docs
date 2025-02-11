@@ -7,7 +7,7 @@
       <vxe-radio-button label="mini" content="迷你"></vxe-radio-button>
     </vxe-radio-group>
 
-    <vxe-grid class="my-table-row-height" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid class="my-table-font-size" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -55,10 +55,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.my-table-row-height {
-  --vxe-ui-table-row-height-default: 80px;
-  --vxe-ui-table-row-height-medium: 60px;
-  --vxe-ui-table-row-height-small: 40px;
-  --vxe-ui-table-row-height-mini: 20px;
+.my-table-font-size {
+  --vxe-ui-font-size-default: 18px;
+  --vxe-ui-font-size-medium: 16px;
+  --vxe-ui-font-size-small: 14px;
+  --vxe-ui-font-size-mini: 12px;
 }
 </style>
