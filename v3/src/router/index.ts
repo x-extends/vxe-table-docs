@@ -2154,6 +2154,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/sort/multiple/CodeExample.vue')
         },
         {
+          path: 'tree',
+          name: 'ComponentGridSortTree',
+          component: () => import('@/views/grid/sort/tree/CodeExample.vue')
+        },
+        {
           path: 'remote',
           name: 'ComponentGridSortRemote',
           component: () => import('@/views/grid/sort/remote/CodeExample.vue')
@@ -2178,6 +2183,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'remote',
           name: 'ComponentGridFilterRemote',
           component: () => import('@/views/grid/filter/remote/CodeExample.vue')
+        },
+        {
+          path: 'tree',
+          name: 'ComponentGridFilterTree',
+          component: () => import('@/views/grid/filter/tree/CodeExample.vue')
         },
         {
           path: 'setFilter',
