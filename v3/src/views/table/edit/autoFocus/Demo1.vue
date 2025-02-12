@@ -23,12 +23,12 @@
       </vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{autoFocus: '.my-input'}">
         <template #edit="{ row }">
-          <input v-model="row.age" class="my-input" type="text">
+          <input v-model="row.age" class="my-input" type="text" style="width: 100%">
         </template>
       </vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{autoFocus: 'input'}">
         <template #edit="{ row }">
-          <input v-model="row.address" type="text">
+          <input v-model="row.address" type="text" style="width: 100%">
         </template>
       </vxe-column>
     </vxe-table>

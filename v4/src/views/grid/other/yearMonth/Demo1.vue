@@ -35,7 +35,7 @@ const loadList = (size: number) => {
         const item: RowVO = {}
         for (let j = 0; j < 12; j++) {
           const currMonth = XEUtils.padStart(`${j + 1}`, 2, '0')
-          item[`${currYear}-${currMonth}`] = ''
+          item[`${currYear}-${currMonth}`] = 'xx'
         }
         tableData.push(item)
       }
@@ -65,7 +65,7 @@ const createColumns = () => {
     })
   }
   gridOptions.columns = columns
-  loadList(10)
+  loadList(20)
 }
 
 watch(selectYear, () => {

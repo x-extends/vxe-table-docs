@@ -41,7 +41,7 @@ export default Vue.extend({
             const item: RowVO = {}
             for (let j = 0; j < 12; j++) {
               const currMonth = XEUtils.padStart(`${j + 1}`, 2, '0')
-              item[`${currYear}-${currMonth}`] = ''
+              item[`${currYear}-${currMonth}`] = 'xx'
             }
             tableData.push(item)
           }
@@ -70,7 +70,7 @@ export default Vue.extend({
         })
       }
       this.gridOptions.columns = columns
-      this.loadList(10)
+      this.loadList(20)
     }
   },
   watch: {
