@@ -19,9 +19,9 @@
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       @menu-click="contextMenuClickEvent">
       <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{autofocus: '.myinput'}">
+      <vxe-column field="name" title="Name" :edit-render="{autofocus: true}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.name" type="text" class="myinput" />
+          <vxe-input v-model="row.name" type="text"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{}">
