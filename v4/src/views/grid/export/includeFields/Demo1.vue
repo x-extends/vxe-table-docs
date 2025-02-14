@@ -1,6 +1,7 @@
 <template>
   <div>
-    <vxe-button status="primary" @click="exportEvent">点击导出</vxe-button>
+    <vxe-button status="primary" @click="exportEvent">直接导出</vxe-button>
+    <vxe-button status="primary" @click="openEvent">打开导出</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -24,6 +25,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
   exportConfig: {
+    type: 'html',
     includeFields: [
       'group2',
       'sex',
@@ -61,6 +63,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const exportEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.exportData()
+  }
+}
+
+const openEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.openExport()

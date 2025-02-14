@@ -1,6 +1,7 @@
 <template>
   <div>
-    <vxe-button status="primary" @click="exportEvent">点击导出</vxe-button>
+    <vxe-button status="primary" @click="exportEvent">直接导出</vxe-button>
+    <vxe-button status="primary" @click="openEvent">打开导出</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -24,8 +25,12 @@ export default Vue.extend({
       border: true,
       showFooter: true,
       exportConfig: {
-        excludeFields: [
-          'seq'
+        type: 'html',
+        columns: [
+          { field: 'seq' },
+          { field: 'group2' },
+          { field: 'sex' },
+          { field: 'age' }
         ]
       },
       columns: [
@@ -64,6 +69,12 @@ export default Vue.extend({
   },
   methods: {
     exportEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.exportData()
+      }
+    },
+    openEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         $grid.openExport()

@@ -3734,9 +3734,14 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/export/advanced/CodeExample.vue')
         },
         {
-          path: 'columns',
-          name: 'ComponentGridExportColumns',
-          component: () => import('@/views/grid/export/columns/CodeExample.vue')
+          path: 'includeFields',
+          name: 'ComponentGridExportIncludeFields',
+          component: () => import('@/views/grid/export/includeFields/CodeExample.vue')
+        },
+        {
+          path: 'excludeFields',
+          name: 'ComponentGridExportExcludeFields',
+          component: () => import('@/views/grid/export/excludeFields/CodeExample.vue')
         },
         {
           path: 'types',
