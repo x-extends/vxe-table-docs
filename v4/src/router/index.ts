@@ -4,6 +4,7 @@ import RouteLayout from '@/components/RouteLayout.vue'
 import PageLayout from '@/components/PageLayout.vue'
 
 import DemoListPreview from '@/views/demo/list/CodeExample.vue'
+import DemoProductPreview from '@/views/demo/product/CodeExample.vue'
 import DemoRealTimeReview from '@/views/demo/realTime/CodeExample.vue'
 import DemoTreePreview from '@/views/demo/tree/CodeExample.vue'
 import DemoCrudPreview from '@/views/demo/crud/CodeExample.vue'
@@ -4239,6 +4240,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'list',
         name: 'DemoListPreview',
         component: DemoListPreview
+      },
+      {
+        path: 'product',
+        name: 'DemoProductPreview',
+        component: DemoProductPreview
       },
       {
         path: 'realTime',

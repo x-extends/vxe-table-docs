@@ -1394,6 +1394,7 @@ export const navConfigList: NavVO[] = [
     isExpand: true,
     children: [
       { i18nKey: 'app.aside.menu.demoList', routerLink: { name: 'DemoListPreview' } },
+      { i18nKey: 'app.aside.menu.demoProduct', routerLink: { name: 'DemoProductPreview' } },
       { i18nKey: 'app.aside.menu.demoRealTime', routerLink: { name: 'DemoRealTimeReview' } },
       { i18nKey: 'app.aside.menu.demoTree', routerLink: { name: 'DemoTreePreview' } },
       { i18nKey: 'app.aside.menu.demoCrud', routerLink: { name: 'DemoCrudPreview' } },
