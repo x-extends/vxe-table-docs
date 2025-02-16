@@ -2721,6 +2721,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/expand/childTable/CodeExample.vue')
         },
         {
+          path: 'mode',
+          name: 'ComponentGridExpandMode',
+          component: () => import('@/views/grid/expand/mode/CodeExample.vue')
+        },
+        {
           path: 'selectModalTable',
           name: 'ComponentGridExpandSelectModalTable',
           component: () => import('@/views/grid/expand/selectModalTable/CodeExample.vue')

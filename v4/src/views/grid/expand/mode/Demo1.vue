@@ -2,9 +2,7 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #expand_content="{ row }">
-        <div class="expand-wrapper">
-          <vxe-grid v-bind="childGridOptions" :data="row.childList"></vxe-grid>
-        </div>
+        <vxe-grid v-bind="childGridOptions" :data="row.childList"></vxe-grid>
       </template>
     </vxe-grid>
   </div>
@@ -26,12 +24,20 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  expandConfig: {
+    padding: true
+  },
   columns: [
-    { type: 'seq', width: 70 },
-    { type: 'expand', width: 60, slots: { content: 'expand_content' } },
-    { field: 'name', title: 'Name' },
-    { field: 'sex', title: 'Sex' },
-    { field: 'age', title: 'Age' }
+    { type: 'seq', width: 70, fixed: 'left' },
+    { type: 'expand', width: 60, fixed: 'left', slots: { content: 'expand_content' } },
+    { field: 'name', title: 'Name', minWidth: 500 },
+    { field: 'role', title: 'Role', minWidth: 300 },
+    { field: 'sex', title: 'Sex', minWidth: 200 },
+    { field: 'age', title: 'Age', minWidth: 300 },
+    { field: 'attr1', title: 'Attr1', minWidth: 200 },
+    { field: 'attr2', title: 'Attr2', minWidth: 300 },
+    { field: 'attr3', title: 'Attr3', minWidth: 400 },
+    { field: 'address', title: 'Address', fixed: 'right', minWidth: 200 }
   ],
   data: [
     {
@@ -89,7 +95,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 const childGridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  height: 200,
   columns: [
     { field: 'name', title: 'Name' },
     { field: 'sex', title: 'Sex' },
@@ -97,9 +102,3 @@ const childGridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 </script>
-
-<style lang="scss" scoped>
-.expand-wrapper {
-  padding: 16px;
-}
-</style>

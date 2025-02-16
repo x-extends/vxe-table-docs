@@ -39,6 +39,7 @@ export default Vue.extend({
         { field: 'age', title: 'Age', minWidth: 300 },
         { field: 'attr1', title: 'Attr1', minWidth: 200 },
         { field: 'attr2', title: 'Attr2', minWidth: 300 },
+        { field: 'attr3', title: 'Attr3', minWidth: 400 },
         { field: 'address', title: 'Address', fixed: 'right', minWidth: 200 }
       ],
       data: [
