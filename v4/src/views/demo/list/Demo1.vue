@@ -1,13 +1,13 @@
 <template>
   <div class="demo-page-wrapper">
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents">
-      <template #emailDefault="{ row }">
-        <vxe-text :content="row.email" click-to-copy></vxe-text>
-      </template>
-
       <template #toolbarButtons>
         <span>数据：</span>
         <vxe-select v-model="gridOptions.pagerConfig.pageSize" :options="dataOptions" @change="changeRowSizeEvent"></vxe-select>
+      </template>
+
+      <template #emailDefault="{ row }">
+        <vxe-text :content="row.email" click-to-copy></vxe-text>
       </template>
     </vxe-grid>
   </div>

@@ -1,13 +1,13 @@
 <template>
   <div class="demo-page-wrapper">
     <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #emailDefault="{ row }">
-        <vxe-text :content="row.email" click-to-copy></vxe-text>
-      </template>
-
       <template #nameDefault="{ row }">
         <vxe-image :src="row.avatarUrl" width="36" height="36" circle style="margin: 0 16px;"></vxe-image>
         <span>{{ row.name }}</span>
+      </template>
+
+      <template #emailDefault="{ row }">
+        <vxe-text :content="row.email" click-to-copy></vxe-text>
       </template>
     </vxe-grid>
   </div>
