@@ -335,6 +335,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeRate 评分', routerLink: { name: 'ComponentTableCellRenderVxeRate' } },
             { title: 'VxeSlider 滑块', routerLink: { name: 'ComponentTableCellRenderVxeSlider' } },
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentTableCellRenderVxeUpload' } },
+            { title: '格式化选项', routerLink: { name: 'ComponentTableCellRenderFormatOption' } },
+            { title: '格式化树选项', routerLink: { name: 'ComponentTableCellRenderFormatTree' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },
@@ -959,6 +961,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeTextEllipsis', routerLink: { name: 'ComponentGridCellRenderVxeTextEllipsis' } },
             { title: 'VxeRate', routerLink: { name: 'ComponentGridCellRenderVxeRate' } },
             { title: 'VxeUpload', routerLink: { name: 'ComponentGridCellRenderVxeUpload' } },
+            { title: '格式化选项', routerLink: { name: 'ComponentGridCellRenderFormatOption' } },
+            { title: '格式化树选项', routerLink: { name: 'ComponentGridCellRenderFormatTree' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` }
           ]
         },

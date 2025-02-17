@@ -1398,6 +1398,16 @@ const tableRouteConfig: RouteRecordRaw = {
       component: RouteLayout,
       children: [
         {
+          path: 'format-option',
+          name: 'ComponentTableCellRenderFormatOption',
+          component: () => import('@/views/table/cellRender/format-option/CodeExample.vue')
+        },
+        {
+          path: 'format-tree',
+          name: 'ComponentTableCellRenderFormatTree',
+          component: () => import('@/views/table/cellRender/format-tree/CodeExample.vue')
+        },
+        {
           path: 'vxe-switch',
           name: 'ComponentTableCellRenderVxeSwitch',
           component: () => import('@/views/table/cellRender/vxe-switch/CodeExample.vue')
@@ -3183,6 +3193,16 @@ const gridRouteConfig: RouteRecordRaw = {
       path: 'cellRender',
       component: RouteLayout,
       children: [
+        {
+          path: 'format-option',
+          name: 'ComponentGridCellRenderFormatOption',
+          component: () => import('@/views/grid/cellRender/format-option/CodeExample.vue')
+        },
+        {
+          path: 'format-tree',
+          name: 'ComponentGridCellRenderFormatTree',
+          component: () => import('@/views/grid/cellRender/format-tree/CodeExample.vue')
+        },
         {
           path: 'vxe-switch',
           name: 'ComponentGridCellRenderVxeSwitch',
