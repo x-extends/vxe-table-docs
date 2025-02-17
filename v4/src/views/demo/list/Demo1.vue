@@ -1,6 +1,10 @@
 <template>
   <div class="demo-page-wrapper">
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents">
+      <template #emailDefault="{ row }">
+        <vxe-text :content="row.email" click-to-copy></vxe-text>
+      </template>
+
       <template #toolbarButtons>
         <span>数据：</span>
         <vxe-select v-model="gridOptions.pagerConfig.pageSize" :options="dataOptions" @change="changeRowSizeEvent"></vxe-select>
@@ -254,7 +258,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
         { field: 'city', title: '所在地', width: 140, formatter: formatCity },
         { field: 'age', title: '年龄', width: 120 },
         { field: 'sex', title: '性别', width: 120, formatter: formatSex },
-        { field: 'email', title: '邮箱', width: 220 }
+        { field: 'email', title: '邮箱', width: 220, slots: { default: 'emailDefault' } }
       ]
     },
     { field: 'flag', title: '是否启用', width: 120, cellRender: flag1CellRender },

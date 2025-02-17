@@ -1,6 +1,10 @@
 <template>
   <div class="demo-page-wrapper">
     <vxe-grid ref="gridRef" v-bind="gridOptions">
+      <template #emailDefault="{ row }">
+        <vxe-text :content="row.email" click-to-copy></vxe-text>
+      </template>
+
       <template #nameDefault="{ row }">
         <vxe-image :src="row.avatarUrl" width="36" height="36" circle style="margin: 0 16px;"></vxe-image>
         <span>{{ row.name }}</span>
@@ -179,7 +183,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
         { field: 'city', title: '所在地', width: 140, formatter: formatCity },
         { field: 'age', title: '年龄', width: 120 },
         { field: 'sex', title: '性别', width: 120, formatter: formatSex },
-        { field: 'email', title: '邮箱', width: 220 }
+        { field: 'email', title: '邮箱', width: 220, slots: { default: 'emailDefault' } }
       ]
     },
     { field: 'flag', title: '是否启用', width: 120, cellRender: flag1CellRender },
