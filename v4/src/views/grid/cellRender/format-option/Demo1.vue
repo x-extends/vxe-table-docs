@@ -35,8 +35,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10001, name: 'Test1', role: 'Develop', sex: null },
     { id: 10002, name: 'Test2', role: 'Test', sex: '0' },
     { id: 10003, name: 'Test3', role: 'PM', sex: '1' },
-    { id: 10003, name: 'Test3', role: 'PM', sex: ['1'] },
-    { id: 10003, name: 'Test3', role: 'PM', sex: ['1', '0'] }
+    { id: 10003, name: 'Test4', role: 'Test', sex: ['1'] },
+    { id: 10003, name: 'Test5', role: 'Develop', sex: ['1', '0'] }
   ]
 })
 </script>
