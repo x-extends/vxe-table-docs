@@ -24,9 +24,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 400,
   toolbarConfig: {
     buttons: [
-      { name: '新增', code: 'add', status: 'primary' },
-      { name: '删除', code: 'del', status: 'error' },
-      { name: '保存', code: 'save', status: 'success' }
+      { name: '新增', code: 'myAdd', status: 'primary' },
+      { name: '删除', code: 'myDel', status: 'error' },
+      { name: '保存', code: 'mySave', status: 'success' }
     ]
   },
   columns: [

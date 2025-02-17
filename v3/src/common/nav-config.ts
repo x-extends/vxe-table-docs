@@ -859,6 +859,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '导入数据', routerLink: { name: 'ComponentGridToolbarImport' } },
             { title: '导出数据', routerLink: { name: 'ComponentGridToolbarExport' } },
             { title: '刷新列表', routerLink: { name: 'ComponentGridToolbarRefresh' } },
+            { title: '完整功能', routerLink: { name: 'ComponentGridToolbarFull' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridToolbarIcon' } },
             {
               title: '自定义插槽模板',

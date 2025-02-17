@@ -2836,6 +2836,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/toolbar/refresh/CodeExample.vue')
         },
         {
+          path: 'full',
+          name: 'ComponentGridToolbarFull',
+          component: () => import('@/views/grid/toolbar/full/CodeExample.vue')
+        },
+        {
           path: 'icon',
           name: 'ComponentGridToolbarIcon',
           component: () => import('@/views/grid/toolbar/icon/CodeExample.vue')

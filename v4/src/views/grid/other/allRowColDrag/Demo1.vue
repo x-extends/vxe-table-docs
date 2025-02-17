@@ -20,10 +20,16 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columnConfig: {
+    drag: true,
     resizable: true
   },
   rowConfig: {
+    drag: true,
     resizable: true
+  },
+  columnDragConfig: {
+    showIcon: false,
+    trigger: 'cell'
   },
   resizableConfig: {
     isAllRowDrag: true,
@@ -31,7 +37,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
+    { field: 'name', title: 'Name', dragSort: true },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },
     { field: 'time', title: 'Time' },
