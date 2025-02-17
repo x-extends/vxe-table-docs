@@ -114,7 +114,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
     showIcon: false
   },
   rowConfig: {
-    isHover: true
+    drag: true
   },
   resizableConfig: {
     isDblclickAutoWidth: true
@@ -180,7 +180,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
   },
   columns: [
     { field: 'checkbox', type: 'checkbox', width: 60, align: 'center' },
-    { field: 'seq', type: 'seq', width: 80, align: 'center' },
+    { field: 'seq', type: 'seq', width: 100, align: 'center', dragSort: true },
     { field: 'expand', type: 'expand', width: 60, align: 'center', slots: { content: 'expandContent' } },
     { field: 'productUrl', title: '产品图片', width: 160, align: 'center', cellRender: productUrlCellRender },
     { field: 'productName', title: '产品名称', minWidth: 200, slots: { default: 'productNameDefault' } },
