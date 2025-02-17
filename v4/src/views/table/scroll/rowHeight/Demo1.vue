@@ -4,7 +4,7 @@
       border
       show-overflow
       height="600"
-      :row-config="{height: 120}"
+      :cell-config="{height: 120}"
       :scroll-y="{enabled: true, gt: 0}"
       :loading="loading"
       :data="tableData">

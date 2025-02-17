@@ -34,7 +34,7 @@ export default Vue.extend({
       showOverflow: true,
       height: 600,
       loading: false,
-      rowConfig: {
+      cellConfig: {
         height: 120
       },
       scrollY: {
