@@ -775,6 +775,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/toolbar/custom/CodeExample.vue')
         },
         {
+          path: 'refresh',
+          name: 'ComponentTableToolbarRefresh',
+          component: () => import('@/views/table/toolbar/refresh/CodeExample.vue')
+        },
+        {
           path: 'print',
           name: 'ComponentTableToolbarPrint',
           component: () => import('@/views/table/toolbar/print/CodeExample.vue')

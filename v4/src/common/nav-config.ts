@@ -244,6 +244,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '左侧按钮', routerLink: { name: 'ComponentTableToolbarButtons' } },
             { title: '右侧按钮', routerLink: { name: 'ComponentTableToolbarTools' } },
             { title: '自定义列功能', routerLink: { name: 'ComponentTableToolbarCustom' } },
+            { title: '刷新功能', routerLink: { name: 'ComponentTableToolbarRefresh' } },
             { title: '打印功能', routerLink: { name: 'ComponentTableToolbarPrint' } },
             { title: '导入功能', routerLink: { name: 'ComponentTableToolbarImport' } },
             { title: '导出功能', routerLink: { name: 'ComponentTableToolbarExport' } },
