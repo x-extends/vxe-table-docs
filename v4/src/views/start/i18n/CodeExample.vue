@@ -12,28 +12,28 @@
           <pre-code class="javascript">
             import { VxeUI } from 'vxe-table'
 
-            import zhCN from 'vxe-table/locale/lang/zh-CN'
-            // import zhHK from 'vxe-table/locale/lang/zh-HK'
-            // import zhTW from 'vxe-table/locale/lang/zh-TW'
-            // import zhMO from 'vxe-table/locale/lang/zh-MO'
-            // import arEG from 'vxe-table/locale/lang/ar-EG'
-            // import deDE from 'vxe-table/locale/lang/de-DE'
-            import enUS from 'vxe-table/locale/lang/en-US'
-            // import esES from 'vxe-table/locale/lang/es-ES'
-            // import frFR from 'vxe-table/locale/lang/fr-FR'
-            // import huHU from 'vxe-table/locale/lang/hu-HU'
-            // import hyAM from 'vxe-table/locale/lang/hy-AM'
-            // import jaJP from 'vxe-table/locale/lang/ja-JP'
-            // import koKR from 'vxe-table/locale/lang/ko-KR'
-            // import nbNO from 'vxe-table/locale/lang/nb-NO'
-            // import ptBR from 'vxe-table/locale/lang/pt-BR'
-            // import ruRU from 'vxe-table/locale/lang/ru-RU'
-            // import ugCN from 'vxe-table/locale/lang/ug-CN'
-            // import ukUA from 'vxe-table/locale/lang/uk-UA'
-            // import viVN from 'vxe-table/locale/lang/vi-VN'
-            // import thTH from 'vxe-table/locale/lang/th-TH'
-            // import itIT from 'vxe-table/locale/lang/it-IT'
-            // import idID from 'vxe-table/locale/lang/id-ID'
+            import zhCN from 'vxe-table/locale/lang/zh-CN' // 中文(简体)
+            // import zhHK from 'vxe-table/locale/lang/zh-HK' // 中文(香港)
+            // import zhTW from 'vxe-table/locale/lang/zh-TW' // 中文(繁体)
+            // import zhMO from 'vxe-table/locale/lang/zh-MO' // 中文(澳门)
+            // import arEG from 'vxe-table/locale/lang/ar-EG' // 阿拉伯语(埃及)
+            // import deDE from 'vxe-table/locale/lang/de-DE' // 德语(德国)
+            import enUS from 'vxe-table/locale/lang/en-US' // 英语(美国)
+            // import esES from 'vxe-table/locale/lang/es-ES' // 西班牙语(国际)
+            // import frFR from 'vxe-table/locale/lang/fr-FR' // 法语(法国)
+            // import huHU from 'vxe-table/locale/lang/hu-HU' // 匈牙利语
+            // import hyAM from 'vxe-table/locale/lang/hy-AM' // 亚美尼亚语
+            // import jaJP from 'vxe-table/locale/lang/ja-JP' // 日语
+            // import koKR from 'vxe-table/locale/lang/ko-KR' // 朝鲜语
+            // import nbNO from 'vxe-table/locale/lang/nb-NO' // 挪威语(伯克梅尔)(挪威)
+            // import ptBR from 'vxe-table/locale/lang/pt-BR' // 葡萄牙语
+            // import ruRU from 'vxe-table/locale/lang/ru-RU' // 俄语
+            // import ugCN from 'vxe-table/locale/lang/ug-CN' // 维吾尔语
+            // import ukUA from 'vxe-table/locale/lang/uk-UA' // 乌克兰语
+            // import viVN from 'vxe-table/locale/lang/vi-VN' // 越南语
+            // import thTH from 'vxe-table/locale/lang/th-TH' // 泰语
+            // import itIT from 'vxe-table/locale/lang/it-IT' // 意大利语(意大利)
+            // import idID from 'vxe-table/locale/lang/id-ID' // 印度尼西亚语
 
             // 注册语言
             VxeUI.setI18n('zh-CN', zhCN)
