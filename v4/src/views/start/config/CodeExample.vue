@@ -23,7 +23,6 @@
                 showHeader: true,
                 delayHover: 250,
                 autoResize: true,
-                padding: true,
                 minHeight: 144,
                 // keepSource: false,
                 // showOverflow: null,
@@ -43,30 +42,30 @@
                 //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
                 // },
                 resizeConfig: {
-                  // refreshDelay: 250
+                  // refreshDelay: 20
                 },
                 resizableConfig: {
                   dragMode: 'auto',
-                  showDragTip: true
+                  showDragTip: true,
+                  isSyncAutoHeight: true,
+                  isSyncAutoWidth: true,
+                  minHeight: 18
                 },
                 radioConfig: {
                   // trigger: 'default'
                   strict: true
                 },
                 rowDragConfig: {
-                  showIcon: true
+                  showIcon: true,
+                  animation: true,
+                  showGuidesStatus: true,
+                  showDragTip: true
                 },
                 columnDragConfig: {
-                  showIcon: true
-                },
-                cellConfig: {
-                  padding: true
-                },
-                headerCellConfig: {
-                  padding: true
-                },
-                footerCellConfig: {
-                  padding: true
+                  showIcon: true,
+                  animation: true,
+                  showGuidesStatus: true,
+                  showDragTip: true
                 },
                 checkboxConfig: {
                   // trigger: 'default',
@@ -86,10 +85,20 @@
                 columnConfig: {
                   maxFixedSize: 4
                 },
+                cellConfig: {
+                  padding: true
+                },
+                headerCellConfig: {
+                  height: 'unset'
+                },
+                footerCellConfig: {
+                  height: 'unset'
+                },
                 // menuConfig: {
                 //   visibleMethod () {}
                 // },
                 customConfig: {
+                  // enabled: false,
                   allowVisible: true,
                   allowResizable: true,
                   allowFixed: true,
@@ -104,6 +113,12 @@
                     lockView: true,
                     resize: true,
                     escClosable: true
+                  },
+                  drawerOptions: {
+                    mask: true,
+                    lockView: true,
+                    escClosable: true,
+                    resize: true
                   }
                 },
                 sortConfig: {
@@ -112,11 +127,14 @@
                   // orders: ['asc', 'desc', null],
                   // sortMethod: null,
                   showIcon: true,
+                  allowClear: true,
+                  allowBtn: true,
                   iconLayout: 'vertical'
                 },
                 filterConfig: {
                   // remote: false,
                   // filterMethod: null,
+                  // destroyOnClose: false,
                   showIcon: true
                 },
                 treeConfig: {
@@ -130,7 +148,8 @@
                 },
                 expandConfig: {
                   // trigger: 'default',
-                  showIcon: true
+                  showIcon: true,
+                  mode: 'fixed'
                 },
                 editConfig: {
                   // mode: 'cell',
@@ -165,7 +184,13 @@
                 areaConfig: {
                   autoClear: true,
                   selectCellByHeader: true,
-                  selectCellByBody: true
+                  selectCellByBody: true,
+                  extendDirection: {
+                    top: true,
+                    left: true,
+                    bottom: true,
+                    right: true
+                  }
                 },
                 clipConfig: {
                   isCopy: true,
@@ -176,15 +201,21 @@
                   isFind: true,
                   isReplace: true
                 },
-                scrollX: {
-                  // enabled: false,
-                  gt: 60
-                  // oSize: 0
+                virtualXConfig: {
+                  enabled: true,
+                  gt: 60,
+                  preSize: 0,
+                  oSize: 1
                 },
-                scrollY: {
-                  // enabled: false,
-                  gt: 100
-                  // oSize: 0
+                virtualYConfig: {
+                  enabled: true,
+                  gt: 100,
+                  preSize: 1,
+                  oSize: 2
+                },
+                scrollbarConfig: {
+                  // width: 0,
+                  // height: 0
                 }
               },
               // export: {
