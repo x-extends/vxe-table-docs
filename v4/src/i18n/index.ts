@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
 
-const languageList = ['zh-CN', 'zh-CHT', 'en-US', 'ja-JP', 'ru-RU']
+const languageList = ['zh-CN', 'zh-CHT', 'en-US', 'ja-JP', 'ru-RU', 'uk-UA', 'pt-BR', 'ko-KR', 'fr-FR', 'es-ES', 'de-DE', 'ar-EG']
 const customLanguage = localStorage.getItem('VXE_DOCS_LANGUAGE')
 const i18n = createI18n({
   warnHtmlMessage: false,
