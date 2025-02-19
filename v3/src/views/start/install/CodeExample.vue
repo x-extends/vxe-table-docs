@@ -30,13 +30,13 @@
             language="javascript"
             content="
             // ...
-            import VxeUI from 'vxe-pc-ui'
+            import VxeUIAll from 'vxe-pc-ui'
             import 'vxe-pc-ui/lib/style.css'
             import VxeUITable from 'vxe-table'
             import 'vxe-table/lib/style.css'
             // ...
 
-            Vue.use(VxeUI)
+            Vue.use(VxeUIAll)
             Vue.use(VxeUITable)
             // ...">
           </pre-code>
