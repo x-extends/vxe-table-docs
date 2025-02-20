@@ -1,15 +1,21 @@
 <template>
   <div>
-    <vxe-color-picker v-model="headerColor" :colors="colorList" clearable></vxe-color-picker>
-    <vxe-color-picker v-model="bodyColor" :colors="colorList" clearable></vxe-color-picker>
-    <vxe-color-picker v-model="footerColor" :colors="colorList" clearable></vxe-color-picker>
+    <vxe-radio-group v-model="headerBgColor">
+      <vxe-radio-button label="" content="默认"></vxe-radio-button>
+      <vxe-radio-button label="#f3cccc" content="红色"></vxe-radio-button>
+      <vxe-radio-button label="#cbcbef" content="蓝色"></vxe-radio-button>
+    </vxe-radio-group>
+    <vxe-radio-group v-model="footerBgColor">
+      <vxe-radio-button label="" content="默认"></vxe-radio-button>
+      <vxe-radio-button label="#fbe8d7" content="橙色"></vxe-radio-button>
+      <vxe-radio-button label="#fbd7f8" content="紫色"></vxe-radio-button>
+    </vxe-radio-group>
 
     <vxe-grid
       v-bind="gridOptions"
       :style="{
-        '--vxe-ui-font-color': bodyColor,
-        '--vxe-ui-table-header-font-color': headerColor,
-        '--vxe-ui-table-footer-font-color': footerColor
+        '--vxe-ui-table-header-background-color': headerBgColor,
+        '--vxe-ui-table-footer-background-color': footerBgColor
       }">
     </vxe-grid>
   </div>
@@ -28,18 +34,8 @@ interface RowVO {
   address: string
 }
 
-const headerColor = ref('#00BFFF')
-const bodyColor = ref('#FF0000')
-const footerColor = ref('#7CFC00')
-
-const colorList = ref([
-  '#DC143C', '#FF1493', '#FF00FF', '#9932CC', '#6A5ACD',
-  '#0000FF', '#00008B', '#778899', '#1E90FF', '#00BFFF',
-  '#5F9EA0', '#00FFFF', '#008080', '#7FFFAA', '#3CB371',
-  '#8FBC8F', '#008000', '#7CFC00', '#556B2F', '#FFFFE0',
-  '#FFFF00', '#808000', '#EEE8AA', '#FFD700', '#FFA500',
-  '#FF4500', '#FA8072', '#FF0000', '#800000', '#C0C0C0'
-])
+const headerBgColor = ref('')
+const footerBgColor = ref('')
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,

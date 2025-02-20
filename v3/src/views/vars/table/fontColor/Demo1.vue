@@ -4,11 +4,14 @@
     <vxe-color-picker v-model="bodyColor" :colors="colorList" clearable></vxe-color-picker>
     <vxe-color-picker v-model="footerColor" :colors="colorList" clearable></vxe-color-picker>
 
-    <vxe-grid v-bind="gridOptions" :style="{
-      '--vxe-ui-font-color': bodyColor,
-      '--vxe-ui-table-header-font-color': headerColor,
-      '--vxe-ui-table-footer-font-color': footerColor
-    }"></vxe-grid>
+    <vxe-grid
+      v-bind="gridOptions"
+      :style="{
+        '--vxe-ui-font-color': bodyColor,
+        '--vxe-ui-table-header-font-color': headerColor,
+        '--vxe-ui-table-footer-font-color': footerColor
+      }">
+    </vxe-grid>
   </div>
 </template>
 

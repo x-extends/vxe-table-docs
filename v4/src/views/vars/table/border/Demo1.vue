@@ -2,11 +2,22 @@
   <div>
     <vxe-radio-group v-model="borderColor">
       <vxe-radio-button label="" content="默认"></vxe-radio-button>
-      <vxe-radio-button label="my-table-red" content="红色"></vxe-radio-button>
-      <vxe-radio-button label="my-table-blue" content="蓝色"></vxe-radio-button>
+      <vxe-radio-button label="#ff0000" content="红色"></vxe-radio-button>
+      <vxe-radio-button label="#0000ff" content="蓝色"></vxe-radio-button>
+    </vxe-radio-group>
+    <vxe-radio-group v-model="borderWidth">
+      <vxe-radio-button label="1px" content="1px"></vxe-radio-button>
+      <vxe-radio-button label="2px" content="2px"></vxe-radio-button>
+      <vxe-radio-button label="3px" content="3px"></vxe-radio-button>
     </vxe-radio-group>
 
-    <vxe-grid :class="borderColor" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid
+      v-bind="gridOptions"
+      :style="{
+        '--vxe-ui-table-border-color': borderColor,
+        '--vxe-ui-table-border-width': borderWidth
+      }">
+    </vxe-grid>
   </div>
 </template>
 
@@ -24,6 +35,7 @@ interface RowVO {
 }
 
 const borderColor = ref('')
+const borderWidth = ref('1px')
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -45,12 +57,3 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 </script>
-
-<style lang="scss" scoped>
-.my-table-red {
-  --vxe-ui-table-border-color: red;
-}
-.my-table-blue {
-  --vxe-ui-table-border-color: blue;
-}
-</style>

@@ -1,21 +1,21 @@
 <template>
   <div>
-    <vxe-radio-group v-model="borderColor">
+    <vxe-radio-group v-model="headerBgColor">
       <vxe-radio-button label="" content="默认"></vxe-radio-button>
-      <vxe-radio-button label="#ff0000" content="红色"></vxe-radio-button>
-      <vxe-radio-button label="#0000ff" content="蓝色"></vxe-radio-button>
+      <vxe-radio-button label="#f3cccc" content="红色"></vxe-radio-button>
+      <vxe-radio-button label="#cbcbef" content="蓝色"></vxe-radio-button>
     </vxe-radio-group>
-    <vxe-radio-group v-model="borderWidth">
-      <vxe-radio-button label="1px" content="1px"></vxe-radio-button>
-      <vxe-radio-button label="2px" content="2px"></vxe-radio-button>
-      <vxe-radio-button label="3px" content="3px"></vxe-radio-button>
+    <vxe-radio-group v-model="footerBgColor">
+      <vxe-radio-button label="" content="默认"></vxe-radio-button>
+      <vxe-radio-button label="#fbe8d7" content="橙色"></vxe-radio-button>
+      <vxe-radio-button label="#fbd7f8" content="紫色"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid
       v-bind="gridOptions"
       :style="{
-        '--vxe-ui-table-border-color': borderColor,
-        '--vxe-ui-table-border-width': borderWidth
+        '--vxe-ui-table-header-background-color': headerBgColor,
+        '--vxe-ui-table-footer-background-color': footerBgColor
       }">
     </vxe-grid>
   </div>
@@ -57,8 +57,8 @@ export default Vue.extend({
     }
 
     return {
-      borderColor: '',
-      borderWidth: '1px',
+      headerBgColor: '',
+      footerBgColor: '',
       gridOptions
     }
   }
