@@ -3442,6 +3442,11 @@ const gridRouteConfig: RouteConfig = {
           ]
         },
         {
+          path: 'showNegativeStatus',
+          name: 'ComponentGridEditShowNegativeStatus',
+          component: () => import('@/views/grid/edit/showNegativeStatus/CodeExample.vue')
+        },
+        {
           path: 'rowImmediately',
           name: 'ComponentGridEditRowImmediately',
           component: () => import('@/views/grid/edit/rowImmediately/CodeExample.vue')
