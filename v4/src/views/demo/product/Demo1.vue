@@ -175,7 +175,6 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
   },
   scrollY: {
     gt: 0,
-    mode: 'wheel',
     enabled: true
   },
   columns: [

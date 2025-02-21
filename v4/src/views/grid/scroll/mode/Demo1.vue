@@ -71,8 +71,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   scrollY: {
     enabled: true,
-    gt: 0,
-    mode: 'wheel'
+    gt: 0
   },
   columns: [
     { field: 'checkbox', type: 'checkbox', width: 60, fixed: 'left' },

@@ -143,7 +143,6 @@ export default Vue.extend({
       },
       scrollY: {
         gt: 0,
-        mode: 'wheel',
         enabled: true
       },
       columns: [

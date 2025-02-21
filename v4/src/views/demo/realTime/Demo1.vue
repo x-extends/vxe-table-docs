@@ -138,7 +138,6 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
   },
   scrollY: {
     gt: 0,
-    mode: 'wheel',
     enabled: true
   },
   columns: [
