@@ -57,13 +57,11 @@
                 },
                 rowDragConfig: {
                   showIcon: true,
-                  animation: true,
                   showGuidesStatus: true,
                   showDragTip: true
                 },
                 columnDragConfig: {
                   showIcon: true,
-                  animation: true,
                   showGuidesStatus: true,
                   showDragTip: true
                 },
