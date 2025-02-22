@@ -27,7 +27,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   scrollX: {
     enabled: true,
-    gt: 0
+    gt: 0,
+    threshold: 50
+  },
+  scrollY: {
+    enabled: true,
+    gt: 0,
+    threshold: 50
   }
 })
 
@@ -80,17 +86,17 @@ const gridEvents: VxeGridListeners = {
   scrollBoundary ({ direction }) {
     switch (direction) {
       case 'top':
-        console.log('触发顶部阈值')
+        console.log('触发顶部阈值范围')
         break
       case 'bottom':
-        console.log('触发底部阈值')
+        console.log('触发底部阈值范围')
         loadDataAndColumns(20, 0)
         break
       case 'left':
-        console.log('触发左侧阈值')
+        console.log('触发左侧阈值范围')
         break
       case 'right':
-        console.log('触发右侧阈值')
+        console.log('触发右侧阈值范围')
         loadDataAndColumns(0, 15)
         break
     }

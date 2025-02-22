@@ -4,11 +4,12 @@
       border
       height="400"
       :data="tableData">
-      <vxe-column field="id" title="ID"></vxe-column>
-      <vxe-column field="name" title="Name" ></vxe-column>
-      <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-multiple="false"></vxe-column>
-      <vxe-column field="age" title="Age" :filters="ageOptions"></vxe-column>
-      <vxe-column field="time" title="Time"></vxe-column>
+      <vxe-column field="id" title="ID" width="100"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="400" ></vxe-column>
+      <vxe-column field="sex" title="Sex" min-width="200" :filters="sexOptions" :filter-multiple="false"></vxe-column>
+      <vxe-column field="age" title="Age" min-width="250" :filters="ageOptions"></vxe-column>
+      <vxe-column field="attr1" title="Attr1" min-width="400"></vxe-column>
+      <vxe-column field="time" title="Time" width="300"></vxe-column>
     </vxe-table>
   </div>
 </template>

@@ -35,7 +35,7 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
-      rowConfig: {
+      cellConfig: {
         height: 120
       },
       columns: [

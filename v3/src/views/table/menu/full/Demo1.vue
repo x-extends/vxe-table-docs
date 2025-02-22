@@ -7,11 +7,14 @@
       :data="tableData"
       :menu-config="menuConfig"
       @menu-click="contextMenuClickEvent">
+      <vxe-column field="checkbox" type="checkbox" width="50"></vxe-column>
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" sortable></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="address" title="Address"></vxe-column>
+      <vxe-column field="name" title="Name" width="340"></vxe-column>
+      <vxe-column field="nickname" title="Nickname" width="420"></vxe-column>
+      <vxe-column field="age" title="Age" width="200"></vxe-column>
+      <vxe-column field="role" title="Role" width="280"></vxe-column>
+      <vxe-column field="attr1" title="Attr1" min-width="360"></vxe-column>
+      <vxe-column field="address" title="Address" width="300"></vxe-column>
     </vxe-table>
   </div>
 </template>

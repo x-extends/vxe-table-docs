@@ -31,7 +31,7 @@ export default Vue.extend({
       scrollX: {
         enabled: true,
         gt: 0,
-        threshold: 30
+        threshold: 50
       },
       columns: [],
       data: []

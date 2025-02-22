@@ -21,11 +21,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 400,
   columns: [
-    { field: 'id', title: 'ID' },
-    { field: 'name', title: 'Name' },
+    { field: 'id', title: 'ID', width: 100 },
+    { field: 'name', title: 'Name', minWidth: 400 },
     {
       field: 'sex',
       title: 'Sex',
+      minWidth: 200,
       filterMultiple: false,
       filters: [
         { label: 'Man', value: '1' },
@@ -35,13 +36,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     {
       field: 'age',
       title: 'Age',
+      minWidth: 200,
       filters: [
         { label: '28', value: 28 },
         { label: '22', value: 22, checked: true },
         { label: '38', value: 38 }
       ]
     },
-    { field: 'time', title: 'Time' }
+    { field: 'attr1', title: 'Attr1', minWidth: 400 },
+    { field: 'time', title: 'Time', width: 300 }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

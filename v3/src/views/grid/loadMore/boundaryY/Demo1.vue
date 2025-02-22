@@ -30,7 +30,7 @@ export default Vue.extend({
       scrollY: {
         enabled: true,
         gt: 0,
-        threshold: 30
+        threshold: 50
       },
       columns: [
         { type: 'seq', width: 80 },

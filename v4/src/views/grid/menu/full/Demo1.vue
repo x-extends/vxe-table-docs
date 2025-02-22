@@ -33,11 +33,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { field: 'checkbox', type: 'checkbox', width: 50 },
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
-    { field: 'nickname', title: 'Nickname' },
-    { field: 'age', title: 'Age' },
-    { field: 'role', title: 'Role' },
-    { field: 'address', title: 'Address', showOverflow: true }
+    { field: 'name', title: 'Name', width: 340 },
+    { field: 'nickname', title: 'Nickname', width: 420 },
+    { field: 'age', title: 'Age', width: 200 },
+    { field: 'role', title: 'Role', width: 280 },
+    { field: 'attr1', title: 'Attr1', minWidth: 360 },
+    { field: 'address', title: 'Address', width: 300 }
   ],
   data: [
     { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },

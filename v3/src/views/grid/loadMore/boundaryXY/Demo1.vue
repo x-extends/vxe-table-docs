@@ -27,7 +27,13 @@ export default Vue.extend({
       },
       scrollX: {
         enabled: true,
-        gt: 0
+        gt: 0,
+        threshold: 50
+      },
+      scrollY: {
+        enabled: true,
+        gt: 0,
+        threshold: 50
       }
     }
 
