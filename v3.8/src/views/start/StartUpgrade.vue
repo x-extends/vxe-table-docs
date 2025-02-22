@@ -10,7 +10,7 @@
     </pre>
     <div>之后</div>
     <pre>
-      <pre-code class="typescript">npm install vxe-pc-ui@3.3.73 vxe-table@3.12.9</pre-code>
+      <pre-code class="typescript">npm install vxe-pc-ui@3.3.99 vxe-table@3.13.7</pre-code>
       <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
     </pre>
     <p class="tip">全局图标设置：</p>
