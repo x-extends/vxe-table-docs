@@ -29,7 +29,7 @@
       </pre-code>
     </pre>
     <p class="tip">默认参数恢复：</p>
-    <div>新版本默认关闭虚拟滚动，通过以下开启全局默认启用虚拟滚动</div>
+    <div>其他<a class="link" href="https://vxetable.cn/#/start/global" target="_blank">参数</a>可以看官网去按需要设置</div>
     <pre>
       <pre-code class="typescript">
         import { VXETable } from 'vxe-table'
@@ -39,7 +39,7 @@
           mode: {
             showConfirmButton: true
           },
-          // 恢复默认启用虚拟滚动
+          // 默认启用虚拟滚动
           table: {
             scrollX: {
               enabled: true,
