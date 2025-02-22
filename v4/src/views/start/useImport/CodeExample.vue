@@ -68,7 +68,7 @@
 
     <CodeLight>
       <template #tip>
-        <vxe-tip status="success" title="步骤 2. 导入使用" content="根据需要选择引入就可以实现按需加载模块，减少文件体积，以下是全量的组件及模块安装列表。"></vxe-tip>
+        <vxe-tip status="success" title="步骤 2. 搭配 UI 库按需导入" content="搭配强大的 UI 库可以使用全功能组件"></vxe-tip>
         <vxe-tip status="error" title="" content="组件按需加载是不带语言包和主题的，需要手动导入语言包和主题变量。"></vxe-tip>
       </template>
 
@@ -129,6 +129,48 @@
             VxeUI.component(VxeTooltip)
             VxeUI.component(VxeUpload)
 
+            VxeUI.component(VxeTable)
+            VxeUI.component(VxeColumn)
+            VxeUI.component(VxeColgroup)
+            VxeUI.component(VxeGrid)
+            VxeUI.component(VxeToolbar)
+          </pre-code>
+        </pre>
+      </template>
+    </CodeLight>
+
+    <CodeLight>
+      <template #tip>
+        <vxe-tip status="success" title="步骤 2. 纯表格按需导入" content="仅可使用表格，可以搭配第三方 UI 组件库使用"></vxe-tip>
+        <vxe-tip status="error" title="" content="组件按需加载是不带语言包和主题的，需要手动导入语言包和主题变量。"></vxe-tip>
+      </template>
+
+      <template #use>
+        <pre>
+          <pre-code class="javascript">
+            // ...
+            import {
+              VxeUI,
+
+              VxeTable,
+              VxeColumn,
+              VxeColgroup,
+              VxeGrid,
+              VxeToolbar
+            } from 'vxe-table'
+
+            // 导入主题变量，也可以重写主题变量
+            import 'vxe-table/styles/cssvar.scss'
+
+            // 导入默认的语言
+            import zhCN from 'vxe-table/locale/lang/zh-CN'
+
+            VxeUI.setI18n('zh-CN', zhCN)
+            VxeUI.setLanguage('zh-CN')
+
+            // 注册组件
+            // 如果页面中已经被显性导入了，则可以不用调用注册
+            // 如果是配置式的，没有在页面中显性导入，则需要逐个注册
             VxeUI.component(VxeTable)
             VxeUI.component(VxeColumn)
             VxeUI.component(VxeColgroup)
