@@ -5,7 +5,7 @@
       class="api-table"
       :columns="columns"
       v-bind="gridOptions">
-      <template #toolbar_buttons>
+      <template #toolbarButtons>
         <vxe-input clearable class="search-input" v-model="searchName" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
       </template>
 
@@ -14,7 +14,7 @@
           <span class="api-name-text" v-html="row.name"></span>
           <span class="api-name-version" v-if="row.version">
             <span v-if="row.version === 'extend-cell-area'">{{ $t('api.enterpriseVersion') }}</span>
-            <span v-else>{{ row.version }}</span>
+            <span v-else>{{ getVersion(row.version) }}</span>
           </span>
         </span>
       </template>
@@ -57,6 +57,14 @@ interface RowVO {
   abandoned?: boolean
   list: RowVO[]
 }
+
+const tableComponents = [
+  'table',
+  'colgroup',
+  'column',
+  'grid',
+  'toolbar'
+]
 
 export default Vue.extend({
   data (this: any) {
@@ -109,7 +117,7 @@ export default Vue.extend({
             query: this.loadList
           },
           slots: {
-            buttons: 'toolbar_buttons'
+            buttons: 'toolbarButtons'
           }
         },
         data: []
@@ -221,19 +229,13 @@ export default Vue.extend({
       this.handleSearch()
     }, 500, { leading: false, trailing: true }),
     getVersion (this: any, version?: string) {
-      const tableComponents = [
-        'table',
-        'colgroup',
-        'column',
-        'grid',
-        'toolbar'
-      ]
       if (version) {
-        if (tableComponents.includes(this.apiName)) {
-          if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
+        if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
+          if (tableComponents.includes(this.apiName)) {
             return `vxe-table@${version}`
           }
         }
+        return `vxe-pc-ui@${version}`
       }
       return version
     }

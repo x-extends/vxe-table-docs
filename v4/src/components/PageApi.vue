@@ -5,7 +5,7 @@
       class="api-table"
       :columns="columns"
       v-bind="gridOptions">
-      <template #toolbar_buttons>
+      <template #toolbarButtons>
         <vxe-input clearable class="search-input" v-model="searchName" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
       </template>
 
@@ -14,7 +14,7 @@
           <span class="api-name-text" v-html="row.name"></span>
           <span class="api-name-version" v-if="row.version">
             <span v-if="row.version === 'extend-cell-area'">{{ $t('api.enterpriseVersion') }}</span>
-            <span v-else>{{ row.version }}</span>
+            <span v-else>{{ getVersion(row.version) }}</span>
           </span>
         </span>
       </template>
@@ -162,7 +162,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       query: loadList
     },
     slots: {
-      buttons: 'toolbar_buttons'
+      buttons: 'toolbarButtons'
     }
   },
   data: []
@@ -247,11 +247,12 @@ const tableComponents = [
 
 const getVersion = (version?: string) => {
   if (version) {
-    if (tableComponents.includes(apiName.value)) {
-      if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
+    if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
+      if (tableComponents.includes(apiName.value)) {
         return `vxe-table@${version}`
       }
     }
+    return `vxe-pc-ui@${version}`
   }
   return version
 }
