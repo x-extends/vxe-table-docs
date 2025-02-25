@@ -1,5 +1,10 @@
 <template>
   <div>
+    <vxe-radio-group v-model="gridOptions.editConfig.mode">
+      <vxe-radio-button label="cell" content="单元格模式"></vxe-radio-button>
+      <vxe-radio-button label="row" content="行编模式"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
         <template v-if="hasEditStatus(row)">
@@ -16,7 +21,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridInstance, VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -29,14 +34,14 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
+const gridOptions = reactive<VxeGridProps<RowVO> & { editConfig: VxeTablePropTypes.EditConfig<RowVO> }>({
   border: true,
   showOverflow: true,
   loading: false,
   height: 400,
   editConfig: {
     trigger: 'click',
-    mode: 'row'
+    mode: 'cell'
   },
   columns: [
     { type: 'seq', width: 70 },

@@ -69,7 +69,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
         if ($table) {
-          $table.setEditRow(newRow)
+          $table.setEditCell(newRow, 'name')
         }
       })
     },
@@ -87,7 +87,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
         if ($table) {
-          $table.setEditRow(newRow)
+          $table.setEditCell(newRow, 'name')
         }
       })
     },
@@ -105,7 +105,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
         if ($table) {
-          $table.setEditRow(newRow)
+          $table.setEditCell(newRow, 'name')
         }
       })
     },

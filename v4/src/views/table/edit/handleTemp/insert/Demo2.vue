@@ -87,7 +87,7 @@ const addEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $table.insert(record)
-    $table.setEditRow(newRow)
+    $table.setEditCell(newRow, 'name')
   }
 }
 
@@ -98,7 +98,7 @@ const pushEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $table.insertAt(record, -1)
-    $table.setEditRow(newRow)
+    $table.setEditCell(newRow, 'name')
   }
 }
 
@@ -109,7 +109,7 @@ const insertEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $table.insertAt(record, 2)
-    $table.setEditRow(newRow)
+    $table.setEditCell(newRow, 'name')
   }
 }
 
@@ -120,7 +120,7 @@ const insertRow = async (row: RowVO) => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $table.insertAt(record, row)
-    $table.setEditRow(newRow)
+    $table.setEditCell(newRow, 'name')
   }
 }
 
@@ -131,7 +131,7 @@ const insertChild = async (row: RowVO) => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $table.insertChild(record, row)
-    $table.setEditRow(newRow)
+    $table.setEditCell(newRow, 'name')
   }
 }
 

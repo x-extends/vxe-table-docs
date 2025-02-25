@@ -95,7 +95,7 @@ export default Vue.extend({
           name: `Name_${new Date().getTime()}`
         }
         const { row: newRow } = await $table.insert(record)
-        $table.setEditRow(newRow)
+        $table.setEditCell(newRow, 'name')
       }
     },
     async pushEvent () {
@@ -105,7 +105,7 @@ export default Vue.extend({
           name: `Name_${new Date().getTime()}`
         }
         const { row: newRow } = await $table.insertAt(record, -1)
-        $table.setEditRow(newRow)
+        $table.setEditCell(newRow, 'name')
       }
     },
     async insertEvent () {
@@ -115,7 +115,7 @@ export default Vue.extend({
           name: `Name_${new Date().getTime()}`
         }
         const { row: newRow } = await $table.insertAt(record, 2)
-        $table.setEditRow(newRow)
+        $table.setEditCell(newRow, 'name')
       }
     },
     async insertRow (row: RowVO) {
@@ -125,7 +125,7 @@ export default Vue.extend({
           name: `Name_${new Date().getTime()}`
         }
         const { row: newRow } = await $table.insertAt(record, row)
-        $table.setEditRow(newRow)
+        $table.setEditCell(newRow, 'name')
       }
     },
     async insertChild (row: RowVO) {
@@ -135,7 +135,7 @@ export default Vue.extend({
           name: `Name_${new Date().getTime()}`
         }
         const { row: newRow } = await $table.insertChild(record, row)
-        $table.setEditRow(newRow)
+        $table.setEditCell(newRow, 'name')
       }
     },
     getInsertEvent () {

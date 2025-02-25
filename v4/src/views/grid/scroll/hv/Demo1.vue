@@ -13,6 +13,7 @@
       <vxe-button @click="loadDataAndColumns(100, 5000)">100行5k列</vxe-button>
       <vxe-button @click="loadDataAndColumns(150, 10000)">200行1w列</vxe-button>
       <vxe-button @click="loadDataAndColumns(200, 30000)">200行3w列</vxe-button>
+      <vxe-button @click="loadDataAndColumns(10, 100000)">200行3w列</vxe-button>
     </p>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
