@@ -22,6 +22,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       round: true,
+      height: 300,
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 400 },
