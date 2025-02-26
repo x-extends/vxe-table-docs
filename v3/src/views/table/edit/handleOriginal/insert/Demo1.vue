@@ -69,7 +69,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
         if ($table) {
-          $table.setEditCell(newRow, 'name')
+          $table.setEditRow(newRow, 'name')
         }
       })
     },

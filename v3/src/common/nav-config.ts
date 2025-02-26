@@ -943,6 +943,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '父子不关联与全选', routerLink: { name: 'ComponentGridTreeCheckboxStrictlyHeader' } }
               ]
             },
+            { title: '默认展开', routerLink: { name: 'ComponentGridTreeExpandRowKeys' } },
             { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } },
             { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
             { title: '懒加载', routerLink: { name: 'ComponentGridTreeLazy' } },

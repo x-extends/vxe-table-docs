@@ -95,7 +95,7 @@ export default Vue.extend({
           name: `Name_${new Date().getTime()}`
         }
         const { row: newRow } = await $table.insert(record)
-        $table.setEditCell(newRow, 'name')
+        $table.setEditRow(newRow, 'name')
       }
     },
     async pushEvent () {

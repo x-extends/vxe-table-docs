@@ -55,7 +55,7 @@ const addEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $table.insert(record)
-    $table.setEditCell(newRow, 'name')
+    $table.setEditRow(newRow, 'name')
   }
 }
 

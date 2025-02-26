@@ -3084,6 +3084,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/tree/radio/CodeExample.vue')
         },
         {
+          path: 'expandRowKeys',
+          name: 'ComponentGridTreeExpandRowKeys',
+          component: () => import('@/views/grid/tree/expandRowKeys/CodeExample.vue')
+        },
+        {
           path: 'checkbox',
           children: [
             {

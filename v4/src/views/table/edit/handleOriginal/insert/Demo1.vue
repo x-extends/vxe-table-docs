@@ -62,7 +62,7 @@ const addEvent = () => {
   nextTick(() => {
     const $table = tableRef.value
     if ($table) {
-      $table.setEditCell(newRow, 'name')
+      $table.setEditRow(newRow, 'name')
     }
   })
 }
