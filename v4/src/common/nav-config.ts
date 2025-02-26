@@ -1206,6 +1206,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '合并行与列', routerLink: { name: 'ComponentGridScrollMerge' } },
             { title: '树形 + 纵向', routerLink: { name: 'ComponentGridScrollTree' } },
             { title: '树形 + 纵向和横向', routerLink: { name: 'ComponentGridScrollHVTree' } },
+            { title: '树拖拽 + 纵向', routerLink: { name: 'ComponentGridScrollDragTree' } },
             { title: '展开行', routerLink: { name: 'ComponentGridScrollExpand' } },
             { title: '展开行 + 复杂子表渲染', routerLink: { name: 'ComponentGridScrollExpandFixed' } },
             { title: '可编辑 + 纵向', routerLink: { name: 'ComponentGridScrollEdit' } },
