@@ -69,18 +69,18 @@ export default {
         `,
         `
         import VueI18n from 'vue-i18n'
-        import zhCN from 'vxe-table/locale/lang/zh-CN'
-        // import zhHK from 'vxe-table/locale/lang/zh-HK'
-        // import zhTW from 'vxe-table/locale/lang/zh-TW'
-        // import zhMO from 'vxe-table/locale/lang/zh-MO'
-        import enUS from 'vxe-table/locale/lang/en-US'
-        // import jaJP from 'vxe-table/locale/lang/ja-JP'
-        // import esES from 'vxe-table/locale/lang/es-ES'
-        // import ptBR from 'vxe-table/locale/lang/pt-BR'
-        // import viVN from 'vxe-table/locale/lang/vi-VN'
-        // import koKR from 'vxe-table/locale/lang/ko-KR'
-        // import huHU from 'vxe-table/locale/lang/hu-HU'
-        // import ruRU from 'vxe-table/locale/lang/ru-RU'
+        import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
+        // import zhHK from 'vxe-table/lib/locale/lang/zh-HK'
+        // import zhTW from 'vxe-table/lib/locale/lang/zh-TW'
+        // import zhMO from 'vxe-table/lib/locale/lang/zh-MO'
+        import enUS from 'vxe-table/lib/locale/lang/en-US'
+        // import jaJP from 'vxe-table/lib/locale/lang/ja-JP'
+        // import esES from 'vxe-table/lib/locale/lang/es-ES'
+        // import ptBR from 'vxe-table/lib/locale/lang/pt-BR'
+        // import viVN from 'vxe-table/lib/locale/lang/vi-VN'
+        // import koKR from 'vxe-table/lib/locale/lang/ko-KR'
+        // import huHU from 'vxe-table/lib/locale/lang/hu-HU'
+        // import ruRU from 'vxe-table/lib/locale/lang/ru-RU'
 
         Vue.use(VueI18n)
 
