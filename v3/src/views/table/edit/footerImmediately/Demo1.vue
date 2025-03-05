@@ -118,8 +118,8 @@ export default Vue.extend({
     updateFootEvent () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        const { visibleData } = $table.getTableData()
-        this.updateFootCount(visibleData)
+        const fullData = $table.getFullData()
+        this.updateFootCount(fullData)
       }
     },
     updateFootCount (list: RowVO[]) {

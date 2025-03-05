@@ -1315,6 +1315,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/edit/cascadingSelect/CodeExample.vue')
         },
         {
+          path: 'showNegativeStatus',
+          name: 'ComponentTableEditShowNegativeStatus',
+          component: () => import('@/views/table/edit/showNegativeStatus/CodeExample.vue')
+        },
+        {
           path: 'rowImmediately',
           name: 'ComponentTableEditRowImmediately',
           component: () => import('@/views/table/edit/rowImmediately/CodeExample.vue')
@@ -2659,6 +2664,16 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'trigger',
           name: 'ComponentGridCheckboxTrigger',
           component: () => import('@/views/grid/checkbox/trigger/CodeExample.vue')
+        },
+        {
+          path: 'reserve',
+          name: 'ComponentGridCheckboxReserve',
+          component: () => import('@/views/grid/checkbox/reserve/CodeExample.vue')
+        },
+        {
+          path: 'showReserveStatus',
+          name: 'ComponentGridCheckboxShowReserveStatus',
+          component: () => import('@/views/grid/checkbox/showReserveStatus/CodeExample.vue')
         },
         {
           path: 'range',

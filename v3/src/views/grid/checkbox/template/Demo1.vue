@@ -39,7 +39,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions = {
+    const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
       border: true,
       columns: [
         { type: 'checkbox', width: 60, slots: { header: 'checkbox_header', checkbox: 'checkbox_cell' } },
@@ -54,7 +54,7 @@ export default Vue.extend({
         { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
         { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
       ]
-    } satisfies VxeGridProps<RowVO>
+    }
 
     return {
       gridOptions

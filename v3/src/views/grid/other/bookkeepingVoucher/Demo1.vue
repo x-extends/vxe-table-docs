@@ -220,10 +220,10 @@ export default Vue.extend({
       this.$nextTick(() => {
         const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
         if ($grid) {
-          const { visibleData } = $grid.getTableData()
+          const fullData = $grid.getFullData()
           let countDebtorAmount = 0
           let countCreditAmount = 0
-          visibleData.forEach(row => {
+          fullData.forEach(row => {
             row.debtorAmount = this.handleJoinAmount(row.debtorObj)
             row.creditAmount = this.handleJoinAmount(row.creditObj)
             countDebtorAmount += row.debtorAmount
@@ -260,8 +260,8 @@ export default Vue.extend({
     saveEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        const { visibleData } = $grid.getTableData()
-        const rest = visibleData.map(item => {
+        const fullData = $grid.getFullData()
+        const rest = fullData.map(item => {
           return {
             id: item.id,
             summary: item.summary,

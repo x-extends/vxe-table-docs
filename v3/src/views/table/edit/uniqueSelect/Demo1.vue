@@ -96,7 +96,7 @@ export default Vue.extend({
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
         // 获取表格中的全量数据
-        const { fullData } = $table.getTableData()
+        const fullData = $table.getFullData()
         this.roleList.forEach(item => {
           if (item.value) {
             // 如果当前选项已经被选过，则禁用

@@ -66,7 +66,7 @@ export default Vue.extend({
           field: 'group3',
           title: '分类信息2',
           children: [
-            { field: 'attr6', title: 'Attr6', width: 2000 }
+            { field: 'attr6', title: 'Attr6', width: 300 }
           ]
         },
         {

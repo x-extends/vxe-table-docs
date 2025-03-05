@@ -222,10 +222,10 @@ const updateFooter = () => {
   nextTick(() => {
     const $table = tableRef.value
     if ($table) {
-      const { visibleData } = $table.getTableData()
+      const fullData = $table.getFullData()
       let countDebtorAmount = 0
       let countCreditAmount = 0
-      visibleData.forEach(row => {
+      fullData.forEach(row => {
         row.debtorAmount = handleJoinAmount(row.debtorObj)
         row.creditAmount = handleJoinAmount(row.creditObj)
         countDebtorAmount += row.debtorAmount
@@ -270,8 +270,8 @@ const removeRow = async (row: RowVO) => {
 const saveEvent = () => {
   const $table = tableRef.value
   if ($table) {
-    const { visibleData } = $table.getTableData()
-    const rest = visibleData.map(item => {
+    const fullData = $table.getFullData()
+    const rest = fullData.map(item => {
       return {
         id: item.id,
         summary: item.summary,

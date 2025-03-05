@@ -1,10 +1,13 @@
 <template>
   <div>
-    <vxe-button status="success" @click="getUpdateEvent">获取已修改数据</vxe-button>
+    <vxe-button status="success" @click="revertAllEvent">恢复全部</vxe-button>
+    <vxe-button status="success" @click="revertRow(gridOptions.data[1])">恢复Test2</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
         <vxe-button mode="text" status="primary" @click="updateRow1(row)">修改1</vxe-button>
         <vxe-button mode="text" status="primary" @click="updateRow2(row)">修改2</vxe-button>
+        <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
+        <vxe-button mode="text" status="success" @click="revertRow(row)">恢复</vxe-button>
       </template>
     </vxe-grid>
   </div>
@@ -25,7 +28,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
       border: true,
       showOverflow: true,
       keepSource: true,
@@ -40,7 +43,7 @@ export default Vue.extend({
         { field: 'name', title: 'Name', editRender: { name: 'input' } },
         { field: 'sex', title: 'Sex', editRender: { name: 'input' } },
         { field: 'age', title: 'Age', editRender: { name: 'input' } },
-        { field: 'action', title: '操作', width: 140, slots: { default: 'action' } }
+        { field: 'action', title: '操作', width: 240, slots: { default: 'action' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -55,17 +58,56 @@ export default Vue.extend({
     }
   },
   methods: {
+    async removeRow (row: RowVO) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.remove(row)
+        VxeUI.modal.message({
+          content: '数据已删除',
+          status: 'success'
+        })
+      }
+    },
     updateRow1 (row: RowVO) {
       row.name = `Name_${new Date().getTime()}`
     },
     updateRow2 (row: RowVO) {
       row.age++
     },
-    getUpdateEvent () {
+    revertRow (row: RowVO) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        if ($grid.isUpdateByRow(row) || $grid.isRemoveByRow(row)) {
+          $grid.revertData(row)
+          VxeUI.modal.message({
+            content: '数据已恢复',
+            status: 'success'
+          })
+        } else {
+          VxeUI.modal.message({
+            content: '数据未改动',
+            status: 'info'
+          })
+        }
+      }
+    },
+    revertAllEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         const updateRecords = $grid.getUpdateRecords()
-        VxeUI.modal.alert(`修改：${updateRecords.length} 行`)
+        const removeRecords = $grid.getRemoveRecords()
+        if (updateRecords.length > 0 || removeRecords.length > 0) {
+          $grid.revertData()
+          VxeUI.modal.message({
+            content: '数据已恢复',
+            status: 'success'
+          })
+        } else {
+          VxeUI.modal.message({
+            content: '数据未改动',
+            status: 'info'
+          })
+        }
       }
     }
   }

@@ -6,6 +6,10 @@
       <vxe-button @click="loadData(5000)">加载5k行</vxe-button>
       <vxe-button @click="loadData(10000)">加载1w行</vxe-button>
       <vxe-button @click="loadData(30000)">加载3w行</vxe-button>
+      <vxe-button @click="loadData(50000)">加载5w行</vxe-button>
+    </p>
+    <p>
+      <vxe-button status="primary" @click="addEvent">新增</vxe-button>
     </p>
     <vxe-table
       border
@@ -23,6 +27,11 @@
       <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="sexEditRender"></vxe-column>
       <vxe-column field="date" title="Date" :edit-render="{name: 'VxeDatePicker'}"></vxe-column>
+      <vxe-column field="action" title="操作" width="100">
+        <template #default="{ row }">
+          <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
+        </template>
+      </vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -95,6 +104,24 @@ export default Vue.extend({
           })
         }
       }, 350)
+    },
+    async addEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        const record = {}
+        const { row: newRow } = await $table.insert(record)
+        $table.setEditCell(newRow, 'name')
+      }
+    },
+    async removeRow (row: RowVO) {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        $table.remove(row)
+        VxeUI.modal.message({
+          content: '数据已删除',
+          status: 'success'
+        })
+      }
     }
   },
   created () {

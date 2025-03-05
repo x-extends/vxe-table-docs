@@ -6,8 +6,16 @@
       <vxe-button @click="loadData(5000)">加载5k行</vxe-button>
       <vxe-button @click="loadData(10000)">加载1w行</vxe-button>
       <vxe-button @click="loadData(30000)">加载3w行</vxe-button>
+      <vxe-button @click="loadData(50000)">加载5w行</vxe-button>
     </p>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <p>
+      <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+    </p>
+    <vxe-grid ref="gridRef" v-bind="gridOptions">
+      <template #action="{ row }">
+        <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
@@ -56,7 +64,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'role', title: 'Role', editRender: { name: 'VxeInput' } },
     { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
     { field: 'sex', title: 'Sex', editRender: sexEditRender },
-    { field: 'date', title: 'Date', editRender: { name: 'VxeDatePicker' } }
+    { field: 'date', title: 'Date', editRender: { name: 'VxeDatePicker' } },
+    { field: 'action', title: '操作', width: 100, slots: { default: 'action' } }
   ]
 })
 
@@ -89,6 +98,26 @@ const loadData = (size = 200) => {
       })
     }
   }, 350)
+}
+
+const addEvent = async () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const record = {}
+    const { row: newRow } = await $grid.insert(record)
+    $grid.setEditCell(newRow, 'name')
+  }
+}
+
+const removeRow = async (row: RowVO) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.remove(row)
+    VxeUI.modal.message({
+      content: '数据已删除',
+      status: 'success'
+    })
+  }
 }
 
 loadData(500)

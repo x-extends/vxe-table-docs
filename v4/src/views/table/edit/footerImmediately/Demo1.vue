@@ -116,8 +116,8 @@ const removeRow = async (row: RowVO) => {
 const updateFootEvent = () => {
   const $table = tableRef.value
   if ($table) {
-    const { visibleData } = $table.getTableData()
-    updateFootCount(visibleData)
+    const fullData = $table.getFullData()
+    updateFootCount(fullData)
   }
 }
 const updateFootCount = (list: RowVO[]) => {

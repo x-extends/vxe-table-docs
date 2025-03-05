@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-button status="success" @click="revertAllEvent">恢复全部</vxe-button>
+    <vxe-button status="success" @click="revertRow(tableData[1])">恢复Test2</vxe-button>
     <vxe-table
       border
       show-overflow
@@ -13,10 +14,11 @@
       <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{name: 'input'}"></vxe-column>
-      <vxe-column field="action" title="操作" width="200">
+      <vxe-column field="action" title="操作" width="240">
         <template #default="{ row }">
           <vxe-button mode="text" status="primary" @click="updateRow1(row)">修改1</vxe-button>
           <vxe-button mode="text" status="primary" @click="updateRow2(row)">修改2</vxe-button>
+          <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
           <vxe-button mode="text" status="success" @click="revertRow(row)">恢复</vxe-button>
         </template>
       </vxe-column>
@@ -52,6 +54,17 @@ const editConfig = reactive<VxeTablePropTypes.EditConfig>({
   showStatus: true
 })
 
+const removeRow = async (row: RowVO) => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.remove(row)
+    VxeUI.modal.message({
+      content: '数据已删除',
+      status: 'success'
+    })
+  }
+}
+
 const updateRow1 = (row: RowVO) => {
   row.name = `Name_${new Date().getTime()}`
 }
@@ -63,7 +76,7 @@ const updateRow2 = (row: RowVO) => {
 const revertRow = (row: RowVO) => {
   const $table = tableRef.value
   if ($table) {
-    if ($table.isUpdateByRow(row)) {
+    if ($table.isUpdateByRow(row) || $table.isRemoveByRow(row)) {
       $table.revertData(row)
       VxeUI.modal.message({
         content: '数据已恢复',
@@ -82,7 +95,8 @@ const revertAllEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const updateRecords = $table.getUpdateRecords()
-    if (updateRecords.length > 0) {
+    const removeRecords = $table.getRemoveRecords()
+    if (updateRecords.length > 0 || removeRecords.length > 0) {
       $table.revertData()
       VxeUI.modal.message({
         content: '数据已恢复',

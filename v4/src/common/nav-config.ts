@@ -401,6 +401,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '使用合并行与列', routerLink: { name: 'ComponentTableEditSpan' } },
             { title: '使用右键菜单', routerLink: { name: 'ComponentTableEditMenu' } },
             { title: '设置行高', routerLink: { name: 'ComponentTableEditRowHeight' } },
+            { title: '负数自动标红', routerLink: { name: 'ComponentTableEditShowNegativeStatus' } },
             { title: '实现附件列表', routerLink: { name: 'ComponentTableEditFileList' } },
             { title: '实现弹窗编辑表单', routerLink: { name: 'ComponentTableEditModalForm' } },
             { title: '实现弹窗选择数据', routerLink: { name: 'ComponentTableEditModalSelect' } },
@@ -682,6 +683,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用', routerLink: { name: 'ComponentGridCheckboxCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentGridCheckboxVisibleMethod' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridCheckboxTrigger' } },
+            { title: '分页保留选中状态', routerLink: { name: 'ComponentGridCheckboxReserve' } },
+            { title: '分页显示保留选中状态', routerLink: { name: 'ComponentGridCheckboxShowReserveStatus' } },
             { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentGridCheckboxRange' } },
             { title: '单元格选择-复选框', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_checkbox' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaCheckbox' } } },
             { title: '自定义模板', routerLink: { name: 'ComponentGridCheckboxTemplate' } }

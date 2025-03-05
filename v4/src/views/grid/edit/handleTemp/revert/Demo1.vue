@@ -1,10 +1,12 @@
 <template>
   <div>
     <vxe-button status="success" @click="revertAllEvent">恢复全部</vxe-button>
+    <vxe-button status="success" @click="revertRow(gridOptions.data[1])">恢复Test2</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
         <vxe-button mode="text" status="primary" @click="updateRow1(row)">修改1</vxe-button>
         <vxe-button mode="text" status="primary" @click="updateRow2(row)">修改2</vxe-button>
+        <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
         <vxe-button mode="text" status="success" @click="revertRow(row)">恢复</vxe-button>
       </template>
     </vxe-grid>
@@ -26,7 +28,7 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
+const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   border: true,
   showOverflow: true,
   keepSource: true,
@@ -41,7 +43,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'name', title: 'Name', editRender: { name: 'input' } },
     { field: 'sex', title: 'Sex', editRender: { name: 'input' } },
     { field: 'age', title: 'Age', editRender: { name: 'input' } },
-    { field: 'action', title: '操作', width: 200, slots: { default: 'action' } }
+    { field: 'action', title: '操作', width: 240, slots: { default: 'action' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -50,6 +52,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
+
+const removeRow = async (row: RowVO) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.remove(row)
+    VxeUI.modal.message({
+      content: '数据已删除',
+      status: 'success'
+    })
+  }
+}
 
 const updateRow1 = (row: RowVO) => {
   row.name = `Name_${new Date().getTime()}`
@@ -62,7 +75,7 @@ const updateRow2 = (row: RowVO) => {
 const revertRow = (row: RowVO) => {
   const $grid = gridRef.value
   if ($grid) {
-    if ($grid.isUpdateByRow(row)) {
+    if ($grid.isUpdateByRow(row) || $grid.isRemoveByRow(row)) {
       $grid.revertData(row)
       VxeUI.modal.message({
         content: '数据已恢复',
@@ -81,7 +94,8 @@ const revertAllEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
     const updateRecords = $grid.getUpdateRecords()
-    if (updateRecords.length > 0) {
+    const removeRecords = $grid.getRemoveRecords()
+    if (updateRecords.length > 0 || removeRecords.length > 0) {
       $grid.revertData()
       VxeUI.modal.message({
         content: '数据已恢复',

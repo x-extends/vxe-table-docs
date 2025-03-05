@@ -30,7 +30,7 @@
         </vxe-colgroup>
       </vxe-colgroup>
       <vxe-colgroup field="group3" title="分类信息2">
-        <vxe-column field="attr6" title="Attr6" width="200"></vxe-column>
+        <vxe-column field="attr6" title="Attr6" width="300"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup field="group4" title="额外信息">
         <vxe-column field="date3" title="Date" width="140"></vxe-column>

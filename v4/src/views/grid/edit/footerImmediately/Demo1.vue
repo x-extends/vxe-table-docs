@@ -62,8 +62,8 @@ const sumNum = (list: RowVO[], field: string) => {
 const updateFootEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
-    const { visibleData } = $grid.getTableData()
-    updateFootCount(visibleData)
+    const fullData = $grid.getFullData()
+    updateFootCount(fullData)
   }
 }
 

@@ -223,10 +223,10 @@ export default Vue.extend({
       this.$nextTick(() => {
         const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
         if ($table) {
-          const { visibleData } = $table.getTableData()
+          const fullData = $table.getFullData()
           let countDebtorAmount = 0
           let countCreditAmount = 0
-          visibleData.forEach(row => {
+          fullData.forEach(row => {
             row.debtorAmount = this.handleJoinAmount(row.debtorObj)
             row.creditAmount = this.handleJoinAmount(row.creditObj)
             countDebtorAmount += row.debtorAmount
@@ -251,8 +251,8 @@ export default Vue.extend({
     saveEvent () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        const { visibleData } = $table.getTableData()
-        const rest = visibleData.map(item => {
+        const fullData = $table.getFullData()
+        const rest = fullData.map(item => {
           return {
             id: item.id,
             summary: item.summary,

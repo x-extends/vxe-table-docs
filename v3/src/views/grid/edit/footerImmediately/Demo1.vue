@@ -167,8 +167,8 @@ export default Vue.extend({
     updateFootEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        const { visibleData } = $grid.getTableData()
-        this.updateFootCount(visibleData)
+        const fullData = $grid.getFullData()
+        this.updateFootCount(fullData)
       }
     }
   }

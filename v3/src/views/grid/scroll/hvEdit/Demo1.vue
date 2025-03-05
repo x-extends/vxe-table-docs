@@ -14,6 +14,9 @@
       <vxe-button @click="loadDataAndColumns(150, 10000)">200行1w列</vxe-button>
       <vxe-button @click="loadDataAndColumns(200, 30000)">200行3w列</vxe-button>
     </p>
+    <p>
+      <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+    </p>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -92,6 +95,14 @@ export default Vue.extend({
           })
         }
       }, 50)
+    },
+    async addEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const record = {}
+        const { row: newRow } = await $grid.insert(record)
+        $grid.setEditCell(newRow, 'name')
+      }
     }
   },
   mounted () {

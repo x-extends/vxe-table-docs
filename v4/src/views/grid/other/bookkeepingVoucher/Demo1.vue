@@ -230,10 +230,10 @@ const updateFooter = () => {
   nextTick(() => {
     const $grid = gridRef.value
     if ($grid) {
-      const { visibleData } = $grid.getTableData()
+      const fullData = $grid.getFullData()
       let countDebtorAmount = 0
       let countCreditAmount = 0
-      visibleData.forEach(row => {
+      fullData.forEach(row => {
         row.debtorAmount = handleJoinAmount(row.debtorObj)
         row.creditAmount = handleJoinAmount(row.creditObj)
         countDebtorAmount += row.debtorAmount
@@ -274,8 +274,8 @@ const removeRow = async (row: RowVO) => {
 const saveEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
-    const { visibleData } = $grid.getTableData()
-    const rest = visibleData.map(item => {
+    const fullData = $grid.getFullData()
+    const rest = fullData.map(item => {
       return {
         id: item.id,
         summary: item.summary,
