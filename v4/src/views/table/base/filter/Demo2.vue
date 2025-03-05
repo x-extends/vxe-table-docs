@@ -28,15 +28,15 @@ interface RowVO {
 }
 
 const tableData = ref<RowVO[]>([
-  { id: 10001, name: 'Test1', role: 'Develop', sex: '1', age: 28, address: 'test abc' },
-  { id: 10002, name: 'Test2', role: 'Test', sex: '0', age: 22, address: 'Guangzhou' },
-  { id: 10003, name: 'Test3', role: 'PM', sex: '1', age: 32, address: 'Shanghai' },
-  { id: 10004, name: 'Test4', role: 'Designer', sex: '0', age: 24, address: 'Shanghai' }
+  { id: 10001, name: 'Test1', role: 'Develop', sex: 'Woman', age: 28, address: 'test abc' },
+  { id: 10002, name: 'Test2', role: 'Test', sex: 'Man', age: 22, address: 'Guangzhou' },
+  { id: 10003, name: 'Test3', role: 'PM', sex: 'Woman', age: 32, address: 'Shanghai' },
+  { id: 10004, name: 'Test4', role: 'Designer', sex: 'Man', age: 24, address: 'Shanghai' }
 ])
 
 const sexOptions = ref<VxeColumnPropTypes.Filters>([
-  { label: 'Man', value: '1' },
-  { label: 'Woman', value: '0' }
+  { label: 'Man', value: 'Man' },
+  { label: 'Woman', value: 'Woman' }
 ])
 
 const ageOptions = ref<VxeColumnPropTypes.Filters>([
