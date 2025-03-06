@@ -6,27 +6,27 @@
       :edit-config="editConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" :edit-render="{}">
+      <vxe-column field="name" title="不会自动聚焦" :edit-render="{}">
         <template #edit="{ row }">
           <vxe-input v-model="row.name"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="role" title="Role" :edit-render="{autoFocus: true}">
+      <vxe-column field="role" title="设置true自动聚焦" :edit-render="{autoFocus: true}">
         <template #edit="{ row }">
           <vxe-input v-model="row.role"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="Sex" :edit-render="{autoFocus: '.my-input .vxe-input--inner'}">
+      <vxe-column field="sex" title="设置css选择器自动聚焦" :edit-render="{autoFocus: '.my-input .vxe-input--inner'}">
         <template #edit="{ row }">
           <vxe-input v-model="row.sex" class="my-input"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="age" title="Age" :edit-render="{autoFocus: '.my-input'}">
+      <vxe-column field="age" title="设置css选择器自动聚焦" :edit-render="{autoFocus: '.my-input'}">
         <template #edit="{ row }">
           <input v-model="row.age" class="my-input" type="text" style="width: 100%">
         </template>
       </vxe-column>
-      <vxe-column field="address" title="Address" :edit-render="{autoFocus: 'input'}">
+      <vxe-column field="address" title="设置css选择器自动聚焦" :edit-render="{autoFocus: 'input'}">
         <template #edit="{ row }">
           <input v-model="row.address" type="text" style="width: 100%">
         </template>
