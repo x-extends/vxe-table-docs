@@ -24,8 +24,6 @@ export default Vue.extend({
       rowConfig: {
         drag: true
       },
-      columnConfig: {
-      },
       rowDragConfig: {
         visibleMethod ({ row }) {
           if (row.role === 'Test') {

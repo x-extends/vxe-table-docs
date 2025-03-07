@@ -24,8 +24,6 @@ export default Vue.extend({
       rowConfig: {
         drag: true
       },
-      columnConfig: {
-      },
       rowDragConfig: {
         icon: 'vxe-icon-sort'
       },

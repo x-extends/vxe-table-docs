@@ -22,8 +22,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   rowConfig: {
     drag: true
   },
-  columnConfig: {
-  },
   rowDragConfig: {
     async dragEndMethod () {
       const type = await VxeUI.modal.confirm({

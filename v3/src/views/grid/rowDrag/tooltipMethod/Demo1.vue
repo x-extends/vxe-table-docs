@@ -24,8 +24,6 @@ export default Vue.extend({
       rowConfig: {
         drag: true
       },
-      columnConfig: {
-      },
       rowDragConfig: {
         tooltipMethod ({ row }) {
           return `正在移动行：${row.name}`

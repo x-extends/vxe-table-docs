@@ -28,8 +28,6 @@ export default Vue.extend({
       rowConfig: {
         drag: true
       },
-      columnConfig: {
-      },
       columns: [
         { field: 'name', title: 'Name' },
         { field: 'role', title: 'Role', dragSort: true },

@@ -1,12 +1,16 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button status="primary" @click="modeCol('name', 'sex')">name 移动到 sex</vxe-button>
+    <vxe-button status="primary" @click="modeCol('role', 'address')">role 移动到 address</vxe-button>
+    <vxe-button status="success" @click="resultEvent">获取数据</vxe-button>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -21,28 +25,15 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      rowConfig: {
+      columnConfig: {
         drag: true
       },
-      rowDragConfig: {
-        async dragEndMethod () {
-          const type = await VxeUI.modal.confirm({
-            content: '请是否确认调整顺序？'
-          })
-          if (type === 'confirm') {
-            return true
-          } else {
-            VxeUI.modal.message({
-              content: '操作已取消',
-              status: 'warning'
-            })
-          }
-          return false
-        }
+      columnDragConfig: {
+        showIcon: false
       },
       columns: [
         { field: 'name', title: 'Name' },
-        { field: 'role', title: 'Role', dragSort: true },
+        { field: 'role', title: 'Role' },
         { field: 'sex', title: 'Sex' },
         { field: 'age', title: 'Age' },
         { field: 'address', title: 'Address' }
@@ -57,6 +48,21 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    modeCol (filed: string, targetField: string) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.moveColumnTo(filed, targetField)
+      }
+    },
+    resultEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const tableColumn = $grid.getFullColumns()
+        console.log(tableColumn)
+      }
     }
   }
 })

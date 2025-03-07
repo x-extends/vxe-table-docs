@@ -22,8 +22,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   rowConfig: {
     drag: true
   },
-  columnConfig: {
-  },
   rowDragConfig: {
     disabledMethod ({ row }) {
       if (row.role === 'Test') {

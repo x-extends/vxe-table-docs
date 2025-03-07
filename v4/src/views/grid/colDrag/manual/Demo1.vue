@@ -1,6 +1,9 @@
 <template>
   <div>
+    <vxe-button status="primary" @click="modeCol('name', 'sex')">name 移动到 sex</vxe-button>
+    <vxe-button status="primary" @click="modeCol('role', 'address')">role 移动到 address</vxe-button>
     <vxe-button status="success" @click="resultEvent">获取数据</vxe-button>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -22,15 +25,15 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  rowConfig: {
+  columnConfig: {
     drag: true
   },
-  columnConfig: {
-    resizable: true
+  columnDragConfig: {
+    showIcon: false
   },
   columns: [
     { field: 'name', title: 'Name' },
-    { field: 'role', title: 'Role', dragSort: true },
+    { field: 'role', title: 'Role' },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }
@@ -43,11 +46,18 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
+const modeCol = (filed: string, targetField: string) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.moveColumnTo(filed, targetField)
+  }
+}
+
 const resultEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
-    const tableData = $grid.getFullData()
-    console.log(tableData)
+    const tableColumn = $grid.getFullColumns()
+    console.log(tableColumn)
   }
 }
 </script>

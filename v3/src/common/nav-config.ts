@@ -740,6 +740,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自定义提示模板', routerLink: { name: 'ComponentGridColDragTemplateTip' } }
               ]
             },
+            { title: '手动移动', routerLink: { name: 'ComponentGridColDragManual' } },
             { title: '同时行与列拖拽', routerLink: { name: 'ComponentGridColDragRowCol' } }
           ]
         },
@@ -772,7 +773,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '拖拽成子级', routerLink: { name: 'ComponentGridRowDragTreeToChildDrag' } },
                 { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridRowDragTreeShowGuidesStatus' } },
                 { title: '拖拽二次确认', routerLink: { name: 'ComponentGridRowDragTreeDragMethod' } },
-                { title: '懒加载', routerLink: { name: 'ComponentGridRowDragTreeLazy' } }
+                { title: '懒加载', routerLink: { name: 'ComponentGridRowDragTreeLazy' } },
+                { title: '手动移动', routerLink: { name: 'ComponentGridRowDragTreeManual' } }
               ]
             },
             { title: '触发方式', routerLink: { name: 'ComponentGridRowDragTrigger' } },
@@ -786,7 +788,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
               children: [
                 { title: '自定义提示模板', routerLink: { name: 'ComponentGridRowDragTemplateTip' } }
               ]
-            }
+            },
+            { title: '手动移动', routerLink: { name: 'ComponentGridRowDragManual' } }
           ]
         },
         {

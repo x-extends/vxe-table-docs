@@ -22,8 +22,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   rowConfig: {
     drag: true
   },
-  columnConfig: {
-  },
   rowDragConfig: {
     tooltipMethod ({ row }) {
       return `正在移动行：${row.name}`

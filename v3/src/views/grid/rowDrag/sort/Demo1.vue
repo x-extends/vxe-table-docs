@@ -26,6 +26,7 @@ export default Vue.extend({
         drag: true
       },
       columnConfig: {
+        resizable: true
       },
       columns: [
         { field: 'name', title: 'Name' },

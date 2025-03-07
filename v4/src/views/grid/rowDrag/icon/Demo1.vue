@@ -22,8 +22,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   rowConfig: {
     drag: true
   },
-  columnConfig: {
-  },
   rowDragConfig: {
     icon: 'vxe-icon-sort'
   },

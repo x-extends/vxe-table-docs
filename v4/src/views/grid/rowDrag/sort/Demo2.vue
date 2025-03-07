@@ -25,6 +25,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     drag: true
   },
   columnConfig: {
+    resizable: true
   },
   columns: [
     { field: 'name', title: 'Name', dragSort: true },

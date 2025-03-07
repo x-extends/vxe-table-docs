@@ -28,8 +28,6 @@ export default Vue.extend({
       rowConfig: {
         drag: true
       },
-      columnConfig: {
-      },
       rowDragConfig: {
         slots: {
           tip: 'dragRowTip'
