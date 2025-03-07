@@ -2,6 +2,8 @@
   <div>
     <vxe-button status="success" @click="revertAllEvent">恢复全部</vxe-button>
     <vxe-button status="success" @click="revertRow(tableData[1])">恢复Test2</vxe-button>
+    <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
+
     <vxe-table
       border
       show-overflow
@@ -110,6 +112,13 @@ export default Vue.extend({
             status: 'info'
           })
         }
+      }
+    },
+    getRemoveEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        const removeRecords = $table.getRemoveRecords()
+        VxeUI.modal.alert(`删除：${removeRecords.length} 行`)
       }
     }
   }

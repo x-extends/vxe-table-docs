@@ -2,6 +2,8 @@
   <div>
     <vxe-button status="success" @click="revertAllEvent">恢复全部</vxe-button>
     <vxe-button status="success" @click="revertRow(gridOptions.data[1])">恢复Test2</vxe-button>
+    <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
         <vxe-button mode="text" status="primary" @click="updateRow1(row)">修改1</vxe-button>
@@ -108,6 +110,13 @@ export default Vue.extend({
             status: 'info'
           })
         }
+      }
+    },
+    getRemoveEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const removeRecords = $grid.getRemoveRecords()
+        VxeUI.modal.alert(`删除：${removeRecords.length} 行`)
       }
     }
   }
