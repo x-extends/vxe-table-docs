@@ -7,7 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module && gulp build_examples && npm run format:examples",
     "lint": "vue-cli-service lint",
-    "format:examples": "eslint --fix dist/example/**/*.{js,ts,vue}"
+    "format:examples": "eslint --fix  --ext .js,.jsx,.ts,.tsx,.vue dist/example/**"
   },
   "dependencies": {
     "@vxe-ui/plugin-render-chart": "^3.0.0",
