@@ -19,7 +19,7 @@
     <CodeLight path="grid/base/data/Demo3">
       <template #tip>
         <vxe-tip status="primary" title="二维数组结构"></vxe-tip>
-        <vxe-tip status="error">不建议被使用，局限性很大，必须设置唯一主键，通过设置 <ApiLink name="table" prop="row-config"/>.<ApiLink name="table" prop="keyField"/> 使用</vxe-tip>
+        <vxe-tip status="error">不建议被使用，局限性很大，必须设置唯一主键，通过设置 <ApiLink name="grid" prop="row-config"/>.<ApiLink name="grid" prop="keyField"/> 使用</vxe-tip>
       </template>
     </CodeLight>
   </div>

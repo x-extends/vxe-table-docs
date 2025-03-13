@@ -3074,8 +3074,29 @@ const gridRouteConfig: RouteConfig = {
         },
         {
           path: 'template',
-          name: 'ComponentGridPagerTemplate',
-          component: () => import('@/views/grid/pager/template/CodeExample.vue')
+          component: RouteLayout,
+          children: [
+            {
+              path: 'pager',
+              name: 'ComponentGridPagerTemplatePager',
+              component: () => import('@/views/grid/pager/template/pager/CodeExample.vue')
+            },
+            {
+              path: 'left',
+              name: 'ComponentGridPagerTemplateLeft',
+              component: () => import('@/views/grid/pager/template/left/CodeExample.vue')
+            },
+            {
+              path: 'right',
+              name: 'ComponentGridPagerTemplateRight',
+              component: () => import('@/views/grid/pager/template/right/CodeExample.vue')
+            },
+            {
+              path: 'func',
+              name: 'ComponentGridPagerTemplateFunc',
+              component: () => import('@/views/grid/pager/template/func/CodeExample.vue')
+            }
+          ]
         }
       ]
     },
@@ -3352,6 +3373,21 @@ const gridRouteConfig: RouteConfig = {
           path: 'keyboard',
           name: 'ComponentGridKeyboardKeyboard',
           component: () => import('@/views/grid/keyboard/keyboard/CodeExample.vue')
+        },
+        {
+          path: 'currRow',
+          name: 'ComponentGridKeyboardCurrRow',
+          component: () => import('@/views/grid/keyboard/currRow/CodeExample.vue')
+        },
+        {
+          path: 'currColumn',
+          name: 'ComponentGridKeyboardCurrColumn',
+          component: () => import('@/views/grid/keyboard/currColumn/CodeExample.vue')
+        },
+        {
+          path: 'currRowCol',
+          name: 'ComponentGridKeyboardCurrRowCol',
+          component: () => import('@/views/grid/keyboard/currRowCol/CodeExample.vue')
         },
         {
           path: 'enterAppend',

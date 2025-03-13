@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/search/tree/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          深度搜索每一项
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

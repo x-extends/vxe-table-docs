@@ -4,6 +4,7 @@
     <vxe-table
       id="myCustomUpdate"
       ref="tableRef"
+      :column-config="columnConfig"
       :custom-config="customConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -51,6 +52,10 @@ const saveCustomSetting = (storeData: VxeTableDefines.CustomStoreData) => {
     }, 200)
   })
 }
+
+const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
+  resizable: true
+})
 
 const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
   storage: true,

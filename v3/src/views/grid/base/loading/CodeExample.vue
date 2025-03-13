@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="grid/base/loading/Demo1">
       <template #tip>
-        <vxe-tip status="primary">通过设置 <ApiLink name="table" prop="loading"/> 属性可以使用自带的加载效果</vxe-tip>
+        <vxe-tip status="primary">通过设置 <ApiLink name="grid" prop="loading"/> 属性可以使用自带的加载效果</vxe-tip>
       </template>
     </CodeLight>
 

@@ -8,7 +8,7 @@
 
     <CodeLight path="grid/base/fixedFull/Demo2">
       <template #tip>
-        <vxe-tip status="primary">固定列建议设置 <ApiLink name="table" prop="show-overflow"/> 该值，禁用自动换行，大幅提升渲染速度</vxe-tip>
+        <vxe-tip status="primary">固定列建议设置 <ApiLink name="grid" prop="show-overflow"/> 该值，禁用自动换行，大幅提升渲染速度</vxe-tip>
       </template>
     </CodeLight>
 

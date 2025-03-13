@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-radio-group v-model="gridOptions.footerAlign">
+    <vxe-radio-group v-model="gridOptions.headerAlign">
       <vxe-radio-button label="left" content="居左"></vxe-radio-button>
       <vxe-radio-button label="center" content="居中"></vxe-radio-button>
       <vxe-radio-button label="right" content="居右"></vxe-radio-button>
@@ -28,7 +28,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showFooter: true,
-      footerAlign: 'left',
+      headerAlign: 'left',
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },

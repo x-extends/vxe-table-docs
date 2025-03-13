@@ -33,6 +33,10 @@ const saveCustomSetting = (storeData: VxeTableDefines.CustomStoreData) => {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   id: 'myCustomUpdate',
+  columnConfig: {
+    drag: true,
+    resizable: true
+  },
   toolbarConfig: {
     custom: true
   },

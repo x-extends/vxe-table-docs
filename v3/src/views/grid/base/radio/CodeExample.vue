@@ -9,7 +9,7 @@
     <CodeLight path="grid/base/radio/Demo3">
       <template #tip>
         <vxe-tip status="primary">
-          默认选中，通过指定 <ApiLink name="grid" prop="checkRowKey"/> 设置默认选中的行，指定默认值需要有 <ApiLink name="grid" prop="row-config"/>.<ApiLink name="table" prop="keyField"/><br>
+          默认选中，通过指定 <ApiLink name="grid" prop="checkRowKey"/> 设置默认选中的行，指定默认值需要有 <ApiLink name="grid" prop="row-config"/>.<ApiLink name="grid" prop="keyField"/><br>
         </vxe-tip>
         <vxe-tip status="error">默认行为只会在 reload 之后触发一次</vxe-tip>
       </template>

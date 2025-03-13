@@ -1,11 +1,5 @@
 <template>
   <div>
-    <vxe-radio-group v-model="gridOptions.align">
-      <vxe-radio-button label="left" content="居左"></vxe-radio-button>
-      <vxe-radio-button label="center" content="居中"></vxe-radio-button>
-      <vxe-radio-button label="right" content="居右"></vxe-radio-button>
-    </vxe-radio-group>
-
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -28,12 +22,11 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showFooter: true,
-      align: 'left',
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
-        { field: 'name', title: 'Name' },
-        { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' }
+        { field: 'name', title: '列居中', align: 'center' },
+        { field: 'sex', title: '列头居中', headerAlign: 'center' },
+        { field: 'age', title: '列尾居中', footerAlign: 'center' }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

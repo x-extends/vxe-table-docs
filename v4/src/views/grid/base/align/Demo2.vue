@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-radio-group v-model="gridOptions.headerAlign">
+    <vxe-radio-group v-model="gridOptions.align">
       <vxe-radio-button label="left" content="居左"></vxe-radio-button>
       <vxe-radio-button label="center" content="居中"></vxe-radio-button>
       <vxe-radio-button label="right" content="居右"></vxe-radio-button>
@@ -26,7 +26,7 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
-  headerAlign: 'left',
+  align: 'left',
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },

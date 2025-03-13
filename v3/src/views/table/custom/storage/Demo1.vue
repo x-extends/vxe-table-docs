@@ -44,7 +44,8 @@ export default Vue.extend({
     }
 
     const columnConfig: VxeTablePropTypes.ColumnConfig = {
-      drag: true
+      drag: true,
+      resizable: true
     }
 
     return {

@@ -29,7 +29,8 @@ export default Vue.extend({
         storage: true
       },
       columnConfig: {
-        drag: true
+        drag: true,
+        resizable: true
       },
       columns: [
         { type: 'seq', width: 90 },

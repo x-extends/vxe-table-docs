@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="grid/base/minHeight/Demo1">
       <template #tip>
-        <vxe-tip status="primary">当一个表格高度需要限制最小高度，通过设置 <ApiLink name="table" prop="min-height"/> 参数</vxe-tip>
+        <vxe-tip status="primary">当一个表格高度需要限制最小高度，通过设置 <ApiLink name="grid" prop="min-height"/> 参数</vxe-tip>
       </template>
     </CodeLight>
 

@@ -25,7 +25,7 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const filterName = ref('')
-const tableAllData = ref<RowVO[]>([
+const allData = [
   { id: 1000, name: 'Test1', type: 'mp3', size: 1024, date: '2020-08-01' },
   {
     id: 1005,
@@ -52,7 +52,7 @@ const tableAllData = ref<RowVO[]>([
   },
   { id: 23666, name: 'Test8', type: 'xlsx', size: 2048, date: '2020-11-01' },
   { id: 24555, name: 'Test9', type: 'avi', size: 224, date: '2020-10-01' }
-])
+]
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -78,15 +78,15 @@ const handleSearch = () => {
   const filterVal = XEUtils.toValueString(filterName.value).trim().toLowerCase()
   if (filterVal) {
     const filterRE = new RegExp(filterVal, 'gi')
-    const options = { children: 'children' }
     const searchProps = ['name', 'size', 'type', 'date']
-    // 搜索为克隆数据，不会污染源数据
-    const rest = XEUtils.searchTree(tableAllData.value, item => searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1), options)
+    const rest = XEUtils.searchTree(allData, item => {
+      return searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1)
+    }, { children: 'children' })
     XEUtils.eachTree(rest, item => {
       searchProps.forEach(key => {
         item[key] = String(item[key]).replace(filterRE, match => `<span class="keyword-highlight">${match}</span>`)
       })
-    }, options)
+    }, { children: 'children' })
     gridOptions.data = rest
     // 搜索之后默认展开所有子节点
     nextTick(() => {
@@ -96,7 +96,7 @@ const handleSearch = () => {
       }
     })
   } else {
-    gridOptions.data = tableAllData.value
+    gridOptions.data = allData
   }
 }
 

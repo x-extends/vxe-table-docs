@@ -46,7 +46,8 @@ const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
 })
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
-  drag: true
+  drag: true,
+  resizable: true
 })
 
 onMounted(() => {

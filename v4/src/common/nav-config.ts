@@ -921,7 +921,15 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现前端分页', routerLink: { name: 'ComponentGridPagerMockPage' } },
             { title: '自定义布局', routerLink: { name: 'ComponentGridPagerLayouts' } },
             { title: '自定义序号', routerLink: { name: 'ComponentGridPagerStart' } },
-            { title: '自定义插槽模板', routerLink: { name: 'ComponentGridPagerTemplate' } }
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义分页模板', routerLink: { name: 'ComponentGridPagerTemplatePager' } },
+                { title: '自定义左侧模板', routerLink: { name: 'ComponentGridPagerTemplateLeft' } },
+                { title: '自定义右侧模板', routerLink: { name: 'ComponentGridPagerTemplateRight' } },
+                { title: '自定义功能模板', routerLink: { name: 'ComponentGridPagerTemplateFunc' } }
+              ]
+            }
           ]
         },
         {
@@ -1106,6 +1114,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '单元格选中', routerLink: { name: 'ComponentGridKeyboardSelected' } },
             { title: '按键操作', routerLink: { name: 'ComponentGridKeyboardKeyboard' } },
+            { title: '高亮行', routerLink: { name: 'ComponentGridKeyboardCurrRow' } },
+            { title: '高亮列', routerLink: { name: 'ComponentGridKeyboardCurrColumn' } },
+            { title: '高亮行与列', routerLink: { name: 'ComponentGridKeyboardCurrRowCol' } },
             { title: '回车自动新增一行', routerLink: { name: 'ComponentGridKeyboardEnterAppend' } },
             { title: '可编辑按键操作', routerLink: { name: 'ComponentGridKeyboardEdit' } },
             { title: '设置为追加式编辑', routerLink: { name: 'ComponentGridKeyboardEditMethod' } },

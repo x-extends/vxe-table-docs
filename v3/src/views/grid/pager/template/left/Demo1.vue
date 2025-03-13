@@ -1,21 +1,16 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions">
-      <template #pager>
-        <vxe-pager
-          v-model:currentPage="pageVO.currentPage"
-          v-model:pageSize="pageVO.pageSize"
-          :total="pageVO.total"
-          @page-change="pageChange">
-        </vxe-pager>
+    <vxe-grid v-bind="gridOptions" @page-change="pageChangeEvent">
+      <template #pagerLeft>
+        <span style="background: #f7b6b6;">左侧</span>
       </template>
     </vxe-grid>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps, VxePagerEvents } from 'vxe-table'
+<script lang="ts">
+import Vue from 'vue'
+import type { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -51,52 +46,61 @@ const AllList = [
   { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
 ]
 
-// 前端分页
-const handlePageData = () => {
-  gridOptions.loading = true
-  setTimeout(() => {
-    const { pageSize, currentPage } = pageVO
-    pageVO.total = AllList.length
-    gridOptions.data = AllList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
-    gridOptions.loading = false
-  }, 100)
-}
+export default Vue.extend({
+  data () {
+    const pagerConfig: VxeGridPropTypes.PagerConfig & {
+      currentPage: number
+      pageSize: number
+    } = {
+      total: 0,
+      currentPage: 1,
+      pageSize: 10,
+      slots: {
+        left: 'pagerLeft'
+      }
+    }
 
-const pageVO = reactive({
-  total: 0,
-  currentPage: 1,
-  pageSize: 10
+    const gridOptions: VxeGridProps<RowVO> = {
+      showOverflow: true,
+      loading: false,
+      border: true,
+      height: 500,
+      pagerConfig,
+      columns: [
+        { type: 'seq', width: 70 },
+        { field: 'name', title: 'Name' },
+        { field: 'sex', title: 'Sex' },
+        { field: 'age', title: 'Age' },
+        { field: 'time', title: 'Time' },
+        { field: 'address', title: 'Address' }
+      ],
+      data: []
+    }
+
+    return {
+      gridOptions,
+      pagerConfig
+    }
+  },
+  methods: {
+    // 前端分页
+    handlePageData () {
+      this.gridOptions.loading = true
+      setTimeout(() => {
+        const { pageSize, currentPage } = this.pagerConfig
+        this.pagerConfig.total = AllList.length
+        this.gridOptions.data = AllList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+        this.gridOptions.loading = false
+      }, 100)
+    },
+    pageChangeEvent ({ pageSize, currentPage }) {
+      this.pagerConfig.currentPage = currentPage
+      this.pagerConfig.pageSize = pageSize
+      this.handlePageData()
+    }
+  },
+  created () {
+    this.handlePageData()
+  }
 })
-
-const gridOptions = reactive<VxeGridProps<RowVO>>({
-  showOverflow: true,
-  loading: false,
-  border: true,
-  height: 500,
-  columns: [
-    { type: 'seq', width: 70, fixed: 'left' },
-    { field: 'name', title: 'Name', minWidth: 160 },
-    { field: 'email', title: 'Email', minWidth: 160 },
-    { field: 'nickname', title: 'Nickname', minWidth: 160 },
-    { field: 'age', title: 'Age', width: 100 },
-    { field: 'role', title: 'Role', minWidth: 160 },
-    { field: 'amount', title: 'Amount', width: 140 },
-    { field: 'updateDate', title: 'Update Date', visible: false },
-    { field: 'createDate', title: 'Create Date', visible: false }
-  ],
-  data: [
-    { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-    { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-    { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-    { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
-  ]
-})
-
-const pageChange: VxePagerEvents.PageChange = ({ pageSize, currentPage }) => {
-  pageVO.currentPage = currentPage
-  pageVO.pageSize = pageSize
-  handlePageData()
-}
-
-handlePageData()
 </script>

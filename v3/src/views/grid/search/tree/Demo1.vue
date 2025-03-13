@@ -22,37 +22,37 @@ interface RowVO {
   children?: RowVO[]
 }
 
-export default Vue.extend({
-  data () {
-    const tableAllData: RowVO[] = [
-      { id: 1000, name: 'Test1', type: 'mp3', size: 1024, date: '2020-08-01' },
+const allData: RowVO[] = [
+  { id: 1000, name: 'Test1', type: 'mp3', size: 1024, date: '2020-08-01' },
+  {
+    id: 1005,
+    name: 'Test2',
+    type: 'mp4',
+    size: 0,
+    date: '2021-04-01',
+    children: [
+      { id: 24300, name: 'Test3', type: 'avi', size: 1024, date: '2020-03-01' },
+      { id: 20045, name: 'Test4', type: 'html', size: 600, date: '2021-04-01' },
       {
-        id: 1005,
-        name: 'Test2',
-        type: 'mp4',
+        id: 10053,
+        name: 'Test96',
+        type: 'avi',
         size: 0,
         date: '2021-04-01',
         children: [
-          { id: 24300, name: 'Test3', type: 'avi', size: 1024, date: '2020-03-01' },
-          { id: 20045, name: 'Test4', type: 'html', size: 600, date: '2021-04-01' },
-          {
-            id: 10053,
-            name: 'Test96',
-            type: 'avi',
-            size: 0,
-            date: '2021-04-01',
-            children: [
-              { id: 24330, name: 'Test5', type: 'txt', size: 25, date: '2021-10-01' },
-              { id: 21011, name: 'Test6', type: 'pdf', size: 512, date: '2020-01-01' },
-              { id: 22200, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
-            ]
-          }
+          { id: 24330, name: 'Test5', type: 'txt', size: 25, date: '2021-10-01' },
+          { id: 21011, name: 'Test6', type: 'pdf', size: 512, date: '2020-01-01' },
+          { id: 22200, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
         ]
-      },
-      { id: 23666, name: 'Test8', type: 'xlsx', size: 2048, date: '2020-11-01' },
-      { id: 24555, name: 'Test9', type: 'avi', size: 224, date: '2020-10-01' }
+      }
     ]
+  },
+  { id: 23666, name: 'Test8', type: 'xlsx', size: 2048, date: '2020-11-01' },
+  { id: 24555, name: 'Test9', type: 'avi', size: 224, date: '2020-10-01' }
+]
 
+export default Vue.extend({
+  data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 400,
@@ -75,8 +75,7 @@ export default Vue.extend({
 
     return {
       gridOptions,
-      filterName: '',
-      tableAllData
+      filterName: ''
     }
   },
   methods: {
@@ -84,15 +83,15 @@ export default Vue.extend({
       const filterVal = XEUtils.toValueString(this.filterName).trim().toLowerCase()
       if (filterVal) {
         const filterRE = new RegExp(filterVal, 'gi')
-        const options = { children: 'children' }
         const searchProps = ['name', 'size', 'type', 'date']
-        // 搜索为克隆数据，不会污染源数据
-        const rest = XEUtils.searchTree(this.tableAllData, item => searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1), options)
+        const rest = XEUtils.searchTree(allData, item => {
+          return searchProps.some(key => String(item[key]).toLowerCase().indexOf(filterVal) > -1)
+        }, { children: 'children' })
         XEUtils.eachTree(rest, item => {
           searchProps.forEach(key => {
             item[key] = String(item[key]).replace(filterRE, match => `<span class="keyword-highlight">${match}</span>`)
           })
-        }, options)
+        }, { children: 'children' })
         this.gridOptions.data = rest
         // 搜索之后默认展开所有子节点
         this.$nextTick(() => {
@@ -102,7 +101,7 @@ export default Vue.extend({
           }
         })
       } else {
-        this.gridOptions.data = this.tableAllData
+        this.gridOptions.data = allData
       }
     },
     // 节流函数,间隔500毫秒触发搜索

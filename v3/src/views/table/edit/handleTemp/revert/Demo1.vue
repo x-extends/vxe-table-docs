@@ -1,7 +1,7 @@
 <template>
   <div>
-    <vxe-button status="success" @click="revertAllEvent">恢复全部</vxe-button>
-    <vxe-button status="success" @click="revertRow(tableData[1])">恢复Test2</vxe-button>
+    <vxe-button status="primary" @click="revertAllEvent">恢复全部</vxe-button>
+    <vxe-button status="primary" @click="revertRow(tableData[1])">恢复Test2</vxe-button>
     <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
 
     <vxe-table
