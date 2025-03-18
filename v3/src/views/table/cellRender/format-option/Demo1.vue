@@ -33,7 +33,7 @@ export default Vue.extend({
     ]
 
     const sexCellRender: VxeColumnPropTypes.CellRender = {
-      name: 'formatOption',
+      name: 'FormatSelect',
       options: [
         { label: '女', value: '0' },
         { label: '男', value: '1' }

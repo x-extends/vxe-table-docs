@@ -32,7 +32,7 @@ export default Vue.extend({
     ]
 
     const cityCellRender: VxeColumnPropTypes.CellRender = {
-      name: 'formatTree',
+      name: 'FormatTreeSelect',
       options: [
         {
           label: '广东省',

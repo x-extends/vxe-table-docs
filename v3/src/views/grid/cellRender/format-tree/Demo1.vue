@@ -18,7 +18,7 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const cityCellRender: VxeColumnPropTypes.CellRender = {
-      name: 'formatTree',
+      name: 'FormatTreeSelect',
       options: [
         {
           label: '广东省',

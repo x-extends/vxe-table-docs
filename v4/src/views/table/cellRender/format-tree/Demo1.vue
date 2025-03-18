@@ -23,7 +23,7 @@ interface RowVO {
 }
 
 const cityCellRender = reactive<VxeColumnPropTypes.CellRender>({
-  name: 'formatTree',
+  name: 'FormatTreeSelect',
   options: [
     {
       label: '广东省',

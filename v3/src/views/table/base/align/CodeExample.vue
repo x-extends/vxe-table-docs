@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="table/base/align/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="对齐方式">通过 <ApiLink name="column" prop="align"/> 设置表格整体对齐方式</vxe-tip>
+        <vxe-tip status="primary" title="对齐方式">通过 <ApiLink name="column" prop="align"/> 设置指定列的对齐方式</vxe-tip>
       </template>
     </CodeLight>
 
