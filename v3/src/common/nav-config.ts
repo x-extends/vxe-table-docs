@@ -551,7 +551,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '使用分组表头', routerLink: { name: 'ComponentTableScrollGroup' } },
             { title: '按键导航', routerLink: { name: 'ComponentTableScrollKeyboard' } },
             { title: '单元格合并', routerLink: { name: 'ComponentTableScrollMerge' } },
-            { title: '树形 + 横向', routerLink: { name: 'ComponentTableScrollTree' } },
+            { title: '树形 + 纵向', routerLink: { name: 'ComponentTableScrollTree' } },
             { title: '可编辑 + 横向', routerLink: { name: 'ComponentTableScrollEdit' } },
             { title: '可编辑 + 纵向和横向', routerLink: { name: 'ComponentTableScrollHVEdit' } }
           ]
@@ -1229,7 +1229,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '展开行', routerLink: { name: 'ComponentGridScrollExpand' } },
             { title: '展开行 + 复杂子表渲染', routerLink: { name: 'ComponentGridScrollExpandFixed' } },
             { title: '可编辑 + 纵向', routerLink: { name: 'ComponentGridScrollEdit' } },
-            { title: '可编辑 + 纵向和横向', routerLink: { name: 'ComponentGridScrollHVEdit' } }
+            { title: '可编辑 + 纵向和横向', routerLink: { name: 'ComponentGridScrollHVEdit' } },
+            { title: '百万级数据量', routerLink: { name: 'ComponentGridScrollBigData' } }
           ]
         },
         {

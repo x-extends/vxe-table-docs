@@ -154,18 +154,8 @@ export default Vue.extend({
         $table.setCurrentRow(row)
       }
     },
-    contextMenuClickEvent ({ menu, row, column }) {
-      switch (menu.code) {
-        case 'copy':
-          if (row && column) {
-            if (VxeUI.clipboard.copy(row[column.field])) {
-              VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
-            }
-          }
-          break
-        default:
-          VxeUI.modal.message({ content: `点击了 "${menu.name}"`, status: 'info' })
-      }
+    contextMenuClickEvent ({ menu }) {
+      VxeUI.modal.message({ content: `点击了 "${menu.name}"`, status: 'info' })
     }
   }
 })

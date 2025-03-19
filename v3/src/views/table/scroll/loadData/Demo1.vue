@@ -1,9 +1,11 @@
 <template>
   <div>
-    <vxe-button @click="loadList(5000)">加载5k条</vxe-button>
+    <vxe-button @click="loadList(5)">加载5条</vxe-button>
+    <vxe-button @click="loadList(1000)">加载1k条</vxe-button>
     <vxe-button @click="loadList(10000)">加载1w条</vxe-button>
     <vxe-button @click="loadList(50000)">加载5w条</vxe-button>
-    <vxe-button @click="loadList(150000)">加载15w条</vxe-button>
+    <vxe-button @click="loadList(100000)">加载10w条</vxe-button>
+    <vxe-button @click="loadList(300000)">加载30w条</vxe-button>
     <vxe-table
       border
       show-overflow

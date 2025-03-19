@@ -1,19 +1,22 @@
 <template>
   <div>
     <p>
-      <vxe-button @click="loadDataAndColumns(100, 50)">100行50列</vxe-button>
-      <vxe-button @click="loadDataAndColumns(1000, 80)">1k行80列</vxe-button>
+      <vxe-button @click="loadDataAndColumns(5, 50)">5行50列</vxe-button>
+      <vxe-button @click="loadDataAndColumns(1000, 12)">1k行12列</vxe-button>
       <vxe-button @click="loadDataAndColumns(5000, 100)">5k行100列</vxe-button>
       <vxe-button @click="loadDataAndColumns(10000, 150)">1w行150列</vxe-button>
-      <vxe-button @click="loadDataAndColumns(30000, 200)">3w行200列</vxe-button>
+      <vxe-button @click="loadDataAndColumns(50000, 200)">5w行200列</vxe-button>
+      <vxe-button @click="loadDataAndColumns(100000, 200)">10w行200列</vxe-button>
+      <vxe-button @click="loadDataAndColumns(300000, 1000)">30w行200列</vxe-button>
     </p>
     <p>
+      <vxe-button @click="loadDataAndColumns(5, 12)">5行12列</vxe-button>
       <vxe-button @click="loadDataAndColumns(50, 50)">50行100列</vxe-button>
       <vxe-button @click="loadDataAndColumns(80, 1000)">80行1k列</vxe-button>
       <vxe-button @click="loadDataAndColumns(100, 5000)">100行5k列</vxe-button>
       <vxe-button @click="loadDataAndColumns(150, 10000)">200行1w列</vxe-button>
       <vxe-button @click="loadDataAndColumns(200, 30000)">200行3w列</vxe-button>
-      <vxe-button @click="loadDataAndColumns(10, 100000)">200行3w列</vxe-button>
+      <vxe-button @click="loadDataAndColumns(1000, 50000)">200行5w列</vxe-button>
     </p>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -65,7 +68,7 @@ const loadDataAndColumns = (rowSize: number, colSize: number) => {
       const item: RowVO = {
         id: 10000 + i
       }
-      for (let j = 0; j < colList.length; j++) {
+      for (let j = 0; j < 20; j++) {
         item[`col${j}`] = `值_${i}_${j}`
       }
       dataList.push(item)

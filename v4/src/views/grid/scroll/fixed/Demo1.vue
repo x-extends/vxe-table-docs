@@ -3,6 +3,7 @@
     <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
     <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
     <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
+    <vxe-button @click="loadData(100000)">加载10w条</vxe-button>
     <vxe-grid v-bind="gridOptions">
       <template #status="{ row }">
         <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>

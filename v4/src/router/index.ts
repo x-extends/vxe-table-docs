@@ -3143,6 +3143,7 @@ const gridRouteConfig: RouteRecordRaw = {
         },
         {
           path: 'checkbox',
+          component: RouteLayout,
           children: [
             {
               path: 'base',
@@ -4108,6 +4109,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'hvEdit',
           name: 'ComponentGridScrollHVEdit',
           component: () => import('@/views/grid/scroll/hvEdit/CodeExample.vue')
+        },
+        {
+          path: 'bigData',
+          name: 'ComponentGridScrollBigData',
+          component: () => import('@/views/grid/scroll/bigData/CodeExample.vue')
         }
       ]
     },

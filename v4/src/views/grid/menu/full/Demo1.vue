@@ -99,31 +99,8 @@ const gridEvents: VxeGridListeners<RowVO> = {
       $grid.setCurrentRow(row)
     }
   },
-  menuClick ({ menu, row, column }) {
-    const $grid = gridRef.value
-    if ($grid) {
-      switch (menu.code) {
-        case 'copy':
-          if (row && column) {
-            if (VxeUI.clipboard.copy(row[column.field])) {
-              VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
-            }
-          }
-          break
-        case 'clear':
-          $grid.clearData(row, column.field)
-          break
-        case 'myPrint':
-          $grid.print()
-          break
-        case 'myExport':
-          $grid.exportData()
-          break
-        default:
-          VxeUI.modal.message({ content: `点击了 ${menu.code}`, status: 'success' })
-          break
-      }
-    }
+  menuClick ({ menu }) {
+    VxeUI.modal.message({ content: `点击了 ${menu.code}`, status: 'success' })
   }
 }
 </script>

@@ -113,11 +113,7 @@ const gridEvents: VxeGridListeners<RowVO> = {
     if ($grid) {
       switch (menu.code) {
         case 'copy':
-          if (row && column) {
-            if (VxeUI.clipboard.copy(row[column.field])) {
-              VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
-            }
-          }
+          VxeUI.modal.message({ content: `点击了 "${menu.name}"`, status: 'info' })
           break
         case 'clear':
           $grid.clearData(row, column.field)

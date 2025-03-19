@@ -69,7 +69,7 @@ export default Vue.extend({
           const item: RowVO = {
             id: 10000 + i
           }
-          for (let j = 0; j < colList.length; j++) {
+          for (let j = 0; j < 20; j++) {
             item[`col${j}`] = `值_${i}_${j}`
           }
           dataList.push(item)

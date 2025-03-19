@@ -149,17 +149,7 @@ const cellContextMenuEvent: VxeTableEvents.CellMenu<RowVO> = ({ row }) => {
   }
 }
 
-const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu, row, column }) => {
-  switch (menu.code) {
-    case 'copy':
-      if (row && column) {
-        if (VxeUI.clipboard.copy(row[column.field])) {
-          VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
-        }
-      }
-      break
-    default:
-      VxeUI.modal.message({ content: `点击了 "${menu.name}"`, status: 'info' })
-  }
+const contextMenuClickEvent: VxeTableEvents.MenuClick<RowVO> = ({ menu }) => {
+  VxeUI.modal.message({ content: `点击了 "${menu.name}"`, status: 'info' })
 }
 </script>

@@ -1,7 +1,9 @@
 <template>
   <div>
-    <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
+    <vxe-button @click="loadData(5)">加载5条</vxe-button>
+    <vxe-button @click="loadData(1000)">加载1k条</vxe-button>
     <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
+    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
     <vxe-table
       border
       show-footer

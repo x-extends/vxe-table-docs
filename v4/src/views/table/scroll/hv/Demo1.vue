@@ -1,11 +1,13 @@
 <template>
   <div>
     <p>
+      <vxe-button @click="loadData(5)">加载5行</vxe-button>
       <vxe-button @click="loadData(500)">加载500行</vxe-button>
-      <vxe-button @click="loadData(1000)">加载1k行</vxe-button>
       <vxe-button @click="loadData(5000)">加载5k行</vxe-button>
       <vxe-button @click="loadData(10000)">加载1w行</vxe-button>
-      <vxe-button @click="loadData(30000)">加载3w行</vxe-button>
+      <vxe-button @click="loadData(50000)">加载5w行</vxe-button>
+      <vxe-button @click="loadData(100000)">加载10w行</vxe-button>
+      <vxe-button @click="loadData(300000)">加载30w行</vxe-button>
     </p>
     <vxe-table
       border
@@ -98,7 +100,7 @@ const loadData = (rowSize: number) => {
       const item: RowVO = {
         id: 10000 + i
       }
-      for (let j = 0; j < 60; j++) {
+      for (let j = 0; j < 20; j++) {
         item[`col${j}`] = `值_${i}_${j}`
       }
       dataList.push(item)

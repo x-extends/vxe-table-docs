@@ -3,11 +3,11 @@
     <p>
       <vxe-button @click="loadList(5)">5行</vxe-button>
       <vxe-button @click="loadList(1000)">1k行</vxe-button>
-      <vxe-button @click="loadList(5000)">5k行</vxe-button>
       <vxe-button @click="loadList(10000)">1w行</vxe-button>
-      <vxe-button @click="loadList(50000)">5w行</vxe-button>
       <vxe-button @click="loadList(100000)">10w行</vxe-button>
-      <vxe-button @click="loadList(300000)">30w行</vxe-button>
+      <vxe-button @click="loadList(500000)">50w行</vxe-button>
+      <vxe-button @click="loadList(1000000)">100w行</vxe-button>
+      <vxe-button @click="loadList(2000000)">200w行</vxe-button>
     </p>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -32,6 +32,9 @@ export default Vue.extend({
       showOverflow: true,
       height: 800,
       loading: false,
+      columnConfig: {
+        resizable: true
+      },
       scrollY: {
         enabled: true,
         gt: 0
@@ -80,7 +83,6 @@ export default Vue.extend({
         }
       }, 350)
     }
-
   },
   created () {
     this.loadList(500)
