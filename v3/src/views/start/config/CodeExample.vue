@@ -132,6 +132,7 @@
                   // remote: false,
                   // filterMethod: null,
                   // destroyOnClose: false,
+                  // isEvery: false,
                   showIcon: true
                 },
                 treeConfig: {
