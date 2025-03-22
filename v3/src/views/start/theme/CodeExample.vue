@@ -34,13 +34,29 @@
           <pre-code class="css">
             // 默认主题
             html[data-vxe-ui-theme="light"] {
+              // 字体颜色
               --vxe-ui-font-color: #606266;
+              // 主题颜色
               --vxe-ui-font-primary-color: #409eff;
+
+              // 活动颜色
+              --vxe-ui-font-primary-tinge-color: #d4d5d7;
+              // 松开颜色
+              --vxe-ui-font-primary-lighten-color: #797b80;
+              // 按下颜色
+              --vxe-ui-font-primary-darken-color: #47494c;
+              // 禁用颜色
+              --vxe-ui-font-primary-disabled-color: #BFBFBF;
             }
             // 暗黑主题
             html[data-vxe-ui-theme="dark"] {
               --vxe-ui-font-color: #a0a3a7;
               --vxe-ui-font-primary-color: #409eff;
+
+              --vxe-ui-font-primary-tinge-color: #33353b;
+              --vxe-ui-font-primary-lighten-color: #797b80;
+              --vxe-ui-font-primary-darken-color: #47494c;
+              --vxe-ui-font-primary-disabled-color: #464646;
             }
           </pre-code>
         </pre>
