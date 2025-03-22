@@ -9,7 +9,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             import { VxeUI } from 'vxe-table'
 
             // 切换为默认主题
@@ -31,7 +31,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="css">
+          <pre-code language="css">
             // 默认主题
             html[data-vxe-ui-theme="light"] {
               // 字体颜色
@@ -72,7 +72,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="css">
+          <pre-code language="css">
             // 给 html 加对应的 class 就可以生效，例如 my-theme，然后修改css变量
             html.my-theme {
               --vxe-ui-font-color: #999999,
@@ -92,7 +92,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="css">
+          <pre-code language="css">
             @use 'vxe-table/styles/variable.scss' as vxe_table_variable with (
               $vxe-ui-font-color: #999999,
               $vxe-ui-font-primary-color: #ff0000
