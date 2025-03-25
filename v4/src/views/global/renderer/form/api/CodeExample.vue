@@ -9,7 +9,7 @@
       <div class="orange">支持通过 JSX 自定义渲染，返回数组格式的 JSX。实际开发中应该将业务封装成一个组件，不要把复杂的渲染逻辑写在渲染器中，渲染器只负责表格与自定义组件之间的对接关系</div>
     </vxe-tip>
     <vxe-tip status="error" title="难点提示">
-      <div>渲染器的实现难度极高，不适合初级使用，出错将会全局影响功能、问题排查难度较高</div>
+      <div>先检查是否配置好 <vxe-link href="https://cn.vuejs.org/guide/extras/render-function.html#jsx-tsx" target="_blank">jsx/tsx</vxe-link> 运行环境，如果没配置将无法使用。渲染器的实现难度极高，不适合初级使用，出错将会全局影响功能、问题排查难度较高</div>
     </vxe-tip>
     <vxe-tip status="success">
       <div>调用方式： VxeUI.renderer.add(code, options)</div>

@@ -196,6 +196,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '筛选',
           children: [
             { title: '服务端筛选', routerLink: { name: 'ComponentTableFilterRemote' } },
+            { title: '树结构', routerLink: { name: 'ComponentTableFilterTree' } },
             { title: '手动弹出', routerLink: { name: 'ComponentTableFilterManual' } },
             { title: '手动筛选', routerLink: { name: 'ComponentTableFilterSetFilter' } },
             { title: '实现列头筛选', routerLink: { name: 'ComponentTableFilterHeaderFilter' } },
@@ -651,6 +652,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '将多行进行合并', routerLink: { name: 'ComponentGridMergeRow' } },
             { title: '将多列进行合并', routerLink: { name: 'ComponentGridMergeColumn' } },
             { title: '合并行与列', routerLink: { name: 'ComponentGridMergeAll' } },
+            { title: '自定义合并行与列', routerLink: { name: 'ComponentGridMergeSpanMethod' } },
             { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } },
             { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } },
             { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaMerge' } } }
@@ -809,7 +811,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '筛选',
           children: [
             { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } },
-            { title: '树结构筛选', routerLink: { name: 'ComponentGridFilterTree' } },
+            { title: '树结构', routerLink: { name: 'ComponentGridFilterTree' } },
             { title: '手动弹出', routerLink: { name: 'ComponentGridFilterManual' } },
             { title: '手动筛选', routerLink: { name: 'ComponentGridFilterSetFilter' } },
             { title: '实现列头筛选', routerLink: { name: 'ComponentGridFilterHeaderFilter' } },

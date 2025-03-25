@@ -64,8 +64,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'VxeInput' } },
-    { field: 'currUser', title: '下拉树单选', width: 200, editRender: currUserEditRender },
-    { field: 'currUserList', title: '下拉树多选', width: 200, editRender: currUserListEditRender }
+    { field: 'currUser', title: '下拉表格单选', width: 200, editRender: currUserEditRender },
+    { field: 'currUserList', title: '下拉表格多选', width: 200, editRender: currUserListEditRender }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', currUser: null, currUserList: [] },

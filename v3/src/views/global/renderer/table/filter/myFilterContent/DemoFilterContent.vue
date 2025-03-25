@@ -56,7 +56,7 @@ export default Vue.extend({
       const { params } = this
       if (params) {
         const { $table, column } = params
-        const { fullData } = $table.getTableData()
+        const fullData = $table.getFullData()
         const option = column.filters[0]
         const { vals } = option.data
         const colValList = Object.keys(XEUtils.groupBy(fullData, column.field)).map((val) => {

@@ -171,7 +171,7 @@ const toColTreeData = (treeData: any[]) => {
   tableData.value = list
 }
 
-// 通用行合并函数（将相同多列数据合并为一行）
+// 通用行合并函数（将多行相同字段的数据合并为一行）
 const rowspanMethod: VxeTablePropTypes.SpanMethod = ({ row, _rowIndex, column, visibleData }) => {
   const fields = ['name1', 'name2', 'name3']
   const cellValue = row[column.field]

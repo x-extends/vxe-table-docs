@@ -6,7 +6,7 @@
       :expand-config="{padding: true}"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
-      <vxe-column type="expand" width="80" :content-render="{name: 'MyExpandTable'}"></vxe-column>
+      <vxe-column type="expand" width="80" :content-render="expandContentRender"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
       <vxe-column field="sex" title="sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -56,8 +56,13 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', sex: 'Women', age: 23, subList: [] }
     ]
 
+    const expandContentRender = {
+      name: 'MyExpandTable'
+    }
+
     return {
-      tableData
+      tableData,
+      expandContentRender
     }
   }
 })
