@@ -25,6 +25,7 @@ export default Vue.extend({
         {
           field: 'name',
           title: 'Name',
+          minWidth: 500,
           filters: [
             { data: '' }
           ],
@@ -35,6 +36,7 @@ export default Vue.extend({
         {
           field: 'sex',
           title: 'Sex',
+          width: 200,
           filters: [
             { data: '' }
           ],
@@ -42,7 +44,7 @@ export default Vue.extend({
             name: 'MyTableFilterInput'
           }
         },
-        { field: 'age', title: 'Age' }
+        { field: 'age', title: 'Age', width: 300 }
       ],
       data: [
         { id: 10001, name: 'Test1', sex: 'Man', age: 28 },

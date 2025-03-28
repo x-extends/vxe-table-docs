@@ -24,23 +24,28 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'id', title: 'ID', width: 100 },
     { field: 'name', title: 'Name', minWidth: 400 },
     {
-      field: 'sex',
-      title: 'Sex',
-      minWidth: 200,
-      filterMultiple: false,
-      filters: [
-        { label: 'Man', value: 'Man' },
-        { label: 'Woman', value: 'Woman' }
-      ]
-    },
-    {
-      field: 'age',
-      title: 'Age',
-      minWidth: 200,
-      filters: [
-        { label: '28', value: 28 },
-        { label: '22', value: 22, checked: true },
-        { label: '38', value: 38 }
+      title: '分组1',
+      children: [
+        {
+          field: 'sex',
+          title: 'Sex',
+          minWidth: 200,
+          filterMultiple: false,
+          filters: [
+            { label: 'Man', value: 'Man' },
+            { label: 'Woman', value: 'Woman' }
+          ]
+        },
+        {
+          field: 'age',
+          title: 'Age',
+          minWidth: 200,
+          filters: [
+            { label: '28', value: 28 },
+            { label: '22', value: 22, checked: true },
+            { label: '38', value: 38 }
+          ]
+        }
       ]
     },
     { field: 'attr1', title: 'Attr1', minWidth: 400 },

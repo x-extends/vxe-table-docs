@@ -584,7 +584,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '在页签中使用', routerLink: { name: 'ComponentTableOtherTabs' } },
             { title: '实现多行文本溢出省略', routerLink: { name: 'ComponentTableOtherLineEllipsis' } },
-            { title: '实现记账凭证', routerLink: { name: 'ComponentTableOtherBookkeepingVoucher' } }
+            { title: '实现记账凭证', routerLink: { name: 'ComponentTableOtherBookkeepingVoucher' } },
+            { title: '实现左边树和右边表格', routerLink: { name: 'ComponentTableOtherLeftRight' } }
           ]
         }
       ]

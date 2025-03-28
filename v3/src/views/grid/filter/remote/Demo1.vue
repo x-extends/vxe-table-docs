@@ -30,10 +30,11 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name' },
+        { field: 'name', title: 'Name', minWidth: 300 },
         {
           field: 'role',
           title: 'Role',
+          width: 240,
           filters: [
             { label: 'Develop', value: 'Develop' },
             { label: 'Test', value: 'Test' },
@@ -41,9 +42,9 @@ export default Vue.extend({
             { label: 'Designer', value: 'Designer' }
           ]
         },
-        { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' },
-        { field: 'address', title: 'Address' }
+        { field: 'sex', title: 'Sex', width: 200 },
+        { field: 'age', title: 'Age', width: 200 },
+        { field: 'address', title: 'Address', width: 300 }
       ],
       data: []
     }

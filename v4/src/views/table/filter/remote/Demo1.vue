@@ -8,11 +8,11 @@
       :filter-config="{remote: true}"
       @filter-change="filterChangeEvent">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="Role" :filters="roleOptions"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
-      <vxe-column field="address" title="Address"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="300"></vxe-column>
+      <vxe-column field="role" title="Role" width="240" :filters="roleOptions"></vxe-column>
+      <vxe-column field="sex" title="Sex" width="200"></vxe-column>
+      <vxe-column field="age" title="Age" width="200"></vxe-column>
+      <vxe-column field="address" title="Address" width="300"></vxe-column>
     </vxe-table>
   </div>
 </template>

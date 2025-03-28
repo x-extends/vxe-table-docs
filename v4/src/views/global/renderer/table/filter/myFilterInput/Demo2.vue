@@ -23,6 +23,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     {
       field: 'name',
       title: 'Name',
+      minWidth: 500,
       filters: [
         { data: '' }
       ],
@@ -33,6 +34,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     {
       field: 'sex',
       title: 'Sex',
+      width: 200,
       filters: [
         { data: '' }
       ],
@@ -40,7 +42,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         name: 'MyTableFilterInput'
       }
     },
-    { field: 'age', title: 'Age' }
+    { field: 'age', title: 'Age', width: 300 }
   ],
   data: [
     { id: 10001, name: 'Test1', sex: 'Man', age: 28 },

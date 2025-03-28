@@ -1931,21 +1931,10 @@ const tableRouteConfig: RouteConfig = {
       path: 'other',
       component: RouteLayout,
       children: [
-        {
-          path: 'tabs',
-          name: 'ComponentTableOtherTabs',
-          component: () => import('@/views/table/other/tabs/CodeExample.vue')
-        },
-        {
-          path: 'lineEllipsis',
-          name: 'ComponentTableOtherLineEllipsis',
-          component: () => import('@/views/table/other/lineEllipsis/CodeExample.vue')
-        },
-        {
-          path: 'bookkeepingVoucher',
-          name: 'ComponentTableOtherBookkeepingVoucher',
-          component: () => import('@/views/table/other/bookkeepingVoucher/CodeExample.vue')
-        }
+        { path: 'tabs', name: 'ComponentTableOtherTabs', component: () => import('@/views/table/other/tabs/CodeExample.vue') },
+        { path: 'lineEllipsis', name: 'ComponentTableOtherLineEllipsis', component: () => import('@/views/table/other/lineEllipsis/CodeExample.vue') },
+        { path: 'bookkeepingVoucher', name: 'ComponentTableOtherBookkeepingVoucher', component: () => import('@/views/table/other/bookkeepingVoucher/CodeExample.vue') },
+        { path: 'leftRight', name: 'ComponentTableOtherLeftRight', component: () => import('@/views/table/other/leftRight/CodeExample.vue') }
       ]
     }
   ]
