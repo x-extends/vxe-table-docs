@@ -30,6 +30,9 @@
     <CodeLight path="table/base/width/Demo5">
       <template #tip>
         <vxe-tip status="primary">根据内容自适应宽度</vxe-tip>
+        <vxe-tip status="error">
+          需要注意，由于虚拟滚动是可视区渲染的，所以自适应列宽功能不支持虚拟滚动，需要关闭虚拟滚动才能使用
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>
