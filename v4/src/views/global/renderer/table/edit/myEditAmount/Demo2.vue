@@ -15,8 +15,17 @@ interface RowVO {
   num: number
 }
 
+const amountEditRender = reactive({
+  name: 'MyTableEditAmount'
+})
+
+const numEditRender = reactive({
+  name: 'MyTableEditAmount'
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  showOverflow: true,
   height: 300,
   editConfig: {
     trigger: 'click',
@@ -25,8 +34,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 50 },
     { field: 'name', title: 'name' },
-    { field: 'amount', title: 'Amount', editRender: { name: 'MyTableEditAmount' } },
-    { field: 'num', title: 'Num', editRender: { name: 'MyTableEditAmount' } }
+    { field: 'amount', title: 'Amount', editRender: amountEditRender },
+    { field: 'num', title: 'Num', editRender: numEditRender }
   ],
   data: [
     { id: 10001, name: 'Test1', amount: '65', num: 28 },

@@ -5,8 +5,8 @@
       height="300"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
-      <vxe-column field="name" title="Name" :filters="roleOptions" :filter-render="{name: 'MyTableFilterComplex'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-render="{name: 'MyTableFilterComplex'}"></vxe-column>
+      <vxe-column field="name" title="Name" :filters="nameOptions" :filter-render="nameFilterRender"></vxe-column>
+      <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-render="sexFilterRender"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
     </vxe-table>
   </div>
@@ -31,18 +31,26 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', sex: 'Women', age: 23 }
     ]
 
-    const roleOptions = [
+    const nameOptions = [
       { data: { type: 'has', name: '' } }
     ]
+    const nameFilterRender = {
+      name: 'MyTableFilterComplex'
+    }
 
     const sexOptions = [
       { data: { type: 'has', name: '' } }
     ]
+    const sexFilterRender = {
+      name: 'MyTableFilterComplex'
+    }
 
     return {
       tableData,
-      roleOptions,
-      sexOptions
+      nameOptions,
+      nameFilterRender,
+      sexOptions,
+      sexFilterRender
     }
   }
 })

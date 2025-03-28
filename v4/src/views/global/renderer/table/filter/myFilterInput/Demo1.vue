@@ -5,15 +5,15 @@
       height="300"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
-      <vxe-column field="name" title="Name" :filters="nameOptions" :filter-render="{name: 'MyTableFilterInput'}"></vxe-column>
-      <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-render="{name: 'MyTableFilterInput'}"></vxe-column>
+      <vxe-column field="name" title="Name" :filters="nameOptions" :filter-render="nameFilterRender"></vxe-column>
+      <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-render="sexFilterRender"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 interface RowVO {
   id: number
@@ -32,8 +32,14 @@ const tableData = ref<RowVO[]>([
 const nameOptions = ref([
   { data: '' }
 ])
+const nameFilterRender = reactive({
+  name: 'MyTableFilterInput'
+})
 
 const sexOptions = ref([
   { data: '' }
 ])
+const sexFilterRender = reactive({
+  name: 'MyTableFilterInput'
+})
 </script>

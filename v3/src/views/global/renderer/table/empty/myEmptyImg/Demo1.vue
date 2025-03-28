@@ -4,7 +4,7 @@
       border
       height="300"
       :loading="loading"
-      :empty-render="{name: 'MyTableEmptyImg'}"
+      :empty-render="emptyRender"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -33,9 +34,14 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', amount: '12', num: 23 }
     ]
 
+    const emptyRender: VxeTablePropTypes.EmptyRender = {
+      name: 'MyTableEmptyImg'
+    }
+
     return {
       loading: false,
-      tableData
+      tableData,
+      emptyRender
     }
   },
   created () {

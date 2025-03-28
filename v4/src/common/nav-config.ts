@@ -31,6 +31,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
       i18nKey: 'app.aside.menu.tableTableTitle',
       children: [
         { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'table' } } },
+        { title: 'Column API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'column' } } },
         {
           title: '基础功能',
           children: [
@@ -1308,7 +1309,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现分页复选框选择', routerLink: { name: 'ComponentGridOtherPageCheckbox' } },
             { title: '实现记账凭证', routerLink: { name: 'ComponentGridOtherBookkeepingVoucher' } },
             { title: '单元格可拖拽调整宽高', routerLink: { name: 'ComponentGridOtherAllRowColDrag' } },
-            { title: '实现粘贴上传', routerLink: { name: 'ComponentGridOtherPasteToUpload' } }
+            { title: '实现粘贴上传', routerLink: { name: 'ComponentGridOtherPasteToUpload' } },
+            { title: '实现左边树和右边表格', routerLink: { name: 'ComponentGridOtherLeftRight' } }
           ]
         }
       ]

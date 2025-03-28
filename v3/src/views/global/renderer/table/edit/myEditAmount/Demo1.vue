@@ -2,13 +2,14 @@
   <div>
     <vxe-table
       border
+      show-overflow
       height="300"
       :edit-config="{trigger: 'click',mode: 'cell'}"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
-      <vxe-column field="amount" title="Amount" :edit-render="{name: 'MyTableEditAmount'}"></vxe-column>
-      <vxe-column field="num" title="Num" :edit-render="{name: 'MyTableEditAmount'}"></vxe-column>
+      <vxe-column field="amount" title="Amount" :edit-render="amountEditRender"></vxe-column>
+      <vxe-column field="num" title="Num" :edit-render="numEditRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -32,8 +33,18 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', amount: '12', num: 23 }
     ]
 
+    const amountEditRender = {
+      name: 'MyTableEditAmount'
+    }
+
+    const numEditRender = {
+      name: 'MyTableEditAmount'
+    }
+
     return {
-      tableData
+      tableData,
+      amountEditRender,
+      numEditRender
     }
   }
 })

@@ -4,7 +4,7 @@
       border
       height="300"
       :loading="loading"
-      :empty-render="{name: 'MyTableEmptyText'}"
+      :empty-render="emptyRender"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
@@ -15,7 +15,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -26,6 +27,10 @@ interface RowVO {
 
 const tableData = ref<RowVO[]>([])
 const loading = ref(false)
+
+const emptyRender = reactive<VxeTablePropTypes.EmptyRender>({
+  name: 'MyTableEmptyText'
+})
 
 loading.value = true
 setTimeout(() => {

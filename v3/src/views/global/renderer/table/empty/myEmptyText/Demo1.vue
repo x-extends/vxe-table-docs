@@ -4,7 +4,7 @@
       border
       height="300"
       :loading="loading"
-      :empty-render="{name: 'MyTableEmptyText'}"
+      :empty-render="emptyRender"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -29,9 +29,14 @@ export default Vue.extend({
   data () {
     const tableData: RowVO[] = []
 
+    const emptyRender: VxeTablePropTypes.EmptyRender = {
+      name: 'MyTableEmptyText'
+    }
+
     return {
       loading: false,
-      tableData
+      tableData,
+      emptyRender
     }
   },
   created () {

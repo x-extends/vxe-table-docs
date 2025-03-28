@@ -16,8 +16,13 @@ interface RowVO {
   address: string
 }
 
+const nameEditRender = reactive({
+  name: 'MyTableEditPulldown'
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  showOverflow: true,
   height: 300,
   editConfig: {
     trigger: 'click',
@@ -25,7 +30,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 50 },
-    { field: 'name', title: 'name', editRender: { name: 'MyTableEditPulldown' } },
+    { field: 'name', title: 'name', editRender: nameEditRender },
     { field: 'sex', title: 'sex' },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }

@@ -17,8 +17,17 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const amountEditRender = {
+      name: 'MyTableEditAmount'
+    }
+
+    const numEditRender = {
+      name: 'MyTableEditAmount'
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      showOverflow: true,
       height: 300,
       editConfig: {
         trigger: 'click',
@@ -27,8 +36,8 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 50 },
         { field: 'name', title: 'name' },
-        { field: 'amount', title: 'Amount', editRender: { name: 'MyTableEditAmount' } },
-        { field: 'num', title: 'Num', editRender: { name: 'MyTableEditAmount' } }
+        { field: 'amount', title: 'Amount', editRender: amountEditRender },
+        { field: 'num', title: 'Num', editRender: numEditRender }
       ],
       data: [
         { id: 10001, name: 'Test1', amount: '65', num: 28 },
@@ -39,7 +48,9 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      amountEditRender,
+      numEditRender
     }
   }
 })
