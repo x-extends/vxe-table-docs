@@ -1,13 +1,13 @@
 <template>
   <div>
     <vxe-split height="600" border padding>
-      <vxe-split-item width="200" min-width="100">
+      <vxe-split-pane width="200" min-width="100">
         <vxe-tree v-bind="treeOptions" @current-change="currentChangeEvent"></vxe-tree>
-      </vxe-split-item>
+      </vxe-split-pane>
 
-      <vxe-split-item min-width="300">
+      <vxe-split-pane min-width="300">
         <vxe-grid v-bind="gridOptions"></vxe-grid>
-      </vxe-split-item>
+      </vxe-split-pane>
     </vxe-split>
   </div>
 </template>

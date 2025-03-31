@@ -21,6 +21,12 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      scrollX: {
+        enabled: false
+      },
+      scrollY: {
+        enabled: false
+      },
       spanMethod ({ row, rowIndex, column, visibleData }) {
         const spanFields = ['sex', 'address']
         const cellValue = row[column.field]

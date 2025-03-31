@@ -23,11 +23,20 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       height: 300,
+      mouseConfig: {
+        selected: true
+      },
       columnConfig: {
         isCurrent: true
       },
+      currentColumnConfig: {
+        isFollowSelected: true
+      },
       keyboardConfig: {
-        isArrow: true
+        isArrow: true,
+        isEnter: true,
+        isTab: true,
+        isDel: true
       },
       columns: [
         { type: 'seq', width: 70 },

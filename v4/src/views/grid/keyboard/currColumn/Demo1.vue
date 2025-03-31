@@ -20,18 +20,12 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
-  height: 400,
-  mouseConfig: {
-    selected: true
-  },
+  height: 300,
   columnConfig: {
     isCurrent: true
   },
   keyboardConfig: {
-    isArrow: true,
-    isEnter: true,
-    isTab: true,
-    isDel: true
+    isArrow: true
   },
   columns: [
     { type: 'seq', width: 70 },

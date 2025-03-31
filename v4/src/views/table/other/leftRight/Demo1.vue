@@ -1,11 +1,11 @@
 <template>
   <div>
     <vxe-split height="600" border padding>
-      <vxe-split-item width="200" min-width="100">
+      <vxe-split-pane width="200" min-width="100">
         <vxe-tree v-bind="treeOptions" v-on="treeEvents"></vxe-tree>
-      </vxe-split-item>
+      </vxe-split-pane>
 
-      <vxe-split-item min-width="300">
+      <vxe-split-pane min-width="300">
         <vxe-table
           border
           show-overflow
@@ -17,7 +17,7 @@
           <vxe-column field="sex" title="Sex"></vxe-column>
           <vxe-column field="age" title="Age"></vxe-column>
         </vxe-table>
-      </vxe-split-item>
+      </vxe-split-pane>
     </vxe-split>
   </div>
 </template>

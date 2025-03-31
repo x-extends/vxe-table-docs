@@ -21,6 +21,12 @@ let spanFields: string[] = []
 
 const gridOptions = reactive<VxeGridProps<RowVO> & { columns: VxeGridPropTypes.Columns }>({
   border: true,
+  scrollX: {
+    enabled: false
+  },
+  scrollY: {
+    enabled: false
+  },
   spanMethod ({ column }) {
     if (spanFields.includes(column.field)) {
       if (spanFields[0] === column.field) {

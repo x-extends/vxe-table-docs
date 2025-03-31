@@ -24,8 +24,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   mouseConfig: {
     selected: true
   },
-  rowConfig: {
+  columnConfig: {
     isCurrent: true
+  },
+  currentColumnConfig: {
+    isFollowSelected: true
   },
   keyboardConfig: {
     isArrow: true,
