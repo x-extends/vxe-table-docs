@@ -24,6 +24,12 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  virtualXConfig: {
+    enabled: false
+  },
+  virtualYConfig: {
+    enabled: false
+  },
   expandConfig: {
     padding: true,
     mode: 'inside'

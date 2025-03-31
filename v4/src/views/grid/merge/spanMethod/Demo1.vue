@@ -19,10 +19,10 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  scrollX: {
+  virtualXConfig: {
     enabled: false
   },
-  scrollY: {
+  virtualYConfig: {
     enabled: false
   },
   spanMethod ({ row, rowIndex, column, visibleData }) {

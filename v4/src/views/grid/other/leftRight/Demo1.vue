@@ -5,7 +5,7 @@
         <vxe-tree v-bind="treeOptions" v-on="treeEvents"></vxe-tree>
       </vxe-split-pane>
 
-      <vxe-split-pane min-width="300">
+      <vxe-split-pane min-width="300" show-action>
         <vxe-grid v-bind="gridOptions"></vxe-grid>
       </vxe-split-pane>
     </vxe-split>

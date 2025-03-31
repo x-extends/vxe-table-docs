@@ -49,7 +49,10 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> & {data: RowVO[] } = {
       border: true,
       height: 600,
-      scrollY: {
+      virtualXConfig: {
+        enabled: false
+      },
+      virtualYConfig: {
         enabled: false
       },
       columns: [

@@ -21,10 +21,10 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      scrollX: {
+      virtualXConfig: {
         enabled: false
       },
-      scrollY: {
+      virtualYConfig: {
         enabled: false
       },
       spanMethod ({ row, rowIndex, column, visibleData }) {

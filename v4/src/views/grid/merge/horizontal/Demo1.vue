@@ -47,7 +47,10 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   border: true,
   height: 600,
-  scrollY: {
+  virtualXConfig: {
+    enabled: false
+  },
+  virtualYConfig: {
     enabled: false
   },
   columns: [

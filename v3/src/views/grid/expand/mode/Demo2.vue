@@ -26,6 +26,12 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      virtualXConfig: {
+        enabled: false
+      },
+      virtualYConfig: {
+        enabled: false
+      },
       expandConfig: {
         padding: true,
         mode: 'inside'
