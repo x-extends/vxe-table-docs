@@ -3,7 +3,7 @@
     <CodeLight :previewPath="previewUrl">
       <template #describe>
         <div style="text-align: center;">
-          <vxe-button status="error" title="点击查看企业版" @click="openEvent">点击查看</vxe-button>
+          <vxe-button status="error" title="点击在线体验企业版功能" @click="openEvent">点击在线体验</vxe-button>
         </div>
       </template>
     </CodeLight>
