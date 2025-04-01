@@ -4,7 +4,6 @@
       border
       ref="tableRef"
       :row-config="rowConfig"
-      :column-config="columnConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" drag-sort></vxe-column>
       <vxe-column field="role" title="Role" drag-sort></vxe-column>
@@ -41,13 +40,9 @@ export default Vue.extend({
       drag: true
     }
 
-    const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {
-    }
-
     return {
       tableData,
-      rowConfig,
-      columnConfig
+      rowConfig
     }
   }
 })

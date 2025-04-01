@@ -26,7 +26,7 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', width: 300 },
+        { field: 'name', title: 'Name', minWidth: 300 },
         { field: 'role', title: 'Role', width: 300 },
         { field: 'sex', title: 'Sex', width: 200 },
         { field: 'age', title: 'Age', width: 200 },

@@ -21,6 +21,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       showOverflow: true,
+      stripe: true,
       border: 'outer',
       rowConfig: {
         useKey: true

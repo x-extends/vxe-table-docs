@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-table
+      stripe
       show-overflow
       border="outer"
       :row-config="rowConfig"

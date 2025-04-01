@@ -2,8 +2,8 @@
   <div>
     <vxe-table
       border
-      :column-config="{resizable: true}"
-      :tree-config="{transform: true, accordion: true}"
+      :column-config="columnConfig"
+      :tree-config="treeConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -48,8 +49,19 @@ export default Vue.extend({
       { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
     ]
 
+    const columnConfig: VxeTablePropTypes.ColumnConfig = {
+      resizable: true
+    }
+
+    const treeConfig: VxeTablePropTypes.TreeConfig = {
+      transform: true,
+      accordion: true
+    }
+
     return {
-      tableData
+      tableData,
+      columnConfig,
+      treeConfig
     }
   }
 })

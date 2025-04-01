@@ -9,8 +9,8 @@
     <vxe-table
       border="inner"
       ref="tableRef"
-      :column-config="{resizable: true}"
-      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
+      :column-config="columnConfig"
+      :tree-config="treeConfig"
       :data="tableData"
       @toggle-tree-expand="toggleExpandChangeEvent">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -57,8 +57,20 @@ export default Vue.extend({
       { id: 24577, parentId: 24555, name: 'Test18', type: 'js', size: 1024, date: '2021-06-01' }
     ]
 
+    const columnConfig: VxeTablePropTypes.ColumnConfig = {
+      resizable: true
+    }
+
+    const treeConfig: VxeTablePropTypes.TreeConfig = {
+      transform: true,
+      rowField: 'id',
+      parentField: 'parentId'
+    }
+
     return {
-      tableData
+      tableData,
+      columnConfig,
+      treeConfig
     }
   },
   methods: {

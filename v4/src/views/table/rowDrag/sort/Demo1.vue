@@ -5,7 +5,6 @@
       border
       ref="tableRef"
       :row-config="rowConfig"
-      :column-config="columnConfig"
       :data="tableData">
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role" drag-sort></vxe-column>
@@ -40,9 +39,6 @@ const tableData = ref<RowVO[]>([
 
 const rowConfig = reactive<VxeTablePropTypes.RowConfig<RowVO>>({
   drag: true
-})
-
-const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
 })
 
 const resultEvent = () => {

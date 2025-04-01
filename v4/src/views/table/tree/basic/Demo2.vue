@@ -9,8 +9,8 @@
     <vxe-table
       border
       ref="tableRef"
-      :column-config="{resizable: true}"
-      :tree-config="{}"
+      :column-config="columnConfig"
+      :tree-config="treeConfig"
       :data="tableData"
       @toggle-tree-expand="toggleExpandChangeEvent">
       <vxe-column field="name" title="Name" tree-node></vxe-column>
@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -35,6 +35,13 @@ interface RowVO {
 }
 
 const tableRef = ref<VxeTableInstance<RowVO>>()
+
+const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
+  resizable: true
+})
+
+const treeConfig = reactive<VxeTablePropTypes.TreeConfig>({
+})
 
 const tableData = ref<RowVO[]>([
   { id: 1000, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
