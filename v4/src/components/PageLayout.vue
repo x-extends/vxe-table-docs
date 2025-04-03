@@ -7,7 +7,7 @@
       <VxeLayoutAside class="layout-aside" width="360" :collapsed="!showLeft">
         <PageAside />
       </VxeLayoutAside>
-      <VxeLayoutContainer class="layout-content-container" vertical>
+      <VxeLayoutContainer class="layout-content-container page-container" vertical>
         <VxeLayoutBody class="layout-body">
           <RouterView />
         </VxeLayoutBody>

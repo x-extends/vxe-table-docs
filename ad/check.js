@@ -2,8 +2,8 @@ var msg = decodeURIComponent('%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83%E4%B8%8D%E6%9
 var readAdKey = 'VXETABLE_ADVERTISING_AGREEMENT'
 var showFlag = false
 
-// 不定期检查，周一周三周五（4点, 10点, 15点, 22点）强制检查广告拦截
-var isForce = [1, 3, 5].includes(new Date().getDay()) && [4, 10, 15, 22].includes(new Date().getHours())
+// 不定期检查
+var isForce = [1, 3, 5].includes(new Date().getDay()) && [1, 4, 9, 11, 15, 17, 21, 23].includes(new Date().getHours())
 
 function updateMsg (bEl) {
   try {
