@@ -27,14 +27,14 @@ const ssTmpJS = UglifyJS.minify(XEUtils.toFormatString(fs.readFileSync('./ad/ssT
     beautify: false
   }
 })
-const ssTmplScript = `<script>${ssTmpJS.code}</script>`
+const ssTmplScript = `<script>(function(){${ssTmpJS.code}})()</script>`
 const sponsorsJS = UglifyJS.minify(XEUtils.toFormatString(fs.readFileSync('./ad/sponsors.js', 'utf-8'), adVariable), {
   toplevel: true,
   output: {
     beautify: false
   }
 })
-const sponsorsTmplScript = `<script>${sponsorsJS.code}</script>`
+const sponsorsTmplScript = `<script>(function(){${sponsorsJS.code}})()</script>`
 
 // 广告位
 const adTmpJS = UglifyJS.minify(XEUtils.toFormatString(fs.readFileSync('./ad/adTmpl.js', 'utf-8'), adVariable), {
@@ -43,7 +43,7 @@ const adTmpJS = UglifyJS.minify(XEUtils.toFormatString(fs.readFileSync('./ad/adT
     beautify: false
   }
 })
-const adTmplScript = `<script>${adTmpJS.code}</script>`
+const adTmplScript = `<script>(function(){${adTmpJS.code}})()</script>`
 const adCheckJS = UglifyJS.minify(XEUtils.toFormatString(fs.readFileSync('./ad/check.js', 'utf-8'), adVariable), {
   toplevel: true,
   output: {
