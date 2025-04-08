@@ -45,7 +45,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const radioChangeEvent: VxeGridEvents.CurrentChange<RowVO> = ({ newValue, oldValue }) => {
+const radioChangeEvent: VxeGridEvents.RadioChange<RowVO> = ({ newValue, oldValue }) => {
   console.log(newValue, oldValue)
 }
 </script>

@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps, VxeGridEvents } from 'vxe-table'
+import { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
