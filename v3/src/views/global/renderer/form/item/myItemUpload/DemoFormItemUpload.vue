@@ -1,29 +1,26 @@
 <template>
-  <VxeUpload
+  <vxe-upload
     v-if="currData && currField"
     v-model="currData[currField]"
     multiple
     show-progress
-    :mode="renderProps.mode"
+    :mode="compProps.mode"
     :upload-method="uploadMethod">
-  </VxeUpload>
+  </vxe-upload>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { VxeUpload, VxeGlobalRendererHandles, VxeUploadPropTypes, VxeUploadProps } from 'vxe-pc-ui'
+import { VxeGlobalRendererHandles, VxeUploadPropTypes, VxeUploadProps } from 'vxe-pc-ui'
 import axios from 'axios'
 
 export default Vue.extend({
-  components: {
-    VxeUpload
-  },
   props: {
     renderOpts: {
       type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentOptions>,
       default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentOptions)
     },
-    params: {
+    renderParams: {
       type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentParams>,
       default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentParams)
     }
@@ -47,22 +44,29 @@ export default Vue.extend({
 
     return {
       currData: null as any,
-      currField: '',
       uploadMethod
     }
   },
   computed: {
-    renderProps () {
+    currField () {
+      const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormItemContentParams
+      return renderParams.field
+    },
+    compProps () {
       const renderOpts: VxeGlobalRendererHandles.RenderFormItemContentOptions = this.renderOpts
       return Object.assign({ mode: 'file' }, renderOpts.props) as VxeUploadProps
     }
   },
+  watch: {
+    currField () {
+      this.load()
+    }
+  },
   methods: {
     load () {
-      const params = this.params
-      const { data, field } = params
+      const { renderParams } = this
+      const { data } = renderParams
       this.currData = data
-      this.currField = field
     }
   },
   created () {

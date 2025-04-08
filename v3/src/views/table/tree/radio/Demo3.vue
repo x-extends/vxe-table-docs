@@ -7,7 +7,7 @@
       :tree-config="{transform: true}"
       :radio-config="{labelField: 'name', trigger: 'row'}"
       :data="tableData"
-      @current-change="currentChangeEvent">
+      @current-row-change="currentRowChangeEvent">
       <vxe-column type="radio" width="400" tree-node>
         <template #header>
           <vxe-button mode="text" @click="clearCurrentRowEvent" :disabled="!selectRow">取消</vxe-button>
@@ -62,7 +62,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentChangeEvent ({ row }) {
+    currentRowChangeEvent ({ row }) {
       this.selectRow = row
     },
     clearCurrentRowEvent () {

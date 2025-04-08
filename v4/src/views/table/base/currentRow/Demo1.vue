@@ -12,7 +12,7 @@
       height="300"
       :row-config="{isCurrent: true, isHover: true}"
       :data="tableData"
-      @current-change="currentChangeEvent">
+      @current-row-change="currentRowChangeEvent">
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -42,7 +42,7 @@ const tableData = ref<RowVO[]>([
   { name: 'Test4', role: 'Designer', sex: 'Women', age: 24, content: 'Shanghai' }
 ])
 
-const currentChangeEvent: VxeTableEvents.CurrentChange<RowVO> = ({ rowIndex }) => {
+const currentRowChangeEvent: VxeTableEvents.CurrentRowChange<RowVO> = ({ rowIndex }) => {
   console.log(`行选中事件 ${rowIndex}`)
 }
 

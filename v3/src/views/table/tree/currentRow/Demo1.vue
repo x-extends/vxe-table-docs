@@ -13,7 +13,7 @@
       :row-config="{isCurrent: true, isHover: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData"
-      @current-change="currentChangeEvent">
+      @current-row-change="currentRowChangeEvent">
       <vxe-column type="seq" width="280" tree-node></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -64,7 +64,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentChangeEvent ({ rowIndex }) {
+    currentRowChangeEvent ({ rowIndex }) {
       console.log(`行选中事件 ${rowIndex}`)
     },
     selectRowEvent () {

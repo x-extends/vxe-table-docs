@@ -9,7 +9,7 @@
     <vxe-grid
       ref="gridRef"
       v-bind="gridOptions"
-      @current-change="currentChangeEvent">
+      @current-row-change="currentRowChangeEvent">
     </vxe-grid>
   </div>
 </template>
@@ -55,7 +55,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentChangeEvent ({ rowIndex }) {
+    currentRowChangeEvent ({ rowIndex }) {
       console.log(`行选中事件 ${rowIndex}`)
     },
     selectRowEvent  () {

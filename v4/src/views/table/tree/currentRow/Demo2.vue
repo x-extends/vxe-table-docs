@@ -3,6 +3,7 @@
     <vxe-table
       border
       :row-config="rowConfig"
+      :current-row-config="currentRowConfig"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData">
       <vxe-column type="seq" width="280" tree-node></vxe-column>
@@ -29,8 +30,11 @@ interface RowVO {
 
 const rowConfig = reactive<VxeTablePropTypes.RowConfig<RowVO>>({
   isCurrent: true,
-  isHover: true,
-  currentMethod ({ row }) {
+  isHover: true
+})
+
+const currentRowConfig = reactive<VxeTablePropTypes.CurrentRowConfig<RowVO>>({
+  beforeSelectMethod ({ row }) {
     if (row.type === 'mp4') {
       return false
     }

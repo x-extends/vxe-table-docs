@@ -19,7 +19,7 @@ import { VxeInput, VxePulldown, VxePagerEvents, VxeGlobalRendererHandles } from 
 import { VxeTableDefines, VxeTableEvents, VxeGridProps, VxeGrid } from 'vxe-table'
 
 const props = defineProps({
-  params: {
+  renderParams: {
     type: Object as PropType<VxeGlobalRendererHandles.RenderTableEditParams>,
     default: () => ({})
   }
@@ -70,8 +70,8 @@ const getData = () => {
 }
 
 const load = () => {
-  const { params } = props
-  const { row, column } = params
+  const { renderParams } = props
+  const { row, column } = renderParams
   currRow.value = row
   currColumn.value = column
   getData().then((data) => {

@@ -5,7 +5,7 @@ import DemoExpandList from './DemoExpandList.vue'
 
 // 创建一个展开列表渲染器
 VxeUI.renderer.add('MyExpandList', {
-  renderTableExpand (renderOpts, params) {
-    return <DemoExpandList params={ params } />
+  renderTableExpand (renderOpts, renderParams) {
+    return <DemoExpandList render-params={ renderParams } />
   }
 })

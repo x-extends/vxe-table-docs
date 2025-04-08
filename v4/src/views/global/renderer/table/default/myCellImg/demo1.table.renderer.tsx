@@ -6,7 +6,7 @@ import DemoCellImg from './DemoCellImg.vue'
 // 创建单元格图片预览
 VxeUI.renderer.add('MyTableCellImg', {
   // 默认显示模板
-  renderTableDefault (renderOpts, params) {
-    return <DemoCellImg params={ params } />
+  renderTableDefault (renderOpts, renderParams) {
+    return <DemoCellImg render-params={ renderParams } />
   }
 })

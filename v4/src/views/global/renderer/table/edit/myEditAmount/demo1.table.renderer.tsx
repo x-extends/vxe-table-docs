@@ -10,12 +10,12 @@ VxeUI.renderer.add('MyTableEditAmount', {
   // 金额右对齐
   tableCellAlign: 'right',
   // 可编辑激活模板
-  renderTableEdit (renderOpts, params) {
-    return <DemoEditAmount params={ params } />
+  renderTableEdit (renderOpts, renderParams) {
+    return <DemoEditAmount render-params={ renderParams } />
   },
   // 可编辑显示模板
-  renderTableCell (renderOpts, params) {
-    const { row, column } = params
+  renderTableCell (renderOpts, renderParams) {
+    const { row, column } = renderParams
     return <span>￥{ row[column.field] }</span>
   }
 })

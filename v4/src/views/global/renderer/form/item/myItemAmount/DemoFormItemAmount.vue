@@ -10,31 +10,34 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, PropType, watch } from 'vue'
-import { VxeInput, VxeGlobalRendererHandles, VxeFormItemPropTypes } from 'vxe-pc-ui'
+import { ref, PropType, computed, watch } from 'vue'
+import { VxeInput, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 
 const props = defineProps({
   renderOpts: {
     type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentOptions>,
     default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentOptions)
   },
-  params: {
+  renderParams: {
     type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentParams>,
     default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentParams)
   }
 })
 
 const currData = ref<any>()
-const currField = ref<VxeFormItemPropTypes.Field>('')
+
+const currField = computed(() => {
+  const { renderParams } = props
+  return renderParams.field
+})
 
 const load = () => {
-  const { params } = props
-  const { data, field } = params
+  const { renderParams } = props
+  const { data } = renderParams
   currData.value = data
-  currField.value = field
 }
 
-watch(() => props.params, () => {
+watch(currField, () => {
   load()
 })
 

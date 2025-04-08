@@ -11,10 +11,10 @@ VxeUI.renderer.add('MyFormDesignInputWidget', {
   createFormDesignWidgetConfig: getFormDesignWidgetInputConfig,
   // 渲染控件的表单视图
   renderFormDesignWidgetView (h, renderOpts, renderParams) {
-    return <DemoFormDesignInputWidgetView renderOpts={renderOpts} renderParams={renderParams} />
+    return <DemoFormDesignInputWidgetView render-opts={renderOpts} render-params={renderParams} />
   },
   // 渲染控件右侧的属性配置视图
   renderFormDesignWidgetFormView (h, renderOpts, renderParams) {
-    return <DemoFormDesignInputWidgetProps renderOpts={renderOpts} renderParams={renderParams} />
+    return <DemoFormDesignInputWidgetProps render-opts={renderOpts} render-params={renderParams} />
   }
 })

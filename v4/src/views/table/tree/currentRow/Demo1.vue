@@ -13,7 +13,7 @@
       :row-config="{isCurrent: true, isHover: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData"
-      @current-change="currentChangeEvent">
+      @current-row-change="currentRowChangeEvent">
       <vxe-column type="seq" width="280" tree-node></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
@@ -59,7 +59,7 @@ const tableData = ref<RowVO[]>([
   { id: 24577, parentId: 24555, name: 'Test7', type: 'js', size: 1024, date: '2021-06-01' }
 ])
 
-const currentChangeEvent: VxeTableEvents.CurrentChange<RowVO> = ({ rowIndex }) => {
+const currentRowChangeEvent: VxeTableEvents.CurrentRowChange<RowVO> = ({ rowIndex }) => {
   console.log(`行选中事件 ${rowIndex}`)
 }
 

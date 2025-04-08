@@ -3,6 +3,7 @@
     <vxe-table
       border
       :column-config="columnConfig"
+      :current-column-config="currentColumnConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -28,8 +29,11 @@ interface RowVO {
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
   isCurrent: true,
-  isHover: true,
-  currentMethod ({ column }) {
+  isHover: true
+})
+
+const currentColumnConfig = reactive<VxeTablePropTypes.CurrentColumnConfig<RowVO>>({
+  beforeSelectMethod ({ column }) {
     if (column.field === 'age') {
       return false
     }

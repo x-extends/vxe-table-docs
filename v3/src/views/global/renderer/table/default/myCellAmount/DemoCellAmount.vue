@@ -10,7 +10,7 @@ import XEUtils from 'xe-utils'
 
 export default Vue.extend({
   props: {
-    params: {
+    renderParams: {
       type: Object as PropType<VxeGlobalRendererHandles.RenderTableDefaultParams>,
       default: () => ({} as VxeGlobalRendererHandles.RenderTableDefaultParams)
     }
@@ -31,8 +31,8 @@ export default Vue.extend({
   },
   methods: {
     load () {
-      const { params } = this
-      const { row, column } = params
+      const { renderParams } = this
+      const { row, column } = renderParams
       this.currRow = row
       this.currColumn = column
     }

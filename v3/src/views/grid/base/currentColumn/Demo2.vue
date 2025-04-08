@@ -23,8 +23,10 @@ export default Vue.extend({
       height: 300,
       columnConfig: {
         isCurrent: true,
-        isHover: true,
-        currentMethod ({ column }) {
+        isHover: true
+      },
+      currentColumnConfig: {
+        beforeSelectMethod ({ column }) {
           if (column.field === 'age') {
             return false
           }

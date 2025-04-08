@@ -3,7 +3,8 @@
     <vxe-table
       border
       :row-config="rowConfig"
-      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
+      :current-row-config="currentRowConfig"
+      :tree-config="treeConfig"
       :data="tableData">
       <vxe-column type="seq" width="280" tree-node></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -52,8 +53,11 @@ export default Vue.extend({
 
     const rowConfig: VxeTablePropTypes.RowConfig<RowVO> = {
       isCurrent: true,
-      isHover: true,
-      currentMethod ({ row }) {
+      isHover: true
+    }
+
+    const currentRowConfig: VxeTablePropTypes.CurrentRowConfig<RowVO> = {
+      beforeSelectMethod ({ row }) {
         if (row.type === 'mp4') {
           return false
         }
@@ -61,9 +65,17 @@ export default Vue.extend({
       }
     }
 
+    const treeConfig: VxeTablePropTypes.TreeConfig<RowVO> = {
+      transform: true,
+      rowField: 'id',
+      parentField: 'parentId'
+    }
+
     return {
       tableData,
-      rowConfig
+      rowConfig,
+      currentRowConfig,
+      treeConfig
     }
   }
 })

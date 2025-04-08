@@ -1,49 +1,50 @@
 <template>
-  <VxeInput
+  <vxe-input
     v-if="currData && currField"
     v-model="currData[currField]"
     type="float"
     digits="2"
     prefix-icon="vxe-icon-rmb"
     align="right">
-  </VxeInput>
+  </vxe-input>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { VxeInput, VxeGlobalRendererHandles } from 'vxe-pc-ui'
+import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
 
 export default Vue.extend({
-  components: {
-    VxeInput
-  },
   props: {
     renderOpts: {
       type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentOptions>,
       default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentOptions)
     },
-    params: {
+    renderParams: {
       type: Object as PropType<VxeGlobalRendererHandles.RenderFormItemContentParams>,
       default: () => ({} as VxeGlobalRendererHandles.RenderFormItemContentParams)
     }
   },
   data () {
     return {
-      currData: null as any,
-      currField: ''
+      currData: null as any
+    }
+  },
+  computed: {
+    currField () {
+      const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormItemContentParams
+      return renderParams.field
+    }
+  },
+  watch: {
+    currField () {
+      this.load()
     }
   },
   methods: {
     load () {
-      const { params } = this
-      const { data, field } = params
+      const { renderParams } = this
+      const { data } = renderParams
       this.currData = data
-      this.currField = field
-    }
-  },
-  watch: {
-    params () {
-      this.load()
     }
   },
   created () {

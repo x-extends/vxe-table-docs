@@ -12,7 +12,7 @@
       height="300"
       :row-config="{isCurrent: true, isHover: true}"
       :data="tableData"
-      @current-change="currentChangeEvent">
+      @current-row-change="currentRowChangeEvent">
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -47,7 +47,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentChangeEvent ({ rowIndex }) {
+    currentRowChangeEvent ({ rowIndex }) {
       console.log(`行选中事件 ${rowIndex}`)
     },
     selectRowEvent  () {

@@ -8,7 +8,7 @@ VxeUI.renderer.add('MyTableCellAmount', {
   // 金额右对齐
   tableCellAlign: 'right',
   // 默认显示模板
-  renderTableDefault (renderOpts, params) {
-    return <DemoCellAmount params={ params } />
+  renderTableDefault (renderOpts, renderParams) {
+    return <DemoCellAmount render-params={ renderParams } />
   }
 })

@@ -7,8 +7,8 @@
       <vxe-column type="expand" width="60">
         <template #content="{ row }">
           <div>Name：{{ row.name }}</div>
-          <div>Mobile：{{ row?.subInfo.mobile }}</div>
-          <div>Address：{{ row?.subInfo.address }}</div>
+          <div>Mobile：{{ row.subInfo ? row.subInfo.mobile : '' }}</div>
+          <div>Address：{{ row.subInfo ? row.subInfo.address : '' }}</div>
         </template>
       </vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>

@@ -14,26 +14,6 @@ import { VxeGlobalRendererHandles, VxeFormDesignDefines } from 'vxe-pc-ui'
 import { FormDesignWidgetTextareaProps } from './demoFormDesignTextareaWidget'
 
 export default Vue.extend({
-  mixins: [
-    {
-      computed: {
-        widgetModel: {
-          get (this: any) {
-            const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetTextareaProps>
-            const { $formView, widget } = renderParams
-            return $formView ? $formView.getItemValue(widget) : null
-          },
-          set (this: any, value) {
-            const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetTextareaProps>
-            const { $formView, widget } = renderParams
-            if ($formView) {
-              $formView.setItemValue(widget, value)
-            }
-          }
-        }
-      }
-    }
-  ],
   props: {
     renderOpts: {
       type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetViewOptions>,
@@ -45,8 +25,22 @@ export default Vue.extend({
     }
   },
   computed: {
+    widgetModel: {
+      get () {
+        const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetTextareaProps>
+        const { $formView, widget } = renderParams
+        return $formView ? $formView.getItemValue(widget) : null
+      },
+      set (value) {
+        const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormDesignWidgetViewParams<FormDesignWidgetTextareaProps>
+        const { $formView, widget } = renderParams
+        if ($formView) {
+          $formView.setItemValue(widget, value)
+        }
+      }
+    } as any,
     currWidget (): VxeFormDesignDefines.WidgetObjItem<FormDesignWidgetTextareaProps> {
-      const { renderParams } = this
+      const renderParams = this.renderParams
       return renderParams.widget
     }
   }

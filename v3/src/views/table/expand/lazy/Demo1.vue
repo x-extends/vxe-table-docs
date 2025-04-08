@@ -7,8 +7,8 @@
       <vxe-column type="expand" width="60">
         <template #content="{ row }">
           <div>Name：{{ row.name }}</div>
-          <div>Mobile：{{ row?.subInfo.mobile }}</div>
-          <div>Address：{{ row?.subInfo.address }}</div>
+          <div>Mobile：{{ row.subInfo ? row.subInfo.mobile : '' }}</div>
+          <div>Address：{{ row.subInfo ? row.subInfo.address : '' }}</div>
         </template>
       </vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -35,7 +35,7 @@ interface RowVO {
 }
 
 // 模拟接口
-const findSubInfo = (id: number) => {
+function findSubInfo (id: number) {
   return new Promise<{
     mobile: string
     address: string
@@ -60,7 +60,7 @@ export default Vue.extend({
 
     const expandConfig: VxeTablePropTypes.ExpandConfig<RowVO> = {
       lazy: true,
-      loadMethod ({ row }) {
+      loadMethod: ({ row }) => {
         // 调用接口
         return findSubInfo(row.id).then(data => {
           row.subInfo = data

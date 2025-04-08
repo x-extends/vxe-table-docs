@@ -3,6 +3,7 @@
     <vxe-table
       border
       :column-config="columnConfig"
+      :current-column-config="currentColumnConfig"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData">
       <vxe-column type="seq" width="280" tree-node></vxe-column>
@@ -29,8 +30,11 @@ interface RowVO {
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
   isCurrent: true,
-  isHover: true,
-  currentMethod ({ column }) {
+  isHover: true
+})
+
+const currentColumnConfig = reactive<VxeTablePropTypes.CurrentColumnConfig<RowVO>>({
+  beforeSelectMethod ({ column }) {
     if (column.field === 'size') {
       return false
     }

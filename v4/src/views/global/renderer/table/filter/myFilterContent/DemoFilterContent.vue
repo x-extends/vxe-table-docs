@@ -30,12 +30,12 @@
 </template>
 
 <script lang="ts" setup>
-import { watch, PropType, ref } from 'vue'
+import { watch, PropType, ref, computed } from 'vue'
 import { VxeGlobalRendererHandles, VxeTableDefines } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 const props = defineProps({
-  params: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
+  renderParams: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
 })
 
 interface ColValItem {
@@ -48,10 +48,15 @@ const isCheckedAll = ref(false)
 const allValList = ref<ColValItem[]>([])
 const columnValList = ref<ColValItem[]>([])
 
+const currField = computed(() => {
+  const { column } = props.renderParams || {}
+  return column ? column.field : ''
+})
+
 const load = () => {
-  const { params } = props
-  if (params) {
-    const { $table, column } = params
+  const { renderParams } = props
+  if (renderParams) {
+    const { $table, column } = renderParams
     const fullData = $table.getFullData()
     const option = column.filters[0]
     const { vals } = option.data
@@ -81,11 +86,11 @@ const changeAllEvent = () => {
 }
 
 const confirmFilterEvent = () => {
-  const { params } = props
+  const { renderParams } = props
   const option = currOption.value
-  if (params && option) {
+  if (renderParams && option) {
     const { data } = option
-    const { $table } = params
+    const { $table } = renderParams
     data.vals = columnValList.value.filter((item) => item.checked).map((item) => item.value)
     $table.updateFilterOptionStatus(option, true)
     $table.saveFilterPanel()
@@ -93,17 +98,16 @@ const confirmFilterEvent = () => {
 }
 
 const resetFilterEvent = () => {
-  const { params } = props
-  if (params) {
-    const { $table } = params
+  const { renderParams } = props
+  if (renderParams) {
+    const { $table } = renderParams
     $table.resetFilterPanel()
   }
 }
 
-watch(() => {
-  const { column } = props.params || {}
-  return column
-}, load)
+watch(currField, () => {
+  load()
+})
 
 load()
 </script>

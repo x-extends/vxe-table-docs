@@ -23,8 +23,10 @@ export default Vue.extend({
       height: 300,
       rowConfig: {
         isCurrent: true,
-        isHover: true,
-        currentMethod ({ row }) {
+        isHover: true
+      },
+      currentRowConfig: {
+        beforeSelectMethod ({ row }) {
           if (row.age > 30) {
             return false
           }

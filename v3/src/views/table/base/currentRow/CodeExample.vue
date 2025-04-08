@@ -8,7 +8,7 @@
 
     <CodeLight path="table/base/currentRow/Demo2">
       <template #tip>
-        <vxe-tip status="primary">通过设置 <ApiLink name="table" prop="row-config"/>.<ApiLink name="table" prop="currentMethod"/> 来控制是否允许被选择</vxe-tip>
+        <vxe-tip status="primary">通过设置 <ApiLink name="table" prop="current-row-config"/>.<ApiLink name="table" prop="beforeSelectMethod"/> 来控制是否允许被选择</vxe-tip>
       </template>
     </CodeLight>
   </div>

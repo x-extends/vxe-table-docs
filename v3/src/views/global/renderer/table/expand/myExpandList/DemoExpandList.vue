@@ -26,7 +26,7 @@ import { VxeTableDefines } from 'vxe-table'
 
 export default Vue.extend({
   props: {
-    params: {
+    renderParams: {
       type: Object as PropType<VxeGlobalRendererHandles.RenderTableEditParams>,
       default: () => ({} as VxeGlobalRendererHandles.RenderTableEditParams)
     }
@@ -39,8 +39,8 @@ export default Vue.extend({
   },
   methods: {
     load  () {
-      const { params } = this
-      const { row, column } = params
+      const { renderParams } = this
+      const { row, column } = renderParams
       this.currRow = row
       this.currColumn = column
     }

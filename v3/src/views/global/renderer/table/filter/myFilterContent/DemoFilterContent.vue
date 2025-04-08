@@ -41,7 +41,7 @@ interface ColValItem {
 
 export default Vue.extend({
   props: {
-    params: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
+    renderParams: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
   },
   data () {
     return {
@@ -51,11 +51,23 @@ export default Vue.extend({
       columnValList: [] as ColValItem[]
     }
   },
+  computed: {
+    currField () {
+      const renderParams = (this.renderParams || {}) as VxeGlobalRendererHandles.RenderTableFilterParams
+      const { column } = renderParams
+      return column ? column.field : ''
+    }
+  },
+  watch: {
+    currField () {
+      this.load()
+    }
+  },
   methods: {
     load  () {
-      const { params } = this
-      if (params) {
-        const { $table, column } = params
+      const { renderParams } = this
+      if (renderParams) {
+        const { $table, column } = renderParams
         const fullData = $table.getFullData()
         const option = column.filters[0]
         const { vals } = option.data
@@ -82,27 +94,22 @@ export default Vue.extend({
       })
     },
     confirmFilterEvent  () {
-      const { params } = this
+      const { renderParams } = this
       const option = this.currOption
-      if (params && option) {
+      if (renderParams && option) {
         const { data } = option
-        const { $table } = params
+        const { $table } = renderParams
         data.vals = this.columnValList.filter((item) => item.checked).map((item) => item.value)
         $table.updateFilterOptionStatus(option, true)
         $table.saveFilterPanel()
       }
     },
     resetFilterEvent  () {
-      const { params } = this
-      if (params) {
-        const { $table } = params
+      const { renderParams } = this
+      if (renderParams) {
+        const { $table } = renderParams
         $table.resetFilterPanel()
       }
-    }
-  },
-  watch: {
-    'props.params' () {
-      this.load()
     }
   },
   created () {

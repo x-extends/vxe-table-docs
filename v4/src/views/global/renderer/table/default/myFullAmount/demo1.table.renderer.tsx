@@ -8,18 +8,18 @@ VxeUI.renderer.add('MyTableFullAmount', {
   // 金额右对齐
   tableCellAlign: 'right',
   // 表头显示模板
-  renderTableHeader (renderOpts, params) {
-    const { column } = params
+  renderTableHeader (renderOpts, renderParams) {
+    const { column } = renderParams
     return <span>{column.title}（元）</span>
   },
   // 默认显示模板
-  renderTableDefault (renderOpts, params) {
-    const { row, column } = params
+  renderTableDefault (renderOpts, renderParams) {
+    const { row, column } = renderParams
     return <span>￥{XEUtils.commafy(XEUtils.toNumber(row[column.field]))}</span>
   },
   // 表尾显示模板
-  renderTableFooter (renderOpts, params) {
-    const { row, column } = params
+  renderTableFooter (renderOpts, renderParams) {
+    const { row, column } = renderParams
     return <span style="color: red;">￥{row[column.field]}</span>
   }
 })

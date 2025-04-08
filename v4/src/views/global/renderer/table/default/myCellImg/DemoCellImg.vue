@@ -8,7 +8,7 @@ import { VxeImage, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { VxeTableDefines } from 'vxe-table'
 
 const props = defineProps({
-  params: {
+  renderParams: {
     type: Object as PropType<VxeGlobalRendererHandles.RenderTableDefaultParams>,
     default: () => ({})
   }
@@ -25,8 +25,8 @@ const imgUrl = computed(() => {
 })
 
 const load = () => {
-  const { params } = props
-  const { row, column } = params
+  const { renderParams } = props
+  const { row, column } = renderParams
   currRow.value = row
   currColumn.value = column
 }

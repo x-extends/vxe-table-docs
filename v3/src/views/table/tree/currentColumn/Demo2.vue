@@ -3,7 +3,8 @@
     <vxe-table
       border
       :column-config="columnConfig"
-      :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
+      :current-column-config="currentColumnConfig"
+      :tree-config="treeConfig"
       :data="tableData">
       <vxe-column type="seq" width="280" tree-node></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -52,8 +53,11 @@ export default Vue.extend({
 
     const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {
       isCurrent: true,
-      isHover: true,
-      currentMethod ({ column }) {
+      isHover: true
+    }
+
+    const currentColumnConfig: VxeTablePropTypes.CurrentColumnConfig<RowVO> = {
+      beforeSelectMethod ({ column }) {
         if (column.field === 'size') {
           return false
         }
@@ -61,9 +65,17 @@ export default Vue.extend({
       }
     }
 
+    const treeConfig: VxeTablePropTypes.TreeConfig<RowVO> = {
+      transform: true,
+      rowField: 'id',
+      parentField: 'parentId'
+    }
+
     return {
       tableData,
-      columnConfig
+      columnConfig,
+      currentColumnConfig,
+      treeConfig
     }
   }
 })

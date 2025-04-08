@@ -8,8 +8,8 @@ VxeUI.renderer.add('MyTableFilterComplex', {
   // 不显示底部按钮，使用自定义的按钮
   showTableFilterFooter: false,
   // 自定义筛选模板
-  renderTableFilter (h, renderOpts, params) {
-    return <DemoFilterComplex params={ params } />
+  renderTableFilter (h, renderOpts, renderParams) {
+    return <DemoFilterComplex render-params={ renderParams } />
   },
   // 自定义重置数据方法
   tableFilterResetMethod (params) {

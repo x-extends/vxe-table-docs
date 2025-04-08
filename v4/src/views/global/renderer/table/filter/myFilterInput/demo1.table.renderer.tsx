@@ -6,8 +6,8 @@ import DemoFilterInput from './DemoFilterInput.vue'
 // 创建一个简单的输入框筛选渲染器
 VxeUI.renderer.add('MyTableFilterInput', {
   // 自定义筛选模板
-  renderTableFilter (renderOpts, params) {
-    return <DemoFilterInput params={ params } />
+  renderTableFilter (renderOpts, renderParams) {
+    return <DemoFilterInput render-params={ renderParams } />
   },
   // 自定义重置数据方法
   tableFilterResetMethod (params) {

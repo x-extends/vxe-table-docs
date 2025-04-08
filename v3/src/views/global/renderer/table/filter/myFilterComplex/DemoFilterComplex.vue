@@ -21,7 +21,7 @@ import { VxeTableDefines } from 'vxe-table'
 
 export default Vue.extend({
   props: {
-    params: {
+    renderParams: {
       type: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>,
       default: () => ({} as VxeGlobalRendererHandles.RenderTableFilterParams)
     }
@@ -31,42 +31,49 @@ export default Vue.extend({
       currOption: null as VxeTableDefines.FilterOption | null
     }
   },
+  computed: {
+    currField () {
+      const renderParams = (this.renderParams || {}) as VxeGlobalRendererHandles.RenderTableFilterParams
+      const { column } = renderParams
+      return column ? column.field : ''
+    }
+  },
+  watch: {
+    currField () {
+      this.load()
+    }
+  },
   methods: {
     load  () {
-      const { params } = this
-      if (params) {
-        const { column } = params
+      const { renderParams } = this
+      if (renderParams) {
+        const { column } = renderParams
         const option = column.filters[0]
         this.currOption = option
       }
     },
     changeOptionEvent () {
-      const { params } = this
+      const { renderParams } = this
       const option = this.currOption
-      if (params && option) {
-        const { $table } = params
+      if (renderParams && option) {
+        const { $table } = renderParams
         const checked = !!option.data.name
         $table.updateFilterOptionStatus(option, checked)
       }
     },
     confirmEvent  () {
-      const { params } = this
-      if (params) {
-        const { $table } = params
+      const { renderParams } = this
+      if (renderParams) {
+        const { $table } = renderParams
         $table.saveFilterPanel()
       }
     },
     resetEvent  () {
-      const { params } = this
-      if (params) {
-        const { $table } = params
+      const { renderParams } = this
+      if (renderParams) {
+        const { $table } = renderParams
         $table.resetFilterPanel()
       }
-    }
-  },
-  watch: {
-    'params.column' () {
-      this.load()
     }
   },
   created () {

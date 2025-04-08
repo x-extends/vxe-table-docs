@@ -3,6 +3,7 @@
     <vxe-table
       border
       :row-config="rowConfig"
+      :current-row-config="currentRowConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -30,8 +31,11 @@ export default Vue.extend({
   data () {
     const rowConfig: VxeTablePropTypes.RowConfig<RowVO> = {
       isCurrent: true,
-      isHover: true,
-      currentMethod ({ row }) {
+      isHover: true
+    }
+
+    const currentRowConfig: VxeTablePropTypes.CurrentRowConfig<RowVO> = {
+      beforeSelectMethod ({ row }) {
         if (row.age > 30) {
           return false
         }
@@ -52,6 +56,7 @@ export default Vue.extend({
 
     return {
       rowConfig,
+      currentRowConfig,
       tableData
     }
   }
