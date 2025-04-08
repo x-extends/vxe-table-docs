@@ -332,7 +332,9 @@ export default Vue.extend({
     this.createNavList()
     this.updateExpand()
 
-    this.updateComponentApiJSON()
+    setTimeout(() => {
+      this.updateComponentApiJSON()
+    }, 300)
   }
 })
 </script>

@@ -334,7 +334,9 @@ watch(() => i18n.global.locale, () => {
 createNavList()
 updateExpand()
 
-appStore.updateComponentApiJSON()
+setTimeout(() => {
+  appStore.updateComponentApiJSON()
+}, 300)
 </script>
 
 <style lang="scss" scoped>
