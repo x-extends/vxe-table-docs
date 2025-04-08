@@ -1,4 +1,4 @@
-setTimeout(function () {
+(function(){
   var warpperEl = document.getElementById('{VXE_AD_WRAPPER_ID}')
   if (!warpperEl) {
     warpperEl = document.createElement('div')
@@ -9,4 +9,4 @@ setTimeout(function () {
   var sponsorEl = document.createElement('div')
   sponsorEl.id = '{VXE_AD_SPONSOR_ID}'
   warpperEl.appendChild(sponsorEl)
-})
+})()
