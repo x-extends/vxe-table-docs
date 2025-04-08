@@ -1,10 +1,12 @@
 (function(){
   var siteURL = ''
+  var siteType = 'vxetable'
   var hostname = location.hostname
   if (hostname.indexOf('vxetable.cn') > -1) {
     siteURL = 'https://vxetable.cn'
   } else if (hostname.indexOf('vxeui.com') > -1) {
     siteURL = 'https://vxeui.com'
+    siteType = 'vxeui'
   }
 
   setTimeout(function () {
@@ -17,7 +19,7 @@
       location.href = siteURL + '/#/start/joinSponsor'
     }
 
-    fetch('https://api.vxetable.cn/vxe/api/pub/vxeui/sponsors', { method: 'GET' })
+    fetch('https://api.vxetable.cn/vxe/api/pub/' + siteType + '/sponsors', { method: 'GET' })
     .then(response => response.json())
     .then(rest => {
       let data = []
