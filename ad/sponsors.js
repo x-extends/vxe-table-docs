@@ -16,7 +16,7 @@
     } catch(e){}
 
     window.joinSponorEvent = function () {
-      location.href = siteURL + '/#/start/joinSponsor'
+      location.href = (siteURL + '/#/start/joinSponsor')
     }
 
     fetch('https://api.vxetable.cn/vxe/api/pub/' + siteType + '/sponsors', { method: 'GET' })
