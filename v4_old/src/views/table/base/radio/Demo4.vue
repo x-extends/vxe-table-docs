@@ -39,7 +39,7 @@ const tableData = ref<RowVO[]>([
   { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
 ])
 
-const radioChangeEvent: VxeTableEvents.CurrentChange<RowVO> = ({ newValue, oldValue }) => {
+const radioChangeEvent: VxeTableEvents.RadioChange<RowVO> = ({ newValue, oldValue }) => {
   console.log(newValue, oldValue)
 }
 </script>

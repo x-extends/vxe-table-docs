@@ -7,7 +7,7 @@
       :tree-config="{transform: true}"
       :radio-config="{labelField: 'name', trigger: 'row'}"
       :data="tableData"
-      @current-change="currentChangeEvent">
+      @current-row-change="currentRowChangeEvent">
       <vxe-column type="radio" width="400" tree-node>
         <template #header>
           <vxe-button mode="text" @click="clearCurrentRowEvent" :disabled="!selectRow">取消</vxe-button>
@@ -57,7 +57,7 @@ const tableData = ref<RowVO[]>([
 
 const selectRow = ref<RowVO | null>()
 
-const currentChangeEvent: VxeTableEvents.CurrentChange<RowVO> = ({ row }) => {
+const currentRowChangeEvent: VxeTableEvents.CurrentRowChange<RowVO> = ({ row }) => {
   selectRow.value = row
 }
 
