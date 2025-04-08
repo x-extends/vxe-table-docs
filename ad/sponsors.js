@@ -9,16 +9,14 @@
     siteType = 'vxeui'
   }
 
+  var isZH = true
+  try {
+    var isZH = ['zh-CN', 'zh-HK', 'zh-MO', 'zh-TW'].includes(localStorage.getItem('VXE_DOCS_LANGUAGE') || navigator.language)
+  } catch(e){}
+
+  var joinSponsorUrl = siteURL + '/#/start/joinSponsor'
+
   setTimeout(function () {
-    var isZH = true
-    try {
-      var isZH = ['zh-CN', 'zh-HK', 'zh-MO', 'zh-TW'].includes(localStorage.getItem('VXE_DOCS_LANGUAGE') || navigator.language)
-    } catch(e){}
-
-    window.joinSponorEvent = function () {
-      location.href = (siteURL + '/#/start/joinSponsor')
-    }
-
     fetch('https://api.vxetable.cn/vxe/api/pub/' + siteType + '/sponsors', { method: 'GET' })
     .then(response => response.json())
     .then(rest => {
@@ -56,7 +54,7 @@
               ].join('')
             }
             return [
-              '<a style="display: block !important;margin:8px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;background-color: var(--vxe-ui-status-info-tinge-color, rgba(0, 0, 0, 0.05)) !important;border-radius: 2px !important;cursor: pointer !important;" onclick="joinSponorEvent()">',
+              '<a href="' + joinSponsorUrl + '" style="display: block !important;margin:8px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;background-color: var(--vxe-ui-status-info-tinge-color, rgba(0, 0, 0, 0.05)) !important;border-radius: 2px !important;cursor: pointer !important;" >',
                 '<span style="display: block !important;font-size: 13px !important;padding: 8px 0 !important;">', 
                   isZH ? '点击成为赞助商' : 'Click become a Sponsor', 
                 '</span>',
