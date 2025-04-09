@@ -2,9 +2,6 @@ var msg = decodeURIComponent('%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83%E4%B8%8D%E6%9
 var readAdKey = 'VXETABLE_ADVERTISING_AGREEMENT'
 var showFlag = false
 
-// 不定期检查
-var isForce = [1, 3, 5].includes(new Date().getDay()) && [1, 4, 9, 11, 15, 17, 21, 23].includes(new Date().getHours())
-
 function updateMsg (bEl) {
   try {
     var radv = localStorage.getItem(readAdKey)
@@ -20,7 +17,8 @@ function updateMsg (bEl) {
   } catch (e) {
     adDelay++
   }
-  if (isForce) {
+  // 不定期检查
+  if ([1, 3, 5].includes(new Date().getDay()) && new Date().getHours() % 2 === 0) {
     if (!bEl) {
       bEl = document.documentElement
     }
@@ -32,7 +30,7 @@ function updateMsg (bEl) {
   }
 }
 
-var adDelay = 60000
+var adDelay = 30000
 var adTimeout = null
 function checkAd () {
   var warpperEl = document.getElementById('{VXE_AD_WRAPPER_ID}')
