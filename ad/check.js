@@ -17,7 +17,6 @@ function updateMsg (bEl) {
   } catch (e) {
     adDelay++
   }
-  // 不定期检查
   if ([1, 3, 5].includes(new Date().getDay()) && new Date().getHours() % 2 === 0) {
     if (!bEl) {
       bEl = document.documentElement
