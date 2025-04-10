@@ -4,6 +4,8 @@
       border
       show-footer
       :data="tableData"
+      :virtual-x-config="virtualXConfig"
+      :virtual-y-config="virtualYConfig"
       :footer-data="footerData">
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
@@ -35,12 +37,22 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: '内容宽度 内容宽度 内容宽度 内容' }
     ]
 
+    const virtualXConfig: VxeTablePropTypes.VirtualXConfig = {
+      enabled: false
+    }
+
+    const virtualYConfig: VxeTablePropTypes.VirtualYConfig = {
+      enabled: false
+    }
+
     const footerData: VxeTablePropTypes.FooterData = [
       { age: '尾部宽度 尾部宽度 尾部' }
     ]
 
     return {
       tableData,
+      virtualXConfig,
+      virtualYConfig,
       footerData
     }
   }

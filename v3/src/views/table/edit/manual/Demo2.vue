@@ -7,7 +7,7 @@
       height="400"
       ref="tableRef"
       :loading="loading"
-      :edit-config="{trigger: 'manual', mode: 'row', showStatus: true, autoClear: false}"
+      :edit-config="editConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -50,8 +50,16 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
     ]
 
+    const editConfig: VxeTablePropTypes.EditConfig<RowVO> = {
+      trigger: 'manual',
+      mode: 'row',
+      showStatus: true,
+      autoClear: false
+    }
+
     return {
       tableData,
+      editConfig,
       loading: false
     }
   },

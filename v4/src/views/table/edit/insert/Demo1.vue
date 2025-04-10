@@ -20,7 +20,7 @@
       ref="tableRef"
       max-height="400"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
+      :edit-config="editConfig">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable :edit-render="{autofocus: '.vxe-input--inner', defaultValue: '默认的名字'}">
@@ -54,7 +54,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -71,6 +71,12 @@ interface RowVO {
 }
 
 const tableRef = ref<VxeTableInstance<RowVO>>()
+
+const editConfig = ref<VxeTablePropTypes.EditConfig>({
+  trigger: 'click',
+  mode: 'cell',
+  showStatus: true
+})
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '' },

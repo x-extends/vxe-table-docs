@@ -3170,6 +3170,11 @@ const gridRouteConfig: RouteConfig = {
           ]
         },
         {
+          path: 'expandRow',
+          name: 'ComponentGridTreeExpandRow',
+          component: () => import('@/views/grid/tree/expandRow/CodeExample.vue')
+        },
+        {
           path: 'group',
           name: 'ComponentGridTreeGroup',
           component: () => import('@/views/grid/tree/group/CodeExample.vue')

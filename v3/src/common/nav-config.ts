@@ -338,8 +338,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeSlider 滑块', routerLink: { name: 'ComponentTableCellRenderVxeSlider' } },
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentTableCellRenderVxeUpload' } },
             { title: 'FormatNumberInput 格式化数值', routerLink: { name: 'ComponentTableCellRenderFormatNumberInput' } },
-            { title: 'FormatSelect 格式化下拉选项', routerLink: { name: 'ComponentTableCellRenderFormatOption' } },
-            { title: 'FormatTreeSelect 格式化下拉树', routerLink: { name: 'ComponentTableCellRenderFormatTree' } },
+            { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentTableCellRenderFormatOption' } },
+            { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentTableCellRenderFormatTree' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },
@@ -962,8 +962,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '父子不关联与全选', routerLink: { name: 'ComponentGridTreeCheckboxStrictlyHeader' } }
               ]
             },
-            { title: '默认展开', routerLink: { name: 'ComponentGridTreeExpandRowKeys' } },
-            { title: '实现数据分组', routerLink: { name: 'ComponentGridTreeGroup' } },
+            { title: '默认展开节点', routerLink: { name: 'ComponentGridTreeExpandRowKeys' } },
+            { title: '同时使用展开行', routerLink: { name: 'ComponentGridTreeExpandRow' } },
             { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
             { title: '懒加载', routerLink: { name: 'ComponentGridTreeLazy' } },
             { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } }
@@ -982,8 +982,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeRate 评分', routerLink: { name: 'ComponentGridCellRenderVxeRate' } },
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentGridCellRenderVxeUpload' } },
             { title: 'FormatNumberInput 格式化数值', routerLink: { name: 'ComponentGridCellRenderFormatNumberInput' } },
-            { title: 'FormatSelect 格式化下拉选项', routerLink: { name: 'ComponentGridCellRenderFormatOption' } },
-            { title: 'FormatTreeSelect 格式化下拉树', routerLink: { name: 'ComponentGridCellRenderFormatTree' } },
+            { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentGridCellRenderFormatOption' } },
+            { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentGridCellRenderFormatTree' } },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` }
           ]
         },
