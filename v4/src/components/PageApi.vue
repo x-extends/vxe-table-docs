@@ -273,6 +273,8 @@ watch(() => appStore.compApiMaps, () => {
 nextTick(() => {
   loadList()
 })
+
+appStore.updateComponentApiJSON()
 </script>
 
 <style lang="scss" scoped>

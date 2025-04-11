@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -167,6 +167,9 @@ export default Vue.extend({
     }
   },
   methods: {
+    ...mapMutations([
+      'updateComponentApiJSON'
+    ]),
     loadList (this: any) {
       this.gridOptions.loading = true
       return new Promise<void>(resolve => {
@@ -254,6 +257,8 @@ export default Vue.extend({
     }
   },
   created (this: any) {
+    this.updateComponentApiJSON()
+
     this.$nextTick(() => {
       this.loadList()
     })
