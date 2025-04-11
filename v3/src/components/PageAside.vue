@@ -331,6 +331,8 @@ export default Vue.extend({
   created () {
     this.createNavList()
     this.updateExpand()
+
+    this.updateComponentApiJSON()
   }
 })
 </script>

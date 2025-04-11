@@ -75,46 +75,23 @@ const apiName = computed(() => {
   return route.params.name as string
 })
 
-const apiConfig = computed(() => {
-  return appStore.compApiMaps ? appStore.compApiMaps[`vxe-${apiName.value}`] : null
-})
-
 const loadList = () => {
   gridOptions.loading = true
 
-  // 合并老数据
-  // XEUtils.each(appStore.compApiMaps, (list, name) => {
-  //   XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
-  //     if (parent) {
-  //       item.i18nKey = `components.${name.replace('vxe-', '')}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
-  //     } else {
-  //       item.i18nKey = `api.title.${item.name}`
-  //     }
-  //     item.i18nValue = XEUtils.get(newZh, item.i18nKey)
-  //     if (!item.i18nValue) {
-  //       XEUtils.set(newZh, item.i18nKey, item.desc || '')
-  //     }
-  //   }, { children: 'list' })
-  // })
-  // console.log(JSON.stringify(newZh.components, null, 2))
-
-  return new Promise<void>(resolve => {
-    setTimeout(() => {
-      const list = XEUtils.clone(apiConfig.value, true) || []
-      XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
-        if (parent) {
-          item.i18nKey = `components.${apiName.value}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
-        } else {
-          item.i18nKey = `api.title.${item.name}`
-        }
-        item.i18nValue = i18n.global.t(item.i18nKey)
-      }, { children: 'list' })
-      tableData.value = list
-      gridOptions.data = list
-      gridOptions.loading = false
-      handleSearch()
-      resolve()
-    }, 100)
+  return appStore.getComponentApiConf(apiName.value).then(data => {
+    const list = XEUtils.clone(data || [], true)
+    XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
+      if (parent) {
+        item.i18nKey = `components.${apiName.value}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
+      } else {
+        item.i18nKey = `api.title.${item.name}`
+      }
+      item.i18nValue = i18n.global.t(item.i18nKey)
+    }, { children: 'list' })
+    tableData.value = list
+    gridOptions.data = list
+    gridOptions.loading = false
+    handleSearch()
   })
 }
 
@@ -273,8 +250,6 @@ watch(() => appStore.compApiMaps, () => {
 nextTick(() => {
   loadList()
 })
-
-appStore.updateComponentApiJSON()
 </script>
 
 <style lang="scss" scoped>

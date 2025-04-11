@@ -44,6 +44,8 @@ const i18nStatus: Record<string, boolean> = {
   [currLanguage]: true
 }
 
+const apiMapPromise: Record<string, Promise<any> | null> = {}
+
 Vue.use(Vuex)
 
 function handleLibVersion (libName: string) {
@@ -75,6 +77,7 @@ export default new Vuex.Store({
     versionConfig: {}
   },
   getters: {
+    vueCDNLib: handleLibVersion('vue'),
     uiCDNLib: handleLibVersion('vxe-pc-ui'),
     tableCDNLib: handleLibVersion('vxe-table'),
     pluginExportPdfCDNLib: handleLibVersion('@vxe-ui/plugin-export-pdf'),
@@ -84,6 +87,8 @@ export default new Vuex.Store({
     pluginRenderChartCDNLib: handleLibVersion('@vxe-ui/plugin-render-chart'),
     pluginRenderEchartsCDNLib: handleLibVersion('@vxe-ui/plugin-render-echarts'),
     pluginRenderElementCDNLib: handleLibVersion('@vxe-ui/plugin-render-element'),
+    pluginRenderNaiveCDNLib: handleLibVersion('@vxe-ui/plugin-render-naive'),
+    pluginRenderIViewCDNLib: handleLibVersion('@vxe-ui/plugin-render-iview'),
     pluginRenderWangEditorCDNLib: handleLibVersion('@vxe-ui/plugin-render-wangeditor'),
     pluginValidatorCDNLib: handleLibVersion('@vxe-ui/plugin-validator'),
     pluginShortcutKeyCDNLib: handleLibVersion('@vxe-ui/plugin-shortcut-key')
@@ -133,10 +138,14 @@ export default new Vuex.Store({
     },
     updateComponentApiJSON (state) {
       if (!apiPromise) {
-        apiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiMaps.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        apiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
-              state.compApiMaps = data
+              const compApiMaps: Record<string, any[]> = {}
+              data.forEach(name => {
+                compApiMaps[name] = []
+              })
+              state.compApiMaps = compApiMaps
             }
           })
         }).then(() => {
@@ -158,6 +167,16 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    getComponentApiConf ({ state }, apiName: string) {
+      if (!apiMapPromise[apiName]) {
+        apiMapPromise[apiName] = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${process.env.VUE_APP_DATE_NOW}`)
+          .then(res => res.json()).catch(() => {
+            apiMapPromise[apiName] = null
+            return []
+          })
+      }
+      return apiMapPromise[apiName]
+    }
   },
   modules: {
   }

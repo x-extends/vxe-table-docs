@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -136,9 +136,6 @@ export default Vue.extend({
       const route = this.$route
       return route.params.name as string
     },
-    apiConfig (this: any) {
-      return this.compApiMaps ? this.compApiMaps[`vxe-${this.apiName}`] : null
-    },
     columns () {
       return [
         {
@@ -167,28 +164,25 @@ export default Vue.extend({
     }
   },
   methods: {
-    ...mapMutations([
-      'updateComponentApiJSON'
+    ...mapActions([
+      'getComponentApiConf'
     ]),
     loadList (this: any) {
       this.gridOptions.loading = true
-      return new Promise<void>(resolve => {
-        setTimeout(() => {
-          const list = XEUtils.clone(this.apiConfig, true) || []
-          XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
-            if (parent) {
-              item.i18nKey = `components.${this.apiName}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
-            } else {
-              item.i18nKey = `api.title.${item.name}`
-            }
-            item.i18nValue = this.$t(item.i18nKey)
-          }, { children: 'list' })
-          this.tableData = list
-          this.gridOptions.data = list
-          this.gridOptions.loading = false
-          this.handleSearch()
-          resolve()
-        }, 100)
+      return this.getComponentApiConf(this.apiName).then(data => {
+        const list = XEUtils.clone(data || [], true)
+        XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
+          if (parent) {
+            item.i18nKey = `components.${this.apiName}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
+          } else {
+            item.i18nKey = `api.title.${item.name}`
+          }
+          item.i18nValue = this.$t(item.i18nKey)
+        }, { children: 'list' })
+        this.tableData = list
+        this.gridOptions.data = list
+        this.gridOptions.loading = false
+        this.handleSearch()
       })
     },
     handleValueHighlight  (str: string, filterRE: RegExp) {
@@ -257,8 +251,6 @@ export default Vue.extend({
     }
   },
   created (this: any) {
-    this.updateComponentApiJSON()
-
     this.$nextTick(() => {
       this.loadList()
     })
