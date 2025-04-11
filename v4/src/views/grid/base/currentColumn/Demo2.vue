@@ -1,12 +1,13 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
+import { VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -49,4 +50,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
   ]
 })
+
+const gridEvents: VxeGridListeners = {
+  currentColumnDisabled () {
+    VxeUI.modal.message({
+      content: '禁止选中',
+      status: 'error'
+    })
+  }
+}
 </script>

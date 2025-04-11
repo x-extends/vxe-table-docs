@@ -1,12 +1,17 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid
+      ref="gridRef"
+      v-bind="gridOptions"
+      @current-row-disabled="currentRowDisabledEvent">
+    </vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
+import { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -54,6 +59,14 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    currentRowDisabledEvent () {
+      VxeUI.modal.message({
+        content: '禁止选中',
+        status: 'error'
+      })
     }
   }
 })

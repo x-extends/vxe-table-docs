@@ -4,7 +4,8 @@
       border
       :row-config="rowConfig"
       :current-row-config="currentRowConfig"
-      :data="tableData">
+      :data="tableData"
+      @current-row-disabled="currentRowDisabledEvent">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -16,7 +17,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -58,6 +60,14 @@ export default Vue.extend({
       rowConfig,
       currentRowConfig,
       tableData
+    }
+  },
+  methods: {
+    currentRowDisabledEvent () {
+      VxeUI.modal.message({
+        content: '禁止选中',
+        status: 'error'
+      })
     }
   }
 })

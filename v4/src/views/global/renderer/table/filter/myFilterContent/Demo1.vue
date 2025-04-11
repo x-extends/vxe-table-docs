@@ -4,10 +4,9 @@
       border
       height="300"
       :data="tableData">
-      <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="Name" :filters="nameOptions" :filter-render="nameFilterRender"></vxe-column>
       <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-render="sexFilterRender"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="age" title="Age" :filters="ageOptions" :filter-render="ageFilterRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -40,6 +39,13 @@ const sexOptions = ref([
   { data: { vals: [], sVal: '' } }
 ])
 const sexFilterRender = reactive({
+  name: 'MyTableFilterContent'
+})
+
+const ageOptions = ref([
+  { data: { vals: [], sVal: '' } }
+])
+const ageFilterRender = reactive({
   name: 'MyTableFilterContent'
 })
 </script>
