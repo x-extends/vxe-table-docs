@@ -706,6 +706,14 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '高亮列',
+          children: [
+            { title: '当前列', routerLink: { name: 'ComponentGridCurrentColumnBase' } },
+            { title: '拦截选中', routerLink: { name: 'ComponentGridCurrentColumnBeforeSelectMethod' } },
+            { title: '手动触发', routerLink: { name: 'ComponentGridCurrentColumnTrigger' } }
+          ]
+        },
+        {
           title: '列宽调整',
           children: [
             { title: '拖拽模式', routerLink: { name: 'ComponentGridColResizableMode' } },
@@ -747,6 +755,14 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             },
             { title: '手动移动', routerLink: { name: 'ComponentGridColDragManual' } },
             { title: '同时行与列拖拽', routerLink: { name: 'ComponentGridColDragRowCol' } }
+          ]
+        },
+        {
+          title: '高亮行',
+          children: [
+            { title: '当前行', routerLink: { name: 'ComponentGridCurrentRowBase' } },
+            { title: '拦截选中', routerLink: { name: 'ComponentGridCurrentRowBeforeSelectMethod' } },
+            { title: '手动触发', routerLink: { name: 'ComponentGridCurrentRowTrigger' } }
           ]
         },
         {

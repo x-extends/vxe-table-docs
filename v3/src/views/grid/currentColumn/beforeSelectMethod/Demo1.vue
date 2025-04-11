@@ -1,10 +1,6 @@
 <template>
   <div>
-    <vxe-grid
-      ref="gridRef"
-      v-bind="gridOptions"
-      @current-row-disabled="currentRowDisabledEvent">
-    </vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" @current-column-disabled="currentColumnDisabledEvent"></vxe-grid>
   </div>
 </template>
 
@@ -26,13 +22,13 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       height: 300,
-      rowConfig: {
+      columnConfig: {
         isCurrent: true,
         isHover: true
       },
-      currentRowConfig: {
-        beforeSelectMethod ({ row }) {
-          if (row.age > 30) {
+      currentColumnConfig: {
+        beforeSelectMethod ({ column }) {
+          if (column.field === 'age') {
             return false
           }
           return true
@@ -43,7 +39,7 @@ export default Vue.extend({
         { field: 'name', title: 'Name' },
         { field: 'sex', title: 'Sex' },
         { field: 'age', title: 'Age' },
-        { field: 'address', title: 'Address', showOverflow: true }
+        { field: 'address', title: 'Address' }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -62,7 +58,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentRowDisabledEvent () {
+    currentColumnDisabledEvent () {
       VxeUI.modal.message({
         content: '禁止选中',
         status: 'error'

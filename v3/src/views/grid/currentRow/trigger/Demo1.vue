@@ -1,17 +1,13 @@
 <template>
   <div>
-    <vxe-grid
-      ref="gridRef"
-      v-bind="gridOptions"
-      @current-column-disabled="currentColumnDisabledEvent">
-    </vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" @cell-click="cellClickEvent"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { VxeUI } from 'vxe-pc-ui'
-import { VxeGridProps } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -26,24 +22,20 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       height: 300,
-      columnConfig: {
+      loading: false,
+      rowConfig: {
         isCurrent: true,
         isHover: true
       },
-      currentColumnConfig: {
-        beforeSelectMethod ({ column }) {
-          if (column.field === 'age') {
-            return false
-          }
-          return true
-        }
+      currentRowConfig: {
+        trigger: 'manual'
       },
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
         { field: 'sex', title: 'Sex' },
         { field: 'age', title: 'Age' },
-        { field: 'address', title: 'Address', showOverflow: true }
+        { field: 'address', title: 'Address' }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -62,11 +54,23 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentColumnDisabledEvent () {
-      VxeUI.modal.message({
-        content: '禁止选中',
-        status: 'error'
-      })
+    cellClickEvent ({ row }) {
+    // 异步判断是否选中
+      this.gridOptions.loading = true
+      setTimeout(() => {
+        if (row.age > 30) {
+          const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+          if ($grid) {
+            $grid.setCurrentRow(row)
+          }
+        } else {
+          VxeUI.modal.message({
+            content: '禁止选中',
+            status: 'error'
+          })
+        }
+        this.gridOptions.loading = false
+      }, 300)
     }
   }
 })

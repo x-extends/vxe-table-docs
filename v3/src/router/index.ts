@@ -2274,6 +2274,27 @@ const gridRouteConfig: RouteConfig = {
       ]
     },
     {
+      path: 'currentColumn',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'base',
+          name: 'ComponentGridCurrentColumnBase',
+          component: () => import('@/views/grid/currentColumn/base/CodeExample.vue')
+        },
+        {
+          path: 'beforeSelectMethod',
+          name: 'ComponentGridCurrentColumnBeforeSelectMethod',
+          component: () => import('@/views/grid/currentColumn/beforeSelectMethod/CodeExample.vue')
+        },
+        {
+          path: 'trigger',
+          name: 'ComponentGridCurrentColumnTrigger',
+          component: () => import('@/views/grid/currentColumn/trigger/CodeExample.vue')
+        }
+      ]
+    },
+    {
       path: 'colResizable',
       component: RouteLayout,
       children: [
@@ -2408,6 +2429,27 @@ const gridRouteConfig: RouteConfig = {
           path: 'rowCol',
           name: 'ComponentGridColDragRowCol',
           component: () => import('@/views/grid/colDrag/rowCol/CodeExample.vue')
+        }
+      ]
+    },
+    {
+      path: 'currentRow',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'base',
+          name: 'ComponentGridCurrentRowBase',
+          component: () => import('@/views/grid/currentRow/base/CodeExample.vue')
+        },
+        {
+          path: 'beforeSelectMethod',
+          name: 'ComponentGridCurrentRowBeforeSelectMethod',
+          component: () => import('@/views/grid/currentRow/beforeSelectMethod/CodeExample.vue')
+        },
+        {
+          path: 'trigger',
+          name: 'ComponentGridCurrentRowTrigger',
+          component: () => import('@/views/grid/currentRow/trigger/CodeExample.vue')
         }
       ]
     },

@@ -1,13 +1,19 @@
 <template>
   <div>
+    <p>
+      <vxe-button @click="selectCurrentEvent">设置第二行选中</vxe-button>
+      <vxe-button @click="clearSelectEvent">取消选中</vxe-button>
+      <vxe-button @click="getCurrentEvent">获取高亮行</vxe-button>
+    </p>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import { VxeUI } from 'vxe-pc-ui'
-import { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -18,26 +24,20 @@ interface RowVO {
   address: string
 }
 
+const gridRef = ref<VxeGridInstance<RowVO>>()
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 300,
   rowConfig: {
     isCurrent: true,
     isHover: true
   },
-  currentRowConfig: {
-    beforeSelectMethod ({ row }) {
-      if (row.age > 30) {
-        return false
-      }
-      return true
-    }
-  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },
-    { field: 'address', title: 'Address', showOverflow: true }
+    { field: 'address', title: 'Address' }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -51,12 +51,30 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const gridEvents: VxeGridListeners = {
-  currentRowDisabled () {
-    VxeUI.modal.message({
-      content: '禁止选中',
-      status: 'error'
-    })
+const gridEvents: VxeGridListeners<RowVO> = {
+  currentRowChange ({ rowIndex }) {
+    console.log(`行选中事件 ${rowIndex}`)
+  }
+}
+
+const selectCurrentEvent = () => {
+  const $grid = gridRef.value
+  if ($grid && gridOptions.data) {
+    $grid.setCurrentRow(gridOptions.data[1])
+  }
+}
+
+const clearSelectEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.clearCurrentRow()
+  }
+}
+
+const getCurrentEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    VxeUI.modal.alert(JSON.stringify($grid.getCurrentRecord()))
   }
 }
 </script>

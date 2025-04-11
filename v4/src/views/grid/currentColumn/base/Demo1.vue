@@ -1,13 +1,19 @@
 <template>
   <div>
+    <p>
+      <vxe-button @click="selectCurrentEvent">设置第二列选中</vxe-button>
+      <vxe-button @click="clearSelectEvent">取消选中</vxe-button>
+      <vxe-button @click="getCurrentEvent">获取高亮列</vxe-button>
+    </p>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import { VxeUI } from 'vxe-pc-ui'
-import { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -18,26 +24,20 @@ interface RowVO {
   address: string
 }
 
+const gridRef = ref<VxeGridInstance<RowVO>>()
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 300,
   columnConfig: {
     isCurrent: true,
     isHover: true
   },
-  currentColumnConfig: {
-    beforeSelectMethod ({ column }) {
-      if (column.field === 'age') {
-        return false
-      }
-      return true
-    }
-  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },
-    { field: 'address', title: 'Address', showOverflow: true }
+    { field: 'address', title: 'Address' }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -51,12 +51,31 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const gridEvents: VxeGridListeners = {
-  currentColumnDisabled () {
-    VxeUI.modal.message({
-      content: '禁止选中',
-      status: 'error'
-    })
+const gridEvents: VxeGridListeners<RowVO> = {
+  currentColumnChange ({ column }) {
+    console.log(`列选中事件 ${column.field}`)
+  }
+}
+
+const selectCurrentEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.setCurrentColumn('name')
+  }
+}
+
+const clearSelectEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.clearCurrentColumn()
+  }
+}
+
+const getCurrentEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const currentColumn = $grid.getCurrentColumn()
+    VxeUI.modal.alert(currentColumn ? currentColumn.field : '')
   }
 }
 </script>
