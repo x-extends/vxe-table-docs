@@ -29,7 +29,7 @@ function updateMsg (bEl) {
   }
 }
 
-var adDelay = 30000
+var adDelay = 36000
 var adTimeout = null
 function checkAd () {
   var warpperEl = document.getElementById('{VXE_AD_WRAPPER_ID}')
@@ -60,7 +60,7 @@ function checkAd () {
   }
 }
 
-var hdDelay = 10000
+var hdDelay = 16000
 var hdTimeout = null
 function checkHide () {
   var bEl = document.querySelector('.page-container');
