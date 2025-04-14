@@ -42,6 +42,7 @@ const i18nPromise: Record<string, Promise<any> | null> = {}
 const i18nStatus: Record<string, boolean> = {
   [currLanguage]: true
 }
+const apiLangPromise: Record<string, Promise<any> | null> = {}
 
 const apiMapPromise: Record<string, Promise<any> | null> = {}
 
@@ -120,8 +121,11 @@ export const useAppStore = defineStore('app', {
       } else {
         if (!i18nPromise[language]) {
           this.pageLoading = true
-          i18nPromise[language] = axios.get(`${process.env.VUE_APP_SITE_BASE_URL}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-            i18n.global.setLocaleMessage(language, res.data)
+          i18nPromise[language] = Promise.all([
+            axios.get(`${this.siteBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`),
+            axios.get(`${this.siteBaseUrl}/component-api/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`)
+          ]).then(([appRes, compRes]) => {
+            i18n.global.setLocaleMessage(language, Object.assign({}, appRes.data, compRes.data))
             this.language = language || 'zh-CN'
             VxeUI.setLanguage(language)
             i18n.global.locale = language

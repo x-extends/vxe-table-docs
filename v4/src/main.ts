@@ -107,8 +107,14 @@ app.use(i18n)
 
 app.config.globalProperties.$t = i18n.global.t
 
-axios.get(`${process.env.VUE_APP_SITE_BASE_URL}/i18n/${i18n.global.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-  i18n.global.setLocaleMessage(i18n.global.locale, res.data)
+axios.get(`${process.env.VUE_APP_SITE_BASE_URL}/i18n/${i18n.global.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(appRes => {
+  i18n.global.setLocaleMessage(i18n.global.locale, appRes.data)
+
+  setTimeout(() => {
+    axios.get(`${process.env.VUE_APP_SITE_BASE_URL}/component-api/i18n/${i18n.global.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(compRes => {
+      i18n.global.setLocaleMessage(i18n.global.locale, Object.assign({}, appRes.data, compRes.data))
+    })
+  }, 300)
 }).catch(e => e).then(() => {
   app.mount('#app')
 })

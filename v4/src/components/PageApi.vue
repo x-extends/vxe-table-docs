@@ -247,6 +247,10 @@ watch(() => appStore.compApiMaps, () => {
   loadList()
 })
 
+watch(() => i18n.global.locale, () => {
+  loadList()
+})
+
 nextTick(() => {
   loadList()
 })

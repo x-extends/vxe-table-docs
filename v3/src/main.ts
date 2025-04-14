@@ -101,8 +101,14 @@ Vue.use(VxeTable)
 
 Vue.config.productionTip = false
 
-axios.get(`${process.env.VUE_APP_SITE_BASE_URL}/i18n/${i18n.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-  i18n.setLocaleMessage(i18n.locale, res.data)
+axios.get(`${process.env.VUE_APP_SITE_BASE_URL}/i18n/${i18n.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(appRes => {
+  i18n.setLocaleMessage(i18n.locale, appRes.data)
+
+  setTimeout(() => {
+    axios.get(`${process.env.VUE_APP_SITE_BASE_URL}/component-api/i18n/${i18n.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(compRes => {
+      i18n.setLocaleMessage(i18n.locale, Object.assign({}, appRes.data, compRes.data))
+    })
+  }, 300)
 }).catch(e => e).then(() => {
   new Vue({
     router,

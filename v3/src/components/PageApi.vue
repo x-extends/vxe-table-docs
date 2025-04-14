@@ -248,6 +248,9 @@ export default Vue.extend({
     },
     compApiMaps (this: any) {
       this.loadList()
+    },
+    '$t.locale' (this: any) {
+      this.loadList()
     }
   },
   created (this: any) {
