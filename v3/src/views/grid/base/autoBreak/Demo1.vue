@@ -20,6 +20,12 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      virtualXConfig: {
+        enabled: false
+      },
+      virtualYConfig: {
+        enabled: false
+      },
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },

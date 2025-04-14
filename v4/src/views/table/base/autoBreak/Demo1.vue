@@ -1,6 +1,8 @@
 <template>
   <div>
     <vxe-table
+      :virtual-x-config="{enabled: false}"
+      :virtual-y-config="{enabled: false}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
