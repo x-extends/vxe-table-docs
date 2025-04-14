@@ -3,7 +3,7 @@
     <CodeLight path="table/scroll/hv/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="同时纵向与横向虚拟滚动">
-          通过 scroll-y.enabled 与 scroll-x.enabled 同时开启。
+          通过 virtual-y-config.enabled 与 virtual-x-config.enabled 同时开启。
         </vxe-tip>
       </template>
 

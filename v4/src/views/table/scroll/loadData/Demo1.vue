@@ -11,7 +11,7 @@
       show-overflow
       ref="tableRef"
       height="800"
-      :scroll-y="{enabled: true, gt: 0}"
+      :virtual-x-config="{enabled: true, gt: 0}"
       :loading="loading">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" title="序号" width="100"></vxe-column>

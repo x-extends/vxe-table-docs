@@ -16,7 +16,7 @@
       show-overflow
       ref="tableRef"
       height="800"
-      :scroll-y="{enabled: true, gt: 0}"
+      :virtual-y-config="{enabled: true, gt: 0}"
       :edit-config="editConfig"
       :loading="loading">
       <vxe-column type="seq" width="70"></vxe-column>

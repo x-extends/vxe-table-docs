@@ -5,7 +5,7 @@
       show-overflow
       height="600"
       :cell-config="{height: 120}"
-      :scroll-y="{enabled: true, gt: 0}"
+      :virtual-y-config="{enabled: true, gt: 0}"
       :loading="loading"
       :data="tableData">
       <vxe-column type="seq" title="序号" width="100"></vxe-column>

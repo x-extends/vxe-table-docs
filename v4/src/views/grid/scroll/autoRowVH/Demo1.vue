@@ -41,11 +41,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     resizable: true
   },
-  scrollX: {
+  virtualXConfig: {
     enabled: true,
     gt: 0
   },
-  scrollY: {
+  virtualYConfig: {
     enabled: true,
     gt: 0
   },

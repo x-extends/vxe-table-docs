@@ -13,8 +13,8 @@
       height="800"
       :loading="loading"
       :column-config="{resizable: true}"
-      :scroll-x="{enabled: true, gt: 0}"
-      :scroll-y="{enabled: true, gt: 0}"
+      :virtual-x-config="{enabled: true, gt: 0}"
+      :virtual-y-config="{enabled: true, gt: 0}"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column field="checkbox" type="checkbox" width="60" fixed="left"></vxe-column>

@@ -26,7 +26,7 @@ export default Vue.extend({
         resizable: true,
         drag: true
       },
-      scrollX: {
+      virtualXConfig: {
         enabled: true,
         gt: 0
       },

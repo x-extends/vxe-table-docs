@@ -22,7 +22,7 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
-      scrollX: {
+      virtualXConfig: {
         enabled: true,
         gt: 0
       },

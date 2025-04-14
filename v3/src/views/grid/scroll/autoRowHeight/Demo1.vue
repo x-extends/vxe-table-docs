@@ -43,7 +43,7 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0
       },

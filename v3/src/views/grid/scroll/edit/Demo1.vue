@@ -49,7 +49,7 @@ export default Vue.extend({
         trigger: 'click',
         mode: 'cell'
       },
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0
       },

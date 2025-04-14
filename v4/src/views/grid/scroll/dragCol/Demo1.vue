@@ -24,7 +24,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true,
     drag: true
   },
-  scrollX: {
+  virtualXConfig: {
     enabled: true,
     gt: 0
   },

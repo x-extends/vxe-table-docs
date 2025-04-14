@@ -3,7 +3,7 @@
     <CodeLight path="grid/scroll/horizontal/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="横向虚拟滚动">
-          通过 scroll-x.enabled 与 scroll-x.gt 组合开启，其中 enabled 为总开关，gt 是指当总列数大于指定列数时自动开启。
+          通过 virtual-x-config.enabled 与 virtual-x-config.gt 组合开启，其中 enabled 为总开关，gt 是指当总列数大于指定列数时自动开启。
         </vxe-tip>
         <vxe-tip status="success">
           <div>理论上限：横向平均上限支持 8w 列（最大上限 20w 列）。当 gt 为 0 时为总是启用。</div>

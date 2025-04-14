@@ -5,7 +5,7 @@
       show-overflow
       height="600"
       :column-config="{resizable: true}"
-      :scroll-y="{enabled: true, gt: 0}"
+      :virtual-y-config="{enabled: true, gt: 0}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>

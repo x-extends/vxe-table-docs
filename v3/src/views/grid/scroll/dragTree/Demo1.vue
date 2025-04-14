@@ -41,7 +41,7 @@ export default Vue.extend({
         rowField: 'id',
         childrenField: 'children'
       },
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0
       },

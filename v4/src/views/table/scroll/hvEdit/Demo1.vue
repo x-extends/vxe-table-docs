@@ -20,8 +20,8 @@
       :loading="loading"
       :column-config="{resizable: true}"
       :edit-config="editConfig"
-      :scroll-y="{enabled: true, gt: 0}"
-      :scroll-x="{enabled: true, gt: 0}">
+      :virtual-x-config="{enabled: true, gt: 0}"
+      :virtual-y-config="{enabled: true, gt: 0}">
       <vxe-column field="col0" title="列0" width="160" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="col1" title="列1" width="100" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="col2" title="列2" width="160" :edit-render="{name: 'VxeInput'}"></vxe-column>

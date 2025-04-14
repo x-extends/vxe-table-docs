@@ -29,7 +29,7 @@ export default Vue.extend({
       },
       columnConfig: {
       },
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0
       },

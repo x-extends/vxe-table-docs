@@ -37,7 +37,7 @@ export default Vue.extend({
       cellConfig: {
         height: 120
       },
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0
       },

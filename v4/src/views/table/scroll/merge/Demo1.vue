@@ -8,7 +8,7 @@
       :column-config="columnConfig"
       :merge-cells="mergeCells"
       :merge-footer-items="mergeFooterItems"
-      :scroll-y="scrollY"
+      :virtual-x-config="scrollY"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column type="seq" width="70"></vxe-column>

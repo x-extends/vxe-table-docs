@@ -3,7 +3,7 @@
     <CodeLight path="table/scroll/vertical/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="纵向虚拟滚动">
-          通过 scroll-y.enabled 与 scroll-y.gt 组合开启，其中 enabled 为总开关，gt 是指当总行数大于指定行数时自动开启。
+          通过 virtual-y-config.enabled 与 virtual-y-config.gt 组合开启，其中 enabled 为总开关，gt 是指当总行数大于指定行数时自动开启。
         </vxe-tip>
         <vxe-tip status="success">
           <div>理论上限：纵向最大可以支持 30w 行，当 gt 为 0 时为总是启用。</div>

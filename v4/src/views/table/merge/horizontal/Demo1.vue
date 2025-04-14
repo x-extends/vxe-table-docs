@@ -3,7 +3,7 @@
     <vxe-table
       border
       height="600"
-      :scroll-y="{enabled: false}"
+      :virtual-y-config="{enabled: false}"
       :span-method="rowspanMethod"
       :data="tableData">
       <vxe-column field="name1" title="功能模块">

@@ -32,7 +32,7 @@ export default Vue.extend({
       showOverflow: true,
       height: 800,
       loading: false,
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0
       },

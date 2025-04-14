@@ -39,11 +39,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   treeConfig: {
     transform: true
   },
-  scrollX: {
+  virtualXConfig: {
     enabled: true,
     gt: 0
   },
-  scrollY: {
+  virtualYConfig: {
     enabled: true,
     gt: 0
   },

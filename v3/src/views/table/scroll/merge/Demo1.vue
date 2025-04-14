@@ -8,7 +8,7 @@
       :column-config="columnConfig"
       :merge-cells="mergeCells"
       :merge-footer-items="mergeFooterItems"
-      :scroll-y="scrollY"
+      :virtual-y-config="scrollY"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -59,7 +59,7 @@ export default Vue.extend({
       { row: 0, col: 1, rowspan: 2, colspan: 1 }
     ]
 
-    const scrollY: VxeTablePropTypes.ScrollY = {
+    const virtualYConfig: VxeTablePropTypes.ScrollY = {
       enabled: true,
       gt: 0
     }

@@ -39,7 +39,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     rowField: 'id',
     childrenField: 'children'
   },
-  scrollY: {
+  virtualYConfig: {
     enabled: true,
     gt: 0
   },

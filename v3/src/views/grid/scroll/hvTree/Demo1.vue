@@ -39,11 +39,11 @@ export default Vue.extend({
       treeConfig: {
         transform: true
       },
-      scrollX: {
+      virtualXConfig: {
         enabled: true,
         gt: 0
       },
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0
       },

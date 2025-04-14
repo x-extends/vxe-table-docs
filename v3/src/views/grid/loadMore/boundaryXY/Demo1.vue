@@ -25,12 +25,12 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
-      scrollX: {
+      virtualXConfig: {
         enabled: true,
         gt: 0,
         threshold: 50
       },
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0,
         threshold: 50

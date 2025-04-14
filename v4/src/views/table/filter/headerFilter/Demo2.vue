@@ -4,7 +4,7 @@
       border
       ref="tableRef"
       height="300"
-      :filter-config="{showIcon: false}"
+      :filter-config="filterConfig"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="Name">
@@ -24,8 +24,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeTableInstance, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -40,6 +40,10 @@ interface RowVO {
 }
 
 const tableRef = ref<VxeTableInstance<RowVO>>()
+
+const filterConfig = reactive<VxeTablePropTypes.FilterConfig>({
+  showIcon: false
+})
 
 const nameOptions = ref<VxeColumnPropTypes.Filters>([
   { data: '' }

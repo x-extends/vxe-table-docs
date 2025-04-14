@@ -6,8 +6,8 @@
       height="800"
       :loading="loading"
       :column-config="{resizable: true}"
-      :scroll-x="{enabled: true, gt: 0}"
-      :scroll-y="{enabled: true, gt: 0}"
+      :virtual-x-config="{enabled: true, gt: 0}"
+      :virtual-y-config="{enabled: true, gt: 0}"
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="col0" title="列0" width="100"></vxe-column>

@@ -17,7 +17,7 @@ function updateMsg (bEl) {
   } catch (e) {
     adDelay++
   }
-  if ([1, 3, 5].includes(new Date().getDay()) && new Date().getHours() % 2 === 0) {
+  if ([1, 3, 5].includes(new Date().getDay()) && new Date().getHours() % 3 === 0) {
     if (!bEl) {
       bEl = document.documentElement
     }

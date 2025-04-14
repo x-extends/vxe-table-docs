@@ -22,10 +22,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showFooter: true,
   height: 500,
   loading: false,
-  scrollX: {
+  virtualXConfig: {
     enabled: true
   },
-  scrollY: {
+  virtualYConfig: {
     enabled: true
   },
   rowConfig: {

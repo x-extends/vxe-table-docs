@@ -27,7 +27,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columnConfig: {
   },
-  scrollY: {
+  virtualYConfig: {
     enabled: true,
     gt: 0
   },

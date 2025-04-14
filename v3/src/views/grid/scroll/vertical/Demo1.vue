@@ -21,7 +21,7 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       height: 600,
-      scrollY: {
+      virtualYConfig: {
         enabled: true,
         gt: 0
       },

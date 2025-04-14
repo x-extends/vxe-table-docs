@@ -4,7 +4,7 @@
       border
       ref="tableRef"
       height="300"
-      :filter-config="{showIcon: false}"
+      :filter-config="filterConfig"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="名字">
@@ -42,7 +42,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import XEUtils from 'xe-utils'
-import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
+import type { VxeTableInstance, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -57,6 +57,10 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const filterConfig: VxeTablePropTypes.FilterConfig = {
+      showIcon: false
+    }
+
     const sexList = [
       { label: '男', value: '1' },
       { label: '女', value: '0' }
@@ -112,6 +116,7 @@ export default Vue.extend({
     }
 
     return {
+      filterConfig,
       sexList,
       nameOptions,
       dateOptions,
