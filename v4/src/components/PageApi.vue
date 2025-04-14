@@ -1,5 +1,5 @@
 <template>
-  <div class="api-view">
+  <div class="api-view">gfdgdfg
     <vxe-grid
       ref="gridRef"
       class="api-table"
@@ -48,8 +48,6 @@ import { VxeGridProps, VxeGridPropTypes, VxeGridInstance } from 'vxe-table'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 
-// import newZh from '@/i18n/lang/zh-CN'
-
 interface RowVO {
   name: string
   enum: string
@@ -78,11 +76,18 @@ const apiName = computed(() => {
 const loadList = () => {
   gridOptions.loading = true
 
-  return appStore.getComponentApiConf(apiName.value).then(data => {
+  return Promise.all([
+    appStore.getComponentApiConf(apiName.value),
+    appStore.getComponentI18nJSON()
+  ]).then(([data]) => {
     const list = XEUtils.clone(data || [], true)
+    let firstI18nKey = ''
     XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
       if (parent) {
         item.i18nKey = `components.${apiName.value}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
+        if (!firstI18nKey) {
+          firstI18nKey = item.i18nKey
+        }
       } else {
         item.i18nKey = `api.title.${item.name}`
       }
@@ -244,10 +249,6 @@ watch(apiName, () => {
 })
 
 watch(() => appStore.compApiMaps, () => {
-  loadList()
-})
-
-watch(() => i18n.global.locale, () => {
   loadList()
 })
 

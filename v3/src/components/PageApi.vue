@@ -163,13 +163,30 @@ export default Vue.extend({
       ]
     }
   },
+  watch: {
+    apiName (this: any) {
+      const $grid = this.$refs.gridRef
+      this.searchName = ''
+      if ($grid) {
+        $grid.clearAll()
+      }
+      this.loadList()
+    },
+    compApiMaps (this: any) {
+      this.loadList()
+    }
+  },
   methods: {
     ...mapActions([
-      'getComponentApiConf'
+      'getComponentApiConf',
+      'getComponentI18nJSON'
     ]),
     loadList (this: any) {
       this.gridOptions.loading = true
-      return this.getComponentApiConf(this.apiName).then(data => {
+      Promise.all([
+        this.getComponentApiConf(this.apiName),
+        this.getComponentI18nJSON()
+      ]).then(([data]) => {
         const list = XEUtils.clone(data || [], true)
         XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
           if (parent) {
@@ -235,22 +252,6 @@ export default Vue.extend({
         return `vxe-pc-ui@${version}`
       }
       return version
-    }
-  },
-  watch: {
-    apiName (this: any) {
-      const $grid = this.$refs.gridRef
-      this.searchName = ''
-      if ($grid) {
-        $grid.clearAll()
-      }
-      this.loadList()
-    },
-    compApiMaps (this: any) {
-      this.loadList()
-    },
-    '$t.locale' (this: any) {
-      this.loadList()
     }
   },
   created (this: any) {

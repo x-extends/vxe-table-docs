@@ -44,6 +44,8 @@ const i18nStatus: Record<string, boolean> = {
   [currLanguage]: true
 }
 
+const apiLangPromise: Record<string, Promise<any> | null> = {}
+
 const apiMapPromise: Record<string, Promise<any> | null> = {}
 
 Vue.use(Vuex)
@@ -138,6 +140,16 @@ export default new Vuex.Store({
           })
         }
       }
+    },
+    getComponentI18nJSON (state) {
+      if (!apiLangPromise[state.language]) {
+        apiLangPromise[state.language] = axios.get(`${state.siteBaseUrl}/component-api/i18n/${state.language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
+          i18n.mergeLocaleMessage(state.language, res.data)
+        }).catch(() => {
+          apiLangPromise[state.language] = null
+        })
+      }
+      return apiLangPromise[state.language]
     },
     updateComponentApiJSON (state) {
       if (!apiPromise) {
