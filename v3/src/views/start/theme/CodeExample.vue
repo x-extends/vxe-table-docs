@@ -25,7 +25,7 @@
     <CodeLight>
       <template #tip>
         <vxe-tip status="primary" title="（推荐）方式一：内置主题样式修改">
-          通过修内置主题 css 变量（<vxe-link href="https://gitee.com/x-extends/vxe-table/blob/main/styles/theme/light.scss" status="primary" target="_blank">查看全部变量</vxe-link>）方式修改内置主题的样式：
+          通过修内置主题 css 变量（<vxe-link href="https://gitee.com/x-extends/vxe-table/blob/master/styles/theme/light.scss" status="primary" target="_blank">查看全部变量</vxe-link>）方式修改内置主题的样式：
         </vxe-tip>
       </template>
 
