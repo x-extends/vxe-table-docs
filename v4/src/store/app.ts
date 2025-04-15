@@ -73,6 +73,11 @@ export const useAppStore = defineStore('app', {
       compApiMaps: null as any,
       showAuthMsgFlag: localStorage.getItem('SHOW_AUTH_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
       showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
+      systemConfig: {
+        i18nVersion: '',
+        v3Version: '',
+        v4Version: ''
+      },
       versionConfig: {}
     }
   },
@@ -138,7 +143,7 @@ export const useAppStore = defineStore('app', {
     },
     getComponentI18nJSON () {
       if (!apiLangPromise[this.language]) {
-        apiLangPromise[this.language] = axios.get(`${this.siteBaseUrl}/component-api/i18n/${this.language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
+        apiLangPromise[this.language] = axios.get(`${this.siteBaseUrl}/component-api/i18n/${this.language}.json?v=${this.systemConfig.i18nVersion || process.env.VUE_APP_DATE_NOW}`).then((res) => {
           i18n.global.mergeLocaleMessage(this.language, res.data)
         }).catch(() => {
           apiLangPromise[this.language] = null
@@ -148,7 +153,7 @@ export const useAppStore = defineStore('app', {
     },
     updateComponentApiJSON () {
       if (!apiPromise) {
-        apiPromise = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        apiPromise = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
               const compApiMaps: Record<string, any[]> = {}
@@ -166,7 +171,7 @@ export const useAppStore = defineStore('app', {
     },
     getComponentApiConf (apiName: string) {
       if (!apiMapPromise[apiName]) {
-        apiMapPromise[apiName] = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${process.env.VUE_APP_DATE_NOW}`)
+        apiMapPromise[apiName] = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`)
           .then(res => res.json()).catch(() => {
             apiMapPromise[apiName] = null
             return []
@@ -181,6 +186,9 @@ export const useAppStore = defineStore('app', {
     readTopMenuMsgFlagVisible () {
       this.showTopMenuMsgFlag = false
       localStorage.setItem('SHOW_TOP_MENU_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM-dd'))
+    },
+    setSystemConfig (conf: any) {
+      this.systemConfig = conf
     },
     setVersionConfig (conf: any) {
       this.versionConfig = conf

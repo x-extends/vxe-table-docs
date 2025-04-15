@@ -76,6 +76,11 @@ export default new Vuex.Store({
     compApiMaps: null as any,
     showAuthMsgFlag: localStorage.getItem('SHOW_AUTH_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
     showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
+    systemConfig: {
+      i18nVersion: '',
+      v3Version: '',
+      v4Version: ''
+    },
     versionConfig: {}
   },
   getters: {
@@ -123,11 +128,8 @@ export default new Vuex.Store({
       } else {
         if (!i18nPromise[language]) {
           state.pageLoading = true
-          i18nPromise[language] = Promise.all([
-            axios.get(`${state.siteBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`),
-            axios.get(`${state.siteBaseUrl}/component-api/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`)
-          ]).then(([appRes, compRes]) => {
-            i18n.setLocaleMessage(language, Object.assign({}, appRes.data, compRes.data))
+          i18nPromise[language] = axios.get(`${this.siteBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
+            i18n.setLocaleMessage(language, res.data)
             state.language = language || 'zh-CN'
             VxeUI.setLanguage(language)
             i18n.locale = language
@@ -143,7 +145,7 @@ export default new Vuex.Store({
     },
     getComponentI18nJSON (state) {
       if (!apiLangPromise[state.language]) {
-        apiLangPromise[state.language] = axios.get(`${state.siteBaseUrl}/component-api/i18n/${state.language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
+        apiLangPromise[state.language] = axios.get(`${state.siteBaseUrl}/component-api/i18n/${state.language}.json?v=${state.systemConfig[state.systemConfig.i18nVersion] || process.env.VUE_APP_DATE_NOW}`).then((res) => {
           i18n.mergeLocaleMessage(state.language, res.data)
         }).catch(() => {
           apiLangPromise[state.language] = null
@@ -153,7 +155,7 @@ export default new Vuex.Store({
     },
     updateComponentApiJSON (state) {
       if (!apiPromise) {
-        apiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        apiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
               const compApiMaps: Record<string, any[]> = {}
@@ -177,6 +179,9 @@ export default new Vuex.Store({
       state.showTopMenuMsgFlag = false
       localStorage.setItem('SHOW_TOP_MENU_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM-dd'))
     },
+    setSystemConfig (state, conf: any) {
+      state.systemConfig = conf
+    },
     setVersionConfig (state, conf: any) {
       state.versionConfig = conf
     }
@@ -184,7 +189,7 @@ export default new Vuex.Store({
   actions: {
     getComponentApiConf ({ state }, apiName: string) {
       if (!apiMapPromise[apiName]) {
-        apiMapPromise[apiName] = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${process.env.VUE_APP_DATE_NOW}`)
+        apiMapPromise[apiName] = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`)
           .then(res => res.json()).catch(() => {
             apiMapPromise[apiName] = null
             return []

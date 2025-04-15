@@ -78,6 +78,9 @@ export default Vue.extend({
         autoResize: true,
         height: 'auto',
         loading: false,
+        loadingConfig: {
+          text: '检测到 API 有更新，正在自动更新中，请稍后...'
+        },
         rowConfig: {
           useKey: true,
           keyField: 'id',
