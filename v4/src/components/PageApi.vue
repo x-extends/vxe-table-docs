@@ -1,5 +1,5 @@
 <template>
-  <div class="api-view">gfdgdfg
+  <div class="api-view">
     <vxe-grid
       ref="gridRef"
       class="api-table"
