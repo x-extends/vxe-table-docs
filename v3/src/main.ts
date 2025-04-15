@@ -19,7 +19,7 @@ import XEUtils from 'xe-utils'
 import VxeUI from 'vxe-pc-ui'
 import 'vxe-pc-ui/es/style.css'
 
-import VxeTable from 'vxe-table'
+import lazyVxeTable from 'vxe-table'
 import 'vxe-table/es/style.css'
 
 import VxeUIPluginRenderChart from '@vxe-ui/plugin-render-chart'
@@ -97,7 +97,7 @@ Vue.component('DemoUserSelectPulldown', DemoUserSelectPulldown)
 Vue.component('DemoRoleSelectPulldown', DemoRoleSelectPulldown)
 
 Vue.use(VxeUI)
-Vue.use(VxeTable)
+Vue.use(lazyVxeTable)
 
 Vue.config.productionTip = false
 
