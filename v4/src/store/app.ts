@@ -37,7 +37,8 @@ if (currPrimaryColor) {
 
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
-let apiPromise: Promise<any> | null = null
+let simplifyaApiPromise: Promise<any> | null = null
+let fullApiPromise: Promise<any> | null = null
 const i18nPromise: Record<string, Promise<any> | null> = {}
 const i18nStatus: Record<string, boolean> = {
   [currLanguage]: true
@@ -153,8 +154,8 @@ export const useAppStore = defineStore('app', {
       return apiLangPromise[this.language]
     },
     updateComponentApiJSON () {
-      if (!apiPromise) {
-        apiPromise = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+      if (!simplifyaApiPromise) {
+        simplifyaApiPromise = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
               const compApiMaps: Record<string, any[]> = {}
@@ -165,10 +166,24 @@ export const useAppStore = defineStore('app', {
             }
           })
         }).then(() => {
-          apiPromise = null
+          simplifyaApiPromise = null
         })
       }
-      return apiPromise
+      return simplifyaApiPromise
+    },
+    updateAllComponentApiJSON () {
+      if (!fullApiPromise) {
+        fullApiPromise = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiMaps.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+          return res.json().then(data => {
+            if (data) {
+              this.compApiMaps = Object.assign({}, this.compApiMaps, data)
+            }
+          })
+        }).then(() => {
+          fullApiPromise = null
+        })
+      }
+      return fullApiPromise
     },
     getComponentApiConf (apiName: string) {
       if (!apiMapPromise[apiName]) {

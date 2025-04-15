@@ -38,7 +38,8 @@ if (currPrimaryColor) {
 
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
-let apiPromise: Promise<any> | null = null
+let simplifyaApiPromise: Promise<any> | null = null
+let fullsimplifyaApiPromise: Promise<any> | null = null
 const i18nPromise: Record<string, Promise<any> | null> = {}
 const i18nStatus: Record<string, boolean> = {
   [currLanguage]: true
@@ -157,6 +158,9 @@ export default new Vuex.Store({
     },
     setVersionConfig (state, conf: any) {
       state.versionConfig = conf
+    },
+    setCompApiMaps (state, conf: any) {
+      state.compApiMaps = conf
     }
   },
   actions: {
@@ -180,23 +184,37 @@ export default new Vuex.Store({
       }
       return apiLangPromise[state.language]
     },
-    updateComponentApiJSON ({ state }) {
-      if (!apiPromise) {
-        apiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+    updateComponentApiJSON ({ state, commit }) {
+      if (!simplifyaApiPromise) {
+        simplifyaApiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
               const compApiMaps: Record<string, any[]> = {}
               data.forEach(name => {
                 compApiMaps[name] = []
               })
-              state.compApiMaps = compApiMaps
+              commit('setCompApiMaps', compApiMaps)
             }
           })
         }).then(() => {
-          apiPromise = null
+          simplifyaApiPromise = null
         })
       }
-      return apiPromise
+      return simplifyaApiPromise
+    },
+    updateAllComponentApiJSON ({ state, commit }) {
+      if (!fullsimplifyaApiPromise) {
+        fullsimplifyaApiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiMaps.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+          return res.json().then(data => {
+            if (data) {
+              commit('setCompApiMaps', Object.assign({}, state.compApiMaps, data))
+            }
+          })
+        }).then(() => {
+          fullsimplifyaApiPromise = null
+        })
+      }
+      return fullsimplifyaApiPromise
     }
   },
   modules: {

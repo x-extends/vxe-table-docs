@@ -149,7 +149,8 @@ export default Vue.extend({
       searchName: '',
       showSearchList: false,
       searchLoading: false,
-      isInit: false
+      isInit: false,
+      loadApiStatus: false
     }
   },
   computed: {
@@ -159,7 +160,8 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions([
-      'updateComponentApiJSON'
+      'updateComponentApiJSON',
+      'updateAllComponentApiJSON'
     ]),
     handleNavApiParams  (item: NavVO) {
       if (item.isSelfAPI) {
@@ -237,6 +239,10 @@ export default Vue.extend({
         this.handleSearch()
       }
       this.showSearchList = true
+      if (!this.loadApiStatus) {
+        this.loadApiStatus = true
+        this.updateAllComponentApiJSON()
+      }
     },
     changeSearchEvent () {
       this.searchLoading = true

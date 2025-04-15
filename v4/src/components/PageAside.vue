@@ -153,6 +153,7 @@ const showSearchList = ref(false)
 const searchLoading = ref(false)
 const searchList = ref<NavVO[]>([])
 let isInit = false
+let loadApiStatus = false
 
 const handleNavApiParams = (item: NavVO) => {
   if (item.isSelfAPI) {
@@ -233,6 +234,10 @@ const clickSearchEvent = () => {
     handleSearch()
   }
   showSearchList.value = true
+  if (!loadApiStatus) {
+    loadApiStatus = true
+    appStore.updateAllComponentApiJSON()
+  }
 }
 
 const changeSearchEvent = () => {
