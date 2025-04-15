@@ -132,7 +132,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapMutations, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { navConfigList, NavVO } from '@/common/nav-config'
 import { VxeTreeInstance } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
@@ -158,7 +158,7 @@ export default Vue.extend({
     ])
   },
   methods: {
-    ...mapMutations([
+    ...mapActions([
       'updateComponentApiJSON'
     ]),
     handleNavApiParams  (item: NavVO) {
