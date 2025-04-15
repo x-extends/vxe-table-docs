@@ -194,7 +194,7 @@ const previewUrl = computed(() => {
     if (/^http/.test(previewPath)) {
       return previewPath
     }
-    return `${siteBaseUrl.value}${previewPath}`
+    return `${siteBaseUrl.value}${previewPath}?v=${appStore.systemConfig.previewVersion}`
   }
   return ''
 })

@@ -74,6 +74,7 @@ export const useAppStore = defineStore('app', {
       showAuthMsgFlag: localStorage.getItem('SHOW_AUTH_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
       showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
       systemConfig: {
+        previewVersion: '',
         i18nVersion: '',
         v3Version: '',
         v4Version: ''
