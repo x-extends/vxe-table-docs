@@ -144,34 +144,6 @@ export default new Vuex.Store({
         }
       }
     },
-    getComponentI18nJSON (state) {
-      if (!apiLangPromise[state.language]) {
-        apiLangPromise[state.language] = axios.get(`${state.siteBaseUrl}/component-api/i18n/${state.language}.json?v=${state.systemConfig[state.systemConfig.i18nVersion] || process.env.VUE_APP_DATE_NOW}`).then((res) => {
-          i18n.mergeLocaleMessage(state.language, res.data)
-        }).catch(() => {
-          apiLangPromise[state.language] = null
-        })
-      }
-      return apiLangPromise[state.language]
-    },
-    updateComponentApiJSON (state) {
-      if (!apiPromise) {
-        apiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
-          return res.json().then(data => {
-            if (data) {
-              const compApiMaps: Record<string, any[]> = {}
-              data.forEach(name => {
-                compApiMaps[name] = []
-              })
-              state.compApiMaps = compApiMaps
-            }
-          })
-        }).then(() => {
-          apiPromise = null
-        })
-      }
-      return apiPromise
-    },
     readAuthMsgFlagVisible (state) {
       state.showAuthMsgFlag = false
       localStorage.setItem('SHOW_AUTH_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM-dd'))
@@ -197,6 +169,34 @@ export default new Vuex.Store({
           })
       }
       return apiMapPromise[apiName]
+    },
+    getComponentI18nJSON ({ state }) {
+      if (!apiLangPromise[state.language]) {
+        apiLangPromise[state.language] = axios.get(`${state.siteBaseUrl}/component-api/i18n/${state.language}.json?v=${state.systemConfig[state.systemConfig.i18nVersion] || process.env.VUE_APP_DATE_NOW}`).then((res) => {
+          i18n.mergeLocaleMessage(state.language, res.data)
+        }).catch(() => {
+          apiLangPromise[state.language] = null
+        })
+      }
+      return apiLangPromise[state.language]
+    },
+    updateComponentApiJSON ({ state }) {
+      if (!apiPromise) {
+        apiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+          return res.json().then(data => {
+            if (data) {
+              const compApiMaps: Record<string, any[]> = {}
+              data.forEach(name => {
+                compApiMaps[name] = []
+              })
+              state.compApiMaps = compApiMaps
+            }
+          })
+        }).then(() => {
+          apiPromise = null
+        })
+      }
+      return apiPromise
     }
   },
   modules: {
