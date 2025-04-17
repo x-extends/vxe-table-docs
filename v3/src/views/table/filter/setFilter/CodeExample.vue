@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/filter/setFilter/Demo1">
+    <CodeLight path="table/filter/setFilter/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="手动操作筛选">
           手动调用本地筛选
@@ -11,7 +11,7 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="grid/filter/setFilter/Demo2">
+    <CodeLight path="table/filter/setFilter/Demo2">
       <template #tip>
         <vxe-tip status="primary">
           手动调用远程筛选
