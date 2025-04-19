@@ -43,51 +43,53 @@ const showOperBtn = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-.layout-content-container {
-  position: relative;
-  min-width: 1200px;
-  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.12);
-}
-.layout-body {
-  ::v-deep(.vxe-layout-body--inner) {
-    position: relative;
-    padding: 16px 300px 16px 16px;
-  }
-}
-.layout-aside {
-  ::v-deep(.vxe-layout-aside--inner) {
-    overflow-y: scroll;
-  }
-}
+<style lang="scss">
 .app-container {
-  &.docs-api {
-    .layout-body {
-      height: 100%;
-    }
-    .layout-footer {
-      display: none;
+  .layout-content-container {
+    position: relative;
+    min-width: 1200px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+  .layout-body {
+    .vxe-layout-body--inner {
+      position: relative;
+      padding: 16px 300px 16px 16px;
     }
   }
-}
-.oper-wrapper {
-  position: absolute;
-  top: 46vh;
-  width: 16px;
-  .oper-btn {
-    height: 60px;
-    user-select: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    border: 1px solid var(--vxe-ui-docs-layout-border-color);
-    background: var(--vxe-ui-docs-layout-background-color);
-    z-index: 19;
-    &:active {
-      outline: 0;
+  .layout-aside {
+    .vxe-layout-aside--inner {
+      overflow-y: scroll;
     }
-    &.type--button {
+  }
+  .app-container {
+    &.docs-api {
+      .layout-body {
+        height: 100%;
+      }
+      .layout-footer {
+        display: none;
+      }
+    }
+  }
+  .oper-wrapper {
+    position: absolute;
+    top: 46vh;
+    width: 16px;
+    .oper-btn {
+      height: 60px;
+      user-select: none;
       padding: 0;
+      margin: 0;
+      cursor: pointer;
+      border: 1px solid var(--vxe-ui-docs-layout-border-color);
+      background: var(--vxe-ui-docs-layout-background-color);
+      z-index: 19;
+      &:active {
+        outline: 0;
+      }
+      &.type--button {
+        padding: 0;
+      }
     }
   }
 }
