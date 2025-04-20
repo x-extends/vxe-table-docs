@@ -18,7 +18,7 @@ export interface NavVO {
   linkUrl?: string
   linkTarget?: '_self' | '_blank'
   linkStatus?: 'warning' | 'success' | 'error'
-  keywords?: string[]
+  keywords?: string
   children?: NavVO[]
 }
 
