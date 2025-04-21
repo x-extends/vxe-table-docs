@@ -19,6 +19,7 @@
     <div class="header-right">
       <vxe-pulldown v-if="isPluginDocs" v-model="showPluginApp" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
+          <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
         </vxe-button>
 
@@ -26,7 +27,6 @@
           <ul class="plugin-app-wrapper">
             <li v-for="(item, index) in pluginAppList" :key="index">
               <vxe-link :href="`${tablePluginDocsUrl}/${item.uri}`" :content="$t(`shopping.apps.${item.code}`)"></vxe-link>
-              <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }}</span>
             </li>
           </ul>
         </template>
@@ -128,6 +128,11 @@ const currBuyPluginBUrl = computed(() => {
     return `${appStore.pluginBuyUrl}/#${pluginUrlMaps.value[pluginType]}`
   }
   return appStore.pluginBuyUrl
+})
+
+const currBuyPluginName = computed(() => {
+  const appItem = pluginAppList.value.find(item => item.value === pluginType)
+  return appItem ? appItem.label : pluginType
 })
 
 const currTheme = computed({

@@ -20,7 +20,7 @@
       <vxe-pulldown v-if="isPluginDocs" v-model="showPluginApp" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
-          <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }}</span>
+          <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
         </vxe-button>
 
         <template #dropdown>
@@ -175,6 +175,10 @@ export default Vue.extend({
         return `${this.pluginBuyUrl}/#${pluginUrlMaps[pluginType]}`
       }
       return this.pluginBuyUrl
+    },
+    currBuyPluginName () {
+      const appItem = this.pluginAppList.find(item => item.value === this.pluginType)
+      return appItem ? appItem.label : this.pluginType
     },
     currTheme: {
       get () {
