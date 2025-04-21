@@ -19,8 +19,8 @@
     <div class="header-right">
       <vxe-pulldown v-if="isPluginDocs" v-model="showPluginApp" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
-          <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
+          <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
         </vxe-button>
 
         <template #dropdown>
