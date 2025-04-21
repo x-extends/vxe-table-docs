@@ -92,6 +92,7 @@
 import Vue from 'vue'
 import { mapMutations, mapState } from 'vuex'
 import { tablePluginDocsUrl } from '@/common/nav-config'
+import XEUtils from 'xe-utils'
 
 export default Vue.extend({
   inject: {
@@ -279,6 +280,15 @@ export default Vue.extend({
           this.pluginUrlMaps = data
         })
       })
+      fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        res.json().then(data => {
+          this.pluginAppList = data.map(item => {
+            item.label = this.$t(`shopping.apps.${item.code}`)
+            item.value = XEUtils.kebabCase(item.code)
+            return item
+          })
+        })
+      })
       fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
         res.json().then(data => {
           this.systemVersionList = data
@@ -433,6 +443,30 @@ export default Vue.extend({
   margin: 0;
   list-style: none;
   width: 360px;
+  border: 1px solid var(--vxe-ui-docs-layout-border-color);
+  & > li {
+    position: relative;
+    line-height: 28px;
+    padding: 0 16px;
+    font-size: 14px;
+    .enterprise {
+      display: inline-block;
+      height: 22px;
+      line-height: 22px;
+      background-color: #f6ca9d;
+      border-radius: 10px;
+      font-size: 12px;
+      padding: 0 8px;
+      color: #606266;
+      transform: scale(0.8);
+    }
+  }
+}
+.plugin-app-wrapper {
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  width: 180px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   & > li {
     position: relative;

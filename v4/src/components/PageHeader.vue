@@ -20,14 +20,13 @@
       <vxe-pulldown v-if="isPluginDocs" v-model="showPluginApp" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
-          <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }}</span>
         </vxe-button>
 
         <template #dropdown>
           <ul class="plugin-app-wrapper">
             <li v-for="(item, index) in pluginAppList" :key="index">
               <vxe-link :href="`${tablePluginDocsUrl}/${item.uri}`" :content="$t(`shopping.apps.${item.code}`)"></vxe-link>
-              <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
+              <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }}</span>
             </li>
           </ul>
         </template>
