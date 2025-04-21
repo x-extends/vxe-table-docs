@@ -154,7 +154,7 @@ const tableData = ref([
         name: 'renderTableHeader',
         desc: '渲染头部',
         version: '',
-        type: '(params: { column, columnIndex, $columnIndex, _columnIndex, $rowIndex, $table }) => JSX',
+        type: '(renderOpts, renderParams: { column, columnIndex, $columnIndex, _columnIndex, $rowIndex, $table }) => JSX',
         enum: '',
         defVal: '',
         list: []
@@ -163,7 +163,7 @@ const tableData = ref([
         name: 'renderTableDefault',
         desc: '渲染单元格',
         version: '',
-        type: '(params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+        type: '(renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
         enum: '',
         defVal: '',
         list: []
@@ -172,7 +172,7 @@ const tableData = ref([
         name: 'renderTableFooter',
         desc: '渲染尾部',
         version: '',
-        type: '(params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items, itemIndex, $table }) => JSX',
+        type: '(renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items, itemIndex, $table }) => JSX',
         enum: '',
         defVal: '',
         list: []

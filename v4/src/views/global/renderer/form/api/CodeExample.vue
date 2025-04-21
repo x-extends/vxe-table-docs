@@ -109,7 +109,7 @@ const tableData = ref([
         name: 'renderFormItemTitle',
         desc: '渲染表单项标题',
         version: '',
-        type: '(params: { data, item, field, disabled, readonly, $form }) => JSX',
+        type: '(renderOpts, renderParams: { data, item, field, disabled, readonly, $form }) => JSX',
         enum: '',
         defVal: '',
         list: []
@@ -118,7 +118,7 @@ const tableData = ref([
         name: 'renderFormItemContent',
         desc: '渲染表单项内容',
         version: '',
-        type: '(params: { data, item, field, disabled, readonly, $form }) => JSX',
+        type: '(renderOpts, renderParams: { data, item, field, disabled, readonly, $form }) => JSX',
         enum: '',
         defVal: '',
         list: []

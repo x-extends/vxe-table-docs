@@ -21,7 +21,6 @@
     </vxe-table>
   </div>
 </template>
-
 <script lang="ts">
 import Vue from 'vue'
 import type { VxeTableInstance, VxeTablePropTypes } from 'vxe-table'

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/rowGroup/handleSet/Demo1">
+    <CodeLight path="grid/rowGroup/handleSet/Demo1" previewPath="/resource/docsImg/table_row_roup_handle_set.gif">
       <template #tip>
         <vxe-tip status="primary" title="手动操作">
           通过配置 <ApiLink name="grid" prop="setRowGroups"/> 设置分组与<ApiLink name="grid" prop="clearRowGroups"/> 取消分组
