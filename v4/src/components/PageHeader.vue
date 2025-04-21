@@ -17,7 +17,22 @@
     </div>
     <div class="header-middle"></div>
     <div class="header-right">
-      <vxe-pulldown v-model="showSystemMenu" show-popup-shadow>
+      <vxe-pulldown v-if="isPluginDocs" v-model="showPluginApp" show-popup-shadow>
+        <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
+          <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
+          <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }}</span>
+        </vxe-button>
+
+        <template #dropdown>
+          <ul class="plugin-app-wrapper">
+            <li v-for="(item, index) in pluginAppList" :key="index">
+              <vxe-link :href="`${tablePluginDocsUrl}${item.uri}`" :content="$t(`shopping.apps.${item.code}`)"></vxe-link>
+              <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
+            </li>
+          </ul>
+        </template>
+      </vxe-pulldown>
+      <vxe-pulldown v-else v-model="showSystemMenu" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
@@ -45,7 +60,7 @@
         :close-label="$t('app.base.dark')">
       </vxe-switch>
 
-      <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" type="rgb" size="mini" show-eye-dropper></vxe-color-picker>
+      <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" size="mini"></vxe-color-picker>
 
       <vxe-radio-group class="switch-size" v-model="currCompSize" :options="sizeOptions" type="button" size="mini"></vxe-radio-group>
 
@@ -77,7 +92,9 @@
 import { ref, computed, inject } from 'vue'
 import { useAppStore } from '@/store/app'
 import { VxePulldownEvents } from 'vxe-pc-ui'
+import { tablePluginDocsUrl } from '@/common/nav-config'
 import i18n from '@/i18n'
+import XEUtils from 'xe-utils'
 
 const appStore = useAppStore()
 const pageTitle = computed(() => appStore.pageTitle)
@@ -89,6 +106,15 @@ const isPluginDocs = computed(() => appStore.isPluginDocs)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const pluginType = inject('pluginType', '' as string)
+
+const showPluginApp = ref(false)
+const pluginAppList = ref<{
+  value: string
+  label: string
+  code: string
+  uri: string
+  isEnterprise: boolean
+}[]>([])
 
 const showSystemMenu = ref(false)
 const systemMenuList = ref<any[]>()
@@ -183,6 +209,10 @@ const langClickEvent: VxePulldownEvents.OptionClick = ({ option }) => {
   appStore.setLanguage(option.value as any)
 }
 
+const togglePluginAppEvent = () => {
+  showPluginApp.value = !showPluginApp.value
+}
+
 const toggleSystemMenuEvent = () => {
   showSystemMenu.value = !showSystemMenu.value
   appStore.readTopMenuMsgFlagVisible()
@@ -220,6 +250,15 @@ if (isPluginDocs.value) {
   fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       pluginUrlMaps.value = data
+    })
+  })
+  fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+    res.json().then(data => {
+      pluginAppList.value = data.map(item => {
+        item.label = i18n.global.t(`shopping.apps.${item.code}`)
+        item.value = XEUtils.kebabCase(item.code)
+        return item
+      })
     })
   })
   fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
@@ -374,6 +413,30 @@ if (isPluginDocs.value) {
   margin: 0;
   list-style: none;
   width: 360px;
+  border: 1px solid var(--vxe-ui-docs-layout-border-color);
+  & > li {
+    position: relative;
+    line-height: 28px;
+    padding: 0 16px;
+    font-size: 14px;
+    .enterprise {
+      display: inline-block;
+      height: 22px;
+      line-height: 22px;
+      background-color: #f6ca9d;
+      border-radius: 10px;
+      font-size: 12px;
+      padding: 0 8px;
+      color: #606266;
+      transform: scale(0.8);
+    }
+  }
+}
+.plugin-app-wrapper {
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  width: 180px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   & > li {
     position: relative;

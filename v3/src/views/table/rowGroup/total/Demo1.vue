@@ -1,16 +1,8 @@
 <template>
   <div>
-    <p>
-      <vxe-button status="primary" @click="handleRowGroup(['date'])">设置date分组</vxe-button>
-      <vxe-button status="primary" @click="handleRowGroup(['role'])">设置role分组</vxe-button>
-      <vxe-button status="primary" @click="handleRowGroup(['role', 'date'])">设置role,date分组</vxe-button>
-      <vxe-button @click="cancelRowGroup()">取消分组</vxe-button>
-    </p>
-
     <vxe-table
       show-overflow
       height="500"
-      ref="tableRef"
       :row-group-config="rowGroupConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" min-width="300" row-group-node></vxe-column>
@@ -24,7 +16,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -38,7 +30,10 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const rowGroupConfig: VxeTablePropTypes.RowGroupConfig<RowVO> = {}
+    const rowGroupConfig: VxeTablePropTypes.RowGroupConfig<RowVO> = {
+      groupFields: ['role'],
+      showTotal: true
+    }
 
     const tableData: RowVO[] = [
       { id: 10001, name: 'Test1', role: 'Develop', sex: 'Woman', age: 28, date: '2025-02-01', address: 'test abc' },
@@ -66,20 +61,6 @@ export default Vue.extend({
     return {
       tableData,
       rowGroupConfig
-    }
-  },
-  methods: {
-    handleRowGroup (fields: string[]) {
-      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-      if ($table) {
-        $table.setRowGroups(fields)
-      }
-    },
-    cancelRowGroup () {
-      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-      if ($table) {
-        $table.clearRowGroups()
-      }
     }
   }
 })
