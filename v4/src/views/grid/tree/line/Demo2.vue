@@ -32,8 +32,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   treeConfig: {
     transform: true,
-    rowField: 'id',
-    parentField: 'parentId',
     showLine: true
   },
   columns: [

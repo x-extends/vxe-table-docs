@@ -30,8 +30,6 @@ export default Vue.extend({
       },
       treeConfig: {
         transform: true,
-        rowField: 'id',
-        parentField: 'parentId',
         showLine: true
       },
       columns: [

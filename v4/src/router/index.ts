@@ -636,6 +636,15 @@ const tableRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'rowGroup',
+      component: RouteLayout,
+      children: [
+        { path: 'basic', name: 'ComponentTableRowGroupBasic', component: () => import('@/views/table/rowGroup/basic/CodeExample.vue') },
+        { path: 'groupFields', name: 'ComponentTableRowGroupGroupFields', component: () => import('@/views/table/rowGroup/groupFields/CodeExample.vue') },
+        { path: 'handleSet', name: 'ComponentTableRowGroupHandleSet', component: () => import('@/views/table/rowGroup/handleSet/CodeExample.vue') }
+      ]
+    },
+    {
       path: 'expand',
       component: RouteLayout,
       children: [
@@ -2771,6 +2780,41 @@ const gridRouteConfig: RouteRecordRaw = {
       ]
     },
     {
+      path: 'rowGroup',
+      component: RouteLayout,
+      children: [
+        { path: 'basic', name: 'ComponentGridRowGroupBasic', component: () => import('@/views/grid/rowGroup/basic/CodeExample.vue') },
+        { path: 'groupFields', name: 'ComponentGridRowGroupGroupFields', component: () => import('@/views/grid/rowGroup/groupFields/CodeExample.vue') },
+        {
+          path: 'radio',
+          component: RouteLayout,
+          children: [
+            { path: 'base', name: 'ComponentGridRowGroupRadioBse', component: () => import('@/views/grid/rowGroup/radio/base/CodeExample.vue') },
+            { path: 'checked', name: 'ComponentGridRowGroupRadioChecked', component: () => import('@/views/grid/rowGroup/radio/checked/CodeExample.vue') }
+          ]
+        },
+        {
+          path: 'checkbox',
+          component: RouteLayout,
+          children: [
+            { path: 'base', name: 'ComponentGridRowGroupCheckboxBase', component: () => import('@/views/grid/rowGroup/checkbox/base/CodeExample.vue') },
+            { path: 'checkStrictly', name: 'ComponentGridRowGroupCheckboxCheckStrictly', component: () => import('@/views/grid/rowGroup/checkbox/checkStrictly/CodeExample.vue') },
+            { path: 'checkStrictly', name: 'ComponentGridRowGroupCheckboxStrictlyHeader', component: () => import('@/views/grid/rowGroup/checkbox/strictlyHeader/CodeExample.vue') },
+            { path: 'checked', name: 'ComponentGridRowGroupCheckboxChecked', component: () => import('@/views/grid/rowGroup/checkbox/checked/CodeExample.vue') }
+          ]
+        },
+        { path: 'accordion', name: 'ComponentGridRowGroupAccordion', component: () => import('@/views/grid/rowGroup/accordion/CodeExample.vue') },
+        { path: 'fixed', name: 'ComponentGridRowGroupFixed', component: () => import('@/views/grid/rowGroup/fixed/CodeExample.vue') },
+        { path: 'sort', name: 'ComponentGridRowGroupSort', component: () => import('@/views/grid/rowGroup/sort/CodeExample.vue') },
+        { path: 'expand', name: 'ComponentGridRowGroupExpand', component: () => import('@/views/grid/rowGroup/expand/CodeExample.vue') },
+        { path: 'total', name: 'ComponentGridRowGroupTotal', component: () => import('@/views/grid/rowGroup/total/CodeExample.vue') },
+        { path: 'contentMethod', name: 'ComponentGridRowGroupContentMethod', component: () => import('@/views/grid/rowGroup/contentMethod/CodeExample.vue') },
+        { path: 'spanMethod', name: 'ComponentGridRowGroupSpanMethod', component: () => import('@/views/grid/rowGroup/spanMethod/CodeExample.vue') },
+        { path: 'trigger', name: 'ComponentGridRowGroupTrigger', component: () => import('@/views/grid/rowGroup/trigger/CodeExample.vue') },
+        { path: 'handleSet', name: 'ComponentGridRowGroupHandleSet', component: () => import('@/views/grid/rowGroup/handleSet/CodeExample.vue') }
+      ]
+    },
+    {
       path: 'expand',
       component: RouteLayout,
       children: [
@@ -3200,6 +3244,16 @@ const gridRouteConfig: RouteRecordRaw = {
           ]
         },
         {
+          path: 'fixed',
+          name: 'ComponentGridTreeFixed',
+          component: () => import('@/views/grid/tree/fixed/CodeExample.vue')
+        },
+        {
+          path: 'sort',
+          name: 'ComponentGridTreeSort',
+          component: () => import('@/views/grid/tree/sort/CodeExample.vue')
+        },
+        {
           path: 'expandRow',
           name: 'ComponentGridTreeExpandRow',
           component: () => import('@/views/grid/tree/expandRow/CodeExample.vue')
@@ -3213,6 +3267,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'groupFields',
           name: 'ComponentGridTreeGroupFields',
           component: () => import('@/views/grid/tree/groupFields/CodeExample.vue')
+        },
+        {
+          path: 'spanMethod',
+          name: 'ComponentGridTreeSpanMethod',
+          component: () => import('@/views/grid/tree/spanMethod/CodeExample.vue')
         },
         {
           path: 'lazy',

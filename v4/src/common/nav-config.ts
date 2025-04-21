@@ -43,9 +43,9 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '边框', routerLink: { name: 'ComponentTableBaseBorder' } },
             { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' } },
             // { title: '边距', routerLink: { name: 'ComponentTableBasePadding' } },
-            { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' } },
-            { title: '列可视', routerLink: { name: 'ComponentTableBaseVisible' } },
-            { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' } },
+            { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' }, keywords: '对齐,align' },
+            { title: '列可视', routerLink: { name: 'ComponentTableBaseVisible' }, keywords: '显示,隐藏,visible' },
+            { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' }, keywords: '宽度,列宽,自适应列宽,width,auto' },
             { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
             { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' } },
             { title: '文本提示', routerLink: { name: 'ComponentTableBaseTooltip' } },
@@ -206,6 +206,14 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '行分组',
+          children: [
+            { title: '行分组', routerLink: { name: 'ComponentTableRowGroupBasic' } },
+            { title: '按多字段分组', routerLink: { name: 'ComponentTableRowGroupGroupFields' } },
+            { title: '手动操作', routerLink: { name: 'ComponentTableRowGroupHandleSet' } }
+          ]
+        },
+        {
           title: '展开行',
           children: [
             { title: '基础使用', routerLink: { name: 'ComponentTableExpandBasic' } },
@@ -320,7 +328,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '懒加载 - 可编辑', routerLink: { name: 'ComponentTableTreeLazyEdit' } },
             { title: '同时使用展开行', routerLink: { name: 'ComponentTableTreeExpand' } },
             { title: '同时使用展开行 - 懒加载', routerLink: { name: 'ComponentTableTreeExpandLazy' } },
-            { title: '实现数据分组', routerLink: { name: 'ComponentTableTreeGroup' } },
+            // { title: '实现数据分组', routerLink: { name: 'ComponentTableTreeGroup' } },
             { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaTree' } } }
           ]
         },
@@ -814,6 +822,38 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '行分组',
+          children: [
+            { title: '行分组', routerLink: { name: 'ComponentGridRowGroupBasic' } },
+            { title: '按多字段分组', routerLink: { name: 'ComponentGridRowGroupGroupFields' } },
+            {
+              title: '单选框',
+              children: [
+                { title: '单选框', routerLink: { name: 'ComponentGridRowGroupRadioBse' } },
+                { title: '限制选中', routerLink: { name: 'ComponentGridRowGroupRadioChecked' } }
+              ]
+            },
+            {
+              title: '复选框',
+              children: [
+                { title: '复选框', routerLink: { name: 'ComponentGridRowGroupCheckboxBase' } },
+                { title: '分组不关联', routerLink: { name: 'ComponentGridRowGroupCheckboxCheckStrictly' } },
+                { title: '分组不关联与全选', routerLink: { name: 'ComponentGridRowGroupCheckboxStrictlyHeader' } },
+                { title: '限制选中', routerLink: { name: 'ComponentGridRowGroupCheckboxChecked' } }
+              ]
+            },
+            { title: '手风琴效果', routerLink: { name: 'ComponentGridRowGroupAccordion' } },
+            { title: '冻结列', routerLink: { name: 'ComponentGridRowGroupFixed' } },
+            { title: '分组排序', routerLink: { name: 'ComponentGridRowGroupSort' } },
+            { title: '同时使用展开行', routerLink: { name: 'ComponentGridRowGroupExpand' } },
+            { title: '显示分组统计', routerLink: { name: 'ComponentGridRowGroupTotal' } },
+            { title: '自定义分组内容', routerLink: { name: 'ComponentGridRowGroupContentMethod' } },
+            { title: '自定义合并', routerLink: { name: 'ComponentGridRowGroupSpanMethod' } },
+            { title: '触发方式', routerLink: { name: 'ComponentGridRowGroupTrigger' } },
+            { title: '手动操作', routerLink: { name: 'ComponentGridRowGroupHandleSet' } }
+          ]
+        },
+        {
           title: '展开行',
           children: [
             { title: '基础使用', routerLink: { name: 'ComponentGridExpandBasic' } },
@@ -978,9 +1018,12 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '父子不关联与全选', routerLink: { name: 'ComponentGridTreeCheckboxStrictlyHeader' } }
               ]
             },
+            { title: '冻结列', routerLink: { name: 'ComponentGridTreeFixed' } },
+            { title: '排序', routerLink: { name: 'ComponentGridTreeSort' } },
             { title: '默认展开节点', routerLink: { name: 'ComponentGridTreeExpandRowKeys' } },
             { title: '同时使用展开行', routerLink: { name: 'ComponentGridTreeExpandRow' } },
-            { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
+            // { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
+            { title: '自定义合并', routerLink: { name: 'ComponentGridTreeSpanMethod' } },
             { title: '懒加载', routerLink: { name: 'ComponentGridTreeLazy' } },
             { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } }
           ]
