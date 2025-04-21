@@ -33,7 +33,6 @@
         </template>
       </vxe-pulldown>
       <vxe-pulldown v-else v-model="showSystemMenu" show-popup-shadow>
-      <vxe-pulldown v-model="showSystemMenu" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
