@@ -46,7 +46,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetItem',
         desc: '渲染左侧控件项',
         version: '',
-        type: '(renderOpts: {}, params: { $formDesign }) => JSX',
+        type: '(renderOpts: {}, params: { $formDesign }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -64,7 +64,7 @@ const tableData = ref([
         name: 'renderFormDesignSettingFormView',
         desc: '渲染设计器-属性表单',
         version: '',
-        type: '(renderOpts: {}, params: { $formDesign }) => JSX',
+        type: '(renderOpts: {}, params: { $formDesign }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -73,7 +73,7 @@ const tableData = ref([
         name: 'renderFormDesignStyleFormView',
         desc: '渲染设计器-电脑端表单',
         version: '',
-        type: '(renderOpts: {}, params: { formConfig, $formDesign }) => JSX',
+        type: '(renderOpts: {}, params: { formConfig, $formDesign }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -82,7 +82,7 @@ const tableData = ref([
         name: 'renderFormDesignMobileStyleFormView',
         desc: '渲染设计器-手机端表单',
         version: '',
-        type: '(renderOpts: {}, params: { formConfig, $formDesign }) => JSX',
+        type: '(renderOpts: {}, params: { formConfig, $formDesign }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -100,7 +100,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetFormView',
         desc: '渲染右侧-控件表单',
         version: '',
-        type: '(renderOpts: { name }, params: { widget, $formDesign }) => JSX',
+        type: '(renderOpts: { name }, params: { widget, $formDesign }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -109,7 +109,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetEdit',
         desc: '表单控件渲染（设计时），如果不设置，则使用 renderFormDesignWidgetView 渲染',
         version: '',
-        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -118,7 +118,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetPreview',
         desc: '表单控件渲染（预览时 - 电脑端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
         version: '',
-        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -127,7 +127,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetMobilePreview',
         desc: '表单控件渲染（预览时 - 手机端），如果不设置，则使用 renderFormDesignWidgetView 渲染',
         version: '',
-        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -136,7 +136,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetView',
         desc: '表单控件渲染（默认）',
         version: '',
-        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX',
+        type: '(renderOpts: { name }, params: { widget, isEditMode, isViewMode, $formDesign, $formView }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -145,7 +145,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetSubtableDefaultView',
         desc: '子表控件渲染（只读模式）',
         version: '4.1.14',
-        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -154,7 +154,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetSubtableCellView',
         desc: '子表控件渲染（编辑模式-查看），如果不设置，则使用 renderFormDesignWidgetSubtableDefaultView',
         version: '4.1.14',
-        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -163,7 +163,7 @@ const tableData = ref([
         name: 'renderFormDesignWidgetSubtableEditView',
         desc: '子表控件渲染（编辑模式-编辑）',
         version: '4.1.14',
-        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX',
+        type: '(renderOpts: { name }, params: { row, column, widget, $table, $grid }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []

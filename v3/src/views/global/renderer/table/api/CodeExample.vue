@@ -66,7 +66,7 @@ export default Vue.extend({
             name: 'renderTableFilter',
             desc: '自定义筛选渲染内容',
             version: '',
-            type: '(h, renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+            type: '(h, renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -156,7 +156,7 @@ export default Vue.extend({
             name: 'renderTableHeader',
             desc: '渲染头部',
             version: '',
-            type: '(h, renderOpts, renderParams: { column, columnIndex, $columnIndex, _columnIndex, $rowIndex, $table }) => JSX',
+            type: '(h, renderOpts, renderParams: { column, columnIndex, $columnIndex, _columnIndex, $rowIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -165,7 +165,7 @@ export default Vue.extend({
             name: 'renderTableDefault',
             desc: '渲染单元格',
             version: '',
-            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -174,7 +174,7 @@ export default Vue.extend({
             name: 'renderTableFooter',
             desc: '渲染尾部',
             version: '',
-            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items, itemIndex, $table }) => JSX',
+            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items, itemIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -219,7 +219,7 @@ export default Vue.extend({
             name: 'renderTableEdit',
             desc: '渲染编辑状态时，与 renderTableCell 配合使用',
             version: '',
-            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -228,7 +228,7 @@ export default Vue.extend({
             name: 'renderTableCell',
             desc: '渲染非编辑状态时，与 renderTableEdit 配合使用',
             version: '',
-            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -237,7 +237,7 @@ export default Vue.extend({
             name: 'renderTableExpand',
             desc: '展开行渲染',
             version: '',
-            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) => JSX',
+            type: '(h, renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -246,7 +246,7 @@ export default Vue.extend({
             name: 'renderTableEmpty',
             desc: '空数据时渲染',
             version: '',
-            type: '(h, renderOpts, renderParams: { $table }) => JSX',
+            type: '(h, renderOpts, renderParams: { $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []

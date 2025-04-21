@@ -211,6 +211,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '行分组', routerLink: { name: 'ComponentTableRowGroupBasic' } },
             { title: '按多字段分组', routerLink: { name: 'ComponentTableRowGroupGroupFields' } },
+            { title: '显示分组统计', routerLink: { name: 'ComponentTableRowGroupTotal' } },
             { title: '手动操作', routerLink: { name: 'ComponentTableRowGroupHandleSet' } }
           ]
         },
@@ -1021,6 +1022,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             },
             { title: '冻结列', routerLink: { name: 'ComponentGridTreeFixed' } },
             { title: '排序', routerLink: { name: 'ComponentGridTreeSort' } },
+            { title: '筛选', routerLink: { name: 'ComponentGridTreeFilter' } },
             { title: '默认展开节点', routerLink: { name: 'ComponentGridTreeExpandRowKeys' } },
             { title: '同时使用展开行', routerLink: { name: 'ComponentGridTreeExpandRow' } },
             // { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },

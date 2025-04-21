@@ -111,7 +111,7 @@ export default Vue.extend({
             name: 'renderFormItemTitle',
             desc: '渲染表单项标题',
             version: '',
-            type: '(h, renderOpts, renderParams: { data, item, field, disabled, readonly, $form }) => JSX',
+            type: '(h, renderOpts, renderParams: { data, item, field, disabled, readonly, $form }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -120,7 +120,7 @@ export default Vue.extend({
             name: 'renderFormItemContent',
             desc: '渲染表单项内容',
             version: '',
-            type: '(h, renderOpts, renderParams: { data, item, field, disabled, readonly, $form }) => JSX',
+            type: '(h, renderOpts, renderParams: { data, item, field, disabled, readonly, $form }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []

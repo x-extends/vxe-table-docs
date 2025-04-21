@@ -644,6 +644,7 @@ const tableRouteConfig: RouteConfig = {
       children: [
         { path: 'basic', name: 'ComponentTableRowGroupBasic', component: () => import('@/views/table/rowGroup/basic/CodeExample.vue') },
         { path: 'groupFields', name: 'ComponentTableRowGroupGroupFields', component: () => import('@/views/table/rowGroup/groupFields/CodeExample.vue') },
+        { path: 'total', name: 'ComponentTableRowGroupTotal', component: () => import('@/views/table/rowGroup/total/CodeExample.vue') },
         { path: 'handleSet', name: 'ComponentTableRowGroupHandleSet', component: () => import('@/views/table/rowGroup/handleSet/CodeExample.vue') }
       ]
     },
@@ -2802,7 +2803,7 @@ const gridRouteConfig: RouteConfig = {
           children: [
             { path: 'base', name: 'ComponentGridRowGroupCheckboxBase', component: () => import('@/views/grid/rowGroup/checkbox/base/CodeExample.vue') },
             { path: 'checkStrictly', name: 'ComponentGridRowGroupCheckboxCheckStrictly', component: () => import('@/views/grid/rowGroup/checkbox/checkStrictly/CodeExample.vue') },
-            { path: 'checkStrictly', name: 'ComponentGridRowGroupCheckboxStrictlyHeader', component: () => import('@/views/grid/rowGroup/checkbox/strictlyHeader/CodeExample.vue') },
+            { path: 'strictlyHeader', name: 'ComponentGridRowGroupCheckboxStrictlyHeader', component: () => import('@/views/grid/rowGroup/checkbox/strictlyHeader/CodeExample.vue') },
             { path: 'checked', name: 'ComponentGridRowGroupCheckboxChecked', component: () => import('@/views/grid/rowGroup/checkbox/checked/CodeExample.vue') }
           ]
         },
@@ -3255,6 +3256,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'sort',
           name: 'ComponentGridTreeSort',
           component: () => import('@/views/grid/tree/sort/CodeExample.vue')
+        },
+        {
+          path: 'filter',
+          name: 'ComponentGridTreeFilter',
+          component: () => import('@/views/grid/tree/filter/CodeExample.vue')
         },
         {
           path: 'expandRow',

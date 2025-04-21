@@ -64,7 +64,7 @@ const tableData = ref([
         name: 'renderTableFilter',
         desc: '自定义筛选渲染内容',
         version: '',
-        type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+        type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -154,7 +154,7 @@ const tableData = ref([
         name: 'renderTableHeader',
         desc: '渲染头部',
         version: '',
-        type: '(renderOpts, renderParams: { column, columnIndex, $columnIndex, _columnIndex, $rowIndex, $table }) => JSX',
+        type: '(renderOpts, renderParams: { column, columnIndex, $columnIndex, _columnIndex, $rowIndex, $table }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -163,7 +163,7 @@ const tableData = ref([
         name: 'renderTableDefault',
         desc: '渲染单元格',
         version: '',
-        type: '(renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+        type: '(renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -172,7 +172,7 @@ const tableData = ref([
         name: 'renderTableFooter',
         desc: '渲染尾部',
         version: '',
-        type: '(renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items, itemIndex, $table }) => JSX',
+        type: '(renderOpts, renderParams: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $rowIndex, items, itemIndex, $table }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -217,7 +217,7 @@ const tableData = ref([
         name: 'renderTableEdit',
         desc: '渲染编辑状态时，与 renderTableCell 配合使用',
         version: '',
-        type: '(renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+        type: '(renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -226,7 +226,7 @@ const tableData = ref([
         name: 'renderTableCell',
         desc: '渲染非编辑状态时，与 renderTableEdit 配合使用',
         version: '',
-        type: '(renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX',
+        type: '(renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -235,7 +235,7 @@ const tableData = ref([
         name: 'renderTableExpand',
         desc: '展开行渲染',
         version: '',
-        type: '(renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) => JSX',
+        type: '(renderOpts, params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, $table }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
@@ -244,7 +244,7 @@ const tableData = ref([
         name: 'renderTableEmpty',
         desc: '空数据时渲染',
         version: '',
-        type: '(renderOpts, params: { $table }) => JSX',
+        type: '(renderOpts, params: { $table }) => JSX | VNode',
         enum: '',
         defVal: '',
         list: []
