@@ -10,5 +10,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/proxy/manualQuery/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          还可以传额外参数 <ApiLink name="grid" prop="commitProxy"/>(code, { ... })，接收 query(params, customParams)
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
