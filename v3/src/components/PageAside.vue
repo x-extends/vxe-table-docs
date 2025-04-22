@@ -214,12 +214,12 @@ export default Vue.extend({
       if (filterName) {
         const filterRE = new RegExp(`${filterName}|${XEUtils.camelCase(filterName)}|${XEUtils.kebabCase(filterName)}`, 'i')
         const rest = XEUtils.searchTree(this.navList, (item) => {
-          return filterRE.test(item.title || '') || !!(item.keywords && item.keywords.indexOf(filterName) > -1)
+          return filterRE.test(item.title || '') || !!(item.keywords && item.keywords.split(',').some(key => filterRE.test(key)))
         }, { children: 'children', mapChildren: 'searchResult' })
         XEUtils.eachTree(rest, (item) => {
           if (filterRE.test(item.title || '')) {
             item.title = `${item.title || ''}`.replace(filterRE, (match) => `<span class="keyword-lighten">${match}</span>`)
-          } else if (item.keywords && item.keywords.indexOf(filterName) > -1) {
+          } else if (item.keywords && item.keywords.split(',').some(key => filterRE.test(key))) {
             item.title = `<span>${item.title || ''}<span class="keyword-lighten"> ...${filterName}...</span></span>`
           }
         }, { children: 'searchResult' })

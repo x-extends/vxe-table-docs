@@ -37,46 +37,46 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '基础功能',
           children: [
             { title: '基础', routerLink: { name: 'ComponentTableBaseBasic' } },
-            { title: '尺寸大小', routerLink: { name: 'ComponentTableBaseSize' } },
-            { title: '数据类型', routerLink: { name: 'ComponentTableBaseData' } },
-            { title: '表尾数据', routerLink: { name: 'ComponentTableBaseFooter' } },
-            { title: '空数据提示', routerLink: { name: 'ComponentTableBaseEmpty' } },
-            { title: '边框', routerLink: { name: 'ComponentTableBaseBorder' } },
-            { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' } },
+            { title: '尺寸大小', routerLink: { name: 'ComponentTableBaseSize' }, keywords: 'size' },
+            { title: '数据类型', routerLink: { name: 'ComponentTableBaseData' }, keywords: 'data' },
+            { title: '表尾数据', routerLink: { name: 'ComponentTableBaseFooter' }, keywords: 'show-footer,footer-data' },
+            { title: '空数据提示', routerLink: { name: 'ComponentTableBaseEmpty' }, keywords: 'empty-text' },
+            { title: '边框', routerLink: { name: 'ComponentTableBaseBorder' }, keywords: 'border' },
+            { title: '圆角', routerLink: { name: 'ComponentTableBaseRound' }, keywords: 'round' },
             // { title: '边距', routerLink: { name: 'ComponentTableBasePadding' } },
             { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' }, keywords: '对齐,align' },
             { title: '列可视', routerLink: { name: 'ComponentTableBaseVisible' }, keywords: '显示,隐藏,visible' },
             { title: '列宽', routerLink: { name: 'ComponentTableBaseWidth' }, keywords: '宽度,列宽,自适应列宽,width,auto' },
             { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
-            { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' } },
-            { title: '文本提示', routerLink: { name: 'ComponentTableBaseTooltip' } },
+            { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' }, keywords: 'show-overflow,show-header-overflow,show-footer-overflow' },
+            { title: '文本提示', routerLink: { name: 'ComponentTableBaseTooltip' }, keywords: 'tooltip' },
             // { title: '滚动条样式', routerLink: { name: 'ComponentTableBaseScrollStyle' } },
-            { title: '斑马线样式', routerLink: { name: 'ComponentTableBaseStripe' } },
-            { title: '单元格样式', routerLink: { name: 'ComponentTableBaseStyle' } },
-            { title: '动态样式', routerLink: { name: 'ComponentTableBaseDynamicStyle' } },
-            { title: '隐藏表头', routerLink: { name: 'ComponentTableBaseHeader' } },
-            { title: '高亮列', routerLink: { name: 'ComponentTableBaseCurrentColumn' } },
-            { title: '高亮行', routerLink: { name: 'ComponentTableBaseCurrentRow' } },
-            { title: '拖拽调整列宽', routerLink: { name: 'ComponentTableBaseHeaderResizable' } },
-            { title: '表格最小高度', routerLink: { name: 'ComponentTableBaseHeaderMinHeight' } },
-            { title: '表格高度', routerLink: { name: 'ComponentTableBaseHeight' } },
-            { title: '表格最大高度', routerLink: { name: 'ComponentTableBaseMaxHeight' } },
-            { title: '表格响应式高度', routerLink: { name: 'ComponentTableBaseAutoHeight' } },
-            { title: '设置列高', routerLink: { name: 'ComponentTableBaseColumnHeight' } },
-            { title: '设置行高', routerLink: { name: 'ComponentTableBaseRowHeight' } },
-            { title: '冻结列', routerLink: { name: 'ComponentTableBaseFixed' } },
-            { title: '冻结表头和列', routerLink: { name: 'ComponentTableBaseFixedFull' } },
-            { title: '分组表头', routerLink: { name: 'ComponentTableBaseGroup' } },
-            { title: '排序', routerLink: { name: 'ComponentTableBaseSort' } },
-            { title: '筛选', routerLink: { name: 'ComponentTableBaseFilter' } },
-            { title: '加载中', routerLink: { name: 'ComponentTableBaseLoading' } },
-            { title: '格式化内容', routerLink: { name: 'ComponentTableBaseFormat' } },
-            { title: '序号', routerLink: { name: 'ComponentTableBaseSeq' } },
-            { title: '单选框', routerLink: { name: 'ComponentTableBaseRadio' } },
-            { title: '复选框', routerLink: { name: 'ComponentTableBaseSelection' } },
-            { title: '标题前缀图标', routerLink: { name: 'ComponentTableBaseTitlePrefix' } },
-            { title: '标题后缀图标', routerLink: { name: 'ComponentTableBaseTitleSuffix' } },
-            { title: 'HTML 类型', routerLink: { name: 'ComponentTableBaseHtml' } },
+            { title: '斑马线样式', routerLink: { name: 'ComponentTableBaseStripe' }, keywords: 'stripe' },
+            { title: '单元格样式', routerLink: { name: 'ComponentTableBaseStyle' }, keywords: 'cell-class-name,row-class-name' },
+            { title: '动态样式', routerLink: { name: 'ComponentTableBaseDynamicStyle' }, keywords: 'cell-style,row-style' },
+            { title: '隐藏表头', routerLink: { name: 'ComponentTableBaseHeader' }, keywords: 'show-header' },
+            { title: '高亮列', routerLink: { name: 'ComponentTableBaseCurrentColumn' }, keywords: 'isCurrent' },
+            { title: '高亮行', routerLink: { name: 'ComponentTableBaseCurrentRow' }, keywords: 'isCurrent' },
+            { title: '拖拽调整列宽', routerLink: { name: 'ComponentTableBaseHeaderResizable' }, keywords: 'resizable' },
+            { title: '表格最小高度', routerLink: { name: 'ComponentTableBaseHeaderMinHeight' }, keywords: 'min-height' },
+            { title: '表格高度', routerLink: { name: 'ComponentTableBaseHeight' }, keywords: 'height' },
+            { title: '表格最大高度', routerLink: { name: 'ComponentTableBaseMaxHeight' }, keywords: 'max-height' },
+            { title: '表格响应式高度', routerLink: { name: 'ComponentTableBaseAutoHeight' }, keywords: '自适应高度,sync-resize,auto-resize' },
+            { title: '设置列高', routerLink: { name: 'ComponentTableBaseColumnHeight' }, keywords: 'height' },
+            { title: '设置行高', routerLink: { name: 'ComponentTableBaseRowHeight' }, keywords: 'height' },
+            { title: '冻结列', routerLink: { name: 'ComponentTableBaseFixed' }, keywords: 'fixed' },
+            { title: '冻结表头和列', routerLink: { name: 'ComponentTableBaseFixedFull' }, keywords: 'fixed,height' },
+            { title: '分组表头', routerLink: { name: 'ComponentTableBaseGroup' }, keywords: 'colgroup' },
+            { title: '排序', routerLink: { name: 'ComponentTableBaseSort' }, keywords: 'sortable' },
+            { title: '筛选', routerLink: { name: 'ComponentTableBaseFilter' }, keywords: 'filters' },
+            { title: '加载中', routerLink: { name: 'ComponentTableBaseLoading' }, keywords: 'loading' },
+            { title: '格式化内容', routerLink: { name: 'ComponentTableBaseFormat' }, keywords: 'formatter' },
+            { title: '序号', routerLink: { name: 'ComponentTableBaseSeq' }, keywords: 'seq' },
+            { title: '单选框', routerLink: { name: 'ComponentTableBaseRadio' }, keywords: 'radio' },
+            { title: '复选框', routerLink: { name: 'ComponentTableBaseSelection' }, keywords: 'checkbox' },
+            { title: '标题前缀图标', routerLink: { name: 'ComponentTableBaseTitlePrefix' }, keywords: 'title-prefix' },
+            { title: '标题后缀图标', routerLink: { name: 'ComponentTableBaseTitleSuffix' }, keywords: 'title-suffix' },
+            { title: 'HTML 类型', routerLink: { name: 'ComponentTableBaseHtml' }, keywords: 'html' },
             { title: '完整案例', routerLink: { name: 'ComponentTableBaseFull' } }
           ]
         },
@@ -1425,52 +1425,52 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格',
           children: [
-            { title: '实现单元格超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' } },
-            { title: '实现单元格图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' } },
-            { title: '实现单元格金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyAmount' } },
-            { title: '实现表头超链接', routerLink: { name: 'GlobalRendererTableDefaultMyHeaderLink' } },
-            { title: '实现表尾金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFooterAmount' } },
-            { title: '实现完整金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFullAmount' } },
+            { title: '实现单元格超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' }, keywords: 'cell-render' },
+            { title: '实现单元格图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' }, keywords: 'cell-render' },
+            { title: '实现单元格金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyAmount' }, keywords: 'cell-render' },
+            { title: '实现表头超链接', routerLink: { name: 'GlobalRendererTableDefaultMyHeaderLink' }, keywords: 'cell-render' },
+            { title: '实现表尾金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFooterAmount' }, keywords: 'cell-render' },
+            { title: '实现完整金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFullAmount' }, keywords: 'cell-render' },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },
         {
           title: '可编辑',
           children: [
-            { title: '实现一个金额输入', routerLink: { name: 'GlobalRendererTableEditMyEditAmount' } },
-            { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' } },
+            { title: '实现一个金额输入', routerLink: { name: 'GlobalRendererTableEditMyEditAmount' }, keywords: 'edit-render' },
+            { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' }, keywords: 'edit-render' },
             { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
         {
           title: '展开行',
           children: [
-            { title: '实现一个展开列表', routerLink: { name: 'GlobalRendererTableExpandMyExpandList' } },
-            { title: '实现一个展开表格', routerLink: { name: 'GlobalRendererTableExpandMyExpandTable' } }
+            { title: '实现一个展开列表', routerLink: { name: 'GlobalRendererTableExpandMyExpandList' }, keywords: 'content-render' },
+            { title: '实现一个展开表格', routerLink: { name: 'GlobalRendererTableExpandMyExpandTable' }, keywords: 'content-render' }
           ]
         },
         {
           title: '工具栏',
           children: [
-            { title: '实现左侧操作按钮', routerLink: { name: 'GlobalRendererTableToolbarBtn' } },
-            { title: '实现右侧工具按钮', routerLink: { name: 'GlobalRendererTableToolbarTool' } }
+            { title: '实现左侧操作按钮', routerLink: { name: 'GlobalRendererTableToolbarBtn' }, keywords: 'button-render' },
+            { title: '实现右侧工具按钮', routerLink: { name: 'GlobalRendererTableToolbarTool' }, keywords: 'tool-render' }
           ]
         },
         {
           title: '筛选',
           children: [
-            { title: '实现一个输入筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterInput' } },
-            { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterComplex' } },
-            { title: '实现一个显示列表的筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterContent' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/filter/el-input` },
+            { title: '实现一个输入筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterInput' }, keywords: 'filter-render' },
+            { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterComplex' }, keywords: 'filter-render' },
+            { title: '实现一个显示列表的筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterContent' }, keywords: 'filter-render' },
+            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/filter/el-input`, keywords: 'filter-render' },
             { title: '更多筛选插件', isEnterprise: true, linkUrl: 'https://vxetable.cn/plugins/' }
           ]
         },
         {
           title: '空数据提示',
           children: [
-            { title: '实现一个空数据显示文字', routerLink: { name: 'GlobalRendererTableMyEmptyImg' } },
-            { title: '实现一个空数据显示图片', routerLink: { name: 'GlobalRendererTableMyEmptyText' } }
+            { title: '实现一个空数据显示文字', routerLink: { name: 'GlobalRendererTableMyEmptyImg' }, keywords: 'empty-render' },
+            { title: '实现一个空数据显示图片', routerLink: { name: 'GlobalRendererTableMyEmptyText' }, keywords: 'empty-render' }
           ]
         }
       ]
