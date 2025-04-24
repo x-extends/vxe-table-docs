@@ -23,6 +23,8 @@ export default Vue.extend({
       border: true,
       showFooter: true,
       showOverflow: true,
+      showHeaderOverflow: true,
+      showFooterOverflow: true,
       height: 600,
       rowConfig: {
         drag: true

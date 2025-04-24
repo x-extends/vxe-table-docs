@@ -9,6 +9,8 @@
     <vxe-table
       border
       show-overflow
+      show-header-overflow
+      show-footer-overflow
       ref="tableRef"
       height="800"
       :virtual-y-config="{enabled: true, gt: 0}"

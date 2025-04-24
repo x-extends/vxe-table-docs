@@ -3,6 +3,8 @@
     <vxe-table
       border
       show-overflow
+      show-header-overflow
+      show-footer-overflow
       height="600"
       :virtual-y-config="{enabled: true, gt: 0}"
       :data="tableData">

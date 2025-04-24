@@ -47,6 +47,8 @@ const sexEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectPro
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
+  showHeaderOverflow: true,
+  showFooterOverflow: true,
   height: 800,
   loading: false,
   editConfig: {

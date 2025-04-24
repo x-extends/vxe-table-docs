@@ -3,6 +3,8 @@
     <vxe-table
       border
       show-overflow
+      show-header-overflow
+      show-footer-overflow
       keep-source
       ref="tableRef"
       height="500"

@@ -3,6 +3,8 @@
     <vxe-table
       border
       show-overflow
+      show-header-overflow
+      show-footer-overflow
       show-footer
       height="600"
       :column-config="columnConfig"

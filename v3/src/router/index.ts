@@ -1437,6 +1437,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/cellRender/vxe-radio-group/CodeExample.vue')
         },
         {
+          path: 'vxe-checkbox',
+          name: 'ComponentTableCellRenderVxeCheckbox',
+          component: () => import('@/views/table/cellRender/vxe-checkbox/CodeExample.vue')
+        },
+        {
           path: 'vxe-checkbox-group',
           name: 'ComponentTableCellRenderVxeCheckboxGroup',
           component: () => import('@/views/table/cellRender/vxe-checkbox-group/CodeExample.vue')
@@ -1496,6 +1501,11 @@ const tableRouteConfig: RouteConfig = {
           path: 'vxe-radio-group',
           name: 'ComponentTableCellTemplateVxeRadioGroup',
           component: () => import('@/views/table/cellTemplate/vxe-radio-group/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox',
+          name: 'ComponentTableCellTemplateVxeCheckbox',
+          component: () => import('@/views/table/cellTemplate/vxe-checkbox/CodeExample.vue')
         },
         {
           path: 'vxe-checkbox-group',
@@ -1619,6 +1629,11 @@ const tableRouteConfig: RouteConfig = {
       path: 'editTemplate',
       component: RouteLayout,
       children: [
+        {
+          path: 'vxe-button',
+          name: 'ComponentTableEditTemplateVxeButton',
+          component: () => import('@/views/table/editTemplate/vxe-button/CodeExample.vue')
+        },
         {
           path: 'vxe-input',
           name: 'ComponentTableEditTemplateVxeInput',
@@ -3387,6 +3402,11 @@ const gridRouteConfig: RouteConfig = {
         },
         {
           path: 'vxe-checkbox',
+          name: 'ComponentGridCellRenderVxeCheckbox',
+          component: () => import('@/views/grid/cellRender/vxe-checkbox/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox-group',
           name: 'ComponentGridCellRenderVxeCheckboxGroup',
           component: () => import('@/views/grid/cellRender/vxe-checkbox-group/CodeExample.vue')
         },
@@ -3430,6 +3450,16 @@ const gridRouteConfig: RouteConfig = {
           path: 'vxe-tag',
           name: 'ComponentGridCellTemplateVxeTag',
           component: () => import('@/views/grid/cellTemplate/vxe-tag/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox',
+          name: 'ComponentGridCellTemplateVxeCheckbox',
+          component: () => import('@/views/grid/cellTemplate/vxe-checkbox/CodeExample.vue')
+        },
+        {
+          path: 'vxe-checkbox-group',
+          name: 'ComponentGridCellTemplateVxeCheckboxGroup',
+          component: () => import('@/views/grid/cellTemplate/vxe-checkbox-group/CodeExample.vue')
         },
         {
           path: 'vxe-switch',
@@ -3742,6 +3772,11 @@ const gridRouteConfig: RouteConfig = {
       path: 'editTemplate',
       component: RouteLayout,
       children: [
+        {
+          path: 'vxe-button',
+          name: 'ComponentGridEditTemplateVxeButton',
+          component: () => import('@/views/grid/editTemplate/vxe-button/CodeExample.vue')
+        },
         {
           path: 'vxe-input',
           name: 'ComponentGridEditTemplateVxeInput',

@@ -70,7 +70,7 @@ export default Vue.extend({
             id: 10000 + i
           }
           for (let j = 0; j < 20; j++) {
-            item[`col${j}`] = `值_${i}_${j}`
+            item[`col${j * 5}`] = `值_${i}_${j * 5}`
           }
           dataList.push(item)
         }

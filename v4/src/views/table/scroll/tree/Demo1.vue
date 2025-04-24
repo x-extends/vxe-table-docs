@@ -9,6 +9,8 @@
 
     <vxe-table
       show-overflow
+      show-header-overflow
+      show-footer-overflow
       height="800"
       ref="tableRef"
       :loading="loading"
