@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-button status="primary" @click="batchValidField('role')">校验一整列 role</vxe-button>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
         <vxe-button mode="text" status="primary" @click="validField(row)">校验 role</vxe-button>
@@ -78,6 +80,19 @@ const validMultiFiled = async (row: RowVO) => {
   const $grid = gridRef.value
   if ($grid) {
     const errMap = await $grid.validateField(row, ['name', 'role'])
+    if (errMap) {
+      VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+    } else {
+      VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+    }
+  }
+}
+
+const batchValidField = async (field: string) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const data = $grid.getFullData()
+    const errMap = await $grid.validateField(data, field)
     if (errMap) {
       VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
     } else {
