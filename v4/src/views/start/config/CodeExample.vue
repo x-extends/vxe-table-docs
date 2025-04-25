@@ -12,6 +12,7 @@
         <pre>
           <pre-code class="javascript">
             import { VxeUI } from 'vxe-table'
+            // VxeUI 是通用全局实例（也可以使用旧别名 VXETable）
 
             VxeUI.setConfig({
               // size: null, // 全局尺寸

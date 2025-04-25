@@ -11,6 +11,7 @@
         <pre>
           <pre-code class="javascript">
             import { VxeUI } from 'vxe-table'
+            // VxeUI 是通用全局实例（也可以使用旧别名 VXETable）
 
             import zhCN from 'vxe-table/lib/locale/lang/zh-CN' // 中文(简体)
             // import zhHK from 'vxe-table/lib/locale/lang/zh-HK' // 中文(香港)
