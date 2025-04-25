@@ -65,8 +65,6 @@
       <pre-code class="typescript">
         // ...
         import {
-          VxeUI,
-
           VxeButton,
           VxeButtonGroup,
           VxeCheckbox,
@@ -93,12 +91,15 @@
         } from 'vxe-pc-ui'
 
         import {
+          VXETable,
+
           VxeTable,
           VxeColumn,
           VxeColgroup,
           VxeGrid,
           VxeToolbar
         } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
         // 导入主题变量，也可以重写主题变量
         import 'vxe-table/styles/cssvar.scss'

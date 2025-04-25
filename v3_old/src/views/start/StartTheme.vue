@@ -2,17 +2,18 @@
   <div>
     <h2>{{ $t('app.aside.nav.theme') }}</h2>
     <p class="tip">
-      默认支持 light 和 dark 两种主题样式，通过调用 VxeUI.setTheme('light') 方式修改组件主题样式
+      默认支持 light 和 dark 两种主题样式，通过调用 VXETable.setTheme('light') 方式修改组件主题样式
     </p>
     <pre>
       <pre-code class="javascript">
-        import { VxeUI } from 'vxe-table'
+        import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
         // 切换为默认主题
-        // VxeUI.setTheme('light')
+        // VXETable.setTheme('light')
 
         // 切换为暗黑主题
-        VxeUI.setTheme('dark')
+        VXETable.setTheme('dark')
       </pre-code>
     </pre>
 

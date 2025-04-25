@@ -17,10 +17,10 @@
       </pre-code>
       <pre-code class="javascript">
         import Vue from 'vue'
-        import VXETable from 'vxe-table'
+        import VxeUITable from 'vxe-table'
         import 'vxe-table/lib/style.css'
 
-        Vue.use(VXETable)
+        Vue.use(VxeUITable)
       </pre-code>
     </pre>
     <h2>CDN</h2>

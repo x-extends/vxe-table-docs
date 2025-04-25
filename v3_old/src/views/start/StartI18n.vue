@@ -20,6 +20,7 @@ export default {
       demoCodes: [
         `
         import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
         import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
         // import zhHK from 'vxe-pc-ui/lib/language/zh-HK'
@@ -42,24 +43,24 @@ export default {
         // import viVN from 'vxe-pc-ui/lib/language/vi-VN'
 
         // 注册语言
-        VxeUI.setI18n('zh-CN', zhCN)
-        // VxeUI.setI18n('zh-HK', zhHK)
-        // VxeUI.setI18n('zh-TW', zhTW)
-        // VxeUI.setI18n('zh-MO', zhMO)
-        // VxeUI.setI18n('arEG', arEG)
-        // VxeUI.setI18n('deDE', deDE)
-        VxeUI.setI18n('en-US', enUS)
-        // VxeUI.setI18n('es-ES', esES)
-        // VxeUI.setI18n('fr-FR', frFR)
-        // VxeUI.setI18n('huH-U', huHU)
-        // VxeUI.setI18n('ja-JP', jaJP)
-        // VxeUI.setI18n('ko-KR', koKR)
-        // VxeUI.setI18n('nb-NO', nbNO)
-        // VxeUI.setI18n('pt-BR', ptBR)
-        // VxeUI.setI18n('ru-RU', ruRU)
-        // VxeUI.setI18n('ug-CN', ugCN)
-        // VxeUI.setI18n('ukU-A', ukUA)
-        // VxeUI.setI18n('vi-VN', viVN)
+        VXETable.setI18n('zh-CN', zhCN)
+        // VXETable.setI18n('zh-HK', zhHK)
+        // VXETable.setI18n('zh-TW', zhTW)
+        // VXETable.setI18n('zh-MO', zhMO)
+        // VXETable.setI18n('arEG', arEG)
+        // VXETable.setI18n('deDE', deDE)
+        VXETable.setI18n('en-US', enUS)
+        // VXETable.setI18n('es-ES', esES)
+        // VXETable.setI18n('fr-FR', frFR)
+        // VXETable.setI18n('huH-U', huHU)
+        // VXETable.setI18n('ja-JP', jaJP)
+        // VXETable.setI18n('ko-KR', koKR)
+        // VXETable.setI18n('nb-NO', nbNO)
+        // VXETable.setI18n('pt-BR', ptBR)
+        // VXETable.setI18n('ru-RU', ruRU)
+        // VXETable.setI18n('ug-CN', ugCN)
+        // VXETable.setI18n('ukU-A', ukUA)
+        // VXETable.setI18n('vi-VN', viVN)
 
         // 切换语言
         VXETable.setLanguage('zh-CN')
@@ -102,6 +103,7 @@ export default {
         // ...
         import i18n from './i18n'
         import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
         VXETable.setConfig({
           // 对组件内置的提示语进行国际化翻译

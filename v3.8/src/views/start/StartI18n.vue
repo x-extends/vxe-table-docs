@@ -61,6 +61,8 @@ export default {
         import Vue from 'vue'
         import i18n from './i18n'
         import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
+
         import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
         import enUS from 'vxe-table/lib/locale/lang/en-US'
 
@@ -74,6 +76,9 @@ export default {
         new Vue({ i18n }).$mount('#app')
         `,
         `
+        import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
+        
         VXETable.setConfig({
           // 可选，对参数中的列头、校验提示..等进行自动翻译（只对支持国际化的有效）
           translate (key, args) {

@@ -65,23 +65,23 @@ export default defineComponent({
       demoCodes: [
       `
         // ...
-        import VXETable from 'vxe-table'
+        import VxeUITable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
-        createApp(App).use(VXETable).mount('#app')
+        createApp(App).use(VxeUITable).mount('#app')
         `,
       `
         // ...
-        import VXETable from 'vxe-table'
+        import VxeUITable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
-        import VxeUI from 'vxe-pc-ui'
+        import VxeUIAll from 'vxe-pc-ui'
         import 'vxe-pc-ui/lib/style.css'
         // ...
 
-        createApp(App).use(VxeUI).use(VXETable).mount('#app')
+        createApp(App).use(VxeUIAll).use(VxeUITable).mount('#app')
         `
       ]
     }

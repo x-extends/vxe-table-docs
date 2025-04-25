@@ -12,13 +12,8 @@
       <pre-code class="javascript">
         {
           "plugins": [
-            [
-              "import",
-              {
-                "libraryName": "vxe-table",
-                "style": true // 样式是否也按需加载
-              }
-            ]
+            ['import', { libraryName: 'vxe-table', style: true }, 'vxe-table'],
+            ['import', { libraryName: 'vxe-pc-ui', style: true }, 'vxe-pc-ui']
           ]
         }
       </pre-code>
@@ -28,48 +23,42 @@
       <pre-code class="javascript">
         import Vue from 'vue'
         import XEUtils from 'xe-utils'
+        // ...
         import {
-          // 全局实例对象
+          VxeButton,
+          VxeButtonGroup,
+          VxeCheckbox,
+          VxeCheckboxGroup,
+          VxeForm,
+          VxeFormGather,
+          VxeFormItem,
+          VxeIcon,
+          VxeInput,
+          VxeList,
+          VxeLoading,
+          VxeModal,
+          VxeOptgroup,
+          VxeOption,
+          VxePager,
+          VxePulldown,
+          VxeRadio,
+          VxeRadioButton,
+          VxeRadioGroup,
+          VxeSelect,
+          VxeSwitch,
+          VxeTextarea,
+          VxeTooltip
+        } from 'vxe-pc-ui'
+
+        import {
           VXETable,
 
-          // 可选表格模块
-          // VxeTableFilterModule,
-          // VxeTableEditModule,
-          // VxeTableMenuModule,
-          // VxeTableExportModule,
-          // VxeTableKeyboardModule,
-          // VxeTableValidatorModule,
-          // VxeTableCustomModule,
-
-          // 可选组件
           VxeIcon,
           VxeTable,
           VxeColumn,
-          VxeColgroup,
-          // VxeGrid,
-          // VxeTooltip,
-          // VxeToolbar,
-          // VxePager,
-          // VxeForm,
-          // VxeFormItem,
-          // VxeFormGather,
-          // VxeCheckbox,
-          // VxeCheckboxGroup,
-          // VxeRadio,
-          // VxeRadioGroup,
-          // VxeRadioButton,
-          // VxeSwitch,
-          // VxeInput,
-          // VxeSelect,
-          // VxeOptgroup,
-          // VxeOption,
-          // VxeTextarea,
-          // VxeButton,
-          // VxeButtonGroup,
-          // VxeModal,
-          // VxeList,
-          // VxePulldown
+          VxeColgroup
         } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
         // 导入默认的语言
         import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
@@ -79,43 +68,34 @@
           i18n: (key, args) => XEUtils.toFormatString(XEUtils.get(zhCN, key), args)
         })
 
-        // 可选表格模块
-        // Vue.use(VxeTableFilterModule)
-        // Vue.use(VxeTableEditModule)
-        // Vue.use(VxeTableMenuModule)
-        // Vue.use(VxeTableExportModule)
-        // Vue.use(VxeTableKeyboardModule)
-        // Vue.use(VxeTableValidatorModule)
-        // Vue.use(VxeTableCustomModule)
-
         // 可选组件
         Vue.use(VxeIcon)
           Vue.use(VxeTable)
           Vue.use(VxeColumn)
           Vue.use(VxeColgroup)
-          // Vue.use(VxeVxeGrid)
-          // Vue.use(VxeTooltip)
-          // Vue.use(VxeToolbar)
-          // Vue.use(VxePager)
-          // Vue.use(VxeForm)
-          // Vue.use(VxeFormItem)
-          // Vue.use(VxeFormGather)
-          // Vue.use(VxeCheckbox)
-          // Vue.use(VxeCheckboxGroup)
-          // Vue.use(VxeRadio)
-          // Vue.use(VxeRadioGroup)
-          // Vue.use(VxeRadioButton)
-          // Vue.use(VxeSwitch)
-          // Vue.use(VxeInput)
-          // Vue.use(VxeSelect)
-          // Vue.use(VxeOptgroup)
-          // Vue.use(VxeOption)
-          // Vue.use(VxeTextarea)
-          // Vue.use(VxeButton)
-          // Vue.use(VxeButtonGroup)
-          // Vue.use(VxeModal)
-          // Vue.use(VxeList)
-          // Vue.use(VxePulldown)
+          Vue.use(VxeVxeGrid)
+          Vue.use(VxeTooltip)
+          Vue.use(VxeToolbar)
+          Vue.use(VxePager)
+          Vue.use(VxeForm)
+          Vue.use(VxeFormItem)
+          Vue.use(VxeFormGather)
+          Vue.use(VxeCheckbox)
+          Vue.use(VxeCheckboxGroup)
+          Vue.use(VxeRadio)
+          Vue.use(VxeRadioGroup)
+          Vue.use(VxeRadioButton)
+          Vue.use(VxeSwitch)
+          Vue.use(VxeInput)
+          Vue.use(VxeSelect)
+          Vue.use(VxeOptgroup)
+          Vue.use(VxeOption)
+          Vue.use(VxeTextarea)
+          Vue.use(VxeButton)
+          Vue.use(VxeButtonGroup)
+          Vue.use(VxeModal)
+          Vue.use(VxeList)
+          Vue.use(VxePulldown)
       </pre-code>
     </pre>
   </div>

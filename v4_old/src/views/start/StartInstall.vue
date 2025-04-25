@@ -46,16 +46,16 @@ export default defineComponent({
       demoCodes: [
         `
         // ... 纯表格
-        import VxeTable from 'vxe-table'
+        import VxeUITable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
         // ...可选 UI
-        import VxeUI from 'vxe-pc-ui'
+        import VxeUIAll from 'vxe-pc-ui'
         import 'vxe-pc-ui/lib/style.css'
         // ...
 
-        createApp(App).use(VxeUI).use(VxeTable).mount('#app')
+        createApp(App).use(VxeUIAll).use(VxeUITable).mount('#app')
         `
       ]
     }

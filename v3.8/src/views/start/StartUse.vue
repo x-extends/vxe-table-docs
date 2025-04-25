@@ -70,6 +70,7 @@
           // VxeList,
           // VxePulldown
         } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
         // 导入默认的语言
         import zhCN from 'vxe-table/lib/locale/lang/zh-CN'

@@ -62,6 +62,7 @@ export default defineComponent({
         // ...
         import i18n from './i18n'
         import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
         // ...
         
         VXETable.setConfig({
@@ -76,6 +77,7 @@ export default defineComponent({
         `
         // ...
         import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
         // ...
 
         VXETable.setConfig({

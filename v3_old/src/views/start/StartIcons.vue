@@ -5,6 +5,7 @@
     <pre>
       <pre-code class="javascript">
         import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
         VXETable.setIcon({
           // table

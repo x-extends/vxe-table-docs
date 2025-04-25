@@ -39,6 +39,8 @@
     <pre>
       <pre-code class="typescript">
         import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
+
         //  setup({})
         VXETable.setConfig({
           // 恢复老版本校验样式

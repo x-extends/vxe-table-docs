@@ -22,6 +22,7 @@ export default defineComponent({
       demoCodes: [
         `
         import { VXETable } from 'vxe-table'
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
         import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
         // import zhHK from 'vxe-pc-ui/lib/language/zh-HK'
