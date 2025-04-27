@@ -27,7 +27,6 @@ export default Vue.extend({
           field: 'name',
           title: 'Name',
           titlePrefix: {
-            icon: 'vxe-icon-question-circle-fill',
             content: '提示内容'
           }
         },
@@ -35,13 +34,30 @@ export default Vue.extend({
           field: 'sex',
           title: 'Sex',
           titlePrefix: {
-            icon: 'vxe-icon-chat-fill',
+            icon: 'vxe-icon-user-fill',
+            iconStatus: 'primary',
             useHTML: true,
             content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'
           }
         },
-        { field: 'age', title: 'Age' },
-        { field: 'address', title: 'Address', showOverflow: true }
+        {
+          field: 'age',
+          title: 'Age',
+          titlePrefix: {
+            icon: 'vxe-icon-warning-circle-fill',
+            iconStatus: 'warning',
+            content: '警告提示'
+          }
+        },
+        {
+          field: 'address',
+          title: 'Address',
+          titlePrefix: {
+            icon: 'vxe-icon-warning-triangle-fill',
+            iconStatus: 'error',
+            content: '错误提示'
+          }
+        }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

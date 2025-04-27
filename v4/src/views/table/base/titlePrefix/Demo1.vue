@@ -6,7 +6,8 @@
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :title-prefix="nameTitlePrefix"></vxe-column>
       <vxe-column field="sex" title="Sex" :title-prefix="sexTitlePrefix"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="age" title="Age" :title-prefix="ageTitlePrefix"></vxe-column>
+      <vxe-column field="address" title="Address" :title-prefix="addressTitlePrefix"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -25,14 +26,25 @@ interface RowVO {
 }
 
 const nameTitlePrefix = reactive<VxeColumnPropTypes.TitlePrefix>({
-  icon: 'vxe-icon-question-circle-fill',
   content: '提示内容'
 })
 
 const sexTitlePrefix = reactive<VxeColumnPropTypes.TitlePrefix>({
-  icon: 'vxe-icon-chat-fill',
+  icon: 'vxe-icon-user-fill',
   useHTML: true,
   content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'
+})
+
+const ageTitlePrefix = reactive<VxeColumnPropTypes.TitlePrefix>({
+  icon: 'vxe-icon-warning-circle-fill',
+  iconStatus: 'warning',
+  content: '警告提示'
+})
+
+const addressTitlePrefix = reactive<VxeColumnPropTypes.TitlePrefix>({
+  icon: 'vxe-icon-warning-triangle-fill',
+  iconStatus: 'error',
+  content: '错误提示'
 })
 
 const tableData = ref<RowVO[]>([

@@ -6,7 +6,8 @@
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :title-suffix="nameTitleSuffix"></vxe-column>
       <vxe-column field="sex" title="Sex" :title-suffix="sexTitleSuffix"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="age" title="Age" :title-suffix="ageTitleSuffix"></vxe-column>
+      <vxe-column field="address" title="Address" :title-suffix="addressTitleSuffix"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -27,14 +28,25 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const nameTitleSuffix: VxeColumnPropTypes.TitleSuffix = {
-      icon: 'vxe-icon-question-circle-fill',
       content: '提示内容'
     }
 
     const sexTitleSuffix: VxeColumnPropTypes.TitleSuffix = {
-      icon: 'vxe-icon-chat-fill',
+      icon: 'vxe-icon-user-fill',
       useHTML: true,
       content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'
+    }
+
+    const ageTitleSuffix: VxeColumnPropTypes.TitleSuffix = {
+      icon: 'vxe-icon-warning-circle-fill',
+      iconStatus: 'warning',
+      content: '警告提示'
+    }
+
+    const addressTitleSuffix: VxeColumnPropTypes.TitleSuffix = {
+      icon: 'vxe-icon-warning-triangle-fill',
+      iconStatus: 'error',
+      content: '错误提示'
     }
 
     const tableData: RowVO[] = [
@@ -47,7 +59,9 @@ export default Vue.extend({
     return {
       tableData,
       nameTitleSuffix,
-      sexTitleSuffix
+      sexTitleSuffix,
+      ageTitleSuffix,
+      addressTitleSuffix
     }
   }
 })
