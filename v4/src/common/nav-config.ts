@@ -648,6 +648,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '序号', routerLink: { name: 'ComponentGridBaseSeq' } },
             { title: '单选框', routerLink: { name: 'ComponentGridBaseRadio' } },
             { title: '复选框', routerLink: { name: 'ComponentGridBaseSelection' } },
+            { title: '标题前缀图标', routerLink: { name: 'ComponentGridBaseTitlePrefix' }, keywords: 'title-prefix' },
+            { title: '标题后缀图标', routerLink: { name: 'ComponentGridBaseTitleSuffix' }, keywords: 'title-suffix' },
             { title: 'HTML 类型', routerLink: { name: 'ComponentGridBaseHtml' } },
             { title: '列配置', routerLink: { name: 'ComponentGridBaseColumns' } },
             { title: '完整案例', routerLink: { name: 'ComponentGridBaseFull' } }

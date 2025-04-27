@@ -27,7 +27,9 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions = {
+    const gridOptions: VxeGridProps<RowVO> & {
+      data: RowVO[]
+    } = {
       border: true,
       height: 500,
       rowConfig: {
@@ -54,7 +56,7 @@ export default Vue.extend({
         { id: 10006, name: 'Test6', role: 'Test', sex: 'Women', age: 38, address: 'Shenzhen' },
         { id: 10007, name: 'Test7', role: 'Develop', sex: 'Women', age: 29, address: 'Shenzhen' }
       ]
-    } satisfies VxeGridProps<RowVO>
+    }
     return {
       gridOptions
     }

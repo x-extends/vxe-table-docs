@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps, VxeTableEvents } from 'vxe-table'
+import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -33,7 +33,9 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions = {
+    const gridOptions: VxeGridProps<RowVO> & {
+      data: RowVO[]
+    } = {
       border: true,
       height: 300,
       radioConfig: {
@@ -55,7 +57,7 @@ export default Vue.extend({
         { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'test abc' },
         { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
       ]
-    } satisfies VxeGridProps<RowVO>
+    }
 
     return {
       gridOptions,

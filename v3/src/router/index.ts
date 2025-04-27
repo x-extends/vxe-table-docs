@@ -2155,6 +2155,16 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/base/data/CodeExample.vue')
         },
         {
+          path: 'titlePrefix',
+          name: 'ComponentGridBaseTitlePrefix',
+          component: () => import('@/views/grid/base/titlePrefix/CodeExample.vue')
+        },
+        {
+          path: 'titleSuffix',
+          name: 'ComponentGridBaseTitleSuffix',
+          component: () => import('@/views/grid/base/titleSuffix/CodeExample.vue')
+        },
+        {
           path: 'html',
           name: 'ComponentGridBaseHtml',
           component: () => import('@/views/grid/base/html/CodeExample.vue')
@@ -4149,6 +4159,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'horizontal',
           name: 'ComponentGridScrollHorizontal',
           component: () => import('@/views/grid/scroll/horizontal/CodeExample.vue')
+        },
+        {
+          path: 'colBreak',
+          name: 'ComponentGridScrollColBreak',
+          component: () => import('@/views/grid/scroll/colBreak/CodeExample.vue')
         },
         {
           path: 'hv',

@@ -23,7 +23,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions = {
+    const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
       editConfig: {
@@ -50,7 +50,7 @@ export default Vue.extend({
         { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: 'Women', age: 23, address: 'Shenzhen' },
         { id: 10005, name: 'Test5', nickname: 'T5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' }
       ]
-    } satisfies VxeGridProps<RowVO>
+    }
 
     return {
       gridOptions

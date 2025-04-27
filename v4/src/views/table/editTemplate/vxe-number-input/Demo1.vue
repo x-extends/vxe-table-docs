@@ -38,9 +38,9 @@
           <span>{{ row.float }}</span>
         </template>
       </vxe-column>
-      <vxe-column field="money" title="金额" width="180" :edit-render="{}">
+      <vxe-column field="money" title="金额" align="right" width="180" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-number-input v-model="row.money" type="amount"></vxe-number-input>
+          <vxe-number-input v-model="row.money" type="amount" align="right"></vxe-number-input>
         </template>
         <template #default="{ row }">
           <span>{{ row.money }}</span>

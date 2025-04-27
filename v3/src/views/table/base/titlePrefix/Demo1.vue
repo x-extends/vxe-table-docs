@@ -32,7 +32,7 @@ export default Vue.extend({
     }
 
     const sexTitlePrefix: VxeColumnPropTypes.TitlePrefix = {
-      icon: 'vxe-icon-question-circle-fill',
+      icon: 'vxe-icon-chat-fill',
       useHTML: true,
       content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'
     }

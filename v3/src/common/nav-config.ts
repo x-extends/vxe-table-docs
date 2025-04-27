@@ -648,6 +648,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '序号', routerLink: { name: 'ComponentGridBaseSeq' } },
             { title: '单选框', routerLink: { name: 'ComponentGridBaseRadio' } },
             { title: '复选框', routerLink: { name: 'ComponentGridBaseSelection' } },
+            { title: '标题前缀图标', routerLink: { name: 'ComponentGridBaseTitlePrefix' }, keywords: 'title-prefix' },
+            { title: '标题后缀图标', routerLink: { name: 'ComponentGridBaseTitleSuffix' }, keywords: 'title-suffix' },
             { title: 'HTML 类型', routerLink: { name: 'ComponentGridBaseHtml' } },
             { title: '列配置', routerLink: { name: 'ComponentGridBaseColumns' } },
             { title: '完整案例', routerLink: { name: 'ComponentGridBaseFull' } }
@@ -1283,6 +1285,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollVertical' } },
             { title: '横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHorizontal' } },
+            { title: '列头自适应换行', routerLink: { name: 'ComponentGridScrollColBreak' } },
             { title: '纵向和横向', routerLink: { name: 'ComponentGridScrollHV' } },
             { title: '函数式加载数据', routerLink: { name: 'ComponentGridScrollLoadData' } },
             { title: '冻结列 + 复杂渲染', routerLink: { name: 'ComponentGridScrollFixed' } },

@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/base/columns/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          增加、删除列配置
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

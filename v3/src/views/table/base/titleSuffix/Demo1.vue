@@ -4,8 +4,8 @@
       border
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" :title-suffix="nameTitlePrefix"></vxe-column>
-      <vxe-column field="sex" title="Sex" :title-suffix="sexTitlePrefix"></vxe-column>
+      <vxe-column field="name" title="Name" :title-suffix="nameTitleSuffix"></vxe-column>
+      <vxe-column field="sex" title="Sex" :title-suffix="sexTitleSuffix"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
     </vxe-table>
   </div>
@@ -26,13 +26,13 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const nameTitlePrefix: VxeColumnPropTypes.TitleSuffix = {
+    const nameTitleSuffix: VxeColumnPropTypes.TitleSuffix = {
       icon: 'vxe-icon-question-circle-fill',
       content: '提示内容'
     }
 
-    const sexTitlePrefix: VxeColumnPropTypes.TitleSuffix = {
-      icon: 'vxe-icon-question-circle-fill',
+    const sexTitleSuffix: VxeColumnPropTypes.TitleSuffix = {
+      icon: 'vxe-icon-chat-fill',
       useHTML: true,
       content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'
     }
@@ -46,8 +46,8 @@ export default Vue.extend({
 
     return {
       tableData,
-      nameTitlePrefix,
-      sexTitlePrefix
+      nameTitleSuffix,
+      sexTitleSuffix
     }
   }
 })

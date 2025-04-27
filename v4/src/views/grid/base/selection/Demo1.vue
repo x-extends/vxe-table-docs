@@ -32,7 +32,9 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
-const gridOptions = reactive({
+const gridOptions = reactive<VxeGridProps<RowVO> & {
+  data: RowVO[]
+}>({
   border: true,
   height: 300,
   rowConfig: {
@@ -57,7 +59,7 @@ const gridOptions = reactive({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 23, address: 'test abc' },
     { id: 10005, name: 'Test5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' }
   ]
-} satisfies VxeGridProps<RowVO>)
+})
 
 const selectAllChangeEvent: VxeGridEvents.CheckboxAll<RowVO> = ({ checked }) => {
   const $grid = gridRef.value

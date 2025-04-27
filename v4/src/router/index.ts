@@ -2152,6 +2152,16 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/base/data/CodeExample.vue')
         },
         {
+          path: 'titlePrefix',
+          name: 'ComponentGridBaseTitlePrefix',
+          component: () => import('@/views/grid/base/titlePrefix/CodeExample.vue')
+        },
+        {
+          path: 'titleSuffix',
+          name: 'ComponentGridBaseTitleSuffix',
+          component: () => import('@/views/grid/base/titleSuffix/CodeExample.vue')
+        },
+        {
           path: 'html',
           name: 'ComponentGridBaseHtml',
           component: () => import('@/views/grid/base/html/CodeExample.vue')

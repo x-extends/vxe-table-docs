@@ -34,7 +34,9 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 const selectRow = ref<RowVO | null>()
 
-const gridOptions = reactive({
+const gridOptions = reactive<VxeGridProps<RowVO> & {
+  data: RowVO[]
+}>({
   border: true,
   height: 300,
   radioConfig: {
@@ -56,7 +58,7 @@ const gridOptions = reactive({
     { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'test abc' },
     { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
   ]
-} satisfies VxeGridProps<RowVO>)
+})
 
 const cellClickEvent: VxeTableEvents.CellClick<RowVO> = () => {
   console.log('单元格点击事件')
