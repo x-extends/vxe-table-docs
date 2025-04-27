@@ -13,7 +13,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             import domZIndex from 'dom-zindex'
 
             // 获取页面中最大的 z-index

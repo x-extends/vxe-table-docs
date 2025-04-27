@@ -12,7 +12,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             import { VxeUI } from 'vxe-table'
 
             VxeUI.setConfig({
@@ -34,12 +34,12 @@
             })
           </pre-code>
           <div>在组件中指定 permissionCode 权限码，当无权限时会被自动隐藏</div>
-          <pre-code class="html">
+          <pre-code language="html">
             &lt;vxe-button permission-code="xxx"&gt;按钮&lt;/vxe-button&gt;
             &lt;vxe-link permission-code="xxx"&gt;链接&lt;/vxe-link&gt;
           </pre-code>
           <div>如果多个权限码，支持分隔符：|（或）</div>
-          <pre-code class="html">
+          <pre-code language="html">
             &lt;vxe-button permission-code="aaa|bbb"&gt;按钮&lt;/vxe-button&gt;
             &lt;vxe-link permission-code="aaa|bbb"&gt;链接&lt;/vxe-link&gt;
           </pre-code>

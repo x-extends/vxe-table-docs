@@ -13,10 +13,10 @@
           如果您使用了 vite，借助插件 <vxe-link href="https://www.npmjs.com/package/vite-plugin-lazy-import" target="_blank">vite-plugin-lazy-import</vxe-link> 可以实现按需加载模块。
         </div>
         <pre>
-          <pre-code class="shell">
+          <pre-code language="shell">
             npm install vite-plugin-lazy-import -D
           </pre-code>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             // 修改文件 vue.config.js
 
             // ...
@@ -46,10 +46,10 @@
           如果您使用了 webpack，借助插件 <vxe-link  href="https://www.npmjs.com/package/babel-plugin-import" target="_blank">babel-plugin-import</vxe-link> 可以实现按需加载模块。
         </div>
         <pre>
-          <pre-code class="shell">
+          <pre-code language="shell">
             npm install babel-plugin-import
           </pre-code>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             // 修改文件 babel.config.js
 
             // ...
@@ -70,7 +70,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             // ...
             import {
               VxeUI,
@@ -112,7 +112,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="html">
+          <pre-code language="html">
             {{ decodeURIComponent("%0A%3Ctemplate%3E%0A%20%20%3Cdiv%3E%0A%20%20%20%20%3CVxeTable%20%3Adata%3D%22tableData%22%3E%0A%20%20%20%20%20%20%3CVxeColumn%20type%3D%22seq%22%20width%3D%2260%22%3E%3C%2FVxeColumn%3E%0A%20%20%20%20%20%20%3CVxeColumn%20field%3D%22name%22%20title%3D%22Name%22%3E%3C%2FVxeColumn%3E%0A%20%20%20%20%20%20%3CVxeColumn%20field%3D%22sex%22%20title%3D%22Sex%22%3E%3C%2FVxeColumn%3E%0A%20%20%20%20%20%20%3CVxeColumn%20field%3D%22age%22%20title%3D%22Age%22%3E%3C%2FVxeColumn%3E%0A%20%20%20%20%3C%2FVxeTable%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Ftemplate%3E%0A%0A%3Cscript%20lang%3D%22ts%22%20setup%3E%0Aimport%20%7B%20VxeTable%2C%20VxeColumn%20%7D%20from%20'vxe-table'%0A%3C%2Fscript%3E%0A") }}
           </pre-code>
         </pre>

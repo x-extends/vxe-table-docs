@@ -18,7 +18,7 @@
       </template>
 
       <template #edit_money="{ row }">
-        <vxe-number-input v-model="row.money" type="amount"></vxe-number-input>
+        <vxe-number-input v-model="row.money" type="amount" align="right"></vxe-number-input>
       </template>
     </vxe-grid>
   </div>
@@ -54,7 +54,7 @@ export default Vue.extend({
         { field: 'num', title: '数字', width: 180, editRender: { }, slots: { edit: 'edit_num' } },
         { field: 'integer', title: '整数', width: 180, editRender: { }, slots: { edit: 'edit_integer' } },
         { field: 'float', title: '小数', width: 180, editRender: { }, slots: { edit: 'edit_float' } },
-        { field: 'money', title: '金额', width: 180, editRender: { }, slots: { edit: 'edit_money' } }
+        { field: 'money', title: '金额', align: 'right', width: 180, editRender: { }, slots: { edit: 'edit_money' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', num: null, integer: null, float: null, money: 10000 },

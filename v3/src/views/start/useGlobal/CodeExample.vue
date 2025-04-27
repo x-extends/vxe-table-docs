@@ -13,10 +13,10 @@
           如果您使用了 webpack，借助插件 <vxe-link  href="https://www.npmjs.com/package/babel-plugin-import" target="_blank">babel-plugin-import</vxe-link> 可以实现按需加载模块。
         </div>
         <pre>
-          <pre-code class="shell">
+          <pre-code language="shell">
             npm install babel-plugin-import
           </pre-code>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             // 修改文件 babel.config.js
 
             // ...
@@ -37,7 +37,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             // ...
             import {
               VxeUI,
@@ -80,7 +80,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="html">
+          <pre-code language="html">
             {{ decodeURIComponent('%0A%3Ctemplate%3E%0A%20%20%3Cdiv%3E%0A%20%20%20%20%3Cvxe-table%20%3Adata%3D%22tableData%22%3E%0A%20%20%20%20%20%20%3Cvxe-column%20type%3D%22seq%22%20width%3D%2260%22%3E%3C%2Fvxe-column%3E%0A%20%20%20%20%20%20%3Cvxe-column%20field%3D%22name%22%20title%3D%22Name%22%3E%3C%2Fvxe-column%3E%0A%20%20%20%20%20%20%3Cvxe-column%20field%3D%22sex%22%20title%3D%22Sex%22%3E%3C%2Fvxe-column%3E%0A%20%20%20%20%20%20%3Cvxe-column%20field%3D%22age%22%20title%3D%22Age%22%3E%3C%2Fvxe-column%3E%0A%20%20%20%20%3C%2Fvxe-table%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Ftemplate%3E%0A') }}
           </pre-code>
         </pre>

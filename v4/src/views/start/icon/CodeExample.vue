@@ -9,7 +9,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             import { VxeUI } from 'vxe-table'
             // VxeUI 是 Vxe 库通用全局实例（也可以使用旧别名 VXETable）
 

@@ -9,7 +9,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             import { VxeUI } from 'vxe-table'
             // VxeUI 是 Vxe 库通用全局实例（也可以使用旧别名 VXETable）
 
@@ -78,7 +78,7 @@
 
       <template #use>
         <pre>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             import VueI18n from 'vue-i18n'
             import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
             import enUS from 'vxe-table/lib/locale/lang/en-US'
@@ -99,7 +99,7 @@
 
             export default i18n
           </pre-code>
-          <pre-code class="javascript">
+          <pre-code language="javascript">
             // ...
             import i18n from './i18n'
             import { VxeUI } from 'vxe-table'

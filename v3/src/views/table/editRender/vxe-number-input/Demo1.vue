@@ -9,7 +9,7 @@
       <vxe-column field="num" title="数字" width="180" :edit-render="{ name: 'VxeNumberInput' }"></vxe-column>
       <vxe-column field="integer" title="整数" width="180" :edit-render="{ name: 'VxeNumberInput', props: { type: 'integer' } }"></vxe-column>
       <vxe-column field="float" title="小数" width="180" :edit-render="{ name: 'VxeNumberInput', props: { type: 'float' } }"></vxe-column>
-      <vxe-column field="money" title="金额" width="180" :edit-render="{ name: 'VxeNumberInput', props: { type: 'amount' } }"></vxe-column>
+      <vxe-column field="money" title="金额" align="right" width="180" :edit-render="{ name: 'VxeNumberInput', props: { type: 'amount',align:'right' } }"></vxe-column>
     </vxe-table>
   </div>
 </template>
