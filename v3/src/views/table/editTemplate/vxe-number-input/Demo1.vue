@@ -40,7 +40,7 @@
       </vxe-column>
       <vxe-column field="money" title="金额" align="right" width="180" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-number-input v-model="row.money" type="amount" align="right"></vxe-number-input>
+          <vxe-number-input v-model="row.money" type="amount" align="right" show-currency></vxe-number-input>
         </template>
         <template #default="{ row }">
           <span>{{ row.money }}</span>

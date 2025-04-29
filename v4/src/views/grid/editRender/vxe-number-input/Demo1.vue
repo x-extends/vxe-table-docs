@@ -32,7 +32,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'num', title: '数字', width: 180, editRender: { name: 'VxeNumberInput' } },
     { field: 'integer', title: '整数', width: 180, editRender: { name: 'VxeNumberInput', props: { type: 'integer' } } },
     { field: 'float', title: '小数', width: 180, editRender: { name: 'VxeNumberInput', props: { type: 'float' } } },
-    { field: 'money', title: '金额', align: 'right', width: 180, editRender: { name: 'VxeNumberInput', props: { type: 'amount', align: 'right' } } }
+    { field: 'money', title: '金额', align: 'right', width: 180, editRender: { name: 'VxeNumberInput', props: { type: 'amount', align: 'right', showCurrency: true } } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', num: null, integer: null, float: null, money: 10000 },

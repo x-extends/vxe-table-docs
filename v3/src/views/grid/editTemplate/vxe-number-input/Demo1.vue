@@ -18,7 +18,7 @@
       </template>
 
       <template #edit_money="{ row }">
-        <vxe-number-input v-model="row.money" type="amount" align="right"></vxe-number-input>
+        <vxe-number-input v-model="row.money" type="amount" align="right" show-currency></vxe-number-input>
       </template>
     </vxe-grid>
   </div>
