@@ -33,6 +33,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeSelectPropTypes } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -52,15 +53,21 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
     ]
 
-    const sexOptions = [
-      { label: '女', value: 'Women' },
-      { label: '男', value: 'Man' }
-    ]
+    const sexOptions: VxeSelectPropTypes.Options = []
 
     return {
       tableData,
       sexOptions
     }
+  },
+  created () {
+    // 模拟后端接口
+    setTimeout(() => {
+      this.sexOptions = [
+        { label: '女', value: 'Women' },
+        { label: '男', value: 'Man' }
+      ]
+    }, 300)
   },
   methods: {
     formatSexLabel (sexList: string[]) {

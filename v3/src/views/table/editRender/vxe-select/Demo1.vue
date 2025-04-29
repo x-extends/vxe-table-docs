@@ -51,10 +51,7 @@ export default Vue.extend({
       props: {
         multiple: true
       },
-      options: [
-        { name: '女', code: 'Women' },
-        { name: '男', code: 'Man' }
-      ],
+      options: [],
       optionProps: {
         label: 'name',
         value: 'code'
@@ -120,6 +117,27 @@ export default Vue.extend({
       typeListEditRender,
       roleEditRender
     }
+  },
+  created () {
+    // 模拟后端接口
+    setTimeout(() => {
+      this.sexListEditRender.options = [
+        { name: '女', code: 'Women' },
+        { name: '男', code: 'Man' }
+      ]
+    }, 300)
+
+    // 模拟后端接口
+    setTimeout(() => {
+      const list: any[] = []
+      for (let i = 0; i < 10000; i++) {
+        list.push({
+          value: `role${i}`,
+          label: `角色${i}`
+        })
+      }
+      this.roleEditRender.options = list
+    }, 100)
   }
 })
 </script>

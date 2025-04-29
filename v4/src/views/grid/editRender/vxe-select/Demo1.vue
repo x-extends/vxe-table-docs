@@ -32,10 +32,7 @@ const sexListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelec
   props: {
     multiple: true
   },
-  options: [
-    { name: '女', code: 'Women' },
-    { name: '男', code: 'Man' }
-  ],
+  options: [],
   optionProps: {
     label: 'name',
     value: 'code'
@@ -115,6 +112,14 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
   ]
 })
+
+// 模拟后端接口
+setTimeout(() => {
+  sexListEditRender.options = [
+    { name: '女', code: 'Women' },
+    { name: '男', code: 'Man' }
+  ]
+}, 300)
 
 // 模拟后端接口
 setTimeout(() => {

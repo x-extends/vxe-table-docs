@@ -27,6 +27,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
+import { VxeSelectPropTypes } from 'vxe-pc-ui'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -39,10 +40,7 @@ interface RowVO {
   typeList: string[]
 }
 
-const sexOptions = ref([
-  { label: '女', value: 'Women' },
-  { label: '男', value: 'Man' }
-])
+const sexOptions = ref<VxeSelectPropTypes.Options>([])
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -73,4 +71,12 @@ const formatSexLabel = (sexList: string[]) => {
   }
   return ''
 }
+
+// 模拟后端接口
+setTimeout(() => {
+  sexOptions.value = [
+    { label: '女', value: 'Women' },
+    { label: '男', value: 'Man' }
+  ]
+}, 300)
 </script>

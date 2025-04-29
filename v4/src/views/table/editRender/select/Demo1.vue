@@ -27,6 +27,7 @@ interface RowVO {
 const sexEditRender = reactive<VxeColumnPropTypes.EditRender>({
   name: 'select',
   options: [
+    { label: '', value: '' },
     { label: '女', value: 'Women' },
     { label: '男', value: 'Man' }
   ]

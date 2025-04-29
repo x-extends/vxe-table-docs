@@ -34,10 +34,7 @@ export default Vue.extend({
       props: {
         multiple: true
       },
-      options: [
-        { name: '女', code: 'Women' },
-        { name: '男', code: 'Man' }
-      ],
+      options: [],
       optionProps: {
         label: 'name',
         value: 'code'
@@ -128,6 +125,14 @@ export default Vue.extend({
     }
   },
   created () {
+    // 模拟后端接口
+    setTimeout(() => {
+      this.sexListEditRender.options = [
+        { name: '女', code: 'Women' },
+        { name: '男', code: 'Man' }
+      ]
+    }, 300)
+
     // 模拟后端接口
     setTimeout(() => {
       const list: any[] = []

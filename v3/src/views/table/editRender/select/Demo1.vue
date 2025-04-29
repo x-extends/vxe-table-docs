@@ -34,15 +34,13 @@ export default Vue.extend({
 
     const sexEditRender: VxeColumnPropTypes.EditRender = {
       name: 'select',
-      options: [
-        { label: '女', value: 'Women' },
-        { label: '男', value: 'Man' }
-      ]
+      options: []
     }
 
     const typeEditRender: VxeColumnPropTypes.EditRender = {
       name: 'select',
       optionGroups: [
+        { label: '', value: '' },
         {
           label: '分类1',
           options: [
@@ -65,6 +63,16 @@ export default Vue.extend({
       sexEditRender,
       typeEditRender
     }
+  },
+  created () {
+    // 模拟后端接口
+    setTimeout(() => {
+      this.sexEditRender.options = [
+        { label: '', value: '' },
+        { label: '女', value: 'Women' },
+        { label: '男', value: 'Man' }
+      ]
+    }, 300)
   }
 })
 </script>
