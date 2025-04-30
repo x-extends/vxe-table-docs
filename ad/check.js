@@ -17,7 +17,7 @@ function updateMsg (bEl) {
   } catch (e) {
     adDelay++
   }
-  if ([1, 3, 5].includes(new Date().getDay()) && new Date().getHours() % 3 === 0) {
+  if (new Date().getHours() % 3 === 0) {
     if (!bEl) {
       bEl = document.documentElement
     }
@@ -29,7 +29,7 @@ function updateMsg (bEl) {
   }
 }
 
-var adDelay = 36000
+var adDelay = 26000
 var adTimeout = null
 function checkAd () {
   var warpperEl = document.getElementById('{VXE_AD_WRAPPER_ID}')
@@ -60,7 +60,7 @@ function checkAd () {
   }
 }
 
-var hdDelay = 16000
+var hdDelay = 12000
 var hdTimeout = null
 function checkHide () {
   var bEl = document.querySelector('.page-container');
