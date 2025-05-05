@@ -1,8 +1,8 @@
 # Vxe Table
 
-Vxe Table 支持 vue2, vue3 的表格解决方案
+vxe-table supports the table solutions of vue2 and vue3
 
-## 目录
+## Table of Contents
 
 - [vxe-table API](/#/vxe-table/api)
 - [vxe-colgroup API](/#/vxe-colgroup/api)
