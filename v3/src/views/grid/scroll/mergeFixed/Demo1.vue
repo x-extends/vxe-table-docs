@@ -1,97 +1,77 @@
 <template>
   <div>
-    <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
-    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
-    <vxe-button @click="loadData(100000)">加载10w条</vxe-button>
-    <vxe-grid v-bind="gridOptions">
-      <template #status="{ row }">
-        <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
-        <vxe-tag v-else-if="row.status === '1'" status="primary">待处理</vxe-tag>
-        <vxe-tag v-else status="success">已完成</vxe-tag>
-      </template>
-
-      <template #action>
-        <vxe-button mode="text" status="primary">编辑</vxe-button>
-        <vxe-button mode="text" status="error">删除</vxe-button>
-      </template>
-    </vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
-  [key: string]: string | number | boolean | any[]
+  name: string
+  role: string
+  sex: string
+  age: number
+  address: string
+  col90: string
+  col91: string
+  col92: string
+  col93: string
+  col94: string
+  col95: string
+  col96: string
+  col97: string
+  col98: string
+  col99: string
+  col100: string
 }
 
 export default Vue.extend({
   data () {
-    const flag1CellRender: VxeColumnPropTypes.CellRender = {
-      name: 'VxeSwitch'
-    }
-
-    const imgUrlCellRender: VxeColumnPropTypes.CellRender = {
-      name: 'VxeImage',
-      props: {
-        width: 36,
-        height: 36
-      }
-    }
-
-    const imgList1CellRender: VxeColumnPropTypes.CellRender = {
-      name: 'VxeUpload',
-      props: {
-        mode: 'image',
-        readonly: true,
-        moreConfig: {
-          maxCount: 2
-        },
-        imageConfig: {
-          width: 40,
-          height: 40
-        }
-      }
-    }
-
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      showFooter: true,
       showOverflow: true,
       showHeaderOverflow: true,
       showFooterOverflow: true,
-      loading: false,
-      height: 800,
-      columnConfig: {
-        resizable: true
+      showFooter: true,
+      height: 600,
+      virtualYConfig: {
+        enabled: true,
+        gt: 0
       },
       virtualXConfig: {
         enabled: true,
         gt: 0
       },
-      virtualYConfig: {
-        enabled: true,
-        gt: 0
-      },
+      mergeCells: [
+        { row: 2, col: 1, rowspan: 4, colspan: 2 },
+        { row: 16, col: 2, rowspan: 12, colspan: 3 },
+        { row: 30, col: 2, rowspan: 5, colspan: 2 },
+        { row: 100, col: 1, rowspan: 18, colspan: 3 },
+        { row: 150, col: 1, rowspan: 8, colspan: 2 }
+      ],
+      mergeFooterItems: [
+        { row: 0, col: 1, rowspan: 2, colspan: 1 }
+      ],
       columns: [
-        { field: 'checkbox', type: 'checkbox', width: 60, fixed: 'left' },
-        { title: '列0', field: 'col0', width: 100, fixed: 'left' },
-        { title: '列1', field: 'imgUrl', width: 80, fixed: 'left', cellRender: imgUrlCellRender },
-        { title: '状态', field: 'status', width: 90, slots: { default: 'status' } },
+        { field: 'seq', type: 'seq', width: 70, fixed: 'left' },
+        { field: 'name', title: 'Name', minWidth: 300 },
         {
           title: '分组1',
           children: [
-            { title: '列3', field: 'col3', width: 200 },
-            { title: '列4', field: 'col4', width: 140 },
-            { title: '列5', field: 'col5', width: 300 }
+            { field: 'role', title: 'Role', minWidth: 300 },
+            { field: 'sex', title: 'Sex', minWidth: 300 },
+            { field: 'age', title: 'Age', minWidth: 300 }
           ]
         },
         {
           title: '分组2',
           children: [
+            { title: '列3', field: 'col3', width: 200 },
+            { title: '列4', field: 'col4', width: 140 },
+            { title: '列5', field: 'col5', width: 300 },
             { title: '列6', field: 'col6', width: 160 },
             { title: '列7', field: 'col7', width: 120 },
             { title: '列8', field: 'col8', width: 400 },
@@ -176,75 +156,61 @@ export default Vue.extend({
             { title: '列87', field: 'col87', width: 400 },
             { title: '列88', field: 'col88', width: 800 },
             { title: '列89', field: 'col89', width: 360 },
-            { title: '列90', field: 'col90', width: 650 }
+            { title: '列90', field: 'col90', width: 650 },
+            { title: '列91', field: 'col91', width: 600 },
+            { title: '列92', field: 'col92', width: 100 },
+            { title: '列93', field: 'col93', width: 490 }
           ]
         },
-        { title: '列91', field: 'col91', width: 600 },
-        { title: '列92', field: 'col92', width: 100 },
-        { title: '列93', field: 'col93', width: 490 },
         { title: '列94', field: 'col94', width: 100 },
         { title: '列95', field: 'col95', width: 150 },
         { title: '列96', field: 'col96', width: 800 },
-        { title: '列97', field: 'col97', width: 400 },
-        { title: '列99', field: 'imgList1', width: 120, fixed: 'right', cellRender: imgList1CellRender },
-        { title: '列100', field: 'flag1', width: 100, fixed: 'right', cellRender: flag1CellRender },
-        { title: '操作', field: 'action', width: 120, fixed: 'right', slots: { default: 'action' } }
+        { title: '列97', field: 'col97', width: 100 },
+        { title: '列98', field: 'col98', width: 150 },
+        { title: '列99', field: 'col99', width: 200 },
+        { title: '列100', field: 'col100', width: 100, fixed: 'right' }
       ],
       data: [],
       footerData: [
-        { checkbox: '均值', col0: '45', col1: '56', col3: '67', col5: '78', col7: '94', col97: '37', imgList1: '83' },
-        { checkbox: '合计', col0: '222', col1: '333', col3: '444', col5: '888', col7: '555', col97: '444', imgList1: '777' }
+        { seq: '合计', name: '666', role: '888', sex: '999', age: '234', address: '453' },
+        { seq: '均值', name: '222', role: '333', sex: '777', age: '876', address: '134' }
       ]
     }
 
     return {
-      gridOptions,
-      flag1CellRender,
-      imgUrlCellRender,
-      imgList1CellRender
+      gridOptions
     }
   },
   methods: {
     // 模拟行数据
-    loadData (rowSize: number) {
-      this.gridOptions.loading = true
-      setTimeout(() => {
-        const dataList: RowVO[] = []
-        for (let i = 0; i < rowSize; i++) {
-          const item: RowVO = {
-            id: 10000 + i,
-            status: i % 3 === 0 ? '1' : (i % 2 === 0 ? '2' : '0'),
-            imgUrl: i % 3 === 0 ? 'https://vxeui.com/resource/img/546.gif' : 'https://vxeui.com/resource/img/673.gif',
-            imgList1: i % 4 === 0
-              ? [
-                  { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
-                ]
-              : [
-                  { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
-                  { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
-                ],
-            flag1: i % 5 === 0
-          }
-          for (let j = 0; j < 120; j++) {
-            item[`col${j}`] = `值_${i}_${j}`
-          }
-          dataList.push(item)
-        }
-
-        const startTime = Date.now()
-        this.gridOptions.data = dataList
-        this.gridOptions.loading = false
-        this.$nextTick(() => {
-          VxeUI.modal.message({
-            content: `加载时间 ${Date.now() - startTime} 毫秒`,
-            status: 'success'
-          })
+    loadList (size = 200) {
+      const dataList: RowVO[] = []
+      for (let i = 0; i < size; i++) {
+        dataList.push({
+          id: 10000 + i,
+          name: 'Test' + i,
+          role: 'Developer',
+          sex: '男',
+          age: 20,
+          address: 'Address abc',
+          col90: '90-' + i,
+          col91: '91-' + i,
+          col92: '92-' + i,
+          col93: '93-' + i,
+          col94: '94-' + i,
+          col95: '95-' + i,
+          col96: '96-' + i,
+          col97: '97-' + i,
+          col98: '98-' + i,
+          col99: '99-' + i,
+          col100: '100-' + i
         })
-      }, 350)
+      }
+      this.gridOptions.data = dataList
     }
   },
   created () {
-    this.loadData(200)
+    this.loadList(500)
   }
 })
 </script>

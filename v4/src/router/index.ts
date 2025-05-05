@@ -4228,6 +4228,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/scroll/merge/CodeExample.vue')
         },
         {
+          path: 'mergeFixed',
+          name: 'ComponentGridScrollMergeFixed',
+          component: () => import('@/views/grid/scroll/mergeFixed/CodeExample.vue')
+        },
+        {
           path: 'tree',
           name: 'ComponentGridScrollTree',
           component: () => import('@/views/grid/scroll/tree/CodeExample.vue')
