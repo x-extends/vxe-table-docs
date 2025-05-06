@@ -23,6 +23,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     drag: true
   },
   columns: [
+    { type: 'seq', width: 80 },
     { field: 'name', title: 'Name' },
     { field: 'role', title: 'Role', dragSort: true },
     { field: 'sex', title: 'Sex' },

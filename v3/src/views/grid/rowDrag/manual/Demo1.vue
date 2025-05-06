@@ -40,6 +40,7 @@ export default Vue.extend({
         resizable: true
       },
       columns: [
+        { type: 'seq', width: 80 },
         { field: 'name', title: 'Name' },
         { field: 'role', title: 'Role' },
         { field: 'sex', title: 'Sex' },

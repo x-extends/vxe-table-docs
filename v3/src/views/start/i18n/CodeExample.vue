@@ -35,6 +35,7 @@
             // import thTH from 'vxe-table/lib/locale/lang/th-TH' // 泰语
             // import itIT from 'vxe-table/lib/locale/lang/it-IT' // 意大利语(意大利)
             // import idID from 'vxe-table/lib/locale/lang/id-ID' // 印度尼西亚语
+            // import msMY from 'vxe-table/lib/locale/lang/ms-MY' // 马来语(马来西亚)
 
             // 注册语言
             VxeUI.setI18n('zh-CN', zhCN)
@@ -58,6 +59,7 @@
             // VxeUI.setI18n('th-TH', thTH)
             // VxeUI.setI18n('it-IT', itIT)
             // VxeUI.setI18n('id-ID', idID)
+            // VxeUI.setI18n('ms-MY', msMY)
 
             // 切换语言
             VxeUI.setLanguage('zh-CN')
