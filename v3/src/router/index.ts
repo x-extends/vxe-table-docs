@@ -3783,6 +3783,16 @@ const gridRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
+          path: 'input',
+          name: 'ComponentGridEditTemplateInput',
+          component: () => import('@/views/grid/editTemplate/input/CodeExample.vue')
+        },
+        {
+          path: 'select',
+          name: 'ComponentGridEditTemplateSelect',
+          component: () => import('@/views/grid/editTemplate/select/CodeExample.vue')
+        },
+        {
           path: 'vxe-button',
           name: 'ComponentGridEditTemplateVxeButton',
           component: () => import('@/views/grid/editTemplate/vxe-button/CodeExample.vue')

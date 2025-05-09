@@ -26,7 +26,7 @@ const cellUrl = computed(() => {
 
 const cellLabel = computed(() => {
   if (currRow.value && currColumn.value) {
-    return currRow[currColumn.value.field]
+    return currRow.value[currColumn.value.field]
   }
   return ''
 })

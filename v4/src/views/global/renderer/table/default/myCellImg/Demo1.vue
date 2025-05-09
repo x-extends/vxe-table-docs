@@ -4,7 +4,7 @@
       border
       show-overflow
       height="300"
-      :row-config="{height: 80}"
+      :cell-config="cellConfig"
       :data="tableData">
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
@@ -16,7 +16,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -25,6 +26,10 @@ interface RowVO {
   age: number
   url: string
 }
+
+const cellConfig = reactive<VxeTablePropTypes.CellConfig<RowVO>>({
+  height: 80
+})
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', sex: 'Man', age: 28, url: 'https://vxeui.com/resource/img/fj577.jpg' },

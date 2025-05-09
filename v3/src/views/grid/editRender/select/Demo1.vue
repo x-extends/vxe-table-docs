@@ -28,9 +28,16 @@ export default Vue.extend({
     const typeEditRender: VxeColumnPropTypes.EditRender = {
       name: 'select',
       optionGroups: [
-        { label: '', value: '' },
+        {
+          label: '',
+          value: '0',
+          options: [
+            { label: '', value: '' }
+          ]
+        },
         {
           label: '分类1',
+          value: '1',
           options: [
             { label: '苹果', value: '1-1' },
             { label: '雪梨', value: '1-2' }
@@ -38,6 +45,7 @@ export default Vue.extend({
         },
         {
           label: '分类2',
+          value: '2',
           options: [
             { label: '草莓', value: '2-1' },
             { label: '猕猴桃', value: '2-2' }

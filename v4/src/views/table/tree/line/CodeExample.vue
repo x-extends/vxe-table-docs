@@ -5,6 +5,9 @@
         <vxe-tip status="primary">
           树表格，通过配置 <ApiLink name="table" prop="tree-config"/>={<ApiLink name="table" prop="showLine"/>: true} 属性来开启树节点连接线<br>
         </vxe-tip>
+        <vxe-tip status="error">
+          连接线功能需要开启 <ApiLink name="grid" prop="show-overflow"/>
+        </vxe-tip>
       </template>
     </CodeLight>
 

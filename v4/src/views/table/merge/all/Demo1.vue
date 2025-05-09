@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-button status="success" @click="saveMergeData">获取合并规则</vxe-button>
+
     <vxe-table
       border
       :data="tableData"
@@ -37,4 +39,8 @@ const mergeCells = ref<VxeTablePropTypes.MergeCells>([
   { row: 0, col: 3, rowspan: 2, colspan: 2 },
   { row: 1, col: 1, rowspan: 3, colspan: 2 }
 ])
+
+const saveMergeData = () => {
+  console.log(mergeCells.value)
+}
 </script>

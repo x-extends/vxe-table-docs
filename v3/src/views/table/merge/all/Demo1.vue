@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-button status="success" @click="saveMergeData">获取合并规则</vxe-button>
+
     <vxe-table
       border
       :data="tableData"
@@ -43,6 +45,11 @@ export default Vue.extend({
     return {
       tableData,
       mergeCells
+    }
+  },
+  methods: {
+    saveMergeData () {
+      console.log(this.mergeCells)
     }
   }
 })

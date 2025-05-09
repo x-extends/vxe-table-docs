@@ -1135,6 +1135,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '可编辑 - 渲染 - 插槽式',
           children: [
+            { title: 'input 原生-输入框', routerLink: { name: 'ComponentGridEditTemplateInput' } },
+            { title: 'select 原生-下拉框', routerLink: { name: 'ComponentGridEditTemplateSelect' } },
             { title: 'VxeButton 按钮', routerLink: { name: 'ComponentGridEditTemplateVxeButton' } },
             { title: 'VxeInput 输入框', routerLink: { name: 'ComponentGridEditTemplateVxeInput' } },
             { title: 'VxeNumberInput 数值输入框', routerLink: { name: 'ComponentGridEditTemplateVxeNumberInput' } },
@@ -1299,6 +1301,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '使用分组表头', routerLink: { name: 'ComponentGridScrollGroup' } },
             { title: '使用表尾', routerLink: { name: 'ComponentGridScrollFooter' } },
             { title: '合并行与列', routerLink: { name: 'ComponentGridScrollMerge' } },
+            { title: '合并与复杂功能', routerLink: { name: 'ComponentGridScrollMergeFixed' } },
             { title: '树形 + 纵向', routerLink: { name: 'ComponentGridScrollTree' } },
             { title: '树形 + 纵向和横向', routerLink: { name: 'ComponentGridScrollHVTree' } },
             { title: '树拖拽 + 纵向', routerLink: { name: 'ComponentGridScrollDragTree' } },

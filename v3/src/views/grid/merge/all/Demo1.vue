@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -42,6 +42,15 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    saveMergeData () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const mergeList = $grid.getMergeCells()
+        console.log(mergeList)
+      }
     }
   }
 })

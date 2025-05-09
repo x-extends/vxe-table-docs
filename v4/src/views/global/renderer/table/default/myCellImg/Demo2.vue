@@ -20,7 +20,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
   height: 300,
-  rowConfig: {
+  cellConfig: {
     height: 80
   },
   columns: [

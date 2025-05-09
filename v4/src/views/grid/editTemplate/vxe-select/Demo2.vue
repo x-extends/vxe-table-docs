@@ -42,6 +42,7 @@ interface RowVO {
 const typeOptions = ref([
   {
     label: '分类1',
+    value: '1',
     options: [
       { label: '苹果', value: '1-1' },
       { label: '雪梨', value: '1-2' }
@@ -49,6 +50,7 @@ const typeOptions = ref([
   },
   {
     label: '分类2',
+    value: '2',
     options: [
       { label: '草莓', value: '2-1' },
       { label: '猕猴桃', value: '2-2' }
@@ -81,10 +83,12 @@ const formatTypeLabel = (typeList: string[]) => {
     return typeList.map(type => {
       for (let i = 0; i < typeOptions.value.length; i++) {
         const group = typeOptions.value[i]
-        for (let j = 0; j < group.options.length; j++) {
-          const item = group.options[j]
-          if (item.value === type) {
-            return item.label
+        if (group.options) {
+          for (let j = 0; j < group.options.length; j++) {
+            const item = group.options[j]
+            if (item.value === type) {
+              return item.label
+            }
           }
         }
       }

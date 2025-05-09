@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="global/commands/table/base/Demo1" :extraImports="['./demo1.table.commands.ts']">
       <template #tip>
-        <vxe-tip status="primary" title="Table 使用方"></vxe-tip>
+        <vxe-tip status="primary" title="Table 使用方法"></vxe-tip>
       </template>
     </CodeLight>
 
