@@ -14,20 +14,22 @@ const customLanguage = localStorage.getItem('language')
 const i18n = createI18n({
   warnHtmlMessage: false,
   locale: customLanguage && languageList.includes(customLanguage) ? customLanguage : ['zh-CN', 'zh-HK', 'zh-MO', 'zh-TW'].includes(navigator.language) ? 'zh_CN' : 'en_US',
-  messages: {
-    zh_CN: {
-      ...tableZhCN,
-      ...myZhCN
-    },
-    zh_TC: {
-      ...tableZhTC,
-      ...myZhTC
-    },
-    en_US: {
-      ...tableEnUS,
-      ...myEnUS
-    }
-  }
+  messages: {}
+})
+
+i18n.global.setLocaleMessage('en_US', {
+  ...tableEnUS,
+  ...myEnUS
+})
+
+i18n.global.setLocaleMessage('zh_TC', {
+  ...tableZhTC,
+  ...myZhTC
+})
+
+i18n.global.setLocaleMessage('zh_CN', {
+  ...tableZhCN,
+  ...myZhCN
 })
 
 export default i18n
