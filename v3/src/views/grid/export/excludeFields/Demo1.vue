@@ -26,7 +26,7 @@ export default Vue.extend({
       showFooter: true,
       exportConfig: {
         type: 'html',
-        includeFields: [
+        excludeFields: [
           'seq',
           'group1',
           'name'

@@ -26,7 +26,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showFooter: true,
   exportConfig: {
     type: 'html',
-    includeFields: [
+    excludeFields: [
       'seq',
       'group1',
       'name'
