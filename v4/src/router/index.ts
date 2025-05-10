@@ -1601,6 +1601,11 @@ const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/editRender/vxe-date-picker/CodeExample.vue')
         },
         {
+          path: 'vxe-date-range-picker',
+          name: 'ComponentTableEditRenderVxeDateRangePicker',
+          component: () => import('@/views/table/editRender/vxe-date-range-picker/CodeExample.vue')
+        },
+        {
           path: 'vxe-select',
           name: 'ComponentTableEditRenderVxeSelect',
           component: () => import('@/views/table/editRender/vxe-select/CodeExample.vue')
@@ -1650,6 +1655,11 @@ const tableRouteConfig: RouteRecordRaw = {
           path: 'vxe-date-picker',
           name: 'ComponentTableEditTemplateVxeDatePicker',
           component: () => import('@/views/table/editTemplate/vxe-date-picker/CodeExample.vue')
+        },
+        {
+          path: 'vxe-date-rangepicker',
+          name: 'ComponentTableEditTemplateVxeDateRangePicker',
+          component: () => import('@/views/table/editTemplate/vxe-date-range-picker/CodeExample.vue')
         },
         {
           path: 'vxe-select',
@@ -3739,6 +3749,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/editRender/vxe-date-picker/CodeExample.vue')
         },
         {
+          path: 'vxe-date-range-picker',
+          name: 'ComponentGridEditRenderVxeDateRangePicker',
+          component: () => import('@/views/grid/editRender/vxe-date-range-picker/CodeExample.vue')
+        },
+        {
           path: 'vxe-select',
           name: 'ComponentGridEditRenderVxeSelect',
           component: () => import('@/views/grid/editRender/vxe-select/CodeExample.vue')
@@ -3813,6 +3828,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'vxe-date-picker',
           name: 'ComponentGridEditTemplateVxeDatePicker',
           component: () => import('@/views/grid/editTemplate/vxe-date-picker/CodeExample.vue')
+        },
+        {
+          path: 'vxe-date-range-picker',
+          name: 'ComponentGridEditTemplateVxeDateRangePicker',
+          component: () => import('@/views/grid/editTemplate/vxe-date-range-picker/CodeExample.vue')
         },
         {
           path: 'vxe-select',
