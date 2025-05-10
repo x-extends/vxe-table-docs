@@ -39,16 +39,16 @@ interface RowVO {
   imgList: any[]
   fileList: any[]
   annualStatement: {
-    m1: number | null,
-    m2: number | null,
-    m3: number | null,
-    m4: number | null,
-    m5: number | null,
-    m6: number | null,
-    m7: number | null,
-    m8: number | null,
-    m9: number | null,
-    m10: number | null,
+    m1: number | null
+    m2: number | null
+    m3: number | null
+    m4: number | null
+    m5: number | null
+    m6: number | null
+    m7: number | null
+    m8: number | null
+    m9: number | null
+    m10: number | null
     m11: number | null,
     m12: number | null
   }
@@ -60,7 +60,7 @@ const neList = XEUtils.shuffle(['张三', '李四', '王五', '小徐', '老张'
 const cyList = XEUtils.shuffle(['sz', 'gz', 'bj', 'sh', 'hz'])
 const sxList = XEUtils.shuffle(XEUtils.range(1, 60).map(num => `${num % 2}`))
 const aeList = XEUtils.shuffle(XEUtils.range(18, 66))
-const elList = XEUtils.range(1, 60).map(num => `${XEUtils.sample('qwertyuiopasdfghjklzxcvbnm'.split(''), XEUtils.random(6, 16)).join('')}@163.com`)
+const elList = XEUtils.range(1, 60).map(() => `${XEUtils.sample('qwertyuiopasdfghjklzxcvbnm'.split(''), XEUtils.random(6, 16)).join('')}@163.com`)
 const lnList = XEUtils.shuffle(XEUtils.range(0, 5))
 const asmMpas = {
   m1: XEUtils.shuffle(XEUtils.range(1000, 1500)),
@@ -78,9 +78,9 @@ const asmMpas = {
 }
 const fgList = XEUtils.shuffle(XEUtils.range(1, 60).map(num => (num % 2) === 0))
 const allFileList = ['https://vxeui.com/resource/img/fj586.png', 'https://vxeui.com/resource/img/fj577.jpg', 'https://vxeui.com/resource/img/fj562.png', 'https://vxeui.com/resource/img/fj124.jpeg']
-const flList = XEUtils.shuffle(XEUtils.range(1, 20).map(num => XEUtils.sample(allFileList, XEUtils.random(0, 3))))
+const flList = XEUtils.shuffle(XEUtils.range(1, 20).map(() => XEUtils.sample(allFileList, XEUtils.random(0, 3))))
 const allImageList = ['https://vxeui.com/resource/img/fj577.jpg', 'https://vxeui.com/resource/img/fj562.png', 'https://vxeui.com/resource/img/fj579.png', 'https://vxeui.com/resource/img/fj573.jpeg', 'https://vxeui.com/resource/img/fj586.png']
-const igList = XEUtils.shuffle(XEUtils.range(1, 20).map(num => XEUtils.sample(allImageList, XEUtils.random(0, 3))))
+const igList = XEUtils.shuffle(XEUtils.range(1, 20).map(() => XEUtils.sample(allImageList, XEUtils.random(0, 3))))
 const cacheList: RowVO[] = []
 
 export default Vue.extend({

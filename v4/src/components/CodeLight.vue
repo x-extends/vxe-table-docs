@@ -208,7 +208,7 @@ const transformFilePath = (path: string) => {
 }
 
 const parseFilePath = (path: string) => {
-  const [fullPath, filePath, fileType] = path.match(/(.*)\.(vue|js|jsx|ts|tsx)$/) || [path, '.vue', 'vue']
+  const [, filePath, fileType] = path.match(/(.*)\.(vue|js|jsx|ts|tsx)$/) || [path, '.vue', 'vue']
   return {
     filePath: transformFilePath(filePath),
     codeLang: ['js', 'ts', 'jsx', 'tsx'].includes(fileType) ? 'javascript' : 'html',
