@@ -87,13 +87,11 @@ const findDataList = (size: number) => {
 }
 
 const init = async () => {
-  let tableColumn: VxeGridPropTypes.Columns = []
   gridOptions.loading = true
   await Promise.all([
     findColumnList(200).then(columns => {
       const $grid = gridRef.value
       if ($grid) {
-        tableColumn = columns
         $grid.loadColumn(columns)
       }
     }),

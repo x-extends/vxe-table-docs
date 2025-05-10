@@ -24,6 +24,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   loading: false,
   height: 400,
+  columnConfig: {
+    resizable: true
+  },
   sortConfig: {
     remote: true
   },

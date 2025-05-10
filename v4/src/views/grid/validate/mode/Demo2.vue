@@ -28,6 +28,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   keepSource: true,
   height: 300,
+  columnConfig: {
+    resizable: true
+  },
   editConfig: {
     trigger: 'click',
     mode: 'row',

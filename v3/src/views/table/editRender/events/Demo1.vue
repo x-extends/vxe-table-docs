@@ -61,6 +61,7 @@ export default Vue.extend({
         change (cellParams, targetParams) {
           const { row, column } = cellParams
           console.log('sex', row[column.field])
+          console.log('cellParams:', cellParams, 'targetParams:', targetParams)
         }
       }
     }
@@ -71,6 +72,7 @@ export default Vue.extend({
         change (cellParams, targetParams) {
           const { row, column } = cellParams
           console.log('age', row[column.field])
+          console.log('cellParams:', cellParams, 'targetParams:', targetParams)
         }
       }
     }

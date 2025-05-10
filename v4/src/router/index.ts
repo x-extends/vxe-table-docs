@@ -4198,6 +4198,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/scroll/hv/CodeExample.vue')
         },
         {
+          path: 'hFull',
+          name: 'ComponentGridScrollHFull',
+          component: () => import('@/views/grid/scroll/hFull/CodeExample.vue')
+        },
+        {
           path: 'loadData',
           name: 'ComponentGridScrollLoadData',
           component: () => import('@/views/grid/scroll/loadData/CodeExample.vue')

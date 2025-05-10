@@ -26,6 +26,9 @@ export default Vue.extend({
       border: true,
       loading: false,
       height: 400,
+      columnConfig: {
+        resizable: true
+      },
       sortConfig: {
         remote: true
       },

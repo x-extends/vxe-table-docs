@@ -69,6 +69,7 @@ const ageEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeNumberInp
     change (cellParams, targetParams) {
       const { row, column } = cellParams
       console.log('age', row[column.field])
+      console.log('cellParams:', cellParams, 'targetParams:', targetParams)
     }
   }
 })
