@@ -351,7 +351,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'FormatNumberInput 格式化数值', routerLink: { name: 'ComponentTableCellRenderFormatNumberInput' } },
             { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentTableCellRenderFormatOption' } },
             { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentTableCellRenderFormatTree' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },
         {
@@ -371,7 +371,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentTableCellTemplateVxeUpload' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentTableCellTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentTableCellTemplateVxeDrawer' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` },
             { title: '实现全部单元格可编辑', routerLink: { name: 'ComponentTableCellTemplateAllEdit' } }
           ]
         },
@@ -447,7 +447,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeSelect 下拉选择', routerLink: { name: 'ComponentTableEditRenderVxeSelect' } },
             { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentTableEditRenderVxeTreeSelect' } },
             { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentTableEditRenderVxeTableSelect' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` },
             { title: '事件监听', routerLink: { name: 'ComponentTableEditRenderEvents' } }
 
           ]
@@ -467,7 +467,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentTableEditTemplateVxePulldown' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentTableEditTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentTableEditTemplateVxeDrawer' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
         {
@@ -894,7 +894,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridFilterRenderVxeNumberInput' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterRenderVxeSelect' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridFilterRenderVxeDatePicker' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/filter/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/filter/el-input` }
           ]
         },
         {
@@ -902,7 +902,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: 'VxeInput', routerLink: { name: 'ComponentGridFilterTemplateVxeInput' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterTemplateVxeSelect' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/filter/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/filter/el-input` }
           ]
         },
         {
@@ -1054,7 +1054,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'FormatNumberInput 格式化数值', routerLink: { name: 'ComponentGridCellRenderFormatNumberInput' } },
             { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentGridCellRenderFormatOption' } },
             { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentGridCellRenderFormatTree' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` }
           ]
         },
         {
@@ -1070,7 +1070,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentGridCellTemplateVxeUpload' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentGridCellTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentGridCellTemplateVxeDrawer' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/cell/el-switch` },
             { title: '实现全部单元格可编辑', routerLink: { name: 'ComponentGridCellTemplateAllEdit' } }
           ]
         },
@@ -1128,7 +1128,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeSelect 下拉选择', routerLink: { name: 'ComponentGridEditRenderVxeSelect' } },
             { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
             { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditRenderVxeTableSelect' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` },
             { title: '事件监听', routerLink: { name: 'ComponentGridEditRenderEvents' } },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
             { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
@@ -1152,7 +1152,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentGridEditTemplateVxePulldown' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentGridEditTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentGridEditTemplateVxeDrawer' } },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
           ]
         },
         {
@@ -1449,7 +1449,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现表头超链接', routerLink: { name: 'GlobalRendererTableDefaultMyHeaderLink' }, keywords: 'cell-render' },
             { title: '实现表尾金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFooterAmount' }, keywords: 'cell-render' },
             { title: '实现完整金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFullAmount' }, keywords: 'cell-render' },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/cell/el-switch` }
           ]
         },
         {
@@ -1457,7 +1457,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '实现一个金额输入', routerLink: { name: 'GlobalRendererTableEditMyEditAmount' }, keywords: 'edit-render' },
             { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' }, keywords: 'edit-render' },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/edit/el-input` }
           ]
         },
         {
@@ -1480,7 +1480,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现一个输入筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterInput' }, keywords: 'filter-render' },
             { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterComplex' }, keywords: 'filter-render' },
             { title: '实现一个显示列表的筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterContent' }, keywords: 'filter-render' },
-            { title: '更多扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/filter/el-input`, keywords: 'filter-render' },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/table/filter/el-input`, keywords: 'filter-render' },
             { title: '更多筛选插件', isEnterprise: true, linkUrl: 'https://vxetable.cn/plugins/' }
           ]
         },

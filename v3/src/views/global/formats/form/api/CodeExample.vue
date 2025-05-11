@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-tip status="primary" title="单元格 - 全局格式化">将表格中单元格的格式化函数注册成全局可复用，对于实现低代码/零代码平台时非常有用，可以实现完全配置化。</vxe-tip>
+    <vxe-tip status="primary" title="表单项 - 全局格式化">将表单项中的格式化函数注册成全局可复用，对于实现低代码/零代码平台时非常有用，可以实现完全配置化。</vxe-tip>
     <vxe-tip status="success">
       <div>调用方式： VxeUI.formats.add(code, options)</div>
     </vxe-tip>
@@ -34,21 +34,12 @@ export default Vue.extend({
         defVal: 'code: string, option: any',
         list: [
           {
-            name: 'tableCellFormatMethod',
+            name: 'formItemFormatMethod',
             version: '',
             desc: '表格 - 自定义单元格格式化方法',
             type: '',
             enum: '',
-            defVal: '({ cellValue, row, column }) => string | number',
-            list: []
-          },
-          {
-            name: 'tableFooterCellFormatMethod',
-            version: '4.0.65',
-            desc: '表格 - 自定义表尾单元格格式化方法',
-            type: '',
-            enum: '',
-            defVal: '({ itemValue, row, column }) => string | number',
+            defVal: '({ itemValue, field, data, item }) => string | number',
             list: []
           }
         ]
