@@ -41,6 +41,9 @@ const printEvent = () => {
   if ($grid) {
     $grid.getPrintHtml().then(({ html }) => {
       VxeUI.print({
+        pageStyle: {
+          margin: 0
+        },
         headerHtml: '<div style="font-size: 40px;text-align: center;">自定义页眉</div>',
         footerHtml ({ currentPage, pageCount }) {
           return `<div style="font-size: 20px;padding-top: 20px;text-align: center;">

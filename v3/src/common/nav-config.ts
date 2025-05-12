@@ -1271,6 +1271,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '指定列', routerLink: { name: 'ComponentGridPrintColumns' } },
             { title: '自定义页眉/标题', routerLink: { name: 'ComponentGridPrintHeader' } },
             { title: '自定义页尾/页码', routerLink: { name: 'ComponentGridPrintFooter' } },
+            { title: '设置边距', routerLink: { name: 'ComponentGridPrintMargin' } },
             {
               title: '自定义插槽模板',
               children: [

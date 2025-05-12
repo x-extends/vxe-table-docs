@@ -4139,6 +4139,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/print/footer/CodeExample.vue')
         },
         {
+          path: 'margin',
+          name: 'ComponentGridPrintMargin',
+          component: () => import('@/views/grid/print/margin/CodeExample.vue')
+        },
+        {
           path: 'template',
           component: RouteLayout,
           children: [
