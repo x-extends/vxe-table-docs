@@ -22,14 +22,13 @@
               emptyCell: '　',
               table: {
                 showHeader: true,
-                delayHover: 250,
                 autoResize: true,
+                padding: true,
                 minHeight: 144,
                 // keepSource: false,
                 // showOverflow: null,
                 // showHeaderOverflow: null,
                 // showFooterOverflow: null,
-                // resizeInterval: 500,
                 // size: null,
                 // zIndex: null,
                 // stripe: false,
@@ -42,9 +41,6 @@
                 // rowConfig: {
                 //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
                 // },
-                resizeConfig: {
-                  // refreshDelay: 20
-                },
                 resizableConfig: {
                   dragMode: 'auto',
                   showDragTip: true,
@@ -58,11 +54,13 @@
                 },
                 rowDragConfig: {
                   showIcon: true,
+                  animation: true,
                   showGuidesStatus: true,
                   showDragTip: true
                 },
                 columnDragConfig: {
                   showIcon: true,
+                  animation: true,
                   showGuidesStatus: true,
                   showDragTip: true
                 },
@@ -137,7 +135,17 @@
                   // isEvery: false,
                   showIcon: true
                 },
+                rowGroupConfig: {
+                  padding: true,
+                  rowField: 'id',
+                  parentField: '_X_ROW_PARENT_KEY',
+                  childrenField: '_X_ROW_CHILDREN',
+                  mapChildrenField: '_X_ROW_CHILD_LIST',
+                  indent: 20,
+                  showIcon: true
+                },
                 treeConfig: {
+                  padding: true,
                   rowField: 'id',
                   parentField: 'parentId',
                   childrenField: 'children',
@@ -202,20 +210,20 @@
                   isReplace: true
                 },
                 virtualXConfig: {
-                  enabled: true,
-                  gt: 60,
+                  enabled: false,
+                  gt: 24,
                   preSize: 0,
-                  oSize: 1
+                  oSize: 0
                 },
                 virtualYConfig: {
-                  enabled: true,
+                  enabled: false,
                   gt: 100,
                   preSize: 1,
-                  oSize: 2
+                  oSize: 0
                 },
                 scrollbarConfig: {
-                  // width: 0,
-                  // height: 0
+                  // width: 14,
+                  // height: 14
                 }
               },
               // export: {

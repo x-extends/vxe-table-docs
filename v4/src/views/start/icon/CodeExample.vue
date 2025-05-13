@@ -37,6 +37,12 @@
               TABLE_MENU_OPTIONS: 'vxe-icon-arrow-right',
               TABLE_DRAG_ROW: 'vxe-icon-drag-handle',
               TABLE_DRAG_COLUMN: 'vxe-icon-drag-handle',
+              TABLE_DRAG_STATUS_ROW: 'vxe-icon-sort',
+              TABLE_DRAG_STATUS_SUB_ROW: 'vxe-icon-add-sub',
+              TABLE_DRAG_STATUS_COLUMN: 'vxe-icon-swap',
+              TABLE_DRAG_DISABLED: 'vxe-icon-no-drop',
+              TABLE_ROW_GROUP_OPEN: 'vxe-icon-arrow-right rotate90',
+              TABLE_ROW_GROUP_CLOSE: 'vxe-icon-arrow-right',
 
               // toolbar
               TOOLBAR_TOOLS_REFRESH: 'vxe-icon-repeat',
