@@ -715,6 +715,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '排序',
           children: [
+            { title: '数据排序', routerLink: { name: 'ComponentGridSortBase' } },
             { title: '多字段排序', routerLink: { name: 'ComponentGridSortMultiple' } },
             { title: '树结构排序', routerLink: { name: 'ComponentGridSortTree' } },
             { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } },
@@ -877,6 +878,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '筛选',
           children: [
+            { title: '数据筛选', routerLink: { name: 'ComponentGridFilterBase' } },
             { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } },
             { title: '树结构', routerLink: { name: 'ComponentGridFilterTree' } },
             { title: '手动弹出', routerLink: { name: 'ComponentGridFilterManual' } },

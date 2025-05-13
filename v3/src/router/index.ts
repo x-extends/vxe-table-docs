@@ -2204,6 +2204,7 @@ const gridRouteConfig: RouteConfig = {
       path: 'sort',
       component: RouteLayout,
       children: [
+        { path: 'base', name: 'ComponentGridSortBase', component: () => import('@/views/grid/sort/base/CodeExample.vue') },
         {
           path: 'multiple',
           name: 'ComponentGridSortMultiple',
@@ -2235,6 +2236,7 @@ const gridRouteConfig: RouteConfig = {
       path: 'filter',
       component: RouteLayout,
       children: [
+        { path: 'base', name: 'ComponentGridFilterBase', component: () => import('@/views/grid/filter/base/CodeExample.vue') },
         {
           path: 'remote',
           name: 'ComponentGridFilterRemote',
