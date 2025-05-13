@@ -25,7 +25,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     buttons: [
       { code: 'myToolbarExport', name: '点击导出' },
       { code: 'myToolbarLink', name: '点击跳转' },
-      { code: 'myToolbarCustom', name: '打开自定义列' }
+      { code: 'myToolbarCustom', name: '打开个性化列' }
     ]
   },
   columns: [

@@ -34,7 +34,7 @@ const tableRef = ref<VxeTableInstance<RowVO>>()
 const toolbarButtons = ref<VxeToolbarPropTypes.Buttons>([
   { code: 'myToolbarExport', name: '点击导出' },
   { code: 'myToolbarLink', name: '点击跳转' },
-  { code: 'myToolbarCustom', name: '打开自定义列' }
+  { code: 'myToolbarCustom', name: '打开个性化列' }
 ])
 
 const tableData = ref<RowVO[]>([

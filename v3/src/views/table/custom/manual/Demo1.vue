@@ -3,7 +3,7 @@
     <p>
       <vxe-checkbox v-model="column.visible" v-for="(column,index) in columns" :key="index">{{ column.title }}</vxe-checkbox>
       <vxe-button @click="refreshColEvent">刷新列信息</vxe-button>
-      <vxe-button @click="resetColEvent">重置自定义列</vxe-button>
+      <vxe-button @click="resetColEvent">重置个性化列</vxe-button>
     </p>
 
     <vxe-table

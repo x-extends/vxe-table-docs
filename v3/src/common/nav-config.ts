@@ -255,7 +255,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '左侧按钮', routerLink: { name: 'ComponentTableToolbarButtons' } },
             { title: '右侧按钮', routerLink: { name: 'ComponentTableToolbarTools' } },
-            { title: '自定义列功能', routerLink: { name: 'ComponentTableToolbarCustom' } },
+            { title: '个性化列功能', routerLink: { name: 'ComponentTableToolbarCustom' } },
             { title: '刷新功能', routerLink: { name: 'ComponentTableToolbarRefresh' } },
             { title: '打印功能', routerLink: { name: 'ComponentTableToolbarPrint' } },
             { title: '导入功能', routerLink: { name: 'ComponentTableToolbarImport' } },
@@ -274,7 +274,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
-          title: '自定义列',
+          title: '个性化列',
           children: [
             { title: '关联工具栏', routerLink: { name: 'ComponentTableCustomToolbar' } },
             { title: '窗口模式', routerLink: { name: 'ComponentTableCustomModal' } },
@@ -693,7 +693,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用', routerLink: { name: 'ComponentGridRadioCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentGridRadioVisibleMethod' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRadioTrigger' } },
-            { title: '自定义列头按钮', routerLink: { name: 'ComponentGridRadioHeaderBtn' } },
+            { title: '个性化列头按钮', routerLink: { name: 'ComponentGridRadioHeaderBtn' } },
             { title: '自定义模板', routerLink: { name: 'ComponentGridRadioTemplate' } }
           ]
         },
@@ -931,7 +931,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '左侧按钮', routerLink: { name: 'ComponentGridToolbarButtons' } },
             { title: '右侧按钮', routerLink: { name: 'ComponentGridToolbarTools' } },
-            { title: '自定义列功能', routerLink: { name: 'ComponentGridToolbarCustom' } },
+            { title: '个性化列功能', routerLink: { name: 'ComponentGridToolbarCustom' } },
             { title: '打印功能', routerLink: { name: 'ComponentGridToolbarPrint' } },
             { title: '最大化显示', routerLink: { name: 'ComponentGridToolbarZoom' } },
             { title: '导入数据', routerLink: { name: 'ComponentGridToolbarImport' } },
@@ -953,7 +953,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
-          title: '自定义列',
+          title: '个性化列',
           children: [
             { title: '使用工具栏', routerLink: { name: 'ComponentGridCustomToolbar' } },
             { title: '窗口模式', routerLink: { name: 'ComponentGridCustomModal' } },

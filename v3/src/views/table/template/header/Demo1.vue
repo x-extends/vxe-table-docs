@@ -17,7 +17,7 @@
       </vxe-column>
       <vxe-column field="num" title="Number">
         <template #header>
-          <span style="color: red;">自定义列头</span>
+          <span style="color: red;">个性化列头</span>
         </template>
       </vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

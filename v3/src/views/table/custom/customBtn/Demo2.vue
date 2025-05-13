@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-button @click="openCustomEvent">打开自定义列设置</vxe-button>
+    <vxe-button @click="openCustomEvent">打开个性化列设置</vxe-button>
     <vxe-table
       ref="tableRef"
       :custom-config="customConfig"

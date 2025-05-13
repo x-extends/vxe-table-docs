@@ -3,10 +3,11 @@
     <vxe-table
       border
       show-overflow
+      height="300"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200"></vxe-column>
-      <vxe-column field="active" title="按钮" width="200">
+      <vxe-column field="action1" title="按钮" width="200">
         <template #default>
           <vxe-button mode="text" @click="viewEvent">查看</vxe-button>
           <vxe-button mode="text" status="error" @click="delEvent">删除</vxe-button>
@@ -18,6 +19,15 @@
             </template>
           </vxe-button>
         </template>
+      </vxe-column>
+      <vxe-column field="action2" title="下拉按钮" width="120">
+        <vxe-button mode="text" content="点击下拉" trigger="click">
+          <template #dropdowns>
+            <vxe-button mode="text" @click="downloadEvent">下载</vxe-button>
+            <vxe-button mode="text">导出数据</vxe-button>
+            <vxe-button mode="text">导入数据</vxe-button>
+          </template>
+        </vxe-button>
       </vxe-column>
     </vxe-table>
   </div>
@@ -36,7 +46,14 @@ interface RowVO {
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop' },
   { id: 10002, name: 'Test2', role: 'Test' },
-  { id: 10003, name: 'Test3', role: 'PM' }
+  { id: 10003, name: 'Test3', role: 'PM' },
+  { id: 10004, name: 'Test4', role: 'PM' },
+  { id: 10005, name: 'Test5', role: 'Develop' },
+  { id: 10006, name: 'Test6', role: 'Test' },
+  { id: 10007, name: 'Test7', role: 'Test' },
+  { id: 10008, name: 'Test8', role: 'Develop' },
+  { id: 10009, name: 'Test9', role: 'Develop' },
+  { id: 100010, name: 'Test10', role: 'PM' }
 ])
 
 const viewEvent = () => {
@@ -59,5 +76,4 @@ const downloadEvent = () => {
     status: 'success'
   })
 }
-
 </script>

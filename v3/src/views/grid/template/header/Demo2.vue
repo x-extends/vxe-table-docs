@@ -68,7 +68,7 @@ export default Vue.extend({
         ],
         slots: {
           header () {
-            return <span style="color: red;">自定义列头</span>
+            return <span style="color: red;">个性化列头</span>
           }
         }
       },
