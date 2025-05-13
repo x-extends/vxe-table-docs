@@ -326,6 +326,7 @@ const tableRouteConfig: RouteRecordRaw = {
       path: 'sort',
       component: RouteLayout,
       children: [
+        { path: 'base', name: 'ComponentTableSortBase', component: () => import('@/views/table/sort/base/CodeExample.vue') },
         {
           path: 'multiple',
           name: 'ComponentTableSortMultiple',
@@ -377,6 +378,7 @@ const tableRouteConfig: RouteRecordRaw = {
       path: 'filter',
       component: RouteLayout,
       children: [
+        { path: 'base', name: 'ComponentTableFilterBase', component: () => import('@/views/table/filter/base/CodeExample.vue') },
         {
           path: 'remote',
           name: 'ComponentTableFilterRemote',
