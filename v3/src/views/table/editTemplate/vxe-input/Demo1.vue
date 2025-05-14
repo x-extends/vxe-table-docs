@@ -16,7 +16,7 @@
       </vxe-column>
       <vxe-column field="role" title="Role" :edit-render="{}">
         <template #edit="{ row, column }">
-          <vxe-input v-model="row.num" clearable @change="roleChange($event, row, column)"></vxe-input>
+          <vxe-input v-model="row.num" clearable @input="roleInput($event, row, column)"></vxe-input>
         </template>
         <template #default="{ row }">
           <span>{{ row.num }}</span>
@@ -50,8 +50,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    roleChange (eventParams, row, column) {
-      console.log('change', row, column.field, eventParams.value)
+    roleInput (eventParams, row, column) {
+      console.log('input', row, column.field, eventParams.value)
     }
   }
 })

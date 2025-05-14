@@ -16,7 +16,7 @@
       </vxe-column>
       <vxe-column field="role" title="Role" :edit-render="{}">
         <template #edit="{ row, column }">
-          <vxe-input v-model="row.role" clearable @change="roleChange($event, row, column)"></vxe-input>
+          <vxe-input v-model="row.role" clearable @input="roleInput($event, row, column)"></vxe-input>
         </template>
         <template #default="{ row }">
           <span>{{ row.num }}</span>
@@ -43,7 +43,7 @@ const tableData = ref<RowVO[]>([
   { id: 10003, name: 'Test3', role: 'PM', sex: 'Women', address: 'Shanghai' }
 ])
 
-const roleChange = (eventParams, row, column) => {
-  console.log('change', row, column.field, eventParams.value)
+const roleInput = (eventParams, row, column) => {
+  console.log('input', row, column.field, eventParams.value)
 }
 </script>

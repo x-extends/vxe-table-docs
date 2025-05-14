@@ -6,7 +6,7 @@
       </template>
 
       <template #edit_role="{ row, column }">
-        <vxe-input v-model="row.role" clearable @change="roleChange($event, row, column)"></vxe-input>
+        <vxe-input v-model="row.role" clearable @input="roleInput($event, row, column)"></vxe-input>
       </template>
     </vxe-grid>
   </div>
@@ -50,7 +50,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    roleChange (eventParams, row, column) {
+    roleInput (eventParams, row, column) {
       console.log('change', row, column.field, eventParams.value)
     }
   }

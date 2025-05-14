@@ -6,7 +6,7 @@
       </template>
 
       <template #edit_role="{ row, column }">
-        <vxe-input v-model="row.role" clearable @change="roleChange($event, row, column)"></vxe-input>
+        <vxe-input v-model="row.role" clearable @input="roleInput($event, row, column)"></vxe-input>
       </template>
     </vxe-grid>
   </div>
@@ -43,7 +43,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const roleChange = (eventParams, row, column) => {
-  console.log('change', row, column.field, eventParams.value)
+const roleInput = (eventParams, row, column) => {
+  console.log('input', row, column.field, eventParams.value)
 }
 </script>

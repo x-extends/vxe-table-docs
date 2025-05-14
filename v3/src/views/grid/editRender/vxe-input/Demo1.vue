@@ -29,9 +29,9 @@ export default Vue.extend({
         clearable: true
       },
       events: {
-        change (cellParams, eventParams) {
+        input (cellParams, eventParams) {
           const { row, column } = cellParams
-          console.log('change', row, column.field, eventParams.value)
+          console.log('input', row, column.field, eventParams.value)
         }
       }
     }
