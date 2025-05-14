@@ -351,6 +351,7 @@ export default Vue.extend({
         }
       ],
       proxyConfig: {
+        form: true,
         response: {
           result: 'data',
           total: 'total'

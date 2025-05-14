@@ -191,6 +191,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
     { field: 'updateDate', title: '更新时间', width: 240, slots: { default: 'updateDateDefault' } }
   ],
   proxyConfig: {
+    form: true,
     response: {
       result: 'data',
       total: 'total'

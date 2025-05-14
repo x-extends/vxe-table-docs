@@ -282,6 +282,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
     }
   ],
   proxyConfig: {
+    form: true,
     response: {
       result: 'data',
       total: 'total'
