@@ -42,7 +42,7 @@ export default Vue.extend({
     ]
 
     const customConfig: VxeTablePropTypes.CustomConfig = {
-      mode: 'modal'
+      mode: 'drawer'
     }
 
     return {

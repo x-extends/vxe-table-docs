@@ -1,18 +1,18 @@
 <template>
   <div>
-    <CodeLight path="table/custom/customBtn/Demo1">
+    <CodeLight path="grid/custom/customBtn/Demo1">
       <template #tip>
-        <vxe-tip status="primary">通过 <ApiLink name="table" prop="custom"/> 启用表格个性化列功能 </vxe-tip>
+        <vxe-tip status="primary">通过 <ApiLink name="grid" prop="custom"/> 启用表格个性化列功能 </vxe-tip>
       </template>
     </CodeLight>
 
-    <CodeLight path="table/custom/customBtn/Demo2">
+    <CodeLight path="grid/custom/customBtn/Demo2">
       <template #tip>
         <vxe-tip status="primary">弹窗模式 </vxe-tip>
       </template>
     </CodeLight>
 
-    <CodeLight path="table/custom/customBtn/Demo3">
+    <CodeLight path="grid/custom/customBtn/Demo3">
       <template #tip>
         <vxe-tip status="primary">抽屉模式 </vxe-tip>
       </template>

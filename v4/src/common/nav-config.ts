@@ -971,6 +971,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '允许调整列宽', routerLink: { name: 'ComponentGridCustomResizable' } },
             // { title: '允许拖拽列顺序', routerLink: { name: 'ComponentGridCustomSort' } },
             // { title: '自定义触发弹出设置', routerLink: { name: 'ComponentGridCustomTemplate' } },
+            { title: '自定义触发按钮', routerLink: { name: 'ComponentGridCustomCustomBtn' } },
             { title: '自定义弹出位置', routerLink: { name: 'ComponentGridCustomPlacement' } },
             { title: '事件监听', routerLink: { name: 'ComponentGridCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentGridCustomImmediate' } },
