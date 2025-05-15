@@ -10,7 +10,7 @@
 
       <template #use>
         <vxe-tip status="success" title="方式1.安装纯表格">
-          仅可使用表格，不包含任何 UI 组件，可以搭配第三方 UI 组件库使用。
+          仅可使用表格基础功能，不包含任何 UI 组件，不能使用任何高级功能，建议使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
           <pre-code

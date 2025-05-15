@@ -158,6 +158,7 @@
               VxeGrid,
               VxeToolbar
             } from 'vxe-table'
+            // VxeUI 是 Vxe 库通用全局实例（也可以使用旧别名 VXETable）
 
             // 导入主题变量，也可以重写主题变量
             import 'vxe-table/styles/cssvar.scss'
