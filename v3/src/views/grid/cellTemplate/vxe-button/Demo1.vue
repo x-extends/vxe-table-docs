@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-      <template #action>
+      <template #action1>
         <vxe-button mode="text" @click="viewEvent">查看</vxe-button>
         <vxe-button mode="text" status="error" @click="delEvent">删除</vxe-button>
         <vxe-button mode="text" content="更多">
@@ -12,14 +12,18 @@
           </template>
         </vxe-button>
       </template>
+
+      <template #action2="{ row }">
+        <vxe-button mode="text" content="配置式下拉" :options="downBtns" @dropdown-click="dropdownClickEvent($event, row)"></vxe-button>
+      </template>
     </vxe-grid>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="tsx">
 import Vue from 'vue'
-import { VxeUI } from 'vxe-table'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeButtonPropTypes } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -29,6 +33,12 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const downBtns: VxeButtonPropTypes.Options = [
+      { name: '1', content: '下拉按钮1' },
+      { name: '2', content: '下拉按钮2' },
+      { name: '3', content: '下拉按钮3' }
+    ]
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
@@ -36,7 +46,8 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 200 },
-        { title: '按钮', width: 200, slots: { default: 'action' } }
+        { title: '按钮1', width: 200, slots: { default: 'action1' } },
+        { title: '按钮2', width: 140, slots: { default: 'action2' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop' },
@@ -53,10 +64,17 @@ export default Vue.extend({
     }
 
     return {
+      downBtns,
       gridOptions
     }
   },
   methods: {
+    dropdownClickEvent (params, row) {
+      VxeUI.modal.message({
+        content: `点击了 ${params.name} id=${row.id}`,
+        status: 'success'
+      })
+    },
     viewEvent () {
       VxeUI.modal.message({
         content: '点击了查看',

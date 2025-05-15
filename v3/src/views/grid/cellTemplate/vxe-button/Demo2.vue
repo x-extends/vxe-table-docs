@@ -6,8 +6,8 @@
 
 <script lang="tsx">
 import Vue from 'vue'
-import { VxeUI } from 'vxe-table'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeButtonPropTypes } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -17,6 +17,12 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const downBtns: VxeButtonPropTypes.Options = [
+      { name: '1', content: '下拉按钮1' },
+      { name: '2', content: '下拉按钮2' },
+      { name: '3', content: '下拉按钮3' }
+    ]
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
@@ -37,27 +43,8 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
-    }
-  },
-  methods: {
-    viewEvent () {
-      VxeUI.modal.message({
-        content: '点击了查看',
-        status: 'success'
-      })
-    },
-    delEvent () {
-      VxeUI.modal.confirm({
-        title: '操作提示',
-        content: '请您确认是否删除？'
-      })
-    },
-    downloadEvent () {
-      VxeUI.modal.message({
-        content: '点击了下载',
-        status: 'success'
-      })
+      gridOptions,
+      downBtns
     }
   },
   created () {
@@ -65,7 +52,7 @@ export default Vue.extend({
       { type: 'seq', width: 70 },
       { field: 'name', title: 'Name', minWidth: 200 },
       {
-        title: '按钮',
+        title: '按钮1',
         width: 200,
         slots: {
           default: () => {
@@ -90,8 +77,43 @@ export default Vue.extend({
           </span>
           }
         }
+      },
+      {
+        title: '按钮2',
+        width: 140,
+        slots: {
+          default: ({ row }) => {
+            return <vxe-button mode="text" content="配置式下拉" options={this.downBtns} onDropdownClick={(params) => this.dropdownClickEvent(params, row)}></vxe-button>
+          }
+        }
       }
     ]
+  },
+  methods: {
+    dropdownClickEvent (params, row) {
+      VxeUI.modal.message({
+        content: `点击了 ${params.name} id=${row.id}`,
+        status: 'success'
+      })
+    },
+    viewEvent () {
+      VxeUI.modal.message({
+        content: '点击了查看',
+        status: 'success'
+      })
+    },
+    delEvent () {
+      VxeUI.modal.confirm({
+        title: '操作提示',
+        content: '请您确认是否删除？'
+      })
+    },
+    downloadEvent () {
+      VxeUI.modal.message({
+        content: '点击了下载',
+        status: 'success'
+      })
+    }
   }
 })
 </script>

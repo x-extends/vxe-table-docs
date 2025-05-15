@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="table/custom/customBtn/Demo1">
       <template #tip>
-        <vxe-tip status="primary">通过 <ApiLink name="table" prop="custom"/> 启用表格个性化列功能 </vxe-tip>
+        <vxe-tip status="primary" title="自定义触发按钮"></vxe-tip>
       </template>
     </CodeLight>
 

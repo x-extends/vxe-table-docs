@@ -5,14 +5,27 @@
 </template>
 
 <script lang="tsx" setup>
-import { reactive } from 'vue'
-import { VxeUI } from 'vxe-table'
-import type { VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeButtonPropTypes } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
   name: string
   role: string
+}
+
+const downBtns = ref<VxeButtonPropTypes.Options>([
+  { name: '1', content: '下拉按钮1' },
+  { name: '2', content: '下拉按钮2' },
+  { name: '3', content: '下拉按钮3' }
+])
+
+const dropdownClickEvent = (params, row) => {
+  VxeUI.modal.message({
+    content: `点击了 ${params.name} id=${row.id}`,
+    status: 'success'
+  })
 }
 
 const viewEvent = () => {
@@ -44,7 +57,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200 },
     {
-      title: '按钮',
+      title: '按钮1',
       width: 200,
       slots: {
         default: () => {
@@ -54,7 +67,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
             <vxe-button
               mode="text"
               content="更多"
-              scopedSlots={
+              v-slots={
                 {
                   dropdowns () {
                     return [
@@ -67,6 +80,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
               }>
             </vxe-button>
           </span>
+        }
+      }
+    },
+    {
+      title: '按钮2',
+      width: 140,
+      slots: {
+        default: ({ row }) => {
+          return <vxe-button mode="text" content="配置式下拉" options={downBtns.value} onDropdownClick={(params) => dropdownClickEvent(params, row)}></vxe-button>
         }
       }
     }
