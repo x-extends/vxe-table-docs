@@ -47,61 +47,46 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   ]
 })
 
-const addEvent = () => {
-  const newRow: RowVO = {
-    id: new Date().getTime(),
-    name: `Name_${new Date().getTime()}`,
-    role: '',
-    sex: '',
-    age: 18,
-    address: ''
-  }
-  gridOptions.data.unshift(newRow)
-  insertRecords.push(newRow)
-  nextTick(() => {
-    const $grid = gridRef.value
-    if ($grid) {
-      $grid.setEditRow(newRow)
+const addEvent = async () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const record = {
+      name: `Name_${new Date().getTime()}`
     }
-  })
+    const newRow = await $grid.createRow(record)
+    gridOptions.data.unshift(newRow)
+    insertRecords.push(newRow)
+    await nextTick()
+    $grid.setEditRow(newRow)
+  }
 }
 
-const pushEvent = () => {
-  const newRow: RowVO = {
-    id: new Date().getTime(),
-    name: `Name_${new Date().getTime()}`,
-    role: '',
-    sex: '',
-    age: 18,
-    address: ''
-  }
-  gridOptions.data.push(newRow)
-  insertRecords.push(newRow)
-  nextTick(() => {
-    const $grid = gridRef.value
-    if ($grid) {
-      $grid.setEditRow(newRow)
+const pushEvent = async () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const record = {
+      name: `Name_${new Date().getTime()}`
     }
-  })
+    const newRow = await $grid.createRow(record)
+    gridOptions.data.push(newRow)
+    insertRecords.push(newRow)
+    await nextTick()
+    $grid.setEditRow(newRow)
+  }
 }
 
-const insertEvent = () => {
-  const newRow: RowVO = {
-    id: new Date().getTime(),
-    name: `Name_${new Date().getTime()}`,
-    role: '',
-    sex: '',
-    age: 18,
-    address: ''
-  }
-  gridOptions.data.splice(2, 0, newRow)
-  insertRecords.push(newRow)
-  nextTick(() => {
-    const $grid = gridRef.value
-    if ($grid) {
-      $grid.setEditRow(newRow)
+const insertEvent = async () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const record = {
+      name: `Name_${new Date().getTime()}`
     }
-  })
+    const newRow = await $grid.createRow(record)
+    gridOptions.data.splice(2, 0, newRow)
+    insertRecords.push(newRow)
+    await nextTick()
+    $grid.setEditRow(newRow)
+  }
 }
 
 const getInsertEvent = () => {

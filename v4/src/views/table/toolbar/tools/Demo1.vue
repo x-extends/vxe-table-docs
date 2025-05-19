@@ -37,7 +37,7 @@ const toolbarTools = ref<VxeToolbarPropTypes.Tools>([
   { name: '保存', code: 'save', status: 'success' }
 ])
 
-const toolClickEvent: VxeToolbarEvents.ButtonClick = ({ code }) => {
+const toolClickEvent: VxeToolbarEvents.ToolClick = ({ code }) => {
   VxeUI.modal.message({
     content: `点击了 ${code}`,
     status: 'success'

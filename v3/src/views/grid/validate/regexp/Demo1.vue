@@ -35,7 +35,7 @@ export default Vue.extend({
       },
       editRules: {
         name: [
-          { required: true, pattern: '^[a-zA-Z]\\w{5,7}$', message: '字母开头5~10位数' }
+          { required: true, pattern: '^[a-zA-Z]\\w{4,9}$', message: '字母开头5~10位数' }
         ]
       },
       columns: [

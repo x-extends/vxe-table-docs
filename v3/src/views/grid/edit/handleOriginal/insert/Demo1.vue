@@ -53,59 +53,44 @@ export default Vue.extend({
     }
   },
   methods: {
-    addEvent () {
-      const newRow: RowVO = {
-        id: new Date().getTime(),
-        name: `Name_${new Date().getTime()}`,
-        role: '',
-        sex: '',
-        age: 18,
-        address: ''
-      }
-      this.gridOptions.data.unshift(newRow)
-      this.insertRecords.push(newRow)
-      this.$nextTick(() => {
-        const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-        if ($grid) {
-          $grid.setEditRow(newRow)
+    async addEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const record = {
+          name: `Name_${new Date().getTime()}`
         }
-      })
+        const newRow = await $grid.createRow(record)
+        this.gridOptions.data.unshift(newRow)
+        this.insertRecords.push(newRow)
+        await this.$nextTick()
+        $grid.setEditRow(newRow)
+      }
     },
-    pushEvent () {
-      const newRow: RowVO = {
-        id: new Date().getTime(),
-        name: `Name_${new Date().getTime()}`,
-        role: '',
-        sex: '',
-        age: 18,
-        address: ''
-      }
-      this.gridOptions.data.push(newRow)
-      this.insertRecords.push(newRow)
-      this.$nextTick(() => {
-        const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-        if ($grid) {
-          $grid.setEditRow(newRow)
+    async pushEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const record = {
+          name: `Name_${new Date().getTime()}`
         }
-      })
+        const newRow = await $grid.createRow(record)
+        this.gridOptions.data.push(newRow)
+        this.insertRecords.push(newRow)
+        await this.$nextTick()
+        $grid.setEditRow(newRow)
+      }
     },
-    insertEvent () {
-      const newRow: RowVO = {
-        id: new Date().getTime(),
-        name: `Name_${new Date().getTime()}`,
-        role: '',
-        sex: '',
-        age: 18,
-        address: ''
-      }
-      this.gridOptions.data.splice(2, 0, newRow)
-      this.insertRecords.push(newRow)
-      this.$nextTick(() => {
-        const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-        if ($grid) {
-          $grid.setEditRow(newRow)
+    async insertEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const record = {
+          name: `Name_${new Date().getTime()}`
         }
-      })
+        const newRow = await $grid.createRow(record)
+        this.gridOptions.data.splice(2, 0, newRow)
+        this.insertRecords.push(newRow)
+        await this.$nextTick()
+        $grid.setEditRow(newRow)
+      }
     },
     getInsertEvent () {
       VxeUI.modal.alert(`新增：${this.insertRecords.length} 行`)

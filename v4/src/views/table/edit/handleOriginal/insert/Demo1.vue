@@ -48,61 +48,46 @@ const editConfig = reactive<VxeTablePropTypes.EditConfig>({
   mode: 'cell'
 })
 
-const addEvent = () => {
-  const newRow: RowVO = {
-    id: new Date().getTime(),
-    name: `Name_${new Date().getTime()}`,
-    role: '',
-    sex: '',
-    age: 18,
-    address: ''
-  }
-  tableData.value.unshift(newRow)
-  insertRecords.push(newRow)
-  nextTick(() => {
-    const $table = tableRef.value
-    if ($table) {
-      $table.setEditRow(newRow, 'name')
+const addEvent = async () => {
+  const $table = tableRef.value
+  if ($table) {
+    const record = {
+      name: `Name_${new Date().getTime()}`
     }
-  })
+    const newRow = await $table.createRow(record)
+    tableData.value.unshift(newRow)
+    insertRecords.push(newRow)
+    await nextTick()
+    $table.setEditRow(newRow, 'name')
+  }
 }
 
-const pushEvent = () => {
-  const newRow: RowVO = {
-    id: new Date().getTime(),
-    name: `Name_${new Date().getTime()}`,
-    role: '',
-    sex: '',
-    age: 18,
-    address: ''
-  }
-  tableData.value.push(newRow)
-  insertRecords.push(newRow)
-  nextTick(() => {
-    const $table = tableRef.value
-    if ($table) {
-      $table.setEditCell(newRow, 'name')
+const pushEvent = async () => {
+  const $table = tableRef.value
+  if ($table) {
+    const record = {
+      name: `Name_${new Date().getTime()}`
     }
-  })
+    const newRow = await $table.createRow(record)
+    tableData.value.push(newRow)
+    insertRecords.push(newRow)
+    await nextTick()
+    $table.setEditCell(newRow, 'name')
+  }
 }
 
-const insertEvent = () => {
-  const newRow: RowVO = {
-    id: new Date().getTime(),
-    name: `Name_${new Date().getTime()}`,
-    role: '',
-    sex: '',
-    age: 18,
-    address: ''
-  }
-  tableData.value.splice(2, 0, newRow)
-  insertRecords.push(newRow)
-  nextTick(() => {
-    const $table = tableRef.value
-    if ($table) {
-      $table.setEditCell(newRow, 'name')
+const insertEvent = async () => {
+  const $table = tableRef.value
+  if ($table) {
+    const record = {
+      name: `Name_${new Date().getTime()}`
     }
-  })
+    const newRow = await $table.createRow(record)
+    tableData.value.splice(2, 0, newRow)
+    insertRecords.push(newRow)
+    await nextTick()
+    $table.setEditCell(newRow, 'name')
+  }
 }
 
 const getInsertEvent = () => {

@@ -55,59 +55,44 @@ export default Vue.extend({
     }
   },
   methods: {
-    addEvent () {
-      const newRow: RowVO = {
-        id: new Date().getTime(),
-        name: `Name_${new Date().getTime()}`,
-        role: '',
-        sex: '',
-        age: 18,
-        address: ''
-      }
-      this.tableData.unshift(newRow)
-      this.insertRecords.push(newRow)
-      this.$nextTick(() => {
-        const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-        if ($table) {
-          $table.setEditRow(newRow, 'name')
+    async addEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        const record = {
+          name: `Name_${new Date().getTime()}`
         }
-      })
+        const newRow = await $table.createRow(record)
+        this.tableData.unshift(newRow)
+        this.insertRecords.push(newRow)
+        await this.$nextTick()
+        $table.setEditRow(newRow, 'name')
+      }
     },
-    pushEvent () {
-      const newRow: RowVO = {
-        id: new Date().getTime(),
-        name: `Name_${new Date().getTime()}`,
-        role: '',
-        sex: '',
-        age: 18,
-        address: ''
-      }
-      this.tableData.push(newRow)
-      this.insertRecords.push(newRow)
-      this.$nextTick(() => {
-        const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-        if ($table) {
-          $table.setEditCell(newRow, 'name')
+    async pushEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        const record = {
+          name: `Name_${new Date().getTime()}`
         }
-      })
+        const newRow = await $table.createRow(record)
+        this.tableData.push(newRow)
+        this.insertRecords.push(newRow)
+        await this.$nextTick()
+        $table.setEditCell(newRow, 'name')
+      }
     },
-    insertEvent () {
-      const newRow: RowVO = {
-        id: new Date().getTime(),
-        name: `Name_${new Date().getTime()}`,
-        role: '',
-        sex: '',
-        age: 18,
-        address: ''
-      }
-      this.tableData.splice(2, 0, newRow)
-      this.insertRecords.push(newRow)
-      this.$nextTick(() => {
-        const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-        if ($table) {
-          $table.setEditCell(newRow, 'name')
+    async  insertEvent () {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
+        const record = {
+          name: `Name_${new Date().getTime()}`
         }
-      })
+        const newRow = await $table.createRow(record)
+        this.tableData.splice(2, 0, newRow)
+        this.insertRecords.push(newRow)
+        await this.$nextTick()
+        $table.setEditCell(newRow, 'name')
+      }
     },
     getInsertEvent () {
       VxeUI.modal.alert(`新增：${this.insertRecords.length} 行`)
