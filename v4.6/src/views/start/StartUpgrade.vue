@@ -33,7 +33,9 @@
     <pre>
       <pre-code class="typescript">
         import { VXETable } from 'vxe-table'
-        //  setup({})
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
+
+        // 旧版本使用 setup({}) 或者 config({})
         VXETable.setConfig({
           // 恢复窗口默认显示确认按钮
           mode: {
