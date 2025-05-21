@@ -37,6 +37,7 @@ if (currPrimaryColor) {
 
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
+let pluginAppPromise: Promise<any> | null = null
 let simplifyaApiPromise: Promise<any> | null = null
 let fullApiPromise: Promise<any> | null = null
 const i18nPromise: Record<string, Promise<any> | null> = {}
@@ -80,7 +81,14 @@ export const useAppStore = defineStore('app', {
         v3Version: '',
         v4Version: ''
       },
-      versionConfig: {}
+      versionConfig: {},
+      pluginAppList: [] as {
+        value: string
+        label: string
+        code: string
+        uri: string
+        isEnterprise: boolean
+      }[]
     }
   },
   getters: {
@@ -165,7 +173,7 @@ export const useAppStore = defineStore('app', {
               this.compApiMaps = compApiMaps
             }
           })
-        }).then(() => {
+        }).catch(() => {
           simplifyaApiPromise = null
         })
       }
@@ -179,7 +187,7 @@ export const useAppStore = defineStore('app', {
               this.compApiMaps = Object.assign({}, this.compApiMaps, data)
             }
           })
-        }).then(() => {
+        }).catch(() => {
           fullApiPromise = null
         })
       }
@@ -188,12 +196,29 @@ export const useAppStore = defineStore('app', {
     getComponentApiConf (apiName: string) {
       if (!apiMapPromise[apiName]) {
         apiMapPromise[apiName] = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`)
-          .then(res => res.json()).catch(() => {
+          .then(res => res.json())
+          .catch(() => {
             apiMapPromise[apiName] = null
             return []
           })
       }
       return apiMapPromise[apiName]
+    },
+    getPluginAppList () {
+      if (!pluginAppPromise) {
+        pluginAppPromise = fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+          res.json().then(data => {
+            this.pluginAppList = data.map(item => {
+              item.label = i18n.global.t(`shopping.apps.${item.code}`)
+              item.value = XEUtils.kebabCase(item.code)
+              return item
+            })
+          })
+        }).catch(() => {
+          pluginAppPromise = null
+        })
+      }
+      return pluginAppPromise
     },
     readAuthMsgFlagVisible () {
       this.showAuthMsgFlag = false
