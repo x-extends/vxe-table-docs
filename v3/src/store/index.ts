@@ -38,6 +38,7 @@ if (currPrimaryColor) {
 
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
+let pluginAppPromise: Promise<any> | null = null
 let simplifyaApiPromise: Promise<any> | null = null
 let fullsimplifyaApiPromise: Promise<any> | null = null
 const i18nPromise: Record<string, Promise<any> | null> = {}
@@ -83,7 +84,14 @@ export default new Vuex.Store({
       v3Version: '',
       v4Version: ''
     },
-    versionConfig: {}
+    versionConfig: {},
+    pluginAppList: [] as {
+        value: string
+        label: string
+        code: string
+        uri: string
+        isEnterprise: boolean
+      }[]
   },
   getters: {
     vueCDNLib: handleLibVersion('vue'),
@@ -201,6 +209,22 @@ export default new Vuex.Store({
         })
       }
       return simplifyaApiPromise
+    },
+    getPluginAppList ({ state }) {
+      if (!pluginAppPromise) {
+        pluginAppPromise = fetch(`${state.siteBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+          res.json().then(data => {
+            state.pluginAppList = data.map(item => {
+              item.label = i18n.t(`shopping.apps.${item.code}`)
+              item.value = XEUtils.kebabCase(item.code)
+              return item
+            })
+          })
+        }).catch(() => {
+          pluginAppPromise = null
+        })
+      }
+      return pluginAppPromise
     },
     updateAllComponentApiJSON ({ state, commit }) {
       if (!fullsimplifyaApiPromise) {

@@ -6,7 +6,7 @@
       :columns="columns"
       v-bind="gridOptions">
       <template #toolbarButtons>
-        <vxe-input clearable class="search-input" v-model="searchName" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
+        <vxe-input clearable class="api-search-input" v-model="searchName" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
       </template>
 
       <template #default_name="{ row }">
@@ -314,75 +314,77 @@ nextTick(() => {
 appStore.getPluginAppList()
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .api-view {
   height: 100%;
   overflow: hidden;
-}
-.search-input {
-  width: 300px;
-}
-.api-name {
-  position: relative;
-  .api-name-version {
-    position: absolute;
-    bottom: 8px;
-    color: var(--vxe-ui-docs-primary-color);
-    border: 1px solid var(--vxe-ui-docs-primary-color);
-    font-size: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 14px;
-    height: 16px;
-    padding: 0 2px;
-    transform: translateX(2px);
-    border-radius: 4px;
+  .api-search-input {
+    width: 300px;
+  }
+  .api-name {
+    position: relative;
+    .api-name-version {
+      position: absolute;
+      bottom: 8px;
+      color: var(--vxe-ui-docs-primary-color);
+      border: 1px solid var(--vxe-ui-docs-primary-color);
+      font-size: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 14px;
+      height: 16px;
+      padding: 0 2px;
+      transform: translateX(2px);
+      border-radius: 4px;
+    }
+  }
+  .enterprise-version {
+    background-color: #f6ca9d;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 2px 8px;
+    color: #606266;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
-.enterprise-version {
-  background-color: #f6ca9d;
-  border-radius: 10px;
-  font-size: 12px;
-  padding: 2px 8px;
-  color: #606266;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-::v-deep(.vxe-body--row) {
-  .vxe-body--column {
-    &.api-abandoned {
-      cursor: help;
-      color: #70541C;
-      background-color: #FFFBE5;
-      .compatibility {
-        background-color: #70541C;
+.api-table {
+  .vxe-body--row {
+    .vxe-body--column {
+      &.api-abandoned {
+        cursor: help;
+        color: #70541C;
+        background-color: #FFFBE5;
+        .compatibility {
+          background-color: #70541C;
+        }
       }
-    }
-    &.api-disabled {
-      cursor: help;
-      color: #cb2431;
-      background-color: #fbb1b1;
-      .compatibility {
-        background-color: #cb2431;
+      &.api-disabled {
+        cursor: help;
+        color: #cb2431;
+        background-color: #fbb1b1;
+        .compatibility {
+          background-color: #cb2431;
+        }
       }
-    }
-    &.api-enterprise {
-      color: #409eff;
-      font-weight: 700;
-      .api-name-version {
-        border: 1px solid #f6ca9d;
-        background-color: #f6ca9d;
-        color: #606266;
-      }
-      .enterprise-link {
-        color: #606266;
-        font-size: 12px;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
+      &.api-enterprise {
+        color: #409eff;
+        font-weight: 700;
+        .api-name-version {
+          border: 1px solid #f6ca9d;
+          background-color: #f6ca9d;
+          color: #606266;
+        }
+        .enterprise-link {
+          color: #606266;
+          font-size: 12px;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
