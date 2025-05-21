@@ -20,7 +20,7 @@
       </template>
       <template #default_version="{ row }">
          <template v-if="row.isPlugin">
-          <a class="link enterprise-version" :href="pluginBuyUrl" target="_blank">{{ $t('app.header.buyPlugin') }}</a>
+          <a v-show="row.version" :href="getPluginDocsUrl(row)" class="compatibility enterprise-version" target="_blank">{{ getVersion(row) }}</a>
         </template>
         <template v-else-if="row.disabled">
           <span class="disabled">已废弃</span>

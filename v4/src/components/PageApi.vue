@@ -19,8 +19,8 @@
         </span>
       </template>
       <template #default_version="{ row }">
-         <template v-if="row.isPlugin">
-          <a class="link enterprise-version" :href="appStore.pluginBuyUrl" target="_blank">{{ $t('app.header.buyPlugin') }}</a>
+        <template v-if="row.isPlugin">
+          <a v-show="row.version" :href="getPluginDocsUrl(row)" class="compatibility enterprise-version" target="_blank">{{ getVersion(row) }}</a>
         </template>
         <template v-else-if="row.disabled">
           <span class="disabled">已废弃</span>
@@ -269,9 +269,9 @@ const getVersion = (row: RowVO) => {
   const { isPlugin, version, pluginName, pluginVersion } = row
   if (isPlugin) {
     if (pluginVersion) {
-      return `${XEUtils.kebabCase(pluginName)}@${pluginVersion}`
+      return `${i18n.global.t(`shopping.apps.${pluginName}`)}@${pluginVersion}`
     }
-    return `${XEUtils.kebabCase(pluginName)}`
+    return `${i18n.global.t(`shopping.apps.${pluginName}`)}`
   }
   if (version) {
     if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
