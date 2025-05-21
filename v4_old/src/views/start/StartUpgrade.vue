@@ -16,7 +16,9 @@
     <pre>
       <pre-code class="typescript">
         import { VXETable } from 'vxe-table'
-        //  setup({})
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
+
+        // 旧版本使用 setup({}) 或者 config({})
         VXETable.setConfig({
           icon: {
             // ...
@@ -28,7 +30,9 @@
     <pre>
       <pre-code class="typescript">
         import { VXETable } from 'vxe-table'
-        //  setup({})
+        // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
+
+        // 旧版本使用 setup({}) 或者 config({})
         VXETable.setIcon({
           // ...
         })
@@ -56,7 +60,7 @@
         import { VXETable } from 'vxe-table'
         // VXETable 是旧版 Vxe 库通用全局实例（建议统一使用别名 VxeUI）
 
-        //  setup({})
+        // 旧版本使用 setup({}) 或者 config({})
         VXETable.setConfig({
           // 恢复老版本校验样式
           cellVaildMode: 'obsolete',
@@ -90,23 +94,23 @@ export default defineComponent({
       demoCodes: [
       `
         // ...
-        import VXETable from 'vxe-table'
+        import VxeUITable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
-        createApp(App).use(VXETable).mount('#app')
+        createApp(App).use(VxeUITable).mount('#app')
         `,
       `
         // ...
-        import VXETable from 'vxe-table'
+        import VxeUITable from 'vxe-table'
         import 'vxe-table/lib/style.css'
         // ...
 
-        import VxeUI from 'vxe-pc-ui'
+        import VxeUIAll from 'vxe-pc-ui'
         import 'vxe-pc-ui/lib/style.css'
         // ...
 
-        createApp(App).use(VxeUI).use(VXETable).mount('#app')
+        createApp(App).use(VxeUIAll).use(VxeUITable).mount('#app')
         `
       ]
     }
