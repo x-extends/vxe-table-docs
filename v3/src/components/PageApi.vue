@@ -288,9 +288,9 @@ export default Vue.extend({
       const { isPlugin, version, pluginName, pluginVersion } = row
       if (isPlugin) {
         if (pluginVersion) {
-          return `${this.$t(`shopping.apps.${pluginName}`)}@${pluginVersion}`
+          return `${XEUtils.kebabCase(pluginName)}@${pluginVersion}`
         }
-        return `${this.$t(`shopping.apps.${pluginName}`)}`
+        return `${XEUtils.kebabCase(pluginName)}`
       }
       if (version) {
         if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
