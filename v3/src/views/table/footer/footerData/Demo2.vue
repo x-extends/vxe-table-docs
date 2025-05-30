@@ -2,8 +2,8 @@
   <div>
     <vxe-table
       border
-      show-footer
       show-overflow
+      show-footer
       height="400"
       :loading="loading"
       :data="tableData"

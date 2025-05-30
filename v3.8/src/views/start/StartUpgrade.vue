@@ -55,6 +55,7 @@
           },
           // 默认启用虚拟滚动
           table: {
+            // 3.9+
             scrollX: {
               enabled: true,
               gt: 60
@@ -63,6 +64,7 @@
               enabled: true,
               gt: 100
             },
+            // 3.15+
             virtualXConfig: {
               enabled: true,
               gt: 60

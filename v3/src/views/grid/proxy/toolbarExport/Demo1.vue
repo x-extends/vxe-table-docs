@@ -1,12 +1,14 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button status="primary" @click="exportEvent">点击导出</vxe-button>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -81,8 +83,8 @@ export default Vue.extend({
         pageSize: 10
       },
       exportConfig: {
-        // 也可以自定义选项列表
-        // modes: ['current', 'all']
+        mode: 'all',
+        modes: ['current', 'all']
       },
       toolbarConfig: {
         export: true
@@ -101,6 +103,7 @@ export default Vue.extend({
             // 默认接收 Promise<{ result: [], page: { total: 100 } }>
             return findPageList(page.pageSize, page.currentPage)
           },
+          // 当触发 mode=all 导出全量数据时调用
           queryAll: () => {
             // 默认接收 Promise<any[]>
             return findAllList()
@@ -111,6 +114,16 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    exportEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.exportData({
+          mode: 'all'
+        })
+      }
     }
   }
 })

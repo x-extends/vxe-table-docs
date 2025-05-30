@@ -1,12 +1,14 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button status="primary" @click="exportEvent">点击导出</vxe-button>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,6 +19,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const list = [
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -79,8 +83,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     pageSize: 10
   },
   exportConfig: {
-    // 也可以自定义选项列表
-    // modes: ['current', 'all']
+    mode: 'all',
+    modes: ['current', 'all']
   },
   toolbarConfig: {
     export: true
@@ -99,6 +103,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         // 默认接收 Promise<{ result: [], page: { total: 100 } }>
         return findPageList(page.pageSize, page.currentPage)
       },
+      // 当触发 mode=all 导出全量数据时调用
       queryAll: () => {
         // 默认接收 Promise<any[]>
         return findAllList()
@@ -106,4 +111,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     }
   }
 })
+
+const exportEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.exportData({
+      mode: 'all'
+    })
+  }
+}
 </script>

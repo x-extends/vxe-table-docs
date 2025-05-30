@@ -10,10 +10,13 @@
       </vxe-colgroup>
       <vxe-colgroup title="更多信息">
         <vxe-column field="role" title="Role" width="300"></vxe-column>
-        <vxe-column field="attr1" title="Attr1" width="300"></vxe-column>
+        <vxe-column field="attr1" title="Attr1" width="400"></vxe-column>
         <vxe-colgroup title="详细信息">
           <vxe-column field="sex" title="Sex" width="300"></vxe-column>
-          <vxe-column field="date" title="Date" width="300"></vxe-column>
+          <vxe-column field="date" title="Date" width="400"></vxe-column>
+          <vxe-column field="attr2" title="Attr2" width="180"></vxe-column>
+          <vxe-column field="attr3" title="Attr3" width="200"></vxe-column>
+          <vxe-column field="attr4" title="Attr4" width="300"></vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
       <vxe-colgroup title="其他信息" fixed="right">

@@ -1,16 +1,17 @@
 <template>
   <div>
+    <vxe-switch v-model="showFooter">表尾开关</vxe-switch>
     <vxe-table
       border
-      show-footer
       height="300"
+      :show-footer="showFooter"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="num" title="Num"></vxe-column>
-      <vxe-column field="address" title="Address" show-overflow></vxe-column>
+      <vxe-column field="address" title="Address"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -27,6 +28,8 @@ interface RowVO {
   num: string
   address: string
 }
+
+const showFooter = ref(false)
 
 const tableData = ref<RowVO[]>([
   { id: '10001', name: 'Test1', role: 'Develop', sex: 'Man', num: '28', address: 'test abc' },
