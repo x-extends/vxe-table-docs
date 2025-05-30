@@ -62,6 +62,14 @@
             scrollY: {
               enabled: true,
               gt: 100
+            },
+            virtualXConfig: {
+              enabled: true,
+              gt: 60
+            },
+            virtualYConfig: {
+              enabled: true,
+              gt: 100
             }
           }
         })
