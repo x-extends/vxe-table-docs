@@ -52,6 +52,9 @@ export default Vue.extend({
     const validRules: VxeTablePropTypes.EditRules<RowVO> = {
       name: [
         { required: true, pattern: '^[a-zA-Z]\\w{4,9}$', message: '字母开头5~10位数' }
+      ],
+      role: [
+        { pattern: '^[A-Z]\\w{1,11}$', message: '大写母字开头，2~12位数' }
       ]
     }
 

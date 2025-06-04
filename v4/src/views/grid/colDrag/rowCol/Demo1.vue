@@ -23,14 +23,16 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columnConfig: {
+    resizable: true,
     drag: true
   },
   rowConfig: {
+    resizable: true,
     drag: true
   },
   columns: [
     { field: 'name', title: 'Name' },
-    { field: 'role', title: 'Role', dragSort: true },
+    { field: 'role', title: 'Role', rowResize: true, dragSort: true },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }

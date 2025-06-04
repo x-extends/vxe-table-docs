@@ -22,14 +22,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 500,
   showOverflow: true,
   rowGroupConfig: {
-    groupFields: ['role', 'date'],
-    showTotal: true
+    groupFields: ['role'],
+    countFields: ['sex', 'age'],
+    countMethod ({ column, children }) {
+      return `${column.field}（${children.length}）`
+    }
   },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 300, rowGroupNode: true },
     { field: 'role', title: 'Role' },
-    { field: 'date', title: 'Date' },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }

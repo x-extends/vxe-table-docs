@@ -29,7 +29,7 @@ interface RowVO {
 }
 
 const rowGroupConfig = reactive<VxeTablePropTypes.RowGroupConfig<RowVO>>({
-  groupFields: ['role'],
+  groupFields: ['role', 'date'],
   showTotal: true
 })
 

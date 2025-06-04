@@ -94,6 +94,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '表尾数据',
           children: [
+            { title: '是否启用表尾', routerLink: { name: 'ComponentTableFooterShowFooter' } },
             { title: '标准结构', routerLink: { name: 'ComponentTableFooterFooterData' } },
             { title: '自定义数据方法', routerLink: { name: 'ComponentTableFooterFooterMethod' } },
             { title: '格式化表尾内容', routerLink: { name: 'ComponentTableFooterFooterFormat' } },
@@ -682,6 +683,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '表尾数据',
           children: [
+            { title: '是否启用表尾', routerLink: { name: 'ComponentGridFooterShowFooter' } },
             { title: '标准结构', routerLink: { name: 'ComponentGridFooterFooterData' } },
             { title: '自定义数据方法', routerLink: { name: 'ComponentGridFooterFooterMethod' } },
             { title: '格式化表尾内容', routerLink: { name: 'ComponentGridFooterFooterFormat' } },
@@ -859,8 +861,10 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '分组排序', routerLink: { name: 'ComponentGridRowGroupSort' } },
             { title: '同时使用展开行', routerLink: { name: 'ComponentGridRowGroupExpand' } },
             { title: '显示分组统计', routerLink: { name: 'ComponentGridRowGroupTotal' } },
+            { title: '显示多列合计', routerLink: { name: 'ComponentGridRowGroupCount' } },
             { title: '自定义分组内容', routerLink: { name: 'ComponentGridRowGroupContentMethod' } },
             { title: '自定义合并', routerLink: { name: 'ComponentGridRowGroupSpanMethod' } },
+            { title: '展示方式', routerLink: { name: 'ComponentGridRowGroupGroupMode' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRowGroupTrigger' } },
             { title: '手动操作', routerLink: { name: 'ComponentGridRowGroupHandleSet' } }
           ]

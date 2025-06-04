@@ -31,7 +31,7 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const rowGroupConfig: VxeTablePropTypes.RowGroupConfig<RowVO> = {
-      groupFields: ['role'],
+      groupFields: ['role', 'date'],
       showTotal: true
     }
 

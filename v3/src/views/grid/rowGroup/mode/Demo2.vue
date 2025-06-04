@@ -24,17 +24,15 @@ export default Vue.extend({
       height: 500,
       showOverflow: true,
       rowGroupConfig: {
+        mode: 'column',
         groupFields: ['role', 'date'],
-        showTotal: true,
-        totalMethod ({ children }) {
-          return `共${children.length}项`
-        }
+        showTotal: true
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', minWidth: 300, rowGroupNode: true },
-        { field: 'role', title: 'Role' },
-        { field: 'date', title: 'Date' },
+        { field: 'role', title: 'Role', width: 180 },
+        { field: 'date', title: 'Date', width: 180 },
+        { field: 'name', title: 'Name' },
         { field: 'sex', title: 'Sex' },
         { field: 'age', title: 'Age' },
         { field: 'address', title: 'Address' }
