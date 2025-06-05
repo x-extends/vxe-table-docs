@@ -1,15 +1,16 @@
 <template>
   <div>
-    <vxe-color-picker v-model="headerColor" :colors="colorList" clearable></vxe-color-picker>
-    <vxe-color-picker v-model="bodyColor" :colors="colorList" clearable></vxe-color-picker>
-    <vxe-color-picker v-model="footerColor" :colors="colorList" clearable></vxe-color-picker>
+    <vxe-color-picker v-model="currentBgColor" :colors="colorList" clearable></vxe-color-picker>
+    <vxe-color-picker v-model="currentHoverBgColor" :colors="colorList" clearable></vxe-color-picker>
 
     <vxe-grid
       v-bind="gridOptions"
       :style="{
-        '--vxe-ui-font-color': bodyColor,
-        '--vxe-ui-table-header-font-color': headerColor,
-        '--vxe-ui-table-footer-font-color': footerColor
+        '--vxe-ui-table-row-current-background-color': currentBgColor,
+        '--vxe-ui-table-row-hover-current-background-color': currentHoverBgColor,
+        '--vxe-ui-table-column-hover-background-color': currentHoverBgColor,
+        '--vxe-ui-table-column-current-background-color': currentBgColor,
+        '--vxe-ui-table-column-hover-current-background-color': currentHoverBgColor
       }">
     </vxe-grid>
   </div>
@@ -32,7 +33,14 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      showFooter: true,
+      columnConfig: {
+        isHover: true,
+        isCurrent: true
+      },
+      rowConfig: {
+        isHover: true,
+        isCurrent: true
+      },
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -50,6 +58,9 @@ export default Vue.extend({
       ]
     }
 
+    const currentBgColor = '#66DD82'
+    const currentHoverBgColor = '#98EAAB'
+
     const colorList = [
       '#DC143C', '#FF1493', '#FF00FF', '#9932CC', '#6A5ACD',
       '#0000FF', '#00008B', '#778899', '#1E90FF', '#00BFFF',
@@ -61,9 +72,8 @@ export default Vue.extend({
 
     return {
       gridOptions,
-      headerColor: '#00BFFF',
-      bodyColor: '#FF0000',
-      footerColor: '#7CFC00',
+      currentBgColor,
+      currentHoverBgColor,
       colorList
     }
   }

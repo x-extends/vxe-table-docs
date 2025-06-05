@@ -1,15 +1,12 @@
 <template>
   <div>
-    <vxe-color-picker v-model="headerColor" :colors="colorList" clearable></vxe-color-picker>
-    <vxe-color-picker v-model="bodyColor" :colors="colorList" clearable></vxe-color-picker>
-    <vxe-color-picker v-model="footerColor" :colors="colorList" clearable></vxe-color-picker>
+    <vxe-color-picker v-model="hoverBgColor" :colors="colorList" clearable></vxe-color-picker>
 
     <vxe-grid
       v-bind="gridOptions"
       :style="{
-        '--vxe-ui-font-color': bodyColor,
-        '--vxe-ui-table-header-font-color': headerColor,
-        '--vxe-ui-table-footer-font-color': footerColor
+        '--vxe-ui-table-row-hover-background-color': hoverBgColor,
+        '--vxe-ui-table-column-hover-background-color': hoverBgColor
       }">
     </vxe-grid>
   </div>
@@ -32,7 +29,12 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      showFooter: true,
+      columnConfig: {
+        isHover: true
+      },
+      rowConfig: {
+        isHover: true
+      },
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -50,6 +52,8 @@ export default Vue.extend({
       ]
     }
 
+    const hoverBgColor = '#f4f2a3'
+
     const colorList = [
       '#DC143C', '#FF1493', '#FF00FF', '#9932CC', '#6A5ACD',
       '#0000FF', '#00008B', '#778899', '#1E90FF', '#00BFFF',
@@ -61,9 +65,7 @@ export default Vue.extend({
 
     return {
       gridOptions,
-      headerColor: '#00BFFF',
-      bodyColor: '#FF0000',
-      footerColor: '#7CFC00',
+      hoverBgColor,
       colorList
     }
   }

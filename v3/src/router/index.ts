@@ -5055,6 +5055,8 @@ const routes: Array<RouteConfig> = [
           { path: 'fontColor', name: 'CssVarTableFontColor', component: () => import('@/views/vars/table/fontColor/CodeExample.vue') },
           { path: 'border', name: 'CssVarTableBorder', component: () => import('@/views/vars/table/border/CodeExample.vue') },
           { path: 'background', name: 'CssVarTableBackground', component: () => import('@/views/vars/table/background/CodeExample.vue') },
+          { path: 'rowColHover', name: 'CssVarTableRowColHover', component: () => import('@/views/vars/table/rowColHover/CodeExample.vue') },
+          { path: 'rowColCurrent', name: 'CssVarTableRowColCurrent', component: () => import('@/views/vars/table/rowColCurrent/CodeExample.vue') },
           { path: 'rowHeight', name: 'CssVarTableRowHeight', component: () => import('@/views/vars/table/rowHeight/CodeExample.vue') }
         ]
       }
