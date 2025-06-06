@@ -3,7 +3,7 @@
     <vxe-table
       show-overflow
       height="500"
-      :row-group-config="rowGroupConfig"
+      :aggregate-config="aggregateConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" min-width="300" row-group-node></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
@@ -30,7 +30,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const rowGroupConfig: VxeTablePropTypes.RowGroupConfig<RowVO> = {
+    const aggregateConfig: VxeTablePropTypes.AggregateConfig<RowVO> = {
       groupFields: ['role', 'date'],
       showTotal: true
     }
@@ -60,7 +60,7 @@ export default Vue.extend({
 
     return {
       tableData,
-      rowGroupConfig
+      aggregateConfig
     }
   }
 })

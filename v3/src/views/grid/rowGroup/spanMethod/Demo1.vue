@@ -37,7 +37,7 @@ export default Vue.extend({
         }
         return { rowspan: 1, colspan: 1 }
       },
-      rowGroupConfig: {
+      aggregateConfig: {
         groupFields: ['role'],
         showTotal: true,
         contentMethod ({ groupValue }) {

@@ -23,7 +23,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       height: 500,
       showOverflow: true,
-      rowGroupConfig: {
+      aggregateConfig: {
         groupFields: ['role'],
         contentMethod ({ groupValue }) {
           return `分组-${groupValue}`

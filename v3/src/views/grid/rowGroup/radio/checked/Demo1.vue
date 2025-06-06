@@ -31,7 +31,7 @@ export default Vue.extend({
           return true
         }
       },
-      rowGroupConfig: {
+      aggregateConfig: {
         groupFields: ['role']
       },
       columns: [

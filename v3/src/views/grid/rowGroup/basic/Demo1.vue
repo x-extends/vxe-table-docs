@@ -21,7 +21,7 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
-      rowGroupConfig: {
+      aggregateConfig: {
         groupFields: ['role']
       },
       columns: [

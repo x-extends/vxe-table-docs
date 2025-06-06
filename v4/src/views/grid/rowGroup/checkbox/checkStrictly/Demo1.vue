@@ -23,7 +23,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   checkboxConfig: {
     checkStrictly: true
   },
-  rowGroupConfig: {
+  aggregateConfig: {
     groupFields: ['role']
   },
   columns: [

@@ -17,9 +17,10 @@
     </div>
     <div class="header-middle"></div>
     <div class="header-right">
-      <vxe-pulldown v-if="isPluginDocs" v-model="showPluginApp" show-popup-shadow>
+      <vxe-pulldown v-model="showPluginApp" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
-          <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
+          <span v-if="pluginType" class="system-menu-btn-text" style="color: green;">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
+          <span v-else class="system-menu-btn-text" style="color: green;">{{ $t('app.header.pluginDocs') }}</span>
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
         </vxe-button>
 
@@ -32,7 +33,7 @@
           </ul>
         </template>
       </vxe-pulldown>
-      <vxe-pulldown v-else v-model="showSystemMenu" show-popup-shadow>
+      <vxe-pulldown v-model="showSystemMenu" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
@@ -172,7 +173,7 @@ export default Vue.extend({
     currBuyPluginBUrl () {
       const { pluginType, pluginUrlMaps } = this
       if (pluginUrlMaps[pluginType]) {
-        return `${this.pluginBuyUrl}/#${pluginUrlMaps[pluginType]}`
+        return `${this.pluginBuyUrl}#${pluginUrlMaps[pluginType]}`
       }
       return this.pluginBuyUrl
     },
@@ -278,19 +279,20 @@ export default Vue.extend({
       })
     })
 
+    fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+      res.json().then(data => {
+        this.pluginAppList = data.map(item => {
+          item.label = this.$t(`shopping.apps.${item.code}`)
+          item.value = XEUtils.kebabCase(item.code)
+          return item
+        })
+      })
+    })
+
     if (this.isPluginDocs) {
       fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
         res.json().then(data => {
           this.pluginUrlMaps = data
-        })
-      })
-      fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-        res.json().then(data => {
-          this.pluginAppList = data.map(item => {
-            item.label = this.$t(`shopping.apps.${item.code}`)
-            item.value = XEUtils.kebabCase(item.code)
-            return item
-          })
         })
       })
       fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {

@@ -22,7 +22,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       height: 500,
-      rowGroupConfig: {
+      aggregateConfig: {
         groupFields: ['role']
       },
       columns: [

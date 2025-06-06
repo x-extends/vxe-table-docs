@@ -11,7 +11,7 @@
       show-overflow
       height="500"
       ref="tableRef"
-      :row-group-config="rowGroupConfig"
+      :aggregate-config="aggregateConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" min-width="300" row-group-node></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
@@ -37,7 +37,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const rowGroupConfig: VxeTablePropTypes.RowGroupConfig<RowVO> = {}
+    const aggregateConfig: VxeTablePropTypes.AggregateConfig<RowVO> = {}
 
     const tableData: RowVO[] = [
       { id: 10001, name: 'Test1', role: 'Develop', sex: 'Woman', age: 28, date: '2025-02-01', address: 'test abc' },
@@ -64,7 +64,7 @@ export default Vue.extend({
 
     return {
       tableData,
-      rowGroupConfig
+      aggregateConfig
     }
   },
   methods: {

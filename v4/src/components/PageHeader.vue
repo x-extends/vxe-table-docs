@@ -17,9 +17,10 @@
     </div>
     <div class="header-middle"></div>
     <div class="header-right">
-      <vxe-pulldown v-if="isPluginDocs" v-model="showPluginApp" show-popup-shadow>
+      <vxe-pulldown v-model="showPluginApp" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
-          <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
+          <span v-if="pluginType" class="system-menu-btn-text" style="color: green;">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
+          <span v-else class="system-menu-btn-text" style="color: green;">{{ $t('app.header.pluginDocs') }}</span>
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
         </vxe-button>
 
@@ -27,11 +28,12 @@
           <ul class="plugin-app-wrapper">
             <li v-for="(item, index) in pluginAppList" :key="index">
               <vxe-link :href="`${tablePluginDocsUrl}/${item.uri}`" :content="$t(`shopping.apps.${item.code}`)"></vxe-link>
+              <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
             </li>
           </ul>
         </template>
       </vxe-pulldown>
-      <vxe-pulldown v-else v-model="showSystemMenu" show-popup-shadow>
+      <vxe-pulldown v-model="showSystemMenu" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
@@ -125,7 +127,7 @@ const pluginUrlMaps = ref<Record<string, string>>({})
 
 const currBuyPluginBUrl = computed(() => {
   if (pluginUrlMaps.value[pluginType]) {
-    return `${appStore.pluginBuyUrl}/#${pluginUrlMaps.value[pluginType]}`
+    return `${appStore.pluginBuyUrl}#${pluginUrlMaps.value[pluginType]}`
   }
   return appStore.pluginBuyUrl
 })
@@ -250,19 +252,20 @@ fetch(`${siteBaseUrl.value}/component-api/system-list.json?v=?v=${process.env.VU
   })
 })
 
+fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+  res.json().then(data => {
+    pluginAppList.value = data.map(item => {
+      item.label = i18n.global.t(`shopping.apps.${item.code}`)
+      item.value = XEUtils.kebabCase(item.code)
+      return item
+    })
+  })
+})
+
 if (isPluginDocs.value) {
   fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       pluginUrlMaps.value = data
-    })
-  })
-  fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-    res.json().then(data => {
-      pluginAppList.value = data.map(item => {
-        item.label = i18n.global.t(`shopping.apps.${item.code}`)
-        item.value = XEUtils.kebabCase(item.code)
-        return item
-      })
     })
   })
   fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {

@@ -25,7 +25,7 @@ export default Vue.extend({
       checkboxConfig: {
         checkStrictly: true
       },
-      rowGroupConfig: {
+      aggregateConfig: {
         groupFields: ['role']
       },
       columns: [

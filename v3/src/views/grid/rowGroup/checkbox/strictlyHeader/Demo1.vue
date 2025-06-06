@@ -26,7 +26,7 @@ export default Vue.extend({
         checkStrictly: true,
         showHeader: true
       },
-      rowGroupConfig: {
+      aggregateConfig: {
         groupFields: ['role']
       },
       columns: [

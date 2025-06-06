@@ -30,7 +30,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       height: 500,
       showOverflow: true,
-      rowGroupConfig: {},
+      aggregateConfig: {},
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 300, rowGroupNode: true },

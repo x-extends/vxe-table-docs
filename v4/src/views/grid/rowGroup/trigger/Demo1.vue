@@ -22,7 +22,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 500,
   border: true,
   showOverflow: true,
-  rowGroupConfig: {
+  aggregateConfig: {
     groupFields: ['role'],
     trigger: 'cell'
   },

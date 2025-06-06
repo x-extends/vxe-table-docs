@@ -30,7 +30,7 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 500,
   showOverflow: true,
-  rowGroupConfig: {},
+  aggregateConfig: {},
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 300, rowGroupNode: true },

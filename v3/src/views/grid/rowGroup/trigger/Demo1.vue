@@ -24,7 +24,7 @@ export default Vue.extend({
       height: 500,
       border: true,
       showOverflow: true,
-      rowGroupConfig: {
+      aggregateConfig: {
         groupFields: ['role'],
         trigger: 'cell'
       },

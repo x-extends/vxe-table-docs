@@ -665,7 +665,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '宽度', routerLink: { name: 'ComponentGridCellWidth' } },
             { title: '边距', routerLink: { name: 'ComponentGridCellPadding' } },
-            { title: '高度', routerLink: { name: 'ComponentGridCellHeight' } }
+            { title: '高度', routerLink: { name: 'ComponentGridCellHeight' } },
+            { title: '垂直对齐', routerLink: { name: 'ComponentGridCellVerticalAlign' } }
           ]
         },
         {
@@ -885,6 +886,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '筛选',
           children: [
             { title: '数据筛选', routerLink: { name: 'ComponentGridFilterBase' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentGridFilterIcon' } },
             { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } },
             { title: '树结构', routerLink: { name: 'ComponentGridFilterTree' } },
             { title: '手动弹出', routerLink: { name: 'ComponentGridFilterManual' } },

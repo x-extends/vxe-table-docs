@@ -24,7 +24,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     checkStrictly: true,
     showHeader: true
   },
-  rowGroupConfig: {
+  aggregateConfig: {
     groupFields: ['role']
   },
   columns: [
