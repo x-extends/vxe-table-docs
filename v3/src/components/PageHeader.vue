@@ -19,8 +19,8 @@
     <div class="header-right">
       <vxe-pulldown v-model="showPluginApp" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
-          <span v-if="pluginType" class="system-menu-btn-text" style="color: green;">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
-          <span v-else class="system-menu-btn-text" style="color: green;">{{ $t('app.header.pluginDocs') }}</span>
+          <span v-if="pluginType" class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
+          <span v-else class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.pluginDocs') }}</span>
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
         </vxe-button>
 
