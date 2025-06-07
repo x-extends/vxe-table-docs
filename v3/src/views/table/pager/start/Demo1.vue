@@ -36,7 +36,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const AllList = [
+    const allList = [
       { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
       { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
       { id: 10003, name: 'Test3', nickname: 'T3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
@@ -83,7 +83,7 @@ export default Vue.extend({
 
     return {
       loading: false,
-      AllList,
+      allList,
       tableData,
       pageVO,
       seqConfig
@@ -95,8 +95,8 @@ export default Vue.extend({
       this.loading = true
       setTimeout(() => {
         const { pageSize, currentPage } = this.pageVO
-        this.pageVO.total = this.AllList.length
-        this.tableData = this.AllList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+        this.pageVO.total = this.allList.length
+        this.tableData = this.allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
         this.loading = false
       }, 100)
     },

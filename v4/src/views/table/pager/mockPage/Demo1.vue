@@ -33,7 +33,7 @@ interface RowVO {
   address: string
 }
 
-const AllList = [
+const allList = [
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
   { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
   { id: 10003, name: 'Test3', nickname: 'T3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
@@ -77,8 +77,8 @@ const handlePageData = () => {
   loading.value = true
   setTimeout(() => {
     const { pageSize, currentPage } = pageVO
-    pageVO.total = AllList.length
-    tableData.value = AllList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    pageVO.total = allList.length
+    tableData.value = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     loading.value = false
   }, 100)
 }

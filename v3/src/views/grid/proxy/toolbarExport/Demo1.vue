@@ -65,7 +65,7 @@ const findPageList = (pageSize: number, currentPage: number) => {
 }
 
 // 模拟接口
-const findAllList = () => {
+const findallList = () => {
   return new Promise<RowVO[]>(resolve => {
     setTimeout(() => {
       resolve(list)
@@ -106,7 +106,7 @@ export default Vue.extend({
           // 当触发 mode=all 导出全量数据时调用
           queryAll: () => {
             // 默认接收 Promise<any[]>
-            return findAllList()
+            return findallList()
           }
         }
       }
