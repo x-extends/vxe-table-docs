@@ -95,7 +95,7 @@ const keyupEvent = () => {
       gridOptions.loading = false
       pagerConfig.total = data.length
       if (cellValue) {
-        gridOptions.data = data.filter((item) => item.name.indexOf(cellValue) > -1)
+        gridOptions.data = data.filter((row) => row.name.indexOf(cellValue) > -1)
       } else {
         gridOptions.data = data
       }

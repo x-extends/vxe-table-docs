@@ -97,7 +97,7 @@ export default Vue.extend({
           this.gridOptions.loading = false
           this.pagerConfig.total = data.length
           if (cellValue) {
-            this.gridOptions.data = data.filter((item) => item.name.indexOf(cellValue) > -1)
+            this.gridOptions.data = data.filter((row) => row.name.indexOf(cellValue) > -1)
           } else {
             this.gridOptions.data = data
           }

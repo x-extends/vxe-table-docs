@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -22,6 +22,16 @@ interface RowVO {
   address: string
 }
 
+const nameEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO>>({
+  name: 'input',
+  events: {
+    input (cellParams, event) {
+      const { row, column } = cellParams
+      console.log('input', row, column.field, event)
+    }
+  }
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
@@ -31,7 +41,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'input' } },
+    { field: 'name', title: 'Name', minWidth: 200, editRender: nameEditRender },
     { field: 'age', title: '数字', width: 200, editRender: { name: 'input', attrs: { type: 'number' } } },
     { field: 'date', title: '日期', width: 200, editRender: { name: 'input', attrs: { type: 'date' } } },
     { field: 'month', title: '月份', width: 200, editRender: { name: 'input', attrs: { type: 'month' } } },
