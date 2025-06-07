@@ -61,7 +61,7 @@
         :close-label="$t('app.base.dark')">
       </vxe-switch>
 
-      <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" type="rgb" size="mini" show-eye-dropper></vxe-color-picker>
+      <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" type="rgb" size="mini" show-eye-dropper click-to-copy></vxe-color-picker>
 
       <vxe-radio-group class="switch-size" v-model="currCompSize" :options="sizeOptions" type="button" size="mini"></vxe-radio-group>
 
