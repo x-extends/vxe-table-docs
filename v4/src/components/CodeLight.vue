@@ -282,7 +282,7 @@ const loadOptionTsCode = () => {
     Promise.all([
       getExampleText(`${exampleBaeUrl}example/ts/${compPath}.vue`),
       ...(props.extraImports?.map(impPath => {
-        const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
+        const { filePath, fileType, codeLang } = parseTsFilePath(impPath)
         return getExampleText(`${exampleBaeUrl}example/ts/${filePath}.${fileType}`).then(text => {
           return {
             path: `${filePath}.${fileType}`,

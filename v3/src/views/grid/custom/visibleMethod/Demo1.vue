@@ -21,8 +21,8 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       customConfig: {
-        checkMethod ({ column }) {
-          return !['seq', 'name'].includes(column.field)
+        visibleMethod ({ column }) {
+          return column.field !== 'seq'
         }
       },
       toolbarConfig: {
