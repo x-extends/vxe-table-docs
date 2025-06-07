@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import { PropType, reactive, ref } from 'vue'
 import { VxeInput, VxePulldown, VxePagerEvents, VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines, VxeTableEvents, VxeGridProps, VxeGrid } from 'vxe-table'
+import { VxeTableDefines, VxeTableEvents, VxeGridProps, VxeGrid, VxeGridPropTypes } from 'vxe-table'
 
 const props = defineProps({
   renderParams: {
@@ -30,6 +30,13 @@ const currRow = ref()
 
 const showPopup = ref(false)
 
+const pagerConfig = reactive<VxeGridPropTypes.PagerConfig>({
+  enabled: true,
+  total: 0,
+  currentPage: 1,
+  pageSize: 10
+})
+
 const gridOptions = reactive<VxeGridProps>({
   autoResize: true,
   height: '100%',
@@ -37,12 +44,7 @@ const gridOptions = reactive<VxeGridProps>({
   rowConfig: {
     isHover: true
   },
-  pagerConfig: {
-    enabled: true,
-    total: 0,
-    currentPage: 1,
-    pageSize: 10
-  },
+  pagerConfig,
   columns: [
     { type: 'seq' },
     { field: 'name', title: 'Name' },
@@ -91,6 +93,7 @@ const keyupEvent = () => {
     gridOptions.loading = true
     getData().then((data) => {
       gridOptions.loading = false
+      pagerConfig.total = data.length
       if (cellValue) {
         gridOptions.data = data.filter((item) => item.name.indexOf(cellValue) > -1)
       } else {
@@ -105,11 +108,8 @@ const suffixClick = () => {
 }
 
 const pageChangeEvent: VxePagerEvents.PageChange = ({ currentPage, pageSize }) => {
-  const { pagerConfig } = gridOptions
-  if (pagerConfig) {
-    pagerConfig.currentPage = currentPage
-    pagerConfig.pageSize = pageSize
-  }
+  pagerConfig.currentPage = currentPage
+  pagerConfig.pageSize = pageSize
   gridOptions.loading = true
   getData().then((data) => {
     gridOptions.loading = false

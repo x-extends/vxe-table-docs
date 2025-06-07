@@ -16,7 +16,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines, VxeGridProps } from 'vxe-table'
+import { VxeTableDefines, VxeGridProps, VxeGridPropTypes } from 'vxe-table'
 
 export default Vue.extend({
   props: {
@@ -26,6 +26,13 @@ export default Vue.extend({
     }
   },
   data () {
+    const pagerConfig: VxeGridPropTypes.PagerConfig = {
+      enabled: true,
+      total: 0,
+      currentPage: 1,
+      pageSize: 10
+    }
+
     const gridOptions: VxeGridProps = {
       autoResize: true,
       height: '100%',
@@ -33,12 +40,7 @@ export default Vue.extend({
       rowConfig: {
         isHover: true
       },
-      pagerConfig: {
-        enabled: true,
-        total: 0,
-        currentPage: 1,
-        pageSize: 10
-      },
+      pagerConfig,
       columns: [
         { type: 'seq' },
         { field: 'name', title: 'Name' },
@@ -52,7 +54,8 @@ export default Vue.extend({
       currColumn: null as VxeTableDefines.ColumnInfo | null,
       currRow: null as any,
       showPopup: false,
-      gridOptions
+      gridOptions,
+      pagerConfig
     }
   },
   methods: {
@@ -92,6 +95,7 @@ export default Vue.extend({
         this.gridOptions.loading = true
         this.getData().then((data) => {
           this.gridOptions.loading = false
+          this.pagerConfig.total = data.length
           if (cellValue) {
             this.gridOptions.data = data.filter((item) => item.name.indexOf(cellValue) > -1)
           } else {
@@ -104,11 +108,8 @@ export default Vue.extend({
       this.showPopup = !this.showPopup
     },
     pageChangeEvent ({ currentPage, pageSize }) {
-      const { pagerConfig } = this.gridOptions
-      if (pagerConfig) {
-        pagerConfig.currentPage = currentPage
-        pagerConfig.pageSize = pageSize
-      }
+      this.pagerConfig.currentPage = currentPage
+      this.pagerConfig.pageSize = pageSize
       this.gridOptions.loading = true
       this.getData().then((data) => {
         this.gridOptions.loading = false
