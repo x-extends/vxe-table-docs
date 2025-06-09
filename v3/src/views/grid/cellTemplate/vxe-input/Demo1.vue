@@ -25,8 +25,8 @@ export default Vue.extend({
       showOverflow: true,
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', minWidth: 200 },
-        { field: 'role', title: '角色', width: 120, slots: { default: 'role_default' } }
+        { field: 'name', title: 'Name' },
+        { field: 'role', title: '角色', slots: { default: 'role_default' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop' },

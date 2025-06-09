@@ -11,7 +11,7 @@ import type { VxeGridProps } from 'vxe-table'
 interface RowVO {
   id: number
   name: string
-  role: string
+  remark: string
 }
 
 export default Vue.extend({
@@ -23,19 +23,20 @@ export default Vue.extend({
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
         {
-          field: 'role',
-          title: '角色',
+          field: 'remark',
+          title: '备注',
+          width: 300,
           slots: {
             default: ({ row }) => {
-              return <vxe-input v-model={row.role}></vxe-input>
+              return <vxe-textarea v-model={row.remark} style="height: 80px;"></vxe-textarea>
             }
           }
         }
       ],
       data: [
-        { id: 10001, name: 'Test1', role: 'Develop' },
-        { id: 10002, name: 'Test2', role: 'Test' },
-        { id: 10003, name: 'Test3', role: 'PM' }
+        { id: 10001, name: 'Test1', remark: '备注11 备注 备注 备注 注' },
+        { id: 10002, name: 'Test2', remark: '备注22 备注 备注 备注备注备注 注' },
+        { id: 10003, name: 'Test3', remark: '备注 备注333 备注 备注备注333备注备注备注 备注备注333备注备注备注 备注备注333备注备注备注' }
       ]
     }
 

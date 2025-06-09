@@ -19,11 +19,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', minWidth: 200 },
+    { field: 'name', title: 'Name' },
     {
       field: 'role',
       title: '角色',
-      width: 120,
       slots: {
         default: ({ row }) => {
           return <vxe-input v-model={row.role}></vxe-input>

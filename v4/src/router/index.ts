@@ -3526,11 +3526,8 @@ const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridCellTemplateVxeImage',
           component: () => import('@/views/grid/cellTemplate/vxe-image/CodeExample.vue')
         },
-        {
-          path: 'vxe-input',
-          name: 'ComponentGridCellTemplateVxeInput',
-          component: () => import('@/views/grid/cellTemplate/vxe-input/CodeExample.vue')
-        },
+        { path: 'vxe-input', name: 'ComponentGridCellTemplateVxeInput', component: () => import('@/views/grid/cellTemplate/vxe-input/CodeExample.vue') },
+        { path: 'vxe-textarea', name: 'ComponentGridCellTemplateVxeTextarea', component: () => import('@/views/grid/cellTemplate/vxe-textarea/CodeExample.vue') },
         {
           path: 'vxe-upload',
           name: 'ComponentGridCellTemplateVxeUpload',
