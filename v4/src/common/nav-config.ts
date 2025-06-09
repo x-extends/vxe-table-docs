@@ -1079,6 +1079,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeButtonGroup 按钮组', routerLink: { name: 'ComponentGridCellTemplateVxeButtonGroup' } },
             { title: 'VxeButton 按钮', routerLink: { name: 'ComponentGridCellTemplateVxeButton' } },
             { title: 'VxeImage 图片', routerLink: { name: 'ComponentGridCellTemplateVxeImage' } },
+            { title: 'VxeInput 输入框', routerLink: { name: 'ComponentGridCellTemplateVxeInput' } },
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentGridCellTemplateVxeUpload' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentGridCellTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentGridCellTemplateVxeDrawer' } },
