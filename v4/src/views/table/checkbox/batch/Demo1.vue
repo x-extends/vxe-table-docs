@@ -8,8 +8,7 @@
       :row-config="rowConfig"
       :data="tableData"
       :checkbox-config="checkboxConfig"
-      @checkbox-range-start="checkboxRangeStartEvent"
-      @checkbox-range-end="checkboxRangeEndEvent">
+      @checkbox-range-select="checkboxRangeSelectEvent">
       <vxe-column type="checkbox" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -61,18 +60,14 @@ const rowConfig = reactive<VxeTablePropTypes.RowConfig<RowVO>>({
 const checkboxConfig = reactive<VxeTablePropTypes.CheckboxConfig<RowVO>>({
   labelField: 'name',
   highlight: true,
-  range: true
+  isShiftKey: true
 })
 
-const checkboxRangeStartEvent = () => {
-  console.log('开始拖拽选择')
-}
-
-const checkboxRangeEndEvent = () => {
+const checkboxRangeSelectEvent = () => {
   const $table = tableRef.value
   if ($table) {
     const selectRecords = $table.getCheckboxRecords()
-    console.log('结束拖拽选择', selectRecords.length)
+    console.log('按键批量选择', selectRecords.length)
   }
 }
 </script>

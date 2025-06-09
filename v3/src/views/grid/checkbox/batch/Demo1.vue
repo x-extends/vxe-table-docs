@@ -36,7 +36,7 @@ export default Vue.extend({
       checkboxConfig: {
         labelField: 'name',
         highlight: true,
-        range: true
+        isShiftKey: true
       },
       columns: [
         { type: 'checkbox', title: 'Name' },
@@ -69,10 +69,10 @@ export default Vue.extend({
     checkboxRangeStartEvent () {
       console.log('开始拖拽选择')
     },
-    checkboxRangeEndEvent ({ records }) {
+    checkboxRangeEndEvent ({ rangeRecords }) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        console.log('结束拖拽选择', records.length)
+        console.log('按键批量选择', rangeRecords.length)
       }
     }
   }

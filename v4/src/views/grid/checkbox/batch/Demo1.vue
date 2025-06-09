@@ -31,7 +31,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   checkboxConfig: {
     labelField: 'name',
     highlight: true,
-    range: true
+    isShiftKey: true
   },
   columns: [
     { type: 'checkbox', title: 'Name' },
@@ -57,13 +57,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  checkboxRangeStart () {
-    console.log('开始拖拽选择')
-  },
-  checkboxRangeEnd ({ records }) {
+  checkboxRangeSelect ({ rangeRecords }) {
     const $grid = gridRef.value
     if ($grid) {
-      console.log('结束拖拽选择', records.length)
+      console.log('按键批量选择', rangeRecords.length)
     }
   }
 }

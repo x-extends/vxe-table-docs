@@ -8,8 +8,7 @@
       :row-config="rowConfig"
       :data="tableData"
       :checkbox-config="checkboxConfig"
-      @checkbox-range-start="checkboxRangeStartEvent"
-      @checkbox-range-end="checkboxRangeEndEvent">
+      @checkbox-range-select="checkboxRangeSelectEvent">
       <vxe-column type="checkbox" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -61,25 +60,22 @@ export default Vue.extend({
     const checkboxConfig: VxeTablePropTypes.CheckboxConfig<RowVO> = {
       labelField: 'name',
       highlight: true,
-      range: true
+      isShiftKey: true
     }
 
     return {
       tableData,
-      columnConfig,
       rowConfig,
+      columnConfig,
       checkboxConfig
     }
   },
   methods: {
-    checkboxRangeStartEvent () {
-      console.log('开始拖拽选择')
-    },
-    checkboxRangeEndEvent () {
+    checkboxRangeSelectEvent () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
         const selectRecords = $table.getCheckboxRecords()
-        console.log('结束拖拽选择', selectRecords.length)
+        console.log('按键批量选择', selectRecords.length)
       }
     }
   }
