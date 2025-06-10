@@ -1539,6 +1539,8 @@ const tableRouteConfig: RouteConfig = {
           name: 'ComponentTableCellTemplateVxeTextEllipsis',
           component: () => import('@/views/table/cellTemplate/vxe-text-ellipsis/CodeExample.vue')
         },
+        { path: 'vxe-input', name: 'ComponentTableCellTemplateVxeInput', component: () => import('@/views/table/cellTemplate/vxe-input/CodeExample.vue') },
+        { path: 'vxe-textarea', name: 'ComponentTableCellTemplateVxeTextarea', component: () => import('@/views/table/cellTemplate/vxe-textarea/CodeExample.vue') },
         {
           path: 'vxe-rate',
           name: 'ComponentTableCellTemplateVxeRate',

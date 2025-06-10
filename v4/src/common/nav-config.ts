@@ -369,6 +369,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeImage 图片', routerLink: { name: 'ComponentTableCellTemplateVxeImage' } },
             { title: 'VxeImageGroup 图片组', routerLink: { name: 'ComponentTableCellTemplateVxeImageGroup' } },
             { title: 'VxeTextEllipsis 文本溢出省略', routerLink: { name: 'ComponentTableCellTemplateVxeTextEllipsis' } },
+            { title: 'VxeInput 输入框', routerLink: { name: 'ComponentTableCellTemplateVxeInput' } },
+            { title: 'VxeTextarea 文本域', routerLink: { name: 'ComponentTableCellTemplateVxeTextarea' } },
             { title: 'VxeRate 评分', routerLink: { name: 'ComponentTableCellTemplateVxeRate' } },
             { title: 'VxeSlider 滑块', routerLink: { name: 'ComponentTableCellTemplateVxeSlider' } },
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentTableCellTemplateVxeUpload' } },
