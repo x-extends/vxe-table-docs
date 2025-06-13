@@ -747,6 +747,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '冻结列', routerLink: { name: 'ComponentGridColResizableFixed' } },
             { title: '双击自适应列宽', routerLink: { name: 'ComponentGridColResizableDblclickAutoWidth' } },
             { title: '所有单元格可拖拽', routerLink: { name: 'ComponentGridColResizableAllColumnDrag' } },
+            { title: '限制拖拽最小列宽', routerLink: { name: 'ComponentGridColResizableMinWidth' } },
             { title: '手动操作列宽', routerLink: { name: 'ComponentGridColResizableManual' } }
           ]
         },

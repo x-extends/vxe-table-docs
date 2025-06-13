@@ -2370,6 +2370,11 @@ const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/colResizable/allColumnDrag/CodeExample.vue')
         },
         {
+          path: 'minWidth',
+          name: 'ComponentGridColResizableMinWidth',
+          component: () => import('@/views/grid/colResizable/minWidth/CodeExample.vue')
+        },
+        {
           path: 'manual',
           name: 'ComponentGridColResizableManual',
           component: () => import('@/views/grid/colResizable/manual/CodeExample.vue')
