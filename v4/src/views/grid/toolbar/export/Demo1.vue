@@ -27,7 +27,18 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   toolbarConfig: {
-    export: true
+    // 方式1
+    export: true,
+    buttons: [
+      // 方式2
+      { name: '自定义导出按钮', code: 'export', round: true, status: 'primary' },
+      { name: '自定义高级导出按钮', code: 'open_export', round: true, status: 'success' }
+    ],
+    tools: [
+      // 方式3
+      { name: '自定义导出按钮', code: 'export', status: 'primary' },
+      { name: '自定义高级导出按钮', code: 'open_export', status: 'success' }
+    ]
   },
   columns: [
     { type: 'checkbox', width: 50 },

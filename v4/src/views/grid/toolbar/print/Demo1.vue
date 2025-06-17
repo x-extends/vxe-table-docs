@@ -27,7 +27,18 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   toolbarConfig: {
-    print: true
+    // 方式1
+    print: true,
+    buttons: [
+      // 方式2
+      { name: '自定义打印按钮', code: 'print', round: true, status: 'primary' },
+      { name: '自定义高级打印按钮', code: 'open_print', round: true, status: 'success' }
+    ],
+    tools: [
+      // 方式3
+      { name: '自定义打印按钮', code: 'print', status: 'primary' },
+      { name: '自定义高级打印按钮', code: 'open_print', status: 'success' }
+    ]
   },
   columns: [
     { type: 'checkbox', width: 50 },

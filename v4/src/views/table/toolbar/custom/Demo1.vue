@@ -2,6 +2,7 @@
   <div>
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
+      id="table_toolbar_custom"
       ref="tableRef"
       :custom-config="{}"
       :data="tableData">

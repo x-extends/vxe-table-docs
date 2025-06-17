@@ -29,7 +29,16 @@ export default Vue.extend({
         resizable: true
       },
       toolbarConfig: {
-        zoom: true
+        // 方式1
+        zoom: true,
+        buttons: [
+          // 方式2
+          { name: '自定义最大化按钮', code: 'zoom', round: true, status: 'primary' }
+        ],
+        tools: [
+          // 方式3
+          { name: '自定义最大化按钮', code: 'zoom', status: 'success' }
+        ]
       },
       columns: [
         { type: 'checkbox', width: 50 },

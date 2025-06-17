@@ -29,9 +29,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       title: 'Name',
       width: 200,
       slots: {
-        header () {
+        header ({ column }) {
           return <div class="first-col">
-          <div class="first-col-top">名称</div>
+          <div class="first-col-top">名称{column.field}</div>
           <div class="first-col-bottom">序号</div>
         </div>
         }
@@ -53,8 +53,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         { field: 'age', title: 'Age' }
       ],
       slots: {
-        header () {
-          return <span style="color: red;">个性化列头</span>
+        header ({ column }) {
+          return <span style="color: red;">个性化列头{column.field}</span>
         }
       }
     },

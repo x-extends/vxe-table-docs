@@ -71,7 +71,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     pageSize: 15
   },
   toolbarConfig: {
-    refresh: true
+    // 方式1
+    refresh: true,
+    buttons: [
+      // 方式2
+      { name: '自定义刷新按钮', code: 'refresh', round: true, status: 'primary' }
+    ],
+    tools: [
+      // 方式3
+      { name: '自定义刷新按钮', code: 'refresh', status: 'success' }
+    ]
   },
   proxyConfig: {
     props: {

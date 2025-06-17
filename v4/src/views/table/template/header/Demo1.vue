@@ -3,9 +3,9 @@
     <vxe-table border :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" width="200">
-        <template #header>
+        <template #header="{ column }">
           <div class="first-col">
-            <div class="first-col-top">名称</div>
+            <div class="first-col-top">名称{{ column.field }}</div>
             <div class="first-col-bottom">序号</div>
           </div>
         </template>
@@ -16,8 +16,8 @@
         </template>
       </vxe-column>
       <vxe-column field="num" title="Number">
-        <template #header>
-          <span style="color: red;">个性化列头</span>
+        <template #header="{ column }">
+          <span style="color: red;">个性化列头{{ column.field }}</span>
         </template>
       </vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

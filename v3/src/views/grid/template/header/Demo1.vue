@@ -1,17 +1,17 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-      <template #header_name>
+      <template #header_name="{ column }">
         <div class="first-col">
-          <div class="first-col-top">名称</div>
+          <div class="first-col-top">名称{{ column.field }}</div>
           <div class="first-col-bottom">序号</div>
         </div>
       </template>
       <template #header_sex>
         <vxe-input v-model="headerSex"></vxe-input>
       </template>
-      <template #header_group1>
-        <span style="color: red;">个性化列头</span>
+      <template #header_group1="{ column }">
+        <span style="color: red;">个性化列头{{ column.field }}</span>
       </template>
     </vxe-grid>
   </div>

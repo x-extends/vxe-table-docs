@@ -41,12 +41,25 @@ export default Vue.extend({
       customConfig: {
         storage: true
       },
+      toolbarConfig: {
+        // 方式1
+        custom: true,
+        buttons: [
+          // 方式2
+          { name: '自定义个性化列按钮', code: 'custom', round: true, status: 'primary' }
+        ],
+        tools: [
+          // 方式3
+          { name: '自定义个性化列按钮', code: 'custom', status: 'success' }
+        ]
+      },
       columns: [
         { type: 'checkbox', width: 50 },
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
         {
           title: '分类',
+          field: 'group1',
           children: [
             { field: 'nickname', title: 'Nickname' },
             { field: 'role', title: 'Role' }
@@ -54,9 +67,6 @@ export default Vue.extend({
         },
         { field: 'address', title: 'Address' }
       ],
-      toolbarConfig: {
-        custom: true
-      },
       data: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
         { id: 10002, name: 'Test2', nickname: 'T2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },

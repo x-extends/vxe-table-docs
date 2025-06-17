@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-toolbar ref="toolbarRef" :refresh="{ queryMethod }"></vxe-toolbar>
+    <vxe-toolbar ref="toolbarRef" refresh :refresh-options="refreshOptions"></vxe-toolbar>
     <vxe-table
       ref="tableRef"
       :loading="loading"
@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeToolbarInstance, VxeTableInstance } from 'vxe-table'
+import type { VxeToolbarInstance, VxeTableInstance, VxeToolbarPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -28,16 +28,14 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-      { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-      { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-      { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
-    ]
+    const tableData: RowVO[] = []
+
+    const refreshOptions: VxeToolbarPropTypes.RefreshOptions = {}
 
     return {
       loading: false,
-      tableData
+      tableData,
+      refreshOptions
     }
   },
   methods: {
@@ -53,8 +51,15 @@ export default Vue.extend({
           { id: 10004, name: 'Test4' + currNow + 4, role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
         ]
         this.loading = false
-      }, 200)
+      }, 300)
     }
+  },
+  created () {
+    this.refreshOptions = {
+      queryMethod: this.queryMethod
+    }
+
+    this.queryMethod()
   },
   mounted () {
     const $table = this.$refs.tableRef as VxeTableInstance

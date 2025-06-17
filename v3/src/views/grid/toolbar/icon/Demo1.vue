@@ -106,24 +106,30 @@ export default Vue.extend({
         showStatus: true
       },
       toolbarConfig: {
-        refresh: {
+        refresh: true,
+        refreshOptions: {
           icon: 'vxe-icon-refresh',
           iconLoading: 'vxe-icon-refresh roll'
         },
-        import: {
+        import: true,
+        importOptions: {
           icon: 'vxe-icon-cloud-upload'
         },
-        export: {
+        export: true,
+        exportOptions: {
           icon: 'vxe-icon-cloud-download'
         },
-        print: {
+        print: true,
+        printOptions: {
           icon: 'vxe-icon-print'
         },
-        zoom: {
+        zoom: true,
+        zoomOptions: {
           iconIn: 'vxe-icon-fullscreen',
           iconOut: 'vxe-icon-minimize'
         },
-        custom: {
+        custom: true,
+        customOptions: {
           icon: 'vxe-icon-menu'
         }
       },

@@ -174,7 +174,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   toolbarConfig: {
     custom: true,
-    refresh: {
+    refresh: true,
+    refreshOptions: {
       query: loadList
     },
     slots: {

@@ -136,7 +136,8 @@ export default Vue.extend({
         },
         toolbarConfig: {
           custom: true,
-          refresh: {
+          refresh: true,
+          refreshOptions: {
             query: this.loadList
           },
           slots: {
