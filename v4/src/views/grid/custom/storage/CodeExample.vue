@@ -7,7 +7,7 @@
           用户个性化记忆功能是根据表格 id 进行保存的，必须确保 id 是整个全局唯一的。
         </vxe-tip>
         <vxe-tip status="success">
-          用户个性化记忆功能：支持列宽、列排序、冻结列、显示隐藏
+          用户个性化记忆功能 <ApiLink name="table" prop="store-options"/> 配置项支持：列宽、列排序、冻结列、显示隐藏、聚合分组、聚合函数
         </vxe-tip>
       </template>
     </CodeLight>
