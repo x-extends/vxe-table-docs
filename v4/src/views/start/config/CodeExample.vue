@@ -103,6 +103,14 @@
                   showFooter: true,
                   placement: 'top-right',
                   //  storage: false,
+                  storeOptions: {
+                    visible: true,
+                    resizable: true,
+                    sort: true,
+                    fixed: true
+                    // rowGroup: false,
+                    // aggFunc: false
+                  },
                   //  checkMethod () {},
                   modalOptions: {
                     showMaximize: true,
