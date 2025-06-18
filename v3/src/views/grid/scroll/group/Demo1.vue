@@ -44,7 +44,9 @@ export default Vue.extend({
         {
           title: '分组1',
           children: [
-            { field: 'sex', title: 'Sex' }
+            { field: 'sex', title: 'Sex' },
+            { field: 'attr1', title: 'Attr1' },
+            { field: 'attr2', title: 'Attr2' }
           ]
         },
         { field: 'age', title: 'age' },
