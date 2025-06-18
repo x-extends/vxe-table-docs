@@ -31,7 +31,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   customConfig: {
-    mode: 'modal'
+    mode: 'drawer'
   },
   toolbarConfig: {
     // 方式1

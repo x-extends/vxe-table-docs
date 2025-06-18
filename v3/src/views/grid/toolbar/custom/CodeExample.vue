@@ -14,5 +14,11 @@
         <vxe-tip status="primary">通过 <ApiLink name="grid" prop="custom-config"/>.<ApiLink name="grid" prop="mode"/> 设置弹窗模式</vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/toolbar/custom/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">通过 <ApiLink name="grid" prop="custom-config"/>.<ApiLink name="grid" prop="drawer"/> 设置抽屉模式</vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

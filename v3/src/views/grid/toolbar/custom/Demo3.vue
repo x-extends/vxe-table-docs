@@ -33,7 +33,7 @@ export default Vue.extend({
         resizable: true
       },
       customConfig: {
-        mode: 'modal'
+        mode: 'drawer'
       },
       toolbarConfig: {
         // 方式1
