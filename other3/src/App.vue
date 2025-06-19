@@ -137,6 +137,7 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import XEUtils from 'xe-utils'
+import VXETable from 'vxe-table'
 
 export default {
   data () {
@@ -470,6 +471,18 @@ export default {
     //   this.newVersionVisible = localStorage.getItem('VXE_TABLE_NEW_VERSION') !== '4.0'
     // }, 5000)
     this.init()
+
+    if (process.env.NODE_ENV !== 'development') {
+      if (!localStorage.getItem('READ_VERSION_UPGRADE')) {
+        VXETable.modal.alert({
+          title: '重要公告：vxe-table v3.0.x ~ v3.8.x 停止维护',
+          message: 'vxe-table v3.0.x ~ v3.8.x 版本于 2024 年 12 月 1 日起停止维护，建议使用最新版本。',
+          status: 'warning'
+        }).then(() => {
+          localStorage.setItem('READ_VERSION_UPGRADE', '1')
+        })
+      }
+    }
   },
   methods: {
     ...mapMutations([
