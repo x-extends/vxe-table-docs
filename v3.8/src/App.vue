@@ -2348,9 +2348,12 @@ export default {
         VXETable.modal.alert({
           title: '重要公告：vxe-table v3.0.x ~ v3.8.x 停止维护',
           message: 'vxe-table v3.0.x ~ v3.8.x 版本于 2024 年 12 月 1 日起停止维护，建议使用最新版本。',
-          status: 'warning'
-        }).then(() => {
-          localStorage.setItem('READ_VERSION_UPGRADE', '1')
+          status: 'warning',
+          confirmButtonText: '我已知晓'
+        }).then((type) => {
+          if (type === 'confirm') {
+            localStorage.setItem('READ_VERSION_UPGRADE', '1')
+          }
         })
       }
     }
