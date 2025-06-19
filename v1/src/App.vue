@@ -2124,7 +2124,7 @@ export default {
     if (process.env.NODE_ENV !== 'development') {
       if (!localStorage.getItem('READ_VERSION_UPGRADE')) {
         VXETable.modal.alert({
-          title: '重要公告：vxe-table v1.x 停止维护',
+          title: '重要公告：v1.x 停止维护',
           message: 'vxe-table v1.x 版本于 2020 年 4 月 1 日起停止维护。如果是 vue2.6+ 建议使用 v3.9+ 版本，如果是 vue3.0+ 建议使用 v4.7+ 版本。',
           status: 'warning',
           confirmButtonText: '我已知晓'
