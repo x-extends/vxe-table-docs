@@ -26,7 +26,7 @@ export default Vue.extend({
       aggregateConfig: {
         groupFields: ['role'],
         countFields: ['sex', 'age'],
-        aggregateMethod ({ column, children }) {
+        countMethod ({ column, children }) {
           return `${column.field}（${children.length}）`
         }
       },

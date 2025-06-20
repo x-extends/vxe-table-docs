@@ -23,7 +23,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   aggregateConfig: {
     groupFields: ['role'],
-    aggregateMethod ({ column, children }) {
+    countMethod ({ column, children }) {
       return `${column.field}（${children.length}）`
     }
   },
