@@ -34,13 +34,13 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
     isHover: true
   },
   checkboxConfig: {
-    labelField: 'name',
     checkMethod: ({ row }) => {
       return row.age > 26
     }
   },
   columns: [
-    { type: 'checkbox', title: 'All' },
+    { type: 'checkbox', width: 70 },
+    { field: 'name', title: 'Name' },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address', showOverflow: true }

@@ -1416,6 +1416,17 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
       ]
     },
     {
+      i18nKey: 'app.aside.menu.tableOtherPlugin',
+      children: [
+        { title: '单元格图表插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-chart/grid/bar` },
+        { title: '右键菜单插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-menu/table/full` },
+        { title: '数据校验插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-validator/table/base` },
+        { title: '导出 XLSX 插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-xlsx/table/export` },
+        { title: '导出 PDF 插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-export-pdf/table/export` },
+        { title: '更多第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}` }
+      ]
+    },
+    {
       i18nKey: 'app.aside.menu.tableCssVar',
       children: [
         { title: '字体大小', routerLink: { name: 'CssVarTableFontSize' } },
