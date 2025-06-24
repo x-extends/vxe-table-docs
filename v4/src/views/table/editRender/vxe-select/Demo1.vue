@@ -56,6 +56,7 @@ const typeEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectPr
   optionGroups: [
     {
       label: '分类1',
+      value: '1',
       options: [
         { label: '苹果', value: '1-1' },
         { label: '雪梨', value: '1-2' }
@@ -63,6 +64,7 @@ const typeEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectPr
     },
     {
       label: '分类2',
+      value: '2',
       options: [
         { label: '草莓', value: '2-1' },
         { label: '猕猴桃', value: '2-2' }
@@ -79,6 +81,7 @@ const typeListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSele
   optionGroups: [
     {
       label: '分类1',
+      value: '1',
       options: [
         { label: '苹果', value: '1-1' },
         { label: '雪梨', value: '1-2' }
@@ -86,6 +89,7 @@ const typeListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSele
     },
     {
       label: '分类2',
+      value: '2',
       options: [
         { label: '草莓', value: '2-1' },
         { label: '猕猴桃', value: '2-2' }

@@ -26,7 +26,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     checkMethod ({ row }) {
       const $grid = gridRef.value
       if ($grid) {
-        return !$grid.isRowGroupRecord(row)
+        return !$grid.isAggregateRecord(row)
       }
       return true
     }
