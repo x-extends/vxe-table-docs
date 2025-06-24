@@ -215,7 +215,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '行分组', routerLink: { name: 'ComponentTableRowGroupBasic' } },
             { title: '按多字段分组', routerLink: { name: 'ComponentTableRowGroupGroupFields' } },
             { title: '显示分组统计', routerLink: { name: 'ComponentTableRowGroupTotal' } },
-            { title: '手动操作', routerLink: { name: 'ComponentTableRowGroupHandleSet' } }
+            { title: '手动操作', routerLink: { name: 'ComponentTableRowGroupHandleSet' } },
+            { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Faggregation%2FrowGroupSummary' } } }
           ]
         },
         {
@@ -872,7 +873,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义合并', routerLink: { name: 'ComponentGridRowGroupSpanMethod' } },
             { title: '展示方式', routerLink: { name: 'ComponentGridRowGroupGroupMode' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRowGroupTrigger' } },
-            { title: '手动操作', routerLink: { name: 'ComponentGridRowGroupHandleSet' } }
+            { title: '手动操作', routerLink: { name: 'ComponentGridRowGroupHandleSet' } },
+            { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Faggregation%2FrowGroupSummary' } } }
           ]
         },
         {
