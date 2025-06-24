@@ -46,8 +46,8 @@
     "gulp-concat": "2.6.1",
     "gulp-rename": "2.0.0",
     "gulp-replace": "1.1.4",
-    "gulp-zip": "^5.1.0",
-    "uglify-js": "^3.17.4",
+    "gulp-zip": "5.1.0",
+    "uglify-js": "3.17.4",
     "xe-utils": "^3.7.5"
   }
 }
