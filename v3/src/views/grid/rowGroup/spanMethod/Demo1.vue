@@ -29,7 +29,7 @@ export default Vue.extend({
       },
       spanMethod: ({ row, column }) => {
         const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-        if ($grid && $grid.isRowGroupRecord(row)) {
+        if ($grid && $grid.isAggregateRecord(row)) {
           if (column.field === 'name') {
             return { rowspan: 1, colspan: 5 }
           }

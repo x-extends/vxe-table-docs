@@ -4085,6 +4085,11 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/export/excludeFields/CodeExample.vue')
         },
         {
+          path: 'columns',
+          name: 'ComponentGridExportColumns',
+          component: () => import('@/views/grid/export/columns/CodeExample.vue')
+        },
+        {
           path: 'types',
           name: 'ComponentGridExportTypes',
           component: () => import('@/views/grid/export/types/CodeExample.vue')

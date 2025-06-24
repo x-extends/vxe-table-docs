@@ -7,13 +7,5 @@
         </vxe-tip>
       </template>
     </CodeLight>
-
-    <CodeLight path="grid/export/includeFields/Demo2">
-      <template #tip>
-        <vxe-tip status="primary">
-          参数 <ApiLink name="grid" prop="export-config"/>.<ApiLink name="grid" prop="columns"/> 可以指定哪些列
-        </vxe-tip>
-      </template>
-    </CodeLight>
   </div>
 </template>

@@ -26,7 +26,7 @@ export default Vue.extend({
         checkMethod: ({ row }) => {
           const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
           if ($grid) {
-            return !$grid.isRowGroupRecord(row)
+            return !$grid.isAggregateRecord(row)
           }
           return true
         }
