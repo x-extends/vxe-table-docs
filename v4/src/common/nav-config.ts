@@ -1151,8 +1151,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditRenderVxeTableSelect' } },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` },
             { title: '事件监听', routerLink: { name: 'ComponentGridEditRenderEvents' } },
-            { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditRenderCellDisable' } },
-            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRenderRowDisable' } },
+            { title: '阻止激活编辑', routerLink: { name: 'ComponentGridEditRenderBeforeEdit' } },
+            { title: '禁用编辑', routerLink: { name: 'ComponentGridEditRenderDisableEdit' } },
             { title: '切换编辑与只读', routerLink: { name: 'ComponentGridEditRenderReadonly' } }
           ]
         },

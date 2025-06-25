@@ -3,28 +3,13 @@
     <vxe-grid
       v-bind="gridOptions"
       @edit-disabled="editDisabledEvent">
-      <template #edit_name="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
-      </template>
-
-      <template #edit_sex="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
-      </template>
-
-      <template #edit_age="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
-      </template>
-
-      <template #edit_address="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
-      </template>
     </vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -53,10 +38,10 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 50 },
-        { field: 'name', title: 'Name', editRender: { }, slots: { edit: 'edit_name' } },
-        { field: 'sex', title: 'Sex', editRender: { }, slots: { edit: 'edit_sex' } },
-        { field: 'age', title: 'Age', editRender: { }, slots: { edit: 'edit_age' } },
-        { field: 'address', title: 'Address', editRender: { }, slots: { edit: 'edit_address' } }
+        { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
+        { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
+        { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
+        { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
       ],
       data: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -73,7 +58,10 @@ export default Vue.extend({
   },
   methods: {
     editDisabledEvent () {
-      console.log('禁止编辑')
+      VxeUI.modal.message({
+        content: '禁止编辑',
+        status: 'error'
+      })
     }
   }
 })

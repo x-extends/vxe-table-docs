@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -23,9 +23,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   editConfig: {
     trigger: 'click',
-    mode: 'cell',
-    beforeEditMethod ({ columnIndex }) {
-      if (columnIndex === 1) {
+    mode: 'row',
+    beforeEditMethod ({ rowIndex }) {
+      if (rowIndex === 1) {
         return false
       }
       return true
@@ -35,7 +35,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { type: 'seq', width: 50 },
     { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
     { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
-    { field: 'age', title: 'Age', editRender: { name: 'VxeInput', props: { type: 'integer' } } },
+    { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
     { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
   ],
   data: [
@@ -49,7 +49,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 const gridEvents: VxeGridListeners<RowVO> = {
   editDisabled () {
-    console.log('禁止编辑')
+    VxeUI.modal.message({
+      content: '禁止编辑',
+      status: 'error'
+    })
   }
 }
 </script>

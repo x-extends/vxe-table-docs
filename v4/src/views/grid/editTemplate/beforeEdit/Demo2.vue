@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -65,7 +65,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 const gridEvents: VxeGridListeners<RowVO> = {
   editDisabled () {
-    console.log('禁止编辑')
+    VxeUI.modal.message({
+      content: '禁止编辑',
+      status: 'error'
+    })
   }
 }
 </script>

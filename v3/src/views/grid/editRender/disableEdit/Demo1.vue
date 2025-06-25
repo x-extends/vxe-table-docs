@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -23,21 +23,21 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const nameEditRender: VxeColumnPropTypes.EditRender<RowVO> = {
+    const nameEditRender = {
       name: 'VxeInput',
       props: {
         disabled: false
       }
     }
 
-    const sexEditRender: VxeColumnPropTypes.EditRender<RowVO> = {
+    const sexEditRender = {
       name: 'VxeInput',
       props: {
         disabled: false
       }
     }
 
-    const ageEditRender: VxeColumnPropTypes.EditRender<RowVO> = {
+    const ageEditRender = {
       name: 'VxeInput',
       props: {
         type: 'integer',
@@ -50,7 +50,7 @@ export default Vue.extend({
       showOverflow: true,
       editConfig: {
         trigger: 'click',
-        mode: 'row'
+        mode: 'cell'
       },
       columns: [
         { type: 'seq', width: 50 },
@@ -69,26 +69,20 @@ export default Vue.extend({
     }
 
     return {
+      gridOptions,
       nameEditRender,
       sexEditRender,
-      ageEditRender,
-      gridOptions
+      ageEditRender
     }
   },
   methods: {
     editActivatedEvent ({ row }) {
       // name 为 'x' 开头的列禁止编辑
-      if (this.nameEditRender.props) {
-        this.nameEditRender.props.disabled = (row.name || '').indexOf('x') === 0
-      }
+      this.nameEditRender.props.disabled = (row.name || '').indexOf('x') === 0
       // age 小于 27 的列禁止编辑
-      if (this.ageEditRender.props) {
-        this.ageEditRender.props.disabled = row.age < 27
-      }
+      this.ageEditRender.props.disabled = row.age < 27
       // sex 值编辑为 1 的列禁止编辑
-      if (this.sexEditRender.props) {
-        this.sexEditRender.props.disabled = row.sex === 'Women'
-      }
+      this.sexEditRender.props.disabled = row.sex === 'Women'
     }
   }
 })

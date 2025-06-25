@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -73,7 +73,10 @@ export default Vue.extend({
   },
   methods: {
     editDisabledEvent () {
-      console.log('禁止编辑')
+      VxeUI.modal.message({
+        content: '禁止编辑',
+        status: 'error'
+      })
     }
   }
 })

@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -29,8 +29,8 @@ export default Vue.extend({
       editConfig: {
         trigger: 'click',
         mode: 'cell',
-        beforeEditMethod ({ columnIndex }) {
-          if (columnIndex === 1) {
+        beforeEditMethod ({ rowIndex }) {
+          if (rowIndex === 1) {
             return false
           }
           return true
@@ -40,7 +40,7 @@ export default Vue.extend({
         { type: 'seq', width: 50 },
         { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
         { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
-        { field: 'age', title: 'Age', editRender: { name: 'VxeInput', props: { type: 'integer' } } },
+        { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
         { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
       ],
       data: [
@@ -58,9 +58,11 @@ export default Vue.extend({
   },
   methods: {
     editDisabledEvent () {
-      console.log('禁止编辑')
+      VxeUI.modal.message({
+        content: '禁止编辑',
+        status: 'error'
+      })
     }
-
   }
 })
 </script>

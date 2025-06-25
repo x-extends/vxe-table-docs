@@ -3810,16 +3810,8 @@ const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridEditRenderEvents',
           component: () => import('@/views/grid/editRender/events/CodeExample.vue')
         },
-        {
-          path: 'cellDisable',
-          name: 'ComponentGridEditRenderCellDisable',
-          component: () => import('@/views/grid/editRender/cellDisable/CodeExample.vue')
-        },
-        {
-          path: 'rowDisable',
-          name: 'ComponentGridEditRenderRowDisable',
-          component: () => import('@/views/grid/editRender/rowDisable/CodeExample.vue')
-        },
+        { path: 'beforeEdit', name: 'ComponentGridEditRenderBeforeEdit', component: () => import('@/views/grid/editRender/beforeEdit/CodeExample.vue') },
+        { path: 'disableEdit', name: 'ComponentGridEditRenderDisableEdit', component: () => import('@/views/grid/editRender/disableEdit/CodeExample.vue') },
         {
           path: 'readonly',
           name: 'ComponentGridEditRenderReadonly',
