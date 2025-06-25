@@ -3901,7 +3901,8 @@ const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridEditTemplateVxeDrawer',
           component: () => import('@/views/grid/editTemplate/vxe-drawer/CodeExample.vue')
         },
-        { path: 'rowDisable', name: 'ComponentGridEditTemplateRowDisable', component: () => import('@/views/grid/editTemplate/rowDisable/CodeExample.vue') }
+        { path: 'beforeEdit', name: 'ComponentGridEditTemplateBeforeEdit', component: () => import('@/views/grid/editTemplate/beforeEdit/CodeExample.vue') },
+        { path: 'disableEdit', name: 'ComponentGridEditTemplateDisableEdit', component: () => import('@/views/grid/editTemplate/disableEdit/CodeExample.vue') }
       ]
     },
     {

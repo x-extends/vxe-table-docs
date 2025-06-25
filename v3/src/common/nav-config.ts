@@ -1173,7 +1173,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentGridEditTemplateVxePulldown' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentGridEditTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentGridEditTemplateVxeDrawer' } },
-            { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditTemplateRowDisable' } },
+            { title: '阻止激活编辑', routerLink: { name: 'ComponentGridEditTemplateBeforeEdit' } },
+            { title: '禁用编辑', routerLink: { name: 'ComponentGridEditTemplateDisableEdit' } },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
           ]
         },
