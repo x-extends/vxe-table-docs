@@ -83,7 +83,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     ]
   },
   proxyConfig: {
-    props: {
+    response: {
       result: 'result',
       total: 'page.total'
     },

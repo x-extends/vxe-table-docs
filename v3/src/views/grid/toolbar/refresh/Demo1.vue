@@ -85,7 +85,7 @@ export default Vue.extend({
         ]
       },
       proxyConfig: {
-        props: {
+        response: {
           result: 'result',
           total: 'page.total'
         },

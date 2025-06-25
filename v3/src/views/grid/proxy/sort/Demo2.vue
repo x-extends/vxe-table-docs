@@ -90,13 +90,14 @@ export default Vue.extend({
       toolbarConfig: {
         buttons: [
           { code: 'query', name: '点击查询（不重置条件）' },
-          { code: 'reload', name: '点击刷新（重置条件）' }
+          { code: 'reload', name: '点击刷新（重置条件）' },
+          { code: 'initial', name: '点击初始（恢复初始状态）' }
         ],
         refresh: true
       },
       pagerConfig: {},
       proxyConfig: {
-        // props: {
+        // response: {
         //   result: 'result', // 配置响应结果列表字段
         //   total: 'page.total' // 配置响应结果总页数字段
         // },

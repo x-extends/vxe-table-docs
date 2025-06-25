@@ -92,7 +92,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     refresh: true
   },
   proxyConfig: {
-    // props: {
+    // response: {
     //   result: 'result', // 配置响应结果列表字段
     //   total: 'page.total' // 配置响应结果总页数字段
     // },

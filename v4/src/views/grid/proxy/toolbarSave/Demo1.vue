@@ -135,7 +135,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ],
   proxyConfig: {
     form: true, // 启用表单代理
-    props: {
+    response: {
       result: 'result', // 配置响应结果列表字段
       total: 'total' // 配置响应结果总页数字段
     },
