@@ -105,16 +105,18 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     showStatus: true
   },
   toolbarConfig: {
-    refresh: true,
-    import: true,
-    export: true,
-    print: true,
-    zoom: true,
-    custom: true,
     buttons: [
       { name: '新增', code: 'myAdd', status: 'primary' },
       { name: '删除', code: 'myDel', status: 'error' },
       { name: '保存', code: 'mySave', status: 'success' }
+    ],
+    tools: [
+      { code: 'open_import', icon: 'vxe-icon-upload', circle: true },
+      { code: 'open_export', icon: 'vxe-icon-download', circle: true },
+      { code: 'open_print', icon: 'vxe-icon-print', circle: true },
+      { code: 'refresh', icon: 'vxe-icon-repeat', circle: true },
+      { code: 'zoom', icon: 'vxe-icon-fullscreen', circle: true },
+      { code: 'custom', icon: 'vxe-icon-custom-column', circle: true }
     ]
   },
   proxyConfig: {

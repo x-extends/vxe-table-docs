@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" v-on="gridEvents">
+    <vxe-grid v-bind="gridOptions" @toolbar-button-click="toolbarButtonClickEvent">
       <template #name_edit="{ row }">
         <vxe-input v-model="row.name"></vxe-input>
       </template>
@@ -17,9 +17,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps, VxeGridListeners } from 'vxe-table'
+<script lang="ts">
+import Vue from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -84,72 +84,80 @@ const saveApi = (insertRecords: RowVO[]) => {
   })
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
-  border: true,
-  showOverflow: true,
-  keepSource: true,
-  height: 500,
-  printConfig: {},
-  importConfig: {},
-  exportConfig: {},
-  columnConfig: {
-    resizable: true
-  },
-  pagerConfig: {
-    enabled: true,
-    pageSize: 15
-  },
-  editConfig: {
-    trigger: 'click',
-    mode: 'row',
-    showStatus: true
-  },
-  toolbarConfig: {
-    refresh: true,
-    import: true,
-    export: true,
-    print: true,
-    zoom: true,
-    custom: true,
-    buttons: [
-      { name: '新增', code: 'myAdd', status: 'primary' },
-      { name: '删除', code: 'myDel', status: 'error' },
-      { name: '保存', code: 'mySave', status: 'success' }
-    ]
-  },
-  proxyConfig: {
-    response: {
-      result: 'result',
-      total: 'page.total'
-    },
-    ajax: {
-      // 接收 Promise
-      query: ({ page }) => {
-        return fetchApi(page.currentPage, page.pageSize)
+export default Vue.extend({
+  data () {
+    const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      keepSource: true,
+      height: 500,
+      printConfig: {},
+      importConfig: {},
+      exportConfig: {},
+      columnConfig: {
+        resizable: true
       },
-      // body 对象： { removeRecords }
-      delete: ({ body }) => {
-        return delApi(body.removeRecords)
+      pagerConfig: {
+        enabled: true,
+        pageSize: 15
       },
-      // body 对象： { insertRecords, updateRecords, removeRecords, pendingRecords }
-      save: ({ body }) => {
-        return saveApi(body.insertRecords)
-      }
+      editConfig: {
+        trigger: 'click',
+        mode: 'row',
+        showStatus: true
+      },
+      toolbarConfig: {
+        buttons: [
+          { name: '新增', code: 'myAdd', status: 'primary' },
+          { name: '删除', code: 'myDel', status: 'error' },
+          { name: '保存', code: 'mySave', status: 'success' }
+        ],
+        tools: [
+          { code: 'open_import', icon: 'vxe-icon-upload', circle: true },
+          { code: 'open_export', icon: 'vxe-icon-download', circle: true },
+          { code: 'open_print', icon: 'vxe-icon-print', circle: true },
+          { code: 'refresh', icon: 'vxe-icon-repeat', circle: true },
+          { code: 'zoom', icon: 'vxe-icon-fullscreen', circle: true },
+          { code: 'custom', icon: 'vxe-icon-custom-column', circle: true }
+        ]
+      },
+      proxyConfig: {
+        response: {
+          result: 'result',
+          total: 'page.total'
+        },
+        ajax: {
+          // 接收 Promise
+          query: ({ page }) => {
+            return fetchApi(page.currentPage, page.pageSize)
+          },
+          // body 对象： { removeRecords }
+          delete: ({ body }) => {
+            return delApi(body.removeRecords)
+          },
+          // body 对象： { insertRecords, updateRecords, removeRecords, pendingRecords }
+          save: ({ body }) => {
+            return saveApi(body.insertRecords)
+          }
+        }
+      },
+      columns: [
+        { type: 'checkbox', width: 50 },
+        { type: 'seq', width: 70 },
+        { field: 'name', title: 'Name', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'name_edit' } },
+        { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
+        { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
+        { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
+      ]
+    }
+
+    return {
+      gridOptions
     }
   },
-  columns: [
-    { type: 'checkbox', width: 50 },
-    { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', editRender: { autofocus: '.vxe-input--inner' }, slots: { edit: 'name_edit' } },
-    { field: 'nickname', title: 'Nickname', editRender: {}, slots: { edit: 'nickname_edit' } },
-    { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'role_edit' } },
-    { field: 'address', title: 'Address', showOverflow: true, editRender: {}, slots: { edit: 'address_edit' } }
-  ]
-})
-
-const gridEvents: VxeGridListeners = {
-  toolbarButtonClick (params) {
-    console.log(params.code)
+  methods: {
+    toolbarButtonClickEvent (params) {
+      console.log(params.code)
+    }
   }
-}
+})
 </script>
