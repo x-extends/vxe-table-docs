@@ -1550,6 +1550,7 @@ export const navConfigList: NavVO[] = [
       { i18nKey: 'app.aside.menu.demoList', routerLink: { name: 'DemoListPreview' } },
       { i18nKey: 'app.aside.menu.demoProduct', routerLink: { name: 'DemoProductPreview' } },
       { i18nKey: 'app.aside.menu.demoRealTime', routerLink: { name: 'DemoRealTimeReview' } },
+      { i18nKey: 'app.aside.menu.demoCompare', routerLink: { name: 'DemoComparePreview' } },
       { i18nKey: 'app.aside.menu.demoTree', routerLink: { name: 'DemoTreePreview' } },
       { i18nKey: 'app.aside.menu.demoCrud', routerLink: { name: 'DemoCrudPreview' } },
       { i18nKey: 'plugins.base.nav.demoClip', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_cell_area_demo_clip' }, query: { previewPath: '%2Fdemo%2Fclip' } } },
