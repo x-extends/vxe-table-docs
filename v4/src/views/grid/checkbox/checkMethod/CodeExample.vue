@@ -9,6 +9,9 @@
     <CodeLight path="grid/checkbox/checkMethod/Demo2">
       <template #tip>
         <vxe-tip status="primary">树结构复选框的禁用</vxe-tip>
+        <vxe-tip status="error">
+          需要注意当树形结构禁用复选框时，如果被禁用了父节点，那么就会失去联动能力
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>

@@ -29,8 +29,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   checkboxConfig: {
     labelField: 'name',
-    checkMethod: ({ row }) => {
-      return ![10050, 20045, 23677].includes(row.id)
+    checkMethod ({ row }) {
+      return ![20045, 23671, 24566].includes(row.id)
     }
   },
   columns: [
@@ -50,14 +50,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 22200, parentId: 10053, name: 'Test8', type: 'js', size: 1024, date: '2021-06-01' },
     { id: 23666, parentId: null, name: 'Test9', type: 'xlsx', size: 2048, date: '2020-11-01' },
     { id: 23677, parentId: 23666, name: 'Test10', type: 'js', size: 1024, date: '2021-06-01' },
-    { id: 23671, parentId: 23677, name: 'Test11', type: 'js', size: 1024, date: '2021-06-01' },
-    { id: 23672, parentId: 23677, name: 'Test12', type: 'js', size: 1024, date: '2021-06-01' },
-    { id: 23688, parentId: 23666, name: 'Test13', type: 'js', size: 1024, date: '2021-06-01' },
-    { id: 23681, parentId: 23688, name: 'Test14', type: 'js', size: 1024, date: '2021-06-01' },
-    { id: 23682, parentId: 23688, name: 'Test15', type: 'js', size: 1024, date: '2021-06-01' },
+    { id: 23671, parentId: 23677, name: 'Test11', type: 'js', size: 500, date: '2021-06-01' },
+    { id: 23672, parentId: 23677, name: 'Test12', type: 'pdf', size: 1024, date: '2021-08-01' },
+    { id: 23688, parentId: 23666, name: 'Test13', type: 'txt', size: 400, date: '2021-06-01' },
+    { id: 23681, parentId: 23688, name: 'Test14', type: 'js', size: 1024, date: '2021-07-01' },
+    { id: 23682, parentId: 23688, name: 'Test15', type: 'html', size: 1024, date: '2021-06-01' },
     { id: 24555, parentId: null, name: 'Test16', type: 'avi', size: 224, date: '2020-10-01' },
     { id: 24566, parentId: 24555, name: 'Test17', type: 'js', size: 1024, date: '2021-06-01' },
-    { id: 24577, parentId: 24555, name: 'Test18', type: 'js', size: 1024, date: '2021-06-01' }
+    { id: 24577, parentId: null, name: 'Test18', type: 'js', size: 1024, date: '2021-06-01' },
+    { id: 25100, parentId: 24577, name: 'Test19', type: 'avi', size: 224, date: '2020-10-01' },
+    { id: 25120, parentId: 25100, name: 'Test20', type: 'js', size: 300, date: '2021-06-01' },
+    { id: 25111, parentId: 25100, name: 'Test21', type: 'xlsx', size: 2048, date: '2021-06-01' }
   ]
 })
 </script>
