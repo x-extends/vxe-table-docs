@@ -52,6 +52,11 @@ const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/base/width/CodeExample.vue')
         },
         {
+          path: 'autoWidth',
+          name: 'ComponentTableBaseAutoWidth',
+          component: () => import('@/views/table/base/autoWidth/CodeExample.vue')
+        },
+        {
           path: 'autoBreak',
           name: 'ComponentTableBaseAutoBreak',
           component: () => import('@/views/table/base/autoBreak/CodeExample.vue')
@@ -2008,6 +2013,11 @@ const gridRouteConfig: RouteConfig = {
           path: 'width',
           name: 'ComponentGridBaseWidth',
           component: () => import('@/views/grid/base/width/CodeExample.vue')
+        },
+        {
+          path: 'autoWidth',
+          name: 'ComponentGridBaseAutoWidth',
+          component: () => import('@/views/grid/base/autoWidth/CodeExample.vue')
         },
         {
           path: 'autoBreak',

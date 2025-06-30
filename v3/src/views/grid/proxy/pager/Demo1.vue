@@ -70,6 +70,7 @@ export default Vue.extend({
       height: 500,
       pagerConfig: {},
       proxyConfig: {
+        // showLoading: false, // 关闭加载中
         // response: {
         //   result: 'result', // 配置响应结果列表字段
         //   total: 'page.total' // 配置响应结果总页数字段

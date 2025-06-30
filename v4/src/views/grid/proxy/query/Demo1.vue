@@ -36,7 +36,7 @@ const findList = () => {
         { id: 100010, name: 'Test10', nickname: 'T10', role: 'Develop', sex: 'Man', age: 35, address: 'Guangzhou' }
       ]
       resolve(list)
-    }, 100)
+    }, 300)
   })
 }
 
@@ -44,6 +44,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 500,
   proxyConfig: {
+    // showLoading: false, // 关闭加载中
     ajax: {
       query: () => {
         // 默认接收 Promise<any[]>

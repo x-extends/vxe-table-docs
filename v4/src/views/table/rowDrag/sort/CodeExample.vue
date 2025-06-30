@@ -5,9 +5,6 @@
         <vxe-tip status="primary" title="行拖拽">
           通过 <ApiLink name="table" prop="row-config"/>.<ApiLink name="table" prop="drag"/> 和列设置 <ApiLink name="column" prop="drag-sort"/> 启用行拖拽排序功能
         </vxe-tip>
-        <vxe-tip status="error">
-          通过 <ApiLink name="table" prop="row-drag-config"/>.<ApiLink name="table" prop="animation"/>=false 来关闭拖拽动画可以大幅提高流畅度
-        </vxe-tip>
       </template>
 
       <template #describe>

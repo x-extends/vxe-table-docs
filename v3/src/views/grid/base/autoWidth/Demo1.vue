@@ -25,9 +25,6 @@ export default Vue.extend({
       virtualXConfig: {
         enabled: false
       },
-      virtualYConfig: {
-        enabled: false
-      },
       columns: [
         { type: 'seq', width: '80' },
         { field: 'name', title: 'Name', width: 300 },
@@ -41,7 +38,7 @@ export default Vue.extend({
         { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: '内容宽度 内容宽度 内容宽度 内容' }
       ],
       footerData: [
-        { age: '尾部宽度 尾部宽度 尾部' }
+        { age: '9999999' }
       ]
     }
 

@@ -80,6 +80,7 @@ export default Vue.extend({
         pageSize: 10
       },
       proxyConfig: {
+        // showLoading: false, // 关闭加载中
         seq: true, // 启用自动序号
         // response: {
         //   result: 'result', // 配置响应结果列表字段

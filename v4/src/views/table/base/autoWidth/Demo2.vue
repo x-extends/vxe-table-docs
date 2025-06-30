@@ -5,7 +5,7 @@
       show-footer
       :data="tableData"
       :virtual-x-config="virtualXConfig"
-      :virtual-y-config="virtualYConfig"
+      :column-config="columnConfig"
       :footer-data="footerData">
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
@@ -39,11 +39,15 @@ const virtualXConfig = reactive<VxeTablePropTypes.VirtualXConfig>({
   enabled: false
 })
 
-const virtualYConfig = reactive<VxeTablePropTypes.VirtualYConfig>({
-  enabled: false
+const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
+  autoOptions: {
+    isCalcHeader: false, // 不自适应计算列头宽度
+    isCalcBody: true,
+    isCalcFooter: true
+  }
 })
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
-  { age: '尾部宽度 尾部宽度 尾部' }
+  { age: '9999999' }
 ])
 </script>

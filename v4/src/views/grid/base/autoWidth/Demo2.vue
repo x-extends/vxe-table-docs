@@ -23,8 +23,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   virtualXConfig: {
     enabled: false
   },
-  virtualYConfig: {
-    enabled: false
+  columnConfig: {
+    autoOptions: {
+      isCalcHeader: false, // 不自适应计算列头宽度
+      isCalcBody: true,
+      isCalcFooter: true
+    }
   },
   columns: [
     { type: 'seq', width: '80' },
@@ -39,7 +43,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: '内容宽度 内容宽度 内容宽度 内容' }
   ],
   footerData: [
-    { age: '尾部宽度 尾部宽度 尾部' }
+    { age: '9999999' }
   ]
 })
 </script>
