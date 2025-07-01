@@ -83,7 +83,8 @@ export default Vue.extend({
         this.tableData.push(newRow)
         this.insertRecords.push(newRow)
         await this.$nextTick()
-        $table.setEditCell(newRow, 'name')
+        // 激活并自动聚焦第一个可编辑列
+        $table.setEditRow(newRow, true)
       }
     },
     async  insertEvent () {

@@ -76,7 +76,8 @@ const pushEvent = async () => {
     gridOptions.data.push(newRow)
     insertRecords.push(newRow)
     await nextTick()
-    $grid.setEditRow(newRow)
+    // 激活并自动聚焦第一个可编辑列
+    $grid.setEditRow(newRow, true)
   }
 }
 

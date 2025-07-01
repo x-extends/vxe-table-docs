@@ -77,7 +77,8 @@ const pushEvent = async () => {
     tableData.value.push(newRow)
     insertRecords.push(newRow)
     await nextTick()
-    $table.setEditCell(newRow, 'name')
+    // 激活并自动聚焦第一个可编辑列
+    $table.setEditRow(newRow, true)
   }
 }
 

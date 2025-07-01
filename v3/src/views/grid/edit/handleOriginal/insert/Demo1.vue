@@ -81,7 +81,8 @@ export default Vue.extend({
         this.gridOptions.data.push(newRow)
         this.insertRecords.push(newRow)
         await this.$nextTick()
-        $grid.setEditRow(newRow)
+        // 激活并自动聚焦第一个可编辑列
+        $grid.setEditRow(newRow, true)
       }
     },
     async insertEvent () {

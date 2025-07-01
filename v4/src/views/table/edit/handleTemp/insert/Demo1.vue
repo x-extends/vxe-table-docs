@@ -71,7 +71,8 @@ const pushEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $table.insertAt(record, -1)
-    $table.setEditCell(newRow, 'name')
+    // 激活并自动聚焦第一个可编辑列
+    $table.setEditRow(newRow, true)
   }
 }
 
