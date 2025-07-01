@@ -3,7 +3,7 @@
     <CodeLight path="grid/edit/handleTemp/insert/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="新增">
-          插入临时数据，通过调用 <ApiLink name="grid" prop="insert"/> 或 <ApiLink name="grid" prop="insertAt"/> 方法插入临时数据
+          插入临时数据，通过调用 <ApiLink name="grid" prop="insert"/> 或 <ApiLink name="grid" prop="insertAt"/> 方法插入临时数据，需要注意 <ApiLink name="table" prop="setEditRow"/> 默认是不会自动聚焦的，如果需要自动聚焦需要指定字段
         </vxe-tip>
         <vxe-tip status="error">
           由内部 CRUD 管理器自动记录操作行为，可以通过 <ApiLink name="grid" prop="getInsertRecords"/> 获取；临时数据跟数据源是无关的，不存在数据同步的关系

@@ -54,7 +54,12 @@ const addEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $grid.insert(record)
+    // 激活不自动聚焦
     $grid.setEditRow(newRow)
+    // 激活并自动聚焦
+    // $grid.setEditRow(newRow, 'name')
+    // 激活并自动聚焦
+    // $grid.setEditCell(newRow, 'name')
   }
 }
 
@@ -65,7 +70,7 @@ const pushEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $grid.insertAt(record, -1)
-    $grid.setEditRow(newRow)
+    $grid.setEditCell(newRow, 'name')
   }
 }
 
@@ -76,7 +81,7 @@ const insertEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $grid.insertAt(record, 2)
-    $grid.setEditRow(newRow)
+    $grid.setEditCell(newRow, 'name')
   }
 }
 

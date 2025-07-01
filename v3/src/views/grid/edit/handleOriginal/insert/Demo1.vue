@@ -63,7 +63,12 @@ export default Vue.extend({
         this.gridOptions.data.unshift(newRow)
         this.insertRecords.push(newRow)
         await this.$nextTick()
+        // 激活不自动聚焦
         $grid.setEditRow(newRow)
+        // 激活并自动聚焦
+        // $grid.setEditRow(newRow, 'name')
+        // 激活并自动聚焦
+        // $grid.setEditCell(newRow, 'name')
       }
     },
     async pushEvent () {

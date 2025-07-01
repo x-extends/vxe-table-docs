@@ -61,7 +61,12 @@ export default Vue.extend({
           name: `Name_${new Date().getTime()}`
         }
         const { row: newRow } = await $table.insert(record)
-        $table.setEditRow(newRow, 'name')
+        // 激活不自动聚焦
+        $table.setEditRow(newRow)
+        // 激活并自动聚焦
+        // $table.setEditRow(newRow, 'name')
+        // 激活并自动聚焦
+        // $table.setEditCell(newRow, 'name')
       }
     },
     async pushEvent () {

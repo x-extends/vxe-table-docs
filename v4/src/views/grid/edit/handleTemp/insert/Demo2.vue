@@ -82,7 +82,12 @@ const addEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $grid.insert(record)
+    // 激活不自动聚焦
     $grid.setEditRow(newRow)
+    // 激活并自动聚焦
+    // $grid.setEditRow(newRow, 'name')
+    // 激活并自动聚焦
+    // $grid.setEditCell(newRow, 'name')
   }
 }
 
@@ -104,7 +109,7 @@ const insertEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $grid.insertAt(record, $grid.getRowById(23666))
-    $grid.setEditRow(newRow)
+    $grid.setEditCell(newRow, 'name')
   }
 }
 
@@ -115,7 +120,7 @@ const insertRow = async (row: RowVO) => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $grid.insertAt(record, row)
-    $grid.setEditRow(newRow)
+    $grid.setEditCell(newRow, 'name')
   }
 }
 
@@ -126,7 +131,7 @@ const insertChild = async (row: RowVO) => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $grid.insertChild(record, row)
-    $grid.setEditRow(newRow)
+    $grid.setEditCell(newRow, 'name')
   }
 }
 
