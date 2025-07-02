@@ -22,7 +22,6 @@
               table: {
                 showHeader: true,
                 autoResize: true,
-                padding: true,
                 minHeight: 144,
                 // keepSource: false,
                 // showOverflow: null,
@@ -40,6 +39,9 @@
                 // rowConfig: {
                 //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名
                 // },
+                resizeConfig: {
+                  // refreshDelay: 20
+                },
                 resizableConfig: {
                   dragMode: 'auto',
                   showDragTip: true,
@@ -79,6 +81,11 @@
                   theme: 'beautify'
                 },
                 columnConfig: {
+                  autoOptions: {
+                    isCalcHeader: true,
+                    isCalcBody: true,
+                    isCalcFooter: true
+                  },
                   maxFixedSize: 4
                 },
                 cellConfig: {
@@ -110,6 +117,7 @@
                     // rowGroup: false,
                     // aggFunc: false
                   },
+                  // autoAggGroupValues: false,
                   //  checkMethod () {},
                   modalOptions: {
                     showMaximize: true,
@@ -142,14 +150,16 @@
                   // isEvery: false,
                   showIcon: true
                 },
-                rowGroupConfig: {
+                aggregateConfig: {
                   padding: true,
                   rowField: 'id',
                   parentField: '_X_ROW_PARENT_KEY',
                   childrenField: '_X_ROW_CHILDREN',
                   mapChildrenField: '_X_ROW_CHILD_LIST',
                   indent: 20,
-                  showIcon: true
+                  showIcon: true,
+                  maxGroupSize: 4,
+                  showAggFuncTitle: true
                 },
                 treeConfig: {
                   padding: true,
@@ -194,6 +204,7 @@
                   extension: true
                 },
                 keyboardConfig: {
+                  isAll: true,
                   isEsc: true
                 },
                 areaConfig: {
@@ -217,13 +228,13 @@
                   isReplace: true
                 },
                 virtualXConfig: {
-                  enabled: false,
+                  // enabled: false,
                   gt: 24,
-                  preSize: 0,
+                  preSize: 1,
                   oSize: 0
                 },
                 virtualYConfig: {
-                  enabled: false,
+                  // enabled: false,
                   gt: 100,
                   preSize: 1,
                   oSize: 0
@@ -255,9 +266,10 @@
                 proxyConfig: {
                   enabled: true,
                   autoLoad: true,
+                  showLoading: true,
                   showResponseMsg: true,
                   showActiveMsg: true,
-                  props: {
+                  response: {
                     list: null,
                     result: 'result',
                     total: 'page.total',
