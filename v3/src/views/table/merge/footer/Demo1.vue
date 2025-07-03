@@ -7,7 +7,7 @@
       :merge-footer-items="mergeFooterItems"
       :footer-data="footerData"
       :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column field="seq" type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>
       <vxe-column field="rate" title="Rate" footer-align="center"></vxe-column>

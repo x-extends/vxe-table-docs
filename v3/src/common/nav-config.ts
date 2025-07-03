@@ -18,6 +18,7 @@ export interface NavVO {
   linkUrl?: string
   linkTarget?: '_self' | '_blank'
   linkStatus?: 'warning' | 'success' | 'error'
+  isBack?: boolean
   keywords?: string
   children?: NavVO[]
 }

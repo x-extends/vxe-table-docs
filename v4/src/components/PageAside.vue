@@ -42,6 +42,7 @@
       <div class="nav-name" :class="{'is-plugin': item1.isPlugin, 'is-enterprise': item1.isEnterprise}" :title="item1.title" @click="toggleExpand(item1)">
         <vxe-link v-if="item1.routerLink" class="nav-item-link" :status="item1.linkStatus" :router-link="item1.routerLink" :content="item1.title"></vxe-link>
         <vxe-link v-else-if="item1.linkUrl" class="nav-item-link" :status="item1.linkStatus" :href="item1.linkUrl" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
+        <vxe-link v-else-if="item1.isBack" class="nav-item-link" :status="item1.linkStatus" :content="item1.title" @click="backEvent"></vxe-link>
         <span v-else>
           <span class="vxe-icon-arrow-right nav-link-icon"></span>
           <span class="nav-item-text">
@@ -132,7 +133,7 @@
 
 <script lang="ts" setup>
 import { ref, watch, nextTick } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useAppStore } from '@/store/app'
 import { navConfigList, NavVO } from '@/common/nav-config'
 import { VxeTreeInstance } from 'vxe-pc-ui'
@@ -141,6 +142,7 @@ import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
 
 const route = useRoute()
+const router = useRouter()
 const appStore = useAppStore()
 
 const treeRef = ref<VxeTreeInstance>()
@@ -265,6 +267,10 @@ const toggleExpand = (item: NavVO) => {
   if (item.children && item.children.length) {
     item.isExpand = !item.isExpand
   }
+}
+
+const backEvent = () => {
+  router.back()
 }
 
 const getApiClass = (item: NavVO) => {

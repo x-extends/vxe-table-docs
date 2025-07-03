@@ -267,6 +267,9 @@ export default Vue.extend({
         item.isExpand = !item.isExpand
       }
     },
+    backEvent () {
+      this.$router.back()
+    },
     getApiClass (item: NavVO) {
       if (!item.routerLink) {
         return ''
