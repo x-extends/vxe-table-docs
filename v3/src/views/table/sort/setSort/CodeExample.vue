@@ -6,7 +6,7 @@
           手动操作本地排序
         </vxe-tip>
         <vxe-tip status="error">
-          需要注意调用 <ApiLink name="table" prop="setSort"/> 方法默认是不会刷新数据的，需要传 true 才能刷新数据并触发事件
+          需要注意调用 <ApiLink name="table" prop="setSort"/> 方法默认是不会刷新数据的，需要传 true 才能刷新数据
         </vxe-tip>
       </template>
     </CodeLight>
