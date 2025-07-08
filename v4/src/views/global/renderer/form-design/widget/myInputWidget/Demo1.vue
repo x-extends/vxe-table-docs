@@ -7,7 +7,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue'
-import { VxeFormDesignInstance, VxeFormDesignPropTypes } from 'vxe-pc-ui'
+import { VxeFormDesignInstance, VxeFormDesignPropTypes } from 'vxe-design'
 
 const formDesignRef = ref<VxeFormDesignInstance>()
 
