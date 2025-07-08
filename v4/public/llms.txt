@@ -1,6 +1,6 @@
 # Vxe Table
 
-vxe-table supports the table solutions of vue2 and vue3
+A PC-end table component based on Vxe UI, supporting copy-paste, data pivot table, and high-performance virtual list table solution.
 
 ## Table of Contents
 

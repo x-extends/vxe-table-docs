@@ -10,7 +10,7 @@ module.exports = defineConfig({
   assetsDir: 'static',
   productionSourceMap: false,
   devServer: {
-    port: 8084,
+    port: 8184,
     proxy: {
       '/example/': {
         target: 'https://vxeui.com',
