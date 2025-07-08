@@ -44,9 +44,10 @@ const tableData = ref<RowVO[]>([
 const nameEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO>>({
   name: 'input',
   events: {
-    input (cellParams, event) {
+    input (cellParams, event: InputEvent) {
       const { row, column } = cellParams
-      console.log('input', row, column.field, event)
+      const inputEl = event.currentTarget as HTMLInputElement
+      console.log('input', row, column.field, 'value=', inputEl.value)
     }
   }
 })

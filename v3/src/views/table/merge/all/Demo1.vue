@@ -54,9 +54,8 @@ export default Vue.extend({
     ]
 
     const mergeCells: VxeTablePropTypes.MergeCells = [
-      { row: 0, col: 3, rowspan: 4, colspan: 1 },
-      { row: 0, col: 4, rowspan: 4, colspan: 1 },
-      { row: 0, col: 5, rowspan: 4, colspan: 1 },
+      { row: 0, col: 4, rowspan: 1, colspan: 2 },
+      { row: 2, col: 4, rowspan: 1, colspan: 2 },
       { row: 0, col: 6, rowspan: 4, colspan: 1 },
       { row: 0, col: 7, rowspan: 4, colspan: 1 },
       { row: 0, col: 8, rowspan: 4, colspan: 1 }
