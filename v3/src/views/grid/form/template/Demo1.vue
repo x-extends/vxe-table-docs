@@ -15,8 +15,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps, VxeFormInstance } from 'vxe-table'
-import { VxeFormProps } from 'vxe-pc-ui'
+import { VxeGridProps } from 'vxe-table'
+import { VxeFormProps, VxeFormInstance } from 'vxe-pc-ui'
 
 interface RowVO {
   id: string
