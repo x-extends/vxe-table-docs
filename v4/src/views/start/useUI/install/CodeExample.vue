@@ -46,7 +46,7 @@
     <CodeLight>
       <template #tip>
         <vxe-tip status="primary" title="框架模板示例">
-          <div>极致精简、流畅的框架模板 <vxe-link href="https://github.com/x-extends/vxe-admin-template" target="_blank"><vxe-icon name="github-fill"></vxe-icon>vxe-admin-template</vxe-link>、<vxe-link href="https://gitee.com/x-extends/vxe-admin-template" target="_blank"><vxe-icon name="gitee-fill" status="error"></vxe-icon>vxe-admin-template</vxe-link></div>，<vxe-link href="https://vxeui.com/admin-template/" target="_blank">点击在线预览</vxe-link>
+          <div>极致精简、流畅的框架模板 <vxe-link href="https://github.com/x-extends/vxe-admin-template" target="_blank"><vxe-icon name="github-fill"></vxe-icon>vxe-admin-template</vxe-link>、<vxe-link href="https://gitee.com/x-extends/vxe-admin-template" target="_blank"><vxe-icon name="gitee-fill" status="error"></vxe-icon>vxe-admin-template</vxe-link>，<vxe-link href="https://vxeui.com/admin-template/" target="_blank" status="primary">点击在线预览</vxe-link></div>
         </vxe-tip>
       </template>
 
