@@ -16,11 +16,14 @@ import ApiLink from './components/ApiLink.vue'
 import axios from 'axios'
 import XEUtils from 'xe-utils'
 
-import VxeUI from 'vxe-pc-ui'
+import VxeUIAll, { VxeUI } from 'vxe-pc-ui'
 import 'vxe-pc-ui/es/style.css'
 
-import lazyVxeTable from 'vxe-table'
+import VxeUITable from 'vxe-table'
 import 'vxe-table/es/style.css'
+
+import VxeUIDesign from 'vxe-design'
+import 'vxe-design/lib/style.css'
 
 import VxeUIPluginRenderChart from '@vxe-ui/plugin-render-chart'
 import '@vxe-ui/plugin-render-chart/dist/style.css'
@@ -96,8 +99,9 @@ Vue.component('ApiLink', ApiLink)
 Vue.component('DemoUserSelectPulldown', DemoUserSelectPulldown)
 Vue.component('DemoRoleSelectPulldown', DemoRoleSelectPulldown)
 
-Vue.use(VxeUI)
-Vue.use(lazyVxeTable)
+Vue.use(VxeUIAll)
+Vue.use(VxeUITable)
+Vue.use(VxeUIDesign)
 
 Vue.config.productionTip = false
 

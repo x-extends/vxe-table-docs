@@ -16,11 +16,14 @@ import ApiLink from './components/ApiLink.vue'
 import axios from 'axios'
 import XEUtils from 'xe-utils'
 
-import VxeUI from 'vxe-pc-ui'
-import 'vxe-pc-ui/lib/style.css'
+import VxeUIAll, { VxeUI } from 'vxe-pc-ui'
+import 'vxe-pc-ui/es/style.css'
 
-import lazyVxeTable from 'vxe-table'
-import 'vxe-table/lib/style.css'
+import VxeUITable from 'vxe-table'
+import 'vxe-table/es/style.css'
+
+import VxeUIDesign from 'vxe-design'
+import 'vxe-design/lib/style.css'
 
 import VxeUIPluginRenderChart from '@vxe-ui/plugin-render-chart'
 import '@vxe-ui/plugin-render-chart/dist/style.css'
@@ -98,8 +101,9 @@ app.component('ApiLink', ApiLink)
 app.component('DemoUserSelectPulldown', DemoUserSelectPulldown)
 app.component('DemoRoleSelectPulldown', DemoRoleSelectPulldown)
 
-app.use(VxeUI)
-app.use(lazyVxeTable)
+app.use(VxeUIAll)
+app.use(VxeUITable)
+app.use(VxeUIDesign)
 
 app.use(store)
 app.use(router)
