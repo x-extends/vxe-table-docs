@@ -35,7 +35,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   tooltipConfig: {
     contentMethod: ({ type, column, row, items, _columnIndex }) => {
-    // 重写默认的提示内容
+      // 重写默认的提示内容
       if (column.field === 'date') {
         if (type === 'header') {
           return '自定义标题提示内容：' + column.title
@@ -48,9 +48,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     enterable: true
   },
   columns: [
-    { type: 'seq', width: 70 },
+    { field: 'seq', type: 'seq', width: 70 },
     { field: 'name', title: '名称' },
-    { field: 'role', title: '标题溢出直接隐藏 xxxxxxxxxxxxxxxxxxxxxxxxxxx', showHeaderOverflow: 'ellipsis' },
+    { field: 'role', title: '标题溢出直接隐藏 xxxxxxxxxxxxxxxxxxxxxxxxxxx 标题溢出直接隐藏 xxxxxxxxxxxxxxxxxxxxxxxxxxx', showHeaderOverflow: 'ellipsis' },
     { field: 'date', title: 'Date', showHeaderOverflow: true, showOverflow: true, showFooterOverflow: true },
     {
       title: '基本信息',
@@ -59,7 +59,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         {
           title: '详细信息',
           children: [
-            { type: 'html', field: 'address', title: '不换行不换行不换行不换行不换行不换行不换行不换行不换行', width: 160, showHeaderOverflow: true, showOverflow: true }
+            { type: 'html', field: 'address', title: '不换行不换行不换行不换行不换行不换行不换行不换行不换行不换行', width: 160, showHeaderOverflow: true, showOverflow: true }
           ]
         }
       ]
@@ -75,22 +75,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'test abc' },
     { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
   ],
-  footerMethod ({ columns }) {
-    const footerData = [
-      columns.map((column, columnIndex) => {
-        if (columnIndex === 0) {
-          return '合计'
-        }
-        if (['date'].includes(column.field)) {
-          return '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx长文本内容长文本内容xxxxxxxxxxxxx'
-        }
-        if (['rate'].includes(column.field)) {
-          return '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行'
-        }
-        return null
-      })
-    ]
-    return footerData
-  }
+  footerData: [
+    { seq: '合计', date: '说明 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx长文本内容长文本内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', rate: '不想换行不想换行不想换行不想换行不想换行不想换行不想换行不想换行' }
+  ]
 })
 </script>
