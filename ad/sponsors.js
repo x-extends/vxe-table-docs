@@ -3,9 +3,9 @@ setTimeout(function () {
   var siteType = 'vxetable'
   var hostname = location.hostname
   if (hostname.indexOf('vxetable.cn') > -1) {
-    siteURL = 'https://vxetable.cn'
+    siteURL = location.origin
   } else if (hostname.indexOf('vxeui.com') > -1) {
-    siteURL = 'https://vxeui.com'
+    siteURL = location.origin
     siteType = 'vxeui'
   }
 

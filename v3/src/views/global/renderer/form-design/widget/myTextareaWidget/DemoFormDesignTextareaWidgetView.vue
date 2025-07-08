@@ -10,7 +10,8 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { VxeGlobalRendererHandles, VxeFormDesignDefines } from 'vxe-pc-ui'
+import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
+import { VxeFormDesignDefines } from 'vxe-design'
 import { FormDesignWidgetTextareaProps } from './demoFormDesignTextareaWidget'
 
 export default Vue.extend({

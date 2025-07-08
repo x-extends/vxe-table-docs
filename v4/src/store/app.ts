@@ -95,6 +95,7 @@ export const useAppStore = defineStore('app', {
     vueCDNLib: handleLibVersion('vue'),
     uiCDNLib: handleLibVersion('vxe-pc-ui'),
     tableCDNLib: handleLibVersion('vxe-table'),
+    designCDNLib: handleLibVersion('vxe-design'),
     pluginExportPdfCDNLib: handleLibVersion('@vxe-ui/plugin-export-pdf'),
     pluginExportXlsxCDNLib: handleLibVersion('@vxe-ui/plugin-export-xlsx'),
     pluginMenuCDNLib: handleLibVersion('@vxe-ui/plugin-menu'),

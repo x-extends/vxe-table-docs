@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeFormDesignInstance, VxeFormDesignPropTypes } from 'vxe-pc-ui'
+import { VxeFormDesignInstance, VxeFormDesignPropTypes } from 'vxe-design'
 
 interface RowVO {
   id: number
