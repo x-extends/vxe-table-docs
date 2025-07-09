@@ -1566,7 +1566,6 @@ export const navConfigList: NavVO[] = [
   },
   {
     i18nKey: 'app.aside.menu.guide',
-    isExpand: true,
     children: [
       { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartInstall' } },
       { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUseGlobal' } },
