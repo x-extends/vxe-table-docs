@@ -7,7 +7,8 @@
 </template>
 
 <script lang="ts" setup>
-import { VXETable, VxeModalDefines } from 'vxe-table'
+import { VxeModalDefines } from 'vxe-pc-ui'
+import { VXETable } from 'vxe-table'
 
 const openAlert = (options: VxeModalDefines.ModalOptions) => {
   VXETable.modal.alert(options)

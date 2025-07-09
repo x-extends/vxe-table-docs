@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeInputPropTypes, VxeInputDefines } from 'vxe-table'
+import { VxeInputPropTypes, VxeInputDefines } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
 const val1 = ref('')

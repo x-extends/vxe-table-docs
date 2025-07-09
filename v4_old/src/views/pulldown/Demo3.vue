@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxePulldownInstance } from 'vxe-table'
+import { VxePulldownInstance } from 'vxe-pc-ui'
 
 const tableData = ref([
   { name: 'Test1', role: '前端', sex: '男' },

@@ -38,7 +38,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeModalDefines } from 'vxe-table'
+import { VxeModalDefines } from 'vxe-pc-ui'
+import { VXETable } from 'vxe-table'
 
 const val1 = ref(false)
 const tableData = ref([])

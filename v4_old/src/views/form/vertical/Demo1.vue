@@ -33,7 +33,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VXETable, VxeFormInstance, VxeFormPropTypes, VxeFormEvents } from 'vxe-table'
+import { VxeFormInstance, VxeFormPropTypes, VxeFormEvents } from 'vxe-pc-ui'
+import { VXETable } from 'vxe-table'
 
 interface FormDataVO {
   name: string

@@ -101,7 +101,8 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { VxeTableInstance, VxePulldownInstance } from 'vxe-table'
+import { VxePulldownInstance } from 'vxe-pc-ui'
+import { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number

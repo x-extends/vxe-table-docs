@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxePulldownInstance } from 'vxe-table'
+import { VxePulldownInstance } from 'vxe-pc-ui'
 
 interface ItemVO {
   label: string

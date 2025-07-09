@@ -35,7 +35,8 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeTableInstance, VxePagerEvents, VxeTablePropTypes, VxeButtonEvents, VxeColumnPropTypes } from 'vxe-table'
+import { VxePagerEvents, VxeButtonEvents } from 'vxe-pc-ui'
+import { VxeTableInstance, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number

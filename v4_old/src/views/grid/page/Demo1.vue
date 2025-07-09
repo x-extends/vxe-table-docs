@@ -19,7 +19,8 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps, VxePagerEvents } from 'vxe-table'
+import { VxePagerEvents } from 'vxe-pc-ui'
+import { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number

@@ -40,7 +40,8 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue'
-import { VxeGridEvents, VxePulldownInstance } from 'vxe-table'
+import { VxePulldownInstance } from 'vxe-pc-ui'
+import { VxeGridEvents } from 'vxe-table'
 
 interface RowVO {
   name: string

@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeTooltipInstance } from 'vxe-table'
+import { VxeTooltipInstance } from 'vxe-pc-ui'
 
 const tooltipRef = ref<VxeTooltipInstance>()
 

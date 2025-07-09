@@ -15,7 +15,8 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VXETable, VxeFormPropTypes, VxeFormEvents } from 'vxe-table'
+import { VxeFormPropTypes, VxeFormEvents } from 'vxe-pc-ui'
+import { VXETable } from 'vxe-table'
 
 interface FormDataVO {
   name: string
