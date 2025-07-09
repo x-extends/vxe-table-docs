@@ -1136,6 +1136,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现弹窗选择数据', routerLink: { name: 'ComponentGridEditModalSelect' } },
             { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentGridEditDrawerForm' } },
             { title: '实现抽屉选择数据', routerLink: { name: 'ComponentGridEditDrawerSelect' } },
+            { title: '实现行保存功能', routerLink: { name: 'ComponentGridEditRowSave' } },
             { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_clip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaClip' } } },
             { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaBasicsEchart' } } }
           ]

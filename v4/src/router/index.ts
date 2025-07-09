@@ -3754,6 +3754,11 @@ const gridRouteConfig: RouteRecordRaw = {
           path: 'drawerSelect',
           name: 'ComponentGridEditDrawerSelect',
           component: () => import('@/views/grid/edit/drawerSelect/CodeExample.vue')
+        },
+        {
+          path: 'rowSave',
+          name: 'ComponentGridEditRowSave',
+          component: () => import('@/views/grid/edit/rowSave/CodeExample.vue')
         }
       ]
     },
