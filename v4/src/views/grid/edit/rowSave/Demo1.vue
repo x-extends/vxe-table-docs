@@ -108,6 +108,13 @@ const saveRow = async (row: RowVO) => {
   if (!$grid) {
     return
   }
+  if (!$grid.isUpdateByRow(row)) {
+    VxeUI.modal.message({
+      content: '数据未改动',
+      status: 'warning'
+    })
+    return
+  }
   const errMap = await $grid.validate(row)
   if (!errMap) {
     const newRecord = {}
