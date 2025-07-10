@@ -47,7 +47,7 @@ export default Vue.extend({
           {
             name: 'renderButtonPrefix',
             desc: '渲染前缀',
-            version: '3.7.5',
+            version: '3.7.4',
             type: '(renderOpts, renderParams: { $button }) => JSX | VNode',
             enum: '',
             defVal: '',
@@ -56,7 +56,7 @@ export default Vue.extend({
           {
             name: 'renderButtonSuffix',
             desc: '渲染后缀',
-            version: '3.7.5',
+            version: '3.7.4',
             type: '(renderOpts, renderParams: { $button }) => JSX | VNode',
             enum: '',
             defVal: '',

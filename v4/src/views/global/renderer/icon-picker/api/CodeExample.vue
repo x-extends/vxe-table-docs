@@ -45,7 +45,7 @@ const tableData = ref([
       {
         name: 'renderIconPickerOptionIcon',
         desc: '渲染选项图标',
-        version: '4.7.5',
+        version: '4.7.4',
         type: '(renderOpts, renderParams: { option, $button }) => JSX | VNode',
         enum: '',
         defVal: '',

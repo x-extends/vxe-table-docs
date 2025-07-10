@@ -47,7 +47,7 @@ export default Vue.extend({
           {
             name: 'renderIconPickerOptionIcon',
             desc: '渲染选项图标',
-            version: '3.7.5',
+            version: '3.7.4',
             type: '(renderOpts, renderParams: { option, $button }) => JSX | VNode',
             enum: '',
             defVal: '',
