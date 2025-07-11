@@ -4,6 +4,7 @@
     <vxe-table
       border
       height="800"
+      :show-overflow="false"
       :loading="loading"
       :column-config="{resizable: true}"
       :virtual-y-config="{enabled: true, gt: 0}"

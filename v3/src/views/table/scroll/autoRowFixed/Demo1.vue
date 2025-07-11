@@ -5,6 +5,7 @@
       border
       show-footer
       height="800"
+      :show-overflow="false"
       :loading="loading"
       :column-config="{resizable: true}"
       :virtual-x-config="{enabled: true, gt: 0}"

@@ -37,6 +37,7 @@ const imgUrlCellRender = reactive<VxeColumnPropTypes.CellRender>({
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   loading: false,
+  showOverflow: false,
   height: 800,
   columnConfig: {
     resizable: true

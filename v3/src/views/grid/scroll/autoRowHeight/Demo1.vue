@@ -39,6 +39,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       loading: false,
+      showOverflow: false,
       height: 800,
       columnConfig: {
         resizable: true
