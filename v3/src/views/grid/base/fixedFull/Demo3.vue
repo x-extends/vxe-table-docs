@@ -21,7 +21,8 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      height: 400,
+      showFooter: true,
+      height: 500,
       columns: [
         {
           title: '基本信息',
@@ -75,6 +76,9 @@ export default Vue.extend({
         { id: 10018, name: 'Test18', role: 'Develop', sex: 'Women', age: 32, address: 'test abc' },
         { id: 10019, name: 'Test19', role: 'Test', sex: 'Man', age: 37, address: 'test abc' },
         { id: 10020, name: 'Test20', role: 'Develop', sex: 'Man', age: 41, address: 'test abc' }
+      ],
+      footerData: [
+        { sex: '567', age: '123' }
       ]
     }
 

@@ -2,8 +2,10 @@
   <div>
     <vxe-table
       border
+      show-footer
       height="400"
-      :data="tableData">
+      :data="tableData"
+      :footer-data="footerData">
       <vxe-colgroup title="基本信息" fixed="left">
         <vxe-column type="seq" width="70" fixed="left"></vxe-column>
         <vxe-column field="name" title="Name" fixed="left" width="180"></vxe-column>
@@ -57,5 +59,9 @@ const tableData = ref<RowVO[]>([
   { id: 10018, name: 'Test18', role: 'Develop', sex: 'Women', age: 32, address: 'test abc' },
   { id: 10019, name: 'Test19', role: 'Test', sex: 'Man', age: 37, address: 'test abc' },
   { id: 10020, name: 'Test20', role: 'Develop', sex: 'Man', age: 41, address: 'test abc' }
+])
+
+const footerData = ref([
+  { sex: '567', age: '123' }
 ])
 </script>

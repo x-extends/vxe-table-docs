@@ -2,8 +2,10 @@
   <div>
     <vxe-table
       border
+      show-footer
       height="400"
-      :data="tableData">
+      :data="tableData"
+      :footer-data="footerData">
       <vxe-colgroup title="基本信息" fixed="left">
         <vxe-column type="seq" width="70" fixed="left"></vxe-column>
         <vxe-column field="name" title="Name" fixed="left" width="180"></vxe-column>
@@ -61,8 +63,13 @@ export default Vue.extend({
       { id: 10020, name: 'Test20', role: 'Develop', sex: 'Man', age: 41, address: 'test abc' }
     ]
 
+    const footerData = [
+      { sex: '567', age: '123' }
+    ]
+
     return {
-      tableData
+      tableData,
+      footerData
     }
   }
 })
