@@ -462,6 +462,9 @@ export default Vue.extend({
     }
     .nav-item-text {
       cursor: pointer;
+      &:hover {
+        color: var(--vxe-ui-docs-primary-color);
+      }
     }
   }
   .nav-level1 {

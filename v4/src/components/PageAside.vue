@@ -459,6 +459,9 @@ appStore.updateComponentApiJSON()
     }
     .nav-item-text {
       cursor: pointer;
+      &:hover {
+        color: var(--vxe-ui-docs-primary-color);
+      }
     }
   }
   .nav-level1 {
