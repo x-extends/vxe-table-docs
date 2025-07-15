@@ -4,7 +4,9 @@
       border
       show-overflow
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+      @edit-activated="editActivatedEvent"
+      @edit-closed="editClosedEvent">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="nameEditRender"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="sexEditRender"></vxe-column>
@@ -83,6 +85,14 @@ export default Vue.extend({
       nameEditRender,
       sexEditRender,
       ageEditRender
+    }
+  },
+  methods: {
+    editActivatedEvent ({ column }) {
+      console.log(`激活编辑 field=${column.field}`)
+    },
+    editClosedEvent ({ column, row }) {
+      console.log(`编辑结束 field=${column.field} 值=${row[column.field]}`)
     }
   }
 })

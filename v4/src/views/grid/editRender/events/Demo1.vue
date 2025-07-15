@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeColumnPropTypes, VxeGridProps } from 'vxe-table'
+import { VxeColumnPropTypes, VxeGridProps, VxeGridListeners } from 'vxe-table'
 import { VxeSelectProps, VxeNumberInputProps } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -72,4 +72,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
+
+const gridEvents: VxeGridListeners<RowVO> = {
+  editActivated ({ column }) {
+    console.log(`激活编辑 field=${column.field}`)
+  },
+  editClosed ({ column, row }) {
+    console.log(`编辑结束 field=${column.field} 值=${row[column.field]}`)
+  }
+}
 </script>

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid
+      v-bind="gridOptions"
+      @edit-activated="editActivatedEvent"
+      @edit-closed="editClosedEvent">
+    </vxe-grid>
   </div>
 </template>
 
@@ -80,6 +84,14 @@ export default Vue.extend({
       nameEditRender,
       sexEditRender,
       ageEditRender
+    }
+  },
+  methods: {
+    editActivatedEvent ({ column }) {
+      console.log(`激活编辑 field=${column.field}`)
+    },
+    editClosedEvent ({ column, row }) {
+      console.log(`编辑结束 field=${column.field} 值=${row[column.field]}`)
     }
   }
 })
