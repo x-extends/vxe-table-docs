@@ -26,10 +26,10 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', minWidth: 300 },
-        { field: 'role', title: 'Role', width: 300 },
-        { field: 'sex', title: 'Sex', width: 200 },
-        { field: 'age', title: 'Age', width: 200 },
+        { field: 'name', title: 'Name', minWidth: 400 },
+        { field: 'role', title: 'Role', width: 400 },
+        { field: 'sex', title: 'Sex', width: 300 },
+        { field: 'age', title: 'Age', width: 300 },
         { field: 'address', title: 'Address', width: 400 }
       ],
       data: [

@@ -1,7 +1,9 @@
 <template>
   <div>
+    <vxe-switch v-model="columnConfig.resizable"></vxe-switch>
+
     <vxe-table
-      :column-config="{resizable: true}"
+      :column-config="columnConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -15,6 +17,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -34,8 +37,13 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 23, address: 'test abc' }
     ]
 
+    const columnConfig: VxeTablePropTypes.ColumnConfig<RowVO> = {
+      resizable: true
+    }
+
     return {
-      tableData
+      tableData,
+      columnConfig
     }
   }
 })

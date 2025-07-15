@@ -2080,9 +2080,14 @@ const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/base/currentColumn/CodeExample.vue')
         },
         {
-          path: 'resizable',
-          name: 'ComponentGridBaseHeaderResizable',
+          path: 'resizableWidth',
+          name: 'ComponentGridBaseHeaderResizableWidth',
           component: () => import('@/views/grid/base/resizable/CodeExample.vue')
+        },
+        {
+          path: 'resizableHeight',
+          name: 'ComponentGridBaseHeaderResizableHeight',
+          component: () => import('@/views/grid/base/resizableHeight/CodeExample.vue')
         },
         {
           path: 'minHeight',

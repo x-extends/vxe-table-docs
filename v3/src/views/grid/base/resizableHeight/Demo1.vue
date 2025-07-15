@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-switch v-model="gridOptions.columnConfig.resizable"></vxe-switch>
+    <vxe-switch v-model="gridOptions.rowConfig.resizable"></vxe-switch>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
@@ -22,13 +22,13 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> & {
-      columnConfig: VxeTablePropTypes.ColumnConfig<RowVO>
+      rowConfig: VxeTablePropTypes.RowConfig<RowVO>
     } = {
-      columnConfig: {
+      rowConfig: {
         resizable: true
       },
       columns: [
-        { type: 'seq', width: 70 },
+        { type: 'seq', width: 70, rowResize: true },
         { field: 'name', title: 'Name' },
         { field: 'sex', title: 'Sex' },
         { field: 'age', title: 'Age' }

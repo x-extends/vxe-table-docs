@@ -1,7 +1,9 @@
 <template>
   <div>
+    <vxe-switch v-model="columnConfig.resizable"></vxe-switch>
+
     <vxe-table
-      :column-config="{resizable: true}"
+      :column-config="columnConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -14,7 +16,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -24,6 +27,10 @@ interface RowVO {
   age: number
   address: string
 }
+
+const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
+  resizable: true
+})
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

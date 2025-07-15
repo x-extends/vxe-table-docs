@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="grid/base/resizable/Demo1">
       <template #tip>
-        <vxe-tip status="primary">通过设置 <ApiLink name="table" prop="column-config"/>.<ApiLink name="table" prop="resizable"/> 属性启用列宽拖动功能</vxe-tip>
+        <vxe-tip status="primary" title="列宽拖拽调整">通过设置 <ApiLink name="grid" prop="column-config"/>.<ApiLink name="grid" prop="resizable"/> 属性启用列宽拖动功能</vxe-tip>
       </template>
     </CodeLight>
 
