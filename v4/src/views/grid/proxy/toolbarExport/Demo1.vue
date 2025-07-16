@@ -67,7 +67,7 @@ const findPageList = (pageSize: number, currentPage: number) => {
 }
 
 // 模拟接口
-const findallList = () => {
+const findAllList = () => {
   return new Promise<RowVO[]>(resolve => {
     setTimeout(() => {
       resolve(list)
@@ -106,7 +106,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       // 当触发 mode=all 导出全量数据时调用
       queryAll: () => {
         // 默认接收 Promise<any[]>
-        return findallList()
+        return findAllList()
       }
     }
   }
