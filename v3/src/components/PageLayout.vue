@@ -61,13 +61,13 @@ export default Vue.extend({
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.12);
   }
   .layout-body {
-    .vxe-layout-body--inner {
+    & > .vxe-layout-body--inner {
       position: relative;
       padding: 16px 300px 16px 16px;
     }
   }
   .layout-aside {
-    .vxe-layout-aside--inner {
+    & > .vxe-layout-aside--inner {
       overflow-y: scroll;
     }
   }
