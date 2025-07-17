@@ -7,7 +7,7 @@
         </vxe-tip>
         <vxe-tip status="success">
           <div>理论上限：纵向最大可以支持 30w 行，当 gt 为 0 时为总是启用。</div>
-          <div>性能优化：纵向虚拟滚动行高越高越流畅，行高设置 row-config.height</div>
+          <div>性能优化：纵向虚拟滚动行高越高越流畅，行高设置 cell-config.height</div>
         </vxe-tip>
         <vxe-tip status="error" title="小提示">
           <div>启用纵向虚拟滚动，建议开启 show-overflow 获得最高渲染性能</div>
