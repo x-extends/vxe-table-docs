@@ -4,6 +4,7 @@ export interface FormDesignWidgetInputProps {
   placeholder: string
   maxLength: string
   showWordCount: boolean
+  clearable: boolean
 }
 
 export const getFormDesignWidgetInputConfig = (): VxeGlobalRendererHandles.CreateFormDesignWidgetConfigObj<FormDesignWidgetInputProps> => {
@@ -16,7 +17,8 @@ export const getFormDesignWidgetInputConfig = (): VxeGlobalRendererHandles.Creat
     options: {
       placeholder: '',
       maxLength: '',
-      showWordCount: false
+      showWordCount: false,
+      clearable: true
     }
   }
 }

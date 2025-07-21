@@ -17,22 +17,16 @@
     <vxe-form-item title="显示清除按钮">
       <vxe-switch v-model="currWidget.options.clearable"></vxe-switch>
     </vxe-form-item>
-    <vxe-form-item title="是否显示字数统计">
-      <vxe-switch v-model="currWidget.options.showWordCount"></vxe-switch>
-    </vxe-form-item>
-    <vxe-form-item title="最小行高">
-      <vxe-input v-model="currWidget.options.minRows" type="integer" min="2" max="10"></vxe-input>
-    </vxe-form-item>
-    <vxe-form-item title="最大行高">
-      <vxe-input v-model="currWidget.options.maxRows" type="integer" min="2" max="20"></vxe-input>
+    <vxe-form-item title="显示格式">
+      <vxe-select v-model="currWidget.options.labelFormat" :options="formatOptions"></vxe-select>
     </vxe-form-item>
   </vxe-form>
 </template>
 
 <script lang="ts" setup>
-import { computed, PropType } from 'vue'
+import { computed, PropType, ref } from 'vue'
 import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { FormDesignWidgetTextareaProps } from './demoFormDesignTextareaWidget'
+import { FormDesignWidgetDatePickerProps } from './demoFormDesignDatePickerWidget'
 
 const props = defineProps({
   renderOpts: {
@@ -40,7 +34,7 @@ const props = defineProps({
     default: () => ({})
   },
   renderParams: {
-    type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetFormViewParams<FormDesignWidgetTextareaProps>>,
+    type: Object as PropType<VxeGlobalRendererHandles.RenderFormDesignWidgetFormViewParams<FormDesignWidgetDatePickerProps>>,
     default: () => ({})
   }
 })
@@ -49,4 +43,11 @@ const currWidget = computed(() => {
   const { renderParams } = props
   return renderParams.widget
 })
+
+const formatOptions = ref([
+  { value: 'yyyy-MM-dd HH:mm:ss', label: '年-月-日 时:分:秒' },
+  { value: 'yyyy-MM-dd HH:mm', label: '年-月-日 时:分' },
+  { value: '', label: '年-月-日' },
+  { value: 'yyyy-MM', label: '年-月' }
+])
 </script>

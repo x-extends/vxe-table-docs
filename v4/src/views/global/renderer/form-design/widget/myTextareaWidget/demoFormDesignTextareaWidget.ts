@@ -5,6 +5,7 @@ export interface FormDesignWidgetTextareaProps {
   showWordCount: boolean
   minRows: number
   maxRows: number
+  clearable: boolean
 }
 
 export const getFormDesignWidgetTextareaConfig = (): VxeGlobalRendererHandles.CreateFormDesignWidgetConfigObj<FormDesignWidgetTextareaProps> => {
@@ -18,7 +19,8 @@ export const getFormDesignWidgetTextareaConfig = (): VxeGlobalRendererHandles.Cr
       placeholder: '',
       showWordCount: false,
       minRows: 2,
-      maxRows: 4
+      maxRows: 4,
+      clearable: true
     }
   }
 }

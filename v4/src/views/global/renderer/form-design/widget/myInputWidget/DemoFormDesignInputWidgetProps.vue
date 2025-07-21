@@ -14,6 +14,9 @@
     <vxe-form-item title="空值占位提示">
       <vxe-input v-model="currWidget.options.placeholder"></vxe-input>
     </vxe-form-item>
+    <vxe-form-item title="显示清除按钮">
+      <vxe-switch v-model="currWidget.options.clearable"></vxe-switch>
+    </vxe-form-item>
     <vxe-form-item title="限制字符长度">
       <vxe-input v-model="currWidget.options.maxLength" type="integer" min="0" max="3000"></vxe-input>
     </vxe-form-item>
