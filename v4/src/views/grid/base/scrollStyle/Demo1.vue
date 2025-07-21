@@ -44,8 +44,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 <style lang="scss">
 .mytable-scrollbar {
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 16px;
+    height: 16px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
