@@ -13,7 +13,8 @@
             import { VxeUI } from 'vxe-table'
             // VxeUI 是 Vxe 库通用全局实例（也可以使用旧别名 VXETable）
 
-            import zhCN from 'vxe-table/lib/locale/lang/zh-CN' // 中文(简体)
+            import zhCN from 'vxe-pc-ui/lib/language/zh-CN' // 简体中文
+            // import zhCHT from 'vxe-pc-ui/lib/language/zh-CHT' // 繁体中文
             // import zhHK from 'vxe-table/lib/locale/lang/zh-HK' // 中文(香港)
             // import zhTW from 'vxe-table/lib/locale/lang/zh-TW' // 中文(繁体)
             // import zhMO from 'vxe-table/lib/locale/lang/zh-MO' // 中文(澳门)
@@ -39,6 +40,7 @@
 
             // 注册语言
             VxeUI.setI18n('zh-CN', zhCN)
+            // VxeUI.setI18n('zh-CHT', zhCHT)
             // VxeUI.setI18n('zh-HK', zhHK)
             // VxeUI.setI18n('zh-TW', zhTW)
             // VxeUI.setI18n('zh-MO', zhMO)
