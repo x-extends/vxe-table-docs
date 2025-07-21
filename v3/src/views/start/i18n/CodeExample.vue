@@ -16,7 +16,7 @@
             import zhCN from 'vxe-pc-ui/lib/language/zh-CN' // 简体中文
             // import zhCHT from 'vxe-pc-ui/lib/language/zh-CHT' // 繁体中文
             // import zhHK from 'vxe-table/lib/locale/lang/zh-HK' // 中文(香港)
-            // import zhTW from 'vxe-table/lib/locale/lang/zh-TW' // 中文(繁体)
+            // import zhTW from 'vxe-table/lib/locale/lang/zh-TW' // 中文(台湾)
             // import zhMO from 'vxe-table/lib/locale/lang/zh-MO' // 中文(澳门)
             // import arEG from 'vxe-table/lib/locale/lang/ar-EG' // 阿拉伯语(埃及)
             // import deDE from 'vxe-table/lib/locale/lang/de-DE' // 德语(德国)
