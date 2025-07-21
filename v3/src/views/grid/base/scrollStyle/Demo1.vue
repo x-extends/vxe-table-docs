@@ -22,6 +22,11 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 400,
+      // 滚动条宽高需与自定义的样式对应
+      scrollbarConfig: {
+        width: 16,
+        height: 16
+      },
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', width: 300 },

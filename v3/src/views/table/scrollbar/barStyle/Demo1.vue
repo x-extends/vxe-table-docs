@@ -5,6 +5,7 @@
       show-footer
       class="mytable-scrollbar"
       height="400"
+      :scrollbar-config="scrollbarConfig"
       :footer-data="footerData"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="70" fixed="left"></vxe-column>
@@ -52,8 +53,15 @@ export default Vue.extend({
       { seq: '合计', name: '222', age: '555', attr2: '555', role: '111' }
     ]
 
+    // 滚动条宽高需与自定义的样式对应
+    const scrollbarConfig: VxeTablePropTypes.ScrollbarConfig = {
+      width: 16,
+      height: 16
+    }
+
     return {
       tableData,
+      scrollbarConfig,
       footerData
     }
   }

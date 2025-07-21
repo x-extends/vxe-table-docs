@@ -5,6 +5,7 @@
       show-footer
       class="mytable-scrollbar"
       height="400"
+      :scrollbar-config="scrollbarConfig"
       :footer-data="footerData"
       :data="tableData">
       <vxe-column type="seq" width="70" fixed="left"></vxe-column>
@@ -18,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 import type { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
@@ -40,6 +41,12 @@ const tableData = ref<RowVO[]>([
   { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'test abc' },
   { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
 ])
+
+// 滚动条宽高需与自定义的样式对应
+const scrollbarConfig = reactive<VxeTablePropTypes.ScrollbarConfig>({
+  width: 16,
+  height: 16
+})
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
   { age: 220 }

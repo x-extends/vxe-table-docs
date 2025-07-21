@@ -21,6 +21,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
   height: 400,
+  // 滚动条宽高需与自定义的样式对应
+  scrollbarConfig: {
+    width: 16,
+    height: 16
+  },
   columns: [
     { field: 'seq', type: 'seq', width: 70, fixed: 'left' },
     { field: 'name', title: 'Name', width: 300 },
