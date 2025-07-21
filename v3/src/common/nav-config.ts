@@ -962,6 +962,7 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '刷新列表', routerLink: { name: 'ComponentGridToolbarRefresh' } },
             { title: '完整功能', routerLink: { name: 'ComponentGridToolbarFull' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridToolbarIcon' } },
+            { title: '自定义第三方图标', isPlugin: true, linkUrl: `${otherUrl}/#/other-iconfont/font-class/toolbar/icons` },
             {
               title: '自定义插槽模板',
               children: [
