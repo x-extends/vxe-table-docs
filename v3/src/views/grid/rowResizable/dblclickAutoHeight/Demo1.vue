@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-button status="primary" @click="updateHeight(gridOptions.data[1], 50)">设置第二行高度50</vxe-button>
+
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>

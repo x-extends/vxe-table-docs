@@ -1,12 +1,14 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button status="primary" @click="getRowHeight()">获取已设置行的高度</vxe-button>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -16,6 +18,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -31,6 +35,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     padding: false,
     height: 60,
     verticalAlign: 'top'
+  },
+  resizableConfig: {
+    isDblclickAutoHeight: true
   },
   editConfig: {
     mode: 'cell',
@@ -51,4 +58,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4 Test4 Test4 Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
+
+const getRowHeight = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const rowHeightConfig = $grid.getRowHeightConf()
+    console.log(rowHeightConfig)
+  }
+}
 </script>
