@@ -89,17 +89,6 @@ import '@/views/global/renderer/table/filter/myFilterContent/demo1.table.rendere
 import '@/views/global/renderer/table/empty/myEmptyImg/demo1.table.renderer'
 import '@/views/global/renderer/table/empty/myEmptyText/demo1.table.renderer'
 
-import '@/views/global/renderer/form/item/myItemAmount/demo1.form.renderer'
-import '@/views/global/renderer/form/item/myItemUpload/demo1.form.renderer'
-
-import '@/views/global/renderer/form-design/widget/myInputWidget/demo1.form-design.renderer'
-import '@/views/global/renderer/form-design/widget/myTextareaWidget/demo1.form-design.renderer'
-
-import '@/views/global/renderer/button/prefix/demo1.button.renderer'
-import '@/views/global/renderer/button/suffix/demo1.button.renderer'
-
-import '@/views/global/renderer/icon-picker/icon/demo1.icon-picker.renderer'
-
 import DemoUserSelectPulldown from '@/views/table/editTemplate/vxe-pulldown/DemoUserSelectPulldown.vue'
 import DemoRoleSelectPulldown from '@/views/table/editTemplate/vxe-pulldown/DemoRoleSelectPulldown.vue'
 
