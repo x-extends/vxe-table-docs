@@ -808,7 +808,8 @@ const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '拖拽按钮位置', routerLink: { name: 'ComponentGridRowResizableRowResize' } },
             { title: '双击自适应行高', routerLink: { name: 'ComponentGridRowResizableDblclickAutoHeight' } },
             { title: '所有单元格可拖拽', routerLink: { name: 'ComponentGridRowResizableAllRowDrag' } },
-            { title: '手动操作行高', routerLink: { name: 'ComponentGridRowResizableManual' } }
+            { title: '手动操作行高', routerLink: { name: 'ComponentGridRowResizableManual' } },
+            { title: '自适应文本域', routerLink: { name: 'ComponentGridRowResizableTextarea' } }
           ]
         },
         {
