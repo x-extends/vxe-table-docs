@@ -421,18 +421,12 @@ appStore.updateComponentApiJSON()
       border-right-color: #f5c28f;
     }
   }
-  .nav-item-plugin-icon {
+  .nav-item-plugin-icon,
+  .nav-item-template-icon {
     color: #efebeb;
     background-color: #3eb910;
     &::after {
       border-right-color: #3eb910;
-    }
-  }
-  .nav-item-template-icon {
-    color: #efebeb;
-    background-color: #b31a20;
-    &::after {
-      border-right-color: #b31a20;
     }
   }
   ::v-deep(.nav-item) {

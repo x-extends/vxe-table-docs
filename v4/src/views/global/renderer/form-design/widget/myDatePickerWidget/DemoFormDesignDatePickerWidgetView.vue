@@ -4,8 +4,8 @@
       v-model="widgetModel"
       :type="dateType"
       :placeholder="currWidget.options.placeholder"
-      :maxLength="currWidget.options.maxLength"
-      :show-word-count="currWidget.options.showWordCount">
+      :label-format="currWidget.options.labelFormat"
+      :clearable="currWidget.options.clearable">
     </vxe-date-picker>
   </vxe-form-item>
 </template>

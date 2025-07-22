@@ -3,7 +3,6 @@ import type { VxeGlobalRendererHandles } from 'vxe-pc-ui'
 export interface FormDesignWidgetDatePickerProps {
   placeholder: string
   labelFormat: string
-  multiple: boolean
   clearable: boolean
 }
 
@@ -17,7 +16,6 @@ export const getFormDesignWidgetDatePickerConfig = (): VxeGlobalRendererHandles.
     options: {
       placeholder: '',
       labelFormat: '',
-      multiple: false,
       clearable: true
     }
   }

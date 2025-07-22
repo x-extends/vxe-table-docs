@@ -21,10 +21,10 @@
       <vxe-switch v-model="currWidget.options.showWordCount"></vxe-switch>
     </vxe-form-item>
     <vxe-form-item title="最小行高">
-      <vxe-input v-model="currWidget.options.minRows" type="integer" min="2" max="10"></vxe-input>
+      <vxe-number-input v-model="currWidget.options.minRows" type="integer" min="2" max="10"></vxe-number-input>
     </vxe-form-item>
     <vxe-form-item title="最大行高">
-      <vxe-input v-model="currWidget.options.maxRows" type="integer" min="2" max="20"></vxe-input>
+      <vxe-number-input v-model="currWidget.options.maxRows" type="integer" min="2" max="20"></vxe-number-input>
     </vxe-form-item>
   </vxe-form>
 </template>
