@@ -1569,10 +1569,15 @@ export const navConfigList: NavVO[] = [
   {
     i18nKey: 'app.aside.menu.guide',
     children: [
-      { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartInstall' } },
-      { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUseGlobal' } },
-      { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartUseImport' } },
-      { i18nKey: 'app.aside.menu.useCDN', routerLink: { name: 'StartCDN' } },
+      {
+        i18nKey: 'app.aside.menu.insrall',
+        children: [
+          { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartInstall' } },
+          { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUseGlobal' } },
+          { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartUseImport' } },
+          { i18nKey: 'app.aside.menu.useCDN', routerLink: { name: 'StartCDN' } }
+        ]
+      },
       {
         i18nKey: 'app.aside.menu.useUI',
         children: [
