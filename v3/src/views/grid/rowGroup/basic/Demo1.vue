@@ -1,12 +1,17 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <div>
+      <vxe-button @click="expandAllEvent">展开所有</vxe-button>
+      <vxe-button @click="clearExpandEvent">关闭所有</vxe-button>
+    </div>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -57,6 +62,20 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    expandAllEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.setAllRowGroupExpand(true)
+      }
+    },
+    clearExpandEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.clearRowGroupExpand()
+      }
     }
   }
 })

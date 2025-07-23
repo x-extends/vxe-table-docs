@@ -1,12 +1,17 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <div>
+      <vxe-button @click="expandAllEvent">展开所有</vxe-button>
+      <vxe-button @click="clearExpandEvent">关闭所有</vxe-button>
+    </div>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,6 +22,8 @@ interface RowVO {
   date: string
   address: string
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   aggregateConfig: {
@@ -52,4 +59,18 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10020, name: 'Test20', role: 'Develop', sex: 'Man', age: 41, date: '2025-03-01', address: 'test abc' }
   ]
 })
+
+const expandAllEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.setAllRowGroupExpand(true)
+  }
+}
+
+const clearExpandEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.clearRowGroupExpand()
+  }
+}
 </script>
