@@ -39,6 +39,7 @@ const importFileApi = (file: File) => {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  height: 500,
   importConfig: {
     remote: true,
     async importMethod ({ file }) {

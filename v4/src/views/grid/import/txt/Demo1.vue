@@ -22,6 +22,7 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  height: 500,
   importConfig: {},
   columns: [
     { type: 'seq', width: 70 },

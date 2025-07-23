@@ -25,6 +25,7 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  height: 500,
   showFooter: true,
   importConfig: {
     slots: {

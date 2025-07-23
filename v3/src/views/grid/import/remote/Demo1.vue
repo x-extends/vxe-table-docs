@@ -39,6 +39,7 @@ const importFileApi = (file: File) => {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      height: 500,
       importConfig: {
         remote: true,
         async importMethod ({ file }) {

@@ -22,6 +22,7 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      height: 500,
       importConfig: {},
       exportConfig: {},
       columns: [

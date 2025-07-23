@@ -3,6 +3,7 @@
     <vxe-button @click="exportEvent">导出源数据</vxe-button>
     <vxe-button @click="importEvent">直接导入</vxe-button>
     <vxe-table
+      height="500"
       ref="tableRef"
       :export-config="{}"
       :import-config="{}"

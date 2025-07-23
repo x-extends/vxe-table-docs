@@ -3,6 +3,7 @@
     <vxe-button @click="exportEvent">高级导出</vxe-button>
     <vxe-button @click="importEvent">高级导入</vxe-button>
     <vxe-table
+      height="500"
       ref="tableRef"
       :export-config="{}"
       :import-config="{}"
