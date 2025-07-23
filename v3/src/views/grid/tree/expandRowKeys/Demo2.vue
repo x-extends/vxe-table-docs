@@ -28,7 +28,7 @@ export default Vue.extend({
         transform: true,
         rowField: 'id',
         parentField: 'parentId',
-        expandRowKeys: [10050, 23666]
+        expandAll: true
       },
       columns: [
         { type: 'seq', width: 70 },

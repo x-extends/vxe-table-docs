@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      <vxe-button @click="expandNodeEvent">展开指定节点</vxe-button>
       <vxe-button @click="expandAllEvent">展开所有</vxe-button>
       <vxe-button @click="clearExpandEvent">关闭所有</vxe-button>
     </div>
@@ -24,7 +25,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
       border: true,
       treeConfig: {
         transform: true,
@@ -65,6 +66,12 @@ export default Vue.extend({
     }
   },
   methods: {
+    expandNodeEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.setTreeExpand(this.gridOptions.data[1], true)
+      }
+    },
     expandAllEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {

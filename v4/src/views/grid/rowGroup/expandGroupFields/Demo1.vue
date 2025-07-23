@@ -1,18 +1,12 @@
 <template>
   <div>
-    <div>
-      <vxe-button @click="expandFieldEvent">展开分组行字段 role</vxe-button>
-      <vxe-button @click="expandAllEvent">展开所有</vxe-button>
-      <vxe-button @click="clearExpandEvent">关闭所有</vxe-button>
-    </div>
-
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { reactive } from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -24,11 +18,14 @@ interface RowVO {
   address: string
 }
 
-const gridRef = ref<VxeGridInstance<RowVO>>()
-
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  height: 500,
+  rowConfig: {
+    keyField: 'id'
+  },
   aggregateConfig: {
-    groupFields: ['role']
+    groupFields: ['role', 'date'],
+    expandGroupFields: ['role']
   },
   columns: [
     { field: 'name', title: 'Name', minWidth: 300, rowGroupNode: true },
@@ -60,25 +57,4 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10020, name: 'Test20', role: 'Develop', sex: 'Man', age: 41, date: '2025-03-01', address: 'test abc' }
   ]
 })
-
-const expandFieldEvent = () => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.setRowGroupExpandByField('role', true)
-  }
-}
-
-const expandAllEvent = () => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.setAllRowGroupExpand(true)
-  }
-}
-
-const clearExpandEvent = () => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.clearRowGroupExpand()
-  }
-}
 </script>
