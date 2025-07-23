@@ -8,9 +8,9 @@
       :import-config="{}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="name" title="名字"></vxe-column>
+      <vxe-column field="sex" title="性别"></vxe-column>
+      <vxe-column field="age" title="年龄"></vxe-column>
     </vxe-table>
   </div>
 </template>
