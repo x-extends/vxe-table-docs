@@ -41,6 +41,9 @@ module.exports = defineConfig({
     }
   },
   configureWebpack: {
+    cache: {
+      type: 'filesystem'
+    },
     performance: {
       hints: false
     },
