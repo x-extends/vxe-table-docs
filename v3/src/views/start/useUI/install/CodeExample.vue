@@ -9,36 +9,39 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="完整安装表格和配套 UI 库">
-          搭配强大的 UI 库可以使用全功能组件
-        </vxe-tip>
-        <vxe-tip status="error">
-          需要注意 vxe-table v3.9+ 开始支持 Vxe UI，代码完全兼容，安装方式不兼容老版本
+        <vxe-tip status="success" title="完整安装">
+          可以使用完整功能组件
         </vxe-tip>
         <pre>
           <pre-code
             language="shell"
             :content="`
-            npm install ${uiCDNLib } ${ tableCDNLib }
-            # 或者
-            yarn add ${uiCDNLib } ${ tableCDNLib }
-            # 或者
-            pnpm add ${uiCDNLib } ${ tableCDNLib }
+              npm install ${uiCDNLib } ${ tableCDNLib } ${ designCDNLib }
+              # 或者
+              yarn add ${uiCDNLib } ${ tableCDNLib } ${ designCDNLib }
+              # 或者
+              pnpm add ${uiCDNLib } ${ tableCDNLib } ${ designCDNLib }
             `">
           </pre-code>
           <pre-code
             language="javascript"
-            content="
-            // ...
-            import VxeUIAll from 'vxe-pc-ui'
-            import 'vxe-pc-ui/lib/style.css'
-            import VxeUITable from 'vxe-table'
-            import 'vxe-table/lib/style.css'
-            // ...
+            :content="`
+              // ...
+              import VxeUIAll from 'vxe-pc-ui'
+              import 'vxe-pc-ui/es/style.css'
 
-            Vue.use(VxeUIAll)
-            Vue.use(VxeUITable)
-            // ...">
+              import VxeUITable from 'vxe-table'
+              import 'vxe-table/es/style.css'
+
+              import VxeUIDesign from 'vxe-design'
+              import 'vxe-design/lib/style.css'
+              // ...
+
+              Vue.use(VxeUIAll)
+              Vue.use(VxeUITable)
+              Vue.use(VxeUIDesign)
+              //...
+            `">
           </pre-code>
         </pre>
       </template>

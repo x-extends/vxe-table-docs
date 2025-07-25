@@ -9,18 +9,18 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="安装表格和可视化设计器">
-          搭配强大设计器可以实现低代码、可视化生成表格列、列表渲染视图
+        <vxe-tip status="success" title="仅安装设计器">
+          仅可以使用可视化设计器功能，不包含任何 UI 组件，建议使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
           <pre-code
             language="shell"
             :content="`
-            npm install ${designCDNLib } ${ tableCDNLib }
+            npm install ${ designCDNLib }
             # 或者
-            yarn add ${designCDNLib } ${ tableCDNLib }
+            yarn add ${ designCDNLib }
             # 或者
-            pnpm add ${designCDNLib } ${ tableCDNLib }
+            pnpm add ${ designCDNLib }
             `">
           </pre-code>
           <pre-code
@@ -29,11 +29,9 @@
             // ...
             import VxeUIDesign from 'vxe-design'
             import 'vxe-design/lib/style.css'
-            import VxeUITable from 'vxe-table'
-            import 'vxe-table/lib/style.css'
             // ...
 
-            createApp(App).use(VxeUIDesign).use(VxeUITable).mount('#app')
+            createApp(App).use(VxeUIDesign).mount('#app')
             // ...">
           </pre-code>
         </pre>

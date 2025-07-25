@@ -13,7 +13,9 @@ import DemoRealTimeReview from '@/views/demo/realTime/CodeExample.vue'
 import DemoTreePreview from '@/views/demo/tree/CodeExample.vue'
 import DemoCrudPreview from '@/views/demo/crud/CodeExample.vue'
 
+import StartUIInstall from '@/views/start/useUI/install/CodeExample.vue'
 import StartTableInstall from '@/views/start/useTable/install/CodeExample.vue'
+import StartDesignInstall from '@/views/start/useDesign/install/CodeExample.vue'
 import FreeDonation from '@/views/start/FreeDonation.vue'
 import JoinSponsor from '@/views/start/JoinSponsor.vue'
 import EnterprisePreview from '@/views/start/EnterprisePreview.vue'
@@ -67,7 +69,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'useUI',
         component: RouteLayout,
         children: [
-          { path: 'install', name: 'StartUIInstall', component: () => import('@/views/start/useUI/install/CodeExample.vue') },
+          { path: 'install', name: 'StartUIInstall', component: StartUIInstall },
           { path: 'useGlobal', name: 'StartUIUseGlobal', component: () => import('@/views/start/useUI/useGlobal/CodeExample.vue') },
           { path: 'useImport', name: 'StartUIUseImport', component: () => import('@/views/start/useUI/useImport/CodeExample.vue') },
           { path: 'cdn', name: 'StartUICDN', component: () => import('@/views/start/useUI/cdn/CodeExample.vue') }
@@ -87,7 +89,10 @@ const routes: Array<RouteRecordRaw> = [
         path: 'useDesign',
         component: RouteLayout,
         children: [
-          { path: 'install', name: 'StartDesignInstall', component: () => import('@/views/start/useDesign/install/CodeExample.vue') }
+          { path: 'install', name: 'StartDesignInstall', component: StartDesignInstall },
+          { path: 'useGlobal', name: 'StartDesignUseGlobal', component: () => import('@/views/start/useDesign/useGlobal/CodeExample.vue') },
+          { path: 'useImport', name: 'StartDesignUseImport', component: () => import('@/views/start/useDesign/useImport/CodeExample.vue') },
+          { path: 'cdn', name: 'StartDesignCDN', component: () => import('@/views/start/useDesign/cdn/CodeExample.vue') }
         ]
       },
       {
