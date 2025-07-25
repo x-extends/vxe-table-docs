@@ -1571,21 +1571,28 @@ export const navConfigList: NavVO[] = [
     i18nKey: 'app.aside.menu.guide',
     children: [
       {
-        i18nKey: 'app.aside.menu.insrall',
-        children: [
-          { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartInstall' } },
-          { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUseGlobal' } },
-          { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartUseImport' } },
-          { i18nKey: 'app.aside.menu.useCDN', routerLink: { name: 'StartCDN' } }
-        ]
-      },
-      {
-        i18nKey: 'app.aside.menu.useUI',
+        i18nKey: 'app.aside.menu.fullInsrall',
+        isExpand: true,
         children: [
           { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartUIInstall' } },
           { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUIUseGlobal' } },
           { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartUIUseImport' } },
           { i18nKey: 'app.aside.menu.useCDN', routerLink: { name: 'StartUICDN' } }
+        ]
+      },
+      {
+        i18nKey: 'app.aside.menu.useTableInsrall',
+        children: [
+          { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartTableInstall' } },
+          { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartTableUseGlobal' } },
+          { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartTableUseImport' } },
+          { i18nKey: 'app.aside.menu.useCDN', routerLink: { name: 'StartTableCDN' } }
+        ]
+      },
+      {
+        i18nKey: 'app.aside.menu.useDesignInsrall',
+        children: [
+          { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartDesignInstall' } }
         ]
       },
       { i18nKey: 'app.aside.menu.globalConfig', routerLink: { name: 'StartConfig' } },

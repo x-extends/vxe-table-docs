@@ -9,34 +9,31 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="完整安装表格和配套 UI 库">
-          搭配强大的 UI 库可以使用全功能组件
-        </vxe-tip>
-        <vxe-tip status="error">
-          需要注意 vxe-table v4.7+ 开始支持 Vxe UI，代码完全兼容，安装方式不兼容老版本
+        <vxe-tip status="success" title="安装表格和可视化设计器">
+          搭配强大设计器可以实现低代码、可视化生成表格列、列表渲染视图
         </vxe-tip>
         <pre>
           <pre-code
             language="shell"
             :content="`
-            npm install ${uiCDNLib } ${ tableCDNLib }
+            npm install ${designCDNLib } ${ tableCDNLib }
             # 或者
-            yarn add ${uiCDNLib } ${ tableCDNLib }
+            yarn add ${designCDNLib } ${ tableCDNLib }
             # 或者
-            pnpm add ${uiCDNLib } ${ tableCDNLib }
+            pnpm add ${designCDNLib } ${ tableCDNLib }
             `">
           </pre-code>
           <pre-code
             language="javascript"
             content="
             // ...
-            import VxeUIAll from 'vxe-pc-ui'
-            import 'vxe-pc-ui/lib/style.css'
+            import VxeUIDesign from 'vxe-design'
+            import 'vxe-design/lib/style.css'
             import VxeUITable from 'vxe-table'
             import 'vxe-table/lib/style.css'
             // ...
 
-            createApp(App).use(VxeUIAll).use(VxeUITable).mount('#app')
+            createApp(App).use(VxeUIDesign).use(VxeUITable).mount('#app')
             // ...">
           </pre-code>
         </pre>

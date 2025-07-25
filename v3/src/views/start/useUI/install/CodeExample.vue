@@ -97,7 +97,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       'uiCDNLib',
-      'tableCDNLib'
+      'tableCDNLib',
+      'designCDNLib'
     ])
   }
 })
