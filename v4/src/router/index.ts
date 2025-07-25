@@ -13,7 +13,7 @@ import DemoRealTimeReview from '@/views/demo/realTime/CodeExample.vue'
 import DemoTreePreview from '@/views/demo/tree/CodeExample.vue'
 import DemoCrudPreview from '@/views/demo/crud/CodeExample.vue'
 
-import StartInstall from '@/views/start/useTable/install/CodeExample.vue'
+import StartTableInstall from '@/views/start/useTable/install/CodeExample.vue'
 import FreeDonation from '@/views/start/FreeDonation.vue'
 import JoinSponsor from '@/views/start/JoinSponsor.vue'
 import EnterprisePreview from '@/views/start/EnterprisePreview.vue'
@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/:pathMatch(.*)*',
     redirect: {
-      name: 'StartInstall'
+      name: 'StartTableInstall'
     }
   },
   {
@@ -77,7 +77,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'useTable',
         component: RouteLayout,
         children: [
-          { path: 'install', name: 'StartTableInstall', component: StartInstall },
+          { path: 'install', name: 'StartTableInstall', component: StartTableInstall },
           { path: 'useGlobal', name: 'StartTableUseGlobal', component: () => import('@/views/start/useTable/useGlobal/CodeExample.vue') },
           { path: 'useImport', name: 'StartTableUseImport', component: () => import('@/views/start/useTable/useImport/CodeExample.vue') },
           { path: 'cdn', name: 'StartTableCDN', component: () => import('@/views/start/useTable/cdn/CodeExample.vue') }
