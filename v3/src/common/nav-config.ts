@@ -1,4 +1,4 @@
-import { NavVO } from './nav'
+import { NavVO, otherUrl } from './nav'
 import { tableNavConfig } from './table'
 
 export const navConfigList: NavVO[] = [
@@ -38,7 +38,8 @@ export const navConfigList: NavVO[] = [
           { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartTableInstall' } },
           { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartTableUseGlobal' } },
           { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartTableUseImport' } },
-          { i18nKey: 'app.aside.menu.useCDN', routerLink: { name: 'StartTableCDN' } }
+          { i18nKey: 'app.aside.menu.useCDN', routerLink: { name: 'StartTableCDN' } },
+          { title: '使用第三方 UI 库', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
         ]
       },
       // {
