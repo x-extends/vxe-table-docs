@@ -16,11 +16,11 @@
           <pre-code
             language="shell"
             :content="`
-            npm install ${uiCDNLib } ${ tableCDNLib } ${ designCDNLib }
+            npm install ${uiCDNLib } ${ tableCDNLib }
             # 或者
-            yarn add ${uiCDNLib } ${ tableCDNLib } ${ designCDNLib }
+            yarn add ${uiCDNLib } ${ tableCDNLib }
             # 或者
-            pnpm add ${uiCDNLib } ${ tableCDNLib } ${ designCDNLib }
+            pnpm add ${uiCDNLib } ${ tableCDNLib }
             `">
           </pre-code>
           <pre-code
@@ -32,12 +32,9 @@
 
             import VxeUITable from 'vxe-table'
             import 'vxe-table/es/style.css'
-
-            import VxeUIDesign from 'vxe-design'
-            import 'vxe-design/lib/style.css'
             // ...
 
-            createApp(App).use(VxeUIAll).use(VxeUITable).use(VxeUIDesign).mount('#app')
+            createApp(App).use(VxeUIAll).use(VxeUITable).mount('#app')
             // ...">
           </pre-code>
         </pre>
