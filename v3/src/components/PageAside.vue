@@ -133,7 +133,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
-import { navConfigList, NavVO } from '@/common/nav-config'
+import { navConfigList } from '@/common/nav-config'
+import { NavVO } from '@/common/nav'
 import { VxeTreeInstance } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'

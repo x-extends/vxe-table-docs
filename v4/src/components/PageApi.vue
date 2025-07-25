@@ -266,6 +266,15 @@ const tableComponents = [
   'toolbar'
 ]
 
+const designComponents = [
+  'flow-design',
+  'flow-view',
+  'form-design',
+  'form-view',
+  'list-design',
+  'list-view'
+]
+
 const getVersion = (row: RowVO) => {
   const { isPlugin, version, pluginName, pluginVersion } = row
   if (isPlugin) {
@@ -278,6 +287,9 @@ const getVersion = (row: RowVO) => {
     if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
       if (tableComponents.includes(apiName.value)) {
         return `vxe-table@${version}`
+      }
+      if (designComponents.includes(apiName.value)) {
+        return `vxe-design@${version}`
       }
     }
     return `vxe-pc-ui@${version}`

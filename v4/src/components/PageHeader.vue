@@ -93,7 +93,7 @@
 import { ref, computed, inject } from 'vue'
 import { useAppStore } from '@/store/app'
 import { VxePulldownEvents } from 'vxe-pc-ui'
-import { tablePluginDocsUrl } from '@/common/nav-config'
+import { tablePluginDocsUrl } from '@/common/nav'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 

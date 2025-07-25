@@ -92,7 +92,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapMutations, mapState } from 'vuex'
-import { tablePluginDocsUrl } from '@/common/nav-config'
+import { tablePluginDocsUrl } from '@/common/nav'
 import XEUtils from 'xe-utils'
 
 export default Vue.extend({
