@@ -22,6 +22,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       height: 500,
+      border: true,
       showOverflow: true,
       aggregateConfig: {
         mode: 'column',
