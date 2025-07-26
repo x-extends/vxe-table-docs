@@ -2,7 +2,7 @@
   <div>
     <vxe-button @click="changeFilters()">只修改 role 条件</vxe-button>
     <vxe-button @click="handleFilters()">修改并触发 role 筛选</vxe-button>
-    <vxe-button @click="clearFilters()">清除筛选</vxe-button>
+    <vxe-button @click="clearFilterEvent">清除筛选</vxe-button>
     <vxe-table
       border
       height="500"
@@ -20,7 +20,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTableInstance } from 'vxe-table'
+import { VxeTableInstance } from 'vxe-table'
+import { VxeButtonEvents } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -79,10 +80,10 @@ const handleFilters = () => {
   }
 }
 
-const clearFilters = () => {
+const clearFilterEvent: VxeButtonEvents.Click = () => {
   const $table = tableRef.value
   if ($table) {
-    // 清除排序状态，如果本地筛选，会自动更新数据
+    // 清除筛选状态，调用该方法不会触发 filter-change 事件，如果是本地筛选，会自动更新数据
     $table.clearFilter()
   }
 }

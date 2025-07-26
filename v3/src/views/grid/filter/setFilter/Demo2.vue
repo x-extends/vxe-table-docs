@@ -2,7 +2,7 @@
   <div>
     <vxe-button @click="changeFilters()">只修改 role 条件</vxe-button>
     <vxe-button @click="handleFilters()">修改并触发 role 筛选</vxe-button>
-    <vxe-button @click="clearFilters()">清除筛选</vxe-button>
+    <vxe-button @click="clearFilterEvent">清除筛选</vxe-button>
     <vxe-grid
       ref="gridRef"
       v-bind="gridOptions"
@@ -116,13 +116,11 @@ export default Vue.extend({
         ], true)
       }
     },
-    clearFilters () {
+    clearFilterEvent ({ $event }) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 清除筛选状态，如果是服务端筛选，不会更新数据
-        $grid.clearFilter()
-        // 调用接口更新数据
-        this.findList()
+        // 清除筛选，调用该方法会自动触发 filter-change 事件
+        $grid.clearFilter($event)
       }
     }
   },
