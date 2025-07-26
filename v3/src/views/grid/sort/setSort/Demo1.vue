@@ -4,7 +4,7 @@
     <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
     <vxe-button @click="handleUpdateSort('role', 'desc')">修改并触发 role 倒序</vxe-button>
     <vxe-button @click="handleUpdateSort('role', 'asc')">修改并触发 role 升序</vxe-button>
-    <vxe-button @click="clearSortEvent">清除排序</vxe-button>
+    <vxe-button @click="handleClearEvent">清除排序</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      height: 400,
+      height: 300,
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -57,19 +57,21 @@ export default Vue.extend({
     handleSort (field: string, order: 'asc' | 'desc') {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
+        // 设置排序状态，默认不会更新数据，调用该方法不会触发任何事件
         $grid.setSort({ field, order })
       }
     },
     handleUpdateSort (field: string, order: 'asc' | 'desc') {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
+        // 设置排序状态，如果传 true，则自动更新本地排序，调用该方法不会触发任何事件
         $grid.setSort({ field, order }, true)
       }
     },
-    clearSortEvent () {
+    handleClearEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 清除排序状态，调用该方法不会触发 sort-change 事件，如果是本地排序，会自动更新数据
+        // 清除排序状态，调用该方法不会触发任何事件，如果是本地排序，会自动更新数据
         $grid.clearSort()
       }
     }

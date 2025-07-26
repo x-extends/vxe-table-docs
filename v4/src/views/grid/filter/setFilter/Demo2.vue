@@ -1,8 +1,8 @@
 <template>
   <div>
     <vxe-button @click="changeFilters()">只修改 role 条件</vxe-button>
-    <vxe-button @click="handleFilters()">修改并触发 role 筛选</vxe-button>
-    <vxe-button @click="clearFilterEvent">清除筛选</vxe-button>
+    <vxe-button @click="handleFilters">修改并触发 role 筛选</vxe-button>
+    <vxe-button @click="handleClearEvent">清除筛选</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
@@ -28,7 +28,7 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   loading: false,
-  height: 400,
+  height: 300,
   filterConfig: {
     remote: true
   },
@@ -45,7 +45,14 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         { label: 'Designer', value: 'Designer' }
       ]
     },
-    { field: 'sex', title: 'Sex' },
+    {
+      field: 'sex',
+      title: 'Sex',
+      filters: [
+        { label: 'Man', value: 'Man' },
+        { label: 'Women', value: 'Women' }
+      ]
+    },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }
   ],
@@ -69,9 +76,19 @@ const findList = (filterList?: VxeTableDefines.FilterCheckedParams<RowVO>[]) => 
         { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, num: '5000', num2: '5000', address: 'test abc' }
       ]
       if (filterList && filterList.length) {
-        const firstItem = filterList[0]
-        const values = firstItem.values
-        const rest = mockList.filter(item => values.includes(item.role))
+        const queryFilerMaps = {
+          role: [] as string[],
+          sex: [] as string[]
+        }
+        filterList.forEach(item => {
+          if (queryFilerMaps[item.field]) {
+            queryFilerMaps[item.field] = item.values
+          }
+        })
+        const rest = mockList.filter(item => {
+          const { role: roleValues, sex: sexValues } = queryFilerMaps
+          return roleValues.includes(item.role) && (!sexValues.length || sexValues.includes(item.sex))
+        })
         gridOptions.data = rest
         resolve(rest)
       } else {
@@ -85,13 +102,16 @@ const findList = (filterList?: VxeTableDefines.FilterCheckedParams<RowVO>[]) => 
 const gridEvents: VxeGridListeners = {
   filterChange ({ filterList }) {
     findList(filterList)
+  },
+  clearAllFilter ({ filterList }) {
+    findList(filterList)
   }
 }
 
 const changeFilters = () => {
   const $grid = gridRef.value
   if ($grid) {
-    // 修改条件
+    // 修改筛选选项，调用该方法不会触发任何事件
     $grid.setFilter('role', [
       { label: 'Develop', value: 'Develop', checked: false },
       { label: 'Test', value: 'Test', checked: true },
@@ -101,23 +121,23 @@ const changeFilters = () => {
   }
 }
 
-const handleFilters = () => {
+const handleFilters: VxeButtonEvents.Click = ({ $event }) => {
   const $grid = gridRef.value
   if ($grid) {
-    // 修改条件，传 true 则自动触发远程筛选 filter-change 事件
-    $grid.setFilter('role', [
+    // 修改筛选选项，传 true 则自动触发远程筛选 filter-change 事件
+    $grid.setFilterByEvent($event, 'role', [
       { label: 'Develop', value: 'Develop', checked: false },
       { label: 'Test', value: 'Test', checked: true },
       { label: 'PM', value: 'PM', checked: false },
       { label: 'Designer', value: 'Designer', checked: false }
-    ], true)
+    ])
   }
 }
 
-const clearFilterEvent: VxeButtonEvents.Click = ({ $event }) => {
+const handleClearEvent: VxeButtonEvents.Click = ({ $event }) => {
   const $grid = gridRef.value
   if ($grid) {
-    // 清除筛选，调用该方法会自动触发 filter-change 事件
+    // 多列筛选模式，清除筛选，调用该方法会自动触发 clear-all-filter 事件
     $grid.clearFilterByEvent($event)
   }
 }

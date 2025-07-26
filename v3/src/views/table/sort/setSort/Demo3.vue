@@ -4,14 +4,29 @@
     <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
     <vxe-button @click="handleUpdateSort($event, 'role', 'desc')">修改并触发 role 倒序</vxe-button>
     <vxe-button @click="handleUpdateSort($event, 'role', 'asc')">修改并触发 role 升序</vxe-button>
-    <vxe-button @click="clearSortEvent">清除排序</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions" @sort-change="sortChangeEvent"></vxe-grid>
+    <vxe-button @click="handleClearEvent">清除排序</vxe-button>
+    <vxe-table
+      border
+      height="300"
+      ref="tableRef"
+      :loading="loading"
+      :data="tableData"
+      :sort-config="sortConfig"
+      @sort-change="sortChangeEvent"
+      @clear-all-sort="clearSortSortEvent">
+      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-column field="role" title="Role" sortable></vxe-column>
+      <vxe-column field="sex" title="Sex" sortable></vxe-column>
+      <vxe-column field="age" title="Age" sortable></vxe-column>
+      <vxe-column field="address" title="Address" sortable></vxe-column>
+    </vxe-table>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeTablePropTypes, VxeGridProps, VxeGridInstance, VxeColumnPropTypes } from 'vxe-table'
+import { VxeTableInstance, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 import { VxeButtonDefines } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
@@ -28,35 +43,26 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
-      border: true,
-      loading: false,
-      height: 300,
-      sortConfig: {
-        remote: true
-      },
-      columns: [
-        { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name' },
-        { field: 'role', title: 'Role', sortable: true },
-        { field: 'sex', title: 'Sex', sortable: true },
-        { field: 'age', title: 'Age', sortable: true },
-        { field: 'address', title: 'Address', sortable: true }
-      ],
-      data: []
+    const tableData: RowVO[] = []
+
+    const sortConfig: VxeTablePropTypes.SortConfig<RowVO> = {
+      remote: true,
+      multiple: true
     }
 
     return {
-      gridOptions
+      loading: false,
+      tableData,
+      sortConfig
     }
   },
   methods: {
     findList (field?: VxeColumnPropTypes.Field, order?: VxeTablePropTypes.SortOrder) {
-      this.gridOptions.loading = true
+      this.loading = true
       // 模拟接口
       return new Promise<RowVO[]>(resolve => {
         setTimeout(() => {
-          this.gridOptions.loading = false
+          this.loading = false
           const mockList = [
             { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, num: '3.8', num2: '3.8', address: 'test abc' },
             { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, num: '511', num2: '511', address: 'Guangzhou' },
@@ -69,10 +75,10 @@ export default Vue.extend({
           ]
           if (field && order) {
             const rest = XEUtils.orderBy(mockList, { field, order })
-            this.gridOptions.data = rest
+            this.tableData = rest
             resolve(rest)
           } else {
-            this.gridOptions.data = mockList
+            this.tableData = mockList
             resolve(mockList)
           }
         }, 300)
@@ -81,25 +87,28 @@ export default Vue.extend({
     sortChangeEvent ({ field, order }) {
       this.findList(field, order)
     },
+    clearSortSortEvent () {
+      this.findList('', null)
+    },
     handleSort (field: string, order: 'asc' | 'desc') {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
         // 设置排序状态，默认不会更新数据，调用该方法不会触发任何事件
-        $grid.setSort({ field, order })
+        $table.setSort({ field, order })
       }
     },
     handleUpdateSort (params: VxeButtonDefines.ClickEventParams, field: string, order: 'asc' | 'desc') {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
         // 设置排序状态，调用该方法会自动触发 sort-change 事件
-        $grid.setSortByEvent(params.$event, { field, order })
+        $table.setSortByEvent(params.$event, { field, order })
       }
     },
-    clearSortEvent ({ $event }) {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
+    handleClearEvent ({ $event }) {
+      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
+      if ($table) {
         // 单列排序模式，清除排序，调用该方法会自动触发 clear-sort 与 sort-change 事件
-        $grid.clearSortByEvent($event)
+        $table.clearSortByEvent($event)
       }
     }
   },

@@ -2,12 +2,12 @@
   <div>
     <vxe-button @click="handleSort('role', 'desc')">只修改 role 倒序</vxe-button>
     <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
-    <vxe-button @click="handleUpdateSort('role', 'desc')">修改并触发 role 倒序</vxe-button>
-    <vxe-button @click="handleUpdateSort('role', 'asc')">修改并触发 role 升序</vxe-button>
-    <vxe-button @click="clearSortEvent">清除排序</vxe-button>
+    <vxe-button @click="handleUpdateSort($event, 'role', 'desc')">修改并触发 role 倒序</vxe-button>
+    <vxe-button @click="handleUpdateSort($event, 'role', 'asc')">修改并触发 role 升序</vxe-button>
+    <vxe-button @click="handleClearEvent">清除排序</vxe-button>
     <vxe-table
       border
-      height="400"
+      height="300"
       ref="tableRef"
       :loading="loading"
       :data="tableData"
@@ -26,6 +26,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { VxeTableInstance, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
+import { VxeButtonDefines } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -87,19 +88,21 @@ export default Vue.extend({
     handleSort (field: string, order: 'asc' | 'desc') {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
+        // 设置排序状态，默认不会更新数据，调用该方法不会触发任何事件
         $table.setSort({ field, order })
       }
     },
-    handleUpdateSort (field: string, order: 'asc' | 'desc') {
+    handleUpdateSort (params: VxeButtonDefines.ClickEventParams, field: string, order: 'asc' | 'desc') {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        $table.setSort({ field, order }, true)
+        // 设置排序状态，调用该方法会自动触发 sort-change 事件
+        $table.setSortByEvent(params.$event, { field, order })
       }
     },
-    clearSortEvent ({ $event }) {
+    handleClearEvent ({ $event }) {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        // 清除排序，调用该方法会自动触发 sort-change 事件
+        // 单列排序模式，清除排序，调用该方法会自动触发 clear-sort 与 sort-change 事件
         $table.clearSortByEvent($event)
       }
     }

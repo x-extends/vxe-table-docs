@@ -2,9 +2,9 @@
   <div>
     <vxe-button @click="handleSort('role', 'desc')">只修改 role 倒序</vxe-button>
     <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
-    <vxe-button @click="handleUpdateSort('role', 'desc')">修改并触发 role 倒序</vxe-button>
-    <vxe-button @click="handleUpdateSort('role', 'asc')">修改并触发 role 升序</vxe-button>
-    <vxe-button @click="clearSortEvent">清除排序</vxe-button>
+    <vxe-button @click="handleUpdateSort($event, 'role', 'desc')">修改并触发 role 倒序</vxe-button>
+    <vxe-button @click="handleUpdateSort($event, 'role', 'asc')">修改并触发 role 升序</vxe-button>
+    <vxe-button @click="handleClearEvent">清除排序</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import { VxeTablePropTypes, VxeGridProps, VxeGridInstance, VxeColumnPropTypes, VxeGridListeners } from 'vxe-table'
-import { VxeButtonEvents } from 'vxe-pc-ui'
+import { VxeButtonEvents, VxeButtonDefines } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -31,7 +31,7 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   loading: false,
-  height: 400,
+  height: 300,
   sortConfig: {
     remote: true
   },
@@ -87,17 +87,18 @@ const handleSort = (field: string, order: 'asc' | 'desc') => {
   }
 }
 
-const handleUpdateSort = (field: string, order: 'asc' | 'desc') => {
+const handleUpdateSort = (params: VxeButtonDefines.ClickEventParams, field: string, order: 'asc' | 'desc') => {
   const $grid = gridRef.value
   if ($grid) {
-    $grid.setSort({ field, order }, true)
+    // 设置排序状态，调用该方法会自动触发 sort-change 事件
+    $grid.setSortByEvent(params.$event, { field, order })
   }
 }
 
-const clearSortEvent: VxeButtonEvents.Click = ({ $event }) => {
+const handleClearEvent: VxeButtonEvents.Click = ({ $event }) => {
   const $grid = gridRef.value
   if ($grid) {
-    // 清除排序，调用该方法会自动触发 sort-change 事件
+    // 单列排序模式，清除排序，调用该方法会自动触发 clear-sort 与 sort-change 事件
     $grid.clearSortByEvent($event)
   }
 }

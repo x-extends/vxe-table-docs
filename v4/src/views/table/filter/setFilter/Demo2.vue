@@ -1,20 +1,21 @@
 <template>
   <div>
     <vxe-button @click="changeFilters()">只修改 role 条件</vxe-button>
-    <vxe-button @click="handleFilters()">修改并触发 role 筛选</vxe-button>
+    <vxe-button @click="handleFilters">修改并触发 role 筛选</vxe-button>
     <vxe-button @click="clearFilterEvent">清除筛选</vxe-button>
     <vxe-table
       border
-      height="500"
+      height="300"
       ref="tableRef"
       :loading="loading"
       :data="tableData"
       :filter-config="filterConfig"
-      @filter-change="filterChangeEvent">
+      @filter-change="filterChangeEvent"
+      @clear-all-filter="clearAllFilterEvent">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role" :filters="roleOptions"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
+      <vxe-column field="sex" title="Sex" :filters="sexOptions"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
       <vxe-column field="address" title="Address"></vxe-column>
     </vxe-table>
@@ -53,6 +54,11 @@ const roleOptions = ref([
   { label: 'Designer', value: 'Designer' }
 ])
 
+const sexOptions = ref([
+  { label: 'Man', value: 'Man' },
+  { label: 'Women', value: 'Women' }
+])
+
 const findList = (filterList?: VxeTableDefines.FilterCheckedParams<RowVO>[]) => {
   loading.value = true
   // 模拟接口
@@ -70,9 +76,19 @@ const findList = (filterList?: VxeTableDefines.FilterCheckedParams<RowVO>[]) => 
         { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, num: '5000', num2: '5000', address: 'test abc' }
       ]
       if (filterList && filterList.length) {
-        const firstItem = filterList[0]
-        const values = firstItem.values
-        const rest = mockList.filter(item => values.includes(item.role))
+        const queryFilerMaps = {
+          role: [] as string[],
+          sex: [] as string[]
+        }
+        filterList.forEach(item => {
+          if (queryFilerMaps[item.field]) {
+            queryFilerMaps[item.field] = item.values
+          }
+        })
+        const rest = mockList.filter(item => {
+          const { role: roleValues, sex: sexValues } = queryFilerMaps
+          return roleValues.includes(item.role) && (!sexValues.length || sexValues.includes(item.sex))
+        })
         tableData.value = rest
         resolve(rest)
       } else {
@@ -87,10 +103,14 @@ const filterChangeEvent: VxeTableEvents.FilterChange<RowVO> = ({ filterList }) =
   findList(filterList)
 }
 
+const clearAllFilterEvent: VxeTableEvents.ClearAllFilter<RowVO> = ({ filterList }) => {
+  findList(filterList)
+}
+
 const changeFilters = () => {
   const $table = tableRef.value
   if ($table) {
-    // 修改条件
+    // 修改筛选选项，调用该方法不会触发任何事件
     $table.setFilter('role', [
       { label: 'Develop', value: 'Develop', checked: false },
       { label: 'Test', value: 'Test', checked: true },
@@ -100,23 +120,23 @@ const changeFilters = () => {
   }
 }
 
-const handleFilters = () => {
+const handleFilters = ({ $event }) => {
   const $table = tableRef.value
   if ($table) {
-    // 修改条件，传 true 则自动更新数据
-    $table.setFilter('role', [
+    // 修改筛选选项，调用该方法会触自动触发 filter-change 事件
+    $table.setFilterByEvent($event, 'role', [
       { label: 'Develop', value: 'Develop', checked: false },
       { label: 'Test', value: 'Test', checked: true },
       { label: 'PM', value: 'PM', checked: false },
       { label: 'Designer', value: 'Designer', checked: false }
-    ], true)
+    ])
   }
 }
 
 const clearFilterEvent: VxeButtonEvents.Click = ({ $event }) => {
   const $table = tableRef.value
   if ($table) {
-    // 清除筛选，调用该方法会自动触发 filter-change 事件
+    // 多列筛选模式，清除筛选，调用该方法会自动触发 clear-all-filter 事件
     $table.clearFilterByEvent($event)
   }
 }

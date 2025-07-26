@@ -7,7 +7,7 @@
     <vxe-button @click="clearSortEvent">清除排序</vxe-button>
     <vxe-table
       border
-      height="400"
+      height="300"
       ref="tableRef"
       :data="tableData"
       :sort-config="sortConfig">
@@ -55,6 +55,7 @@ const sortConfig = ref<VxeTablePropTypes.SortConfig<RowVO>>({
 const handleSort = (field: string, order: 'asc' | 'desc') => {
   const $table = tableRef.value
   if ($table) {
+    // 设置排序状态，默认不会更新数据，调用该方法不会触发任何事件
     $table.setSort({ field, order })
   }
 }
@@ -62,6 +63,7 @@ const handleSort = (field: string, order: 'asc' | 'desc') => {
 const handleUpdateSort = (field: string, order: 'asc' | 'desc') => {
   const $table = tableRef.value
   if ($table) {
+    // 设置排序状态，如果传 true，则自动更新本地排序，调用该方法不会触发任何事件
     $table.setSort({ field, order }, true)
   }
 }
@@ -69,7 +71,7 @@ const handleUpdateSort = (field: string, order: 'asc' | 'desc') => {
 const clearSortEvent = () => {
   const $table = tableRef.value
   if ($table) {
-    // 清除排序状态，调用该方法不会触发 sort-change 事件，如果是本地排序，会自动更新数据
+    // 清除排序状态，调用该方法不会触发任何事件，如果是本地排序，会自动更新数据
     $table.clearSort()
   }
 }

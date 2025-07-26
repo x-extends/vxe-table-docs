@@ -12,7 +12,8 @@
       :loading="loading"
       :data="tableData"
       :sort-config="sortConfig"
-      @sort-change="sortChangeEvent">
+      @sort-change="sortChangeEvent"
+      @clear-all-sort="clearSortSortEvent">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>
@@ -46,7 +47,8 @@ const loading = ref(false)
 const tableData = ref<RowVO[]>()
 
 const sortConfig = ref<VxeTablePropTypes.SortConfig<RowVO>>({
-  remote: true
+  remote: true,
+  multiple: true
 })
 
 const findList = (field?: VxeColumnPropTypes.Field, order?: VxeTablePropTypes.SortOrder) => {
@@ -79,6 +81,10 @@ const findList = (field?: VxeColumnPropTypes.Field, order?: VxeTablePropTypes.So
 
 const sortChangeEvent: VxeTableEvents.SortChange<RowVO> = ({ field, order }) => {
   findList(field, order)
+}
+
+const clearSortSortEvent: VxeTableEvents.ClearAllSort<RowVO> = () => {
+  findList('', null)
 }
 
 const handleSort = (field: string, order: 'asc' | 'desc') => {

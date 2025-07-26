@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-button @click="changeFilters()">只修改 role 条件</vxe-button>
-    <vxe-button @click="handleFilters()">修改并触发 role 筛选</vxe-button>
+    <vxe-button @click="handleFilters">修改并触发 role 筛选</vxe-button>
     <vxe-button @click="clearFilterEvent">清除筛选</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -26,7 +26,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      height: 400,
+      height: 300,
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -64,7 +64,7 @@ export default Vue.extend({
     changeFilters () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 修改条件
+        // 修改筛选选项，调用该方法不会触发任何事件
         $grid.setFilter('role', [
           { label: 'Develop', value: 'Develop', checked: false },
           { label: 'Test', value: 'Test', checked: true },
@@ -76,7 +76,7 @@ export default Vue.extend({
     handleFilters () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 修改条件，传 true 则自动更新数据
+        // 修改筛选选项，如果传 true，则自动更新本地筛选，调用该方法不会触发任何事件
         $grid.setFilter('role', [
           { label: 'Develop', value: 'Develop', checked: false },
           { label: 'Test', value: 'Test', checked: true },
@@ -88,7 +88,7 @@ export default Vue.extend({
     clearFilterEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 清除筛选状态，调用该方法不会触发 filter-change 事件，如果是本地筛选，会自动更新数据
+        // 清除筛选状态，调用该方法不会触发任何事件，如果是本地筛选，会自动更新数据
         $grid.clearFilter()
       }
     }
