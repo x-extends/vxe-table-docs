@@ -36,7 +36,7 @@
       </vxe-column>
       <vxe-column field="date12" title="Date" :formatter="formatDate" :edit-render="{}">
         <template #edit="scope">
-          <vxe-input type="date" v-model="scope.row.date12" @input="updateRowStatus(scope)"></vxe-input>
+          <vxe-date-picker type="date" v-model="scope.row.date12" @input="updateRowStatus(scope)"></vxe-date-picker>
         </template>
       </vxe-column>
       <vxe-column title="操作" width="200">

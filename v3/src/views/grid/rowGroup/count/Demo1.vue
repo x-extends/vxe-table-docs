@@ -25,8 +25,7 @@ export default Vue.extend({
       showOverflow: true,
       aggregateConfig: {
         groupFields: ['role'],
-        countFields: ['sex', 'age'],
-        countMethod ({ column, children }) {
+        calcValuesMethod ({ column, children }) {
           return `${column.field}（${children.length}）`
         }
       },

@@ -32,12 +32,12 @@
       </vxe-column>
       <vxe-column field="num1" title="Number" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.num1" type="number"></vxe-input>
+          <vxe-number-input v-model="row.num1" type="number"></vxe-number-input>
         </template>
       </vxe-column>
       <vxe-column field="date13" title="Date" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date13" type="date" transfer></vxe-input>
+          <vxe-date-picker v-model="row.date13" type="date" transfer></vxe-date-picker>
         </template>
       </vxe-column>
     </vxe-table>

@@ -39,12 +39,12 @@
       </vxe-column>
       <vxe-column field="num1" title="Amount" :edit-render="{placeholder: '请输入数值'}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.num1" type="float" :digits="2" placeholder="请输入数值"></vxe-input>
+          <vxe-number-input v-model="row.num1" type="float" :digits="2" placeholder="请输入数值"></vxe-number-input>
         </template>
       </vxe-column>
       <vxe-column field="date12" title="Date" :edit-render="{placeholder: '请选择日期'}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
+          <vxe-date-picker v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-date-picker>
         </template>
       </vxe-column>
       <vxe-column field="date13" title="Week" :edit-render="{}">

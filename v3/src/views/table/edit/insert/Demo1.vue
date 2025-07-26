@@ -45,7 +45,7 @@
       </vxe-column>
       <vxe-column field="date12" title="Date" sortable :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date12" type="date"></vxe-input>
+          <vxe-date-picker v-model="row.date12" type="date"></vxe-date-picker>
         </template>
       </vxe-column>
     </vxe-table>

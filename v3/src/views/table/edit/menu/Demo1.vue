@@ -36,7 +36,7 @@
       </vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.age" type="number"></vxe-input>
+          <vxe-number-input v-model="row.age" type="number"></vxe-number-input>
         </template>
       </vxe-column>
     </vxe-table>

@@ -18,7 +18,7 @@
       <vxe-switch v-model="currWidget.options.clearable"></vxe-switch>
     </vxe-form-item>
     <vxe-form-item title="限制字符长度">
-      <vxe-input v-model="currWidget.options.maxLength" type="integer" min="0" max="3000"></vxe-input>
+      <vxe-number-input v-model="currWidget.options.maxLength" type="integer" min="0" max="3000"></vxe-number-input>
     </vxe-form-item>
     <vxe-form-item title="是否显示字数统计">
       <vxe-switch v-model="currWidget.options.showWordCount"></vxe-switch>

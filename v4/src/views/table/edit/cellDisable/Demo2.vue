@@ -19,7 +19,7 @@
       </vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.age" type="integer" :disabled="disabledAge"></vxe-input>
+          <vxe-number-input v-model="row.age" type="integer" :disabled="disabledAge"></vxe-number-input>
         </template>
       </vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{name: 'VxeInput'}"></vxe-column>

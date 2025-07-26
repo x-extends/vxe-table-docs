@@ -8,7 +8,7 @@
         <vxe-input v-model="row.sex" :disabled="disabledSex"></vxe-input>
       </template>
       <template #age_edit="{ row }">
-        <vxe-input v-model="row.age" type="integer" :disabled="disabledAge"></vxe-input>
+        <vxe-number-input v-model="row.age" type="integer" :disabled="disabledAge"></vxe-number-input>
       </template>
     </vxe-grid>
   </div>

@@ -24,7 +24,7 @@
       </vxe-column>
       <vxe-column field="date" title="Date" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date" type="date" transfer></vxe-input>
+          <vxe-date-picker v-model="row.date" type="date" transfer></vxe-date-picker>
         </template>
       </vxe-column>
       <vxe-column title="操作" width="480">

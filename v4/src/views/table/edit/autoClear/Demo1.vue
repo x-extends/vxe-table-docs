@@ -26,12 +26,12 @@
       </vxe-column>
       <vxe-column field="date12" title="Date" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-input>
+          <vxe-date-picker v-model="row.date12" type="date" placeholder="请选择日期" transfer></vxe-date-picker>
         </template>
       </vxe-column>
       <vxe-column field="num1" title="Num" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-input v-model="row.num1" type="number" placeholder="请输入数值"></vxe-input>
+          <vxe-number-input v-model="row.num1" type="number" placeholder="请输入数值"></vxe-number-input>
         </template>
       </vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{}">

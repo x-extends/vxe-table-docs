@@ -20,7 +20,7 @@
         <vxe-column field="date" :filters="dateOptions" :filter-method="dateFilterMethod">
           <template #header="{ column }">
             <div v-for="(option, index) in column.filters" :key="index">
-              <vxe-input v-model="option.data" type="date" @change="confirmFilterEvent(option)" placeholder="请选择" clearable transfer style="width: 100%;"></vxe-input>
+              <vxe-date-picker v-model="option.data" type="date" @change="confirmFilterEvent(option)" placeholder="请选择" clearable transfer style="width: 100%;"></vxe-date-picker>
             </div>
           </template>
         </vxe-column>
