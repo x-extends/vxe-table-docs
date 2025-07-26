@@ -4,7 +4,7 @@
     <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
     <vxe-button @click="handleUpdateSort('role', 'desc')">修改并触发 role 倒序</vxe-button>
     <vxe-button @click="handleUpdateSort('role', 'asc')">修改并触发 role 升序</vxe-button>
-    <vxe-button @click="clearSort()">清除排序</vxe-button>
+    <vxe-button @click="clearSortEvent">清除排序</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions" @sort-change="sortChangeEvent"></vxe-grid>
   </div>
 </template>
@@ -92,13 +92,11 @@ export default Vue.extend({
         $grid.setSort({ field, order }, true)
       }
     },
-    clearSort () {
+    clearSortEvent ({ $event }) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 清除排序状态，如果是服务端排序，不会更新数据
-        $grid.clearSort()
-        // 调用接口更新数据
-        this.findList()
+        // 清除排序，调用该方法会自动触发 sort-change 事件
+        $grid.clearSortByEvent($event)
       }
     }
   },

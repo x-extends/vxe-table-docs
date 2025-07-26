@@ -4,7 +4,7 @@
     <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
     <vxe-button @click="handleUpdateSort('role', 'desc')">修改并触发 role 倒序</vxe-button>
     <vxe-button @click="handleUpdateSort('role', 'asc')">修改并触发 role 升序</vxe-button>
-    <vxe-button @click="clearSort()">清除排序</vxe-button>
+    <vxe-button @click="clearSortEvent">清除排序</vxe-button>
     <vxe-table
       border
       height="400"
@@ -96,12 +96,11 @@ export default Vue.extend({
         $table.setSort({ field, order }, true)
       }
     },
-    clearSort () {
+    clearSortEvent ({ $event }) {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        // 清除排序状态，如果本地排序，会自动更新数据
-        $table.clearSort()
-        this.findList()
+        // 清除排序，调用该方法会自动触发 sort-change 事件
+        $table.clearSortByEvent($event)
       }
     }
   },

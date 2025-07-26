@@ -4,7 +4,7 @@
     <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
     <vxe-button @click="handleUpdateSort('role', 'desc')">修改并触发 role 倒序</vxe-button>
     <vxe-button @click="handleUpdateSort('role', 'asc')">修改并触发 role 升序</vxe-button>
-    <vxe-button @click="clearSort()">清除排序</vxe-button>
+    <vxe-button @click="clearSortEvent">清除排序</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
@@ -12,6 +12,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import { VxeTablePropTypes, VxeGridProps, VxeGridInstance, VxeColumnPropTypes, VxeGridListeners } from 'vxe-table'
+import { VxeButtonEvents } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -93,13 +94,11 @@ const handleUpdateSort = (field: string, order: 'asc' | 'desc') => {
   }
 }
 
-const clearSort = () => {
+const clearSortEvent: VxeButtonEvents.Click = ({ $event }) => {
   const $grid = gridRef.value
   if ($grid) {
-    // 清除排序状态，如果是服务端排序，不会更新数据
-    $grid.clearSort()
-    // 调用接口更新数据
-    findList()
+    // 清除排序，调用该方法会自动触发 sort-change 事件
+    $grid.clearSortByEvent($event)
   }
 }
 
