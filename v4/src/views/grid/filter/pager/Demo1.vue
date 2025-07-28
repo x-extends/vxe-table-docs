@@ -24,6 +24,12 @@ const queryFilterConfs = ref<{
   vals: string[]
 }[]>([])
 
+const pageVO = reactive({
+  currentPage: 1,
+  pageSize: 10,
+  total: 0
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   loading: false,
@@ -34,6 +40,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   filterConfig: {
     remote: true
   },
+  pagerConfig: pageVO,
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 300 },
@@ -101,7 +108,7 @@ const loadList = () => {
   gridOptions.loading = true
   const searchConfs = queryFilterConfs.value
   setTimeout(() => {
-    gridOptions.loading = false
+    const { pageSize, currentPage } = pageVO
     const result = searchConfs.length
       ? mockList.filter(item => {
         return searchConfs.every(fItem => {
@@ -110,12 +117,18 @@ const loadList = () => {
         })
       })
       : mockList
-    gridOptions.data = result
+    pageVO.total = result.length
+    gridOptions.data = result.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     gridOptions.loading = false
   }, 300)
 }
 
 const gridEvents: VxeGridListeners = {
+  pageChange ({ currentPage, pageSize }) {
+    pageVO.currentPage = currentPage
+    pageVO.pageSize = pageSize
+    loadList()
+  },
   filterChange ({ filterList }) {
     const searchConfs = filterList.map(item => {
       return {
@@ -124,10 +137,12 @@ const gridEvents: VxeGridListeners = {
       }
     })
     queryFilterConfs.value = searchConfs
+    pageVO.currentPage = 1
     loadList()
   },
   clearAllFilter () {
     queryFilterConfs.value = []
+    pageVO.currentPage = 1
     loadList()
   }
 }

@@ -2,6 +2,7 @@
   <div>
     <vxe-grid
       v-bind="gridOptions"
+      @page-change="pageChangeEvent"
       @filter-change="filterChangeEvent"
       @clear-all-filter="clearAllFilterEvent">
     </vxe-grid>
@@ -30,6 +31,12 @@ export default Vue.extend({
       vals: string[]
     }[] = []
 
+    const pageVO = {
+      currentPage: 1,
+      pageSize: 10,
+      total: 0
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       loading: false,
@@ -40,6 +47,7 @@ export default Vue.extend({
       filterConfig: {
         remote: true
       },
+      pagerConfig: pageVO,
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 300 },
@@ -71,6 +79,7 @@ export default Vue.extend({
 
     return {
       gridOptions,
+      pageVO,
       queryFilterConfs
     }
   },
@@ -113,6 +122,7 @@ export default Vue.extend({
       this.gridOptions.loading = true
       const searchConfs = this.queryFilterConfs
       setTimeout(() => {
+        const { pageSize, currentPage } = this.pageVO
         const result = searchConfs.length
           ? mockList.filter(item => {
             return searchConfs.every(fItem => {
@@ -121,9 +131,15 @@ export default Vue.extend({
             })
           })
           : mockList
-        this.gridOptions.data = result
+        this.pageVO.total = result.length
+        this.gridOptions.data = result.slice((currentPage - 1) * pageSize, currentPage * pageSize)
         this.gridOptions.loading = false
       }, 300)
+    },
+    pageChangeEvent ({ currentPage, pageSize }) {
+      this.pageVO.currentPage = currentPage
+      this.pageVO.pageSize = pageSize
+      this.loadList()
     },
     filterChangeEvent ({ filterList }) {
       const searchConfs = filterList.map(item => {
@@ -133,10 +149,12 @@ export default Vue.extend({
         }
       })
       this.queryFilterConfs = searchConfs
+      this.pageVO.currentPage = 1
       this.loadList()
     },
     clearAllFilterEvent () {
       this.queryFilterConfs = []
+      this.pageVO.currentPage = 1
       this.loadList()
     }
   },

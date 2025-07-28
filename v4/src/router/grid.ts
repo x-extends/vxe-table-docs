@@ -291,6 +291,11 @@ export const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/filter/remote/CodeExample.vue')
         },
         {
+          path: 'pager',
+          name: 'ComponentGridFilterPager',
+          component: () => import('@/views/grid/filter/pager/CodeExample.vue')
+        },
+        {
           path: 'tree',
           name: 'ComponentGridFilterTree',
           component: () => import('@/views/grid/filter/tree/CodeExample.vue')
