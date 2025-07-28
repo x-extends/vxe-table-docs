@@ -877,6 +877,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '数据筛选', routerLink: { name: 'ComponentGridFilterBase' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridFilterIcon' } },
             { title: '服务端筛选', routerLink: { name: 'ComponentGridFilterRemote' } },
+            { title: '服务端分页筛选', routerLink: { name: 'ComponentGridFilterPager' } },
             { title: '树结构', routerLink: { name: 'ComponentGridFilterTree' } },
             { title: '手动弹出', routerLink: { name: 'ComponentGridFilterManual' } },
             { title: '手动筛选', routerLink: { name: 'ComponentGridFilterSetFilter' } },
