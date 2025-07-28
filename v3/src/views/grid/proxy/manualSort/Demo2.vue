@@ -1,12 +1,19 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button @click="handleSort('role', 'desc')">只修改 role 倒序</vxe-button>
+    <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
+    <vxe-button @click="handleUpdateSort($event, 'role', 'desc')">修改并触发 role 倒序</vxe-button>
+    <vxe-button @click="handleUpdateSort($event, 'role', 'asc')">修改并触发 role 升序</vxe-button>
+    <vxe-button @click="handleClearEvent">清除排序</vxe-button>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+<script lang="ts">
+import Vue from 'vue'
+import { VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { VxeButtonDefines, VxeButtonEvents } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -74,40 +81,72 @@ const findPageList = (pageSize: number, currentPage: number, sorts: any[]) => {
   })
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
-  border: true,
-  showOverflow: true,
-  height: 300,
-  sortConfig: {
-    remote: true
-  },
-  pagerConfig: {},
-  toolbarConfig: {
-    buttons: [
-      { code: 'query', name: '点击查询（不重置条件）' },
-      { code: 'reload', name: '点击刷新（重置条件）' }
-    ],
-    refresh: true
-  },
-  proxyConfig: {
-    // response: {
-    //   result: 'result', // 配置响应结果列表字段
-    //   total: 'page.total' // 配置响应结果总页数字段
-    // },
-    sort: true, // 启用排序请求代理
-    ajax: {
-      query: ({ page, sorts }) => {
-        // 默认接收 Promise<{ result: [], page: { total: 100 } }>
-        return findPageList(page.pageSize, page.currentPage, sorts)
-      }
+export default Vue.extend({
+  data () {
+    const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      showOverflow: true,
+      height: 500,
+      sortConfig: {
+        remote: true,
+        multiple: true
+      },
+      pagerConfig: {},
+      toolbarConfig: {
+        buttons: [
+          { code: 'query', name: '点击查询（不重置条件）' },
+          { code: 'reload', name: '点击刷新（重置条件）' }
+        ],
+        refresh: true
+      },
+      proxyConfig: {
+        // response: {
+        //   result: 'result', // 配置响应结果列表字段
+        //   total: 'page.total' // 配置响应结果总页数字段
+        // },
+        sort: true, // 启用排序请求代理
+        ajax: {
+          query: ({ page, sorts }) => {
+            // 默认接收 Promise<{ result: [], page: { total: 100 } }>
+            return findPageList(page.pageSize, page.currentPage, sorts)
+          }
+        }
+      },
+      columns: [
+        { type: 'seq', width: 70 },
+        { field: 'name', title: 'Name', sortable: true },
+        { field: 'nickname', title: 'Nickname' },
+        { field: 'role', title: 'Role', sortable: true },
+        { field: 'address', title: 'Address' }
+      ]
+    }
+
+    return {
+      gridOptions
     }
   },
-  columns: [
-    { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', sortable: true },
-    { field: 'nickname', title: 'Nickname' },
-    { field: 'role', title: 'Role', sortable: true },
-    { field: 'address', title: 'Address' }
-  ]
+  methods: {
+    handleSort (field: string, order: 'asc' | 'desc') {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        // 设置排序状态，默认不会更新数据，调用该方法不会触发任何事件
+        $grid.setSort({ field, order })
+      }
+    },
+    handleUpdateSort (params: VxeButtonDefines.ClickEventParams, field: string, order: 'asc' | 'desc') {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        // 设置排序状态，调用该方法会自动触发 sort-change 事件
+        $grid.setSortByEvent(params.$event, { field, order })
+      }
+    },
+    handleClearEvent ({ $event }) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        // 单列排序模式，清除排序，调用该方法会自动触发 clear-sort 与 sort-change 事件
+        $grid.clearSortByEvent($event)
+      }
+    }
+  }
 })
 </script>

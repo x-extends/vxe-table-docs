@@ -2416,9 +2416,19 @@ export const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/proxy/pager/CodeExample.vue')
         },
         {
+          path: 'manualPager',
+          name: 'ComponentGridProxyManualPager',
+          component: () => import('@/views/grid/proxy/manualPager/CodeExample.vue')
+        },
+        {
           path: 'sort',
           name: 'ComponentGridProxySort',
           component: () => import('@/views/grid/proxy/sort/CodeExample.vue')
+        },
+        {
+          path: 'manualSort',
+          name: 'ComponentGridProxyManualSort',
+          component: () => import('@/views/grid/proxy/manualSort/CodeExample.vue')
         },
         {
           path: 'filter',

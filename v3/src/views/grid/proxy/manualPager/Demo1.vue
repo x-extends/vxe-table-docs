@@ -1,13 +1,20 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button @click="changeHomePageEvent">首页</vxe-button>
+    <vxe-button @click="changeEndPageEvent">末页</vxe-button>
+    <vxe-button @click="changeCurrPage($event, 1)">切换页数1</vxe-button>
+    <vxe-button @click="changeCurrPage($event, 2)">切换页数2</vxe-button>
+    <vxe-button @click="changePageSize($event, 10)">切换大小10</vxe-button>
+    <vxe-button @click="changePageSize($event, 20)">切换大小20</vxe-button>
+    <vxe-button @click="reloadEvent">重新加载</vxe-button>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
-import XEUtils from 'xe-utils'
+<script lang="ts">
+import Vue from 'vue'
+import { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeButtonDefines } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -45,12 +52,8 @@ const list = [
 ]
 
 // 模拟接口
-const findPageList = (pageSize: number, currentPage: number, sorts: any[]) => {
-  const sortItem = sorts[0]
+const findPageList = (pageSize: number, currentPage: number) => {
   console.log(`调用查询接口 pageSize=${pageSize} currentPage=${currentPage}`)
-  if (sortItem) {
-    console.log(`排序参数 ${sortItem.field}=${sortItem.order}`)
-  }
   return new Promise<{
     result: RowVO[]
     page: {
@@ -58,56 +61,80 @@ const findPageList = (pageSize: number, currentPage: number, sorts: any[]) => {
     }
   }>(resolve => {
     setTimeout(() => {
-      const currList = sortItem
-        ? XEUtils.orderBy(list, {
-          field: sortItem.field,
-          order: sortItem.order
-        })
-        : list
       resolve({
-        result: currList.slice((currentPage - 1) * pageSize, currentPage * pageSize),
+        result: list.slice((currentPage - 1) * pageSize, currentPage * pageSize),
         page: {
-          total: currList.length
+          total: list.length
         }
       })
-    }, 300)
+    }, 100)
   })
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
-  border: true,
-  showOverflow: true,
-  height: 300,
-  sortConfig: {
-    remote: true
-  },
-  pagerConfig: {},
-  toolbarConfig: {
-    buttons: [
-      { code: 'query', name: '点击查询（不重置条件）' },
-      { code: 'reload', name: '点击刷新（重置条件）' }
-    ],
-    refresh: true
-  },
-  proxyConfig: {
-    // response: {
-    //   result: 'result', // 配置响应结果列表字段
-    //   total: 'page.total' // 配置响应结果总页数字段
-    // },
-    sort: true, // 启用排序请求代理
-    ajax: {
-      query: ({ page, sorts }) => {
-        // 默认接收 Promise<{ result: [], page: { total: 100 } }>
-        return findPageList(page.pageSize, page.currentPage, sorts)
-      }
+export default Vue.extend({
+  data () {
+    const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      height: 300,
+      pagerConfig: {},
+      proxyConfig: {
+        // showLoading: false, // 关闭加载中
+        seq: true, // 启用自动序号
+        // response: {
+        //   result: 'result', // 配置响应结果列表字段
+        //   total: 'page.total' // 配置响应结果总页数字段
+        // },
+        ajax: {
+          query: ({ page }) => {
+            // 默认接收 Promise<{ result: [], page: { total: 100 } }>
+            return findPageList(page.pageSize, page.currentPage)
+          }
+        }
+      },
+      columns: [
+        { type: 'seq', width: 70 },
+        { field: 'name', title: 'Name' },
+        { field: 'nickname', title: 'Nickname' },
+        { field: 'role', title: 'Role' },
+        { field: 'address', title: 'Address', showOverflow: true }
+      ]
+    }
+
+    return {
+      gridOptions
     }
   },
-  columns: [
-    { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', sortable: true },
-    { field: 'nickname', title: 'Nickname' },
-    { field: 'role', title: 'Role', sortable: true },
-    { field: 'address', title: 'Address' }
-  ]
+  methods: {
+    changeHomePageEvent (params) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.homePageByEvent(params.$event)
+      }
+    },
+    changeEndPageEvent (params) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.endPageByEvent(params.$event)
+      }
+    },
+    changeCurrPage (params: VxeButtonDefines.ClickEventParams, num: number) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.setCurrentPageByEvent(params.$event, num)
+      }
+    },
+    changePageSize (params: VxeButtonDefines.ClickEventParams, num: number) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.setPageSizeByEvent(params.$event, num)
+      }
+    },
+    reloadEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.commitProxy('reload')
+      }
+    }
+  }
 })
 </script>

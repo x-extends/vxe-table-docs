@@ -1331,9 +1331,11 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '查询接口', routerLink: { name: 'ComponentGridProxyQuery' } },
             { title: '分页查询接口', routerLink: { name: 'ComponentGridProxyPager' } },
+            { title: '手动调用 - 操作分页', routerLink: { name: 'ComponentGridProxyManualPager' } },
             { title: '工具栏 - 查询', routerLink: { name: 'ComponentGridProxyToolbarQuery' } },
             { title: '手动调用 - 查询', routerLink: { name: 'ComponentGridProxyManualQuery' } },
             { title: '集成排序查询', routerLink: { name: 'ComponentGridProxySort' } },
+            { title: '手动调用 - 操作排序', routerLink: { name: 'ComponentGridProxyManualSort' } },
             { title: '集成筛选查询', routerLink: { name: 'ComponentGridProxyFilter' } },
             { title: '集成表单查询', routerLink: { name: 'ComponentGridProxyForm' } },
             { title: '集成分页序号', routerLink: { name: 'ComponentGridProxySeq' } },

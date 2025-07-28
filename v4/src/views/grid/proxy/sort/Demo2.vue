@@ -77,7 +77,7 @@ const findPageList = (pageSize: number, currentPage: number, sorts: any[]) => {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
-  height: 500,
+  height: 300,
   sortConfig: {
     remote: true,
     defaultSort: {

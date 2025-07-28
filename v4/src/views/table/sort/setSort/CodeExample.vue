@@ -22,7 +22,7 @@
     <CodeLight path="table/sort/setSort/Demo3">
       <template #tip>
         <vxe-tip status="primary">
-          实现多列的服务端排序，通过 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="remote"/> 配合 <ApiLink name="table" prop="sort-change"/> 和 <ApiLink name="table" prop="clear-all-sort"/> 事件实现
+          实现多列的服务端排序，通过 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="multiple"/> 和 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="remote"/> 配合 <ApiLink name="table" prop="sort-change"/> 和 <ApiLink name="table" prop="clear-all-sort"/> 事件实现
         </vxe-tip>
       </template>
     </CodeLight>

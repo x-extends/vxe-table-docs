@@ -83,6 +83,7 @@ const gridEvents: VxeGridListeners<RowVO> = {
 const handleSort = (field: string, order: 'asc' | 'desc') => {
   const $grid = gridRef.value
   if ($grid) {
+    // 设置排序状态，默认不会更新数据，调用该方法不会触发任何事件
     $grid.setSort({ field, order })
   }
 }

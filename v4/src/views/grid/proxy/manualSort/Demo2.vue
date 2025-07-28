@@ -1,12 +1,19 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button @click="handleSort('role', 'desc')">只修改 role 倒序</vxe-button>
+    <vxe-button @click="handleSort('role', 'asc')">只修改 role 升序</vxe-button>
+    <vxe-button @click="handleUpdateSort($event, 'role', 'desc')">修改并触发 role 倒序</vxe-button>
+    <vxe-button @click="handleUpdateSort($event, 'role', 'asc')">修改并触发 role 升序</vxe-button>
+    <vxe-button @click="handleClearEvent">清除排序</vxe-button>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { VxeButtonDefines, VxeButtonEvents } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -18,6 +25,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const list = [
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -77,9 +86,10 @@ const findPageList = (pageSize: number, currentPage: number, sorts: any[]) => {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
-  height: 300,
+  height: 500,
   sortConfig: {
-    remote: true
+    remote: true,
+    multiple: true
   },
   pagerConfig: {},
   toolbarConfig: {
@@ -110,4 +120,28 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'address', title: 'Address' }
   ]
 })
+
+const handleSort = (field: string, order: 'asc' | 'desc') => {
+  const $grid = gridRef.value
+  if ($grid) {
+    // 设置排序状态，默认不会更新数据，调用该方法不会触发任何事件
+    $grid.setSort({ field, order })
+  }
+}
+
+const handleUpdateSort = (params: VxeButtonDefines.ClickEventParams, field: string, order: 'asc' | 'desc') => {
+  const $grid = gridRef.value
+  if ($grid) {
+    // 设置排序状态，调用该方法会自动触发 sort-change 事件
+    $grid.setSortByEvent(params.$event, { field, order })
+  }
+}
+
+const handleClearEvent: VxeButtonEvents.Click = ({ $event }) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    // 单列排序模式，清除排序，调用该方法会自动触发 clear-sort 与 sort-change 事件
+    $grid.clearSortByEvent($event)
+  }
+}
 </script>
