@@ -1170,26 +1170,26 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridCustomResizableWidth',
           component: () => import('@/views/grid/custom/resizableWidth/CodeExample.vue')
         },
-        // {
-        //   path: 'visible',
-        //   name: 'ComponentGridCustomVisible',
-        //   component: () => import('@/views/grid/custom/visible/CodeExample.vue')
-        // },
-        // {
-        //   path: 'fixed',
-        //   name: 'ComponentGridCustomFixed',
-        //   component: () => import('@/views/grid/custom/fixed/CodeExample.vue')
-        // },
-        // {
-        //   path: 'resizable',
-        //   name: 'ComponentGridCustomResizable',
-        //   component: () => import('@/views/grid/custom/resizable/CodeExample.vue')
-        // },
-        // {
-        //   path: 'sort',
-        //   name: 'ComponentGridCustomSort',
-        //   component: () => import('@/views/grid/custom/sort/CodeExample.vue')
-        // },
+        {
+          path: 'visible',
+          name: 'ComponentGridCustomVisible',
+          component: () => import('@/views/grid/custom/visible/CodeExample.vue')
+        },
+        {
+          path: 'fixed',
+          name: 'ComponentGridCustomFixed',
+          component: () => import('@/views/grid/custom/fixed/CodeExample.vue')
+        },
+        {
+          path: 'resizable',
+          name: 'ComponentGridCustomResizable',
+          component: () => import('@/views/grid/custom/resizable/CodeExample.vue')
+        },
+        {
+          path: 'sort',
+          name: 'ComponentGridCustomSort',
+          component: () => import('@/views/grid/custom/sort/CodeExample.vue')
+        },
         // {
         //   path: 'template',
         //   name: 'ComponentGridCustomTemplate',
