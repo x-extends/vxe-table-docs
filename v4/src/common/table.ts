@@ -736,6 +736,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '列拖拽',
           children: [
             { title: '拖拽调整列顺序', routerLink: { name: 'ComponentGridColDragSort' } },
+            { title: '个性化列', routerLink: { name: 'ComponentGridColDragCustom' } },
             { title: '冻结列', routerLink: { name: 'ComponentGridColDragFixed' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridColDragIcon' } },
             { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridColDragShowGuidesStatus' } },
@@ -746,7 +747,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '同层级拖拽', routerLink: { name: 'ComponentGridColDragPeerDrag' } },
                 { title: '跨层级拖拽', routerLink: { name: 'ComponentGridColDragCrossDrag' } },
                 { title: '自己拖拽给自己子级', routerLink: { name: 'ComponentGridColDragSelfToChildDrag' } },
-                { title: '拖拽成子级', routerLink: { name: 'ComponentGridColDragToChildDrag' } }
+                { title: '拖拽成子级', routerLink: { name: 'ComponentGridColDragToChildDrag' } },
+                { title: '分组个性化列', routerLink: { name: 'ComponentGridColDragGroupCustom' } }
               ]
             },
             { title: '触发方式', routerLink: { name: 'ComponentGridColDragTrigger' } },

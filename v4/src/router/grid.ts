@@ -436,6 +436,11 @@ export const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/colDrag/sort/CodeExample.vue')
         },
         {
+          path: 'custom',
+          name: 'ComponentGridColDragCustom',
+          component: () => import('@/views/grid/colDrag/custom/CodeExample.vue')
+        },
+        {
           path: 'fixed',
           name: 'ComponentGridColDragFixed',
           component: () => import('@/views/grid/colDrag/fixed/CodeExample.vue')
@@ -474,6 +479,11 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'toChildDrag',
           name: 'ComponentGridColDragToChildDrag',
           component: () => import('@/views/grid/colDrag/toChildDrag/CodeExample.vue')
+        },
+        {
+          path: 'groupCustom',
+          name: 'ComponentGridColDragGroupCustom',
+          component: () => import('@/views/grid/colDrag/groupCustom/CodeExample.vue')
         },
         {
           path: 'trigger',
