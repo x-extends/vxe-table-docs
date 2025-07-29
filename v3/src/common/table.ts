@@ -268,6 +268,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '允许调整列宽', routerLink: { name: 'ComponentTableCustomResizable' } },
             { title: '允许拖拽列顺序', routerLink: { name: 'ComponentTableCustomSort' } },
             { title: '允许拖拽分组', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_allow_group' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Fcustom%2FallowGroup' } } },
+            { title: '允许拖拽聚合函数', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_drag_values' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Fcustom%2FaggDragValues' } } },
             { title: '冻结列最大数量限制', routerLink: { name: 'ComponentTableCustomFixedMax' } },
             { title: '自定义触发按钮', routerLink: { name: 'ComponentTableCustomCustomBtn' } },
             { title: '自定义弹出位置', routerLink: { name: 'ComponentTableCustomPlacement' } },
@@ -277,8 +278,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '自定义服务端保存', routerLink: { name: 'ComponentTableCustomRemote' } },
             { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentTableCustomRemoteFull' } },
             { title: '实现显示/隐藏列', routerLink: { name: 'ComponentTableCustomManual' } },
-            { title: '实现折叠列', routerLink: { name: 'ComponentTableCustomCollapseColumn' } },
-            { title: '拖拽与数据汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_drag_values' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Fcustom%2FaggDragValues' } } }
+            { title: '实现折叠列', routerLink: { name: 'ComponentTableCustomCollapseColumn' } }
           ]
         },
         {
@@ -971,6 +971,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '允许调整列宽', routerLink: { name: 'ComponentGridCustomResizable' } },
             { title: '允许拖拽列顺序', routerLink: { name: 'ComponentGridCustomSort' } },
             { title: '允许拖拽分组', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_allow_group' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2FallowGroup' } } },
+            { title: '允许拖拽聚合函数', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_drag_values' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2FaggDragValues' } } },
             // { title: '自定义触发弹出设置', routerLink: { name: 'ComponentGridCustomTemplate' } },
             { title: '自定义触发按钮', routerLink: { name: 'ComponentGridCustomCustomBtn' } },
             { title: '自定义弹出位置', routerLink: { name: 'ComponentGridCustomPlacement' } },
@@ -988,8 +989,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自定义尾部模板', routerLink: { name: 'ComponentGridCustomTemplateFooter' } },
                 { title: '自定义默认模板', routerLink: { name: 'ComponentGridCustomTemplateDefault' } }
               ]
-            },
-            { title: '拖拽与数据汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_drag_values' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2FaggDragValues' } } }
+            }
           ]
         },
         {
