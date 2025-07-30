@@ -35,7 +35,7 @@ const saveCustomSetting = (storeData: VxeTableDefines.CustomStoreData) => {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
-      id: 'myCustomUpdate',
+      id: 'myCustomUpdate1',
       columnConfig: {
         drag: true,
         resizable: true

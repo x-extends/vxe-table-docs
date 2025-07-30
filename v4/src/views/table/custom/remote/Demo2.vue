@@ -3,7 +3,7 @@
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       border
-      id="myCustomStorage"
+      id="myCustomStorage2"
       ref="tableRef"
       :custom-config="customConfig"
       :column-config="columnConfig"

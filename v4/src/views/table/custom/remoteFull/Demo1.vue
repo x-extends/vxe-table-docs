@@ -3,7 +3,7 @@
     <vxe-notice-bar content="温馨提示：当使用服务端保存和恢复时，只要确保数据结构式正确的，就可以实现多种方式数据保存，比如：调用后端接口、使用 localStorage、使用 indexedDB 等任意方式"></vxe-notice-bar>
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
-      id="myCustomUpdate"
+      id="myCustomUpdate1"
       ref="tableRef"
       :custom-config="customConfig"
       :data="tableData">

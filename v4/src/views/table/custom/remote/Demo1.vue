@@ -2,7 +2,7 @@
   <div>
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
-      id="myCustomUpdate"
+      id="myCustomUpdate1"
       ref="tableRef"
       :column-config="columnConfig"
       :custom-config="customConfig"

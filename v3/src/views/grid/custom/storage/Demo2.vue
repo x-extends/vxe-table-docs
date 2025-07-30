@@ -21,7 +21,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      id: 'myCustomStorage',
+      id: 'myCustomStorage2',
       toolbarConfig: {
         custom: true
       },

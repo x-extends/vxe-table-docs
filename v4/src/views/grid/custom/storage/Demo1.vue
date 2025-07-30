@@ -19,7 +19,7 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  id: 'myCustomStorage',
+  id: 'myCustomStorage1',
   toolbarConfig: {
     custom: true
   },

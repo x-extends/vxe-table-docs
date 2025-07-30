@@ -1,13 +1,13 @@
 <template>
   <div>
-    <vxe-notice-bar content="温馨提示：当使用服务端保存和恢复时，只要确保数据结构式正确的，就可以实现多种方式数据保存，比如：调用后端接口、使用 localStorage、使用 indexedDB 等任意方式"></vxe-notice-bar>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridProps, VxeTableDefines } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
+import { VxeGridProps, VxeTableDefines } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -57,12 +57,14 @@ const saveCustomSetting = (id: string, storeData: VxeTableDefines.CustomStoreDat
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
-      id: 'myCustomUpdate1',
+      border: true,
+      id: 'myCustomStorage2',
       toolbarConfig: {
         custom: true
       },
       customConfig: {
         storage: true,
+        immediate: true,
         restoreStore ({ id }) {
           return findCustomSetting(id)
         },
@@ -71,11 +73,44 @@ export default Vue.extend({
           return saveCustomSetting(id, storeData)
         }
       },
+      columnConfig: {
+        drag: true,
+        resizable: true
+      },
+      columnDragConfig: {
+        isPeerDrag: true,
+        isCrossDrag: true,
+        isToChildDrag: true
+      },
       columns: [
-        { type: 'seq', width: 70 },
+        { field: 'seq', type: 'seq', width: 90 },
         { field: 'name', title: 'Name' },
-        { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' }
+        {
+          title: '分组1',
+          field: 'group1',
+          children: [
+            { field: 'nickname', title: 'Nickname' },
+            { field: 'role', title: 'role' }
+          ]
+        },
+        {
+          title: '分组3',
+          field: 'group3',
+          children: [
+            { field: 'sex', title: 'Sex' },
+            { field: 'attr1', title: 'Attr1' },
+            {
+              title: '分组4',
+              field: 'group4',
+              children: [
+                { field: 'age', title: 'Age' },
+                { field: 'attr4', title: 'Attr4' },
+                { field: 'attr8', title: 'Attr8' }
+              ]
+            }
+          ]
+        },
+        { field: 'address', title: 'address' }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
