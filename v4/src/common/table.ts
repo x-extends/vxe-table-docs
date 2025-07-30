@@ -275,6 +275,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '事件监听', routerLink: { name: 'ComponentTableCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentTableCustomImmediate' } },
             { title: '本地保存列设置', routerLink: { name: 'ComponentTableCustomStorage' } },
+            { title: '本地保存聚合函数列设置', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_storage' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Fcustom%2Fstorage' } } },
             { title: '自定义服务端保存', routerLink: { name: 'ComponentTableCustomRemote' } },
             { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentTableCustomRemoteFull' } },
             { title: '实现显示/隐藏列', routerLink: { name: 'ComponentTableCustomManual' } },
@@ -978,6 +979,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '事件监听', routerLink: { name: 'ComponentGridCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentGridCustomImmediate' } },
             { title: '本地保存列设置', routerLink: { name: 'ComponentGridCustomStorage' } },
+            { title: '本地保存聚合函数列设置', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_storage' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2Fstorage' } } },
             { title: '自定义服务端保存', routerLink: { name: 'ComponentGridCustomRemote' } },
             { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentGridCustomRemoteFull' } },
             {
