@@ -26,18 +26,46 @@ export default Vue.extend({
         custom: true
       },
       customConfig: {
-        storage: true
+        storage: true,
+        immediate: true
       },
       columnConfig: {
         drag: true,
         resizable: true
       },
+      columnDragConfig: {
+        isPeerDrag: true,
+        isCrossDrag: true,
+        isToChildDrag: true
+      },
       columns: [
         { field: 'seq', type: 'seq', width: 90 },
         { field: 'name', title: 'Name' },
-        { field: 'role', title: 'role' },
-        { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' },
+        {
+          title: '分组1',
+          field: 'group1',
+          children: [
+            { field: 'nickname', title: 'Nickname' },
+            { field: 'role', title: 'role' }
+          ]
+        },
+        {
+          title: '分组3',
+          field: 'group3',
+          children: [
+            { field: 'sex', title: 'Sex' },
+            { field: 'attr1', title: 'Attr1' },
+            {
+              title: '分组4',
+              field: 'group4',
+              children: [
+                { field: 'age', title: 'Age' },
+                { field: 'attr4', title: 'Attr4' },
+                { field: 'attr8', title: 'Attr8' }
+              ]
+            }
+          ]
+        },
         { field: 'address', title: 'address' }
       ],
       data: [

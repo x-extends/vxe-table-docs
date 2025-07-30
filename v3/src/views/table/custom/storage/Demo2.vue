@@ -6,12 +6,24 @@
       id="myCustomStorage"
       ref="tableRef"
       :custom-config="customConfig"
+      :column-config="columnConfig"
+      :column-drag-config="columnDragConfig"
       :data="tableData">
-      <vxe-column field="seq" type="seq" width="70"></vxe-column>
+      <vxe-column field="seq" type="seq" width="90"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="role"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-colgroup field="group1" title="分组1">
+        <vxe-column field="nickname" title="Nickname"></vxe-column>
+        <vxe-column field="role" title="role"></vxe-column>
+      </vxe-colgroup>
+      <vxe-colgroup field="group3" title="分组3">
+        <vxe-column field="sex" title="Sex"></vxe-column>
+        <vxe-column field="attr1" title="Attr1"></vxe-column>
+        <vxe-colgroup field="group4" title="分组4">
+          <vxe-column field="age" title="Age"></vxe-column>
+          <vxe-column field="attr4" title="Attr4"></vxe-column>
+          <vxe-column field="attr8" title="Attr8"></vxe-column>
+        </vxe-colgroup>
+      </vxe-colgroup>
       <vxe-column field="address" title="address"></vxe-column>
     </vxe-table>
   </div>
@@ -40,7 +52,8 @@ export default Vue.extend({
     ]
 
     const customConfig: VxeTablePropTypes.CustomConfig = {
-      storage: true
+      storage: true,
+      immediate: true
     }
 
     const columnConfig: VxeTablePropTypes.ColumnConfig = {
@@ -48,10 +61,17 @@ export default Vue.extend({
       resizable: true
     }
 
+    const columnDragConfig: VxeTablePropTypes.ColumnDragConfig = {
+      isPeerDrag: true,
+      isCrossDrag: true,
+      isToChildDrag: true
+    }
+
     return {
       tableData,
       customConfig,
-      columnConfig
+      columnConfig,
+      columnDragConfig
     }
   },
   mounted () {

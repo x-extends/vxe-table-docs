@@ -11,5 +11,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/custom/storage/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          分组列头，支持任意跨层级拖拽后的保存状态
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

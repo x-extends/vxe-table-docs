@@ -7,12 +7,23 @@
       ref="tableRef"
       :custom-config="customConfig"
       :column-config="columnConfig"
+      :column-drag-config="columnDragConfig"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="90"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="role"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-colgroup field="group1" title="分组1">
+        <vxe-column field="nickname" title="Nickname"></vxe-column>
+        <vxe-column field="role" title="role"></vxe-column>
+      </vxe-colgroup>
+      <vxe-colgroup field="group3" title="分组3">
+        <vxe-column field="sex" title="Sex"></vxe-column>
+        <vxe-column field="attr1" title="Attr1"></vxe-column>
+        <vxe-colgroup field="group4" title="分组4">
+          <vxe-column field="age" title="Age"></vxe-column>
+          <vxe-column field="attr4" title="Attr4"></vxe-column>
+          <vxe-column field="attr8" title="Attr8"></vxe-column>
+        </vxe-colgroup>
+      </vxe-colgroup>
       <vxe-column field="address" title="address"></vxe-column>
     </vxe-table>
   </div>
@@ -20,7 +31,8 @@
 
 <script lang="ts" setup>
 import { onMounted, ref, reactive } from 'vue'
-import type { VxeTablePropTypes, VxeToolbarInstance, VxeTableInstance } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
+import { VxeTablePropTypes, VxeToolbarInstance, VxeTableInstance, VxeTableDefines } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -41,13 +53,38 @@ const tableData = ref<RowVO[]>([
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
 
+// 模拟保存接口
+const saveCustomSetting = (storeData: VxeTableDefines.CustomStoreData) => {
+  return new Promise<void>(resolve => {
+    setTimeout(() => {
+      console.log(storeData)
+      VxeUI.modal.message({
+        status: 'success',
+        content: '保存成功'
+      })
+      resolve()
+    }, 200)
+  })
+}
+
 const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
-  storage: true
+  storage: true,
+  immediate: true,
+  updateStore ({ storeData }) {
+    // 模拟异步，实现服务端保存
+    return saveCustomSetting(storeData)
+  }
 })
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
   drag: true,
   resizable: true
+})
+
+const columnDragConfig = reactive<VxeTablePropTypes.ColumnDragConfig>({
+  isPeerDrag: true,
+  isCrossDrag: true,
+  isToChildDrag: true
 })
 
 onMounted(() => {

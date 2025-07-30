@@ -7,7 +7,7 @@
       :column-config="columnConfig"
       :custom-config="customConfig"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import { onMounted, ref, reactive } from 'vue'
 import { VxeUI } from 'vxe-pc-ui'
-import type { VxeTablePropTypes, VxeTableDefines, VxeToolbarInstance, VxeTableInstance } from 'vxe-table'
+import { VxeTablePropTypes, VxeTableDefines, VxeToolbarInstance, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
