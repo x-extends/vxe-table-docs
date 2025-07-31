@@ -34,6 +34,7 @@ export default defineConfig(({ mode, command }) => {
       extensions: ['.js', '.vue', '.json', '.ts', '.tsx']
     },
     server: {
+      host: '0.0.0.0',
       port: Number(env.VITE_APP_SERVER_PORT)
     },
     build: {
