@@ -10,7 +10,7 @@ export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_')
   const now = Date.now()
   return {
-    base: `/v${env.VITE_APP_VXE_VERSION}/`,
+    base: env.VITE_APP_BASE_PATH,
     define: {
       'import.meta.env.VITE_APP_DATE_NOW': now
     },
@@ -34,18 +34,7 @@ export default defineConfig(({ mode, command }) => {
       extensions: ['.js', '.vue', '.json', '.ts', '.tsx']
     },
     server: {
-      port: 8184,
-      proxy: {
-        '/example/': {
-          target: 'https://vxeui.com'
-        },
-        '/component-api/': {
-          target: 'https://vxeui.com'
-        },
-        '/resource/': {
-          target: 'https://vxeui.com'
-        }
-      }
+      port: Number(env.VITE_APP_SERVER_PORT)
     },
     build: {
       sourcemap: command === 'build' ? false : 'inline',
