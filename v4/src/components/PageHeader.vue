@@ -2,7 +2,7 @@
   <div class="page-header">
     <div class="header-left">
       <a class="logo" :href="siteBaseUrl">
-        <img src="/logo.png">
+        <img :src="`${siteBaseUrl}/logo.png`">
         <span class="title">{{ pageTitle }}</span>
       </a>
       <a :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
@@ -120,8 +120,8 @@ const pluginAppList = ref<{
 const showSystemMenu = ref(false)
 const systemMenuList = ref<any[]>()
 
-const prevSysVersion = ref(process.env.VUE_APP_VXE_VERSION)
-const currSysVersion = ref(process.env.VUE_APP_VXE_VERSION)
+const prevSysVersion = ref(import.meta.env.VITE_APP_VXE_VERSION)
+const currSysVersion = ref(import.meta.env.VITE_APP_VXE_VERSION)
 const systemVersionList = ref<any[]>([])
 const pluginUrlMaps = ref<Record<string, string>>({})
 
@@ -199,7 +199,7 @@ const giteeUrl = computed(() => {
 const sysVersionOptions = computed(() => {
   return systemVersionList.value.map(item => {
     return {
-      label: i18n.global.t(`app.version.${process.env.VUE_APP_PACKAGE_NAME}.v${(item.i18nKey || item.version).replace('.', 'd')}`),
+      label: i18n.global.t(`app.version.${import.meta.env.VITE_APP_PACKAGE_NAME}.v${(item.i18nKey || item.version).replace('.', 'd')}`),
       value: item.version,
       disabled: !!item.isDisabled,
       className: item.isStop ? 'due-to-stop' : (item.isAbandoned ? 'about-to-stop' : '')
@@ -240,19 +240,19 @@ const openPluginEvent = () => {
   appStore.readAuthMsgFlagVisible()
 }
 
-fetch(`${siteBaseUrl.value}/component-api/language-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+fetch(`${siteBaseUrl.value}/component-api/language-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     langOptions.value = data
   })
 })
 
-fetch(`${siteBaseUrl.value}/component-api/system-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+fetch(`${siteBaseUrl.value}/component-api/system-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     systemMenuList.value = data
   })
 })
 
-fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     pluginAppList.value = data.map(item => {
       item.label = i18n.global.t(`shopping.apps.${item.code}`)
@@ -263,24 +263,24 @@ fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${proces
 })
 
 if (isPluginDocs.value) {
-  fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+  fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       pluginUrlMaps.value = data
     })
   })
-  fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+  fetch(`${siteBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-plugin-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       systemVersionList.value = data
     })
   })
 } else if (isExtendDocs.value) {
-  fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-extend-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+  fetch(`${siteBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-extend-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       systemVersionList.value = data
     })
   })
 } else {
-  fetch(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+  fetch(`${siteBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       systemVersionList.value = data
     })

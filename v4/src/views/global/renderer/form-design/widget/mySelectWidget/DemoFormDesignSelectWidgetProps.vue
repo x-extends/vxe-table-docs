@@ -1,45 +1,47 @@
 <template>
-  <vxe-form
-    vertical
-    title-bold
-    title-overflow
-    span="24"
-    :data="currWidget.options">
-    <vxe-form-item title="控件名称">
-      <vxe-input v-model="currWidget.title"></vxe-input>
-    </vxe-form-item>
-    <vxe-form-item title="是否必填">
-      <vxe-switch v-model="currWidget.required"></vxe-switch>
-    </vxe-form-item>
-    <vxe-form-item title="空值占位提示">
-      <vxe-input v-model="currWidget.options.placeholder"></vxe-input>
-    </vxe-form-item>
-    <vxe-form-item title="显示清除按钮">
-      <vxe-switch v-model="currWidget.options.clearable"></vxe-switch>
-    </vxe-form-item>
-    <vxe-form-item title="允许多选">
-      <vxe-switch v-model="currWidget.options.multiple"></vxe-switch>
-    </vxe-form-item>
-    <vxe-form-item title="允许搜索">
-      <vxe-switch v-model="currWidget.options.filterable"></vxe-switch>
-    </vxe-form-item>
-    <vxe-form-item title="数据源">
-      <vxe-button mode="text" status="primary" icon="vxe-icon-edit" @click="editEvent">编辑数据</vxe-button>
-    </vxe-form-item>
-  </vxe-form>
+  <div>
+    <vxe-form
+      vertical
+      title-bold
+      title-overflow
+      span="24"
+      :data="currWidget.options">
+      <vxe-form-item title="控件名称">
+        <vxe-input v-model="currWidget.title"></vxe-input>
+      </vxe-form-item>
+      <vxe-form-item title="是否必填">
+        <vxe-switch v-model="currWidget.required"></vxe-switch>
+      </vxe-form-item>
+      <vxe-form-item title="空值占位提示">
+        <vxe-input v-model="currWidget.options.placeholder"></vxe-input>
+      </vxe-form-item>
+      <vxe-form-item title="显示清除按钮">
+        <vxe-switch v-model="currWidget.options.clearable"></vxe-switch>
+      </vxe-form-item>
+      <vxe-form-item title="允许多选">
+        <vxe-switch v-model="currWidget.options.multiple"></vxe-switch>
+      </vxe-form-item>
+      <vxe-form-item title="允许搜索">
+        <vxe-switch v-model="currWidget.options.filterable"></vxe-switch>
+      </vxe-form-item>
+      <vxe-form-item title="数据源">
+        <vxe-button mode="text" status="primary" icon="vxe-icon-edit" @click="editEvent">编辑数据</vxe-button>
+      </vxe-form-item>
+    </vxe-form>
 
-  <vxe-modal v-model="showEditOptions" v-bind="modalOptions" @confirm="confirmEvent">
-    <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #toolbarButtons>
-        <vxe-button status="primary" icon="vxe-icon-add" @click="addEvent">新增</vxe-button>
-        <vxe-button status="error" icon="vxe-icon-delete-fill" @click="clearEvent">清除</vxe-button>
-      </template>
+    <vxe-modal v-model="showEditOptions" v-bind="modalOptions" @confirm="confirmEvent">
+      <vxe-grid ref="gridRef" v-bind="gridOptions">
+        <template #toolbarButtons>
+          <vxe-button status="primary" icon="vxe-icon-add" @click="addEvent">新增</vxe-button>
+          <vxe-button status="error" icon="vxe-icon-delete-fill" @click="clearEvent">清除</vxe-button>
+        </template>
 
-      <template #action="{ row }">
-        <vxe-button mode="text" icon="vxe-icon-delete" status="error" @click="removeRow(row)"></vxe-button>
-      </template>
-    </vxe-grid>
-  </vxe-modal>
+        <template #action="{ row }">
+          <vxe-button mode="text" icon="vxe-icon-delete" status="error" @click="removeRow(row)"></vxe-button>
+        </template>
+      </vxe-grid>
+    </vxe-modal>
+  </div>
 </template>
 
 <script lang="ts" setup>

@@ -128,6 +128,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, defineAsyncComponent, PropType } from 'vue'
+import { demoModules } from '@/common/modules'
 import { codeCacheMaps } from '@/common/cache'
 import { useAppStore } from '@/store/app'
 import { VxeUI } from 'vxe-pc-ui'
@@ -177,10 +178,10 @@ const importOptionTsCodes = ref<ImportItemVO[]>([])
 const importSetupJsCodes = ref<ImportItemVO[]>([])
 const importSetupTsCodes = ref<ImportItemVO[]>([])
 
-const DemoCode = props.path ? defineAsyncComponent(() => import(`@/views/${props.path}`)) : null
+const DemoCode = props.path ? defineAsyncComponent(demoModules[`/src/views/${props.path}.vue`]) : null
 
 const gitDir = computed(() => {
-  return `${process.env.VUE_APP_DOCS_GITHUB_URL}/src/views/${compDir.value}`
+  return `${import.meta.env.VITE_APP_DOCS_GITHUB_URL}/src/views/${compDir.value}`
 })
 
 const compDir = computed(() => {
@@ -230,7 +231,7 @@ const parseTsFilePath = (path: string) => {
 
 const getExampleText = (url: string) => {
   if (!codeCacheMaps[url]) {
-    codeCacheMaps[url] = fetch(`${url}?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+    codeCacheMaps[url] = fetch(`${url}?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(response => {
       if (response.status >= 200 && response.status < 400) {
         return response.text()
       } else {
@@ -246,7 +247,7 @@ const loadOptionJsCode = () => {
   const compPath = props.path
   if (compPath) {
     optionJsLoading.value = true
-    const exampleBaeUrl = `${siteBaseUrl.value}${process.env.BASE_URL.replace('4', '3')}`
+    const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL.replace('4', '3')}`
     Promise.all([
       getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
       ...(props.extraImports?.map(impPath => {
@@ -278,7 +279,7 @@ const loadOptionTsCode = () => {
   const compPath = props.path
   if (compPath) {
     optionTsLoading.value = true
-    const exampleBaeUrl = `${siteBaseUrl.value}${process.env.BASE_URL.replace('4', '3')}`
+    const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL.replace('4', '3')}`
     Promise.all([
       getExampleText(`${exampleBaeUrl}example/ts/${compPath}.vue`),
       ...(props.extraImports?.map(impPath => {
@@ -310,12 +311,12 @@ const loadSetupJsCode = () => {
   const compPath = props.path
   if (compPath) {
     setupJsLoading.value = true
-    const exampleBaeUrl = `${siteBaseUrl.value}${process.env.BASE_URL}`
+    const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL}`
     Promise.all([
       getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
       ...(props.extraImports?.map(impPath => {
         const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
-        return getExampleText(`${exampleBaeUrl}example/js/${filePath}.${fileType}?v=${process.env.VUE_APP_DATE_NOW}`).then(text => {
+        return getExampleText(`${exampleBaeUrl}example/js/${filePath}.${fileType}?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(text => {
           return {
             path: `${filePath}.${fileType}`,
             name: getFileName(`${filePath}.${fileType}`),
@@ -342,7 +343,7 @@ const loadSetupTsCode = () => {
   const compPath = props.path
   if (compPath) {
     setupTsLoading.value = true
-    const exampleBaeUrl = `${siteBaseUrl.value}${process.env.BASE_URL}`
+    const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL}`
     Promise.all([
       getExampleText(`${exampleBaeUrl}example/ts/${compPath}.vue`),
       ...(props.extraImports?.map(impPath => {
@@ -423,7 +424,7 @@ const toggleItemExpand = (item: ImportItemVO) => {
 }
 
 const openDocs = () => {
-  open(`${process.env.VUE_APP_DOCS_GITHUB_URL}/src/views/${props.path}.vue`)
+  open(`${import.meta.env.VITE_APP_DOCS_GITHUB_URL}/src/views/${props.path}.vue`)
 }
 </script>
 

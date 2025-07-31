@@ -31,7 +31,7 @@ const supportOptions = ref<{
   price: number
 }[]>([])
 
-axios.get(`${siteBaseUrl.value}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-sponsor-config.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+axios.get(`${siteBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-sponsor-config.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   supportOptions.value = res.data ? res.data.sponsors : []
 })
 </script>

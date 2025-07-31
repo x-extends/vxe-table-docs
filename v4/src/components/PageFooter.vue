@@ -2,7 +2,7 @@
   <div class="page-footer">
     <VxeLink href="http://beian.miit.gov.cn/" target="_blank" content="粤ICP备2022010374号-2">
       <template #icon>
-        <img src="/badge.png" style="height: 14px;padding-bottom: 0.2em;">
+        <img :src="`${siteBaseUrl}/badge.png`" style="height: 14px;padding-bottom: 0.2em;">
       </template>
     </VxeLink>
     <span style="margin-left: 20px;">

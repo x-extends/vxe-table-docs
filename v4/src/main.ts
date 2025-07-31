@@ -93,7 +93,7 @@ import DemoUserSelectPulldown from '@/views/table/editTemplate/vxe-pulldown/Demo
 import DemoRoleSelectPulldown from '@/views/table/editTemplate/vxe-pulldown/DemoRoleSelectPulldown.vue'
 
 declare global {
-  interface Window {
+  export interface Window {
     XEUtils: typeof XEUtils;
     hljs: any
   }
@@ -101,7 +101,7 @@ declare global {
 
 window.XEUtils = XEUtils
 
-axios.defaults.baseURL = process.env.VUE_APP_SERVE_API_URL
+axios.defaults.baseURL = import.meta.env.VITE_APP_SERVE_API_URL
 
 // VxeUI.setI18n('zh-CN', zhCN)
 VxeUI.setI18n('zh-CHT', zhCHT)
@@ -151,7 +151,7 @@ app.use(i18n)
 
 app.config.globalProperties.$t = i18n.global.t
 
-axios.get(`${process.env.VUE_APP_SITE_BASE_URL}/i18n/${i18n.global.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+axios.get(`${import.meta.env.VITE_APP_SITE_BASE_URL}/i18n/${i18n.global.locale}.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   i18n.global.setLocaleMessage(i18n.global.locale, res.data)
 }).catch(e => e).then(() => {
   app.mount('#app')

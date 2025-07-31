@@ -59,19 +59,19 @@ export const useAppStore = defineStore('app', {
   state () {
     return {
       pageLoading: false,
-      pageTitle: process.env.VUE_APP_PAGE_TITLE,
-      packName: process.env.VUE_APP_PACKAGE_NAME,
-      isExtendDocs: process.env.VUE_APP_IS_EXTEND_DOCS === 'true',
-      isPluginDocs: process.env.VUE_APP_IS_PLUGIN_DOCS === 'true',
+      pageTitle: import.meta.env.VITE_APP_PAGE_TITLE,
+      packName: import.meta.env.VITE_APP_PACKAGE_NAME,
+      isExtendDocs: import.meta.env.VITE_APP_IS_EXTEND_DOCS === 'true',
+      isPluginDocs: import.meta.env.VITE_APP_IS_PLUGIN_DOCS === 'true',
       theme: currTheme,
       primaryColor: currPrimaryColor,
       componentsSize: currComponentsSize,
       docsVersion: '4',
       serveTY: new Date().getFullYear(),
       language: currLanguage,
-      siteBaseUrl: process.env.VUE_APP_SITE_BASE_URL,
-      pluginBuyUrl: process.env.VUE_APP_PLUGIN_BUY_URL,
-      pluginDocsUrl: process.env.VUE_APP_PLUGIN_DOCS_URL,
+      siteBaseUrl: import.meta.env.VITE_APP_SITE_BASE_URL,
+      pluginBuyUrl: import.meta.env.VITE_APP_PLUGIN_BUY_URL,
+      pluginDocsUrl: import.meta.env.VITE_APP_PLUGIN_DOCS_URL,
       compApiMaps: null as any,
       showAuthMsgFlag: localStorage.getItem('SHOW_AUTH_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
       showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
@@ -137,7 +137,7 @@ export const useAppStore = defineStore('app', {
       } else {
         if (!i18nPromise[language]) {
           this.pageLoading = true
-          i18nPromise[language] = axios.get(`${this.siteBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
+          i18nPromise[language] = axios.get(`${this.siteBaseUrl}/i18n/${language}.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then((res) => {
             i18n.global.setLocaleMessage(language, res.data)
             this.language = language || 'zh-CN'
             VxeUI.setLanguage(language)
@@ -154,7 +154,7 @@ export const useAppStore = defineStore('app', {
     },
     getComponentI18nJSON () {
       if (!apiLangPromise[this.language]) {
-        apiLangPromise[this.language] = axios.get(`${this.siteBaseUrl}/component-api/i18n/${this.language}.json?v=${this.systemConfig.i18nVersion || process.env.VUE_APP_DATE_NOW}`).then((res) => {
+        apiLangPromise[this.language] = axios.get(`${this.siteBaseUrl}/component-api/i18n/${this.language}.json?v=${this.systemConfig.i18nVersion || import.meta.env.VITE_APP_DATE_NOW}`).then((res) => {
           i18n.global.mergeLocaleMessage(this.language, res.data)
         }).catch(() => {
           apiLangPromise[this.language] = null
@@ -164,7 +164,7 @@ export const useAppStore = defineStore('app', {
     },
     updateComponentApiJSON () {
       if (!simplifyaApiPromise) {
-        simplifyaApiPromise = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+        simplifyaApiPromise = fetch(`${this.siteBaseUrl}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-v${import.meta.env.VITE_APP_VXE_VERSION}/apiKeys.json?v=?v=${this.systemConfig[`v${import.meta.env.VITE_APP_VXE_VERSION}Version`] || import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
               const compApiMaps: Record<string, any[]> = {}
@@ -182,7 +182,7 @@ export const useAppStore = defineStore('app', {
     },
     updateAllComponentApiJSON () {
       if (!fullApiPromise) {
-        fullApiPromise = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiMaps.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+        fullApiPromise = fetch(`${this.siteBaseUrl}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-v${import.meta.env.VITE_APP_VXE_VERSION}/apiMaps.json?v=?v=${this.systemConfig[`v${import.meta.env.VITE_APP_VXE_VERSION}Version`] || import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
               this.compApiMaps = Object.assign({}, this.compApiMaps, data)
@@ -196,7 +196,7 @@ export const useAppStore = defineStore('app', {
     },
     getComponentApiConf (apiName: string) {
       if (!apiMapPromise[apiName]) {
-        apiMapPromise[apiName] = fetch(`${this.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${this.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`)
+        apiMapPromise[apiName] = fetch(`${this.siteBaseUrl}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-v${import.meta.env.VITE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${this.systemConfig[`v${import.meta.env.VITE_APP_VXE_VERSION}Version`] || import.meta.env.VITE_APP_DATE_NOW}`)
           .then(res => res.json())
           .catch(() => {
             apiMapPromise[apiName] = null
@@ -207,7 +207,7 @@ export const useAppStore = defineStore('app', {
     },
     getPluginAppList () {
       if (!pluginAppPromise) {
-        pluginAppPromise = fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        pluginAppPromise = fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
           res.json().then(data => {
             this.pluginAppList = data.map(item => {
               item.label = i18n.global.t(`shopping.apps.${item.code}`)

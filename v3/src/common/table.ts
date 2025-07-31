@@ -192,8 +192,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '按多字段分组', routerLink: { name: 'ComponentTableRowGroupGroupFields' } },
             { title: '显示分组统计', routerLink: { name: 'ComponentTableRowGroupTotal' } },
             { title: '手动操作', routerLink: { name: 'ComponentTableRowGroupHandleSet' } },
-            { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Faggregation%2FrowGroupSummary' } } },
-            { title: '拖拽与数据汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_drag_values' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Fcustom%2FaggDragValues' } } }
+            { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Faggregation%2FrowGroupSummary' } } }
           ]
         },
         {
@@ -858,8 +857,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '展示方式', routerLink: { name: 'ComponentGridRowGroupGroupMode' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRowGroupTrigger' } },
             { title: '手动操作', routerLink: { name: 'ComponentGridRowGroupHandleSet' } },
-            { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Faggregation%2FrowGroupSummary' } } },
-            { title: '拖拽与数据汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_drag_values' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2FaggDragValues' } } }
+            { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Faggregation%2FrowGroupSummary' } } }
           ]
         },
         {
