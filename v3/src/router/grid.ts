@@ -1973,6 +1973,16 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/template/layout/CodeExample.vue')
         },
         {
+          path: 'form',
+          name: 'ComponentGridTemplateForm',
+          component: () => import('@/views/grid/template/form/CodeExample.vue')
+        },
+        {
+          path: 'pager',
+          name: 'ComponentGridTemplatePager',
+          component: () => import('@/views/grid/template/pager/CodeExample.vue')
+        },
+        {
           path: 'default',
           name: 'ComponentGridTemplateDefault',
           component: () => import('@/views/grid/template/default/CodeExample.vue')

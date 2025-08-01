@@ -1193,6 +1193,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '自定义插槽模板',
           children: [
             { title: '自定义布局模板', routerLink: { name: 'ComponentGridTemplateLayout' } },
+            { title: '自定义表单模板', routerLink: { name: 'ComponentGridTemplateForm' } },
+            { title: '自定义分页模板', routerLink: { name: 'ComponentGridTemplatePager' } },
             { title: '自定义单元格模板', routerLink: { name: 'ComponentGridTemplateDefault' } },
             { title: '自定义表头模板', routerLink: { name: 'ComponentGridTemplateHeader' } },
             { title: '自定义表尾模板', routerLink: { name: 'ComponentGridTemplateFooter' } },
