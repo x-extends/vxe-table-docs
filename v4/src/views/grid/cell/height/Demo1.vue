@@ -20,6 +20,7 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
+  showOverflow: true,
   cellConfig: {
     height: 80
   },
