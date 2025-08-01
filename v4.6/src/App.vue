@@ -2,8 +2,8 @@
   <div class="app-container" @click="clickEvent">
     <header class="page-header">
       <div class="left">
-        <a :href="baseApiUrl">
-          <img :src="`${baseApiUrl}logo.png`" width="18">
+        <a :href="siteBaseUrl">
+          <img :src="`${siteBaseUrl}/logo.png`" width="18">
           <span class="title">Vxe Table</span>
         </a>
         <a href='https://gitee.com/x-extends/vxe-table/stargazers'>
@@ -137,6 +137,7 @@ import VXETable from 'vxe-table'
 
 const appStore = useAppStore()
 const serveTY = computed(() => appStore.serveTY)
+const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const baseApiUrl = computed(() => appStore.baseApiUrl)
 const pluginDocsUrl = computed(() => appStore.pluginDocsUrl)
 // const pluginApiUrl = computed(() => appStore.pluginApiUrl)
@@ -153,7 +154,7 @@ const appData = reactive({
   showLeft: true,
   selected: null,
   filterName: '',
-  compVersion: process.env.VUE_APP_VXE_VERSION,
+  compVersion: import.meta.env.VITE_APP_VXE_VERSION,
   docsVersion: '4',
   apiList: [] as any[],
   tableData: [] as any[],
@@ -2543,20 +2544,20 @@ watch(() => router.currentRoute.value, () => {
   document.querySelector('.body .content')?.scrollTo(0, 0)
 })
 
-fetch(`https://vxeui.com/component-api/system-list.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+fetch(`https://vxeui.com/component-api/system-list.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     systemMenuList.value = data
   })
 })
 
-fetch(`https://vxeui.com/component-api/vxe-table-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+fetch(`https://vxeui.com/component-api/vxe-table-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     systemVersionList.value = data
   })
 })
 
 nextTick(() => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.NODE_ENV === 'development') {
     setInterval(() => {
       const performance: any = window.performance
       if (performance && performance.memory) {
@@ -2579,7 +2580,7 @@ nextTick(() => {
   }
   init()
 
-  if (process.env.NODE_ENV !== 'development') {
+  if (import.meta.env.NODE_ENV !== 'development') {
     if (!localStorage.getItem('READ_VERSION_UPGRADE_4d6')) {
       VXETable.modal.alert({
         title: '重要公告：v4.0.x ~ v4.6.x 停止维护',

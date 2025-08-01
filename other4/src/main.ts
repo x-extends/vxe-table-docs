@@ -22,18 +22,18 @@ import 'element-plus/dist/index.css'
 import VxeUITable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 
-import VxeUI from 'vxe-pc-ui'
+import VxeUIAll from 'vxe-pc-ui'
 import 'vxe-pc-ui/lib/style.css'
 
 const app = createApp(App)
 
-app.component(PreCode.name, PreCode)
+app.component('PreCode', PreCode)
 app.component('CodeLight', CodeLight)
 app.component('CodeRender', CodeRender)
 app.component('CodeList', CodeList)
-app.component(DemoBlock.name, DemoBlock)
+app.component('DemoBlock', DemoBlock)
 
-app.use(VxeUI)
+app.use(VxeUIAll)
 app.use(VxeUITable)
 app.use(Antd)
 app.use(ElementPlus)

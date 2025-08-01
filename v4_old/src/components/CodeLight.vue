@@ -62,6 +62,7 @@
 <script lang="ts" setup>
 import { ref, computed, defineAsyncComponent, PropType } from 'vue'
 import { codeJsMaps, codeTsMaps } from '@/common/cache'
+import { demoModules } from '@/common/modules'
 import { VXETable } from 'vxe-table'
 
 const props = defineProps({
@@ -93,7 +94,7 @@ const importJsCodes = ref<{
   text: string
 }[]>([])
 
-const DemoCode = defineAsyncComponent(() => import(`@/views/${props.path}`))
+const DemoCode = props.path ? defineAsyncComponent(demoModules[`/src/views/${props.path}.vue`]) : null
 
 const compDir = computed(() => {
   const paths = props.path?.split('/') || []
@@ -113,14 +114,14 @@ const loadJsCode = () => {
     } else {
       jsLoading.value = true
       Promise.all([
-        fetch(`${process.env.BASE_URL}example/js/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+        fetch(`${import.meta.env.BASE_URL}example/js/${compPath}.vue?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(response => {
           if (response.status >= 200 && response.status < 400) {
             return response.text()
           }
           return '暂无示例'
         }),
         ...(props.extraImports?.map(impPath => {
-          return fetch(`${process.env.BASE_URL}example/js/${impPath}.js?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+          return fetch(`${import.meta.env.BASE_URL}example/js/${impPath}.js?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(response => {
             if (response.status >= 200 && response.status < 400) {
               return response.text().then(text => {
                 return {
@@ -161,14 +162,14 @@ const loadTsCode = () => {
     } else {
       tsLoading.value = true
       Promise.all([
-        fetch(`${process.env.BASE_URL}example/ts/${compPath}.vue?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+        fetch(`${import.meta.env.BASE_URL}example/ts/${compPath}.vue?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(response => {
           if (response.status >= 200 && response.status < 400) {
             return response.text()
           }
           return '暂无示例'
         }),
         ...(props.extraImports?.map(impPath => {
-          return fetch(`${process.env.BASE_URL}example/ts/${impPath}.ts?v=${process.env.VUE_APP_DATE_NOW}`).then(response => {
+          return fetch(`${import.meta.env.BASE_URL}example/ts/${impPath}.ts?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(response => {
             if (response.status >= 200 && response.status < 400) {
               return response.text().then(text => {
                 return {

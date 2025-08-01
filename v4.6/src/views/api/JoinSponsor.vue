@@ -5,7 +5,7 @@
       <div class="sponsor-title">* 赞助（1000元/30天，1800元/60天）</div>
       <div class="sponsor-desc">所有页面的右侧展示位（图片尺寸200*100）</div>
       <div class="sponsor-img">
-        <img src="/static/sponsor/right.png" style="max-width: 800px;">
+        <img :src="`${siteBaseUrl}static/sponsor/right.png`" style="max-width: 800px;">
       </div>
     </div>
   </div>
@@ -18,12 +18,14 @@ import { useAppStore } from '@/store/app'
 export default defineComponent({
   setup () {
     const appStore = useAppStore()
+    const siteBaseUrl = computed(() => appStore.siteBaseUrl)
     const baseApiUrl = computed(() => appStore.baseApiUrl)
     const pluginApiUrl = computed(() => appStore.pluginApiUrl)
     const showSupportQQ = computed(() => appStore.showSupportQQ)
 
     const supportAuthor = ref('1')
     return {
+      siteBaseUrl,
       baseApiUrl,
       pluginApiUrl,
       showSupportQQ,

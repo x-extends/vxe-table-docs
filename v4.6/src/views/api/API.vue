@@ -81,7 +81,7 @@ declare global {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (import.meta.env.NODE_ENV === 'development') {
   const attributes = window.attributes = {}
   const tags = window.tags = {}
 
@@ -345,14 +345,14 @@ export default defineComponent({
             $grid.exportData({
               type: 'html',
               data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
-              filename: `vxe-${apiName.value}_v${process.env.VUE_APP_VXE_VERSION}`
+              filename: `vxe-${apiName.value}_v${import.meta.env.VITE_APP_VXE_VERSION}`
             })
             break
           case 'exportXLSXAPI':
             $grid.exportData({
               type: 'xlsx',
               data: XEUtils.toTreeArray(apiData.tableData, { children: 'list' }),
-              filename: `vxe-${apiName.value}_v${process.env.VUE_APP_VXE_VERSION}`
+              filename: `vxe-${apiName.value}_v${import.meta.env.VITE_APP_VXE_VERSION}`
             })
             break
           case 'copy':
@@ -372,7 +372,7 @@ export default defineComponent({
             break
           case 'exportAPI':
             $grid.exportData({
-              filename: `vxe-${apiName.value}_v${process.env.VUE_APP_VXE_VERSION}.csv`
+              filename: `vxe-${apiName.value}_v${import.meta.env.VITE_APP_VXE_VERSION}.csv`
             })
             break
           case 'allExpand':

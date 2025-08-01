@@ -2,8 +2,8 @@
   <div class="app-container" @click="clickEvent">
     <header class="page-header">
       <div class="left">
-        <a :href="baseApiUrl">
-          <img :src="`${baseApiUrl}logo.png`" width="18">
+        <a :href="siteBaseUrl">
+          <img :src="`${siteBaseUrl}/logo.png`" width="18">
           <span class="title">vxe-table</span>
         </a>
         <a href='https://gitee.com/x-extends/vxe-table/stargazers'>
@@ -120,6 +120,7 @@ import VXETable from 'vxe-table'
 const appStore = useAppStore()
 const serveTY = computed(() => appStore.serveTY)
 const docsVersion = computed(() => appStore.docsVersion)
+const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const baseApiUrl = computed(() => appStore.baseApiUrl)
 const pluginApiUrl = computed(() => appStore.pluginApiUrl)
 const serveApiUrl = computed(() => appStore.serveApiUrl)
@@ -565,7 +566,7 @@ watch(pageKey, () => {
 })
 
 nextTick(() => {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.NODE_ENV === 'development') {
     setInterval(() => {
       const performance: any = window.performance
       if (performance && performance.memory) {
@@ -587,7 +588,7 @@ nextTick(() => {
   }
   init()
 
-  if (process.env.NODE_ENV !== 'development') {
+  if (import.meta.env.NODE_ENV !== 'development') {
     if (!localStorage.getItem('READ_VERSION_UPGRADE_4d6')) {
       VXETable.modal.alert({
         title: '重要公告：v4.0.x ~ v4.6.x 停止维护',

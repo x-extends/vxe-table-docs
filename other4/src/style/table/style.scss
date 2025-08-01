@@ -1,6 +1,6 @@
-@import 'vxe-table/styles/variable.scss';
-@import './variable.scss';
-@import 'vxe-table/styles/modules.scss';
+@use 'vxe-table/styles/variable.scss' as vxe_variable;
+@use './variable.scss' as variable;
+@use 'vxe-table/styles/modules.scss';
 
 // @import './table/renderer/default.scss';
 // @import './table/renderer/edit.scss';

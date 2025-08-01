@@ -14,9 +14,10 @@ export const useAppStore = defineStore('app', {
     return {
       theme: currTheme,
       serveTY: new Date().getFullYear(),
-      baseApiUrl: process.env.VUE_APP_MAIN_URL,
-      pluginDocsUrl: `${process.env.VUE_APP_MAIN_URL}pluginDocs/table/`,
-      pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
+      siteBaseUrl: import.meta.env.VITE_APP_SITE_BASE_URL,
+      baseApiUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/`,
+      pluginDocsUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/pluginDocs/table/`,
+      pluginApiUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/plugins/`,
       serveApiUrl: 'https://api.vxetable.cn/demo',
       showSupportQQ: false
     }

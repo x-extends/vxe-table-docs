@@ -1,5 +1,5 @@
-@import '../variable.scss';
+@use '../variable.scss' as variable;
 
 // 修改样式变量
 $vxe-font-color: #606266;
-$vxe-primary-color: $themeColor;
+$vxe-primary-color: variable.$themeColor;

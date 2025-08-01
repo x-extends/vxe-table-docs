@@ -1,10 +1,10 @@
-const fs = require('fs')
-const path = require('path')
-const gulp = require('gulp')
-const replace = require('gulp-replace')
-const rename = require('gulp-rename')
-const ts = require('gulp-typescript')
-const del = require('del')
+import fs from 'fs'
+import path from 'path'
+import gulp from 'gulp'
+import replace from 'gulp-replace'
+import rename from 'gulp-rename'
+import ts from 'gulp-typescript'
+import del from 'del'
 
 const cacheTsxMaps = {}
 
@@ -38,7 +38,7 @@ gulp.task('handle_vue_tmpltojs', () => {
       resolveJsonModule: true,
       allowSyntheticDefaultImports: true,
       noImplicitAny: false,
-      sourceMap: true,
+      sourceMap: false,
       lib: [
         'esnext',
         'dom',
@@ -76,7 +76,7 @@ gulp.task('handle_vue_tstojs', gulp.series('handle_vue_tmpltojs', () => {
     .pipe(gulp.dest('dist/example/js'))
 }))
 
-gulp.task('handle_tstojs', () => {
+gulp.task('handle_tstojs', gulp.series('handle_vue_tstojs', () => {
   return gulp.src([
     'src/**/*.d.ts',
     'src/views/**/demo*.ts',
@@ -94,7 +94,7 @@ gulp.task('handle_tstojs', () => {
       resolveJsonModule: true,
       allowSyntheticDefaultImports: true,
       noImplicitAny: false,
-      sourceMap: true,
+      sourceMap: false,
       lib: [
         'esnext',
         'dom',
@@ -103,9 +103,9 @@ gulp.task('handle_tstojs', () => {
       ]
     }))
     .pipe(gulp.dest('dist/example/js'))
-})
+}))
 
-gulp.task('build_vue_tstojs', gulp.series('handle_vue_tstojs', 'handle_tstojs', () => {
+gulp.task('build_vue_tstojs', gulp.series('handle_tstojs', () => {
   return del([
     'temp'
   ])
