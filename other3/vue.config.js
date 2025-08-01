@@ -1,12 +1,11 @@
-let publicPath = '/'
-if (process.env.NODE_ENV === 'production') {
-  publicPath = `/other${process.env.VUE_APP_VXE_VERSION}/`
-  process.env.VUE_APP_CDN_URL = '/umd/'
-  process.env.VUE_APP_MAIN_URL = '/'
-}
+const XEUtils = require('xe-utils')
+
+process.env.VUE_APP_PAGE_TITLE = 'Vxe Table'
+process.env.VUE_APP_DATE_NOW = Date.now()
+process.env.VUE_APP_DATE_DATE = XEUtils.toDateString(process.env.VUE_APP_DATE_NOW, 'yyyy-MM-dd HH:mm:ss')
 
 module.exports = {
-  publicPath,
+  publicPath: `/other${process.env.VUE_APP_VXE_VERSION}/`,
   assetsDir: 'static',
   productionSourceMap: false,
   pages: {
