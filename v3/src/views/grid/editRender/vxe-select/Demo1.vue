@@ -32,7 +32,8 @@ export default Vue.extend({
     const sexListEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps> = {
       name: 'VxeSelect',
       props: {
-        multiple: true
+        multiple: true,
+        filterable: true
       },
       options: [],
       optionProps: {

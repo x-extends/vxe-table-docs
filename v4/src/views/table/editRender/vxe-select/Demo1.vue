@@ -42,7 +42,8 @@ const sexEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectPro
 const sexListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
   name: 'VxeSelect',
   props: {
-    multiple: true
+    multiple: true,
+    filterable: true
   },
   options: [],
   optionProps: {
