@@ -48,12 +48,17 @@ export default defineConfig(({ mode, command }) => {
         assetsDir: 'static',
         rollupOptions: {
           // 不打包依赖
-          axios: ['axios', 'highlight.js'],
+          axios: ['axios', 'highlight.js', 'jsbarcode', 'qrcode', 'dayjs', 'moment', 'sortablejs'],
           plugins: [
           // 不打包依赖映射的对象
             externalGlobals({
               axios: 'axios',
-              'highlight.js': 'hljs'
+              'highlight.js': 'hljs',
+              jsbarcode: 'JsBarcode',
+              qrcode: 'QRCode',
+              dayjs: 'dayjs',
+              moment: 'moment',
+              sortablejs: 'Sortable'
             })
           ]
         }

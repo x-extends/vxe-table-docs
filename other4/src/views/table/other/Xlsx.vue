@@ -50,7 +50,6 @@
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
 import { VxeGridProps, VxeGridInstance } from 'vxe-table'
-import XLSX from 'xlsx'
 
 export default defineComponent({
   setup () {
@@ -89,8 +88,8 @@ export default defineComponent({
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
         const data = event.target ? event.target.result : ''
-        const workbook = XLSX.read(data, { type: 'binary' })
-        const csvData = XLSX.utils.sheet_to_csv(workbook.Sheets.Sheet1)
+        const workbook = window.XLSX.read(data, { type: 'binary' })
+        const csvData = window.XLSX.utils.sheet_to_csv(workbook.Sheets.Sheet1)
         const tableData: any[] = []
         // 解析数据
         const { columns } = gridOptions1
