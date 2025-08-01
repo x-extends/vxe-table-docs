@@ -24,7 +24,8 @@ export default defineComponent({
     const showSupportQQ = computed(() => appStore.showSupportQQ)
 
     const supportAuthor = ref('1')
-    return {siteBaseUrl,
+    return {
+      siteBaseUrl,
       baseApiUrl,
       pluginApiUrl,
       showSupportQQ,
