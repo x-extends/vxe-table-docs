@@ -14,7 +14,7 @@ module.exports = {
       entry: 'src/main.ts',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'vxe-table v3.0 ~ v3.8 集成第三方'
+      title: 'Vxe Table 扩展插件'
     }
   },
   configureWebpack: {
