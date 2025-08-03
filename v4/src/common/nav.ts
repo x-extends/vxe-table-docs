@@ -1,5 +1,6 @@
 export interface NavVO {
   title?: string
+  describe?: string
   name?: string
   i18nKey?: string
   isAllAPI?: boolean

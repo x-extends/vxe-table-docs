@@ -57,7 +57,7 @@ export default Vue.extend({
 .app-container {
   .layout-content-container {
     position: relative;
-    min-width: 1200px;
+    min-width: 800px;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.12);
   }
   .layout-body {

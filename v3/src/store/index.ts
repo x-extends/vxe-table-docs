@@ -52,10 +52,10 @@ const apiMapPromise: Record<string, Promise<any> | null> = {}
 
 Vue.use(Vuex)
 
-function handleLibVersion (libName: string) {
+function handleLibVersion (libName: string, version?: string) {
   return function (status: any) {
     const uiConf = status.versionConfig[libName]
-    return `${libName}@${(uiConf ? uiConf[`v${status.docsVersion}-latest`] : '') || status.docsVersion}`
+    return `${libName}@${(uiConf ? uiConf[`v${version || status.docsVersion}-latest`] : '') || version || status.docsVersion}`
   }
 }
 
@@ -66,6 +66,7 @@ export default new Vuex.Store({
     packName: process.env.VUE_APP_PACKAGE_NAME,
     isExtendDocs: process.env.VUE_APP_IS_EXTEND_DOCS === 'true',
     isPluginDocs: process.env.VUE_APP_IS_PLUGIN_DOCS === 'true',
+    isUtilDocs: process.env.VUE_APP_IS_UTIL_DOCS === 'true',
     theme: currTheme,
     primaryColor: currPrimaryColor,
     componentsSize: currComponentsSize,
@@ -94,6 +95,7 @@ export default new Vuex.Store({
       }[]
   },
   getters: {
+    utilCDNLib: handleLibVersion('xe-utils', process.env.VUE_APP_UTIL_VERSION),
     vueCDNLib: handleLibVersion('vue'),
     uiCDNLib: handleLibVersion('vxe-pc-ui'),
     tableCDNLib: handleLibVersion('vxe-table'),

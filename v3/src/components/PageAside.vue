@@ -156,6 +156,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapState([
+      'isUtilDocs',
       'compApiMaps'
     ])
   },
@@ -349,7 +350,9 @@ export default Vue.extend({
     this.createNavList()
     this.updateExpand()
 
-    this.updateComponentApiJSON()
+    if (!this.isUtilDocs) {
+      this.updateComponentApiJSON()
+    }
   }
 })
 </script>

@@ -353,7 +353,9 @@ watch(() => i18n.global.locale, () => {
 createNavList()
 updateExpand()
 
-appStore.updateComponentApiJSON()
+if (!appStore.isUtilDocs) {
+  appStore.updateComponentApiJSON()
+}
 </script>
 
 <style lang="scss" scoped>
