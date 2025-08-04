@@ -8,9 +8,20 @@
       :custom-config="customConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="200"></vxe-column>
+      <vxe-column field="role" title="Role" width="180"></vxe-column>
+      <vxe-column field="sex" title="Sex" width="120"></vxe-column>
+      <vxe-column field="age" title="Age" width="120"></vxe-column>
+      <vxe-column field="attr1" title="Attr1" width="100"></vxe-column>
+      <vxe-column field="attr2" title="Attr2" width="140"></vxe-column>
+      <vxe-column field="attr3" title="Attr3" width="120"></vxe-column>
+      <vxe-column field="attr4" title="Attr4" width="160"></vxe-column>
+      <vxe-column field="attr5" title="Attr5" width="140"></vxe-column>
+      <vxe-column field="attr6" title="Attr6" width="150"></vxe-column>
+      <vxe-column field="attr7" title="Attr7" width="180"></vxe-column>
+      <vxe-column field="attr8" title="Attr8" width="220"></vxe-column>
+      <vxe-column field="attr9" title="Attr9" width="160"></vxe-column>
+      <vxe-column field="address" title="Address" min-width="200"></vxe-column>
     </vxe-table>
   </div>
 </template>

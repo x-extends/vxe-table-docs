@@ -36,9 +36,20 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name' },
-        { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' }
+        { field: 'name', title: 'Name', minWidth: 200 },
+        { field: 'role', title: 'Role', width: 180 },
+        { field: 'sex', title: 'Sex', width: 120 },
+        { field: 'age', title: 'Age', width: 120 },
+        { field: 'attr1', title: 'Attr1', width: 100 },
+        { field: 'attr2', title: 'Attr2', width: 140 },
+        { field: 'attr3', title: 'Attr3', width: 120 },
+        { field: 'attr4', title: 'Attr4', width: 160 },
+        { field: 'attr5', title: 'Attr5', width: 140 },
+        { field: 'attr6', title: 'Attr6', width: 150 },
+        { field: 'attr7', title: 'Attr7', width: 180 },
+        { field: 'attr8', title: 'Attr8', width: 220 },
+        { field: 'attr9', title: 'Attr9', width: 160 },
+        { field: 'address', title: 'Address', minWidth: 200 }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
