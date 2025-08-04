@@ -22,12 +22,14 @@
               emptyCell: '　',
               table: {
                 showHeader: true,
+                delayHover: 250,
                 autoResize: true,
                 minHeight: 144,
                 // keepSource: false,
                 // showOverflow: null,
                 // showHeaderOverflow: null,
                 // showFooterOverflow: null,
+                // resizeInterval: 500,
                 // size: null,
                 // zIndex: null,
                 // stripe: false,
@@ -149,6 +151,7 @@
                   // filterMethod: null,
                   // destroyOnClose: false,
                   // isEvery: false,
+                  multiple: true,
                   showIcon: true
                 },
                 aggregateConfig: {
@@ -184,20 +187,8 @@
                   autoFocus: true
                 },
                 importConfig: {
-                  _typeMaps: {
-                    csv: 1,
-                    html: 1,
-                    xml: 1,
-                    txt: 1
-                  }
                 },
                 exportConfig: {
-                  _typeMaps: {
-                    csv: 1,
-                    html: 1,
-                    xml: 1,
-                    txt: 1
-                  }
                 },
                 printConfig: {
                 },
@@ -236,6 +227,7 @@
                 },
                 virtualYConfig: {
                   // enabled: false,
+                  // mode: 'wheel',
                   gt: 100,
                   preSize: 1,
                   oSize: 0
@@ -269,7 +261,7 @@
                   autoLoad: true,
                   showLoading: true,
                   showResponseMsg: true,
-                  showActiveMsg: true,
+                  showActionMsg: true,
                   response: {
                     list: null,
                     result: 'result',
