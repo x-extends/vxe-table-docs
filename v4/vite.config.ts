@@ -56,11 +56,13 @@ export default defineConfig(({ mode, command }) => {
       assetsDir: 'static',
       rollupOptions: {
         // 不打包依赖
-        axios: ['axios'],
+        axios: ['axios', 'highlight.js', 'tinycolor'],
         plugins: [
           // 不打包依赖映射的对象
           externalGlobals({
-            axios: 'axios'
+            axios: 'axios',
+            'highlight.js': 'hljs',
+            tinycolor: 'tinycolor'
           })
         ]
       }
