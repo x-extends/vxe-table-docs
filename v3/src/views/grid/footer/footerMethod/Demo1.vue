@@ -18,9 +18,24 @@ interface RowVO {
   address: string
 }
 
+function sumMethod (list: RowVO[], field: string) {
+  let num = 0
+  list.forEach(row => {
+    num += Number(row[field])
+  })
+  return num
+}
+
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> = {}
+
+    return {
+      gridOptions
+    }
+  },
+  created () {
+    this.gridOptions = {
       border: true,
       showFooter: true,
       columns: [
@@ -40,15 +55,20 @@ export default Vue.extend({
         { id: '10007', name: 'Test7', role: 'Develop', sex: 'Man', num: '46', address: 'Shanghai' },
         { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou' }
       ],
-      footerMethod () {
+      footerMethod: () => {
+        const { columns = [], data = [] } = this.gridOptions
         return [
-          ['合计', '', '', '282', '']
+          columns.map((column, index) => {
+            if (index === 0) {
+              return '合计'
+            }
+            if (column.field === 'num') {
+              return sumMethod(data, column.field)
+            }
+            return '-'
+          })
         ]
       }
-    }
-
-    return {
-      gridOptions
     }
   }
 })

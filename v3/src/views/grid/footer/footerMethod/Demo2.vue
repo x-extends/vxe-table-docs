@@ -17,9 +17,32 @@ interface RowVO {
   address: string
 }
 
+function sumMethod (list: RowVO[] = [], field: string) {
+  let num = 0
+  list.forEach(row => {
+    num += Number(row[field])
+  })
+  return num
+}
+
+function meanMethod (list: RowVO[], field: string) {
+  let num = 0
+  list.forEach(row => {
+    num += Number(row[field])
+  })
+  return (num / list.length).toFixed(2)
+}
+
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeGridProps<RowVO> = {}
+
+    return {
+      gridOptions
+    }
+  },
+  created () {
+    this.gridOptions = {
       border: true,
       showFooter: true,
       columns: [
@@ -39,16 +62,29 @@ export default Vue.extend({
         { id: '10007', name: 'Test7', role: 'Develop', sex: 'Man', num: '46', address: 'Shanghai' },
         { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou' }
       ],
-      footerMethod () {
+      footerMethod: () => {
+        const { columns = [], data = [] } = this.gridOptions
         return [
-          ['合计', '', '', '￥282', ''],
-          ['平均', '', '', '2.88 元', '']
+          columns.map((column, index) => {
+            if (index === 0) {
+              return '合计'
+            }
+            if (column.field === 'num') {
+              return `￥${sumMethod(data, column.field)}`
+            }
+            return '-'
+          }),
+          columns.map((column, index) => {
+            if (index === 0) {
+              return '平均'
+            }
+            if (column.field === 'num') {
+              return `${meanMethod(data, column.field)}元`
+            }
+            return '-'
+          })
         ]
       }
-    }
-
-    return {
-      gridOptions
     }
   }
 })

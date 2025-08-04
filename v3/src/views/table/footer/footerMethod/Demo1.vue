@@ -18,7 +18,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: string
@@ -27,6 +26,13 @@ interface RowVO {
   sex: string
   num: string
   address: string
+}
+function sumMethod (list: RowVO[] = [], field: string) {
+  let num = 0
+  list.forEach(row => {
+    num += Number(row[field])
+  })
+  return num
 }
 
 export default Vue.extend({
@@ -42,16 +48,25 @@ export default Vue.extend({
       { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou' }
     ]
 
-    const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = () => {
-      return [
-        ['合计', '', '', '282', '']
-      ]
-    }
-
     return {
       showFooter: true,
-      tableData,
-      footerMethod
+      tableData
+    }
+  },
+  methods: {
+    footerMethod ({ columns }) {
+      const data = this.tableData
+      return [
+        columns.map((column, index) => {
+          if (index === 0) {
+            return '合计'
+          }
+          if (column.field === 'num') {
+            return sumMethod(data, column.field)
+          }
+          return '-'
+        })
+      ]
     }
   }
 })

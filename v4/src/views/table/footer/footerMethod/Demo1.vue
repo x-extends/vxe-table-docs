@@ -41,9 +41,26 @@ const tableData = ref<RowVO[]>([
   { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou' }
 ])
 
-const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = () => {
+const sumMethod = (list: RowVO[], field: string) => {
+  let num = 0
+  list.forEach(row => {
+    num += Number(row[field])
+  })
+  return num
+}
+
+const footerMethod: VxeTablePropTypes.FooterMethod<RowVO> = ({ columns }) => {
+  const data = tableData.value
   return [
-    ['合计', '', '', '282', '']
+    columns.map((column, index) => {
+      if (index === 0) {
+        return '合计'
+      }
+      if (column.field === 'num') {
+        return sumMethod(data, column.field)
+      }
+      return '-'
+    })
   ]
 }
 </script>

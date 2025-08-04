@@ -38,10 +38,43 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou' }
   ],
   footerMethod () {
+    const { columns = [], data = [] } = gridOptions
     return [
-      ['合计', '', '', '￥282', ''],
-      ['平均', '', '', '2.88 元', '']
+      columns.map((column, index) => {
+        if (index === 0) {
+          return '合计'
+        }
+        if (column.field === 'num') {
+          return `￥${sumMethod(data, column.field)}`
+        }
+        return '-'
+      }),
+      columns.map((column, index) => {
+        if (index === 0) {
+          return '平均'
+        }
+        if (column.field === 'num') {
+          return `${meanMethod(data, column.field)}元`
+        }
+        return '-'
+      })
     ]
   }
 })
+
+const sumMethod = (list: RowVO[], field: string) => {
+  let num = 0
+  list.forEach(row => {
+    num += Number(row[field])
+  })
+  return num
+}
+
+const meanMethod = (list: RowVO[], field: string) => {
+  let num = 0
+  list.forEach(row => {
+    num += Number(row[field])
+  })
+  return (num / list.length).toFixed(2)
+}
 </script>
