@@ -1,5 +1,8 @@
 <template>
   <div>
+    <vxe-button @click="setMerge1">设置合并1</vxe-button>
+    <vxe-button @click="setMerge2">设置合并2</vxe-button>
+
     <vxe-table
       border
       show-footer
@@ -50,4 +53,17 @@ const footerData = ref<VxeTablePropTypes.FooterData>([
   { seq: '平均', name: '合并了', role: '33', rate: '56' },
   { seq: '和值', name: 'aa', role: 'bb', rate: '合并了' }
 ])
+
+const setMerge1 = () => {
+  mergeFooterItems.value = [
+    { row: 0, col: 2, rowspan: 1, colspan: 2 }
+  ]
+}
+
+const setMerge2 = () => {
+  mergeFooterItems.value = [
+    { row: 0, col: 1, rowspan: 1, colspan: 3 },
+    { row: 1, col: 3, rowspan: 1, colspan: 2 }
+  ]
+}
 </script>

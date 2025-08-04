@@ -1,5 +1,8 @@
 <template>
   <div>
+    <vxe-button @click="setMerge1">设置合并1</vxe-button>
+    <vxe-button @click="setMerge2">设置合并2</vxe-button>
+
     <vxe-table
       border
       show-footer
@@ -57,6 +60,19 @@ export default Vue.extend({
       tableData,
       footerData,
       mergeFooterItems
+    }
+  },
+  methods: {
+    setMerge1 () {
+      this.mergeFooterItems = [
+        { row: 0, col: 2, rowspan: 1, colspan: 2 }
+      ]
+    },
+    setMerge2 () {
+      this.mergeFooterItems = [
+        { row: 0, col: 1, rowspan: 1, colspan: 3 },
+        { row: 1, col: 3, rowspan: 1, colspan: 2 }
+      ]
     }
   }
 })

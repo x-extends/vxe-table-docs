@@ -1,6 +1,10 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button @click="setMerge1">设置合并1</vxe-button>
+    <vxe-button @click="setMerge2">设置合并2</vxe-button>
+    <vxe-button status="success" @click="saveMergeData">获取合并规则</vxe-button>
+
+    <vxe-grid  ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -30,7 +34,7 @@ export default Vue.extend({
         { row: 2, col: 4, rowspan: 1, colspan: 2 },
         { row: 0, col: 6, rowspan: 4, colspan: 1 },
         { row: 0, col: 7, rowspan: 4, colspan: 1 },
-        { row: 0, col: 8, rowspan: 4, colspan: 1 }
+        { row: 0, col: 8, rowspan: 6, colspan: 1 }
       ],
       columns: [
         { type: 'seq', width: 70 },
@@ -75,7 +79,9 @@ export default Vue.extend({
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 46, attr3: 22, attr4: 100, attr5: 66, attr6: 86, address: 'Guangzhou' },
         { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 0, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: '' },
         { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 0, attr3: 22, attr4: 0, attr5: 0, attr6: 0, address: '' },
-        { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 0, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: '' }
+        { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 0, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: '' },
+        { id: 10005, name: 'Test5', role: 'Test', sex: 'Women', age: 0, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: '' },
+        { id: 10006, name: 'Test6', role: 'Develop', sex: 'Man', age: 0, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: '' }
       ]
     }
 
@@ -84,6 +90,21 @@ export default Vue.extend({
     }
   },
   methods: {
+    setMerge1 () {
+      this.gridOptions.mergeCells = [
+        { row: 1, col: 1, rowspan: 2, colspan: 2 },
+        { row: 2, col: 4, rowspan: 3, colspan: 2 }
+      ]
+    },
+    setMerge2 () {
+      this.gridOptions.mergeCells = [
+        { row: 0, col: 4, rowspan: 1, colspan: 2 },
+        { row: 2, col: 4, rowspan: 1, colspan: 2 },
+        { row: 0, col: 6, rowspan: 4, colspan: 1 },
+        { row: 0, col: 7, rowspan: 4, colspan: 1 },
+        { row: 0, col: 8, rowspan: 6, colspan: 1 }
+      ]
+    },
     saveMergeData () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {

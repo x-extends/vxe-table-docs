@@ -1,5 +1,8 @@
 <template>
   <div>
+    <vxe-button @click="setMerge1">设置合并1</vxe-button>
+    <vxe-button @click="setMerge2">设置合并2</vxe-button>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -48,4 +51,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { seq: '和值', name: 'aa', role: 'bb', rate: '合并了' }
   ]
 })
+
+const setMerge1 = () => {
+  gridOptions.mergeFooterItems = [
+    { row: 0, col: 2, rowspan: 1, colspan: 2 }
+  ]
+}
+
+const setMerge2 = () => {
+  gridOptions.mergeFooterItems = [
+    { row: 0, col: 1, rowspan: 1, colspan: 3 },
+    { row: 1, col: 3, rowspan: 1, colspan: 2 }
+  ]
+}
 </script>
