@@ -5,7 +5,8 @@
   "scripts": {
     "update": "npm install --legacy-peer-deps",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --no-module && gulp build_examples",
+    "build": "vue-cli-service build --no-module",
+    "pack": "npm run build && gulp build_examples",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

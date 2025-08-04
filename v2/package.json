@@ -7,6 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
     "build:main": "vue-cli-service build --no-module",
+    "pack": "npm run build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

@@ -5,7 +5,8 @@
   "scripts": {
     "update": "npm install --legacy-peer-deps",
     "serve": "vite",
-    "build": "vue-tsc && vite build && gulp build_examples && npm run format:examples",
+    "build": "vue-tsc && vite build",
+    "pack": "npm run build && gulp build_examples && npm run format:examples",
     "format:examples": "eslint --fix  --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**"
   },
   "dependencies": {
