@@ -21,6 +21,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Editor directories and files
+.eslintcache
 .idea
 .vscode
 *.suo
