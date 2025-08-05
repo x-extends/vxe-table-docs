@@ -6,9 +6,9 @@
     "update": "npm install --legacy-peer-deps",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
-    "pack": "npm run build && gulp build_examples && npm run format:examples",
+    "pack": "npm run build && gulp build_examples",
     "lint": "vue-cli-service lint",
-    "format:examples": "eslint --fix  --ext .js,.jsx,.ts,.tsx,.vue dist/example/**"
+    "format:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/**"
   },
   "dependencies": {
     "@vxe-ui/plugin-render-chart": "^3.0.0",
