@@ -28,7 +28,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'size', title: 'Size', width: 300 },
     { field: 'type', title: 'Type', width: 200 },
     { field: 'attr1', title: 'Attr1', width: 400 },
-    { field: 'attr1', title: 'Attr2', width: 500 },
+    { field: 'attr2', title: 'Attr2', width: 500 },
     { field: 'attr3', title: 'Attr3', width: 400 },
     { field: 'date', title: 'Date', width: 200, fixed: 'right' }
   ],

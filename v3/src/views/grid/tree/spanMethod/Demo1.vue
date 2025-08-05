@@ -26,7 +26,7 @@ export default Vue.extend({
         transform: true,
         rowField: 'id',
         parentField: 'parentId',
-        children: 'children'
+        childrenField: 'children'
       },
       virtualXConfig: {
         enabled: false

@@ -24,7 +24,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     transform: true,
     rowField: 'id',
     parentField: 'parentId',
-    children: 'children'
+    childrenField: 'children'
   },
   virtualXConfig: {
     enabled: false

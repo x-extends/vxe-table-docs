@@ -31,7 +31,7 @@ export default Vue.extend({
       { id: 1000, parentId: null, name: 'test abc1', type: 'mp3', size: 1024, date: '2020-08-01' },
       { id: 1005, parentId: 1000, name: 'Test2', type: 'mp4', size: 0, date: '2021-04-01' },
       { id: 24300, parentId: 1000, name: 'Test3', type: 'avi', size: 1024, date: '2020-03-01' },
-      { id: 20045, parentId: 20045, name: 'test abc4', type: 'html', size: 600, date: '2021-04-01' },
+      { id: 20045, parentId: null, name: 'test abc4', type: 'html', size: 600, date: '2021-04-01' },
       { id: 20046, parentId: 20045, name: 'test abc66', type: 'html', size: 55, date: '2021-04-23' },
       { id: 26897, parentId: 1000, name: 'Test223', type: 'avi', size: 1024, date: '2020-03-01' },
       { id: 20146, parentId: 26897, name: 'test ab44c4', type: 'html', size: 67, date: '2021-04-22' },
