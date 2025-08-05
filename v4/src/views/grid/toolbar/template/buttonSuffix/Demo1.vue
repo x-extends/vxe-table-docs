@@ -50,16 +50,4 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10008, name: 'Test8', nickname: 'T8', role: 'Develop', sex: 'Man', age: 35, address: 'Shenzhen' }
   ]
 })
-
-const addEvent = () => {
-  console.log('add')
-}
-
-const delEvent = () => {
-  console.log('del')
-}
-
-const saveEvent = () => {
-  console.log('save')
-}
 </script>
