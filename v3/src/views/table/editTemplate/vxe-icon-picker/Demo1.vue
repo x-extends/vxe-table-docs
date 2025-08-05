@@ -3,7 +3,7 @@
     <vxe-table
       border
       show-overflow
-      :edit-config="{mode: 'row', trigger: 'click'}"
+      :edit-config="editConfig"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180" :edit-render="{autoFocus: 'input'}">
@@ -25,6 +25,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -40,8 +41,14 @@ export default Vue.extend({
       { id: 10002, name: 'Test2', icon: 'vxe-icon-home', iconList: [] }
     ]
 
+    const editConfig: VxeTablePropTypes.EditConfig<RowVO> = {
+      mode: 'row',
+      trigger: 'click'
+    }
+
     return {
-      tableData
+      tableData,
+      editConfig
     }
   }
 })

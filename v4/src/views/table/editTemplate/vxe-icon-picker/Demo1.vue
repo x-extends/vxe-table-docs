@@ -3,7 +3,7 @@
     <vxe-table
       border
       show-overflow
-      :edit-config="{mode: 'row', trigger: 'click'}"
+      :edit-config="editConfig"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180" :edit-render="{autoFocus: 'input'}">
@@ -24,7 +24,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
+import { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -32,6 +33,11 @@ interface RowVO {
   icon: string
   iconList: string[]
 }
+
+const editConfig = reactive<VxeTablePropTypes.EditConfig<RowVO>>({
+  mode: 'row',
+  trigger: 'click'
+})
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', icon: '', iconList: [] },
