@@ -357,6 +357,8 @@ export default Vue.extend({
       padding: 0 2px;
       transform: translateX(2px);
       border-radius: 4px;
+      background: var(--vxe-ui-docs-layout-background-color);
+      z-index: 99;
     }
   }
   .enterprise-version {
