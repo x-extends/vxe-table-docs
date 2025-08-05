@@ -16,7 +16,7 @@
       </vxe-column>
       <vxe-column field="role" title="Role" :edit-render="{}">
         <template #edit="{ row, column }">
-          <vxe-input v-model="row.role" clearable @input="roleInput($event, row, column)"></vxe-input>
+          <vxe-input v-model="row.role" clearable show-word-count @input="roleInput($event, row, column)"></vxe-input>
         </template>
         <template #default="{ row }">
           <span>{{ row.num }}</span>

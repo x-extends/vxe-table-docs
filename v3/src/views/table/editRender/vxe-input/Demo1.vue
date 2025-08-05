@@ -40,7 +40,8 @@ export default Vue.extend({
     const roleEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeInputProps> = {
       name: 'VxeInput',
       props: {
-        clearable: true
+        clearable: true,
+        showWordCount: true
       },
       events: {
         input (cellParams, eventParams) {

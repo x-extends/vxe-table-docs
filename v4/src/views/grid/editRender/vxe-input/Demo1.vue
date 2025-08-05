@@ -24,7 +24,8 @@ const nameEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeInputPro
 const roleEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeInputProps>>({
   name: 'VxeInput',
   props: {
-    clearable: true
+    clearable: true,
+    showWordCount: true
   },
   events: {
     input (cellParams, eventParams) {

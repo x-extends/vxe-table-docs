@@ -6,7 +6,7 @@
       </template>
 
       <template #edit_role="{ row, column }">
-        <vxe-input v-model="row.role" clearable @input="roleInput($event, row, column)"></vxe-input>
+        <vxe-input v-model="row.role" clearable show-word-count @input="roleInput($event, row, column)"></vxe-input>
       </template>
     </vxe-grid>
   </div>
