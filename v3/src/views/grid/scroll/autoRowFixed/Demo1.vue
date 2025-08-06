@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadData()"></vxe-select>
+    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadList()"></vxe-select>
     <vxe-grid v-bind="gridOptions">
       <template #status="{ row }">
         <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
@@ -207,7 +207,7 @@ export default Vue.extend({
   },
   methods: {
     // 模拟行数据
-    loadData () {
+    loadList () {
       this.gridOptions.loading = true
       setTimeout(() => {
         const dataList: RowVO[] = []
@@ -259,7 +259,7 @@ export default Vue.extend({
     }
   },
   created () {
-    this.loadData()
+    this.loadList()
   }
 })
 </script>

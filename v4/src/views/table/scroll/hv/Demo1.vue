@@ -1,13 +1,13 @@
 <template>
   <div>
     <p>
-      <vxe-button @click="loadData(5)">加载5行</vxe-button>
-      <vxe-button @click="loadData(500)">加载500行</vxe-button>
-      <vxe-button @click="loadData(5000)">加载5k行</vxe-button>
-      <vxe-button @click="loadData(10000)">加载1w行</vxe-button>
-      <vxe-button @click="loadData(50000)">加载5w行</vxe-button>
-      <vxe-button @click="loadData(100000)">加载10w行</vxe-button>
-      <vxe-button @click="loadData(300000)">加载30w行</vxe-button>
+      <vxe-button @click="loadList(5)">加载5行</vxe-button>
+      <vxe-button @click="loadList(500)">加载500行</vxe-button>
+      <vxe-button @click="loadList(5000)">加载5k行</vxe-button>
+      <vxe-button @click="loadList(10000)">加载1w行</vxe-button>
+      <vxe-button @click="loadList(50000)">加载5w行</vxe-button>
+      <vxe-button @click="loadList(100000)">加载10w行</vxe-button>
+      <vxe-button @click="loadList(300000)">加载30w行</vxe-button>
     </p>
     <vxe-table
       border
@@ -91,7 +91,7 @@ const tableRef = ref<VxeTableInstance>()
 const loading = ref(false)
 
 // 模拟行数据
-const loadData = (rowSize: number) => {
+const loadList = (rowSize: number) => {
   const $table = tableRef.value
   loading.value = true
   setTimeout(() => {
@@ -108,7 +108,7 @@ const loadData = (rowSize: number) => {
     loading.value = false
     if ($table) {
       const startTime = Date.now()
-      $table.loadData(dataList).then(() => {
+      $table.reloadData(dataList).then(() => {
         VxeUI.modal.message({
           content: `加载时间 ${Date.now() - startTime} 毫秒`,
           status: 'success'
@@ -119,6 +119,6 @@ const loadData = (rowSize: number) => {
 }
 
 onMounted(() => {
-  loadData(50)
+  loadList(50)
 })
 </script>

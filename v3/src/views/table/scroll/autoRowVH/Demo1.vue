@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadData()"></vxe-select>
+    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadList()"></vxe-select>
     <vxe-table
       border
       height="800"
@@ -148,7 +148,7 @@ export default Vue.extend({
   },
   methods: {
     // 模拟行数据
-    loadData () {
+    loadList () {
       this.loading = true
       setTimeout(() => {
         const dataList: RowVO[] = []
@@ -190,7 +190,7 @@ export default Vue.extend({
     }
   },
   created () {
-    this.loadData()
+    this.loadList()
   }
 })
 </script>

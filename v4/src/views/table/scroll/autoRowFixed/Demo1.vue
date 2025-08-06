@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadData()"></vxe-select>
+    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadList()"></vxe-select>
     <vxe-table
       border
       show-footer
@@ -175,7 +175,7 @@ const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender>({
 })
 
 // 模拟行数据
-const loadData = () => {
+const loadList = () => {
   loading.value = true
   setTimeout(() => {
     const dataList: RowVO[] = []
@@ -226,5 +226,5 @@ const loadData = () => {
   }, 100)
 }
 
-loadData()
+loadList()
 </script>

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
-    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
-    <vxe-button @click="loadData(100000)">加载10w条</vxe-button>
+    <vxe-button @click="loadList(5000)">加载5k条</vxe-button>
+    <vxe-button @click="loadList(10000)">加载1w条</vxe-button>
+    <vxe-button @click="loadList(50000)">加载5w条</vxe-button>
+    <vxe-button @click="loadList(100000)">加载10w条</vxe-button>
     <vxe-grid v-bind="gridOptions">
       <template #status="{ row }">
         <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
@@ -196,7 +196,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 // 模拟行数据
-const loadData = (rowSize: number) => {
+const loadList = (rowSize: number) => {
   gridOptions.loading = true
   setTimeout(() => {
     const dataList: RowVO[] = []
@@ -233,5 +233,5 @@ const loadData = (rowSize: number) => {
   }, 350)
 }
 
-loadData(200)
+loadList(200)
 </script>

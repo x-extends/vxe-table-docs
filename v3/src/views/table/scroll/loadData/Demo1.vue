@@ -62,7 +62,7 @@ export default Vue.extend({
         const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
         if ($table) {
           const startTime = Date.now()
-          $table.loadData(dataList).then(() => {
+          $table.reloadData(dataList).then(() => {
             VxeUI.modal.message({
               content: `加载时间 ${Date.now() - startTime} 毫秒`,
               status: 'success'

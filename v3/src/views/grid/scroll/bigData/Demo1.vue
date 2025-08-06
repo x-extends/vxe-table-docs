@@ -75,7 +75,7 @@ export default Vue.extend({
         const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
         if ($grid) {
           const startTime = Date.now()
-          $grid.loadData(dataList).then(() => {
+          $grid.reloadData(dataList).then(() => {
             VxeUI.modal.message({
               content: `加载时间 ${Date.now() - startTime} 毫秒`,
               status: 'success'

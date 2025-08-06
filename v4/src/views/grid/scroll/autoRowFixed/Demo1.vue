@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadData()"></vxe-select>
+    <vxe-select v-model="rowSize" :options="dataOptions" @change="loadList()"></vxe-select>
     <vxe-grid v-bind="gridOptions">
       <template #status="{ row }">
         <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
@@ -193,7 +193,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 // 模拟行数据
-const loadData = () => {
+const loadList = () => {
   gridOptions.loading = true
   setTimeout(() => {
     const dataList: RowVO[] = []
@@ -244,5 +244,5 @@ const loadData = () => {
   }, 350)
 }
 
-loadData()
+loadList()
 </script>

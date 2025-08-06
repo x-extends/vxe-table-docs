@@ -1,9 +1,9 @@
 <template>
   <div>
-    <vxe-button @click="loadData(5)">加载5条</vxe-button>
-    <vxe-button @click="loadData(1000)">加载1k条</vxe-button>
-    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
+    <vxe-button @click="loadList(5)">加载5条</vxe-button>
+    <vxe-button @click="loadList(1000)">加载1k条</vxe-button>
+    <vxe-button @click="loadList(10000)">加载1w条</vxe-button>
+    <vxe-button @click="loadList(50000)">加载5w条</vxe-button>
     <vxe-table
       border
       show-footer
@@ -168,7 +168,7 @@ const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender>({
 })
 
 // 模拟行数据
-const loadData = (rowSize: number) => {
+const loadList = (rowSize: number) => {
   loading.value = true
   setTimeout(() => {
     const dataList: RowVO[] = []
@@ -205,5 +205,5 @@ const loadData = (rowSize: number) => {
   }, 350)
 }
 
-loadData(200)
+loadList(200)
 </script>

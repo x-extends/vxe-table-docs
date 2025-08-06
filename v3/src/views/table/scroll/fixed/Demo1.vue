@@ -1,9 +1,9 @@
 <template>
   <div>
-    <vxe-button @click="loadData(5)">加载5条</vxe-button>
-    <vxe-button @click="loadData(1000)">加载1k条</vxe-button>
-    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
+    <vxe-button @click="loadList(5)">加载5条</vxe-button>
+    <vxe-button @click="loadList(1000)">加载1k条</vxe-button>
+    <vxe-button @click="loadList(10000)">加载1w条</vxe-button>
+    <vxe-button @click="loadList(50000)">加载5w条</vxe-button>
     <vxe-table
       border
       show-footer
@@ -178,7 +178,7 @@ export default Vue.extend({
   },
   methods: {
     // 模拟行数据
-    loadData (rowSize: number) {
+    loadList (rowSize: number) {
       this.loading = true
       setTimeout(() => {
         const dataList: RowVO[] = []
@@ -216,7 +216,7 @@ export default Vue.extend({
     }
   },
   created () {
-    this.loadData(200)
+    this.loadList(200)
   }
 })
 </script>

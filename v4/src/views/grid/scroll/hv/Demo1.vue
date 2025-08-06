@@ -76,7 +76,7 @@ const loadDataAndColumns = (rowSize: number, colSize: number) => {
     if ($grid) {
       const startTime = Date.now()
       $grid.loadColumn(colList).then(() => {
-        return $grid.loadData(dataList)
+        return $grid.reloadData(dataList)
       }).then(() => {
         VxeUI.modal.message({
           content: `加载时间 ${Date.now() - startTime} 毫秒`,

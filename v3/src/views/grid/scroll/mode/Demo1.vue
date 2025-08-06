@@ -1,8 +1,8 @@
 <template>
   <div>
-    <vxe-button @click="loadData(5000)">加载5k条</vxe-button>
-    <vxe-button @click="loadData(10000)">加载1w条</vxe-button>
-    <vxe-button @click="loadData(50000)">加载5w条</vxe-button>
+    <vxe-button @click="loadList(5000)">加载5k条</vxe-button>
+    <vxe-button @click="loadList(10000)">加载1w条</vxe-button>
+    <vxe-button @click="loadList(50000)">加载5w条</vxe-button>
     <vxe-grid v-bind="gridOptions">
       <template #status="{ row }">
         <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
@@ -196,7 +196,7 @@ export default Vue.extend({
   },
   methods: {
     // 模拟行数据
-    loadData (rowSize: number) {
+    loadList (rowSize: number) {
       this.gridOptions.loading = true
       setTimeout(() => {
         const dataList: RowVO[] = []
@@ -234,7 +234,7 @@ export default Vue.extend({
     }
   },
   created () {
-    this.loadData(200)
+    this.loadList(200)
   }
 })
 </script>

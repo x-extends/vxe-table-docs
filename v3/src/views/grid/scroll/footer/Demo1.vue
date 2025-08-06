@@ -103,7 +103,7 @@ export default Vue.extend({
         findDataList(600).then(data => {
           const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
           if ($grid) {
-            $grid.loadData(data)
+            $grid.reloadData(data)
           }
         })
       ])

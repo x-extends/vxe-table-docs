@@ -98,7 +98,7 @@ const init = async () => {
     findDataList(600).then(data => {
       const $grid = gridRef.value
       if ($grid) {
-        $grid.loadData(data)
+        $grid.reloadData(data)
       }
     })
   ])

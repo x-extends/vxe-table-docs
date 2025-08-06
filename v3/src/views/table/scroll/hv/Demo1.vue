@@ -1,13 +1,13 @@
 <template>
   <div>
     <p>
-      <vxe-button @click="loadData(5)">加载5行</vxe-button>
-      <vxe-button @click="loadData(500)">加载500行</vxe-button>
-      <vxe-button @click="loadData(5000)">加载5k行</vxe-button>
-      <vxe-button @click="loadData(10000)">加载1w行</vxe-button>
-      <vxe-button @click="loadData(50000)">加载5w行</vxe-button>
-      <vxe-button @click="loadData(100000)">加载10w行</vxe-button>
-      <vxe-button @click="loadData(300000)">加载30w行</vxe-button>
+      <vxe-button @click="loadList(5)">加载5行</vxe-button>
+      <vxe-button @click="loadList(500)">加载500行</vxe-button>
+      <vxe-button @click="loadList(5000)">加载5k行</vxe-button>
+      <vxe-button @click="loadList(10000)">加载1w行</vxe-button>
+      <vxe-button @click="loadList(50000)">加载5w行</vxe-button>
+      <vxe-button @click="loadList(100000)">加载10w行</vxe-button>
+      <vxe-button @click="loadList(300000)">加载30w行</vxe-button>
     </p>
     <vxe-table
       border
@@ -95,7 +95,7 @@ export default Vue.extend({
   },
   methods: {
     // 模拟行数据
-    loadData (rowSize: number) {
+    loadList (rowSize: number) {
       const $table = this.$refs.tableRef as VxeTableInstance
       this.loading = true
       setTimeout(() => {
@@ -112,7 +112,7 @@ export default Vue.extend({
         this.loading = false
         if ($table) {
           const startTime = Date.now()
-          $table.loadData(dataList).then(() => {
+          $table.reloadData(dataList).then(() => {
             VxeUI.modal.message({
               content: `加载时间 ${Date.now() - startTime} 毫秒`,
               status: 'success'
@@ -123,7 +123,7 @@ export default Vue.extend({
     }
   },
   mounted () {
-    this.loadData(50)
+    this.loadList(50)
   }
 })
 </script>

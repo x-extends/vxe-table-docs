@@ -70,7 +70,7 @@ const loadList = (size = 200) => {
     const $grid = gridRef.value
     if ($grid) {
       const startTime = Date.now()
-      $grid.loadData(dataList).then(() => {
+      $grid.reoadData(dataList).then(() => {
         VxeUI.modal.message({
           content: `加载时间 ${Date.now() - startTime} 毫秒`,
           status: 'success'
