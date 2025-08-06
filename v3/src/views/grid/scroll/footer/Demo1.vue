@@ -97,7 +97,7 @@ export default Vue.extend({
         findColumnList(200).then(columns => {
           const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
           if ($grid) {
-            $grid.loadColumn(columns)
+            $grid.reloadColumn(columns)
           }
         }),
         findDataList(600).then(data => {

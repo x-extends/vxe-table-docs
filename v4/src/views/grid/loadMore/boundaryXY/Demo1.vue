@@ -75,7 +75,7 @@ const loadDataAndColumns = (rowSize: number, colSize: number) => {
     if ($grid) {
       tableColumn = columnList
       tableData = [...tableData, ...dataList]
-      $grid.loadColumn(tableColumn)
+      $grid.reloadColumn(tableColumn)
       $grid.reloadData(tableData)
       gridOptions.loading = false
     }

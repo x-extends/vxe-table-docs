@@ -79,7 +79,7 @@ const loadDataAndColumns = (rowSize: number, colSize: number) => {
     }
     if ($grid) {
       const startTime = Date.now()
-      $grid.loadColumn(colList).then(() => {
+      $grid.reloadColumn(colList).then(() => {
         return $grid.reloadData(dataList)
       }).then(() => {
         VxeUI.modal.message({

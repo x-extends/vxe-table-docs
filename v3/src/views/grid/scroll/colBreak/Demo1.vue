@@ -62,7 +62,7 @@ export default Vue.extend({
         }
         if ($grid) {
           const startTime = Date.now()
-          $grid.loadColumn(colList).then(() => {
+          $grid.reloadColumn(colList).then(() => {
             return $grid.reloadData(dataList)
           }).then(() => {
             VxeUI.modal.message({

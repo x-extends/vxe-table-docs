@@ -81,7 +81,7 @@ export default Vue.extend({
         if ($grid) {
           this.tableColumn = columnList
           this.tableData = [...this.tableData, ...dataList]
-          $grid.loadColumn(this.tableColumn)
+          $grid.reloadColumn(this.tableColumn)
           $grid.reloadData(this.tableData)
           this.gridOptions.loading = false
         }
