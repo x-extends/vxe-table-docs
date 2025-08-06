@@ -26,10 +26,9 @@ const selectBetaVersion = ref('')
 
 const showBetaVersion = computed(() => {
   const betaList = betaVersionList.value
-  const stableList = stableVersionList.value
-  if (stableList.length) {
+  if (selectStableVersion.value) {
     if (betaList.length) {
-      const stableNums = stableList[0].value.split('-')[0].split('.')
+      const stableNums = selectStableVersion.value.split('-')[0].split('.')
       const stable1 = XEUtils.toNumber(stableNums[0])
       const stable2 = XEUtils.toNumber(stableNums[1])
       const stable3 = XEUtils.toNumber(stableNums[2])
@@ -60,9 +59,9 @@ const showBetaVersion = computed(() => {
 const newBetsVersionList = computed(() => {
   const betaList = betaVersionList.value
   const stableList = stableVersionList.value
-  if (stableList.length) {
+  if (selectStableVersion.value) {
     if (betaList.length) {
-      const stableNums = stableList[0].value.split('-')[0].split('.')
+      const stableNums = selectStableVersion.value.split('-')[0].split('.')
       const stable1 = XEUtils.toNumber(stableNums[0])
       const stable2 = XEUtils.toNumber(stableNums[1])
       const stable3 = XEUtils.toNumber(stableNums[2])

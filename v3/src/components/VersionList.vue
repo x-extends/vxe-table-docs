@@ -32,10 +32,9 @@ export default Vue.extend({
     ]),
     showBetaVersion () {
       const betaList = this.betaVersionList
-      const stableList = this.stableVersionList
-      if (stableList.length) {
+      if (this.selectStableVersion) {
         if (betaList.length) {
-          const stableNums = stableList[0].value.split('-')[0].split('.')
+          const stableNums = this.selectStableVersion.split('-')[0].split('.')
           const stable1 = XEUtils.toNumber(stableNums[0])
           const stable2 = XEUtils.toNumber(stableNums[1])
           const stable3 = XEUtils.toNumber(stableNums[2])
@@ -63,9 +62,9 @@ export default Vue.extend({
     newBetsVersionList () {
       const betaList = this.betaVersionList
       const stableList = this.stableVersionList
-      if (stableList.length) {
+      if (this.selectStableVersion) {
         if (betaList.length) {
-          const stableNums = stableList[0].value.split('-')[0].split('.')
+          const stableNums = this.selectStableVersion.split('-')[0].split('.')
           const stable1 = XEUtils.toNumber(stableNums[0])
           const stable2 = XEUtils.toNumber(stableNums[1])
           const stable3 = XEUtils.toNumber(stableNums[2])
