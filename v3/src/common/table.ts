@@ -646,10 +646,10 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格配置',
           children: [
-            { title: '宽度', routerLink: { name: 'ComponentGridCellWidth' } },
-            { title: '边距', routerLink: { name: 'ComponentGridCellPadding' } },
-            { title: '高度', routerLink: { name: 'ComponentGridCellHeight' } },
-            { title: '垂直对齐', routerLink: { name: 'ComponentGridCellVerticalAlign' } }
+            { title: '设置列宽', routerLink: { name: 'ComponentGridCellWidth' }, keywords: '设置列宽，单元格宽度' },
+            { title: '设置单元格边距', routerLink: { name: 'ComponentGridCellPadding' }, keywords: '设置边距，单元格边距' },
+            { title: '设置行高', routerLink: { name: 'ComponentGridCellHeight' }, keywords: '设置单元格高度，设置行高度' },
+            { title: '设置垂直对齐', routerLink: { name: 'ComponentGridCellVerticalAlign' }, keywords: '设置单元格垂直对齐' }
           ]
         },
         {
