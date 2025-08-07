@@ -599,6 +599,11 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/rowResizable/manual/CodeExample.vue')
         },
         {
+          path: 'recalcManual',
+          name: 'ComponentGridRowResizableRecalcManual',
+          component: () => import('@/views/grid/rowResizable/recalcManual/CodeExample.vue')
+        },
+        {
           path: 'textarea',
           name: 'ComponentGridRowResizableTextarea',
           component: () => import('@/views/grid/rowResizable/textarea/CodeExample.vue')
@@ -2639,6 +2644,11 @@ export const gridRouteConfig: RouteConfig = {
           path: 'lineEllipsis',
           name: 'ComponentGridOtherLineEllipsis',
           component: () => import('@/views/grid/other/lineEllipsis/CodeExample.vue')
+        },
+        {
+          path: 'minAutoRowHeight',
+          name: 'ComponentGridOtherMinAutoRowHeight',
+          component: () => import('@/views/grid/other/minAutoRowHeight/CodeExample.vue')
         },
         {
           path: 'yearMonth',

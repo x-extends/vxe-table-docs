@@ -786,7 +786,9 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '双击自适应行高', routerLink: { name: 'ComponentGridRowResizableDblclickAutoHeight' } },
             { title: '所有单元格可拖拽', routerLink: { name: 'ComponentGridRowResizableAllRowDrag' } },
             { title: '手动操作行高', routerLink: { name: 'ComponentGridRowResizableManual' } },
-            { title: '自适应文本域', routerLink: { name: 'ComponentGridRowResizableTextarea' } }
+            { title: '手动刷新行高', routerLink: { name: 'ComponentGridRowResizableRecalcManual' } },
+            { title: '实现自适应文本域', routerLink: { name: 'ComponentGridRowResizableTextarea' } },
+            { title: '实现默认行高与自适应行高', routerLink: { name: 'ComponentGridRowResizableRowDragAutoHeight' } }
           ]
         },
         {
@@ -1404,6 +1406,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
             { title: '实现上传文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
             { title: '实现多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
+            { title: '实现最小行高同时自适应行高', routerLink: { name: 'ComponentGridOtherMinAutoRowHeight' } },
             { title: '实现动态生成月份表头', routerLink: { name: 'ComponentGridOtherYearMonth' } },
             { title: '实现分页复选框选择', routerLink: { name: 'ComponentGridOtherPageCheckbox' } },
             { title: '实现记账凭证', routerLink: { name: 'ComponentGridOtherBookkeepingVoucher' } },
