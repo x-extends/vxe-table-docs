@@ -35,6 +35,10 @@
             // ...">
           </pre-code>
         </pre>
+        <vxe-tip status="error" title="版本号建议">
+          打开 package.json 文件，手动改成修订版本号自动更新，避免新版本的自动更新对项目产生影响：
+          将 <span class="red">"vxe-table": "^{{ tableVersion }}"</span> 改成 <span class="red">"vxe-table": "~{{ tableVersion }}"</span>
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>
@@ -49,7 +53,10 @@ export default Vue.extend({
     ...mapGetters([
       'uiCDNLib',
       'tableCDNLib'
-    ])
+    ]),
+    tableVersion (this: any) {
+      return this.tableCDNLib ? this.tableCDNLib.split('@')[1] : ''
+    }
   }
 })
 </script>

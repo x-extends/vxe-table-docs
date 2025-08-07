@@ -24,10 +24,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   resizableConfig: {
+    isAllRowDrag: true,
     isDblclickAutoHeight: true
   },
   columns: [
-    { type: 'seq', width: 70, rowResize: true },
+    { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },

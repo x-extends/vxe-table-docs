@@ -35,6 +35,10 @@
             // ...">
           </pre-code>
         </pre>
+        <vxe-tip status="error" title="版本号建议">
+          打开 package.json 文件，手动改成修订版本号自动更新，避免新版本的自动更新对项目产生影响：
+          将 <span class="red">"vxe-table": "^{{ tableVersion }}"</span> 改成 <span class="red">"vxe-table": "~{{ tableVersion }}"</span>
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>
@@ -46,4 +50,5 @@ import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
 const tableCDNLib = computed(() => appStore.tableCDNLib)
+const tableVersion = computed(() => appStore.tableCDNLib ? appStore.tableCDNLib.split('@')[1] : '')
 </script>
