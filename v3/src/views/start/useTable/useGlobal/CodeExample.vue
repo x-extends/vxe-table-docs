@@ -53,12 +53,6 @@
             // 导入主题变量，也可以重写主题变量
             import 'vxe-table/styles/cssvar.scss'
 
-            // 导入默认的语言
-            import zhCN from 'vxe-table/lib/locale/lang/zh-CN'
-
-            VxeUI.setI18n('zh-CN', zhCN)
-            VxeUI.setLanguage('zh-CN')
-
             function lazyVxeTable (app) {
               app.use(VxeTable)
               app.use(VxeColumn)

@@ -21,7 +21,7 @@
 
             // ...
             plugins: [
-              ['import', { libraryName: 'vxe-design', style: true }, 'vxe-design']
+              ['import', { libraryName: 'vxe-gantt', style: true }, 'vxe-gantt']
             ]
             // ...
           </pre-code>
@@ -42,26 +42,16 @@
             import {
               VxeUI,
 
-              VxeFlowDesign,
-              VxeFlowView,
-              VxeFormDesign,
-              VxeFormView,
-              VxeListDesign,
-              VxeListView,
-            } from 'vxe-design'
+              VxeGantt
+            } from 'vxe-gantt'
 
             // 导入主题变量，也可以重写主题变量
-            import 'vxe-design/styles/cssvar.scss'
+            import 'vxe-gantt/styles/cssvar.scss'
 
             // 注册组件
             // 如果页面中已经被显性导入了，则可以不用调用注册
             // 如果是配置式的，没有在页面中显性导入，则需要逐个注册
-            VxeUI.component(VxeFlowDesign)
-            VxeUI.component(VxeFlowView)
-            VxeUI.component(VxeFormDesign)
-            VxeUI.component(VxeFormView)
-            VxeUI.component(VxeListDesign)
-            VxeUI.component(VxeListView)
+            VxeUI.component(VxeGantt)
           </pre-code>
         </pre>
       </template>

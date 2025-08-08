@@ -40,16 +40,6 @@
           <pre-code class="javascript">
             // ...
             import {
-              VxeUI,
-
-              VxeTable,
-              VxeColumn,
-              VxeColgroup,
-              VxeGrid,
-              VxeToolbar
-            } from 'vxe-table'
-
-            import {
               VxeFlowDesign,
               VxeFlowView,
               VxeFormDesign,
@@ -60,12 +50,6 @@
 
             // 导入主题变量，也可以重写主题变量
             import 'vxe-design/styles/cssvar.scss'
-
-            // 导入默认的语言
-            import zhCN from 'vxe-design/lib/language/zh-CN'
-
-            VxeUI.setI18n('zh-CN', zhCN)
-            VxeUI.setLanguage('zh-CN')
 
             function lazyVxeDesign (app) {
               app.use(VxeFlowDesign)

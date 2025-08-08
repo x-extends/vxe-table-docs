@@ -9,29 +9,29 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="仅安装表格">
-          仅可使用表格基础功能，不包含任何 UI 组件，不能使用任何高级功能，建议使用第三方 UI 组件库自行实现。
+        <vxe-tip status="success" title="仅安装设计器">
+          仅可以使用可视化设计器功能，不包含任何 UI 组件，建议使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
           <pre-code
             language="shell"
             :content="`
-            npm install ${ tableCDNLib }
+            npm install ${ ganttCDNLib }
             # 或者
-            yarn add ${ tableCDNLib }
+            yarn add ${ ganttCDNLib }
             # 或者
-            pnpm add ${ tableCDNLib }
+            pnpm add ${ ganttCDNLib }
             `">
           </pre-code>
           <pre-code
             language="javascript"
             content="
             // ...
-            import VxeUITable from 'vxe-table'
-            import 'vxe-table/lib/style.css'
+            import VxeUIGantt from 'vxe-gantt'
+            import 'vxe-gantt/lib/style.css'
             // ...
 
-            createApp(App).use(VxeUITable).mount('#app')
+            createApp(App).use(VxeUIGantt).mount('#app')
             // ...">
           </pre-code>
         </pre>
@@ -45,5 +45,7 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
+const uiCDNLib = computed(() => appStore.uiCDNLib)
 const tableCDNLib = computed(() => appStore.tableCDNLib)
+const ganttCDNLib = computed(() => appStore.ganttCDNLib)
 </script>

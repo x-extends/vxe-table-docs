@@ -9,30 +9,31 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="仅安装表格">
-          仅可使用表格基础功能，不包含任何 UI 组件，不能使用任何高级功能，建议使用第三方 UI 组件库自行实现。
+        <vxe-tip status="success" title="仅安装设计器">
+          仅可以使用可视化设计器功能，不包含任何 UI 组件，建议使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
           <pre-code
             language="shell"
             :content="`
-            npm install ${ tableCDNLib }
-            # 或者
-            yarn add ${ tableCDNLib }
-            # 或者
-            pnpm add ${ tableCDNLib }
+              npm install ${ ganttCDNLib }
+              # 或者
+              yarn add ${ ganttCDNLib }
+              # 或者
+              pnpm add ${ ganttCDNLib }
             `">
           </pre-code>
           <pre-code
             language="javascript"
-            content="
-            // ...
-            import VxeUITable from 'vxe-table'
-            import 'vxe-table/lib/style.css'
-            // ...
+            :content="`
+              // ...
+              import VxeUIGantt from 'vxe-gantt'
+              import 'vxe-gantt/lib/style.css'
+              // ...
 
-            Vue.use(VxeUITable)
-            // ...">
+              Vue.use(VxeUIGantt)
+              //...
+            `">
           </pre-code>
         </pre>
       </template>
@@ -48,7 +49,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters([
       'uiCDNLib',
-      'tableCDNLib'
+      'tableCDNLib',
+      'ganttCDNLib'
     ])
   }
 })

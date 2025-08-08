@@ -100,6 +100,7 @@ export default new Vuex.Store({
     uiCDNLib: handleLibVersion('vxe-pc-ui'),
     tableCDNLib: handleLibVersion('vxe-table'),
     designCDNLib: handleLibVersion('vxe-design'),
+    ganttCDNLib: handleLibVersion('vxe-gantt'),
     pluginExportPdfCDNLib: handleLibVersion('@vxe-ui/plugin-export-pdf'),
     pluginExportXlsxCDNLib: handleLibVersion('@vxe-ui/plugin-export-xlsx'),
     pluginMenuCDNLib: handleLibVersion('@vxe-ui/plugin-menu'),
