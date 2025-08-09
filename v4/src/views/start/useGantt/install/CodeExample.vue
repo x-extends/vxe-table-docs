@@ -35,6 +35,32 @@
             // ...">
           </pre-code>
         </pre>
+        <vxe-tip status="error" title="建议版本号">
+          手动修改 package.json 文件，将 <span class="bold red">^</span> 改成 <span class="bold red">~</span>，避免版本自动升级新功能影响旧功能
+        </vxe-tip>
+        <pre>
+          <pre-code
+            language="json"
+            :content='`
+            {
+              ...
+              "vxe-gantt": "^${ganttLibVersion}"
+              ...
+            }
+            `'>
+          </pre-code>
+          改成
+          <pre-code
+            language="json"
+            :content='`
+            {
+              ...
+              "vxe-gantt": "~${ganttLibVersion}"
+              ...
+            }
+            `'>
+          </pre-code>
+        </pre>
       </template>
     </CodeLight>
   </div>
@@ -48,4 +74,5 @@ const appStore = useAppStore()
 const uiCDNLib = computed(() => appStore.uiCDNLib)
 const tableCDNLib = computed(() => appStore.tableCDNLib)
 const ganttCDNLib = computed(() => appStore.ganttCDNLib)
+const ganttLibVersion = computed(() => appStore.ganttCDNLib ? appStore.ganttCDNLib.split('@')[1] : '')
 </script>

@@ -40,47 +40,32 @@
             `">
           </pre-code>
         </pre>
-      </template>
-    </CodeLight>
-
-    <CodeLight>
-      <template #tip>
-        <vxe-tip status="primary" title="框架模板示例">
-          <div>极致精简、流畅的框架模板 <vxe-link href="https://github.com/x-extends/vxe-admin-template/tree/v3/" target="_blank"><vxe-icon name="github-fill"></vxe-icon>vxe-admin-template</vxe-link>、<vxe-link href="https://gitee.com/x-extends/vxe-admin-template/tree/v3/" target="_blank"><vxe-icon name="gitee-fill" status="error"></vxe-icon>vxe-admin-template</vxe-link>，<vxe-link href="https://vxeui.com/admin-template-v3/" target="_blank" status="primary">点击在线预览</vxe-link></div>
+        <vxe-tip status="error" title="建议版本号">
+          手动修改 package.json 文件，将 <span class="bold red">^</span> 改成 <span class="bold red">~</span>
         </vxe-tip>
-      </template>
-
-      <template #use>
         <pre>
           <pre-code
-            language="shell"
-            :content="`
-            git clone https://gitee.com/x-extends/vxe-admin-template.git
-            # 或者
-            git clone https://github.com/x-extends/vxe-admin-template.git
-
-            # 切换分支
-            git switch v3
-            `">
+            language="json"
+            :content='`
+            {
+              ...
+              "vxe-pc-ui": "^${uiLibVersion}",
+              "vxe-table": "^${tableLibVersion}"
+              ...
+            }
+            `'>
           </pre-code>
+          改成
           <pre-code
-            language="shell"
-            content="
-            # 切换目录
-            cd vxe-admin-template
-
-            # 更新依赖
-            npm run update
-
-            # 运行项目
-            npm run serve
-
-            # 打包正式环境生成 dist 目录
-            npm run build
-
-            # 打包正式环境生成 zip 文件
-            npm run build:zip
-            ">
+            language="json"
+            :content='`
+            {
+              ...
+              "vxe-pc-ui": "~${uiLibVersion}",
+              "vxe-table": "~${tableLibVersion}"
+              ...
+            }
+            `'>
           </pre-code>
         </pre>
       </template>
@@ -98,7 +83,13 @@ export default Vue.extend({
       'uiCDNLib',
       'tableCDNLib',
       'designCDNLib'
-    ])
+    ]),
+    uiLibVersion (this: any) {
+      return this.uiCDNLib ? this.uiCDNLib.split('@')[1] : ''
+    },
+    tableLibVersion (this: any) {
+      return this.tableCDNLib ? this.tableCDNLib.split('@')[1] : ''
+    }
   }
 })
 </script>
