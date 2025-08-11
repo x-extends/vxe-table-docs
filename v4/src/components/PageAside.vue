@@ -22,7 +22,7 @@
                   <vxe-link v-else-if="node.linkUrl" status="primary" :href="node.linkUrl" target="_blank">
                     <span v-html="node.title"></span>
                   </vxe-link>
-                  <span v-else v-html="node.title"></span>
+                  <span v-else v-html="node.title" ></span>
                 </template>
               </vxe-tree>
             </div>

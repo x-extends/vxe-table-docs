@@ -70,7 +70,7 @@ const sexItemRender = reactive<VxeFormItemPropTypes.ItemRender<RowVO, VxeSelectP
 })
 
 const formOptions = reactive<VxeFormProps<RowVO>>({
-  titleWidth: 80,
+  titleWidth: 'auto',
   titleAlign: 'right',
   titleColon: true,
   data: XEUtils.clone(defaultData, true),

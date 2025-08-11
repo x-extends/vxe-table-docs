@@ -55,6 +55,7 @@ export default Vue.extend({
     ]
 
     const formOptions: VxeFormProps<FormDataVO> = {
+      titleWidth: 'auto',
       data: {
         name: '',
         role: '',

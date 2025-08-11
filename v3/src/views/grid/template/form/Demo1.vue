@@ -48,6 +48,7 @@ export default Vue.extend({
     }
 
     const formOptions: VxeFormProps<RowVO> = {
+      titleWidth: 'auto',
       data: {
         id: '',
         name: 'test1',

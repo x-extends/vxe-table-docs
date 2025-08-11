@@ -66,7 +66,7 @@ export default Vue.extend({
     }
 
     const formOptions: VxeFormProps<RowVO> = {
-      titleWidth: 80,
+      titleWidth: 'auto',
       titleAlign: 'right',
       titleColon: true,
       data: XEUtils.clone(defaultData, true),

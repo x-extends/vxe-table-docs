@@ -24,7 +24,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   aggregateConfig: {
     groupFields: ['role'],
     calcValuesMethod ({ column, children }) {
-      return `${column.field}（${children.length}）`
+      if (column.field === 'sex') {
+        return `共:${children.length}人`
+      }
+      if (column.field === 'age') {
+        let ageCount = 0
+        children.forEach(item => {
+          ageCount += item.age
+        })
+        return `平均:${Math.floor(ageCount / children.length)}岁`
+      }
+      return '-'
     }
   },
   columns: [

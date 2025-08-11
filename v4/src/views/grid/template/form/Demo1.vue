@@ -46,6 +46,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const formOptions = reactive<VxeFormProps<RowVO>>({
+  titleWidth: 'auto',
   data: {
     id: '',
     name: 'test1',

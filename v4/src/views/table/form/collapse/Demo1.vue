@@ -49,6 +49,7 @@ const tableData = ref<RowVO[]>([
 ])
 
 const formOptions = reactive<VxeFormProps<FormDataVO>>({
+  titleWidth: 'auto',
   data: {
     name: '',
     role: '',

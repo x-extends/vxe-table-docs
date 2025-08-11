@@ -38,6 +38,7 @@ interface FormDataVO {
 const formRef = ref<VxeFormInstance>()
 
 const formOptions = reactive<VxeFormProps<FormDataVO>>({
+  titleWidth: 'auto',
   data: {
     name: '',
     role: '',
