@@ -3,8 +3,9 @@
 ## 在线文档
 
 * Vxe UI [https://vxeui.com](https://vxeui.com)
-* Vxe Design [https://design.vxeui.com](https://design.vxeui.com)
 * Vxe Table [https://vxetable.cn](https://vxetable.cn)
+* Vxe Gantt [https://gantt.vxeui.com](https://gantt.vxeui.com)
+* Vxe Design [https://design.vxeui.com](https://design.vxeui.com)
 
 ## 帮助完善文档
 
