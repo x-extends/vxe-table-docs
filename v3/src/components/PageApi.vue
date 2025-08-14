@@ -69,6 +69,19 @@ const tableComponents = [
   'toolbar'
 ]
 
+const designComponents = [
+  'flow-design',
+  'flow-view',
+  'form-design',
+  'form-view',
+  'list-design',
+  'list-view'
+]
+
+const dganttComponents = [
+  'gantt'
+]
+
 const pluginAppNames = ['ExtendCellArea', 'ExtendPivotTable', 'FiltersCombination', 'FiltersComplexInput']
 const pluginAppRE = new RegExp(`^(${pluginAppNames.join('|')})(@(\\d{1,3}.\\d{1,3}.\\d{1,3}))?$`)
 
@@ -300,6 +313,12 @@ export default Vue.extend({
         if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
           if (tableComponents.includes(this.apiName)) {
             return `vxe-table@${version}`
+          }
+          if (dganttComponents.includes(this.apiName)) {
+            return `vxe-gantt@${version}`
+          }
+          if (designComponents.includes(this.apiName)) {
+            return `vxe-design@${version}`
           }
         }
         return `vxe-pc-ui@${version}`

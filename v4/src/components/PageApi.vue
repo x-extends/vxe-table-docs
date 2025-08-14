@@ -275,6 +275,10 @@ const designComponents = [
   'list-view'
 ]
 
+const dganttComponents = [
+  'gantt'
+]
+
 const getVersion = (row: RowVO) => {
   const { isPlugin, version, pluginName, pluginVersion } = row
   if (isPlugin) {
@@ -287,6 +291,9 @@ const getVersion = (row: RowVO) => {
     if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
       if (tableComponents.includes(apiName.value)) {
         return `vxe-table@${version}`
+      }
+      if (dganttComponents.includes(apiName.value)) {
+        return `vxe-gantt@${version}`
       }
       if (designComponents.includes(apiName.value)) {
         return `vxe-design@${version}`
