@@ -350,6 +350,7 @@ export default Vue.extend({
       border-radius: 4px;
       background: var(--vxe-ui-docs-layout-background-color);
       z-index: 99;
+      user-select: none;
     }
   }
   .enterprise-version {
