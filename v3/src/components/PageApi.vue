@@ -390,11 +390,13 @@ export default Vue.extend({
           border: 1px solid #f6ca9d;
           background-color: #f6ca9d;
           color: #606266;
+          user-select: none;
         }
         .enterprise-link {
           color: #606266;
           font-size: 12px;
           text-decoration: none;
+          user-select: none;
           &:hover {
             text-decoration: underline;
           }
