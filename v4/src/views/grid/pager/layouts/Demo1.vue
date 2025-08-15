@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeGridProps, VxeGridPropTypes, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -46,30 +46,26 @@ const allList = [
 const handlePageData = () => {
   gridOptions.loading = true
   setTimeout(() => {
-    const { pageSize, currentPage } = gridOptions.pagerConfig
-    gridOptions.pagerConfig.total = allList.length
+    const { pageSize = 10, currentPage = 1 } = pagerVO
+    pagerVO.total = allList.length
     gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     gridOptions.loading = false
   }, 100)
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  pagerConfig: {
-    total: number
-    currentPage: number
-    pageSize: number
-  }
-}>({
+const pagerVO = reactive<VxeGridPropTypes.PagerConfig>({
+  total: 0,
+  currentPage: 1,
+  pageSize: 10,
+  layouts: ['Home', 'PrevJump', 'PrevPage', 'Number', 'NextPage', 'NextJump', 'End', 'Sizes', 'FullJump', 'Total']
+})
+
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: true,
   loading: false,
   height: 500,
-  pagerConfig: {
-    total: 0,
-    currentPage: 1,
-    pageSize: 10,
-    layouts: ['Home', 'PrevJump', 'PrevPage', 'Number', 'NextPage', 'NextJump', 'End', 'Sizes', 'FullJump', 'Total']
-  },
+  pagerConfig: pagerVO,
   columns: [
     { type: 'seq', width: 70, fixed: 'left' },
     { field: 'name', title: 'Name', minWidth: 160 },
@@ -81,18 +77,13 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
     { field: 'updateDate', title: 'Update Date', visible: false },
     { field: 'createDate', title: 'Create Date', visible: false }
   ],
-  data: [
-    { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-    { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
-    { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
-    { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
-  ]
+  data: []
 })
 
 const gridEvents: VxeGridListeners = {
   pageChange ({ pageSize, currentPage }) {
-    gridOptions.pagerConfig.currentPage = currentPage
-    gridOptions.pagerConfig.pageSize = pageSize
+    pagerVO.currentPage = currentPage
+    pagerVO.pageSize = pageSize
     handlePageData()
   }
 }

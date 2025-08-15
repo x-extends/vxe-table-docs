@@ -46,29 +46,25 @@ const allList = [
 const handlePageData = () => {
   gridOptions.loading = true
   setTimeout(() => {
-    const { pageSize, currentPage } = gridOptions.pagerConfig
-    gridOptions.pagerConfig.total = allList.length
+    const { pageSize, currentPage } = pagerVO
+    pagerVO.total = allList.length
     gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     gridOptions.loading = false
   }, 100)
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  pagerConfig: {
-    total: number
-    currentPage: number
-    pageSize: number
-  }
-}>({
+const pagerVO = reactive({
+  total: 0,
+  currentPage: 1,
+  pageSize: 10
+})
+
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: true,
   loading: false,
   height: 500,
-  pagerConfig: {
-    total: 0,
-    currentPage: 1,
-    pageSize: 10
-  },
+  pagerConfig: pagerVO,
   columns: [
     { type: 'seq', width: 70, fixed: 'left' },
     { field: 'name', title: 'Name', minWidth: 160 },
@@ -85,8 +81,8 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
 
 const gridEvents: VxeGridListeners = {
   pageChange ({ pageSize, currentPage }) {
-    gridOptions.pagerConfig.currentPage = currentPage
-    gridOptions.pagerConfig.pageSize = pageSize
+    pagerVO.currentPage = currentPage
+    pagerVO.pageSize = pageSize
     handlePageData()
   }
 }
