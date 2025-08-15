@@ -3,6 +3,7 @@ export interface NavVO {
   describe?: string
   name?: string
   i18nKey?: string
+  isDisabled?: boolean
   isAllAPI?: boolean
   isSelfAPI?: boolean
   isExpand?: boolean
