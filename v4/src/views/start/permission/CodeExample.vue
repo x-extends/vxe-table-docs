@@ -32,6 +32,10 @@
                 }
               }
             })
+
+            if (VxeUI.permission.checkVisible('xxx')) {
+              // 判断是否有权限
+            }
           </pre-code>
           <div>在组件中指定 permissionCode 权限码，当无权限时会被自动隐藏</div>
           <pre-code language="html">
