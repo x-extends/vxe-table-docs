@@ -2,7 +2,7 @@
   <div class="page-header">
     <div class="header-left">
       <a class="logo" :href="siteBaseUrl">
-        <img src="/logo.png">
+        <img :src="`${siteBaseUrl}/logo.png`">
         <span class="title">{{ pageTitle }}</span>
       </a>
       <a :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
