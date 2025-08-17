@@ -9,8 +9,8 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="仅安装设计器">
-          仅可以使用可视化设计器功能，不包含任何 UI 组件，建议使用第三方 UI 组件库自行实现。
+        <vxe-tip status="success" title="安装甘特图">
+          甘特图依赖 <vxe-link  href="https://vxetable.cn" target="_blank">vxe-table v4.16+</vxe-link> 版本。
         </vxe-tip>
         <pre>
           <pre-code
