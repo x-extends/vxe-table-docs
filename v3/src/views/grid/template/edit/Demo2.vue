@@ -35,6 +35,7 @@ export default Vue.extend({
   created () {
     this.gridOptions = {
       border: true,
+      showOverflow: true,
       editConfig: {
         mode: 'cell',
         trigger: 'click'
