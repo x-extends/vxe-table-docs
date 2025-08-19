@@ -192,6 +192,12 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '按多字段分组', routerLink: { name: 'ComponentTableRowGroupGroupFields' } },
             { title: '显示分组统计', routerLink: { name: 'ComponentTableRowGroupTotal' } },
             { title: '手动操作', routerLink: { name: 'ComponentTableRowGroupHandleSet' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义分组内容模板', routerLink: { name: 'ComponentTableRowGroupTemplateDefault' } }
+              ]
+            },
             { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Faggregation%2FrowGroupSummary' } } }
           ]
         },
@@ -274,6 +280,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '事件监听', routerLink: { name: 'ComponentTableCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentTableCustomImmediate' } },
             { title: '本地保存列设置', routerLink: { name: 'ComponentTableCustomStorage' } },
+            { title: '本地保存聚合函数列设置', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_storage' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Fcustom%2Fstorage' } } },
             { title: '自定义服务端保存', routerLink: { name: 'ComponentTableCustomRemote' } },
             { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentTableCustomRemoteFull' } },
             { title: '实现显示/隐藏列', routerLink: { name: 'ComponentTableCustomManual' } },
@@ -786,7 +793,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '所有单元格可拖拽', routerLink: { name: 'ComponentGridRowResizableAllRowDrag' } },
             { title: '手动操作行高', routerLink: { name: 'ComponentGridRowResizableManual' } },
             { title: '手动刷新行高', routerLink: { name: 'ComponentGridRowResizableRecalcManual' } },
-            { title: '自适应文本域', routerLink: { name: 'ComponentGridRowResizableTextarea' } }
+            { title: '实现自适应文本域', routerLink: { name: 'ComponentGridRowResizableTextarea' } },
+            { title: '实现默认行高与自适应行高', routerLink: { name: 'ComponentGridRowResizableRowDragAutoHeight' } }
           ]
         },
         {
@@ -858,6 +866,12 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '展示方式', routerLink: { name: 'ComponentGridRowGroupGroupMode' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRowGroupTrigger' } },
             { title: '手动操作', routerLink: { name: 'ComponentGridRowGroupHandleSet' } },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义分组内容模板', routerLink: { name: 'ComponentGridRowGroupTemplateDefault' } }
+              ]
+            },
             { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Faggregation%2FrowGroupSummary' } } }
           ]
         },
@@ -977,6 +991,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '事件监听', routerLink: { name: 'ComponentGridCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentGridCustomImmediate' } },
             { title: '本地保存列设置', routerLink: { name: 'ComponentGridCustomStorage' } },
+            { title: '本地保存聚合函数列设置', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_storage' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2Fstorage' } } },
             { title: '自定义服务端保存', routerLink: { name: 'ComponentGridCustomRemote' } },
             { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentGridCustomRemoteFull' } },
             {
@@ -1036,7 +1051,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '冻结列', routerLink: { name: 'ComponentGridTreeFixed' } },
             { title: '排序', routerLink: { name: 'ComponentGridTreeSort' } },
             { title: '筛选', routerLink: { name: 'ComponentGridTreeFilter' } },
-            { title: '默认展开节点', routerLink: { name: 'ComponentGridTreeExpandRowKeys' } },
+            { title: '默认展开', routerLink: { name: 'ComponentGridTreeExpandRowKeys' } },
             { title: '同时使用展开行', routerLink: { name: 'ComponentGridTreeExpandRow' } },
             // { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
             { title: '自定义合并', routerLink: { name: 'ComponentGridTreeSpanMethod' } },
@@ -1341,7 +1356,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '工具栏 - 查询', routerLink: { name: 'ComponentGridProxyToolbarQuery' } },
             { title: '手动调用 - 查询', routerLink: { name: 'ComponentGridProxyManualQuery' } },
             { title: '集成排序查询', routerLink: { name: 'ComponentGridProxySort' } },
-            { title: '手动操作排序', routerLink: { name: 'ComponentGridProxyManualSort' } },
+            { title: '手动调用 - 操作排序', routerLink: { name: 'ComponentGridProxyManualSort' } },
             { title: '集成筛选查询', routerLink: { name: 'ComponentGridProxyFilter' } },
             { title: '集成表单查询', routerLink: { name: 'ComponentGridProxyForm' } },
             { title: '集成分页序号', routerLink: { name: 'ComponentGridProxySeq' } },

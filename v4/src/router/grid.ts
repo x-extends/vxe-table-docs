@@ -948,7 +948,14 @@ export const gridRouteConfig: RouteRecordRaw = {
         { path: 'expandGroupFields', name: 'ComponentGridRowGroupExpandGroupFields', component: () => import('@/views/grid/rowGroup/expandGroupFields/CodeExample.vue') },
         { path: 'mode', name: 'ComponentGridRowGroupGroupMode', component: () => import('@/views/grid/rowGroup/mode/CodeExample.vue') },
         { path: 'trigger', name: 'ComponentGridRowGroupTrigger', component: () => import('@/views/grid/rowGroup/trigger/CodeExample.vue') },
-        { path: 'handleSet', name: 'ComponentGridRowGroupHandleSet', component: () => import('@/views/grid/rowGroup/handleSet/CodeExample.vue') }
+        { path: 'handleSet', name: 'ComponentGridRowGroupHandleSet', component: () => import('@/views/grid/rowGroup/handleSet/CodeExample.vue') },
+        {
+          path: 'template',
+          component: RouteLayout,
+          children: [
+            { path: 'default', name: 'ComponentGridRowGroupTemplateDefault', component: () => import('@/views/grid/rowGroup/template/default/CodeExample.vue') }
+          ]
+        }
       ]
     },
     {
