@@ -25,7 +25,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
   virtualXConfig: {
-    enabled: false
+    enabled: false // 在不合并行的情况下支持开启
   },
   spanMethod ({ row, column }) {
     const $grid = gridRef.value

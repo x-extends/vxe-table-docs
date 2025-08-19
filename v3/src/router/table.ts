@@ -642,6 +642,7 @@ export const tableRouteConfig: RouteConfig = {
         { path: 'basic', name: 'ComponentTableRowGroupBasic', component: () => import('@/views/table/rowGroup/basic/CodeExample.vue') },
         { path: 'groupFields', name: 'ComponentTableRowGroupGroupFields', component: () => import('@/views/table/rowGroup/groupFields/CodeExample.vue') },
         { path: 'total', name: 'ComponentTableRowGroupTotal', component: () => import('@/views/table/rowGroup/total/CodeExample.vue') },
+        { path: 'spanMethod', name: 'ComponentTableRowGroupSpanMethod', component: () => import('@/views/table/rowGroup/spanMethod/CodeExample.vue') },
         { path: 'handleSet', name: 'ComponentTableRowGroupHandleSet', component: () => import('@/views/table/rowGroup/handleSet/CodeExample.vue') },
         {
           path: 'template',

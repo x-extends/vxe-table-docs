@@ -1,17 +1,13 @@
 <template>
   <div>
-    <p>
-      <vxe-button status="primary" @click="handleRowGroup(['date'])">设置date分组</vxe-button>
-      <vxe-button status="primary" @click="handleRowGroup(['role'])">设置role分组</vxe-button>
-      <vxe-button status="primary" @click="handleRowGroup(['role', 'date'])">设置role,date分组</vxe-button>
-      <vxe-button @click="cancelRowGroup()">取消分组</vxe-button>
-    </p>
-
     <vxe-table
+      border
       show-overflow
       height="500"
       ref="tableRef"
+      :span-method="spanMethod"
       :aggregate-config="aggregateConfig"
+      :virtual-x-config="virtualXConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" min-width="300" row-group-node></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
@@ -24,7 +20,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -38,7 +34,17 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const aggregateConfig: VxeTablePropTypes.AggregateConfig<RowVO> = {}
+    const virtualXConfig: VxeTablePropTypes.VirtualXConfig = {
+      enabled: false // 在不合并行的情况下支持开启
+    }
+
+    const aggregateConfig: VxeTablePropTypes.AggregateConfig<RowVO> = {
+      groupFields: ['role'],
+      showTotal: true,
+      contentMethod ({ groupValue }) {
+        return `分组---------------------------------------------占满一行-------------------------------------------${groupValue}`
+      }
+    }
 
     const tableData: RowVO[] = [
       { id: 10001, name: 'Test1', role: 'Develop', sex: 'Woman', age: 28, date: '2025-02-01', address: 'test abc' },
@@ -65,21 +71,20 @@ export default Vue.extend({
 
     return {
       tableData,
-      aggregateConfig
+      aggregateConfig,
+      virtualXConfig
     }
   },
   methods: {
-    handleRowGroup (fields: string[]) {
-      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-      if ($table) {
-        $table.setRowGroups(fields)
+    spanMethod ({ row, column }) {
+      const $table = this.$refs.tableRef as VxeGridInstance<RowVO>
+      if ($table && $table.isAggregateRecord(row)) {
+        if (column.field === 'name') {
+          return { rowspan: 1, colspan: 5 }
+        }
+        return { rowspan: 0, colspan: 0 }
       }
-    },
-    cancelRowGroup () {
-      const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
-      if ($table) {
-        $table.clearRowGroups()
-      }
+      return { rowspan: 1, colspan: 1 }
     }
   }
 })

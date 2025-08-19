@@ -191,6 +191,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '行分组', routerLink: { name: 'ComponentTableRowGroupBasic' } },
             { title: '按多字段分组', routerLink: { name: 'ComponentTableRowGroupGroupFields' } },
             { title: '显示分组统计', routerLink: { name: 'ComponentTableRowGroupTotal' } },
+            { title: '自定义合并', routerLink: { name: 'ComponentTableRowGroupHandleSet' } },
             { title: '手动操作', routerLink: { name: 'ComponentTableRowGroupHandleSet' } },
             {
               title: '自定义插槽模板',
