@@ -295,7 +295,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '基础使用', routerLink: { name: 'ComponentTableTreeBasic' } },
             { title: '平级结构', routerLink: { name: 'ComponentTableTreeLeveling' } },
             { title: '层级结构', routerLink: { name: 'ComponentTableTreeHierarchy' } },
-            { title: '斑马线条纹', routerLink: { name: 'ComponentTableTreeStripe' } },
+            { title: '斑马线样式', routerLink: { name: 'ComponentTableTreeStripe' } },
             { title: '序号模式', routerLink: { name: 'ComponentTableTreeSeqMode' } },
             { title: '自定义图标', routerLink: { name: 'ComponentTableTreeIcon' } },
             { title: '显示连接线', routerLink: { name: 'ComponentTableTreeLine' } },
@@ -1023,7 +1023,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '平级结构', routerLink: { name: 'ComponentGridTreeLeveling' } },
             { title: '层级结构', routerLink: { name: 'ComponentGridTreeHierarchy' } },
-            { title: '斑马线条纹', routerLink: { name: 'ComponentGridTreeStripe' } },
+            { title: '斑马线样式', routerLink: { name: 'ComponentGridTreeStripe' } },
             { title: '序号模式', routerLink: { name: 'ComponentGridTreeSeqMode' } },
             { title: '显示连接线', routerLink: { name: 'ComponentGridTreeLine' } },
             { title: '单选框', routerLink: { name: 'ComponentGridTreeRadio' } },

@@ -3,7 +3,7 @@
     <CodeLight path="table/base/stripe/Demo1">
       <template #tip>
         <vxe-tip status="primary">
-          斑马线条纹，通过设置 <ApiLink name="table" prop="stripe"/> 参数
+          斑马线样式，通过设置 <ApiLink name="table" prop="stripe"/> 参数
         </vxe-tip>
       </template>
     </CodeLight>
