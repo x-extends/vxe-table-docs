@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps } from 'vxe-table'
+import { VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -41,4 +41,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10005, name: 'Test5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' }
   ]
 })
+
+const gridEvents: VxeGridListeners = {
+  radioChange ({ row }) {
+    console.log('radio-change', row)
+  }
+}
 </script>

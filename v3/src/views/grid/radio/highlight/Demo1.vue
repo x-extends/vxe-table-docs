@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" @radio-change="radioChangeEvent"></vxe-grid>
   </div>
 </template>
 
@@ -46,6 +46,11 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    radioChangeEvent ({ row }) {
+      console.log('radio-change', row)
     }
   }
 })
