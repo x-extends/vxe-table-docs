@@ -62,7 +62,8 @@
             },
             scrollY: {
               enabled: true,
-              gt: 100
+              gt: 100,
+              mode: 'scroll' // 回复旧的虚拟滚动模式，不建议设置
             },
             // 3.15+
             virtualXConfig: {
@@ -71,7 +72,8 @@
             },
             virtualYConfig: {
               enabled: true,
-              gt: 100
+              gt: 100,
+              mode: 'scroll' // 回复旧的虚拟滚动模式，不建议设置
             }
           }
         })
