@@ -1,11 +1,16 @@
 <template>
-  <div class="version-list">
+  <div v-if="pluginType && selectPluginVersion" class="version-list">
+    <span class="title">{{ $t('app.aside.stableVersion') }}</span>
+    <span>{{ pluginType }}@{{ selectPluginVersion }}</span>
+    <vxe-link :href="currBuyPluginBUrl" status="primary" target="_blank">{{ $t('app.aside.releaseTitle') }}</vxe-link>
+  </div>
+  <div v-else class="version-list">
     <template v-if="stableVersionList.length">
-      <span class="title">{{  $t('app.aside.stableVersion')}}</span>
+      <span class="title">{{ $t('app.aside.stableVersion') }}</span>
       <vxe-select class="stable-select" v-model="selectStableVersion" :options="stableVersionList"></vxe-select>
     </template>
     <template v-if="showBetaVersion">
-      <span class="title">{{  $t('app.aside.latestVersion')}}</span>
+      <span class="title">{{ $t('app.aside.latestVersion') }}</span>
       <vxe-select class="latest-select" v-model="selectBetaVersion" :options="newBetsVersionList"></vxe-select>
     </template>
   </div>
@@ -15,21 +20,46 @@
 import Vue from 'vue'
 import { mapState } from 'vuex'
 import XEUtils from 'xe-utils'
+import axios from 'axios'
 
 export default Vue.extend({
+  inject: {
+    pluginType: {
+      default: ''
+    }
+  },
   data () {
     return {
       stableVersionList: [] as any[],
       betaVersionList: [] as any[],
 
+      selectPluginVersion: '',
       selectStableVersion: '',
-      selectBetaVersion: ''
+      selectBetaVersion: '',
+
+      pluginUrlMaps: {} as Record<string, string>
     }
   },
   computed: {
     ...mapState([
-      'docsVersion'
+      'docsVersion',
+      'pluginBuyUrl',
+      'isPluginDocs',
+      'siteBaseUrl'
     ]),
+    ...({} as {
+      pluginType () : string
+      pluginBuyUrl () : string
+      isPluginDocs(): boolean
+      siteBaseUrl(): string
+    }),
+    currBuyPluginBUrl () {
+      const { pluginType, pluginUrlMaps } = this
+      if (pluginUrlMaps[pluginType]) {
+        return `${this.pluginBuyUrl}#${pluginUrlMaps[pluginType]}?rl=1`
+      }
+      return this.pluginBuyUrl
+    },
     showBetaVersion () {
       const betaList = this.betaVersionList
       if (this.selectStableVersion) {
@@ -95,6 +125,18 @@ export default Vue.extend({
   },
   methods: {
     getVersion (this: any) {
+      if (this.isPluginDocs) {
+        fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+          res.json().then(data => {
+            this.pluginUrlMaps = data
+          })
+        })
+        axios.get(`${this.siteBaseUrl}/component-api/vxe-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+          const vData = res.data || {}
+          const tags = vData[this.pluginType]
+          this.selectPluginVersion = tags[`v${this.docsVersion}-latest`]
+        })
+      }
       fetch(`${process.env.VUE_APP_SERVE_API_URL}/api/npm/versions/${process.env.VUE_APP_PACKAGE_NAME}`, { method: 'GET' })
         .then(response => response.json())
         .then((data) => {
