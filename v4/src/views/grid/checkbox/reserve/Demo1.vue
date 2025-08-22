@@ -45,24 +45,13 @@ const allList = [
   { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
 ]
 
-// 模拟前端分页
-const handlePageData = () => {
-  gridOptions.loading = true
-  setTimeout(() => {
-    const { pageSize, currentPage } = gridOptions.pagerConfig
-    gridOptions.pagerConfig.total = allList.length
-    gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
-    gridOptions.loading = false
-  }, 100)
-}
+const pagerVO = reactive({
+  total: 0,
+  currentPage: 1,
+  pageSize: 10
+})
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  pagerConfig: {
-    total: number
-    currentPage: number
-    pageSize: number
-  }
-}>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: true,
   loading: false,
@@ -73,11 +62,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
   checkboxConfig: {
     reserve: true
   },
-  pagerConfig: {
-    total: 0,
-    currentPage: 1,
-    pageSize: 10
-  },
+  pagerConfig: pagerVO,
   columns: [
     { type: 'checkbox', width: 60 },
     { field: 'name', title: 'Name', minWidth: 160 },
@@ -92,10 +77,21 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
   data: []
 })
 
+// 模拟前端分页
+const handlePageData = () => {
+  gridOptions.loading = true
+  setTimeout(() => {
+    const { pageSize, currentPage } = pagerVO
+    pagerVO.total = allList.length
+    gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    gridOptions.loading = false
+  }, 100)
+}
+
 const gridEvents: VxeGridListeners = {
   pageChange ({ pageSize, currentPage }) {
-    gridOptions.pagerConfig.currentPage = currentPage
-    gridOptions.pagerConfig.pageSize = pageSize
+    pagerVO.currentPage = currentPage
+    pagerVO.pageSize = pageSize
     handlePageData()
   }
 }
