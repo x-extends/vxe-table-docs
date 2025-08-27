@@ -692,6 +692,11 @@ export const gridRouteConfig: RouteRecordRaw = {
               path: 'manual',
               name: 'ComponentGridRowDragTreeManual',
               component: () => import('@/views/grid/rowDrag/tree/manual/CodeExample.vue')
+            },
+            {
+              path: 'cossTable',
+              name: 'ComponentGridRowDragTreeCossTable',
+              component: () => import('@/views/grid/rowDrag/tree/cossTable/CodeExample.vue')
             }
           ]
         },
@@ -735,6 +740,11 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'manual',
           name: 'ComponentGridRowDragManual',
           component: () => import('@/views/grid/rowDrag/manual/CodeExample.vue')
+        },
+        {
+          path: 'cossTable',
+          name: 'ComponentGridRowDragCossTable',
+          component: () => import('@/views/grid/rowDrag/cossTable/CodeExample.vue')
         }
       ]
     },
@@ -2552,6 +2562,11 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'barPos',
           name: 'ComponentGridScrollbarBarPos',
           component: () => import('@/views/grid/scrollbar/barPos/CodeExample.vue')
+        },
+        {
+          path: 'barVisible',
+          name: 'ComponentGridScrollbarBarVisible',
+          component: () => import('@/views/grid/scrollbar/barVisible/CodeExample.vue')
         }
       ]
     },

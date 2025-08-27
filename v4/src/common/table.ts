@@ -816,7 +816,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridRowDragTreeShowGuidesStatus' } },
                 { title: '拖拽二次确认', routerLink: { name: 'ComponentGridRowDragTreeDragMethod' } },
                 { title: '懒加载', routerLink: { name: 'ComponentGridRowDragTreeLazy' } },
-                { title: '手动移动', routerLink: { name: 'ComponentGridRowDragTreeManual' } }
+                { title: '手动移动', routerLink: { name: 'ComponentGridRowDragTreeManual' } },
+                { title: '跨表拖拽', routerLink: { name: 'ComponentGridRowDragTreeCossTable' } }
               ]
             },
             { title: '触发方式', routerLink: { name: 'ComponentGridRowDragTrigger' } },
@@ -831,7 +832,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自定义提示模板', routerLink: { name: 'ComponentGridRowDragTemplateTip' } }
               ]
             },
-            { title: '手动移动', routerLink: { name: 'ComponentGridRowDragManual' } }
+            { title: '手动移动', routerLink: { name: 'ComponentGridRowDragManual' } },
+            { title: '跨表拖拽', routerLink: { name: 'ComponentGridRowDragCossTable' } }
           ]
         },
         {
@@ -1383,7 +1385,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '滚动条',
           children: [
             { title: '滚动条样式', routerLink: { name: 'ComponentGridScrollbarBarStyle' } },
-            { title: '滚动条位置', routerLink: { name: 'ComponentGridScrollbarBarPos' } }
+            { title: '滚动条位置', routerLink: { name: 'ComponentGridScrollbarBarPos' } },
+            { title: '滚动条显示方式', routerLink: { name: 'ComponentGridScrollbarBarVisible' } }
           ]
         },
         {
