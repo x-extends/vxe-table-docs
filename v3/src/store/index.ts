@@ -110,6 +110,8 @@ export default new Vuex.Store({
     pluginRenderElementCDNLib: handleLibVersion('@vxe-ui/plugin-render-element'),
     pluginRenderNaiveCDNLib: handleLibVersion('@vxe-ui/plugin-render-naive'),
     pluginRenderIViewCDNLib: handleLibVersion('@vxe-ui/plugin-render-iview'),
+    pluginRenderArcoCDNLib: handleLibVersion('@vxe-ui/plugin-render-arco'),
+    pluginRenderTDesignCDNLib: handleLibVersion('@vxe-ui/plugin-render-tdesign'),
     pluginRenderWangEditorCDNLib: handleLibVersion('@vxe-ui/plugin-render-wangeditor'),
     pluginValidatorCDNLib: handleLibVersion('@vxe-ui/plugin-validator'),
     pluginShortcutKeyCDNLib: handleLibVersion('@vxe-ui/plugin-shortcut-key')
