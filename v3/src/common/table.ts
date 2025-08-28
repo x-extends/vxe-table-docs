@@ -1453,7 +1453,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         { title: '表格背景色', routerLink: { name: 'CssVarTableBackground' } },
         { title: '行与列上移背景色', routerLink: { name: 'CssVarTableRowColHover' } },
         { title: '当前行与列背景色', routerLink: { name: 'CssVarTableRowColCurrent' } },
-        { title: '单元格高度', routerLink: { name: 'CssVarTableRowHeight' } }
+        { title: '单元格默认高度', routerLink: { name: 'CssVarTableRowHeight' } }
       ]
     },
     {
