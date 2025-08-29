@@ -917,6 +917,11 @@ export const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/merge/footer/CodeExample.vue')
         },
         {
+          path: 'header',
+          name: 'ComponentGridMergeHeader',
+          component: () => import('@/views/grid/merge/header/CodeExample.vue')
+        },
+        {
           path: 'horizontal',
           name: 'ComponentGridMergeHorizontal',
           component: () => import('@/views/grid/merge/horizontal/CodeExample.vue')

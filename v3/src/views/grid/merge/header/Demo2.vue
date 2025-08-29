@@ -29,12 +29,15 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      mergeCells: [
+      showCustomHeader: true,
+      height: 400,
+      mergeHeaderCells: [
+        { row: 0, col: 0, rowspan: 2, colspan: 1 },
+        { row: 0, col: 1, rowspan: 2, colspan: 1 },
+        { row: 0, col: 2, rowspan: 1, colspan: 2 },
         { row: 0, col: 4, rowspan: 1, colspan: 2 },
-        { row: 2, col: 4, rowspan: 1, colspan: 2 },
-        { row: 0, col: 6, rowspan: 4, colspan: 1 },
-        { row: 0, col: 7, rowspan: 4, colspan: 1 },
-        { row: 0, col: 8, rowspan: 6, colspan: 1 }
+        { row: 1, col: 6, rowspan: 1, colspan: 2 },
+        { row: 0, col: 8, rowspan: 2, colspan: 1 }
       ],
       columns: [
         { type: 'seq', width: 70 },
@@ -49,28 +52,26 @@ export default Vue.extend({
           ]
         },
         {
-          title: 'Group2',
-          field: 'group2',
+          field: 'group3',
+          title: 'Group3',
           headerAlign: 'center',
           children: [
-            {
-              field: 'attr1',
-              title: 'Attr1',
-              headerAlign: 'center',
-              children: [
-                { field: 'attr3', title: 'Attr3' },
-                { field: 'attr4', title: 'Attr4' }
-              ]
-            },
-            {
-              field: 'attr2',
-              title: 'Attr2',
-              headerAlign: 'center',
-              children: [
-                { field: 'attr5', title: 'Attr5' },
-                { field: 'attr6', title: 'Attr6' }
-              ]
-            }
+            { field: 'attr5', title: 'Attr5' },
+            { field: 'attr6', title: 'Attr6' }
+          ]
+        },
+        {
+          field: 'group6',
+          title: 'Attr3',
+          children: [
+            { field: 'attr3', title: 'Group8', headerAlign: 'center' }
+          ]
+        },
+        {
+          field: 'group8',
+          title: 'Attr4',
+          children: [
+            { field: 'attr4', title: 'Attr4' }
           ]
         },
         { field: 'address', title: 'Address' }
@@ -93,24 +94,27 @@ export default Vue.extend({
   },
   methods: {
     setMerge1 () {
-      this.gridOptions.mergeCells = [
-        { row: 1, col: 1, rowspan: 2, colspan: 2 },
-        { row: 2, col: 4, rowspan: 3, colspan: 2 }
+      this.gridOptions.mergeHeaderCells = [
+        { row: 0, col: 0, rowspan: 2, colspan: 1 },
+        { row: 0, col: 1, rowspan: 2, colspan: 1 },
+        { row: 0, col: 2, rowspan: 1, colspan: 2 },
+        { row: 0, col: 4, rowspan: 1, colspan: 2 },
+        { row: 1, col: 6, rowspan: 1, colspan: 2 },
+        { row: 0, col: 8, rowspan: 2, colspan: 1 }
       ]
     },
     setMerge2 () {
-      this.gridOptions.mergeCells = [
-        { row: 0, col: 4, rowspan: 1, colspan: 2 },
-        { row: 2, col: 4, rowspan: 1, colspan: 2 },
-        { row: 0, col: 6, rowspan: 4, colspan: 1 },
-        { row: 0, col: 7, rowspan: 4, colspan: 1 },
-        { row: 0, col: 8, rowspan: 6, colspan: 1 }
+      this.gridOptions.mergeHeaderCells = [
+        { row: 0, col: 0, rowspan: 2, colspan: 1 },
+        { row: 0, col: 1, rowspan: 2, colspan: 1 },
+        { row: 0, col: 2, rowspan: 1, colspan: 4 },
+        { row: 1, col: 6, rowspan: 1, colspan: 3 }
       ]
     },
     saveMergeData () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        const mergeList = $grid.getMergeCells()
+        const mergeList = $grid.getMergeHeaderCells()
         console.log(mergeList)
       }
     }
