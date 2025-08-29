@@ -5,6 +5,9 @@
         <vxe-tip status="primary" title="合并列头">
           通过设置 <ApiLink name="grid" prop="merge-header-cells"/>={ row: 第几行开始, col: 第几列开始, rowspan: 合并多少行, colspan: 合并多少列 } 配置合并规则
         </vxe-tip>
+        <vxe-tip status="error">
+          由于临时合并的特性，可以配置 <ApiLink name="gantt" prop="columns-change"/> 事件，在列更新时重新计算合并规则
+        </vxe-tip>
       </template>
     </CodeLight>
 
