@@ -7,7 +7,7 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180" :edit-render="nameEditRender"></vxe-column>
-      <vxe-column field="startAndEnd" title="日期范围" width="320" :edit-render="startAndEndEditRender"></vxe-column>
+      <vxe-column field="_startAndEnd" title="日期范围" width="320" :edit-render="startAndEndEditRender"></vxe-column>
     </vxe-table>
   </div>
 </template>

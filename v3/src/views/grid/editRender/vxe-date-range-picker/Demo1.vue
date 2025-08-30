@@ -29,7 +29,7 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 180, editRender: { name: 'VxeInput' } },
-        { field: 'startAndEnd', title: '日期范围', width: 320, editRender: { name: 'VxeDateRangePicker', startField: 'startDate', endField: 'endDate', props: { type: 'date', clearable: true } } }
+        { field: '_startAndEnd', title: '日期范围', width: 320, editRender: { name: 'VxeDateRangePicker', startField: 'startDate', endField: 'endDate', props: { type: 'date', clearable: true } } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', startDate: '', endDate: '', address: 'test abc' },
