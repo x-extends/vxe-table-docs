@@ -2711,6 +2711,11 @@ export const gridRouteConfig: RouteConfig = {
           path: 'leftRight',
           name: 'ComponentGridOtherLeftRight',
           component: () => import('@/views/grid/other/leftRight/CodeExample.vue')
+        },
+        {
+          path: 'tableTransfer',
+          name: 'ComponentGridOtherTableTransfer',
+          component: () => import('@/views/grid/other/tableTransfer/CodeExample.vue')
         }
       ]
     }

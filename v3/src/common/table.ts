@@ -1429,7 +1429,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现记账凭证', routerLink: { name: 'ComponentGridOtherBookkeepingVoucher' } },
             { title: '单元格可拖拽调整宽高', routerLink: { name: 'ComponentGridOtherAllRowColDrag' } },
             { title: '实现粘贴上传', routerLink: { name: 'ComponentGridOtherPasteToUpload' } },
-            { title: '实现左边树和右边表格', routerLink: { name: 'ComponentGridOtherLeftRight' } }
+            { title: '实现左边树和右边表格', routerLink: { name: 'ComponentGridOtherLeftRight' } },
+            { title: '实现表格穿梭选择', routerLink: { name: 'ComponentGridOtherTableTransfer' } }
           ]
         }
       ]
