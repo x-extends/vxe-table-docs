@@ -1,10 +1,11 @@
-import type { VxeGlobalRendererHandles } from 'vxe-pc-ui'
+import type { VxeGlobalRendererHandles, VxeInputPropTypes } from 'vxe-pc-ui'
 
 export interface FormDesignWidgetInputProps {
   placeholder: string
   maxLength: string
   showWordCount: boolean
-  clearable: boolean
+  clearable: VxeInputPropTypes.Clearable
+  align: VxeInputPropTypes.Align
 }
 
 export const getFormDesignWidgetInputConfig = (): VxeGlobalRendererHandles.CreateFormDesignWidgetConfigObj<FormDesignWidgetInputProps> => {
@@ -15,10 +16,11 @@ export const getFormDesignWidgetInputConfig = (): VxeGlobalRendererHandles.Creat
     icon: 'vxe-icon-input',
     // 控件参数，用于在右侧配置
     options: {
-      placeholder: '',
+      placeholder: '请输入',
       maxLength: '',
       showWordCount: false,
-      clearable: true
+      clearable: true,
+      align: ''
     }
   }
 }

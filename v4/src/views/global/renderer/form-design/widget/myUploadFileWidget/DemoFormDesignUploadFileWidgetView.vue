@@ -15,7 +15,7 @@ import { PropType } from 'vue'
 import { VxeUI, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { FormDesignWidgetUploadFileProps } from './demoFormDesignUploadFileWidget'
 
-const { useWidgetView } = VxeUI.formDesign
+const { useWidgetView } = VxeUI.formDesignHandle
 
 const props = defineProps({
   renderOpts: {

@@ -15,7 +15,7 @@ import { PropType, computed } from 'vue'
 import { VxeUI, VxeGlobalRendererHandles, VxeDatePickerPropTypes } from 'vxe-pc-ui'
 import { FormDesignWidgetDatePickerProps } from './demoFormDesignDatePickerWidget'
 
-const { useWidgetView } = VxeUI.formDesign
+const { useWidgetView } = VxeUI.formDesignHandle
 
 const props = defineProps({
   renderOpts: {

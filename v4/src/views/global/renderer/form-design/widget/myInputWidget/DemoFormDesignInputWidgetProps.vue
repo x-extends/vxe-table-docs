@@ -5,6 +5,9 @@
     title-overflow
     span="24"
     :data="currWidget.options">
+    <vxe-form-item title="控件字段名" :title-prefix="{icon: 'vxe-icon-question-circle-fill', content: '唯一字段名，默认自动生成'}">
+      <vxe-input v-model="currWidget.field" placeholder="唯一，默认自动生成"></vxe-input>
+    </vxe-form-item>
     <vxe-form-item title="控件名称">
       <vxe-input v-model="currWidget.title"></vxe-input>
     </vxe-form-item>
@@ -22,6 +25,13 @@
     </vxe-form-item>
     <vxe-form-item title="是否显示字数统计">
       <vxe-switch v-model="currWidget.options.showWordCount"></vxe-switch>
+    </vxe-form-item>
+    <vxe-form-item title="对齐方式">
+      <vxe-radio-group v-model="currWidget.options.align">
+        <vxe-radio label="" content="居左"></vxe-radio>
+        <vxe-radio label="center" content="居中"></vxe-radio>
+        <vxe-radio label="right" content="居右"></vxe-radio>
+      </vxe-radio-group>
     </vxe-form-item>
   </vxe-form>
 </template>

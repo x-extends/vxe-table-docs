@@ -4,7 +4,8 @@
       v-model="widgetModel"
       :placeholder="currWidget.options.placeholder"
       :maxLength="currWidget.options.maxLength"
-      :show-word-count="currWidget.options.showWordCount">
+      :show-word-count="currWidget.options.showWordCount"
+      :align="currWidget.options.align">
     </vxe-input>
   </vxe-form-item>
 </template>
@@ -14,7 +15,7 @@ import { PropType } from 'vue'
 import { VxeUI, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { FormDesignWidgetInputProps } from './demoFormDesignInputWidget'
 
-const { useWidgetView } = VxeUI.formDesign
+const { useWidgetView } = VxeUI.formDesignHandle
 
 const props = defineProps({
   renderOpts: {

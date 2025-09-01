@@ -13,7 +13,7 @@ import { PropType } from 'vue'
 import { VxeUI, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { FormDesignWidgetTextareaProps } from './demoFormDesignTextareaWidget'
 
-const { useWidgetView } = VxeUI.formDesign
+const { useWidgetView } = VxeUI.formDesignHandle
 
 const props = defineProps({
   renderOpts: {

@@ -16,7 +16,7 @@ export const getFormDesignWidgetTextareaConfig = (): VxeGlobalRendererHandles.Cr
     icon: 'vxe-icon-textarea',
     // 控件参数，用于在右侧配置
     options: {
-      placeholder: '',
+      placeholder: '请输入',
       showWordCount: false,
       minRows: 2,
       maxRows: 4,

@@ -14,7 +14,7 @@ export const getFormDesignWidgetDatePickerConfig = (): VxeGlobalRendererHandles.
     icon: 'vxe-icon-calendar',
     // 控件参数，用于在右侧配置
     options: {
-      placeholder: '',
+      placeholder: '请选择',
       labelFormat: '',
       clearable: true
     }

@@ -9,6 +9,7 @@ export interface FormDesignWidgetAmountInputProps {
   step: VxeNumberInputPropTypes.Step
   controlConfig: VxeNumberInputPropTypes.ControlConfig
   showCurrency: boolean
+  align: VxeNumberInputPropTypes.Align
 }
 
 export const getFormDesignWidgetAmountInputConfig = (): VxeGlobalRendererHandles.CreateFormDesignWidgetConfigObj<FormDesignWidgetAmountInputProps> => {
@@ -19,7 +20,7 @@ export const getFormDesignWidgetAmountInputConfig = (): VxeGlobalRendererHandles
     icon: 'vxe-icon-rmb',
     // 控件参数，用于在右侧配置
     options: {
-      placeholder: '',
+      placeholder: '请输入',
       clearable: true,
       controlConfig: {
         showButton: true,
@@ -29,7 +30,8 @@ export const getFormDesignWidgetAmountInputConfig = (): VxeGlobalRendererHandles
       min: null,
       max: null,
       step: null,
-      showCurrency: true
+      showCurrency: true,
+      align: ''
     }
   }
 }

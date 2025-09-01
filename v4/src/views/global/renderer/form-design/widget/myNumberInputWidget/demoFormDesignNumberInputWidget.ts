@@ -9,6 +9,7 @@ export interface FormDesignWidgetNumberInputProps {
   digits: number
   step: VxeNumberInputPropTypes.Step
   controlConfig: VxeNumberInputPropTypes.ControlConfig
+  align: VxeNumberInputPropTypes.Align
 }
 
 export const getFormDesignWidgetNumberInputConfig = (): VxeGlobalRendererHandles.CreateFormDesignWidgetConfigObj<FormDesignWidgetNumberInputProps> => {
@@ -19,7 +20,7 @@ export const getFormDesignWidgetNumberInputConfig = (): VxeGlobalRendererHandles
     icon: 'vxe-icon-number',
     // 控件参数，用于在右侧配置
     options: {
-      placeholder: '',
+      placeholder: '请输入',
       clearable: true,
       type: 'number',
       controlConfig: {
@@ -29,7 +30,8 @@ export const getFormDesignWidgetNumberInputConfig = (): VxeGlobalRendererHandles
       digits: 2,
       min: null,
       max: null,
-      step: null
+      step: null,
+      align: ''
     }
   }
 }

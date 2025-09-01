@@ -7,7 +7,8 @@
       :min="currWidget.options.min"
       :max="currWidget.options.max"
       :step="currWidget.options.step"
-      :control-config="currWidget.options.controlConfig">
+      :control-config="currWidget.options.controlConfig"
+      :align="currWidget.options.align">
     </vxe-number-input>
   </vxe-form-item>
 </template>
@@ -17,7 +18,7 @@ import { PropType } from 'vue'
 import { VxeUI, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 import { FormDesignWidgetNumberInputProps } from './demoFormDesignNumberInputWidget'
 
-const { useWidgetView } = VxeUI.formDesign
+const { useWidgetView } = VxeUI.formDesignHandle
 
 const props = defineProps({
   renderOpts: {
