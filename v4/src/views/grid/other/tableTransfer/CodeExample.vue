@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/other/tableTransfer/Demo1">
+    <CodeLight path="grid/other/tableTransfer/Demo1" previewPath="/resource/docsImg/table_other_table_transfer.gif">
       <template #tip>
         <vxe-tip status="primary" title="实现表格穿梭选择">
           实现表格穿梭选择，支持点击选择或者跨表直接拖拽

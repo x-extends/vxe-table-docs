@@ -3,14 +3,14 @@
     <CodeLight path="table/scroll/vertical/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="纵向虚拟滚动">
-          通过 virtual-y-config.enabled 与 virtual-y-config.gt 组合开启，其中 enabled 为总开关，gt 是指当总行数大于指定行数时自动开启。
+          通过 <ApiLink name="table" prop="virtual-y-config"/>.<ApiLink name="table" prop="enabled"/> 与 <ApiLink name="table" prop="virtual-y-config"/>.<ApiLink name="table" prop="gt"/> 组合开启，其中 <ApiLink name="table" prop="enabled"/> 为总开关，<ApiLink name="table" prop="gt"/> 是指当总行数大于指定行数时自动开启。
         </vxe-tip>
         <vxe-tip status="success">
-          <div>理论上限：纵向最大可以支持 30w 行，当 gt 为 0 时为总是启用。</div>
-          <div>性能优化：纵向虚拟滚动行高越高越流畅，行高设置 cell-config.height</div>
+          <div>理论上限：纵向最大可以支持 30w 行，当 <ApiLink name="table" prop="gt"/> 为 0 时为总是启用。</div>
+          <div>性能优化：纵向虚拟滚动行高越高越流畅，行高设置 <ApiLink name="table" prop="cell-config"/>.<ApiLink name="table" prop="height"/></div>
         </vxe-tip>
         <vxe-tip status="error" title="小提示">
-          <div>启用纵向虚拟滚动，建议开启 show-overflow 获得最高渲染性能</div>
+          <div>启用纵向虚拟滚动，建议开启 <ApiLink name="table" prop="show-overflow"/> 获得最高渲染性能</div>
         </vxe-tip>
       </template>
 
