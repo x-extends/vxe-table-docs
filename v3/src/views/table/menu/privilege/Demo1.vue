@@ -104,30 +104,26 @@ export default Vue.extend({
           ]
         ]
       },
-      visibleMethod ({ options, column }) {
+      visibleMethod ({ options, row, column }) {
         // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
         // 显示之前处理按钮的操作权限
-        const isDisabled = !column || column.field !== 'name'
-        const isVisible = column && column.field === 'age'
+        const isCopyDisabled = !column || column.field !== 'name'
+        const isClearVisible = column && column.field === 'age'
+        const isMyPrintVisible = row && ['Test3', 'Test4'].includes(row.name)
+        const isMyExportVisible = row && ['Test2', 'Test3'].includes(row.name)
         options.forEach(list => {
           list.forEach(item => {
-            item.disabled = false
-            if (column) {
-              if (item.code === 'copy' || item.code === 'remove') {
-                item.disabled = isDisabled
-              }
-              if (item.code === 'details') {
-                item.visible = column.field === 'name'
-              } else if (item.code === 'clear' || item.code === 'filter') {
-                item.visible = isVisible
-              }
-            } else {
-              item.disabled = true
+            if (item.code === 'copy') {
+              item.disabled = isCopyDisabled
             }
-            if (item.children) {
-              item.children.forEach(childItem => {
-                childItem.disabled = item.disabled
-              })
+            if (item.code === 'clear') {
+              item.visible = isClearVisible
+            }
+            if (item.code === 'myPrint') {
+              item.visible = isMyPrintVisible
+            }
+            if (item.code === 'myExport') {
+              item.visible = isMyExportVisible
             }
           })
         })

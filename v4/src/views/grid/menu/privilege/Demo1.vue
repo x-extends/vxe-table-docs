@@ -78,18 +78,26 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
         ]
       ]
     },
-    visibleMethod ({ options, column }) {
+    visibleMethod ({ options, row, column }) {
       // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
       // 显示之前处理按钮的操作权限
-      const isDisabled = !column || column.field !== 'name'
-      const isVisible = column && column.field === 'age'
+      const isCopyDisabled = !column || column.field !== 'name'
+      const isClearVisible = column && column.field === 'age'
+      const isMyPrintVisible = row && ['Test3', 'Test4'].includes(row.name)
+      const isMyExportVisible = row && ['Test2', 'Test3'].includes(row.name)
       options.forEach(list => {
         list.forEach(item => {
           if (item.code === 'copy') {
-            item.disabled = isDisabled
+            item.disabled = isCopyDisabled
           }
           if (item.code === 'clear') {
-            item.visible = isVisible
+            item.visible = isClearVisible
+          }
+          if (item.code === 'myPrint') {
+            item.visible = isMyPrintVisible
+          }
+          if (item.code === 'myExport') {
+            item.visible = isMyExportVisible
           }
         })
       })

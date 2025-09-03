@@ -2,7 +2,9 @@
   <div>
     <CodeLight path="table/menu/privilege/Demo1">
       <template #tip>
-        <div>右键菜单，支持表头菜单、内容菜单、表尾菜单，通过 <ApiLink name="table" prop="visibleMethod"/> 和 <ApiLink name="table" prop="visible"/> | <ApiLink name="table" prop="disabled"/> 属性来控制菜单选项的操作权限</div>
+        <vxe-tip status="primary" title="菜单权限控制">
+          右键菜单，实现对按钮的控制，通过 <ApiLink name="table" prop="visibleMethod"/> 和 <ApiLink name="table" prop="visible"/> | <ApiLink name="table" prop="disabled"/> 属性来控制菜单选项的操作权限，可以精确到每一列每一行的显示隐藏与禁用控制
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>
