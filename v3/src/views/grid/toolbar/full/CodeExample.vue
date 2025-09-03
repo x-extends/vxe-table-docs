@@ -9,7 +9,7 @@
     <CodeLight path="grid/toolbar/full/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          自定义式完整功能
+          自定义功能顺序、按钮样式等
         </vxe-tip>
       </template>
     </CodeLight>

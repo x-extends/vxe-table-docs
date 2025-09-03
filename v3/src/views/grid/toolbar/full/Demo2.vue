@@ -112,12 +112,12 @@ export default Vue.extend({
           { name: '保存', code: 'mySave', status: 'success' }
         ],
         tools: [
+          { code: 'zoom', icon: 'vxe-icon-fullscreen', circle: true },
+          { code: 'custom', icon: 'vxe-icon-custom-column', circle: true },
           { code: 'open_import', icon: 'vxe-icon-upload', circle: true },
           { code: 'open_export', icon: 'vxe-icon-download', circle: true },
           { code: 'open_print', icon: 'vxe-icon-print', circle: true },
-          { code: 'refresh', icon: 'vxe-icon-repeat', circle: true },
-          { code: 'zoom', icon: 'vxe-icon-fullscreen', circle: true },
-          { code: 'custom', icon: 'vxe-icon-custom-column', circle: true }
+          { code: 'refresh', icon: 'vxe-icon-repeat', circle: true }
         ]
       },
       proxyConfig: {
