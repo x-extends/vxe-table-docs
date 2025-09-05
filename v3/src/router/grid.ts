@@ -2030,6 +2030,11 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/template/footer/CodeExample.vue')
         },
         {
+          path: 'tooltip',
+          name: 'ComponentGridTemplateTooltip',
+          component: () => import('@/views/grid/template/tooltip/CodeExample.vue')
+        },
+        {
           path: 'checkbox',
           name: 'ComponentGridTemplateCheckbox',
           component: () => import('@/views/grid/template/checkbox/CodeExample.vue')

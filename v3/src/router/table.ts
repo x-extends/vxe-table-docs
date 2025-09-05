@@ -1723,6 +1723,11 @@ export const tableRouteConfig: RouteConfig = {
           component: () => import('@/views/table/template/footer/CodeExample.vue')
         },
         {
+          path: 'tooltip',
+          name: 'ComponentTableTemplateTooltip',
+          component: () => import('@/views/table/template/tooltip/CodeExample.vue')
+        },
+        {
           path: 'checkbox',
           name: 'ComponentTableTemplateCheckbox',
           component: () => import('@/views/table/template/checkbox/CodeExample.vue')

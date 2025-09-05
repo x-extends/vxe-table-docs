@@ -67,10 +67,10 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: '名称', titlePrefix: { content: '自定义前缀' } },
-        { field: 'role', title: '角色', titlePrefix: { content: '自定义前缀图标', icon: 'vxe-icon-question-circle-fill' } },
-        { field: 'date', title: 'Date', titleSuffix: { content: '自定义后缀' } },
-        { field: 'rate', title: 'Rate', titleSuffix: { content: '自定义后缀图标', icon: 'vxe-icon-question-circle-fill' } },
+        { field: 'name', title: '名称' },
+        { field: 'role', title: '角色' },
+        { field: 'date', title: 'Date' },
+        { field: 'rate', title: 'Rate' },
         { field: 'address', title: 'Address', width: 160 },
         { type: 'html', field: 'content', title: 'Content', width: 200 }
       ],

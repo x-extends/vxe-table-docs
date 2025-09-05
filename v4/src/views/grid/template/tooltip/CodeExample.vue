@@ -1,0 +1,11 @@
+<template>
+  <div>
+    <CodeLight path="grid/template/tooltip/Demo1">
+      <template #tip>
+        <vxe-tip status="primary" title="单元格提示模板">
+          单元格提示模板，使用插槽 <ApiLink name="grid" prop="headert-tooltip"/>、<ApiLink name="grid" prop="tooltip"/>、<ApiLink name="grid" prop="footer-tooltip"/> 来自定义模板
+        </vxe-tip>
+      </template>
+    </CodeLight>
+  </div>
+</template>
