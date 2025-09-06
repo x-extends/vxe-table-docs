@@ -195,7 +195,7 @@ export default Vue.extend({
           slots: { default: 'default_name' }
         },
         { field: 'i18nValue', title: this.$t('api.title.desc'), type: 'html', minWidth: 300 },
-        { field: 'type', title: this.$t('api.title.type'), type: 'html', minWidth: 140 },
+        { field: 'type', title: this.$t('api.title.type'), type: 'html', minWidth: 200 },
         { field: 'enum', title: this.$t('api.title.enum'), type: 'html', minWidth: 150 },
         { field: 'defVal', title: this.$t('api.title.defVal'), type: 'html', minWidth: 160, titlePrefix: { content: this.$t('api.title.defValHelp') } },
         { field: 'version', title: this.$t('api.title.version'), type: 'html', width: 180, titlePrefix: { content: this.$t('api.title.versionHelp') }, slots: { default: 'default_version' } }
