@@ -205,7 +205,7 @@ const columns = computed<VxeGridPropTypes.Columns>(() => {
       slots: { default: 'default_name' }
     },
     { field: 'i18nValue', title: i18n.global.t('api.title.desc'), type: 'html', minWidth: 300 },
-    { field: 'type', title: i18n.global.t('api.title.type'), type: 'html', minWidth: 200 },
+    { field: 'type', title: i18n.global.t('api.title.type'), type: 'html', minWidth: 260 },
     { field: 'enum', title: i18n.global.t('api.title.enum'), type: 'html', minWidth: 150 },
     { field: 'defVal', title: i18n.global.t('api.title.defVal'), type: 'html', minWidth: 160, titlePrefix: { content: i18n.global.t('api.title.defValHelp') } },
     { field: 'version', title: i18n.global.t('api.title.version'), type: 'html', width: 180, titlePrefix: { content: i18n.global.t('api.title.versionHelp') }, slots: { default: 'default_version' } }

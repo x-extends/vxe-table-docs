@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/template/tooltip/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          当内容很多时，还可以通过 <ApiLink name="table" prop="tooltip-config"/>.<ApiLink name="table" prop="width"/>、<ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="height"/>、<ApiLink name="table" prop="tooltip-config"/>.<ApiLink name="table" prop="maxWidth"/>、<ApiLink name="table" prop="tooltip-config"/>.<ApiLink name="table" prop="maxHeight"/> 设置容器宽高
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

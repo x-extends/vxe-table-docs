@@ -3,9 +3,17 @@
     <CodeLight path="grid/base/tooltip/Demo1">
       <template #tip>
         <vxe-tip status="primary">
-          通过 <ApiLink name="table" prop="tooltip-config"/>.<ApiLink name="table" prop="showAll"/> 开启全表工具提示，还可以配合 <ApiLink name="table" prop="contentMethod"/> 方法重写默认的提示内容，显示逻辑完全自定义控制，可以返回 null 使用默认的提示消息<br>
-          还可以设置 <ApiLink name="table" prop="tooltip-config"/>.<ApiLink name="table" prop="enterable"/> 允许鼠标进入 tooltip 中<br>
+          通过 <ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="showAll"/> 开启全表工具提示，还可以配合 <ApiLink name="grid" prop="contentMethod"/> 方法重写默认的提示内容，显示逻辑完全自定义控制，可以返回 null 使用默认的提示消息<br>
+          还可以设置 <ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="enterable"/> 允许鼠标进入 tooltip 中<br>
           如果需要更灵活的展示，还可以使用<vxe-link status="primary" :router-link="{name: 'ComponentGridTemplateTooltip'}">自定义提示插槽模板</vxe-link>
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/base/tooltip/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          当内容很多时，还可以通过 <ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="width"/>、<ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="height"/>、<ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="maxWidth"/>、<ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="maxHeight"/> 设置容器宽高
         </vxe-tip>
       </template>
     </CodeLight>

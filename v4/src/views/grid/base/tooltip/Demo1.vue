@@ -46,25 +46,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       return null
     }
   },
-  footerMethod ({ columns }) {
-    const footerData = [
-      columns.map((column, columnIndex) => {
-        if (columnIndex === 0) {
-          return '合计'
-        }
-        if (['date'].includes(column.field)) {
-          return '2020-09-05'
-        }
-        if (['rate'].includes(column.field)) {
-          return 999.8
-        }
-        return null
-      })
-    ]
-    return footerData
-  },
   columns: [
-    { type: 'seq', width: 70 },
+    { field: 'seq', type: 'seq', width: 70 },
     { field: 'name', title: '名称' },
     { field: 'role', title: '角色' },
     { field: 'date', title: 'Date' },
@@ -78,6 +61,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { name: 'Test3', role: '前端', date: '2020-01-01', rate: 0, address: 'address3\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行<br>3333' },
     { name: 'Test4', role: '设计师', date: '2020-02-23', rate: 1, address: 'address4', content: 'xxxxx1<br>换行换行4' },
     { name: 'Test5', role: '前端', date: '2020-01-20', rate: 3, address: 'address5\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行55' }
+  ],
+  footerData: [
+    { seq: '合计', date: '2020-09-05', rate: 999.8 }
   ]
 })
 </script>
