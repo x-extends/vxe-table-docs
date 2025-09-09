@@ -57,7 +57,7 @@
           table: {
             // 新版本默认 fixed
             expandConfig: {
-              mode: 'inside''
+              mode: 'inside'
             },
             // 3.9+
             scrollX: {
