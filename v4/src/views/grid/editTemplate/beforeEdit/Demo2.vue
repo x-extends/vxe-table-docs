@@ -6,15 +6,15 @@
       </template>
 
       <template #edit_sex="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
+        <vxe-input v-model="row.sex"></vxe-input>
       </template>
 
       <template #edit_age="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
+        <vxe-input v-model="row.age"></vxe-input>
       </template>
 
       <template #edit_address="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
+        <vxe-input v-model="row.address"></vxe-input>
       </template>
     </vxe-grid>
   </div>
