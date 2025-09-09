@@ -24,6 +24,9 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
+      rowConfig: {
+        isHover: true
+      },
       virtualXConfig: {
         enabled: true,
         gt: 0

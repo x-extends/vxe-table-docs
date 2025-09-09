@@ -55,6 +55,10 @@
           },
           // 恢复默认启用虚拟滚动
           table: {
+            // 新版本默认 fixed
+            expandConfig: {
+              mode: 'inside''
+            },
             // 3.9+
             scrollX: {
               enabled: true,
