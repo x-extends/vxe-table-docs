@@ -17,11 +17,11 @@
           <pre-code
             language="shell"
             :content="`
-            npm install ${uiCDNLib } ${ tableCDNLib }
+            npm install ${utilCDNLib} ${uiCDNLib } ${ tableCDNLib }
             # 或者
-            yarn add ${uiCDNLib } ${ tableCDNLib }
+            yarn add ${utilCDNLib} ${uiCDNLib } ${ tableCDNLib }
             # 或者
-            pnpm add ${uiCDNLib } ${ tableCDNLib }
+            pnpm add ${utilCDNLib} ${uiCDNLib } ${ tableCDNLib }
             `">
           </pre-code>
           <pre-code
@@ -77,6 +77,7 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
+const utilCDNLib = computed(() => appStore.utilCDNLib)
 const uiCDNLib = computed(() => appStore.uiCDNLib)
 const tableCDNLib = computed(() => appStore.tableCDNLib)
 const designCDNLib = computed(() => appStore.designCDNLib)
