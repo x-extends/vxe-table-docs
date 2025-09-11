@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-      <template #rateAddress>
+      <template #rateHeader>
         <span>标题显示原生 title ___________________________</span>
       </template>
     </vxe-grid>
@@ -30,7 +30,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'name', title: '名称', showOverflow: 'ellipsis' },
     { field: 'role', title: '角色', showOverflow: true },
     { field: 'date', title: '标题溢出，显示为 tooltip xxxxxxxxxx 显示为 tooltip xxxxxxxxxx', showHeaderOverflow: true, showOverflow: 'title', showFooterOverflow: true },
-    { field: 'rate', title: 'Rate', showHeaderOverflow: 'title', slots: { header: 'rateAddress' } },
+    { field: 'rate', title: 'Rate', showHeaderOverflow: 'title', slots: { header: 'rateHeader' } },
     { field: 'address', title: '不换行不换行不换行不换行不换行不换行不换行不换行不换行', width: 160 }
   ],
   data: [

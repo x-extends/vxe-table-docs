@@ -20,6 +20,8 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 300,
   showOverflow: true,
+  showHeaderOverflow: true,
+  showFooterOverflow: true,
   showFooter: true,
   rowConfig: {
     useKey: true
@@ -27,14 +29,24 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     useKey: true
   },
+  headerTooltipConfig: {
+    theme: 'dark',
+    maxWidth: 200,
+    maxHeight: 100
+  },
   tooltipConfig: {
-    enterable: true,
+    theme: 'light',
+    maxWidth: 400,
+    maxHeight: 300
+  },
+  footerTooltipConfig: {
+    theme: 'light',
     maxWidth: 200,
     maxHeight: 100
   },
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
+    { field: 'name', title: 'NameNameNameNameNameNameNameNameNameNameNameNameNameName' },
     { field: 'role', title: 'Role' },
     { field: 'sex', title: 'Sex' },
     { field: 'age', title: 'Age' },
@@ -51,7 +63,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10008, name: 'Test8', role: 'Develop', sex: 'Women', age: 45, address: 'Shanghai Shanghai ShanghaiShanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Sghai Shanghai Shanghai Shanghai Shanghai' }
   ],
   footerData: [
-    { seq: '合计', role: 'Develop', age: 3 }
+    { seq: '合计', role: 'DevelopDevelopDeveloppDevelopDevelopDevelopDevelop', age: 3 }
   ]
 })
 </script>

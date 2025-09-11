@@ -25,22 +25,40 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     useKey: true
   },
+  headerTooltipConfig: {
+    showAll: true,
+    enterable: true,
+    contentMethod: ({ column }) => {
+      const { field, title } = column
+      // 重写默认的提示内容
+      if (field === 'date' || field === 'rate') {
+        return `自定义表头：${title}`
+      }
+      // 其余的单元格使用默认行为
+      return null
+    }
+  },
   tooltipConfig: {
     showAll: true,
     enterable: true,
-    contentMethod: ({ type, column, row, items, _columnIndex }) => {
+    contentMethod: ({ column, row }) => {
       const { field } = column
       // 重写默认的提示内容
-      if (field === 'role' || field === 'date') {
-        if (type === 'header') {
-          return column.title ? '自定义标题提示内容：' + column.title : ''
-        } else if (type === 'footer') {
-          return items[_columnIndex] ? '自定义表尾提示内容，\n并且自定义换行：\n' + items[_columnIndex] : ''
-        }
-        return row[field] ? '自定义提示内容：' + row[field] : ''
-      } else if (field === 'rate') {
-      // 返回空字符串，控制单元格不显示提示内容
-        return ''
+      if (field === 'date' || field === 'rate') {
+        return `自定义单元格：${row[field]}`
+      }
+      // 其余的单元格使用默认行为
+      return null
+    }
+  },
+  footerTooltipConfig: {
+    showAll: true,
+    enterable: true,
+    contentMethod: ({ column, row }) => {
+      const { field } = column
+      // 重写默认的提示内容
+      if (field === 'date' || field === 'rate') {
+        return `自定义表尾：${row[field]}`
       }
       // 其余的单元格使用默认行为
       return null
@@ -57,10 +75,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ],
   data: [
     { name: 'Test1', role: '前端', date: '2020-02-28', rate: 5, address: 'address1', content: 'xxxxx1<br>换行换行11111111111' },
-    { name: 'Test2', role: '后端', date: '2020-02-22', rate: 2, address: 'address2\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行2' },
-    { name: 'Test3', role: '前端', date: '2020-01-01', rate: 0, address: 'address3\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行<br>3333' },
+    { name: 'Test2', role: '后端', date: '2020-02-22', rate: 2, address: 'address2', content: 'xxxxx1<br>换行换行2' },
+    { name: 'Test3', role: '前端', date: '2020-01-01', rate: 0, address: 'address3', content: 'xxxxx1<br>换行换行<br>3333' },
     { name: 'Test4', role: '设计师', date: '2020-02-23', rate: 1, address: 'address4', content: 'xxxxx1<br>换行换行4' },
-    { name: 'Test5', role: '前端', date: '2020-01-20', rate: 3, address: 'address5\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行55' }
+    { name: 'Test5', role: '前端', date: '2020-01-20', rate: 3, address: 'address5', content: 'xxxxx1<br>换行换行55' }
   ],
   footerData: [
     { seq: '合计', date: '2020-09-05', rate: 999.8 }

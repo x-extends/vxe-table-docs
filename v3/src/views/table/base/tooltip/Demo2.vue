@@ -2,15 +2,19 @@
   <div>
     <vxe-table
       show-overflow
+      show-header-overflow
+      show-footer-overflow
       show-footer
       height="300"
       :row-config="{useKey: true}"
       :column-config="{useKey: true}"
       :footer-data="footerData"
       :tooltip-config="tooltipConfig"
+      :header-tooltip-config="headerTooltipConfig"
+      :footer-tooltip-config="footerTooltipConfig"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-column field="name" title="NameNameNameNameNameNameNameNameNameNameNameNameNameName"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
@@ -45,18 +49,32 @@ export default Vue.extend({
       { id: 10008, name: 'Test8', role: 'Develop', sex: 'Women', age: 45, address: 'Shanghai Shanghai ShanghaiShanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Shanghai Sghai Shanghai Shanghai Shanghai Shanghai' }
     ]
 
+    const headerTooltipConfig: VxeTablePropTypes.HeaderTooltipConfig<RowVO> = {
+      theme: 'dark',
+      maxWidth: 200,
+      maxHeight: 100
+    }
+
     const tooltipConfig: VxeTablePropTypes.TooltipConfig<RowVO> = {
-      enterable: true,
+      theme: 'light',
+      maxWidth: 400,
+      maxHeight: 300
+    }
+
+    const footerTooltipConfig: VxeTablePropTypes.FooterTooltipConfig<RowVO> = {
+      theme: 'light',
       maxWidth: 200,
       maxHeight: 100
     }
 
     const footerData: VxeTablePropTypes.FooterData = [
-      { seq: '合计', role: 'Develop', age: 3 }
+      { seq: '合计', role: 'DevelopDevelopDeveloppDevelopDevelopDevelopDevelop', age: 3 }
     ]
 
     return {
       tooltipConfig,
+      headerTooltipConfig,
+      footerTooltipConfig,
       tableData,
       footerData
     }

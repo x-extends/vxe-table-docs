@@ -1,12 +1,14 @@
 <template>
   <div>
     <vxe-table
-      height="300"
-      showOverflow
-      showHeaderOverflow
-      showFooterOverflow
+      show-overflow
+      show-header-overflow
+      show-footer-overflow
       showFooter
+      height="300"
       :tooltip-config="tooltipConfig"
+      :header-tooltip-config="headerTooltipConfig"
+      :footer-tooltip-config="footerTooltipConfig"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
@@ -17,7 +19,7 @@
       <vxe-column field="address" title="地址地址地址地址地址地址地址地址地址地址" width="200"></vxe-column>
 
       <template #header-tooltip="{ column }">
-        <div>
+        <div style="width: 800px;">
           <div style="color: red;">自定义表头：{{ column.title }}</div>
           <div style="color: red;">自定义表头：{{ column.title }}</div>
           <div style="color: red;">自定义表头：{{ column.title }}</div>
@@ -42,7 +44,7 @@
         </div>
       </template>
       <template #tooltip="{ row, column }">
-        <div style="width: 800px;">
+        <div>
           <div style="color: orange;">自定义：{{ row[column.field] }}</div>
           <vxe-link status="primary" href="https://vxeui.com/" target="_blank">点击查看官网</vxe-link>
           <div style="color: orange;">自定义：{{ row[column.field] }}</div>
@@ -128,16 +130,27 @@ export default Vue.extend({
       { seq: '合计', date: '2020-02-23', rate: '123456789123456789123456789123456789' }
     ]
 
+    const headerTooltipConfig: VxeTablePropTypes.HeaderTooltipConfig<RowVO> = {
+      maxWidth: 200,
+      maxHeight: 100
+    }
+
     const tooltipConfig: VxeTablePropTypes.TooltipConfig<RowVO> = {
-      enterable: true,
       maxWidth: 400,
       maxHeight: 300
+    }
+
+    const footerTooltipConfig: VxeTablePropTypes.FooterTooltipConfig<RowVO> = {
+      maxWidth: 200,
+      maxHeight: 100
     }
 
     return {
       tableData,
       footerData,
-      tooltipConfig
+      tooltipConfig,
+      headerTooltipConfig,
+      footerTooltipConfig
     }
   }
 })

@@ -45,8 +45,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   data: [
     { name: 'Test1', role: '前端', date: '2020-02-14', rate: 5, address: 'address1' },
     { name: 'Test2', role: '后端', date: '2020-02-22', rate: 2, address: 'address1' },
-    { name: 'Test3', role: '前端', date: '2020-01-01', rate: 0, address: '深圳市深圳市深圳市深圳市深圳市深圳市' },
-    { name: 'Test4', role: '设计师', date: '2020-02-23', rate: 1, address: '上海市上海市上海市上海市上海市上海市' },
+    { name: 'Test3', role: '前端前端前端前端前端前端前端前端', date: '2020-01-01', rate: 0, address: '深圳市深圳市深圳市深圳市深圳市深圳市' },
+    { name: 'Test4', role: '设计师设计师设计师设计师设计师设计师设计师', date: '2020-02-23', rate: 1, address: '上海市上海市上海市上海市上海市上海市' },
     { name: 'Test5', role: '前端', date: '2020-01-20', rate: 3, address: '广州市广州市广州市广州市广州市广州市广州市广州市广州市' }
   ],
   footerData: [

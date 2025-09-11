@@ -14,8 +14,7 @@
     <CodeLight path="grid/base/overflow/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          通过设置 <ApiLink name="table" prop="contentMethod"/> 方法重写默认的提示内容，显示逻辑完全自定义控制，可以返回 null 使用默认的提示消息<br>
-          还可以通过 <ApiLink name="table" prop="enterable"/> 开启鼠标是否可进入到 tooltip 中
+          通过设置 <ApiLink name="table" prop="enterable"/> 开启鼠标是否可进入到 tooltip 中
         </vxe-tip>
       </template>
     </CodeLight>

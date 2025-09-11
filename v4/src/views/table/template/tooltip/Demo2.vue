@@ -1,12 +1,14 @@
 <template>
   <div>
     <vxe-table
-      height="300"
-      showOverflow
-      showHeaderOverflow
-      showFooterOverflow
+      show-overflow
+      show-header-overflow
+      show-footer-overflow
       showFooter
+      height="300"
       :tooltip-config="tooltipConfig"
+      :header-tooltip-config="headerTooltipConfig"
+      :footer-tooltip-config="footerTooltipConfig"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
@@ -114,10 +116,19 @@ interface RowVO {
   address: string
 }
 
+const headerTooltipConfig = reactive<VxeTablePropTypes.HeaderTooltipConfig<RowVO>>({
+  maxWidth: 200,
+  maxHeight: 100
+})
+
 const tooltipConfig = reactive<VxeTablePropTypes.TooltipConfig<RowVO>>({
-  enterable: true,
   maxWidth: 400,
   maxHeight: 300
+})
+
+const footerTooltipConfig = reactive<VxeTablePropTypes.FooterTooltipConfig<RowVO>>({
+  maxWidth: 200,
+  maxHeight: 100
 })
 
 const tableData = ref<RowVO[]>([

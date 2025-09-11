@@ -1,17 +1,20 @@
 <template>
   <div>
-    <CodeLight path="grid/template/tooltip/Demo1">
+    <CodeLight path="table/base/overflow/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="单元格提示模板">
-          单元格提示模板，使用插槽 <ApiLink name="grid" prop="headert-tooltip"/>、<ApiLink name="grid" prop="tooltip"/>、<ApiLink name="grid" prop="footer-tooltip"/> 来自定义模板
+        <vxe-tip status="primary">
+          当内容溢出时显示为省略号，<ApiLink name="column" prop="show-overflow"/> 和 <ApiLink name="table" prop="show-header-overflow"/> 和 <ApiLink name="table" prop="show-footer-overflow"/><br>
+          <ApiLink name="column" prop="ellipsis"/> 当内容溢出时显示为省略号<br>
+          <ApiLink name="column" prop="title"/> 当内容溢出时显示为省略号并用原生 title 显示<br>
+          <ApiLink name="column" prop="tooltip"/> 当内容溢出时显示为省略号并用 tooltip 显示<br>
         </vxe-tip>
       </template>
     </CodeLight>
 
-    <CodeLight path="grid/template/tooltip/Demo2">
+    <CodeLight path="table/base/overflow/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          当内容很多时，还可以通过 <ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="width"/>、<ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="height"/>、<ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="maxWidth"/>、<ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="maxHeight"/> 设置容器宽高
+          通过设置 <ApiLink name="table" prop="enterable"/> 开启鼠标是否可进入到 tooltip 中
         </vxe-tip>
       </template>
     </CodeLight>
