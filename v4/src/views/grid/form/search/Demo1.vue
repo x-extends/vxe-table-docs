@@ -15,6 +15,7 @@ interface RowVO {
   sex: string
   num: string
   address: string
+  startAndEnd: string[]
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
@@ -27,12 +28,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       role: '',
       sex: '',
       num: '',
-      address: ''
+      address: '',
+      startAndEnd: []
     },
     items: [
       { field: 'name', title: 'Name', itemRender: { name: 'VxeInput' } },
-      { field: 'role', title: 'Role', itemRender: { name: 'VxeInput' } },
-      { field: 'age', title: 'Age', itemRender: { name: 'VxeInput' } },
+      { field: 'num', title: 'Num', itemRender: { name: 'VxeNumberInput' } },
+      { field: 'startAndEnd', title: '开始日期-结束日期', itemRender: { name: 'VxeDateRangePicker' } },
       {
         itemRender: {
           name: 'VxeButtonGroup',
@@ -52,14 +54,14 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'address', title: 'Address' }
   ],
   data: [
-    { id: '10001', name: 'Test1', role: 'Develop', sex: 'Man', num: '28', address: 'test abc' },
-    { id: '10002', name: 'Test2', role: 'Test', sex: 'Women', num: '22', address: 'Guangzhou' },
-    { id: '10003', name: 'Test3', role: 'PM', sex: 'Man', num: '32', address: 'Shanghai' },
-    { id: '10004', name: 'Test4', role: 'Designer', sex: 'Women', num: '24', address: 'Shanghai' },
-    { id: '10005', name: 'Test5', role: 'Develop', sex: 'Man', num: '42', address: 'Guangzhou' },
-    { id: '10006', name: 'Test6', role: 'Test', sex: 'Women', num: '39', address: 'Shanghai' },
-    { id: '10007', name: 'Test7', role: 'Develop', sex: 'Man', num: '46', address: 'Shanghai' },
-    { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou' }
+    { id: '10001', name: 'Test1', role: 'Develop', sex: 'Man', num: '28', address: 'test abc', startAndEnd: [] },
+    { id: '10002', name: 'Test2', role: 'Test', sex: 'Women', num: '22', address: 'Guangzhou', startAndEnd: [] },
+    { id: '10003', name: 'Test3', role: 'PM', sex: 'Man', num: '32', address: 'Shanghai', startAndEnd: [] },
+    { id: '10004', name: 'Test4', role: 'Designer', sex: 'Women', num: '24', address: 'Shanghai', startAndEnd: [] },
+    { id: '10005', name: 'Test5', role: 'Develop', sex: 'Man', num: '42', address: 'Guangzhou', startAndEnd: [] },
+    { id: '10006', name: 'Test6', role: 'Test', sex: 'Women', num: '39', address: 'Shanghai', startAndEnd: [] },
+    { id: '10007', name: 'Test7', role: 'Develop', sex: 'Man', num: '46', address: 'Shanghai', startAndEnd: [] },
+    { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou', startAndEnd: [] }
   ]
 })
 
