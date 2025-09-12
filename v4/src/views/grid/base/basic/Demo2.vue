@@ -1,6 +1,7 @@
 <template>
   <div>
-    <vxe-switch v-model="showName"></vxe-switch>
+    显示name<vxe-switch v-model="showName"></vxe-switch>
+    显示address<vxe-switch v-model="showAddress"></vxe-switch>
 
     <vxe-grid :columns="tableColumn" :data="tableData"></vxe-grid>
   </div>
@@ -20,6 +21,7 @@ interface RowVO {
 }
 
 const showName = ref(true)
+const showAddress = ref(true)
 
 const tableColumn = computed(() => {
   const defCols: VxeGridPropTypes.Columns<RowVO> = [
@@ -29,6 +31,9 @@ const tableColumn = computed(() => {
   ]
   if (showName.value) {
     defCols.splice(1, 0, { field: 'name', title: 'Name' })
+  }
+  if (showAddress.value) {
+    defCols.push({ field: 'address', title: 'Address' })
   }
   return defCols
 })

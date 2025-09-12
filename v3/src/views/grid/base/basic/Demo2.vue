@@ -1,6 +1,7 @@
 <template>
   <div>
-    <vxe-switch v-model="showName"></vxe-switch>
+    显示name<vxe-switch v-model="showName"></vxe-switch>
+    显示address<vxe-switch v-model="showAddress"></vxe-switch>
 
     <vxe-grid :columns="tableColumn" :data="tableData"></vxe-grid>
   </div>
@@ -22,6 +23,7 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const showName = true
+    const showAddress = true
 
     const tableData: RowVO[] = [
       { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -32,6 +34,7 @@ export default Vue.extend({
 
     return {
       showName,
+      showAddress,
       tableData
     }
   },
@@ -44,6 +47,9 @@ export default Vue.extend({
       ]
       if (this.showName) {
         defCols.splice(1, 0, { field: 'name', title: 'Name' })
+      }
+      if (this.showAddress) {
+        defCols.push({ field: 'address', title: 'Address' })
       }
       return defCols
     }
