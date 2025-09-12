@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/base/basic/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          动态列控制
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
