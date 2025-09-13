@@ -18,7 +18,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import type { VxeGridProps } from 'vxe-table'
-import XEUtils from 'xe-utils'
 
 interface RowVO {
   id: number
@@ -52,20 +51,6 @@ export default Vue.extend({
 
     return {
       gridOptions
-    }
-  },
-  methods: {
-    formatQuarterLabel (date: string) {
-      if (date) {
-        return XEUtils.toDateString(date, 'yyyy 年第 q 季度')
-      }
-      return ''
-    },
-    formatWeekLabel (date: string) {
-      if (date) {
-        return XEUtils.toDateString(date, 'yyyy 年第 WW 周')
-      }
-      return ''
     }
   }
 })
