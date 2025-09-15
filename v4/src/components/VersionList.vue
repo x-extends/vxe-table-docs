@@ -5,14 +5,10 @@
     <vxe-link :href="currBuyPluginBUrl" status="primary" target="_blank">{{ $t('app.aside.releaseTitle') }}</vxe-link>
   </div>
   <div v-else class="version-list">
-    <template v-if="stableVersionList.length">
-      <span class="title">{{ $t('app.aside.stableVersion') }}</span>
-      <vxe-select class="stable-select" v-model="selectStableVersion" :options="stableVersionList"></vxe-select>
-    </template>
-    <template v-if="showBetaVersion">
-      <span class="title">{{ $t('app.aside.latestVersion') }}</span>
-      <vxe-select class="latest-select" v-model="selectBetaVersion" :options="newBetsVersionList"></vxe-select>
-    </template>
+    <span class="title">{{ $t('app.aside.stableVersion') }}</span>
+    <span>{{ packName }}@{{ selectStableVersion }}</span>
+    <span v-if="showBetaVersion" class="title">{{ $t('app.aside.latestVersion') }}</span>
+    <span v-if="showBetaVersion">{{ packName }}@{{ selectBetaVersion }}</span>
   </div>
 </template>
 
@@ -23,6 +19,7 @@ import XEUtils from 'xe-utils'
 import axios from 'axios'
 
 const appStore = useAppStore()
+const packName = computed(() => appStore.packName)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const isPluginDocs = computed(() => appStore.isPluginDocs)
 
