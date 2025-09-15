@@ -2585,7 +2585,7 @@ nextTick(() => {
   init()
 
   if (import.meta.env.NODE_ENV !== 'development') {
-    if (!localStorage.getItem('READ_VERSION_UPGRADE_4d6')) {
+    if (!sessionStorage.getItem('READ_VERSION_UPGRADE_4d6')) {
       VXETable.modal.alert({
         title: '重要公告：v4.0.x ~ v4.6.x 停止维护',
         message: 'vxe-table v4.0.x ~ v4.6.x 版本于 2024 年 12 月 1 日起停止维护。建议使用最新版本。',
@@ -2593,7 +2593,7 @@ nextTick(() => {
         confirmButtonText: '我已知晓'
       }).then((type) => {
         if (type === 'confirm') {
-          localStorage.setItem('READ_VERSION_UPGRADE_4d6', '1')
+          sessionStorage.setItem('READ_VERSION_UPGRADE_4d6', '1')
         }
       })
     }
