@@ -1,14 +1,18 @@
 <template>
   <div v-if="pluginType && selectPluginVersion" class="version-list">
-    <span class="title">{{ $t('app.aside.stableVersion') }}</span>
+    <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
     <span>{{ pluginType }}@{{ selectPluginVersion }}</span>
     <vxe-link :href="currBuyPluginBUrl" status="primary" target="_blank">{{ $t('app.aside.releaseTitle') }}</vxe-link>
   </div>
   <div v-else class="version-list">
-    <span class="title">{{ $t('app.aside.stableVersion') }}</span>
-    <span>{{ packName }}@{{ selectStableVersion }}</span>
-    <span v-if="showBetaVersion" class="title">{{ $t('app.aside.latestVersion') }}</span>
-    <span v-if="showBetaVersion">{{ packName }}@{{ selectBetaVersion }}</span>
+    <span>
+      <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
+      <vxe-text status="primary">{{ packName }}@{{ selectStableVersion }}</vxe-text>
+    </span>
+    <span style="margin-left: 0.5em;">
+      <span class="version-title">{{ $t('app.aside.latestVersion') }}</span>
+      <vxe-text status="danger">@{{ selectBetaVersion }}</vxe-text>
+    </span>
   </div>
 </template>
 
@@ -149,7 +153,7 @@ getVersion()
 .version-list {
   font-size: 12px;
   margin-bottom: 10px;
-  & > .title {
+  .version-title {
     font-weight: 700;
     margin: 0 6px;
   }
