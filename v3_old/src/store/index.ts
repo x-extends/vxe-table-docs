@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     theme: '',
     serveTY: new Date().getFullYear(),
+    packName: process.env.VUE_APP_PACKAGE_NAME,
     baseApiUrl: process.env.VUE_APP_MAIN_URL,
     pluginDocsUrl: `${process.env.VUE_APP_MAIN_URL}pluginDocs/table/`,
     pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,

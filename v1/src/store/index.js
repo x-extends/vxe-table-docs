@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    packName: process.env.VUE_APP_PACKAGE_NAME,
     baseApiUrl: process.env.VUE_APP_MAIN_URL,
     pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
     serveApiUrl: 'https://api.vxetable.cn/demo',

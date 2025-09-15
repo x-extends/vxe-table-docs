@@ -249,15 +249,15 @@ body,
       .version-list {
         font-size: 12px;
         margin-bottom: 10px;
-        & > .title {
+        .version-title {
           font-weight: 700;
           margin: 0 6px;
         }
         .stable-select {
-          width: 74px;
+          width: 85px;
         }
         .latest-select {
-          width: 105px;
+          width: 136px;
         }
       }
       .search-input {

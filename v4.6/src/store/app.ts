@@ -14,6 +14,7 @@ export const useAppStore = defineStore('app', {
     return {
       theme: currTheme,
       serveTY: new Date().getFullYear(),
+      packName: import.meta.env.VITE_APP_PACKAGE_NAME,
       siteBaseUrl: import.meta.env.VITE_APP_SITE_BASE_URL,
       baseApiUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/`,
       pluginDocsUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/pluginDocs/table/`,

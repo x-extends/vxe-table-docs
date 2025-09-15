@@ -58,14 +58,15 @@
       <div class="aside" :class="{visible: showLeft}">
         <div class="header">
           <div class="version-list">
-            <template v-if="stableVersionList.length">
-              <span class="title">{{  $t('app.body.label.stableVersion')}}</span>
-              <vxe-select class="stable-select" v-model="selectStableVersion" size="mini" :options="stableVersionList"></vxe-select>
-            </template>
-            <template v-if="showBetaVetsion">
-              <span class="title">{{  $t('app.body.label.latestVersion')}}</span>
-              <vxe-select class="latest-select" v-model="selectBetaVersion" size="mini" :options="newBetsVersionList"></vxe-select>
-            </template>
+            <span>
+              <span class="version-title">稳定版</span>
+              <span>{{ packName }}@{{ selectStableVersion }}</span>
+            </span>
+            <span v-if="showBetaVersion" style="margin-left: 0.5em;">
+              <span class="version-title">尝鲜版</span>
+              <span>@{{ selectBetaVersion }}</span>
+            </span>
+            <a style="margin-left: 0.5em;" class="link" :href="`https://github.com/x-extends/${packName}/releases`" target="_blank">更新日志</a>
           </div>
           <vxe-input clearable v-model="filterName" type="search" class="search-input" :placeholder="$t('app.body.search.searchPlaceholder')" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
         </div>
@@ -2180,6 +2181,7 @@ export default {
   computed: {
     ...mapState([
       'serveTY',
+      'packName',
       'baseApiUrl',
       'pluginDocsUrl',
       'pluginApiUrl',
@@ -2200,7 +2202,7 @@ export default {
       }
       return null
     },
-    showBetaVetsion () {
+    showBetaVersion () {
       const { betaVersionList, stableVersionList } = this
       if (stableVersionList.length) {
         if (betaVersionList.length) {

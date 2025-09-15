@@ -59,14 +59,15 @@
       <div class="aside" :class="{visible: appData.showLeft}">
         <div class="header">
           <div class="version-list">
-            <template v-if="appData.stableVersionList.length">
-              <span class="title">{{  $t('app.body.label.stableVersion')}}</span>
-              <vxe-select class="stable-select" v-model="appData.selectStableVersion" size="mini" :options="appData.stableVersionList"></vxe-select>
-            </template>
-            <template v-if="showBetaVetsion">
-              <span class="title">{{  $t('app.body.label.latestVersion')}}</span>
-              <vxe-select class="latest-select" v-model="appData.selectBetaVersion" size="mini" :options="newBetsVersionList"></vxe-select>
-            </template>
+            <span>
+              <span class="version-title">稳定版</span>
+              <span>{{ packName }}@{{ appData.selectStableVersion }}</span>
+            </span>
+            <span v-if="showBetaVersion" style="margin-left: 0.5em;">
+              <span class="version-title">尝鲜版</span>
+              <span>@{{ appData.selectBetaVersion }}</span>
+            </span>
+            <a style="margin-left: 0.5em;" class="link" :href="`https://github.com/x-extends/${packName}/releases`" target="_blank">更新日志</a>
           </div>
           <vxe-input clearable v-model="appData.filterName" type="search" class="search-input" :placeholder="$t('app.body.search.searchPlaceholder')" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
         </div>
@@ -84,7 +85,9 @@
                     <li v-for="(child, cIndex) in item.children" :key="cIndex" :class="[child.className, {'is-donation': child.locat && ['Donation'].includes(child.locat.name)}]">
                       <a class="nav-link disabled" v-if="child.disabled" :title="$t('app.body.other.newFunc')" v-html="child.label"></a>
                       <a class="nav-link" v-else-if="child.url" :href="child.url" :title="$t('app.body.other.newFunc')" v-html="child.label" target="_blank"></a>
-                      <router-link v-else class="nav-link" :to="child.locat" :title="child.label" v-html="child.label"></router-link>
+                      <router-link v-else class="nav-link" :to="child.locat" :title="child.label">
+                        <span v-html="child.label"></span>
+                      </router-link>
                     </li>
                   </ul>
                 </li>
@@ -137,6 +140,7 @@ import VXETable from 'vxe-table'
 
 const appStore = useAppStore()
 const serveTY = computed(() => appStore.serveTY)
+const packName = computed(() => appStore.packName)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const baseApiUrl = computed(() => appStore.baseApiUrl)
 const pluginDocsUrl = computed(() => appStore.pluginDocsUrl)
@@ -2422,7 +2426,7 @@ const demoLink = computed(() => {
   return null
 })
 
-const showBetaVetsion = computed(() => {
+const showBetaVersion = computed(() => {
   const betaVersionList: any[] = appData.betaVersionList
   const stableVersionList: any[] = appData.stableVersionList
   if (stableVersionList.length) {
