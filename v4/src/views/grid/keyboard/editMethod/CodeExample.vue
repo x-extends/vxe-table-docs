@@ -5,6 +5,9 @@
         <vxe-tip status="primary" title="实现追加方式编辑">
           通过 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="editMode"/>='insert' 设置按键编辑方式
         </vxe-tip>
+        <vxe-tip status="error">
+          需要注意，如果是拼音输入法，第一个输入的字符将用于激活编辑状态
+        </vxe-tip>
       </template>
 
       <template #describe>
