@@ -7,12 +7,13 @@
   <div v-else class="version-list">
     <span>
       <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
-      <vxe-text status="primary">{{ packName }}@{{ selectStableVersion }}</vxe-text>
+      <span>{{ packName }}@{{ selectStableVersion }}</span>
     </span>
-    <span style="margin-left: 0.5em;">
+    <span v-if="showBetaVersion" style="margin-left: 0.5em;">
       <span class="version-title">{{ $t('app.aside.latestVersion') }}</span>
-      <vxe-text status="danger">@{{ selectBetaVersion }}</vxe-text>
+      <span>@{{ selectBetaVersion }}</span>
     </span>
+    <vxe-link style="margin-left: 0.5em;" status="primary" :href="`https://github.com/x-extends/${packName}/releases`" target="_blank">更新日志</vxe-link>
   </div>
 </template>
 
