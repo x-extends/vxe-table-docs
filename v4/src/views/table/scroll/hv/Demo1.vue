@@ -18,6 +18,7 @@
       height="600"
       :loading="loading"
       :column-config="{resizable: true}"
+      :row-config="{isHover: true}"
       :virtual-x-config="{enabled: true, gt: 0}"
       :virtual-y-config="{enabled: true, gt: 0}">
       <vxe-column field="col0" title="列0" width="160"></vxe-column>
@@ -101,7 +102,7 @@ const loadList = (rowSize: number) => {
         id: 10000 + i
       }
       for (let j = 0; j < 20; j++) {
-        item[`col${j}`] = `值_${i}_${j}`
+        item[`col${j}`] = `值_${i}_${j}_值__值_值_值_值_值_值_值_值_值`
       }
       dataList.push(item)
     }

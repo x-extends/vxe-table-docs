@@ -8,6 +8,7 @@
       :show-overflow="false"
       :loading="loading"
       :column-config="{resizable: true}"
+      :row-config="{isHover: true}"
       :virtual-x-config="{enabled: true, gt: 0}"
       :virtual-y-config="{enabled: true, gt: 0}"
       :data="tableData"

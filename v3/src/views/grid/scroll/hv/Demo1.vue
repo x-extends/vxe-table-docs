@@ -36,6 +36,9 @@ export default Vue.extend({
       showHeaderOverflow: true,
       showFooterOverflow: true,
       height: 600,
+      rowConfig: {
+        isHover: true
+      },
       virtualYConfig: {
         enabled: true,
         gt: 0
@@ -70,7 +73,7 @@ export default Vue.extend({
             id: 10000 + i
           }
           for (let j = 0; j < 20; j++) {
-            item[`col${j * 5}`] = `值_${i}_${j * 5}`
+            item[`col${j * 4}`] = `值_${i}_${j * 4}_值__值_值_值_值_值_值_值_值_值`
           }
           dataList.push(item)
         }
