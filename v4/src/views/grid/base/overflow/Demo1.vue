@@ -29,9 +29,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'seq', type: 'seq', width: 70 },
     { field: 'name', title: '名称', showOverflow: 'ellipsis' },
     { field: 'role', title: '角色', showOverflow: true },
-    { field: 'date', title: '标题溢出，显示为 tooltip xxxxxxxxxx 显示为 tooltip xxxxxxxxxx', showHeaderOverflow: true, showOverflow: 'title', showFooterOverflow: true },
+    { field: 'date', title: '标题溢出，显示为 tooltip 标题溢出标题溢出标题溢出标题溢出标题溢出标题溢出标题溢出', showHeaderOverflow: true, showOverflow: 'title', showFooterOverflow: true },
     { field: 'rate', title: 'Rate', showHeaderOverflow: 'title', slots: { header: 'rateHeader' } },
-    { field: 'address', title: '不换行不换行不换行不换行不换行不换行不换行不换行不换行', width: 160 }
+    { field: 'address', title: '长标题长标题长标题长标题长标题长标题长标题长标题长标题', width: 160 }
   ],
   data: [
     { name: 'Test1', role: '前端', date: '内容显示原生 title 内容显示原生 title', rate: 5, address: 'address1' },

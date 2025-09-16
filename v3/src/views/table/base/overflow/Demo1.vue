@@ -8,13 +8,13 @@
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称" show-overflow="ellipsis"></vxe-column>
       <vxe-column field="role" title="角色" show-overflow></vxe-column>
-      <vxe-column field="date" title="标题溢出，显示为 tooltip xxxxxxxxxx" show-header-overflow show-overflow="title" show-footer-overflow></vxe-column>
+      <vxe-column field="date" title="标题溢出，显示为 tooltip 标题溢出标题溢出标题溢出标题溢出标题溢出标题溢出标题溢出" show-header-overflow show-overflow="title" show-footer-overflow></vxe-column>
       <vxe-column field="rate" title="Rate" show-header-overflow="title">
         <template #header>
           <span>标题显示原生 title ___________________________</span>
         </template>
       </vxe-column>
-      <vxe-column field="address" title="不换行不换行不换行不换行不换行不换行不换行不换行不换行" width="160"></vxe-column>
+      <vxe-column field="address" title="长标题长标题长标题长标题长标题长标题长标题长标题长标题" width="160"></vxe-column>
     </vxe-table>
   </div>
 </template>
