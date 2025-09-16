@@ -90,6 +90,8 @@
 export default {
   data () {
     return {
+      uiLatest: '3.18.0',
+      tableLatest: '3.18.0',
       demoCodes: [
       `
         // ...

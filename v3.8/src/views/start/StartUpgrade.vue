@@ -5,12 +5,12 @@
     <p class="tip">全局安装方式（<span class="red">如果是按需，请按照新版文档重新安装</span>）：</p>
     <div>之前</div>
     <pre>
-      <pre-code class="typescript">npm install vxe-table@3.8.25</pre-code>
+      <pre-code class="typescript">npm install vxe-table@3.8.28</pre-code>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>
     <div>之后</div>
     <pre>
-      <pre-code class="typescript">npm install vxe-pc-ui@3.3.99 vxe-table@3.13.7</pre-code>
+      <pre-code :key="`${uiLatest}${tableLatest}`" class="typescript">npm install vxe-pc-ui@{{ uiLatest }} vxe-table@{{ tableLatest }}</pre-code>
       <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
     </pre>
     <p class="tip">全局图标设置：</p>
@@ -90,6 +90,8 @@
 export default {
   data () {
     return {
+      uiLatest: '3.9.0',
+      tableLatest: '3.18.0',
       demoCodes: [
       `
         // ...
@@ -114,6 +116,16 @@ export default {
         `
       ]
     }
+  },
+  created () {
+    fetch(`https://vxeui.com/component-api/vxe-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+      res.json().then(data => {
+        if (data && data['vxe-table']) {
+          this.uiLatest = data['vxe-pc-ui']['v3-latest']
+          this.tableLatest = data['vxe-table']['v3-latest']
+        }
+      })
+    })
   }
 }
 </script>
