@@ -32,7 +32,13 @@ const flag1CellRender = reactive<VxeColumnPropTypes.CellRender>({
 })
 
 const flag2CellRender = reactive<VxeColumnPropTypes.CellRender>({
-  name: 'VxeSwitch'
+  name: 'VxeSwitch',
+  events: {
+    change (cellParams, eventParams) {
+      const { row, column } = cellParams
+      console.log('change', row, column.field, eventParams.value)
+    }
+  }
 })
 
 const tableData = ref<RowVO[]>([

@@ -40,7 +40,13 @@ export default Vue.extend({
     }
 
     const flag2CellRender: VxeColumnPropTypes.CellRender = {
-      name: 'VxeSwitch'
+      name: 'VxeSwitch',
+      events: {
+        change (cellParams, eventParams) {
+          const { row, column } = cellParams
+          console.log('change', row, column.field, eventParams.value)
+        }
+      }
     }
 
     return {
