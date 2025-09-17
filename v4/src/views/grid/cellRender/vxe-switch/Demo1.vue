@@ -24,7 +24,13 @@ const flag1CellRender = reactive<VxeColumnPropTypes.CellRender>({
 })
 
 const flag2CellRender = reactive<VxeColumnPropTypes.CellRender>({
-  name: 'VxeSwitch'
+  name: 'VxeSwitch',
+  events: {
+    change (cellParams, eventParams) {
+      const { row, column } = cellParams
+      console.log('change2', row, column.field, eventParams.value)
+    }
+  }
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({

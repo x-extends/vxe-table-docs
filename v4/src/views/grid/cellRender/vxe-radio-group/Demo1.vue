@@ -34,7 +34,13 @@ const hobby2CellRender = reactive<VxeColumnPropTypes.CellRender>({
     { label: '爬山', value: '1' },
     { label: '游泳', value: '2' },
     { label: '干饭', value: '3' }
-  ]
+  ],
+  events: {
+    change (cellParams, eventParams) {
+      const { row, column } = cellParams
+      console.log('change', row, column.field, eventParams.value)
+    }
+  }
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({

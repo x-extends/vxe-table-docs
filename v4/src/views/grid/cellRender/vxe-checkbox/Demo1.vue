@@ -17,11 +17,23 @@ interface RowVO {
 }
 
 const hc1CellRender = reactive<VxeColumnPropTypes.CellRender>({
-  name: 'VxeCheckbox'
+  name: 'VxeCheckbox',
+  events: {
+    change (cellParams, eventParams) {
+      const { row, column } = cellParams
+      console.log('change1', row, column.field, eventParams.value)
+    }
+  }
 })
 
 const hc2CellRender = reactive<VxeColumnPropTypes.CellRender>({
-  name: 'VxeCheckbox'
+  name: 'VxeCheckbox',
+  events: {
+    change (cellParams, eventParams) {
+      const { row, column } = cellParams
+      console.log('change2', row, column.field, eventParams.value)
+    }
+  }
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({

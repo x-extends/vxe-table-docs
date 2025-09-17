@@ -19,11 +19,23 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const hc1CellRender: VxeColumnPropTypes.CellRender = {
-      name: 'VxeCheckbox'
+      name: 'VxeCheckbox',
+      events: {
+        change (cellParams, eventParams) {
+          const { row, column } = cellParams
+          console.log('change1', row, column.field, eventParams.value)
+        }
+      }
     }
 
     const hc2CellRender: VxeColumnPropTypes.CellRender = {
-      name: 'VxeCheckbox'
+      name: 'VxeCheckbox',
+      events: {
+        change (cellParams, eventParams) {
+          const { row, column } = cellParams
+          console.log('change2', row, column.field, eventParams.value)
+        }
+      }
     }
 
     const gridOptions: VxeGridProps<RowVO> = {

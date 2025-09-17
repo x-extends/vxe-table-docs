@@ -26,7 +26,13 @@ export default Vue.extend({
     }
 
     const flag2CellRender: VxeColumnPropTypes.CellRender = {
-      name: 'VxeSwitch'
+      name: 'VxeSwitch',
+      events: {
+        change (cellParams, eventParams) {
+          const { row, column } = cellParams
+          console.log('change2', row, column.field, eventParams.value)
+        }
+      }
     }
 
     const gridOptions: VxeGridProps<RowVO> = {
