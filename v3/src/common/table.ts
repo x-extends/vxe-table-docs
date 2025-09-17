@@ -1067,6 +1067,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格 - 渲染 - 配置式',
           children: [
+            { title: 'VxeText 文本', routerLink: { name: 'ComponentGridCellRenderVxeText' } },
+            { title: 'VxeLink 链接', routerLink: { name: 'ComponentGridCellRenderVxeLink' } },
             { title: 'VxeSwitch 开关', routerLink: { name: 'ComponentGridCellRenderVxeSwitch' } },
             { title: 'VxeRadioGroup 单选组', routerLink: { name: 'ComponentGridCellRenderVxeRadioGroup' } },
             { title: 'VxeCheckbox 复选框', routerLink: { name: 'ComponentGridCellRenderVxeCheckbox' } },
@@ -1086,6 +1088,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格 - 渲染 - 插槽式',
           children: [
+            { title: 'VxeText 文本', routerLink: { name: 'ComponentGridCellTemplateVxeText' } },
+            { title: 'VxeLink 链接', routerLink: { name: 'ComponentGridCellTemplateVxeLink' } },
             { title: 'VxeTag 标签', routerLink: { name: 'ComponentGridCellTemplateVxeTag' } },
             { title: 'VxeCheckbox 复选框', routerLink: { name: 'ComponentGridCellTemplateVxeCheckbox' } },
             { title: 'VxeCheckboxGroup 复选组', routerLink: { name: 'ComponentGridCellTemplateVxeCheckboxGroup' } },

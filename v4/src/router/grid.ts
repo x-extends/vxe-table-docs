@@ -1536,6 +1536,16 @@ export const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/cellRender/format-tree/CodeExample.vue')
         },
         {
+          path: 'vxe-text',
+          name: 'ComponentGridCellRenderVxeText',
+          component: () => import('@/views/grid/cellRender/vxe-text/CodeExample.vue')
+        },
+        {
+          path: 'vxe-link',
+          name: 'ComponentGridCellRenderVxeLink',
+          component: () => import('@/views/grid/cellRender/vxe-link/CodeExample.vue')
+        },
+        {
           path: 'vxe-switch',
           name: 'ComponentGridCellRenderVxeSwitch',
           component: () => import('@/views/grid/cellRender/vxe-switch/CodeExample.vue')
@@ -1591,6 +1601,16 @@ export const gridRouteConfig: RouteRecordRaw = {
       path: 'cellTemplate',
       component: RouteLayout,
       children: [
+        {
+          path: 'vxe-text',
+          name: 'ComponentGridCellTemplateVxeText',
+          component: () => import('@/views/grid/cellTemplate/vxe-text/CodeExample.vue')
+        },
+        {
+          path: 'vxe-link',
+          name: 'ComponentGridCellTemplateVxeLink',
+          component: () => import('@/views/grid/cellTemplate/vxe-link/CodeExample.vue')
+        },
         {
           path: 'vxe-tag',
           name: 'ComponentGridCellTemplateVxeTag',
