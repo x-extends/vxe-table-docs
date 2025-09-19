@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-button status="success" @click="resultEvent1">获取数据1</vxe-button>
+    <vxe-button status="success" @click="resultEvent2">获取数据2</vxe-button>
     <div class="my-table-transfer">
       <div class="my-table-transfer-left">
         <vxe-grid ref="gridRef1" v-bind="gridOptions1"></vxe-grid>
@@ -133,6 +135,28 @@ export default Vue.extend({
             status: 'warning'
           })
         }
+      }
+    },
+    resultEvent1 () {
+      const $grid = this.$refs.gridRef1 as VxeGridInstance
+      if ($grid) {
+        const { insertRecords, removeRecords } = $grid.getRecordset()
+        const tableData = $grid.getFullData()
+        VxeUI.modal.message({
+          content: `新增：${insertRecords.length} 删除：${removeRecords.length} 现有：${tableData.length}`,
+          status: 'success'
+        })
+      }
+    },
+    resultEvent2 () {
+      const $grid = this.$refs.gridRef2 as VxeGridInstance
+      if ($grid) {
+        const { insertRecords, removeRecords } = $grid.getRecordset()
+        const tableData = $grid.getFullData()
+        VxeUI.modal.message({
+          content: `新增：${insertRecords.length} 删除：${removeRecords.length} 现有：${tableData.length}`,
+          status: 'success'
+        })
       }
     }
   }
