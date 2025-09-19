@@ -7,7 +7,7 @@
 <script lang="tsx" setup>
 import { ref, reactive } from 'vue'
 import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
-import { VxeInput } from 'vxe-pc-ui'
+import { VxeNumberInput } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -26,9 +26,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'checkbox', width: 60 },
     { field: 'name', title: 'Name' },
+    { field: 'sex', title: 'Sex' },
+    { field: 'num', title: 'Number' },
     {
-      field: 'sex',
-      title: 'Sex',
+      field: 'age',
+      title: 'Age',
       filters: [
         { data: '' }
       ],
@@ -38,7 +40,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       slots: {
         filter ({ column }) {
           return column.filters.map((option, index) => {
-            return <VxeInput
+            return <VxeNumberInput
               v-model={option.data}
               key={index}
               onChange={
@@ -46,13 +48,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
                   changeFilterEvent(option)
                 }
               }>
-              </VxeInput>
+              </VxeNumberInput>
           })
         }
       }
     },
-    { field: 'num', title: 'Number' },
-    { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }
   ],
   data: [

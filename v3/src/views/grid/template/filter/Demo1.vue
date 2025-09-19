@@ -1,8 +1,8 @@
 <template>
   <div>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #sex_filter="{ column }">
-        <vxe-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeFilterEvent(option)"></vxe-input>
+      <template #age_filter="{ column }">
+        <vxe-number-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeFilterEvent(option)"></vxe-number-input>
       </template>
     </vxe-grid>
   </div>
@@ -29,21 +29,21 @@ export default Vue.extend({
       columns: [
         { type: 'checkbox', width: 60 },
         { field: 'name', title: 'Name' },
+        { field: 'sex', title: 'Sex' },
+        { field: 'num', title: 'Number' },
         {
-          field: 'sex',
-          title: 'Sex',
+          field: 'age',
+          title: 'Age',
           filters: [
             { data: '' }
           ],
           filterMethod ({ option, cellValue }) {
-            return option.data === cellValue
+            return `${option.data}` === `${cellValue}`
           },
           slots: {
-            filter: 'sex_filter'
+            filter: 'age_filter'
           }
         },
-        { field: 'num', title: 'Number' },
-        { field: 'age', title: 'Age' },
         { field: 'address', title: 'Address' }
       ],
       data: [

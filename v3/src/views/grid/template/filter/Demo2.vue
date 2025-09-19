@@ -32,9 +32,11 @@ export default Vue.extend({
       columns: [
         { type: 'checkbox', width: 60 },
         { field: 'name', title: 'Name' },
+        { field: 'sex', title: 'Sex' },
+        { field: 'num', title: 'Number' },
         {
-          field: 'sex',
-          title: 'Sex',
+          field: 'age',
+          title: 'Age',
           filters: [
             { data: '' }
           ],
@@ -44,21 +46,19 @@ export default Vue.extend({
           slots: {
             filter: ({ column }) => {
               return column.filters.map((option, index) => {
-                return <vxe-input
-                v-model={option.data}
-                key={index}
-                onChange={
-                  () => {
-                    this.changeFilterEvent(option)
-                  }
-                }>
-                </vxe-input>
+                return <vxe-number-input
+              v-model={option.data}
+              key={index}
+              onChange={
+                () => {
+                  this.changeFilterEvent(option)
+                }
+              }>
+              </vxe-number-input>
               })
             }
           }
         },
-        { field: 'num', title: 'Number' },
-        { field: 'age', title: 'Age' },
         { field: 'address', title: 'Address' }
       ],
       data: [
