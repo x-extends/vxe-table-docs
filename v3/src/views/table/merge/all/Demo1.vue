@@ -6,6 +6,7 @@
 
     <vxe-table
       border
+      :column-config="columnConfig"
       :data="tableData"
       :merge-cells="mergeCells">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -57,6 +58,10 @@ export default Vue.extend({
       { id: 10006, name: 'Test6', role: 'Develop', sex: 'Man', age: 0, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: '' }
     ]
 
+    const columnConfig: VxeTablePropTypes.ColumnConfig = {
+      resizable: true
+    }
+
     const mergeCells: VxeTablePropTypes.MergeCells = [
       { row: 0, col: 4, rowspan: 1, colspan: 2 },
       { row: 2, col: 4, rowspan: 1, colspan: 2 },
@@ -67,6 +72,7 @@ export default Vue.extend({
 
     return {
       tableData,
+      columnConfig,
       mergeCells
     }
   },

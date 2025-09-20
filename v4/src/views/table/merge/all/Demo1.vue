@@ -6,6 +6,7 @@
 
     <vxe-table
       border
+      :column-config="columnConfig"
       :data="tableData"
       :merge-cells="mergeCells">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -54,6 +55,10 @@ const tableData = ref<RowVO[]>([
   { id: 10005, name: 'Test5', role: 'Test', sex: 'Women', age: 0, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: '' },
   { id: 10006, name: 'Test6', role: 'Develop', sex: 'Man', age: 0, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: '' }
 ])
+
+const columnConfig = ref<VxeTablePropTypes.ColumnConfig>({
+  resizable: true
+})
 
 const mergeCells = ref<VxeTablePropTypes.MergeCells>([
   { row: 0, col: 4, rowspan: 1, colspan: 2 },

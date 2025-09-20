@@ -27,6 +27,9 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 400,
+  columnConfig: {
+    resizable: true
+  },
   mergeHeaderCells: [
     { row: 0, col: 1, rowspan: 1, colspan: 2 }
   ],

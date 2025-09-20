@@ -27,6 +27,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 400,
+      columnConfig: {
+        resizable: true
+      },
       mergeHeaderCells: [
         { row: 0, col: 1, rowspan: 1, colspan: 2 }
       ],
