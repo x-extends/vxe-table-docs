@@ -64,11 +64,9 @@ export default Vue.extend({
         })
         return item
       })
-      const buildColumns: VxeGridPropTypes.Columns = [{
-        field: 'col0',
-        fixed: 'left',
-        width: 100
-      }]
+      const buildColumns: VxeGridPropTypes.Columns = [
+        { field: 'col0', fixed: 'left', width: 100 }
+      ]
       this.myData.forEach((item, index) => {
         buildColumns.push({
           field: `col${index + 1}`,

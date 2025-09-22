@@ -82,9 +82,35 @@ export default Vue.extend({
         { field: 'imgList2', title: '上传图片', width: 210, cellRender: imgList2CellRender }
       ],
       data: [
-        { id: 10001, name: 'Test1', imgList2: [], fileList2: [{ name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }] },
-        { id: 10002, name: 'Test2', imgList2: [{ name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }, { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' }], fileList2: [] },
-        { id: 10003, name: 'Test3', imgList2: [{ name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }], fileList2: [{ name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }, { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' }, { name: 'fj187.jpg', url: 'https://vxeui.com/resource/img/fj187.jpg' }] }
+        {
+          id: 10001,
+          name: 'Test1',
+          imgList2: [],
+          fileList2: [
+            { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' }
+          ]
+        },
+        {
+          id: 10002,
+          name: 'Test2',
+          imgList2: [
+            { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' },
+            { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' }
+          ],
+          fileList2: []
+        },
+        {
+          id: 10003,
+          name: 'Test3',
+          imgList2: [
+            { name: 'fj577.jpg', url: 'https://vxeui.com/resource/img/fj577.jpg' }
+          ],
+          fileList2: [
+            { name: 'fj562.png', url: 'https://vxeui.com/resource/img/fj562.png' },
+            { name: 'fj573.jpeg', url: 'https://vxeui.com/resource/img/fj573.jpeg' },
+            { name: 'fj187.jpg', url: 'https://vxeui.com/resource/img/fj187.jpg' }
+          ]
+        }
       ]
     }
 

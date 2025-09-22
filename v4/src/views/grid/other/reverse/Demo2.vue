@@ -55,11 +55,9 @@ const reverseTable = () => {
     })
     return item
   })
-  const buildColumns: VxeGridPropTypes.Columns = [{
-    field: 'col0',
-    fixed: 'left',
-    width: 100
-  }]
+  const buildColumns: VxeGridPropTypes.Columns = [
+    { field: 'col0', fixed: 'left', width: 100 }
+  ]
   myData.forEach((item, index) => {
     buildColumns.push({
       field: `col${index + 1}`,
