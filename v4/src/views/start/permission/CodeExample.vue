@@ -16,10 +16,17 @@
             import { VxeUI } from 'vxe-pc-ui'
             // VxeUI 是 Vxe 库通用全局实例
 
+            // 后端获取用户权限数据
+            const permissionMaps = {
+              'homePage': true,
+              'useManagePage': true,
+              'systemManagePage': true
+            }
+
             VxeUI.setConfig({
               // 全局权限码控制方法
               permissionMethod ({ code }) {
-                if (code === 'xxx') {
+                if (permissionMaps[code]) {
                   return {
                     // 是否可视
                     visible: false,
@@ -36,25 +43,25 @@
           </pre-code>
           <div>在组件中使用，指定 permissionCode 权限码，当无权限时会被自动隐藏</div>
           <pre-code class="html">
-            &lt;vxe-button permission-code="xxx"&gt;按钮&lt;/vxe-button&gt;
-            &lt;vxe-link permission-code="xxx"&gt;链接&lt;/vxe-link&gt;
+            &lt;vxe-button permission-code="homePage"&gt;按钮&lt;/vxe-button&gt;
+            &lt;vxe-link permission-code="homePage"&gt;链接&lt;/vxe-link&gt;
           </pre-code>
           <div>在组件中使用，如果多个权限码，支持分隔符：|（或）</div>
           <pre-code class="html">
-            &lt;vxe-button permission-code="aaa|bbb"&gt;按钮&lt;/vxe-button&gt;
-            &lt;vxe-link permission-code="aaa|bbb"&gt;链接&lt;/vxe-link&gt;
+            &lt;vxe-button permission-code="useManagePage|systemManagePage"&gt;按钮&lt;/vxe-button&gt;
+            &lt;vxe-link permission-code="homePage|useManagePage"&gt;链接&lt;/vxe-link&gt;
           </pre-code>
           <div>如果在 js 中使用</div>
           <pre-code class="javascript">
-            if (VxeUI.permission.checkVisible('xxx')) {
+            if (VxeUI.permission.checkVisible('homePage')) {
               // 判断是否有可视权限
             }
 
-            if (VxeUI.permission.checkDisable('xxx')) {
+            if (VxeUI.permission.checkDisable('homePage')) {
               // 判断是否被禁用
             }
 
-            const permissionInfo = VxeUI.permission.getCheckInfo('xxx')
+            const permissionInfo = VxeUI.permission.getCheckInfo('homePage')
             if (permissionInfo.visible) {
               // 判断是否有可视权限
             }
