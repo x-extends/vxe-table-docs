@@ -407,7 +407,7 @@ export default {
     },
     footer: {
       donation: '支持我们',
-      donationDesc: 'vxe-table 是 MIT 开源的，使用完全免费。为了使项目能够健康持续的发展下去，您可以通过下方扫码来支持作者。'
+      donationDesc: 'vxe-table 是 MIT开源的，无论是个人还是企业商用都是使用完全免费的。为了使项目能够健康持续的发展下去，您可以通过下方扫码来支持作者。'
     },
     api: {
       apiSearch: 'API 搜索',

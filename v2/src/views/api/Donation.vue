@@ -24,7 +24,7 @@
           <vxe-radio label="2" content="赞助作者"></vxe-radio>
         </vxe-radio-group>
         <div style="padding-top: 15px;">
-          <span v-if="supportAuthor === '1'">vxe-table 是 <a class="link" href="https://github.com/x-extends/vxe-table/blob/master/LICENSE" target="_blank">MIT</a> 开源的，使用完全免费。</span>
+          <span v-if="supportAuthor === '1'">vxe-table 是 <a class="link" href="https://github.com/x-extends/vxe-table/blob/master/LICENSE" target="_blank">MIT</a>开源的，无论是个人还是企业商用都是使用完全免费的。</span>
         </div>
       </div>
       <div v-if="supportAuthor === '2'">
