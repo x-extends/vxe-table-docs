@@ -861,6 +861,11 @@ export const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/checkbox/trigger/CodeExample.vue')
         },
         {
+          path: 'showRecords',
+          name: 'ComponentGridCheckboxShowRecords',
+          component: () => import('@/views/grid/checkbox/showRecords/CodeExample.vue')
+        },
+        {
           path: 'reserve',
           name: 'ComponentGridCheckboxReserve',
           component: () => import('@/views/grid/checkbox/reserve/CodeExample.vue')

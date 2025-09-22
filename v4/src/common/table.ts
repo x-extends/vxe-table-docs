@@ -703,6 +703,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用', routerLink: { name: 'ComponentGridCheckboxCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentGridCheckboxVisibleMethod' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridCheckboxTrigger' } },
+            { title: '显示已选数量', routerLink: { name: 'ComponentGridCheckboxShowRecords' } },
             { title: '分页保留选中状态', routerLink: { name: 'ComponentGridCheckboxReserve' } },
             { title: '分页显示保留选中状态', routerLink: { name: 'ComponentGridCheckboxShowReserveStatus' } },
             { title: '按键批量范围选择', routerLink: { name: 'ComponentGridCheckboxBatch' } },
