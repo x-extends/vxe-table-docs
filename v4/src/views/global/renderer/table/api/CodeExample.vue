@@ -61,6 +61,15 @@ const tableData = ref([
         list: []
       },
       {
+        name: 'tableFilterAutoHeight',
+        desc: '是否自适应表格高度',
+        version: '4.16.19',
+        type: 'boolean',
+        enum: '',
+        defVal: '',
+        list: []
+      },
+      {
         name: 'renderTableFilter',
         desc: '自定义筛选渲染内容',
         version: '',

@@ -34,7 +34,12 @@ export default Vue.extend({
             { label: 'Test2', value: 'Test2' },
             { label: 'Test3', value: 'Test3' },
             { label: 'Test4', value: 'Test4' },
-            { label: 'Test5', value: 'Test5' }
+            { label: 'Test5', value: 'Test5' },
+            { label: 'Test6', value: 'Test6' },
+            { label: 'Test7', value: 'Test7' },
+            { label: 'Test8', value: 'Test8' },
+            { label: 'Test9', value: 'Test9' },
+            { label: 'Test10', value: 'Test10' }
           ]
         },
         {

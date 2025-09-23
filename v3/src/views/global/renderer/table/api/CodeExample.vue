@@ -63,6 +63,15 @@ export default Vue.extend({
             list: []
           },
           {
+            name: 'tableFilterAutoHeight',
+            desc: '是否自适应表格高度',
+            version: '3.18.19',
+            type: 'boolean',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'renderTableFilter',
             desc: '自定义筛选渲染内容',
             version: '',

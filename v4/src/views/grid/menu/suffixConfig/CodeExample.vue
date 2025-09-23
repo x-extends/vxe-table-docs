@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/menu/suffixConfig/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          使用 svg 图标
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
