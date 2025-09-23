@@ -42,7 +42,7 @@ export default Vue.extend({
         { id: '10008', name: 'Test8', role: 'PM', sex: 'Women', num: '49', address: 'Guangzhou' }
       ],
       footerData: [
-        { seq: '合计', num: '282' }
+        { seq: '合计', name: '-', sex: '45', num: '282', address: '-' }
       ]
     }
 

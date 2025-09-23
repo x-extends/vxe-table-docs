@@ -43,6 +43,6 @@ const tableData = ref<RowVO[]>([
 ])
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
-  { seq: '合计', num: '282' }
+  { seq: '合计', name: '-', sex: '45', num: '282', address: '-' }
 ])
 </script>
