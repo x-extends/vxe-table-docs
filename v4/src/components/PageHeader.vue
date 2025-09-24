@@ -43,7 +43,8 @@
           <ul class="system-menu-wrapper">
             <li v-for="(item, index) in systemMenuList" :key="index">
               <vxe-link target="_blank" :href="item.href" :content="item.content"></vxe-link>
-              <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
+              <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
+              <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
             </li>
           </ul>
         </template>
