@@ -28,7 +28,7 @@
           <ul class="plugin-app-wrapper">
             <li v-for="(item, index) in pluginAppList" :key="index">
               <vxe-link :href="`${tablePluginDocsUrl}/${item.uri}`" :content="$t(`shopping.apps.${item.code}`)"></vxe-link>
-              <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
+              <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.pluginVersion') }}</span>
             </li>
           </ul>
         </template>
