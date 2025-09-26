@@ -3,7 +3,7 @@
     <vxe-button @click="openEvent">高级打印</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #printDefault>
-        <vxe-notice-bar content="自定义默认区域，可以灵活的定制自定义功能" style="background: palegreen;"></vxe-notice-bar>
+        <vxe-notice-bar loop content="自定义默认区域，可以灵活的定制自定义功能" style="background: palegreen;"></vxe-notice-bar>
       </template>
       <template #printFooter="{ options }">
         <vxe-button @click="cancelEvent">取消</vxe-button>

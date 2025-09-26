@@ -3,7 +3,7 @@
     <vxe-button @click="openEvent">高级导出</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #exportDefault>
-        <vxe-notice-bar content="自定义默认区域，可以灵活的定制自定义功能" style="background: palegreen;"></vxe-notice-bar>
+        <vxe-notice-bar loop content="自定义默认区域，可以灵活的定制自定义功能" style="background: palegreen;"></vxe-notice-bar>
       </template>
       <template #exportFooter="{ options }">
         <vxe-button @click="cancelEvent">取消</vxe-button>

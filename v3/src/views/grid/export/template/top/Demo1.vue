@@ -3,7 +3,7 @@
     <vxe-button @click="openEvent">高级导出</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #exportTop>
-        <vxe-notice-bar content="自定义顶部区域" style="background: palegreen;"></vxe-notice-bar>
+        <vxe-notice-bar loop content="自定义顶部区域" style="background: palegreen;"></vxe-notice-bar>
       </template>
     </vxe-grid>
   </div>

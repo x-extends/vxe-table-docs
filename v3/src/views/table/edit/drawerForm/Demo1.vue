@@ -2,7 +2,7 @@
   <div>
     <p>
       <vxe-button status="primary" icon="vxe-icon-add" @click="addEvent">新增</vxe-button>
-      <vxe-notice-bar content="温馨提示：当表单很多且不适用直接在表格中编辑时，可以实现弹出抽屉编辑"></vxe-notice-bar>
+      <vxe-notice-bar loop content="温馨提示：当表单很多且不适用直接在表格中编辑时，可以实现弹出抽屉编辑"></vxe-notice-bar>
     </p>
 
     <vxe-table

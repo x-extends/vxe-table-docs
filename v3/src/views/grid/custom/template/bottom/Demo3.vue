@@ -2,7 +2,7 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #customBottom>
-        <vxe-notice-bar content="自定义底部区域" style="background: palegreen;"></vxe-notice-bar>
+        <vxe-notice-bar loop content="自定义底部区域" style="background: palegreen;"></vxe-notice-bar>
       </template>
     </vxe-grid>
   </div>

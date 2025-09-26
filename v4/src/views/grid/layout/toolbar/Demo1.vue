@@ -5,7 +5,7 @@
         <div>表格顶部模板</div>
       </template>
       <template #bottom>
-        <vxe-notice-bar content="表格底部模板"></vxe-notice-bar>
+        <vxe-notice-bar loop content="表格底部模板"></vxe-notice-bar>
       </template>
     </vxe-grid>
   </div>

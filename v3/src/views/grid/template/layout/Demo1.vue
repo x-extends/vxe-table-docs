@@ -2,19 +2,19 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #form>
-        <vxe-notice-bar direction="right" style="background: dodgerblue;">自定义表单区域</vxe-notice-bar>
+        <vxe-notice-bar loop direction="right" style="background: dodgerblue;">自定义表单区域</vxe-notice-bar>
       </template>
 
       <template #toolbarButtons>
-        <vxe-notice-bar direction="left" style="background: cadetblue;width: 100%;">自定义工具栏左侧</vxe-notice-bar>
+        <vxe-notice-bar loop direction="left" style="background: cadetblue;width: 100%;">自定义工具栏左侧</vxe-notice-bar>
       </template>
 
       <template #toolbarTools>
-        <vxe-notice-bar direction="right" style="background: orange;">自定义工具栏右侧</vxe-notice-bar>
+        <vxe-notice-bar loop direction="right" style="background: orange;">自定义工具栏右侧</vxe-notice-bar>
       </template>
 
       <template #top>
-        <vxe-notice-bar direction="right" content="自定义顶部区域" style="background: green;color: #fff;"></vxe-notice-bar>
+        <vxe-notice-bar loop direction="right" content="自定义顶部区域" style="background: green;color: #fff;"></vxe-notice-bar>
       </template>
 
       <template #left>
@@ -26,7 +26,7 @@
       </template>
 
       <template #bottom>
-        <vxe-notice-bar direction="right" content="自定义底部区域" style="background: palegreen;"></vxe-notice-bar>
+        <vxe-notice-bar loop direction="right" content="自定义底部区域" style="background: palegreen;"></vxe-notice-bar>
       </template>
 
       <template #asideLeft>
@@ -38,7 +38,7 @@
       </template>
 
       <template #pager>
-        <vxe-notice-bar direction="left" style="background: red;">自定义分页区域</vxe-notice-bar>
+        <vxe-notice-bar loop direction="left" style="background: red;">自定义分页区域</vxe-notice-bar>
       </template>
     </vxe-grid>
   </div>
