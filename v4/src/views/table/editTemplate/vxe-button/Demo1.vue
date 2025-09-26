@@ -16,8 +16,8 @@
       </vxe-column>
       <vxe-column field="action" title="操作" width="180">
         <template #default="{ row }">
-          <vxe-button type="text" status="primary" @click="approveRow(row)">通过</vxe-button>
-          <vxe-button type="text" status="error" @click="rejectionRow(row)">驳回</vxe-button>
+          <vxe-button mode="text" status="primary" @click="approveRow(row)">通过</vxe-button>
+          <vxe-button mode="text" status="error" @click="rejectionRow(row)">驳回</vxe-button>
         </template>
       </vxe-column>
     </vxe-table>

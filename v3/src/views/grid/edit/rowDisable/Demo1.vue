@@ -40,7 +40,7 @@ export default Vue.extend({
         { type: 'seq', width: 50 },
         { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
         { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
-        { field: 'age', title: 'Age', editRender: { name: 'VxeInput', props: { type: 'integer' } } },
+        { field: 'age', title: 'Age', editRender: { name: 'VxeNumberInput', props: { type: 'integer' } } },
         { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
       ],
       data: [
