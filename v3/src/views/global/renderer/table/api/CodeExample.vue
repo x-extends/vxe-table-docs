@@ -72,10 +72,28 @@ export default Vue.extend({
             list: []
           },
           {
+            name: 'createTableFilterOptions',
+            desc: '定义筛选选项数据,用来替换 column.filters 简化配置',
+            version: '3.19.0',
+            type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'renderTableFilter',
-            desc: '自定义筛选渲染内容',
+            desc: '自定义默认筛选渲染内容',
             version: '',
-            type: '(h, renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
+            type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'renderTableFloatingFilter',
+            desc: '自定义浮动筛选渲染内容',
+            version: '3.19.0',
+            type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
