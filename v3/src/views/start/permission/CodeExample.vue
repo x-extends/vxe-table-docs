@@ -56,12 +56,19 @@
             if (VxeUI.permission.checkVisible('homePage')) {
               // 判断是否有可视权限
             }
+            if (VxeUI.permission.checkVisible('homePage|useManagePage')) {
+              // 使用 | 隔开，任意一个为可视，则可视
+            }
 
             if (VxeUI.permission.checkDisable('homePage')) {
               // 判断是否被禁用
             }
+            if (VxeUI.permission.checkDisable('homePage|useManagePage')) {
+              // 使用 | 隔开，任意一个禁用，则禁用
+            }
 
             const permissionInfo = VxeUI.permission.getCheckInfo('homePage')
+            // const permissionInfo = VxeUI.permission.getCheckInfo('homePage|useManagePage')
             if (permissionInfo.visible) {
               // 判断是否有可视权限
             }
