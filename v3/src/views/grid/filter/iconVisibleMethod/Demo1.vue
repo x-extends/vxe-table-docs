@@ -1,37 +1,12 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #nameHeader="{ column }">
-        <div v-for="(option, index) in column.filters" :key="index">
-          <vxe-input v-model="option.data" clearable @change="confirmFilterEvent(option)" style="width: 100%;"></vxe-input>
-        </div>
-      </template>
-
-      <template #dateHeader="{ column }">
-        <div v-for="(option, index) in column.filters" :key="index">
-          <vxe-date-picker v-model="option.data" type="date" @change="confirmFilterEvent(option)" placeholder="请选择" clearable transfer style="width: 100%;"></vxe-date-picker>
-        </div>
-      </template>
-
-      <template #sexHeader="{ column }">
-        <div v-for="(option, index) in column.filters" :key="index">
-          <vxe-select v-model="option.data" :options="sexList" clearable @change="confirmFilterEvent(option)" style="width: 100%;"></vxe-select>
-        </div>
-      </template>
-
-      <template #addressHeader="{ column }">
-        <div v-for="(option, index) in column.filters" :key="index">
-          <vxe-input v-model="option.data" clearable @change="confirmFilterEvent(option)" style="width: 100%;"></vxe-input>
-        </div>
-      </template>
-    </vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
-import XEUtils from 'xe-utils'
+import { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -39,145 +14,71 @@ interface RowVO {
   role: string
   sex: string
   age: number
-  date: string
-  amount: number
   address: string
 }
 
 export default Vue.extend({
   data () {
-    const sexList = [
-      { label: '男', value: '1' },
-      { label: '女', value: '0' }
-    ]
-
-    const gridOptions: VxeGridProps<RowVO> = {}
-
-    return {
-      gridOptions,
-      sexList
-    }
-  },
-  methods: {
-    confirmFilterEvent (option) {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
-        // 设置为选中状态
-        $grid.updateFilterOptionStatus(option, !!option.data)
-        // 修改条件之后，需要手动调用 updateData 处理表格数据
-        $grid.updateData()
-      }
-    }
-  },
-  created () {
-    this.gridOptions = {
+    const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      loading: false,
-      height: 500,
+      height: 400,
       filterConfig: {
-        showIcon: false
+        iconVisibleMethod ({ column }) {
+          if (column.field === 'name') {
+            return false
+          }
+          return true
+        }
       },
       columns: [
-        { type: 'seq', width: 70 },
+        { field: 'id', title: 'ID' },
         {
-          title: '名字',
-          children: [
-            {
-              field: 'name',
-              width: 200,
-              filters: [
-                { data: '' }
-              ],
-              filterMethod: ({ option, row, column }) => {
-                if (option.data) {
-                  return `${row[column.field]}`.indexOf(option.data) > -1
-                }
-                return true
-              },
-              slots: {
-                header: 'nameHeader'
-              }
-            }
+          field: 'name',
+          title: 'Name',
+          filters: [
+            { label: 'Test1', value: 'Test1' },
+            { label: 'Test2', value: 'Test2' },
+            { label: 'Test3', value: 'Test3' },
+            { label: 'Test4', value: 'Test4' },
+            { label: 'Test5', value: 'Test5' }
           ]
         },
         {
-          title: '时间',
-          children: [
-            {
-              field: 'date',
-              width: 200,
-              filters: [
-                { data: '' }
-              ],
-              filterMethod: ({ option, row, column }) => {
-                if (option.data) {
-                  return XEUtils.isDateSame(row[column.field], option.data, 'yyyy-MM-dd')
-                }
-                return true
-              },
-              slots: {
-                header: 'dateHeader'
-              }
-            }
+          field: 'sex',
+          title: 'Sex',
+          filterMultiple: false,
+          filters: [
+            { label: 'Man', value: 'Man' },
+            { label: 'Woman', value: 'Woman' }
           ]
         },
         {
-          title: '性别',
-          children: [
-            {
-              field: 'sex',
-              width: 200,
-              formatter: ({ cellValue }) => {
-                const item = (this as any).sexList.find(item => item.value === cellValue)
-                return item ? item.label : ''
-              },
-              filters: [
-                { data: '' }
-              ],
-              filterMethod: ({ option, row, column }) => {
-                if (option.data) {
-                  return row[column.field] === option.data
-                }
-                return true
-              },
-              slots: {
-                header: 'sexHeader'
-              }
-            }
+          field: 'age',
+          title: 'Age',
+          filters: [
+            { label: '28', value: 28 },
+            { label: '22', value: 22 },
+            { label: '38', value: 38 }
           ]
         },
-        {
-          title: '地址',
-          children: [
-            {
-              field: 'address',
-              minWidth: 300,
-              filters: [
-                { data: '' }
-              ],
-              filterMethod: ({ option, row, column }) => {
-                if (option.data) {
-                  return `${row[column.field]}`.indexOf(option.data) > -1
-                }
-                return true
-              },
-              slots: {
-                header: 'addressHeader'
-              }
-            }
-          ]
-        }
+        { field: 'address', title: 'Address' }
       ],
       data: [
-        { id: 10001, name: 'Test10', role: 'Develop', sex: '0', date: '2021-11-14', age: 28, amount: 888, address: 'test abc' },
-        { id: 10002, name: 'Test12', role: 'Test', sex: '1', date: '2021-01-20', age: 22, amount: 666, address: 'Guangzhou' },
-        { id: 10003, name: 'Test34', role: 'PM', sex: '1', date: '2020-09-17', age: 32, amount: 89, address: 'Shanghai' },
-        { id: 10004, name: 'Test24', role: 'Designer', sex: '0', date: '2020-10-25', age: 23, amount: 1000, address: 'test abc' },
-        { id: 10005, name: 'Test15', role: 'Develop', sex: '0', date: '2020-12-12', age: 30, amount: 999, address: 'Shanghai' },
-        { id: 10006, name: 'Test36', role: 'Designer', sex: '0', date: '2020-08-21', age: 21, amount: 998, address: 'test abc' },
-        { id: 10007, name: 'Test27', role: 'Test', sex: '1', date: '2021-01-01', age: 29, amount: 2000, address: 'test abc' },
-        { id: 10008, name: 'Test48', role: 'Develop', sex: '1', date: '2021-02-06', age: 35, amount: 999, address: 'test abc' }
+        { id: 10001, name: 'Test1', role: 'Develop', sex: 'Woman', age: 28, address: 'test abc' },
+        { id: 10002, name: 'Test2', role: 'Test', sex: 'Man', age: 22, address: 'Guangzhou' },
+        { id: 10003, name: 'Test3', role: 'PM', sex: 'Woman', age: 32, address: 'Shanghai' },
+        { id: 10004, name: 'Test4', role: 'Designer', sex: 'Man', age: 54, address: 'Shanghai' },
+        { id: 10005, name: 'Test5', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' },
+        { id: 10006, name: 'Test6', role: 'Develop', sex: 'Woman', age: 24, address: 'Shanghai' },
+        { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 52, address: 'test abc' },
+        { id: 10008, name: 'Test8', role: 'PM', sex: 'Woman', age: 34, address: 'Guangzhou' },
+        { id: 10009, name: 'Test9', role: 'PM', sex: 'Man', age: 24, address: 'test abc' },
+        { id: 100010, name: 'Test10', role: 'Develop', sex: 'Woman', age: 24, address: 'Shanghai' }
       ]
+    }
+
+    return {
+      gridOptions
     }
   }
 })

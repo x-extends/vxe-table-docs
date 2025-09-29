@@ -311,14 +311,21 @@ export const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/filter/manual/CodeExample.vue')
         },
         {
-          path: 'headerFilter',
-          name: 'ComponentGridFilterHeaderFilter',
-          component: () => import('@/views/grid/filter/headerFilter/CodeExample.vue')
-        },
-        {
           path: 'iconVisibleMethod',
           name: 'ComponentGridFilterIconVisibleMethod',
           component: () => import('@/views/grid/filter/iconVisibleMethod/CodeExample.vue')
+        },
+        {
+          path: 'floating',
+          component: RouteLayout,
+          children: [
+            { path: 'vxe-input', name: 'ComponentGridFilterFloatingVxeInput', component: () => import('@/views/grid/filter/floating/vxe-input/CodeExample.vue') },
+            { path: 'vxe-number-input', name: 'ComponentGridFilterFloatingVxeNumberInput', component: () => import('@/views/grid/filter/floating/vxe-number-input/CodeExample.vue') },
+            { path: 'vxe-date-picker', name: 'ComponentGridFilterFloatingVxeDatePicker', component: () => import('@/views/grid/filter/floating/vxe-date-picker/CodeExample.vue') },
+            { path: 'vxe-select', name: 'ComponentGridFilterFloatingVxeSelect', component: () => import('@/views/grid/filter/floating/vxe-select/CodeExample.vue') },
+            { path: 'full', name: 'ComponentGridFilterFloatingFull', component: () => import('@/views/grid/filter/floating/full/CodeExample.vue') },
+            { path: 'template', name: 'ComponentGridFilterFloatingTemplate', component: () => import('@/views/grid/filter/floating/template/CodeExample.vue') }
+          ]
         }
       ]
     },
