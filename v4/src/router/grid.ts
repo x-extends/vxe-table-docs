@@ -2753,6 +2753,11 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'tableTransfer',
           name: 'ComponentGridOtherTableTransfer',
           component: () => import('@/views/grid/other/tableTransfer/CodeExample.vue')
+        },
+        {
+          path: 'treeSubCols',
+          name: 'ComponentGridOtherTreeSubCols',
+          component: () => import('@/views/grid/other/treeSubCols/CodeExample.vue')
         }
       ]
     }
