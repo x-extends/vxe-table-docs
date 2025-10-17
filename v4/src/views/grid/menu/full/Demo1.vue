@@ -24,6 +24,7 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
+  height: 400,
   rowConfig: {
     isCurrent: true
   },

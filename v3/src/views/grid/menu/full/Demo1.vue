@@ -29,6 +29,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showFooter: true,
+      height: 400,
       rowConfig: {
         isCurrent: true
       },

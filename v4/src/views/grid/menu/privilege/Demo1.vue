@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-switch v-model="gridOptions.menuConfig.enabled"></vxe-switch>
+    <vxe-switch v-model="menuConfig.enabled"></vxe-switch>
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
@@ -22,11 +22,66 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  menuConfig: VxeTablePropTypes.MenuConfig<RowVO>
-}>({
+const menuConfig = reactive<VxeTablePropTypes.MenuConfig<RowVO>>({
+  enabled: true,
+  header: {
+    options: [
+      [
+        { code: 'exportAll', name: '导出所有.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
+      ]
+    ]
+  },
+  body: {
+    options: [
+      [
+        { code: 'copy', name: '复制内容（Ctrl+C）', prefixConfig: { icon: 'vxe-icon-copy' }, visible: true, disabled: false },
+        { code: 'clear', name: '清除内容', visible: true, disabled: false },
+        { code: 'reload', name: '刷新表格', visible: true, disabled: false }
+      ],
+      [
+        { code: 'myPrint', name: '打印（Ctrl+P）', prefixConfig: { icon: 'vxe-icon-print' }, visible: true, disabled: false },
+        { code: 'myExport', name: '导出.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
+      ]
+    ]
+  },
+  footer: {
+    options: [
+      [
+        { code: 'exportAll', name: '导出所有.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
+      ]
+    ]
+  },
+  visibleMethod ({ options, row, column }) {
+    // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
+    // 显示之前处理按钮的操作权限
+    const isCopyDisabled = !column || column.field !== 'name'
+    const isClearVisible = column && column.field === 'age'
+    const isMyPrintVisible = row && ['Test3', 'Test4'].includes(row.name)
+    const isMyExportVisible = row && ['Test2', 'Test3'].includes(row.name)
+    options.forEach(list => {
+      list.forEach(item => {
+        if (item.code === 'copy') {
+          item.disabled = isCopyDisabled
+        }
+        if (item.code === 'clear') {
+          item.visible = isClearVisible
+        }
+        if (item.code === 'myPrint') {
+          item.visible = isMyPrintVisible
+        }
+        if (item.code === 'myExport') {
+          item.visible = isMyExportVisible
+        }
+      })
+    })
+    return true
+  }
+})
+
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
+  height: 400,
   rowConfig: {
     isCurrent: true
   },
@@ -49,61 +104,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
     { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: 'Women', age: 23, address: 'Shenzhen' },
     { id: 10005, name: 'Test5', nickname: 'T5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' }
   ],
-  menuConfig: {
-    enabled: true,
-    header: {
-      options: [
-        [
-          { code: 'exportAll', name: '导出所有.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
-        ]
-      ]
-    },
-    body: {
-      options: [
-        [
-          { code: 'copy', name: '复制内容（Ctrl+C）', prefixConfig: { icon: 'vxe-icon-copy' }, visible: true, disabled: false },
-          { code: 'clear', name: '清除内容', visible: true, disabled: false },
-          { code: 'reload', name: '刷新表格', visible: true, disabled: false }
-        ],
-        [
-          { code: 'myPrint', name: '打印（Ctrl+P）', prefixConfig: { icon: 'vxe-icon-print' }, visible: true, disabled: false },
-          { code: 'myExport', name: '导出.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
-        ]
-      ]
-    },
-    footer: {
-      options: [
-        [
-          { code: 'exportAll', name: '导出所有.csv', prefixConfig: { icon: 'vxe-icon-download' }, visible: true, disabled: false }
-        ]
-      ]
-    },
-    visibleMethod ({ options, row, column }) {
-      // 示例：只有 name 列允许操作，清除按钮只能在 age 才显示
-      // 显示之前处理按钮的操作权限
-      const isCopyDisabled = !column || column.field !== 'name'
-      const isClearVisible = column && column.field === 'age'
-      const isMyPrintVisible = row && ['Test3', 'Test4'].includes(row.name)
-      const isMyExportVisible = row && ['Test2', 'Test3'].includes(row.name)
-      options.forEach(list => {
-        list.forEach(item => {
-          if (item.code === 'copy') {
-            item.disabled = isCopyDisabled
-          }
-          if (item.code === 'clear') {
-            item.visible = isClearVisible
-          }
-          if (item.code === 'myPrint') {
-            item.visible = isMyPrintVisible
-          }
-          if (item.code === 'myExport') {
-            item.visible = isMyExportVisible
-          }
-        })
-      })
-      return true
-    }
-  },
+  menuConfig,
   footerData: [
     { checkbox: '合计', age: 135 }
   ]
