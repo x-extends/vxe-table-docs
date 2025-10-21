@@ -3,7 +3,7 @@
     <CodeLight path="table/keyboard/keyboard/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="按键导航">
-          通过设置 <ApiLink name="table" prop="keyboard-config"/> 配置按键功能
+          通过设置 <ApiLink name="table" prop="keyboard-config"/>.<ApiLink name="table" prop="isArrow"/> 配置按键功能
         </vxe-tip>
       </template>
 
