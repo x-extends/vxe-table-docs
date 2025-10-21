@@ -1260,6 +1260,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '高亮行', routerLink: { name: 'ComponentGridKeyboardCurrRow' } },
             { title: '高亮列', routerLink: { name: 'ComponentGridKeyboardCurrColumn' } },
             { title: '高亮行与列', routerLink: { name: 'ComponentGridKeyboardCurrRowCol' } },
+            { title: '切换选中状态', routerLink: { name: 'ComponentGridKeyboardSelection' } },
             { title: '回车自动新增一行', routerLink: { name: 'ComponentGridKeyboardEnterAppend' } },
             { title: '可编辑按键操作', routerLink: { name: 'ComponentGridKeyboardEdit' } },
             { title: '设置为追加式编辑', routerLink: { name: 'ComponentGridKeyboardEditMethod' } },

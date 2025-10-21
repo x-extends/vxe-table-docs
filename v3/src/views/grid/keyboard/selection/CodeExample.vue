@@ -1,9 +1,10 @@
 <template>
   <div>
-    <CodeLight path="grid/keyboard/treeEdit/Demo1">
+    <CodeLight path="grid/keyboard/selection/Demo1" previewPath="/resource/docsImg/table_keyboard_selection.gif">
       <template #tip>
-        <vxe-tip status="primary" title="树结构编辑按键操作"></vxe-tip>
-        <vxe-tip status="error">当同时使用树编辑与按键功能时，冲突按键将被编辑功能覆盖</vxe-tip>
+        <vxe-tip status="primary" title="切换选中状态">
+          通过设置 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="isChecked"/> 启用复选框/单选框切换选中状态
+        </vxe-tip>
       </template>
 
       <template #describe>
@@ -17,10 +18,6 @@
             | Tab + Shift | 移动到当前选中或活动单元格的左侧单元格，如果到第一列且存在上一行，则从上一行开始移动 |
             | Spacebar | 翻页滚动，如果可编辑则进入编辑，如果单元格是复选框或单选框则切换勾选状态 |
             | Enter | 取消编辑并移动到当前活动单元格下面的单元格 |
-            | Delete | 清空内容 |
-            | Backspace | 清空内容并激活选中单元格为编辑状态 |
-            | F2 | 激活单元格编辑 |
-            | Esc | 取消单元格编辑 |
             | Page Up | 向上翻页滚动 |
             | Page Down | 向下翻页滚动 |
             | Home | 滚动到顶部 |
