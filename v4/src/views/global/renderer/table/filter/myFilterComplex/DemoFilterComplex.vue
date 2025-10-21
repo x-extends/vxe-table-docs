@@ -16,14 +16,12 @@
 
 <script lang="ts" setup>
 import { watch, PropType, ref, computed } from 'vue'
-import { VxeInput, VxeRadio, VxeButton, VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines } from 'vxe-table'
+import { VxeInput, VxeRadio, VxeButton } from 'vxe-pc-ui'
+import { VxeTableDefines, VxeGlobalRendererHandles } from 'vxe-table'
 
 const props = defineProps({
-  renderParams: {
-    type: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>,
-    default: () => ({})
-  }
+  renderOpts: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterOptions>,
+  renderParams: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
 })
 
 const currOption = ref<VxeTableDefines.FilterOption>()

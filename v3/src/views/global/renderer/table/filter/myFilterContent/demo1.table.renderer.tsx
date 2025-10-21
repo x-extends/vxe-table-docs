@@ -9,7 +9,7 @@ VxeUI.renderer.add('MyTableFilterContent', {
   showTableFilterFooter: false,
   // 自定义筛选模板
   renderTableFilter (h, renderOpts, renderParams) {
-    return <DemoFilterContent render-params={ renderParams } />
+    return <DemoFilterContent render-opts={ renderOpts } render-params={ renderParams } />
   },
   // 自定义重置数据方法
   tableFilterResetMethod (params) {

@@ -31,10 +31,11 @@
 
 <script lang="ts" setup>
 import { watch, PropType, ref, computed } from 'vue'
-import { VxeGlobalRendererHandles, VxeTableDefines } from 'vxe-table'
+import { VxeTableDefines, VxeGlobalRendererHandles } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 const props = defineProps({
+  renderOpts: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterOptions>,
   renderParams: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
 })
 

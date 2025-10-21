@@ -41,6 +41,7 @@ interface ColValItem {
 
 export default Vue.extend({
   props: {
+    renderOpts: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterOptions>,
     renderParams: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
   },
   data () {

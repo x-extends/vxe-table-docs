@@ -7,7 +7,7 @@ import DemoFilterInput from './DemoFilterInput.vue'
 VxeUI.renderer.add('MyTableFilterInput', {
   // 自定义筛选模板
   renderTableFilter (h, renderOpts, renderParams) {
-    return <DemoFilterInput render-params={ renderParams } />
+    return <DemoFilterInput render-opts={ renderOpts } render-params={ renderParams } />
   },
   // 自定义重置数据方法
   tableFilterResetMethod (params) {

@@ -6,8 +6,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines } from 'vxe-table'
+import { VxeTableDefines, VxeGlobalRendererHandles } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -18,10 +17,8 @@ interface RowVO {
 
 export default Vue.extend({
   props: {
-    renderParams: {
-      type: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>,
-      default: () => ({} as VxeGlobalRendererHandles.RenderTableFilterParams)
-    }
+    renderOpts: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterOptions>,
+    renderParams: Object as PropType<VxeGlobalRendererHandles.RenderTableFilterParams>
   },
   data () {
     return {
