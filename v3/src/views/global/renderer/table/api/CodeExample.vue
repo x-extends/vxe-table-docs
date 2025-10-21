@@ -84,7 +84,7 @@ export default Vue.extend({
             name: 'renderTableFilter',
             desc: '自定义默认筛选渲染内容',
             version: '',
-            type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
+            type: '(h, renderOpts, renderParams: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
@@ -93,7 +93,7 @@ export default Vue.extend({
             name: 'renderTableFloatingFilter',
             desc: '自定义浮动筛选渲染内容',
             version: '3.19.0',
-            type: '(renderOpts, params: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
+            type: '(h, renderOpts, renderParams: { column, columnIndex, $columnIndex, _columnIndex, $table }) => JSX | VNode',
             enum: '',
             defVal: '',
             list: []
