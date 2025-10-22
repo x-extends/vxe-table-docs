@@ -1448,7 +1448,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '操作列的显示隐藏', routerLink: { name: 'ComponentGridOtherVisibleColumn' } },
             { title: '在页签中使用', routerLink: { name: 'ComponentGridOtherTabs' } },
             { title: '定位行、定位列的使用', routerLink: { name: 'ComponentGridOtherScrollTo' } },
-            { title: '实现数据自动滚动', routerLink: { name: 'ComponentGridOtherAutoScroll' } },
+            // { title: '实现数据自动滚动', routerLink: { name: 'ComponentGridOtherAutoScroll' } },
             { title: '实现反转列与行', routerLink: { name: 'ComponentGridOtherReverse' } },
             { title: '实现上传文件列表', routerLink: { name: 'ComponentGridOtherFileList' } },
             { title: '实现多行文本溢出省略', routerLink: { name: 'ComponentGridOtherLineEllipsis' } },
