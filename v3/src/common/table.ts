@@ -433,7 +433,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
             { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } },
             { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_clip' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaClip' } } },
-            { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fecharts%2Fgrid%2FareaBasicsEchart' } } }
+            { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fecharts%2FareaBasicsEchart' } } }
           ]
         },
         {
@@ -1160,7 +1160,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现抽屉选择数据', routerLink: { name: 'ComponentGridEditDrawerSelect' } },
             { title: '实现行保存功能', routerLink: { name: 'ComponentGridEditRowSave' } },
             { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_clip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaClip' } } },
-            { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fecharts%2Fgrid%2FareaBasicsEchart' } } }
+            { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fecharts%2FareaBasicsEchart' } } }
           ]
         },
         {
@@ -1434,7 +1434,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '可视化图表',
           children: [
-            { title: '单元格图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fecharts%2Fgrid%2FareaBasicsEchart' } } }
+            { title: '单元格图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_echarts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fecharts%2FareaBasicsEchart' } } }
           ]
         },
         {
