@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       show-footer
-      height="200"
+      height="300"
       border="outer"
       :data="tableData"
       :footer-data="footerData">

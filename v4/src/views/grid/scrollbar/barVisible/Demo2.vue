@@ -20,20 +20,24 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
-  height: 400,
   scrollbarConfig: {
     x: {
-      visible: 'visible'
+      visible: 'auto'
     },
     y: {
-      visible: 'visible'
+      visible: 'auto'
     }
   },
   columns: [
-    { field: 'seq', type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
-    { field: 'sex', title: 'Sex' },
-    { field: 'age', title: 'Age' }
+    { field: 'seq', type: 'seq', width: 70, fixed: 'left' },
+    { field: 'name', title: 'Name', width: 300 },
+    { field: 'sex', title: 'Sex', width: 300 },
+    { field: 'age', title: 'Age', width: 250 },
+    { field: 'attr1', title: 'Attr1', width: 360 },
+    { field: 'attr2', title: 'Attr2', width: 240 },
+    { field: 'attr3', title: 'Attr3', width: 300 },
+    { field: 'address', title: 'Address', minWidth: 400 },
+    { field: 'role', title: 'Role', width: 200, fixed: 'right' }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

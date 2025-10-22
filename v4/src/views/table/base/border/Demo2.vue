@@ -3,7 +3,7 @@
     <vxe-table
       show-footer
       border
-      height="200"
+      height="300"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>

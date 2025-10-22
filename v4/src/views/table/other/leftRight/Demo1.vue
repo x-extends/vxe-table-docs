@@ -2,21 +2,25 @@
   <div>
     <vxe-split height="600" border padding>
       <vxe-split-pane width="200" min-width="100">
-        <vxe-tree v-bind="treeOptions" v-on="treeEvents"></vxe-tree>
+        <template #default>
+          <vxe-tree v-bind="treeOptions" v-on="treeEvents"></vxe-tree>
+        </template>
       </vxe-split-pane>
 
       <vxe-split-pane min-width="300">
-        <vxe-table
-          border
-          show-overflow
-          height="100%"
-          :loading="loading"
-          :data="tableData">
-          <vxe-column field="seq" type="seq" width="70"></vxe-column>
-          <vxe-column field="name" title="Name"></vxe-column>
-          <vxe-column field="sex" title="Sex"></vxe-column>
-          <vxe-column field="age" title="Age"></vxe-column>
-        </vxe-table>
+        <template #default>
+          <vxe-table
+            border
+            show-overflow
+            height="100%"
+            :loading="loading"
+            :data="tableData">
+            <vxe-column field="seq" type="seq" width="70"></vxe-column>
+            <vxe-column field="name" title="Name"></vxe-column>
+            <vxe-column field="sex" title="Sex"></vxe-column>
+            <vxe-column field="age" title="Age"></vxe-column>
+          </vxe-table>
+        </template>
       </vxe-split-pane>
     </vxe-split>
   </div>

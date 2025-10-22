@@ -2700,6 +2700,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridOtherScrollTo',
           component: () => import('@/views/grid/other/scrollTo/CodeExample.vue')
         },
+        { path: 'autoScroll', name: 'ComponentGridOtherAutoScroll', component: () => import('@/views/grid/other/autoScroll/CodeExample.vue') },
         {
           path: 'reverse',
           name: 'ComponentGridOtherReverse',

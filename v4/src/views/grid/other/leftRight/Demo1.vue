@@ -1,12 +1,16 @@
 <template>
   <div>
-    <vxe-split height="600" border padding>
+    <vxe-split height="600" :action-config="actionConfig" border padding>
       <vxe-split-pane width="200" min-width="100">
-        <vxe-tree v-bind="treeOptions" v-on="treeEvents"></vxe-tree>
+        <template #default>
+          <vxe-tree v-bind="treeOptions" v-on="treeEvents"></vxe-tree>
+        </template>
       </vxe-split-pane>
 
-      <vxe-split-pane min-width="300" show-action>
-        <vxe-grid v-bind="gridOptions"></vxe-grid>
+      <vxe-split-pane min-width="300">
+        <template #default>
+          <vxe-grid v-bind="gridOptions"></vxe-grid>
+        </template>
       </vxe-split-pane>
     </vxe-split>
   </div>
@@ -15,7 +19,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { VxeGridProps } from 'vxe-table'
-import { VxeTreeProps, VxeTreeListeners } from 'vxe-pc-ui'
+import { VxeTreeProps, VxeTreeListeners, VxeSplitPropTypes } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
 interface NodeVO {
@@ -32,6 +36,11 @@ interface RowVO {
   age: number
   address: string
 }
+
+const actionConfig = reactive<VxeSplitPropTypes.ActionConfig>({
+  showPrevButton: true,
+  showNextButton: true
+})
 
 const treeOptions = reactive<VxeTreeProps<NodeVO>>({
   transform: true,

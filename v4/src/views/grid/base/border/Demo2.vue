@@ -20,7 +20,7 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   showFooter: true,
   border: true,
-  height: 200,
+  height: 300,
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },

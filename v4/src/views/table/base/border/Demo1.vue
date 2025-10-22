@@ -4,7 +4,7 @@
 
     <vxe-table
       show-footer
-      height="200"
+      height="300"
       :border="border"
       :data="tableData"
       :footer-data="footerData">
