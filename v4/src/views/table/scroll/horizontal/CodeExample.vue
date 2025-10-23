@@ -10,6 +10,7 @@
           <div>性能优化：横向虚拟滚动列宽越宽越流畅，列宽设置 column.<ApiLink name="column" prop="width"/> | column.<ApiLink name="column" prop="min-width"/></div>
         </vxe-tip>
         <vxe-tip status="error" title="小提示">
+          <div>如果列较多的情况下 table 的性能很差的，应该使用最高性能的 grid</div>
           <div>启用横向虚拟滚动，建议开启 <ApiLink name="table" prop="show-header-overflow"/> 和 <ApiLink name="table" prop="show-footer-overflow "/>获得最高渲染性能</div>
         </vxe-tip>
       </template>
