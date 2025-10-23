@@ -51,11 +51,11 @@ export default defineComponent({
         // ...
 
         // ...可选 UI
-        import VxeUIAll from 'vxe-pc-ui'
+        import VxeUIBase from 'vxe-pc-ui'
         import 'vxe-pc-ui/lib/style.css'
         // ...
 
-        createApp(App).use(VxeUIAll).use(VxeUITable).mount('#app')
+        createApp(App).use(VxeUIBase).use(VxeUITable).mount('#app')
         `
       ]
     }

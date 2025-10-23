@@ -122,11 +122,11 @@ export default defineComponent({
         import 'vxe-table/lib/style.css'
         // ...
 
-        import VxeUIAll from 'vxe-pc-ui'
+        import VxeUIBase from 'vxe-pc-ui'
         import 'vxe-pc-ui/lib/style.css'
         // ...
 
-        createApp(App).use(VxeUIAll).use(VxeUITable).mount('#app')
+        createApp(App).use(VxeUIBase).use(VxeUITable).mount('#app')
         `
       ]
     }
