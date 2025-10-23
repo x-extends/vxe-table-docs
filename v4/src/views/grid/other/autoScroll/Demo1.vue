@@ -89,16 +89,14 @@ const handleScrollTo = () => {
   autoTime = setTimeout(() => {
     const $grid = gridRef.value
     if ($grid) {
-      const { scrollTop } = $grid.getScrollData()
+      const { scrollTop, isBottom } = $grid.getScrollData()
       $grid.scrollTo({
         top: scrollTop + speedNum.value
-      }).then(() => {
-        const { isBottom } = $grid.getScrollData()
-        // 如果触底则结束滚动
-        if (!isBottom) {
-          handleScrollTo()
-        }
       })
+      // 如果触底则结束滚动
+      if (!isBottom) {
+        handleScrollTo()
+      }
     }
   }, 100)
 }
