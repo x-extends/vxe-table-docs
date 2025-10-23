@@ -102,14 +102,16 @@ export default Vue.extend({
       this.autoTime = setTimeout(() => {
         const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
         if ($grid) {
-          const { scrollTop, isBottom } = $grid.getScrollData()
+          const { scrollTop } = $grid.getScrollData()
           $grid.scrollTo({
             top: scrollTop + this.speedNum
+          }).then(() => {
+            const { isBottom } = $grid.getScrollData()
+            // 如果触底则结束滚动
+            if (!isBottom) {
+              this.handleScrollTo()
+            }
           })
-          // 如果触底则结束滚动
-          if (!isBottom) {
-            this.handleScrollTo()
-          }
         }
       }, 100)
     },
