@@ -34,7 +34,7 @@
 export default {
   data () {
     const headerTooltipConfig = {
-      contentMethod: ({ column}) => {
+      contentMethod: ({ column }) => {
         // 重写默认的提示内容
         if (column.field === 'date') {
           return '自定义标题提示内容：' + column.title
