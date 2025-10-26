@@ -5,7 +5,9 @@
       :row-config="{useKey: true}"
       :column-config="{useKey: true}"
       :footer-method="footerMethod"
+      :header-tooltip-config="headerTooltipConfig"
       :tooltip-config="tooltipConfig"
+      :footer-tooltip-config="footerTooltipConfig"
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="名称" :title-prefix="{message: '自定义前缀'}"></vxe-column>
@@ -39,19 +41,48 @@ const tableData = ref<RowVO[]>([
   { name: 'Test5', role: '前端', date: '2020-01-20', rate: 3, address: 'address5\ntooltip文本换行\n换行xx', content: 'xxxxx1<br>换行换行55' }
 ])
 
-const tooltipConfig = reactive<VxeTablePropTypes.TooltipConfig<RowVO>>({
+const headerTooltipConfig = reactive<VxeTablePropTypes.HeaderTooltipConfig<RowVO>>({
   showAll: true,
   enterable: true,
-  contentMethod: ({ type, column, row, items, _columnIndex }) => {
+  contentMethod: ({ column }) => {
     const { field } = column
     // 重写默认的提示内容
     if (field === 'role' || field === 'date') {
-      if (type === 'header') {
-        return column.title ? '自定义标题提示内容：' + column.title : ''
-      } else if (type === 'footer') {
-        return items[_columnIndex] ? '自定义表尾提示内容，\n并且自定义换行：\n' + items[_columnIndex] : ''
-      }
+      return column.title ? '自定义标题提示内容：' + column.title : ''
+    } else if (field === 'rate') {
+      // 返回空字符串，控制单元格不显示提示内容
+      return ''
+    }
+    // 其余的单元格使用默认行为
+    return null
+  }
+})
+
+const tooltipConfig = reactive<VxeTablePropTypes.TooltipConfig<RowVO>>({
+  showAll: true,
+  enterable: true,
+  contentMethod: ({ column, row }) => {
+    const { field } = column
+    // 重写默认的提示内容
+    if (field === 'role' || field === 'date') {
       return row[field] ? '自定义提示内容：' + row[field] : ''
+    } else if (field === 'rate') {
+      // 返回空字符串，控制单元格不显示提示内容
+      return ''
+    }
+    // 其余的单元格使用默认行为
+    return null
+  }
+})
+
+const footerTooltipConfig = reactive<VxeTablePropTypes.FooterTooltipConfig<RowVO>>({
+  showAll: true,
+  enterable: true,
+  contentMethod: ({ column, items, _columnIndex }) => {
+    const { field } = column
+    // 重写默认的提示内容
+    if (field === 'role' || field === 'date') {
+      return items[_columnIndex] ? '自定义表尾提示内容，\n并且自定义换行：\n' + items[_columnIndex] : ''
     } else if (field === 'rate') {
       // 返回空字符串，控制单元格不显示提示内容
       return ''

@@ -9,7 +9,9 @@
       :column-config="{useKey: true}"
       :footer-method="footerMethod"
       :data="tableData"
-      :tooltip-config="tooltipConfig">
+      :header-tooltip-config="headerTooltipConfig"
+      :tooltip-config="tooltipConfig"
+      :footer-tooltip-config="footerTooltipConfig">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="名称"></vxe-column>
       <vxe-column field="role" title="标题溢出直接隐藏 xxxxxxxxxxxxxxxxxxxxxxxxxxx" show-header-overflow="ellipsis"></vxe-column>
@@ -31,6 +33,36 @@
 <script>
 export default {
   data () {
+    const headerTooltipConfig = {
+      contentMethod: ({ column}) => {
+        // 重写默认的提示内容
+        if (column.field === 'date') {
+          return '自定义标题提示内容：' + column.title
+        }
+      },
+      enterable: true
+    }
+
+    const tooltipConfig = {
+      contentMethod: ({ column, row }) => {
+        // 重写默认的提示内容
+        if (column.field === 'date') {
+          return '自定义提示内容：' + row[column.field]
+        }
+      },
+      enterable: true
+    }
+
+    const footerTooltipConfig = {
+      contentMethod: ({ column, items, _columnIndex }) => {
+        // 重写默认的提示内容
+        if (column.field === 'date') {
+          return '自定义表尾提示内容：' + items[_columnIndex]
+        }
+      },
+      enterable: true
+    }
+
     return {
       tableData: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -42,20 +74,9 @@ export default {
         { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, address: 'test abc' },
         { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
       ],
-      tooltipConfig: {
-        contentMethod: ({ type, column, row, items, _columnIndex }) => {
-          // 重写默认的提示内容
-          if (column.field === 'date') {
-            if (type === 'header') {
-              return '自定义标题提示内容：' + column.title
-            } else if (type === 'footer') {
-              return '自定义表尾提示内容：' + items[_columnIndex]
-            }
-            return '自定义提示内容：' + row[column.field]
-          }
-        },
-        enterable: true
-      }
+      headerTooltipConfig,
+      tooltipConfig,
+      footerTooltipConfig
     }
   },
   methods: {
