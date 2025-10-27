@@ -55,7 +55,7 @@
             :content='`
             {
               ...
-              "vxe-gantt": "~${ganttLibVersion}"
+              "vxe-gantt": "^${ganttLibVersion}"
               ...
             }
             `'>
