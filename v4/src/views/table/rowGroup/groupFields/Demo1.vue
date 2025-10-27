@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-table
+      border
       height="500"
       :aggregate-config="aggregateConfig"
       :data="tableData">

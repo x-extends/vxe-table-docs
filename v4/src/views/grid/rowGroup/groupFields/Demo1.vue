@@ -20,6 +20,7 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 500,
+  border: true,
   aggregateConfig: {
     groupFields: ['role', 'date']
   },
