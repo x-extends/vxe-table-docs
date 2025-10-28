@@ -1,12 +1,15 @@
 <template>
   <div>
+    显示连接线：<vxe-switch v-model="treeConfig.showLine"></vxe-switch>
+    显示根节点线：<vxe-switch v-model="treeConfig.showRootLine"></vxe-switch>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,6 +20,12 @@ interface RowVO {
   date: string
 }
 
+const treeConfig = reactive<VxeTablePropTypes.TreeConfig>({
+  transform: true,
+  showLine: true,
+  showRootLine: true
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: 'outer',
@@ -26,10 +35,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     resizable: true
   },
-  treeConfig: {
-    transform: true,
-    showLine: true
-  },
+  treeConfig,
   columns: [
     { field: 'name', title: 'Name', treeNode: true },
     { field: 'size', title: 'Size' },

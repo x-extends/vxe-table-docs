@@ -1,5 +1,8 @@
 <template>
   <div>
+    显示连接线：<vxe-switch v-model="treeConfig.showLine"></vxe-switch>
+    显示根节点线：<vxe-switch v-model="treeConfig.showRootLine"></vxe-switch>
+
     <vxe-table
       show-overflow
       border="outer"
@@ -40,9 +43,8 @@ export default Vue.extend({
 
     const treeConfig: VxeTablePropTypes.TreeConfig = {
       transform: true,
-      rowField: 'id',
-      parentField: 'parentId',
-      showLine: true
+      showLine: true,
+      showRootLine: true
     }
 
     const tableData: RowVO[] = [
