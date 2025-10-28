@@ -1,13 +1,13 @@
 <template>
   <div>
-    <vxe-split height="600" border padding>
-      <vxe-split-pane width="200" min-width="100">
+    <vxe-splitter height="600" border padding>
+      <vxe-splitter-panel width="200" min-width="100">
         <template #default>
           <vxe-tree v-bind="treeOptions" @current-change="currentChangeEvent"></vxe-tree>
         </template>
-      </vxe-split-pane>
+      </vxe-splitter-panel>
 
-      <vxe-split-pane min-width="300">
+      <vxe-splitter-panel min-width="300">
         <template #default>
           <vxe-table
             border
@@ -21,8 +21,8 @@
             <vxe-column field="age" title="Age"></vxe-column>
           </vxe-table>
         </template>
-      </vxe-split-pane>
-    </vxe-split>
+      </vxe-splitter-panel>
+    </vxe-splitter>
   </div>
 </template>
 
