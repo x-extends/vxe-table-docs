@@ -34,6 +34,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     showStatus: true
   },
   editRules: {
+    name: [
+      { required: true, message: '必须填写' }
+    ],
     role: [
       { required: true, message: '必须填写' }
     ]
