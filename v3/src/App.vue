@@ -35,11 +35,12 @@ export default Vue.extend({
 
     const voteKey = 'VXE_VOTE_2025_3'
     if (!localStorage.getItem(voteKey)) {
-      VxeUI.modal.confirm({
+      VxeUI.modal.alert({
         width: 500,
         title: '🔥vxe-table 正在参加 Gitee 2025 最受欢迎的开源软件投票活动',
         confirmButtonText: '去投票',
         cancelButtonText: '忽略，不再弹出',
+        showCancelButton: true,
         slots: {
           default () {
             return <div>
