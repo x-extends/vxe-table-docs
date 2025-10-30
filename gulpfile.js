@@ -11,7 +11,7 @@ const enableAd = true
 const enableSponsors = true
 
 // 是否启用强制广告
-const isForceAd = true
+const isForceAd = false
 
 const adVariable = {
   VXE_AD_WRAPPER_ID: XEUtils.sample('qazxswedcvfrtgbnhyujmkiolp0123456789'.split(''), 18).join(''),
