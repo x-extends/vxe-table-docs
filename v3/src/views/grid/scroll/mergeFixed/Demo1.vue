@@ -32,9 +32,9 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      showOverflow: true,
-      showHeaderOverflow: true,
-      showFooterOverflow: true,
+      // showOverflow: true,
+      // showHeaderOverflow: true,
+      // showFooterOverflow: true,
       showFooter: true,
       height: 600,
       virtualYConfig: {
@@ -189,7 +189,7 @@ export default Vue.extend({
         dataList.push({
           id: 10000 + i,
           name: 'Test' + i,
-          role: 'Developer',
+          role: i % 3 ? 'Developer' : ' DeveloperDeveloper DeveloperDeveloper DeveloperDeveloper DeveloperDeveloper DeveloperDeveloper',
           sex: '男',
           age: 20,
           address: 'Address abc',
