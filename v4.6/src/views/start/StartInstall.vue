@@ -5,8 +5,8 @@
     <div class="red">需要注意：v4.6.x 不能直接升级 v4.7+，需要调整安装方式，如果是使用老版本记得锁定版本号</div>
     <div style="color: red;padding: 16px;margin: 16px 0;border: 2px solid red;font-size: 1.2em;">
       <div class="" style="font-weight: 700;font-size: 48px;">严重问题提醒：</div>
-      <div>锁定版本方式，修改 package.json</div>
-      <div>手动将对应的版本号修改为 "vxe-table": "~4.6.25"</div>
+      <div>锁定版本方式，修改 package.json，将 <span class="bold red">^</span> 改成 <span class="bold red">~</span>，避免版本自动升级新功能影响旧功能</div>
+      <div>例如：手动将对应的版本号修改为 "vxe-table": "~4.6.25"</div>
     </div>
     <p class="tip">
       推荐使用 npm 的方式安装，它能更好地和 <a class="link" href="https://webpack.js.org/">webpack</a>、<a class="link" href="https://vitejs.dev/">vite</a> 等打包工具配合使用。<br>
