@@ -3,6 +3,7 @@
     <vxe-table
       border
       stripe
+      height="400"
       :tree-config="treeConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>

@@ -27,6 +27,7 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  height: 400,
   treeConfig: {
     transform: true,
     rowField: 'id',

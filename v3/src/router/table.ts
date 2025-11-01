@@ -1729,6 +1729,8 @@ export const tableRouteConfig: RouteConfig = {
           name: 'ComponentTableTemplateFooter',
           component: () => import('@/views/table/template/footer/CodeExample.vue')
         },
+        { path: 'title', name: 'ComponentTableTemplateTitle', component: () => import('@/views/table/template/title/CodeExample.vue') },
+        { path: 'sort', name: 'ComponentTableTemplateSort', component: () => import('@/views/table/template/sort/CodeExample.vue') },
         {
           path: 'tooltip',
           name: 'ComponentTableTemplateTooltip',

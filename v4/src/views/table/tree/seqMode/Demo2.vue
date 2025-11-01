@@ -3,6 +3,7 @@
     <vxe-table
       border
       stripe
+      height="400"
       :row-config="rowConfig"
       :tree-config="treeConfig"
       :data="tableData">

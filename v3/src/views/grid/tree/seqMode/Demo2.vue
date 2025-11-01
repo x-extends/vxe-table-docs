@@ -22,6 +22,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       stripe: true,
+      height: 400,
       treeConfig: {
         transform: true,
         rowField: 'id',
