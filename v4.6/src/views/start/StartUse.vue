@@ -1,6 +1,11 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.use') }}</h2>
+    <div style="color: red;padding: 16px;margin: 16px 0;border: 2px solid red;font-size: 1.2em;">
+      <div class="" style="font-weight: 700;font-size: 48px;">严重问题提醒：</div>
+      <div>锁定版本方式，修改 package.json，将 <span class="bold red">^</span> 改成 <span class="bold red">~</span>，避免版本自动升级新功能影响旧功能</div>
+      <div>例如：手动将对应的版本号修改为 "vxe-table": "~3.8.28"</div>
+    </div>
     <p class="tip">
       当只用得到部分组件时，只需两步，通过按需加载插件可以去掉未被使用的组件。
     </p>
