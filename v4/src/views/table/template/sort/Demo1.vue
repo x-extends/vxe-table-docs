@@ -4,13 +4,13 @@
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" width="200" sortable>
         <template #sort="{ column }">
-          <vxe-button mode="text" :status="column.order ? 'primary' : ''" :icon="column.order === 'desc' ? 'vxe-icon-sort-alpha-desc' : 'vxe-icon-sort-alpha-asc'" @click="sortEvent(column.field, column.order)"></vxe-button>
+          <vxe-button mode="text" title="点击排序" :status="column.order ? 'primary' : ''" :icon="column.order === 'desc' ? 'vxe-icon-sort-alpha-desc' : 'vxe-icon-sort-alpha-asc'" @click="sortEvent(column.field, column.order)"></vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="num" title="Number" sortable>
         <template #sort="{ column }">
-          <vxe-button mode="text" :status="column.order ? 'primary' : ''" :icon="column.order === 'desc' ? 'vxe-icon-sort-numeric-desc' : 'vxe-icon-sort-numeric-asc'" @click="sortEvent(column.field, column.order)"></vxe-button>
+          <vxe-button mode="text" title="点击排序" :status="column.order ? 'primary' : ''" :icon="column.order === 'desc' ? 'vxe-icon-sort-numeric-desc' : 'vxe-icon-sort-numeric-asc'" @click="sortEvent(column.field, column.order)"></vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

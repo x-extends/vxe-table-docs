@@ -2,11 +2,11 @@
   <div>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #nameSort="{ column }">
-        <vxe-button mode="text" :status="column.order ? 'primary' : ''" :icon="column.order === 'desc' ? 'vxe-icon-sort-alpha-desc' : 'vxe-icon-sort-alpha-asc'" @click="sortEvent(column.field, column.order)"></vxe-button>
+        <vxe-button mode="text" title="点击排序" :status="column.order ? 'primary' : ''" :icon="column.order === 'desc' ? 'vxe-icon-sort-alpha-desc' : 'vxe-icon-sort-alpha-asc'" @click="sortEvent(column.field, column.order)"></vxe-button>
       </template>
 
       <template #numSort="{ column }">
-        <vxe-button mode="text" :status="column.order ? 'primary' : ''" :icon="column.order === 'desc' ? 'vxe-icon-sort-numeric-desc' : 'vxe-icon-sort-numeric-asc'" @click="sortEvent(column.field, column.order)"></vxe-button>
+        <vxe-button mode="text" title="点击排序" :status="column.order ? 'primary' : ''" :icon="column.order === 'desc' ? 'vxe-icon-sort-numeric-desc' : 'vxe-icon-sort-numeric-asc'" @click="sortEvent(column.field, column.order)"></vxe-button>
       </template>
     </vxe-grid>
   </div>

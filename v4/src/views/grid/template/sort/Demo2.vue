@@ -31,7 +31,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       sortable: true,
       slots: {
         sort ({ column }) {
-          return <vxe-button mode="text" status={column.order ? 'primary' : ''} icon={column.order === 'desc' ? 'vxe-icon-sort-alpha-desc' : 'vxe-icon-sort-alpha-asc'} onClick={ () => sortEvent(column.field, column.order) }></vxe-button>
+          return <vxe-button mode="text" title="点击排序" status={column.order ? 'primary' : ''} icon={column.order === 'desc' ? 'vxe-icon-sort-alpha-desc' : 'vxe-icon-sort-alpha-asc'} onClick={ () => sortEvent(column.field, column.order) }></vxe-button>
         }
       }
     },
@@ -42,7 +42,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       sortable: true,
       slots: {
         sort ({ column }) {
-          return <vxe-button mode="text" status={column.order ? 'primary' : ''} icon={column.order === 'desc' ? 'vxe-icon-sort-numeric-desc' : 'vxe-icon-sort-numeric-asc'} onClick={ () => sortEvent(column.field, column.order) }></vxe-button>
+          return <vxe-button mode="text" title="点击排序" status={column.order ? 'primary' : ''} icon={column.order === 'desc' ? 'vxe-icon-sort-numeric-desc' : 'vxe-icon-sort-numeric-asc'} onClick={ () => sortEvent(column.field, column.order) }></vxe-button>
         }
       }
     },
