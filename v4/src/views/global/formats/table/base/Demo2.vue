@@ -36,7 +36,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10005, name: 'Test5', nickname: 'T5', status: 1, amount2: 54, amount4: 34 }
   ],
   footerData: [
-    { seq: '合计', amount2: 9648214, amount4: 235860000 }
+    { seq: '合计', amount2: 9648214, amount4: 235860000.9647 }
   ]
 })
 </script>

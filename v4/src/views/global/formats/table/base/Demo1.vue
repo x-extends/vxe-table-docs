@@ -36,6 +36,6 @@ const tableData = ref<RowVO[]>([
 ])
 
 const footerData = ref([
-  { seq: '合计', amount2: 9648214, amount4: 235860000 }
+  { seq: '合计', amount2: 9648214, amount4: 235860000.9647 }
 ])
 </script>
