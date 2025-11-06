@@ -7,6 +7,9 @@ import XEUtils from 'xe-utils'
 VxeUI.formats.add('myAmount', {
   tableCellFormatMethod ({ cellValue }, digits = 2) {
     return XEUtils.commafy(XEUtils.toNumber(cellValue), { digits })
+  },
+  tableFooterCellFormatMethod ({ itemValue }, digits = 2) {
+    return XEUtils.commafy(XEUtils.toNumber(itemValue), { digits })
   }
 })
 
