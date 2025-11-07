@@ -2,15 +2,17 @@
   <div>
     <vxe-table
       border
-      :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      show-footer
+      :data="tableData"
+      :footer-date="footerData">
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="date" title="转日期" width="180" formatter="formatDate"></vxe-column>
       <vxe-column field="time" title="转日期格式" width="140" :formatter="['formatDate', 'yyyy-MM-dd']"></vxe-column>
-      <vxe-column field="amount" title="格式化金额" formatter="formatAmount"></vxe-column>
+      <vxe-column field="amount" title="格式化金额" formatter="formatAmount" footer-formatter="formatAmount"></vxe-column>
       <vxe-column field="bankCard" title="银行卡" width="180" formatter="formatBankcard"></vxe-column>
       <vxe-column field="num7" title="数值"></vxe-column>
-      <vxe-column field="num8" title="截取2位数" formatter="formatCutNumber"></vxe-column>
-      <vxe-column field="num9" title="四舍五入2位数" formatter="formatFixedNumber"></vxe-column>
+      <vxe-column field="num8" title="截取2位数" formatter="formatCutNumber" footer-formatter="formatCutNumber"></vxe-column>
+      <vxe-column field="num9" title="四舍五入2位数" formatter="formatFixedNumber" footer-formatter="formatFixedNumber"></vxe-column>
       <vxe-column field="sex" title="格式化性别" formatter="formatSex"></vxe-column>
     </vxe-table>
   </div>
@@ -42,8 +44,13 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', bankCard: '6222525678678946', sex: '1', time: 1597385230710, date: '2019-10-20T20:40:20.000Z', amount: 9990000.66, num: 963.9856, num7: 963.9856, num8: 963.9856, num9: 963.9856 }
     ]
 
+    const footerData = [
+      { seq: '合计', amount: 965.38469, num8: 98100.368, num9: 10003.6 }
+    ]
+
     return {
-      tableData
+      tableData,
+      footerData
     }
   }
 })

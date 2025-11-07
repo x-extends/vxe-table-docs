@@ -2,10 +2,12 @@
   <div>
     <vxe-table
       border
-      :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
+      show-footer
+      :data="tableData"
+      :footer-data="footerData">
+      <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="num" title="Num" :formatter="formatterNum"></vxe-column>
+      <vxe-column field="num" title="Num" :formatter="formatterNum" :footer-formatter="footerFormatterNum"></vxe-column>
       <vxe-column field="sex" title="Sex" :formatter="formatterSex"></vxe-column>
       <vxe-column field="time" title="Time" :formatter="formatTime"></vxe-column>
     </vxe-table>
@@ -38,6 +40,10 @@ const tableData = ref<RowVO[]>([
   { id: 10004, name: 'Test4', bankCard: '6222525678678946', sex: '1', time: 1597385230710, date: '2019-10-20T20:40:20.000Z', amount: 9990000.66, num: 963.9856, num7: 963.9856, num8: 963.9856, num9: 963.9856 }
 ])
 
+const footerData = ref([
+  { seq: '合计', num: 15236.9844 }
+])
+
 const sexList = [
   { label: '女', value: '0' },
   { label: '男', value: '1' }
@@ -45,6 +51,10 @@ const sexList = [
 
 const formatterNum: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
   return XEUtils.commafy(Number(cellValue), { digits: 2 })
+}
+
+const footerFormatterNum: VxeColumnPropTypes.FooterFormatter = ({ itemValue }) => {
+  return XEUtils.commafy(Number(itemValue), { digits: 2 })
 }
 
 const formatterSex: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {

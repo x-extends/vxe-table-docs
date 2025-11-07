@@ -12,6 +12,9 @@ VxeUI.formats.add('formatDate', {
 VxeUI.formats.add('formatAmount', {
   tableCellFormatMethod ({ cellValue }, digits = 2) {
     return XEUtils.commafy(XEUtils.toNumber(cellValue), { digits })
+  },
+  tableFooterCellFormatMethod ({ itemValue }, digits = 2) {
+    return XEUtils.commafy(XEUtils.toNumber(itemValue), { digits })
   }
 })
 
@@ -26,13 +29,19 @@ VxeUI.formats.add('formatBankcard', {
 VxeUI.formats.add('formatCutNumber', {
   tableCellFormatMethod ({ cellValue }, digits = 2) {
     return XEUtils.toFixed(XEUtils.floor(cellValue, digits), digits)
+  },
+  tableFooterCellFormatMethod ({ itemValue }, digits = 2) {
+    return XEUtils.toFixed(XEUtils.floor(itemValue, digits), digits)
   }
 })
 
 // 四舍五入,默认两位数
 VxeUI.formats.add('formatFixedNumber', {
-  tableCellFormatMethod  ({ cellValue }, digits = 2) {
+  tableCellFormatMethod ({ cellValue }, digits = 2) {
     return XEUtils.toFixed(XEUtils.round(cellValue, digits), digits)
+  },
+  tableFooterCellFormatMethod ({ itemValue }, digits = 2) {
+    return XEUtils.toFixed(XEUtils.round(itemValue, digits), digits)
   }
 })
 
