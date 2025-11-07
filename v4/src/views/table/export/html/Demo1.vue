@@ -13,7 +13,7 @@
       </vxe-colgroup>
       <vxe-colgroup title="分组2">
         <vxe-column field="sex" title="Sex"></vxe-column>
-        <vxe-column field="age" title="Age"></vxe-column>
+        <vxe-column field="age" title="Age" :formatter="ageFormatter" :footer-formatter="ageFooterFormatter"></vxe-column>
       </vxe-colgroup>
     </vxe-table>
   </div>
@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTableInstance } from 'vxe-table'
+import type { VxeTableInstance, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -44,6 +44,14 @@ const tableData = ref<RowVO[]>([
 const footerData = ref([
   { seq: '合计', sex: '666', age: '999' }
 ])
+
+const ageFormatter: VxeColumnPropTypes.Formatter = ({ cellValue }) => {
+  return `内容：${cellValue}`
+}
+
+const ageFooterFormatter: VxeColumnPropTypes.FooterFormatter = ({ itemValue }) => {
+  return `尾部：${itemValue}`
+}
 
 const exportEvent = () => {
   const $table = tableRef.value

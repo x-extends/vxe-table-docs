@@ -34,7 +34,16 @@ export default Vue.extend({
           title: '分组2',
           children: [
             { field: 'sex', title: 'Sex' },
-            { field: 'age', title: 'Age' }
+            {
+              field: 'age',
+              title: 'Age',
+              formatter ({ cellValue }) {
+                return `内容：${cellValue}`
+              },
+              footerFormatter ({ itemValue }) {
+                return `尾部：${itemValue}`
+              }
+            }
           ]
         }
       ],
