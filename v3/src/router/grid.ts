@@ -1041,6 +1041,11 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/menu/suffixConfig/CodeExample.vue')
         },
         {
+          path: 'loading',
+          name: 'ComponentGridMenuLoading',
+          component: () => import('@/views/grid/menu/loading/CodeExample.vue')
+        },
+        {
           path: 'full',
           name: 'ComponentGridMenuFull',
           component: () => import('@/views/grid/menu/full/CodeExample.vue')
