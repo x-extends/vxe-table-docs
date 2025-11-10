@@ -1851,6 +1851,11 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/edit/rowImmediately/CodeExample.vue')
         },
         {
+          path: 'realtimeSave',
+          name: 'ComponentGridEditRealtimeSave',
+          component: () => import('@/views/grid/edit/realtimeSave/CodeExample.vue')
+        },
+        {
           path: 'footerImmediately',
           name: 'ComponentGridEditFooterImmediately',
           component: () => import('@/views/grid/edit/footerImmediately/CodeExample.vue')
