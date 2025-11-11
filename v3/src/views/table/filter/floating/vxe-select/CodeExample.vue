@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/filter/floating/vxe-select/Demo1">
+    <CodeLight path="table/filter/floating/vxe-select/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="vxe-select">下拉框</vxe-tip>
       </template>
