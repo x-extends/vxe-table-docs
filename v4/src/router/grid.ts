@@ -590,21 +590,13 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridRowResizableRowResize',
           component: () => import('@/views/grid/rowResizable/rowResize/CodeExample.vue')
         },
-        {
-          path: 'dblclickAutoHeight',
-          name: 'ComponentGridRowResizableDblclickAutoHeight',
-          component: () => import('@/views/grid/rowResizable/dblclickAutoHeight/CodeExample.vue')
-        },
+        { path: 'dblclickAutoHeight', name: 'ComponentGridRowResizableDblclickAutoHeight', component: () => import('@/views/grid/rowResizable/dblclickAutoHeight/CodeExample.vue') },
         {
           path: 'allRowDrag',
           name: 'ComponentGridRowResizableAllRowDrag',
           component: () => import('@/views/grid/rowResizable/allRowDrag/CodeExample.vue')
         },
-        {
-          path: 'manual',
-          name: 'ComponentGridRowResizableManual',
-          component: () => import('@/views/grid/rowResizable/manual/CodeExample.vue')
-        },
+        { path: 'manual', name: 'ComponentGridRowResizableManual', component: () => import('@/views/grid/rowResizable/manual/CodeExample.vue') },
         {
           path: 'recalcManual',
           name: 'ComponentGridRowResizableRecalcManual',
