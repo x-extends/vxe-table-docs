@@ -1,5 +1,11 @@
 <template>
   <div>
+    <vxe-radio-group v-model="customConfig.mode">
+      <vxe-radio-button label="default" content="默认"></vxe-radio-button>
+      <vxe-radio-button label="modal" content="弹窗"></vxe-radio-button>
+      <vxe-radio-button label="drawer" content="抽屉"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       border
@@ -39,8 +45,9 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
     ]
 
-    const customConfig: VxeTablePropTypes.CustomConfig = {
-      storage: true
+    const customConfig: VxeTablePropTypes.CustomConfig<RowVO> = {
+      storage: true,
+      mode: 'default'
     }
 
     const columnConfig: VxeTablePropTypes.ColumnConfig = {

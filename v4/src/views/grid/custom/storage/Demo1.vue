@@ -26,7 +26,6 @@ interface RowVO {
 const customConfig = reactive<VxeTablePropTypes.CustomConfig<RowVO>>({
   storage: true,
   mode: 'default'
-
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
