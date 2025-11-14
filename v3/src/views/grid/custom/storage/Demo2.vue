@@ -1,12 +1,18 @@
 <template>
   <div>
+    <vxe-radio-group v-model="customConfig.mode">
+      <vxe-radio-button label="default" content="默认"></vxe-radio-button>
+      <vxe-radio-button label="modal" content="弹窗"></vxe-radio-button>
+      <vxe-radio-button label="drawer" content="抽屉"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -19,16 +25,19 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const customConfig: VxeTablePropTypes.CustomConfig<RowVO> = {
+      storage: true,
+      mode: 'default',
+      immediate: true
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       id: 'myCustomStorage2',
       toolbarConfig: {
         custom: true
       },
-      customConfig: {
-        storage: true,
-        immediate: true
-      },
+      customConfig,
       columnConfig: {
         drag: true,
         resizable: true
@@ -77,7 +86,8 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      customConfig
     }
   }
 })
