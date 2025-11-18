@@ -42,15 +42,29 @@ const allList = [
   { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
 ]
 
-// 模拟前端分页
-const handlePageData = () => {
+// 前端本地分页
+const mockList = (pageSize: number, currentPage: number) => {
+  return new Promise<{
+    total: number
+    result: RowVO[]
+  }>(resolve => {
+    setTimeout(() => {
+      resolve({
+        total: allList.length,
+        result: allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+      })
+    }, 200)
+  })
+}
+
+const loadList = () => {
+  const { pageSize, currentPage } = pagerVO
   gridOptions.loading = true
-  setTimeout(() => {
-    const { pageSize, currentPage } = pagerVO
-    pagerVO.total = allList.length
-    gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+  mockList(pageSize, currentPage).then((data) => {
+    gridOptions.data = data.result
+    pagerVO.total = data.total
     gridOptions.loading = false
-  }, 100)
+  })
 }
 
 const pagerVO = reactive({
@@ -83,9 +97,9 @@ const gridEvents: VxeGridListeners = {
   pageChange ({ pageSize, currentPage }) {
     pagerVO.currentPage = currentPage
     pagerVO.pageSize = pageSize
-    handlePageData()
+    loadList()
   }
 }
 
-handlePageData()
+loadList()
 </script>

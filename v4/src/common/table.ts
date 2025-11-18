@@ -1031,6 +1031,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '数据分页',
           children: [
+            { title: '实现后端分页', routerLink: { name: 'ComponentGridPagerPage' } },
             { title: '实现前端分页', routerLink: { name: 'ComponentGridPagerMockPage' } },
             { title: '自定义布局', routerLink: { name: 'ComponentGridPagerLayouts' } },
             { title: '自定义序号', routerLink: { name: 'ComponentGridPagerStart' } },

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <CodeLight path="grid/pager/mockPage/Demo1">
+    <CodeLight path="grid/pager/page/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="实现前端分页">
+        <vxe-tip status="primary" title="实现后端分页">
           通过设置 <ApiLink name="grid" prop="pager-config"/> 开启表格分页
         </vxe-tip>
         <vxe-tip status="error">

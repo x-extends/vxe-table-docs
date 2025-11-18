@@ -45,8 +45,8 @@ const allList = [
   { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
 ]
 
-// 模拟本地分页
-const mockList = (pageSize: number, currentPage: number) => {
+// 模拟后端接口分页
+const getList = (pageSize: number, currentPage: number) => {
   return new Promise<{
     total: number
     result: RowVO[]
@@ -100,7 +100,7 @@ export default Vue.extend({
     loadList () {
       const { pageSize, currentPage } = this.pagerVO
       this.gridOptions.loading = true
-      mockList(pageSize, currentPage).then((data) => {
+      getList(pageSize, currentPage).then((data) => {
         this.gridOptions.data = data.result
         this.pagerVO.total = data.total
         this.gridOptions.loading = false

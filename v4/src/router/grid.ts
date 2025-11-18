@@ -1308,11 +1308,8 @@ export const gridRouteConfig: RouteRecordRaw = {
       path: 'pager',
       component: RouteLayout,
       children: [
-        {
-          path: 'mockPage',
-          name: 'ComponentGridPagerMockPage',
-          component: () => import('@/views/grid/pager/mockPage/CodeExample.vue')
-        },
+        { path: 'page', name: 'ComponentGridPagerPage', component: () => import('@/views/grid/pager/page/CodeExample.vue') },
+        { path: 'mockPage', name: 'ComponentGridPagerMockPage', component: () => import('@/views/grid/pager/mockPage/CodeExample.vue') },
         {
           path: 'layouts',
           name: 'ComponentGridPagerLayouts',

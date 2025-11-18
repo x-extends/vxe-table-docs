@@ -1,15 +1,12 @@
 <template>
   <div>
-    <vxe-grid
-      v-bind="gridOptions"
-      @page-change="pageChangeEvent">
-    </vxe-grid>
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+<script lang="ts" setup>
+import { reactive } from 'vue'
+import type { VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -45,8 +42,8 @@ const allList = [
   { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
 ]
 
-// 模拟本地分页
-const mockList = (pageSize: number, currentPage: number) => {
+// 模拟后端接口分页
+const getList = (pageSize: number, currentPage: number) => {
   return new Promise<{
     total: number
     result: RowVO[]
@@ -60,57 +57,49 @@ const mockList = (pageSize: number, currentPage: number) => {
   })
 }
 
-export default Vue.extend({
-  data () {
-    const pagerVO = {
-      total: 0,
-      currentPage: 1,
-      pageSize: 10
-    }
+const loadList = () => {
+  const { pageSize, currentPage } = pagerVO
+  gridOptions.loading = true
+  getList(pageSize, currentPage).then((data) => {
+    gridOptions.data = data.result
+    pagerVO.total = data.total
+    gridOptions.loading = false
+  })
+}
 
-    const gridOptions: VxeGridProps<RowVO> = {
-      showOverflow: true,
-      border: true,
-      loading: false,
-      height: 500,
-      pagerConfig: pagerVO,
-      columns: [
-        { type: 'seq', width: 70, fixed: 'left' },
-        { field: 'name', title: 'Name', minWidth: 160 },
-        { field: 'email', title: 'Email', minWidth: 160 },
-        { field: 'nickname', title: 'Nickname', minWidth: 160 },
-        { field: 'age', title: 'Age', width: 100 },
-        { field: 'role', title: 'Role', minWidth: 160 },
-        { field: 'amount', title: 'Amount', width: 140 },
-        { field: 'updateDate', title: 'Update Date', visible: false },
-        { field: 'createDate', title: 'Create Date', visible: false }
-      ],
-      data: []
-    }
-
-    return {
-      gridOptions,
-      pagerVO
-    }
-  },
-  created () {
-    this.loadList()
-  },
-  methods: {
-    loadList () {
-      const { pageSize, currentPage } = this.pagerVO
-      this.gridOptions.loading = true
-      mockList(pageSize, currentPage).then((data) => {
-        this.gridOptions.data = data.result
-        this.pagerVO.total = data.total
-        this.gridOptions.loading = false
-      })
-    },
-    pageChangeEvent ({ pageSize, currentPage }) {
-      this.pagerVO.currentPage = currentPage
-      this.pagerVO.pageSize = pageSize
-      this.loadList()
-    }
-  }
+const pagerVO = reactive({
+  total: 0,
+  currentPage: 1,
+  pageSize: 10
 })
+
+const gridOptions = reactive<VxeGridProps<RowVO>>({
+  showOverflow: true,
+  border: true,
+  loading: false,
+  height: 500,
+  pagerConfig: pagerVO,
+  columns: [
+    { type: 'seq', width: 70, fixed: 'left' },
+    { field: 'name', title: 'Name', minWidth: 160 },
+    { field: 'email', title: 'Email', minWidth: 160 },
+    { field: 'nickname', title: 'Nickname', minWidth: 160 },
+    { field: 'age', title: 'Age', width: 100 },
+    { field: 'role', title: 'Role', minWidth: 160 },
+    { field: 'amount', title: 'Amount', width: 140 },
+    { field: 'updateDate', title: 'Update Date', visible: false },
+    { field: 'createDate', title: 'Create Date', visible: false }
+  ],
+  data: []
+})
+
+const gridEvents: VxeGridListeners = {
+  pageChange ({ pageSize, currentPage }) {
+    pagerVO.currentPage = currentPage
+    pagerVO.pageSize = pageSize
+    loadList()
+  }
+}
+
+loadList()
 </script>
