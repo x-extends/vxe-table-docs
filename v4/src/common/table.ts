@@ -562,14 +562,14 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '纵向虚拟滚动', routerLink: { name: 'ComponentTableScrollVertical' } },
             { title: '横向虚拟滚动', routerLink: { name: 'ComponentTableScrollHorizontal' } },
-            { title: '纵向和横向', routerLink: { name: 'ComponentTableScrollHV' } },
-            { title: '函数式加载数据', routerLink: { name: 'ComponentTableScrollLoadData' } },
+            { title: '纵向和横向', routerLink: { name: 'ComponentTableScrollHV' }, keywords: 'loadData,reloadData' },
+            { title: '函数式加载数据', routerLink: { name: 'ComponentTableScrollLoadData' }, keywords: 'loadData,reloadData' },
             { title: '冻结列 + 复杂渲染', routerLink: { name: 'ComponentTableScrollFixed' } },
             // { title: '滚动模式 + 复杂渲染', routerLink: { name: 'ComponentTableScrollMode' } },
             { title: '设置行高', routerLink: { name: 'ComponentTableScrollRowHeight' } },
-            { title: '自适应行高', routerLink: { name: 'ComponentTableScrollAutoRowHeight' } },
-            { title: '自适应行高 + 纵向和横向', routerLink: { name: 'ComponentTableScrollAutoRowVH' } },
-            { title: '自适应行高 + 复杂渲染', routerLink: { name: 'ComponentTableScrollAutoRowFixed' } },
+            { title: '自适应行高', routerLink: { name: 'ComponentTableScrollAutoRowHeight' }, keywords: '自适应行高,自适应高度,auto-height' },
+            { title: '自适应行高 + 纵向和横向', routerLink: { name: 'ComponentTableScrollAutoRowVH' }, keywords: '自适应行高,自适应高度,auto-height' },
+            { title: '自适应行高 + 复杂渲染', routerLink: { name: 'ComponentTableScrollAutoRowFixed' }, keywords: '自适应行高,自适应高度,auto-height' },
             { title: '使用分组表头', routerLink: { name: 'ComponentTableScrollGroup' } },
             { title: '按键导航', routerLink: { name: 'ComponentTableScrollKeyboard' } },
             { title: '单元格合并', routerLink: { name: 'ComponentTableScrollMerge' } },
@@ -1031,8 +1031,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '数据分页',
           children: [
-            { title: '实现后端分页', routerLink: { name: 'ComponentGridPagerPage' } },
-            { title: '实现前端分页', routerLink: { name: 'ComponentGridPagerMockPage' } },
+            { title: '实现后端分页', routerLink: { name: 'ComponentGridPagerPage' }, keywords: '分页,page' },
+            { title: '实现前端分页', routerLink: { name: 'ComponentGridPagerMockPage' }, keywords: '分页,page' },
             { title: '自定义布局', routerLink: { name: 'ComponentGridPagerLayouts' } },
             { title: '自定义序号', routerLink: { name: 'ComponentGridPagerStart' } },
             {
@@ -1354,15 +1354,15 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollVertical' } },
             { title: '横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHorizontal' } },
             { title: '列头自适应换行', routerLink: { name: 'ComponentGridScrollColBreak' } },
-            { title: '纵向和横向', routerLink: { name: 'ComponentGridScrollHV' } },
+            { title: '纵向和横向', routerLink: { name: 'ComponentGridScrollHV' }, keywords: 'loadData,reloadData,loadColumn,reloadColumn' },
             { title: '排序与筛选', routerLink: { name: 'ComponentGridScrollHFull' } },
             { title: '函数式加载数据', routerLink: { name: 'ComponentGridScrollLoadData' } },
             { title: '冻结列 + 复杂渲染', routerLink: { name: 'ComponentGridScrollFixed' } },
             // { title: '滚动模式 + 复杂渲染', routerLink: { name: 'ComponentGridScrollMode' } },
             { title: '设置行高', routerLink: { name: 'ComponentGridScrollRowHeight' } },
-            { title: '自适应行高', routerLink: { name: 'ComponentGridScrollAutoRowHeight' } },
-            { title: '自适应行高 + 纵向和横向', routerLink: { name: 'ComponentGridScrollAutoRowVH' } },
-            { title: '自适应行高 + 复杂渲染', routerLink: { name: 'ComponentGridScrollAutoRowFixed' } },
+            { title: '自适应行高', routerLink: { name: 'ComponentGridScrollAutoRowHeight' }, keywords: '自适应行高,自适应高度,auto-height' },
+            { title: '自适应行高 + 纵向和横向', routerLink: { name: 'ComponentGridScrollAutoRowVH' }, keywords: '自适应行高,自适应高度,auto-height' },
+            { title: '自适应行高 + 复杂渲染', routerLink: { name: 'ComponentGridScrollAutoRowFixed' }, keywords: '自适应行高,自适应高度,auto-height' },
             { title: '拖拽调整行顺序', routerLink: { name: 'ComponentGridScrollDragRow' } },
             { title: '拖拽调整列顺序', routerLink: { name: 'ComponentGridScrollDragCol' } },
             { title: '使用分组表头', routerLink: { name: 'ComponentGridScrollGroup' } },
@@ -1376,7 +1376,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '展开行 + 复杂子表渲染', routerLink: { name: 'ComponentGridScrollExpandFixed' } },
             { title: '可编辑 + 纵向', routerLink: { name: 'ComponentGridScrollEdit' } },
             { title: '可编辑 + 纵向和横向', routerLink: { name: 'ComponentGridScrollHVEdit' } },
-            { title: '百万级数据量', routerLink: { name: 'ComponentGridScrollBigData' } }
+            { title: '百万级数据量', routerLink: { name: 'ComponentGridScrollBigData' }, keywords: 'big' }
           ]
         },
         {
