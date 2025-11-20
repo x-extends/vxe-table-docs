@@ -54,8 +54,13 @@ export default Vue.extend({
         { type: 'checkbox', fixed: 'left', width: 60 },
         { type: 'seq', fixed: 'left', width: 70 },
         { field: 'name', title: 'Name', fixed: 'left', width: 180, editRender: { name: 'VxeInput' } },
-        { field: 'nickname', title: 'Nickname', minWidth: 260, editRender: { name: 'VxeInput' } },
-        { field: 'role', title: 'Role', minWidth: 260, editRender: { name: 'VxeInput' } },
+        {
+          title: '基础信息',
+          children: [
+            { field: 'nickname', title: 'Nickname', minWidth: 260, editRender: { name: 'VxeInput' } },
+            { field: 'role', title: 'Role', minWidth: 260, editRender: { name: 'VxeInput' } }
+          ]
+        },
         { field: 'sex', title: 'Sex', minWidth: 300, editRender: { name: 'VxeInput' } },
         { field: 'attr1', title: 'Attr1', minWidth: 250, editRender: { name: 'VxeInput' } },
         { field: 'attr2', title: 'Attr2', minWidth: 300, editRender: { name: 'VxeInput' } },

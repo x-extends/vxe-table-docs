@@ -17,8 +17,10 @@
       <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="100" fixed="left" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="nickname" title="Nickname" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-column field="role" title="Role" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-colgroup title="基础信息">
+        <vxe-column field="nickname" title="Nickname" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
+        <vxe-column field="role" title="Role" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      </vxe-colgroup>
       <vxe-column field="sex" title="Sex" min-width="300" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="attr1" title="Attr1" min-width="250" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="attr2" title="Attr2" min-width="300" :edit-render="{name: 'VxeInput'}"></vxe-column>
