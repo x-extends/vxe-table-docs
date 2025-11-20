@@ -17,7 +17,7 @@
       <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="100" fixed="left" :edit-render="{name: 'VxeInput'}"></vxe-column>
-      <vxe-colgroup title="基础信息">
+      <vxe-colgroup field="group1" title="基础信息">
         <vxe-column field="nickname" title="Nickname" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
         <vxe-column field="role" title="Role" min-width="260" :edit-render="{name: 'VxeInput'}"></vxe-column>
       </vxe-colgroup>

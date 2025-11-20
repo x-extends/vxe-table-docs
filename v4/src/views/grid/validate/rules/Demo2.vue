@@ -55,6 +55,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { type: 'seq', fixed: 'left', width: 70 },
     { field: 'name', title: 'Name', fixed: 'left', width: 180, editRender: { name: 'VxeInput' } },
     {
+      field: 'group1',
       title: '基础信息',
       children: [
         { field: 'nickname', title: 'Nickname', minWidth: 260, editRender: { name: 'VxeInput' } },
