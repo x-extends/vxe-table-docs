@@ -8,7 +8,7 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="table/rowDrag/dragMethod/Demo2">
+    <CodeLight path="table/rowDrag/dragMethod/Demo2" previewPath="/resource/docsImg/table_row_drag_drag_method.gif">
       <template #tip>
         <vxe-tip status="primary">
           通过 <ApiLink name="table" prop="row-drag-config"/>.<ApiLink name="table" prop="dragEndMethod"/> 可以自定义处理拖拽结束时的拖动
