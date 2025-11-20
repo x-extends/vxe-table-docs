@@ -5,6 +5,9 @@
         <vxe-tip status="primary" title="行拖拽">
           通过 <ApiLink name="table" prop="row-config"/>.<ApiLink name="table" prop="drag"/> 和列设置 <ApiLink name="column" prop="drag-sort"/> 启用行拖拽排序功能
         </vxe-tip>
+        <vxe-tip status="error">
+          拖拽排序表格数据是不会改变数据源的，如果需要改变数据可以放弃内置拖拽功能自行去实现排序功能
+        </vxe-tip>
       </template>
 
       <template #describe>
