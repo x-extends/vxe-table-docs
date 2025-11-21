@@ -10,7 +10,7 @@
 
       <template #use>
         <vxe-tip status="success" title="仅安装设计器">
-          仅可以使用可视化设计器功能，不包含任何 UI 组件，建议使用第三方 UI 组件库自行实现。
+          仅可以使用可视化设计器功能，不包含任何 UI 组件，建议基础组件使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
           <pre-code
