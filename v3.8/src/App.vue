@@ -1,5 +1,8 @@
 <template>
   <div id="app" @click="clickEvent">
+    <div class="page-top">
+      <span>Vxe 3.0 ~ 3.8 已经终止支持且不再维护。请升级到 <a class="link" href="https://vxetable.cn/v3.8/#/table/start/upgrade">Vxe 3.9+</a> 避免出现严重问题及漏洞！</span>
+    </div>
     <header class="page-header">
       <div class="left">
         <a :href="baseApiUrl">
@@ -2527,5 +2530,20 @@ export default {
       }
     }
   }
+}
+</style>
+
+<style lang="scss" scoped>
+.page-top {
+  flex-shrink: 0;
+  padding: 10px 60px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb731;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
 }
 </style>

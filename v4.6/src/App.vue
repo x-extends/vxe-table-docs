@@ -1,5 +1,8 @@
 <template>
   <div class="app-container" @click="clickEvent">
+    <div class="page-top">
+      <span>Vxe 4.0 ~ 4.6 已经终止支持且不再维护。请升级到 <a class="link" href="https://vxetable.cn/v4.6/#/table/start/upgrade">Vxe 4.7+</a> 避免出现严重问题及漏洞！</span>
+    </div>
     <header class="page-header">
       <div class="left">
         <a :href="siteBaseUrl">
@@ -2650,5 +2653,20 @@ nextTick(() => {
       }
     }
   }
+}
+</style>
+
+<style lang="scss" scoped>
+.page-top {
+  flex-shrink: 0;
+  padding: 10px 60px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb731;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
 }
 </style>
