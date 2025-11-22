@@ -1,7 +1,7 @@
 <template>
   <div id="app" @click="clickEvent">
     <div class="page-top">
-      <span>Vxe 2.x 已经终止支持且不再维护。请升级到 <a class="link" href="https://vxetable.cn/v3/">Vxe 3.x</a> 避免出现严重问题及漏洞！</span>
+      <span>Vxe table 2.x 已经终止支持且不再维护。建议使用 <a class="link" href="https://vxetable.cn/v3.8/">Vxe 3.8</a> 版本，避免出现严重问题及漏洞！</span>
     </div>
     <header class="page-header">
       <div class="left">
