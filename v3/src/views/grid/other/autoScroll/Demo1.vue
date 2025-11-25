@@ -3,6 +3,11 @@
     <vxe-button status="primary" @click="startRollEvent">开始</vxe-button>
     <vxe-button status="error" @click="stopRollEvent">停止</vxe-button>
     <br>
+    <vxe-radio-group v-model="scrollbarConfig.y.visible">
+      <vxe-radio-button label="auto" content="显示滚动条"></vxe-radio-button>
+      <vxe-radio-button label="hidden" content="不显示滚动条"></vxe-radio-button>
+    </vxe-radio-group>
+    <br>
     <vxe-radio-group v-model="speedNum">
       <vxe-radio-button :label="1" content="慢"></vxe-radio-button>
       <vxe-radio-button :label="3" content="中"></vxe-radio-button>
@@ -20,7 +25,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import type { VxeGridInstance, VxeTablePropTypes, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -34,6 +39,12 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const scrollbarConfig: Omit<VxeTablePropTypes.ScrollbarConfig, 'y'> & Required<Pick<VxeTablePropTypes.ScrollbarConfig, 'y'>> = {
+      y: {
+        visible: 'hidden'
+      }
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 400,
@@ -42,11 +53,7 @@ export default Vue.extend({
         enabled: true,
         gt: 0
       },
-      scrollbarConfig: {
-        y: {
-          visible: 'hidden'
-        }
-      },
+      scrollbarConfig,
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -64,6 +71,7 @@ export default Vue.extend({
 
     return {
       gridOptions,
+      scrollbarConfig,
       speedNum,
       autoTime
     }

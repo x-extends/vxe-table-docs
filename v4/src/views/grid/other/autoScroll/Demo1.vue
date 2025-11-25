@@ -3,6 +3,11 @@
     <vxe-button status="primary" @click="startRollEvent">开始</vxe-button>
     <vxe-button status="error" @click="stopRollEvent">停止</vxe-button>
     <br>
+    <vxe-radio-group v-model="scrollbarConfig.y.visible">
+      <vxe-radio-button label="auto" content="显示滚动条"></vxe-radio-button>
+      <vxe-radio-button label="hidden" content="不显示滚动条"></vxe-radio-button>
+    </vxe-radio-group>
+    <br>
     <vxe-radio-group v-model="speedNum">
       <vxe-radio-button :label="1" content="慢"></vxe-radio-button>
       <vxe-radio-button :label="3" content="中"></vxe-radio-button>
@@ -16,7 +21,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onUnmounted } from 'vue'
-import type { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps, VxeTablePropTypes, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -32,6 +37,12 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const speedNum = ref(3)
 
+const scrollbarConfig = reactive<Omit<VxeTablePropTypes.ScrollbarConfig, 'y'> & Required<Pick<VxeTablePropTypes.ScrollbarConfig, 'y'>>>({
+  y: {
+    visible: 'hidden'
+  }
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 400,
@@ -40,11 +51,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     enabled: true,
     gt: 0
   },
-  scrollbarConfig: {
-    y: {
-      visible: 'hidden'
-    }
-  },
+  scrollbarConfig,
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
