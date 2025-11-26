@@ -10,7 +10,7 @@
       <template #describe>
         <pre>
           <pre-code>
-            | MouseLeft | 移动到指定行的上面或者下面 |
+            | MouseLeft | 移动到指定列的上面或者下面 |
           </pre-code>
         </pre>
       </template>
