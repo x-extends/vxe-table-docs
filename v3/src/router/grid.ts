@@ -2543,6 +2543,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridProxyForm',
           component: () => import('@/views/grid/proxy/form/CodeExample.vue')
         },
+        { path: 'footer', name: 'ComponentGridProxyFooter', component: () => import('@/views/grid/proxy/footer/CodeExample.vue') },
         {
           path: 'seq',
           name: 'ComponentGridProxySeq',

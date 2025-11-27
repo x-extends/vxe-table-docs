@@ -60,6 +60,18 @@ const findPageList = (pageSize: number, currentPage: number, queryObj: any) => {
 }
 
 // 模拟接口
+const findSummary = (queryObj: any) => {
+  console.log('调用查询表尾汇总接口', queryObj)
+  return new Promise<any[]>(resolve => {
+    setTimeout(() => {
+      resolve([
+        { checkbox: '合计', name: 1111, nickname: 222 }
+      ])
+    }, 100)
+  })
+}
+
+// 模拟接口
 const deleteApi = (removeRecords: RowVO[]) => {
   console.log('调用删除接口', removeRecords)
   return new Promise<void>(resolve => {
@@ -89,7 +101,8 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       keepSource: true,
-      height: 500,
+      showFooter: true,
+      height: 600,
       pagerConfig: {
         pageSize: 15
       },
@@ -128,7 +141,7 @@ export default Vue.extend({
         ]
       },
       columns: [
-        { type: 'checkbox', width: 50 },
+        { field: 'checkbox', type: 'checkbox', width: 50 },
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', editRender: { name: 'input' } },
         { field: 'nickname', title: 'Nickname', editRender: { name: 'input' } },
@@ -145,6 +158,9 @@ export default Vue.extend({
           query: ({ page, form }) => {
             // 默认接收 Promise<{ result: [], page: { total: 100 } }>
             return findPageList(page.pageSize, page.currentPage, form)
+          },
+          queryFooter ({ form }) {
+            return findSummary(form)
           },
           delete: ({ body }) => {
             // 接收 Promise<any>

@@ -8,5 +8,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/proxy/query/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          同时加载表尾数据
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

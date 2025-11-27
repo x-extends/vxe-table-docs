@@ -1391,6 +1391,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '手动调用 - 操作排序', routerLink: { name: 'ComponentGridProxyManualSort' } },
             { title: '集成筛选查询', routerLink: { name: 'ComponentGridProxyFilter' } },
             { title: '集成表单查询', routerLink: { name: 'ComponentGridProxyForm' } },
+            { title: '集成表尾查询', routerLink: { name: 'ComponentGridProxyFooter' } },
             { title: '集成分页序号', routerLink: { name: 'ComponentGridProxySeq' } },
             { title: '工具栏 - 全量数据导出', routerLink: { name: 'ComponentGridProxyToolbarExport' } },
             { title: '工具栏 - 服务端导出', routerLink: { name: 'ComponentGridProxyToolbarRemoteExport' } },

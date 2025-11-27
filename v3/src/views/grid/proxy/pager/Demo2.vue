@@ -1,17 +1,12 @@
 <template>
   <div>
-    <vxe-button status="primary" @click="changeCurrPage(1)">切换页数1</vxe-button>
-    <vxe-button status="primary" @click="changeCurrPage(2)">切换页数2</vxe-button>
-    <vxe-button status="primary" @click="changePageSize(10)">切换大小10</vxe-button>
-    <vxe-button status="primary" @click="changePageSize(20)">切换大小20</vxe-button>
-    <vxe-button @click="reloadEvent">重新加载</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions" @page-change="pageChangeEvent"></vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridInstance, VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -53,6 +48,7 @@ const findPageList = (pageSize: number, currentPage: number) => {
   console.log(`调用查询接口 pageSize=${pageSize} currentPage=${currentPage}`)
   return new Promise<{
     result: RowVO[]
+    footerData: any[]
     page: {
       total: number
     }
@@ -60,6 +56,9 @@ const findPageList = (pageSize: number, currentPage: number) => {
     setTimeout(() => {
       resolve({
         result: list.slice((currentPage - 1) * pageSize, currentPage * pageSize),
+        footerData: [
+          { seq: '合计', name: 234, nickname: 44 }
+        ],
         page: {
           total: list.length
         }
@@ -70,21 +69,17 @@ const findPageList = (pageSize: number, currentPage: number) => {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & {
-      pagerConfig: VxeGridPropTypes.PagerConfig
-    } = {
+    const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 500,
-      pagerConfig: {
-        currentPage: 1,
-        pageSize: 10
-      },
+      showFooter: true,
+      pagerConfig: {},
       proxyConfig: {
         // showLoading: false, // 关闭加载中
-        seq: true, // 启用自动序号
         // response: {
         //   result: 'result', // 配置响应结果列表字段
         //   total: 'page.total' // 配置响应结果总页数字段
+        //   footerData: 'footerData' // 配置响应结果总页数字段
         // },
         ajax: {
           query: ({ page }) => {
@@ -94,7 +89,7 @@ export default Vue.extend({
         }
       },
       columns: [
-        { type: 'seq', width: 70 },
+        { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
         { field: 'nickname', title: 'Nickname' },
         { field: 'role', title: 'Role' },
@@ -104,34 +99,6 @@ export default Vue.extend({
 
     return {
       gridOptions
-    }
-  },
-  methods: {
-    pageChangeEvent ({ currentPage, pageSize }) {
-      this.gridOptions.pagerConfig.currentPage = currentPage
-      this.gridOptions.pagerConfig.pageSize = pageSize
-    },
-    async changeCurrPage (num: number) {
-      this.gridOptions.pagerConfig.currentPage = num
-      await this.$nextTick()
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
-        $grid.commitProxy('query')
-      }
-    },
-    async changePageSize (num: number) {
-      this.gridOptions.pagerConfig.pageSize = num
-      await this.$nextTick()
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
-        $grid.commitProxy('query')
-      }
-    },
-    reloadEvent () {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
-        $grid.commitProxy('reload')
-      }
     }
   }
 })

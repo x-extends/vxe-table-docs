@@ -261,6 +261,33 @@ export default Vue.extend({
             list: []
           },
           {
+            name: 'tableCellCopyMethod',
+            desc: '自定义单元格复制方法',
+            version: '3.19.21',
+            type: '(params: { isCut, row, column, cellValue }) => string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'tableCellCutMethod',
+            desc: '自定义单元格剪贴方法',
+            version: '3.19.21',
+            type: '(params: { row, column, cellValue, clipData }) => string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
+            name: 'tableCellPasteMethod',
+            desc: '自定义单元格粘贴方法',
+            version: '3.19.21',
+            type: '(params: { isCut, row, column, cellValue, clipDat }) => string',
+            enum: '',
+            defVal: '',
+            list: []
+          },
+          {
             name: 'renderTableExpand',
             desc: '展开行渲染',
             version: '',

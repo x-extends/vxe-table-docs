@@ -1,17 +1,12 @@
 <template>
   <div>
-    <vxe-button status="primary" @click="changeCurrPage(1)">切换页数1</vxe-button>
-    <vxe-button status="primary" @click="changeCurrPage(2)">切换页数2</vxe-button>
-    <vxe-button status="primary" @click="changePageSize(10)">切换大小10</vxe-button>
-    <vxe-button status="primary" @click="changePageSize(20)">切换大小20</vxe-button>
-    <vxe-button @click="reloadEvent">重新加载</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, nextTick } from 'vue'
-import type { VxeGridInstance, VxeGridProps, VxeGridPropTypes, VxeGridListeners } from 'vxe-table'
+import { reactive } from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -22,8 +17,6 @@ interface RowVO {
   age: number
   address: string
 }
-
-const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const list = [
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -55,6 +48,7 @@ const findPageList = (pageSize: number, currentPage: number) => {
   console.log(`调用查询接口 pageSize=${pageSize} currentPage=${currentPage}`)
   return new Promise<{
     result: RowVO[]
+    footerData: any[]
     page: {
       total: number
     }
@@ -62,6 +56,9 @@ const findPageList = (pageSize: number, currentPage: number) => {
     setTimeout(() => {
       resolve({
         result: list.slice((currentPage - 1) * pageSize, currentPage * pageSize),
+        footerData: [
+          { seq: '合计', name: 234, nickname: 44 }
+        ],
         page: {
           total: list.length
         }
@@ -70,21 +67,17 @@ const findPageList = (pageSize: number, currentPage: number) => {
   })
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  pagerConfig: VxeGridPropTypes.PagerConfig
-}>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 500,
-  pagerConfig: {
-    currentPage: 1,
-    pageSize: 10
-  },
+  showFooter: true,
+  pagerConfig: {},
   proxyConfig: {
     // showLoading: false, // 关闭加载中
-    seq: true, // 启用自动序号
     // response: {
     //   result: 'result', // 配置响应结果列表字段
     //   total: 'page.total' // 配置响应结果总页数字段
+    //   footerData: 'footerData' // 配置响应结果总页数字段
     // },
     ajax: {
       query: ({ page }) => {
@@ -94,43 +87,11 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
     }
   },
   columns: [
-    { type: 'seq', width: 70 },
+    { field: 'seq', type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
     { field: 'nickname', title: 'Nickname' },
     { field: 'role', title: 'Role' },
     { field: 'address', title: 'Address', showOverflow: true }
   ]
 })
-
-const gridEvents: VxeGridListeners<RowVO> = {
-  pageChange ({ currentPage, pageSize }) {
-    gridOptions.pagerConfig.currentPage = currentPage
-    gridOptions.pagerConfig.pageSize = pageSize
-  }
-}
-
-const changeCurrPage = async (num: number) => {
-  gridOptions.pagerConfig.currentPage = num
-  await nextTick()
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.commitProxy('query')
-  }
-}
-
-const changePageSize = async (num: number) => {
-  gridOptions.pagerConfig.pageSize = num
-  await nextTick()
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.commitProxy('query')
-  }
-}
-
-const reloadEvent = () => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.commitProxy('reload')
-  }
-}
 </script>
