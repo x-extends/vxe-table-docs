@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/rowGroup/count/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          通过 <ApiLink name="grid" prop="aggregate-config"/>.<ApiLink name="grid" prop="formatValuesMethod"/> 格式化显示的内容
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

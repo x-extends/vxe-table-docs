@@ -42,6 +42,15 @@ export default Vue.extend({
             return Math.floor(ageCount / children.length)
           }
           return 0
+        },
+        formatValuesMethod ({ aggValue, column }) {
+          if (column.field === 'num') {
+            return `合计：${aggValue}`
+          }
+          if (column.field === 'age') {
+            return `平均：${aggValue}`
+          }
+          return aggValue
         }
       },
       columns: [
