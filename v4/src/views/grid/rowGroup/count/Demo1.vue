@@ -28,7 +28,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       if (column.field === 'num') {
         let numSum = 0
         children.forEach(item => {
-          numSum += item.age
+          numSum += item.num
         })
         return numSum
       }

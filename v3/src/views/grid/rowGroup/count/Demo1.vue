@@ -30,7 +30,7 @@ export default Vue.extend({
           if (column.field === 'num') {
             let numSum = 0
             children.forEach(item => {
-              numSum += item.age
+              numSum += item.num
             })
             return numSum
           }

@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/rowGroup/sort/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          同时排序分组合计
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
