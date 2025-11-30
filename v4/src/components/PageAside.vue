@@ -360,7 +360,7 @@ if (!appStore.isUtilDocs) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .page-aside {
   .nav-top {
     position: sticky;
@@ -390,7 +390,7 @@ if (!appStore.isUtilDocs) {
   }
   .nav-link-icon {
     font-size: 13px;
-    margin-right: 8px;
+    margin-right: 0.3em;
     transition: transform .2s ease-in-out;
   }
   .nav-item-link {
@@ -437,7 +437,7 @@ if (!appStore.isUtilDocs) {
       border-right-color: #3eb910;
     }
   }
-  ::v-deep(.nav-item) {
+  .nav-item {
     & > .nav-subs {
       display: none;
     }
@@ -446,7 +446,7 @@ if (!appStore.isUtilDocs) {
         .nav-link-icon {
           transform: rotate(90deg);
         }
-        .vxe-text--icon {
+        .vxe-text--prefix-icon {
           transform: rotate(90deg);
         }
       }
@@ -454,9 +454,10 @@ if (!appStore.isUtilDocs) {
         display: block;
       }
     }
-    .vxe-text--icon {
+    .vxe-text--prefix-icon {
       display: inline-block;
       font-size: 12px;
+      margin-right: 0.3em;
       transition: transform .2s ease-in-out;
     }
     .nav-item-text {
@@ -531,9 +532,7 @@ if (!appStore.isUtilDocs) {
     }
   }
 }
-</style>
 
-<style lang="scss">
 .vxe-layout-aside.is--collapse {
   .page-aside {
     visibility: hidden;

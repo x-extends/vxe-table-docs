@@ -360,12 +360,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped>
-.vxe-layout-aside.is--collapse {
-  .page-aside {
-    visibility: hidden;
-  }
-}
+<style lang="scss">
 .page-aside {
   .nav-top {
     position: sticky;
@@ -395,7 +390,7 @@ export default Vue.extend({
   }
   .nav-link-icon {
     font-size: 13px;
-    margin-right: 8px;
+    margin-right: 0.3em;
     transition: transform .2s ease-in-out;
   }
   .nav-item-link {
@@ -442,7 +437,7 @@ export default Vue.extend({
       border-right-color: #3eb910;
     }
   }
-  ::v-deep(.nav-item) {
+  .nav-item {
     & > .nav-subs {
       display: none;
     }
@@ -451,7 +446,7 @@ export default Vue.extend({
         .nav-link-icon {
           transform: rotate(90deg);
         }
-        .vxe-text--icon {
+        .vxe-text--prefix-icon {
           transform: rotate(90deg);
         }
       }
@@ -459,9 +454,10 @@ export default Vue.extend({
         display: block;
       }
     }
-    .vxe-text--icon {
+    .vxe-text--prefix-icon {
       display: inline-block;
       font-size: 12px;
+      margin-right: 0.3em;
       transition: transform .2s ease-in-out;
     }
     .nav-item-text {
@@ -536,9 +532,12 @@ export default Vue.extend({
     }
   }
 }
-</style>
 
-<style lang="scss">
+.vxe-layout-aside.is--collapse {
+  .page-aside {
+    visibility: hidden;
+  }
+}
 .nav-search-wrapper {
   max-height: 70vh;
   width: 600px;
