@@ -51,7 +51,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 const resetEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
-    $grid.resetCustom()
+    $grid.resetCustom(true)
     $grid.closeCustom()
   }
 }

@@ -57,7 +57,7 @@ export default Vue.extend({
     resetEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        $grid.resetCustom()
+        $grid.resetCustom(true)
         $grid.closeCustom()
       }
     },
