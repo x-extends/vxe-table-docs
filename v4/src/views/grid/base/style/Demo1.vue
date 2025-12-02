@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid class="mygrid-style" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid class="mygrid-style1" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -62,16 +62,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 </script>
 
-<style lang="scss" scoped>
-::v-deep(.mygrid-style.vxe-grid .vxe-body--row.row-green) {
+<style lang="scss">
+.mygrid-style1.vxe-grid .vxe-body--row.row-green {
   background-color: #187;
   color: #fff;
 }
-::v-deep(.mygrid-style.vxe-grid .vxe-header--column.col-blue) {
+.mygrid-style1.vxe-grid .vxe-header--column.col-blue {
   background-color: #2db7f5;
   color: #fff;
 }
-::v-deep(.mygrid-style.vxe-grid .vxe-body--column.col-red) {
+.mygrid-style1.vxe-grid .vxe-body--column.col-red {
   background-color: red;
   color: #fff;
 }

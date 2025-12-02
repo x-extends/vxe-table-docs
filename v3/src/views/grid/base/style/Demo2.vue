@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-grid
-      class="mygrid-style"
+      class="mygrid-style2"
       v-bind="gridOptions"
       @cell-click="cellClickEvent">
     </vxe-grid>
@@ -69,9 +69,10 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped>
-::v-deep(.mygrid-style.vxe-grid .vxe-body--column.col-orange) {
-  background-color: #f60;
+<style lang="scss">
+.mygrid-style2.vxe-grid .vxe-body--column.col-orange {
+  background-color: #eecbb4;
+  border: 1px solid blue;
   color: #fff;
 }
 </style>
