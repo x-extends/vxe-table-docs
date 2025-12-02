@@ -72,7 +72,6 @@ export default Vue.extend({
 <style lang="scss">
 .mygrid-style2.vxe-grid .vxe-body--column.col-orange {
   background-color: #eecbb4;
-  border: 1px solid blue;
   color: #fff;
 }
 </style>
