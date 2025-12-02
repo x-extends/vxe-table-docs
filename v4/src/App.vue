@@ -23,7 +23,7 @@ axios.get(`${siteBaseUrl.value}/component-api/vxe-version.json?v=${import.meta.e
   appStore.setVersionConfig(res.data)
 })
 
-const voteKey = 'VXE_VOTE_2025_4'
+const voteKey = 'VXE_VOTE_RANKING_2025_4'
 if (!localStorage.getItem(voteKey)) {
   VxeUI.modal.alert({
     width: 500,

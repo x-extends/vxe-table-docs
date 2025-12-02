@@ -33,7 +33,7 @@ export default Vue.extend({
       this.setVersionConfig(res.data)
     })
 
-    const voteKey = 'VXE_VOTE_2025_3'
+    const voteKey = 'VXE_VOTE_RANKING_2025_3'
     if (!localStorage.getItem(voteKey)) {
       VxeUI.modal.alert({
         width: 500,
