@@ -5,7 +5,7 @@
         <vxe-tip status="primary" title="自定义合并">
           通过 <ApiLink name="grid" prop="span-method"/> 自定义合并行函数，将对分组行进行合并
         </vxe-tip>
-        <vxe-tip status="error">
+        <vxe-tip status="error" title="如何优化合并">
           <div>合并的性能是非常低的，当所有行都被合并为一个单元格时就等同于关闭纵向虚拟滚动，当所有列都被合并为一个单元格时就等同于关闭横向虚拟滚动。应该避免合并范围过大的使用场景</div>
         </vxe-tip>
         <vxe-tip status="warning" title="小提示">
