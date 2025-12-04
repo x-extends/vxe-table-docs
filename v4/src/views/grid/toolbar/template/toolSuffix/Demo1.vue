@@ -1,8 +1,14 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
+      <template #toolbarTools>
+        <vxe-button status="primary">按钮1</vxe-button>
+        <vxe-button status="primary">按钮2</vxe-button>
+        <vxe-button status="primary">按钮3</vxe-button>
+      </template>
+
       <template #toolbarToolSuffix>
-        <vxe-button status="primary">后缀按钮2</vxe-button>
+        <vxe-button status="error">后缀按钮2</vxe-button>
       </template>
     </vxe-grid>
   </div>
@@ -28,6 +34,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 400,
   toolbarConfig: {
     slots: {
+      tools: 'toolbarTools',
       toolSuffix: 'toolbarToolSuffix'
     }
   },

@@ -2,7 +2,13 @@
   <div>
     <vxe-toolbar :buttons="toolbarButtons">
       <template #buttonPrefix>
-        <vxe-button status="primary">前缀按钮1</vxe-button>
+        <vxe-button status="error">前缀按钮1</vxe-button>
+      </template>
+
+      <template #buttons>
+        <vxe-button status="primary">按钮1</vxe-button>
+        <vxe-button status="primary">按钮2</vxe-button>
+        <vxe-button status="primary">按钮3</vxe-button>
       </template>
     </vxe-toolbar>
     <vxe-table

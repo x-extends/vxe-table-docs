@@ -1,8 +1,14 @@
 <template>
   <div>
     <vxe-toolbar :buttons="toolbarButtons">
+      <template #buttons>
+        <vxe-button status="primary">按钮1</vxe-button>
+        <vxe-button status="primary">按钮2</vxe-button>
+        <vxe-button status="primary">按钮3</vxe-button>
+      </template>
+
       <template #buttonSuffix>
-        <vxe-button status="primary">后缀按钮2</vxe-button>
+        <vxe-button status="error">后缀按钮2</vxe-button>
       </template>
     </vxe-toolbar>
     <vxe-table
