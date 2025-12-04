@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-toolbar :tools="toolbarTools">
+    <vxe-toolbar>
       <template #toolPrefix>
         <vxe-button status="error">前缀按钮1</vxe-button>
       </template>
@@ -23,7 +23,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VxeToolbarPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -39,9 +38,5 @@ const tableData = ref<RowVO[]>([
   { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
   { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
-])
-
-const toolbarTools = ref<VxeToolbarPropTypes.Tools>([
-  { code: 'myBtn1', name: '配置按钮1' }
 ])
 </script>
