@@ -82,7 +82,7 @@ const dganttComponents = [
   'gantt'
 ]
 
-const pluginAppNames = ['ExtendCellArea', 'ExtendPivotTable', 'FiltersCombination', 'FiltersComplexInput']
+const pluginAppNames = ['ExtendCellArea', 'ExtendPivotTable', 'FiltersCombination', 'FiltersComplexInput', 'ExtendGanttChart']
 const pluginAppRE = new RegExp(`^(${pluginAppNames.join('|')})(@(\\d{1,3}.\\d{1,3}.\\d{1,3}))?$`)
 
 export default Vue.extend({

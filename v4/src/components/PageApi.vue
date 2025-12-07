@@ -64,7 +64,7 @@ interface RowVO {
   list: RowVO[]
 }
 
-const pluginAppNames = ['ExtendCellArea', 'ExtendPivotTable', 'FiltersCombination', 'FiltersComplexInput']
+const pluginAppNames = ['ExtendCellArea', 'ExtendPivotTable', 'FiltersCombination', 'FiltersComplexInput', 'ExtendGanttChart']
 const pluginAppRE = new RegExp(`^(${pluginAppNames.join('|')})(@(\\d{1,3}.\\d{1,3}.\\d{1,3}))?$`)
 
 const route = useRoute()
