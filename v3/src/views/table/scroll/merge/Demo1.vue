@@ -10,7 +10,7 @@
       :column-config="columnConfig"
       :merge-cells="mergeCells"
       :merge-footer-items="mergeFooterItems"
-      :virtual-y-config="scrollY"
+      :virtual-y-config="virtualYConfig"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -72,7 +72,7 @@ export default Vue.extend({
       columnConfig,
       mergeCells,
       mergeFooterItems,
-      scrollY
+      virtualYConfig
     }
   },
   methods: {
