@@ -13,7 +13,7 @@
       show-footer-overflow
       ref="tableRef"
       height="800"
-      :virtual-y-config="{enabled: true, gt: 0}"
+      :virtual-y-config="virtualYConfig"
       :loading="loading">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -39,7 +39,13 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const virtualYConfig: VxeTablePropTypes.VirtualYConfig = {
+      enabled: true,
+      gt: 0
+    }
+
     return {
+      virtualYConfig,
       loading: false
     }
   },

@@ -6,7 +6,7 @@
       show-header-overflow
       show-footer-overflow
       height="600"
-      :virtual-x-config="{enabled: true, gt: 0}"
+      :virtual-y-config="{enabled: true, gt: 0}"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-colgroup title="分组1">

@@ -13,7 +13,7 @@
       show-footer-overflow
       ref="tableRef"
       height="800"
-      :virtual-x-config="{enabled: true, gt: 0}"
+      :virtual-y-config="virtualYConfig"
       :loading="loading">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
@@ -26,8 +26,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { VxeUI, VxeTableInstance } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -40,6 +40,11 @@ interface RowVO {
 const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const loading = ref(false)
+
+const virtualYConfig = reactive<VxeTablePropTypes.VirtualYConfig>({
+  enabled: true,
+  gt: 0
+})
 
 // 模拟行数据
 const loadList = (size = 200) => {
