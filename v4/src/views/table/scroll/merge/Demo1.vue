@@ -10,7 +10,7 @@
       :column-config="columnConfig"
       :merge-cells="mergeCells"
       :merge-footer-items="mergeFooterItems"
-      :virtual-x-config="scrollY"
+      :virtual-y-config="virtualYConfig"
       :data="tableData"
       :footer-data="footerData">
       <vxe-column type="seq" width="70"></vxe-column>
@@ -59,7 +59,7 @@ const mergeFooterItems = ref<VxeTablePropTypes.MergeFooterItems>([
   { row: 0, col: 1, rowspan: 2, colspan: 1 }
 ])
 
-const scrollY = reactive<VxeTablePropTypes.ScrollY>({
+const virtualYConfig = reactive<VxeTablePropTypes.ScrollY>({
   enabled: true,
   gt: 0
 })
