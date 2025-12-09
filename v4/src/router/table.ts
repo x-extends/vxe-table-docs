@@ -1326,6 +1326,11 @@ export const tableRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/table/edit/linkageDisabled/CodeExample.vue')
         },
         {
+          path: 'selectRowOption',
+          name: 'ComponentTableEditSelectRowOption',
+          component: () => import('@/views/table/edit/selectRowOption/CodeExample.vue')
+        },
+        {
           path: 'uniqueSelect',
           name: 'ComponentTableEditUniqueSelect',
           component: () => import('@/views/table/edit/uniqueSelect/CodeExample.vue')

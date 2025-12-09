@@ -425,7 +425,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现弹窗选择数据', routerLink: { name: 'ComponentTableEditModalSelect' } },
             { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentTableEditDrawerForm' } },
             { title: '实现抽屉选择数据', routerLink: { name: 'ComponentTableEditDrawerSelect' } },
-            { title: '实现唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
+            { title: '实现每行独立下拉选项', routerLink: { name: 'ComponentTableEditSelectRowOption' } },
+            { title: '实现每行唯一下拉选项', routerLink: { name: 'ComponentTableEditUniqueSelect' } },
             { title: '实现多行文本编辑', routerLink: { name: 'ComponentTableEditMultiLineText' } },
             { title: '实现联动禁用', routerLink: { name: 'ComponentTableEditLinkageDisabled' } },
             { title: '实现多列下拉联动', routerLink: { name: 'ComponentTableEditCascadingSelect' } },
@@ -1161,6 +1162,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现弹窗选择数据', routerLink: { name: 'ComponentGridEditModalSelect' } },
             { title: '实现抽屉编辑表单', routerLink: { name: 'ComponentGridEditDrawerForm' } },
             { title: '实现抽屉选择数据', routerLink: { name: 'ComponentGridEditDrawerSelect' } },
+            { title: '实现每行独立下拉选项', routerLink: { name: 'ComponentGridEditSelectRowOption' } },
             { title: '实现行保存功能', routerLink: { name: 'ComponentGridEditRowSave' } },
             { title: '实现单元格实时保存', routerLink: { name: 'ComponentGridEditRealtimeSave' } },
             { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_clip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaClip' } } }

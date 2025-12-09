@@ -1878,6 +1878,11 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/edit/drawerSelect/CodeExample.vue')
         },
         {
+          path: 'selectRowOption',
+          name: 'ComponentGridEditSelectRowOption',
+          component: () => import('@/views/grid/edit/selectRowOption/CodeExample.vue')
+        },
+        {
           path: 'rowSave',
           name: 'ComponentGridEditRowSave',
           component: () => import('@/views/grid/edit/rowSave/CodeExample.vue')
