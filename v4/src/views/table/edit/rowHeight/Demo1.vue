@@ -3,7 +3,7 @@
     <vxe-table
       border
       show-overflow
-      :row-config="{height: 100}"
+      :cell-config="{height: 100}"
       :edit-config="editConfig"
       :data="tableData">
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
