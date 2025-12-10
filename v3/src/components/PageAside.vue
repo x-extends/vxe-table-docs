@@ -413,7 +413,8 @@ export default Vue.extend({
   }
   .nav-item-enterprise-icon,
   .nav-item-plugin-icon,
-  .nav-item-template-icon {
+  .nav-item-template-icon,
+  .nav-item-process-icon {
     position: absolute;
     top: 0.2em;
     font-size: 12px;
@@ -443,6 +444,13 @@ export default Vue.extend({
     background-color: #3eb910;
     &::after {
       border-right-color: #3eb910;
+    }
+  }
+  .nav-item-process-icon {
+    color: #fff;
+    background-color: #f7d3d3;
+    &::after {
+      border-right-color: #f7d3d3;
     }
   }
   .nav-item {
