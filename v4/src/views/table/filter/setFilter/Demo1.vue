@@ -70,7 +70,7 @@ const changeFilters = () => {
 const handleFilters = () => {
   const $table = tableRef.value
   if ($table) {
-    // 修改筛选选项，如果传 true，则自动更新本地筛选，调用该方法不会触发任何事件
+    // 修改筛选选项，如果传 true，则自动更新本地筛选，调用该方法不会触发任何事件；如果需要自动触发事件，需要调用 setFilterByEvent 方法
     $table.setFilter('role', [
       { label: 'Develop', value: 'Develop', checked: false },
       { label: 'Test', value: 'Test', checked: true },
@@ -83,7 +83,7 @@ const handleFilters = () => {
 const clearFilterEvent: VxeButtonEvents.Click = () => {
   const $table = tableRef.value
   if ($table) {
-    // 清除筛选状态，调用该方法不会触发任何事件，如果是本地筛选，会自动更新数据
+    // 清除筛选状态，调用该方法不会触发任何事件，如果是本地筛选，会自动更新数据；如果需要自动触发事件，需要调用 clearFilterByEvent 方法
     $table.clearFilter()
   }
 }
