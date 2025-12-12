@@ -930,6 +930,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridMergeHorizontal',
           component: () => import('@/views/grid/merge/horizontal/CodeExample.vue')
         },
+        { path: 'sort', name: 'ComponentGridMergeSort', component: () => import('@/views/grid/merge/sort/CodeExample.vue') },
         { path: 'filter', name: 'ComponentGridMergeFilter', component: () => import('@/views/grid/merge/filter/CodeExample.vue') }
       ]
     },

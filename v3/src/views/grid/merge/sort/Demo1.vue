@@ -3,7 +3,7 @@
     <vxe-grid
       ref="gridRef"
       v-bind="gridOptions"
-      @filter-change="filterChangeEvent">
+      @data-change="dataChangeEvent">
     </vxe-grid>
   </div>
 </template>
@@ -71,8 +71,8 @@ export default Vue.extend({
   },
   methods: {
     /**
-     * 生成合并指定列通用函数
-     */
+   * 生成合并指定列通用函数
+   */
     calculateColumnSpans (data: RowVO[], field: string, colIndex: number) {
       const result: {
         row: number
@@ -111,7 +111,7 @@ export default Vue.extend({
         this.gridOptions.mergeCells = this.calculateColumnSpans(visibleData, 'role', 4)
       }
     },
-    filterChangeEvent () {
+    dataChangeEvent () {
       this.updateColSpan()
     }
   }

@@ -3,7 +3,7 @@
     <vxe-grid
       ref="gridRef"
       v-bind="gridOptions"
-      @filter-change="filterChangeEvent">
+      @sort-change="sortChangeEvent">
     </vxe-grid>
   </div>
 </template>
@@ -36,16 +36,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
-    {
-      field: 'sex',
-      title: 'Sex',
-      filters: [
-        { label: 'Man', value: 'Man' },
-        { label: 'Women', value: 'Women' }
-      ]
-    },
-    { field: 'age', title: 'Age' },
-    { field: 'role', title: 'Role' },
+    { field: 'sex', title: 'Sex', sortable: true },
+    { field: 'age', title: 'Age', sortable: true },
+    { field: 'role', title: 'Role', sortable: true },
     { field: 'address', title: 'Address' }
   ],
   data: [
@@ -103,7 +96,7 @@ const updateColSpan = () => {
   }
 }
 
-const filterChangeEvent = () => {
+const sortChangeEvent = () => {
   updateColSpan()
 }
 
