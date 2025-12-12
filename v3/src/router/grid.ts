@@ -937,7 +937,8 @@ export const gridRouteConfig: RouteConfig = {
           path: 'horizontal',
           name: 'ComponentGridMergeHorizontal',
           component: () => import('@/views/grid/merge/horizontal/CodeExample.vue')
-        }
+        },
+        { path: 'filter', name: 'ComponentGridMergeFilter', component: () => import('@/views/grid/merge/filter/CodeExample.vue') }
       ]
     },
     {

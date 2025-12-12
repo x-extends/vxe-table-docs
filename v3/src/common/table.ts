@@ -679,6 +679,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } },
             { title: '表头合并', routerLink: { name: 'ComponentGridMergeHeader' } },
             { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } },
+            { title: '与筛选同时使用', routerLink: { name: 'ComponentGridMergeFilter' } },
             { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaMerge' } } }
           ]
         },
