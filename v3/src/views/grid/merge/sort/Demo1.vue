@@ -3,6 +3,7 @@
     <vxe-grid
       ref="gridRef"
       v-bind="gridOptions"
+      @init-rendered="initRenderedEvent"
       @data-change="dataChangeEvent">
     </vxe-grid>
   </div>
@@ -64,11 +65,6 @@ export default Vue.extend({
       gridOptions
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.updateColSpan()
-    })
-  },
   methods: {
     /**
    * 生成合并指定列通用函数
@@ -110,6 +106,9 @@ export default Vue.extend({
         const { visibleData } = $grid.getTableData()
         this.gridOptions.mergeCells = this.calculateColumnSpans(visibleData, 'role', 4)
       }
+    },
+    initRenderedEvent () {
+      this.updateColSpan()
     },
     dataChangeEvent () {
       this.updateColSpan()

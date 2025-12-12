@@ -1,16 +1,12 @@
 <template>
   <div>
-    <vxe-grid
-      ref="gridRef"
-      v-bind="gridOptions"
-      @sort-change="sortChangeEvent">
-    </vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted, nextTick } from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -52,6 +48,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10008, name: 'Test8', role: 'Test', sex: 'Man', age: 30, attr3: 0, attr4: 0, attr5: 0, attr6: 0, address: 'Guangzhou' }
   ]
 })
+
+const gridEvents: VxeGridListeners = {
+  initRendered () {
+    updateColSpan()
+  },
+  sortChange () {
+    updateColSpan()
+  }
+}
 
 /**
  * 生成合并指定列通用函数
@@ -95,14 +100,4 @@ const updateColSpan = () => {
     gridOptions.mergeCells = calculateColumnSpans(visibleData, 'role', 4)
   }
 }
-
-const sortChangeEvent = () => {
-  updateColSpan()
-}
-
-onMounted(() => {
-  nextTick(() => {
-    updateColSpan()
-  })
-})
 </script>

@@ -1,16 +1,12 @@
 <template>
   <div>
-    <vxe-grid
-      ref="gridRef"
-      v-bind="gridOptions"
-      @filter-change="filterChangeEvent">
-    </vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted, nextTick } from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -60,6 +56,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
+const gridEvents: VxeGridListeners = {
+  initRendered () {
+    updateColSpan()
+  },
+  filterChange () {
+    updateColSpan()
+  }
+}
+
 /**
  * 生成合并指定列通用函数
  */
@@ -102,14 +107,4 @@ const updateColSpan = () => {
     gridOptions.mergeCells = calculateColumnSpans(visibleData, 'role', 4)
   }
 }
-
-const filterChangeEvent = () => {
-  updateColSpan()
-}
-
-onMounted(() => {
-  nextTick(() => {
-    updateColSpan()
-  })
-})
 </script>
