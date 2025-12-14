@@ -16,22 +16,28 @@
           <pre-code
             language="shell"
             :content="`
-            npm install ${ ganttCDNLib }
+            npm install ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
             # 或者
-            yarn add ${ ganttCDNLib }
+            yarn add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
             # 或者
-            pnpm add ${ ganttCDNLib }
+            pnpm add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
             `">
           </pre-code>
           <pre-code
             language="javascript"
             content="
             // ...
+            import VxeUIBase from 'vxe-pc-ui'
+            import 'vxe-pc-ui/es/style.css'
+
+            import VxeUITable from 'vxe-table'
+            import 'vxe-table/lib/style.css'
+
             import VxeUIGantt from 'vxe-gantt'
             import 'vxe-gantt/lib/style.css'
             // ...
 
-            createApp(App).use(VxeUIGantt).mount('#app')
+            createApp(App).use(VxeUIBase).use(VxeUITable).use(VxeUIGantt).mount('#app')
             // ...">
           </pre-code>
         </pre>
@@ -44,6 +50,8 @@
             :content='`
             {
               ...
+              "vxe-pc-ui": "^${uiLibVersion}",
+              "vxe-table": "^${tableLibVersion}",
               "vxe-gantt": "^${ganttLibVersion}"
               ...
             }
@@ -55,7 +63,9 @@
             :content='`
             {
               ...
-              "vxe-gantt": "^${ganttLibVersion}"
+              "vxe-pc-ui": "~${uiLibVersion}",
+              "vxe-table": "~${tableLibVersion}",
+              "vxe-gantt": "~${ganttLibVersion}"
               ...
             }
             `'>
@@ -71,8 +81,11 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
+const utilCDNLib = computed(() => appStore.utilCDNLib)
 const uiCDNLib = computed(() => appStore.uiCDNLib)
 const tableCDNLib = computed(() => appStore.tableCDNLib)
 const ganttCDNLib = computed(() => appStore.ganttCDNLib)
+const uiLibVersion = computed(() => appStore.uiCDNLib ? appStore.uiCDNLib.split('@')[1] : '')
+const tableLibVersion = computed(() => appStore.tableCDNLib ? appStore.tableCDNLib.split('@')[1] : '')
 const ganttLibVersion = computed(() => appStore.ganttCDNLib ? appStore.ganttCDNLib.split('@')[1] : '')
 </script>

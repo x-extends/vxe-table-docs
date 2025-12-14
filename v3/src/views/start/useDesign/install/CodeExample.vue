@@ -9,28 +9,36 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="仅安装设计器">
-          仅可以使用可视化设计器功能，不包含任何 UI 组件，建议基础组件使用第三方 UI 组件库自行实现。
+        <vxe-tip status="success" title="安装设计器">
+          设计器可以使用内置 UI 基础库，也可以使用第三方 UI 组件库自行实现扩展控件。
         </vxe-tip>
         <pre>
           <pre-code
             language="shell"
             :content="`
-              npm install ${ designCDNLib }
+              npm install ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${designCDNLib}
               # 或者
-              yarn add ${ designCDNLib }
+              yarn add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${designCDNLib}
               # 或者
-              pnpm add ${ designCDNLib }
+              pnpm add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${designCDNLib}
             `">
           </pre-code>
           <pre-code
             language="javascript"
             :content="`
               // ...
+              import VxeUIBase from 'vxe-pc-ui'
+              import 'vxe-pc-ui/es/style.css'
+
+              import VxeUITable from 'vxe-table'
+              import 'vxe-table/lib/style.css'
+
               import VxeUIDesign from 'vxe-design'
               import 'vxe-design/lib/style.css'
               // ...
 
+              Vue.use(VxeUIBase)
+              Vue.use(VxeUITable)
               Vue.use(VxeUIDesign)
               //...
             `">
@@ -45,6 +53,8 @@
             :content='`
             {
               ...
+              "vxe-pc-ui": "^${uiLibVersion}",
+              "vxe-table": "^${tableLibVersion}",
               "vxe-design": "^${designLibVersion}"
               ...
             }
@@ -56,6 +66,8 @@
             :content='`
             {
               ...
+              "vxe-pc-ui": "~${uiLibVersion}",
+              "vxe-table": "~${tableLibVersion}",
               "vxe-design": "~${designLibVersion}"
               ...
             }
@@ -74,10 +86,17 @@ import { mapGetters } from 'vuex'
 export default Vue.extend({
   computed: {
     ...mapGetters([
+      'utilCDNLib',
       'uiCDNLib',
       'tableCDNLib',
       'designCDNLib'
     ]),
+    uiLibVersion (this: any) {
+      return this.uiCDNLib ? this.uiCDNLib.split('@')[1] : ''
+    },
+    tableLibVersion (this: any) {
+      return this.tableCDNLib ? this.tableCDNLib.split('@')[1] : ''
+    },
     designLibVersion (this: any) {
       return this.designCDNLib ? this.designCDNLib.split('@')[1] : ''
     }

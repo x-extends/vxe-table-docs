@@ -10,17 +10,17 @@
 
       <template #use>
         <vxe-tip status="success" title="仅安装表格">
-          仅可使用表格基础功能，不包含任何 UI 组件，不能使用任何高级功能，建议基础组件使用第三方 UI 组件库自行实现。
+          仅可使用表格基础功能，不包含任何 UI 基础组件，不能使用任何高级功能，基础组件可以通过插槽模板方式使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
           <pre-code
             language="shell"
             :content="`
-            npm install ${ tableCDNLib }
+            npm install ${utilCDNLib} ${uiCDNLib} ${tableCDNLib}
             # 或者
-            yarn add ${ tableCDNLib }
+            yarn add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib}
             # 或者
-            pnpm add ${ tableCDNLib }
+            pnpm add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib}
             `">
           </pre-code>
           <pre-code
@@ -73,6 +73,7 @@ import { mapGetters } from 'vuex'
 export default Vue.extend({
   computed: {
     ...mapGetters([
+      'utilCDNLib',
       'uiCDNLib',
       'tableCDNLib'
     ]),

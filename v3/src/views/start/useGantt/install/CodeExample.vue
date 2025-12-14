@@ -16,21 +16,29 @@
           <pre-code
             language="shell"
             :content="`
-              npm install ${ ganttCDNLib }
+              npm install ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
               # 或者
-              yarn add ${ ganttCDNLib }
+              yarn add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
               # 或者
-              pnpm add ${ ganttCDNLib }
+              pnpm add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
             `">
           </pre-code>
           <pre-code
             language="javascript"
             :content="`
               // ...
+              import VxeUIBase from 'vxe-pc-ui'
+              import 'vxe-pc-ui/es/style.css'
+
+              import VxeUITable from 'vxe-table'
+              import 'vxe-table/lib/style.css'
+
               import VxeUIGantt from 'vxe-gantt'
               import 'vxe-gantt/lib/style.css'
               // ...
 
+              Vue.use(VxeUIBase)
+              Vue.use(VxeUITable)
               Vue.use(VxeUIGantt)
               //...
             `">
@@ -45,6 +53,8 @@
             :content='`
             {
               ...
+              "vxe-pc-ui": "^${uiLibVersion}",
+              "vxe-table": "^${tableLibVersion}",
               "vxe-gantt": "^${ganttLibVersion}"
               ...
             }
@@ -56,7 +66,9 @@
             :content='`
             {
               ...
-              "vxe-gantt": "^${ganttLibVersion}"
+              "vxe-pc-ui": "~${uiLibVersion}",
+              "vxe-table": "~${tableLibVersion}",
+              "vxe-gantt": "~${ganttLibVersion}"
               ...
             }
             `'>
@@ -78,6 +90,12 @@ export default Vue.extend({
       'tableCDNLib',
       'ganttCDNLib'
     ]),
+    uiLibVersion (this: any) {
+      return this.uiCDNLib ? this.uiCDNLib.split('@')[1] : ''
+    },
+    tableLibVersion (this: any) {
+      return this.tableCDNLib ? this.tableCDNLib.split('@')[1] : ''
+    },
     ganttLibVersion (this: any) {
       return this.ganttCDNLib ? this.ganttCDNLib.split('@')[1] : ''
     }
