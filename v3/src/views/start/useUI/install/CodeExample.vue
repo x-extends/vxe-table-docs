@@ -17,11 +17,11 @@
           <pre-code
             language="shell"
             :content="`
-              npm install ${uiCDNLib } ${ tableCDNLib }
+              npm install ${utilCDNLib} ${uiCDNLib } ${ tableCDNLib }
               # 或者
-              yarn add ${uiCDNLib } ${ tableCDNLib }
+              yarn add ${utilCDNLib} ${uiCDNLib } ${ tableCDNLib }
               # 或者
-              pnpm add ${uiCDNLib } ${ tableCDNLib }
+              pnpm add ${utilCDNLib} ${uiCDNLib } ${ tableCDNLib }
             `">
           </pre-code>
           <pre-code
