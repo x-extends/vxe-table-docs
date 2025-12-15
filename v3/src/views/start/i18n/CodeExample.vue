@@ -75,7 +75,7 @@
 
     <CodeLight>
       <template #tip>
-        <vxe-tip status="primary" title="示例">
+        <vxe-tip status="primary" title="使用自定义国际化的方式进行翻译">
           当使用其他国际化插件时，例如 vue-i18n，可以使用自定义国际化
         </vxe-tip>
       </template>
