@@ -66,7 +66,13 @@ export const navConfigList: NavVO[] = [
       { i18nKey: 'app.aside.menu.globalTheme', routerLink: { name: 'StartTheme' } },
       { i18nKey: 'app.aside.menu.globalIcon', routerLink: { name: 'StartIcons' } },
       { i18nKey: 'app.aside.menu.globalZIndex', routerLink: { name: 'StartUseZIndex' } },
-      { i18nKey: 'app.aside.menu.i18n', routerLink: { name: 'StartI18n' } },
+      {
+        i18nKey: 'app.aside.menu.i18n',
+        children: [
+          { i18nKey: 'app.aside.menu.configI18n', routerLink: { name: 'StartI18n' } },
+          { i18nKey: 'app.aside.menu.configTranslate', routerLink: { name: 'StartTranslate' } }
+        ]
+      },
       { i18nKey: 'app.aside.menu.globalPermission', routerLink: { name: 'StartPermission' } }
     ]
   },

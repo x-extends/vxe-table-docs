@@ -127,6 +127,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/start/i18n/CodeExample.vue')
       },
       {
+        path: 'translate',
+        name: 'StartTranslate',
+        component: () => import('@/views/start/translate/CodeExample.vue')
+      },
+      {
         path: 'z-index',
         name: 'StartUseZIndex',
         component: () => import('@/views/start/z-index/CodeExample.vue')
