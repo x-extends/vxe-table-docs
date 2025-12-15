@@ -1480,6 +1480,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
       children: [
         { title: '字体大小', routerLink: { name: 'CssVarTableFontSize' } },
         { title: '字体颜色', routerLink: { name: 'CssVarTableFontColor' } },
+        { title: '圆角', routerLink: { name: 'CssVarTableRound' } },
         { title: '单元格边框', routerLink: { name: 'CssVarTableBorder' } },
         { title: '表格背景色', routerLink: { name: 'CssVarTableBackground' } },
         { title: '行与列上移背景色', routerLink: { name: 'CssVarTableRowColHover' } },
