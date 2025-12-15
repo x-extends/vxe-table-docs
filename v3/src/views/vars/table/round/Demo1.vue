@@ -1,8 +1,12 @@
 <template>
   <div>
+    <vxe-radio-group v-model="borderColor">
+      <vxe-radio-button label="" content="默认"></vxe-radio-button>
+      <vxe-radio-button label="#ff0000" content="红色"></vxe-radio-button>
+      <vxe-radio-button label="#0000ff" content="蓝色"></vxe-radio-button>
+    </vxe-radio-group>
     <vxe-radio-group v-model="borderRadius">
-      <vxe-radio-button label="2px" content="2px"></vxe-radio-button>
-      <vxe-radio-button label="4px" content="4px"></vxe-radio-button>
+      <vxe-radio-button label="" content="4px"></vxe-radio-button>
       <vxe-radio-button label="8px" content="8px"></vxe-radio-button>
       <vxe-radio-button label="16px" content="16px"></vxe-radio-button>
       <vxe-radio-button label="32px" content="32px"></vxe-radio-button>
@@ -11,6 +15,7 @@
     <vxe-grid
       v-bind="gridOptions"
       :style="{
+        '--vxe-ui-table-border-color': borderColor,
         '--vxe-ui-table-border-radius': borderRadius
       }">
     </vxe-grid>
@@ -53,10 +58,12 @@ export default Vue.extend({
       ]
     }
 
-    const borderRadius = '4px'
+    const borderColor = ''
+    const borderRadius = ''
 
     return {
       gridOptions,
+      borderColor,
       borderRadius
     }
   }
