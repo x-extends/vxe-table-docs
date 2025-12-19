@@ -1968,6 +1968,11 @@ export const tableRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
+          path: 'rendered',
+          name: 'ComponentTableEventsRendered',
+          component: () => import('@/views/table/events/rendered/CodeExample.vue')
+        },
+        {
           path: 'click',
           name: 'ComponentTableEventsClick',
           component: () => import('@/views/table/events/click/CodeExample.vue')

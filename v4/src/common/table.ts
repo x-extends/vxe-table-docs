@@ -590,6 +590,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '事件监听',
           children: [
+            { title: '数据加载事件', routerLink: { name: 'ComponentTableEventsRendered' } },
             { title: '点击/双击事件', routerLink: { name: 'ComponentTableEventsClick' } },
             { title: '滚动事件', routerLink: { name: 'ComponentTableEventsScroll' } }
           ]
@@ -1426,6 +1427,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '事件监听',
           children: [
+            { title: '数据加载事件', routerLink: { name: 'ComponentGridEventsRendered' } },
             { title: '点击/双击事件', routerLink: { name: 'ComponentGridEventsClick' } },
             { title: '滚动事件', routerLink: { name: 'ComponentGridEventsScroll' } }
           ]

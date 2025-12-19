@@ -37,6 +37,7 @@ export default Vue.extend({
         { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
       ]
     }
+
     return {
       gridOptions
     }

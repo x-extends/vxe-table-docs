@@ -2649,6 +2649,11 @@ export const gridRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         {
+          path: 'rendered',
+          name: 'ComponentGridEventsRendered',
+          component: () => import('@/views/grid/events/rendered/CodeExample.vue')
+        },
+        {
           path: 'click',
           name: 'ComponentGridEventsClick',
           component: () => import('@/views/grid/events/click/CodeExample.vue')
