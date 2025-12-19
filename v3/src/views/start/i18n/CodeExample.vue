@@ -16,7 +16,7 @@
             /**
              * 如果是纯表格安装方式
              * import { VxeUI } from 'vxe-table'
-             * 从以下路径导入 'vxe-table/lib/locale/lang/*'
+             * 从以下路径导入 'vxe-table/lib/locale/lang/*' 或 'vxe-table/es/locale/lang/*'
              */
 
             // import zhCN from 'vxe-pc-ui/lib/language/zh-CN' // 简体中文
