@@ -33,7 +33,7 @@
           <pre-code class="javascript">
             // ...
             import i18n from './i18n'
-            import { VxeUI } from 'vxe-tablei'
+            import { VxeUI } from 'vxe-table'
 
             VxeUI.setConfig({
               // 对组件内置的提示语进行国际化翻译
