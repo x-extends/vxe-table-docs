@@ -1968,6 +1968,11 @@ export const tableRouteConfig: RouteRecordRaw = {
       component: RouteLayout,
       children: [
         {
+          path: 'ready',
+          name: 'ComponentTableEventsReady',
+          component: () => import('@/views/table/events/ready/CodeExample.vue')
+        },
+        {
           path: 'rendered',
           name: 'ComponentTableEventsRendered',
           component: () => import('@/views/table/events/rendered/CodeExample.vue')

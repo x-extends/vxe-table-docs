@@ -5,7 +5,6 @@
 
     <vxe-table
       :data="tableData"
-      @ready="readyEvent"
       @data-change="dataChangeEvent"
       @init-rendered="initRenderedEvent"
       @data-rendered="dataRenderedEvent">
@@ -41,10 +40,6 @@ const tableData = ref<RowVO[]>(allList)
 
 const loadList = (size: number) => {
   tableData.value = allList.slice(0, size)
-}
-
-const readyEvent: VxeTableEvents.Ready = () => {
-  console.log('ready 表格准备就绪')
 }
 
 const dataChangeEvent: VxeTableEvents.DataChange<RowVO> = () => {

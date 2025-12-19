@@ -55,5 +55,4 @@ const gridEvents: VxeGridListeners<RowVO> = {
 const loadList = (size: number) => {
   gridOptions.data = allList.slice(0, size)
 }
-
 </script>

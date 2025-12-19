@@ -2642,6 +2642,11 @@ export const gridRouteConfig: RouteRecordRaw = {
       component: RouteLayout,
       children: [
         {
+          path: 'ready',
+          name: 'ComponentGridEventsReady',
+          component: () => import('@/views/grid/events/ready/CodeExample.vue')
+        },
+        {
           path: 'rendered',
           name: 'ComponentGridEventsRendered',
           component: () => import('@/views/grid/events/rendered/CodeExample.vue')
