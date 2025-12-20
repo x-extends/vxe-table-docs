@@ -35,17 +35,19 @@ setTimeout(function () {
         '</div>',
         '<div style="display: block !important;">',
         data.map(function (item) {
+          var height = item.height || '100px'
+          var width = item.width || '200px'
           if (item) {
             var style = Object.assign({}, item.style)
             if (item.img) {
               return [
-                '<a href="' + (item ? item.url : '') + '" style="display: block !important;margin:8px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;border-radius: 2px !important;cursor: pointer !important;' + (style.a || '') + '" target="_blank">',
+                '<a href="' + (item ? item.url : '') + '" style="display: block !important;margin:8px 0 !important;width:' + width + ' !important;max-height:' + height + ' !important;text-align: center !important;border-radius: 2px !important;cursor: pointer !important;' + (style.a || '') + '" target="_blank">',
                   '<img src="' + item.img + '" alt="" style="display: inline-block !important;max-width:100% !important;max-height:100% !important;vertical-align: middle !important;' + (style.img || '') + '">',
                 '</a>'
               ].join('')
             }
             return [
-              '<a href="' + (item ? item.url : '') + '" style="display: block !important;margin:8px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;border-radius: 2px !important;cursor: pointer !important;' + (style.a || '') + '" target="_blank">',
+              '<a href="' + (item ? item.url : '') + '" style="display: block !important;margin:8px 0 !important;width:' + width + ' !important;max-height:' + height + ' !important;text-align: center !important;border-radius: 2px !important;cursor: pointer !important;' + (style.a || '') + '" target="_blank">',
                 '<span style="display: block !important;font-size: 15px !important;padding: 8px 0 !important;' + (style.span || '') + '">', 
                   item.title || '', 
                 '</span>',
@@ -53,7 +55,7 @@ setTimeout(function () {
             ].join('')
           }
           return [
-            '<a href="' + joinSponsorUrl + '" style="display: block !important;margin:8px 0 !important;width:200px !important;max-height:100px !important;text-align: center !important;background-color: var(--vxe-ui-status-info-tinge-color, rgba(0, 0, 0, 0.05)) !important;border-radius: 2px !important;cursor: pointer !important;" >',
+            '<a href="' + joinSponsorUrl + '" style="display: block !important;margin:8px 0 !important;width:' + width + ' !important;max-height:' + height + ' !important;text-align: center !important;background-color: var(--vxe-ui-status-info-tinge-color, rgba(0, 0, 0, 0.05)) !important;border-radius: 2px !important;cursor: pointer !important;" >',
               '<span style="display: block !important;font-size: 13px !important;padding: 8px 0 !important;">', 
                 isZH ? '点击成为赞助商' : 'Click become a Sponsor', 
               '</span>',
