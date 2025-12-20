@@ -655,7 +655,8 @@ export const tableRouteConfig: RouteConfig = {
           path: 'template',
           component: RouteLayout,
           children: [
-            { path: 'default', name: 'ComponentTableRowGroupTemplateDefault', component: () => import('@/views/table/rowGroup/template/default/CodeExample.vue') }
+            { path: 'groupContent', name: 'ComponentTableRowGroupTemplateGroupContent', component: () => import('@/views/table/rowGroup/template/groupContent/CodeExample.vue') },
+            { path: 'groupValues', name: 'ComponentTableRowGroupTemplateGroupValues', component: () => import('@/views/table/rowGroup/template/groupValues/CodeExample.vue') }
           ]
         }
       ]

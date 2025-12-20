@@ -206,7 +206,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             {
               title: '自定义插槽模板',
               children: [
-                { title: '自定义分组内容模板', routerLink: { name: 'ComponentTableRowGroupTemplateDefault' } }
+                { title: '自定义分组列内容模板', routerLink: { name: 'ComponentTableRowGroupTemplateGroupContent' } }
+                // { title: '自定义分组列聚合数据模板', routerLink: { name: 'ComponentTableRowGroupTemplateGroupValues' } }
               ]
             },
             { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Faggregation%2FrowGroupSummary' } } }
@@ -886,7 +887,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             {
               title: '自定义插槽模板',
               children: [
-                { title: '自定义分组内容模板', routerLink: { name: 'ComponentGridRowGroupTemplateDefault' } }
+                { title: '自定义分组列内容模板', routerLink: { name: 'ComponentGridRowGroupTemplateGroupContent' } }
+                // { title: '自定义分组列聚合数据模板', routerLink: { name: 'ComponentGridRowGroupTemplateGroupValues' } }
               ]
             },
             { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Faggregation%2FrowGroupSummary' } } }

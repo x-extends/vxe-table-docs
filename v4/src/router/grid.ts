@@ -975,7 +975,8 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'template',
           component: RouteLayout,
           children: [
-            { path: 'default', name: 'ComponentGridRowGroupTemplateDefault', component: () => import('@/views/grid/rowGroup/template/default/CodeExample.vue') }
+            { path: 'groupContent', name: 'ComponentGridRowGroupTemplateGroupContent', component: () => import('@/views/grid/rowGroup/template/groupContent/CodeExample.vue') },
+            { path: 'groupValues', name: 'ComponentGridRowGroupTemplateGroupValues', component: () => import('@/views/grid/rowGroup/template/groupValues/CodeExample.vue') }
           ]
         }
       ]
