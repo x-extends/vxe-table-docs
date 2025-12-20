@@ -923,6 +923,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterFloatingVxeSelect' } },
                 { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridFilterFloatingVxeDatePicker' } },
                 { title: '完整筛选', routerLink: { name: 'ComponentGridFilterFloatingFull' } },
+                { title: '分组表头', routerLink: { name: 'ComponentGridFilterFloatingGroup' } },
                 { title: '自定义插槽模板', routerLink: { name: 'ComponentGridFilterFloatingTemplate' } }
               ]
             },

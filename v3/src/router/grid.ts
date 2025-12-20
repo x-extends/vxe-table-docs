@@ -324,6 +324,7 @@ export const gridRouteConfig: RouteConfig = {
             { path: 'vxe-date-picker', name: 'ComponentGridFilterFloatingVxeDatePicker', component: () => import('@/views/grid/filter/floating/vxe-date-picker/CodeExample.vue') },
             { path: 'vxe-select', name: 'ComponentGridFilterFloatingVxeSelect', component: () => import('@/views/grid/filter/floating/vxe-select/CodeExample.vue') },
             { path: 'full', name: 'ComponentGridFilterFloatingFull', component: () => import('@/views/grid/filter/floating/full/CodeExample.vue') },
+            { path: 'group', name: 'ComponentGridFilterFloatingGroup', component: () => import('@/views/grid/filter/floating/group/CodeExample.vue') },
             { path: 'template', name: 'ComponentGridFilterFloatingTemplate', component: () => import('@/views/grid/filter/floating/template/CodeExample.vue') }
           ]
         }
