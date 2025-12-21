@@ -1,10 +1,10 @@
 <template>
   <div>
     <vxe-radio-group v-model="gridOptions.size">
-      <vxe-radio-button label="" content="默认"></vxe-radio-button>
-      <vxe-radio-button label="medium" content="中"></vxe-radio-button>
-      <vxe-radio-button label="small" content="小"></vxe-radio-button>
-      <vxe-radio-button label="mini" content="迷你"></vxe-radio-button>
+      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="medium" content="中"></vxe-radio-button>
+      <vxe-radio-button checked-value="small" content="小"></vxe-radio-button>
+      <vxe-radio-button checked-value="mini" content="迷你"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid class="my-table-font-size" v-bind="gridOptions"></vxe-grid>

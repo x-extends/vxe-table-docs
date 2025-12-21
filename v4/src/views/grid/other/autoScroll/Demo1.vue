@@ -4,8 +4,8 @@
     <vxe-button status="error" @click="stopRollEvent">停止</vxe-button>
     <br>
     <vxe-radio-group v-model="scrollbarConfig.y.visible">
-      <vxe-radio-button label="auto" content="显示滚动条"></vxe-radio-button>
-      <vxe-radio-button label="hidden" content="不显示滚动条"></vxe-radio-button>
+      <vxe-radio-button checked-value="auto" content="显示滚动条"></vxe-radio-button>
+      <vxe-radio-button checked-value="hidden" content="不显示滚动条"></vxe-radio-button>
     </vxe-radio-group>
     <br>
     <vxe-radio-group v-model="speedNum">
