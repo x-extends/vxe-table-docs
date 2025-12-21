@@ -9,9 +9,9 @@
 
     <p>
       <vxe-radio-group v-model="selectTab">
-        <vxe-radio-button label="tab1" content="页签1"></vxe-radio-button>
-        <vxe-radio-button label="tab2" content="页签2"></vxe-radio-button>
-        <vxe-radio-button label="tab3" content="页签3"></vxe-radio-button>
+        <vxe-radio-button checked-value="tab1" content="页签1"></vxe-radio-button>
+        <vxe-radio-button checked-value="tab2" content="页签2"></vxe-radio-button>
+        <vxe-radio-button checked-value="tab3" content="页签3"></vxe-radio-button>
       </vxe-radio-group>
     </p>
 
@@ -82,9 +82,9 @@ export default {
         `
         <p>
           <vxe-radio-group v-model="selectTab">
-            <vxe-radio-button label="tab1" content="页签1"></vxe-radio-button>
-            <vxe-radio-button label="tab2" content="页签2"></vxe-radio-button>
-            <vxe-radio-button label="tab3" content="页签3"></vxe-radio-button>
+            <vxe-radio-button checked-value="tab1" content="页签1"></vxe-radio-button>
+            <vxe-radio-button checked-value="tab2" content="页签2"></vxe-radio-button>
+            <vxe-radio-button checked-value="tab3" content="页签3"></vxe-radio-button>
           </vxe-radio-group>
         </p>
 

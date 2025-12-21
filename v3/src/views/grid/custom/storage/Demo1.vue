@@ -1,9 +1,9 @@
 <template>
   <div>
     <vxe-radio-group v-model="customConfig.mode">
-      <vxe-radio-button label="default" content="默认"></vxe-radio-button>
-      <vxe-radio-button label="modal" content="弹窗"></vxe-radio-button>
-      <vxe-radio-button label="drawer" content="抽屉"></vxe-radio-button>
+      <vxe-radio-button checked-value="default" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="modal" content="弹窗"></vxe-radio-button>
+      <vxe-radio-button checked-value="drawer" content="抽屉"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>

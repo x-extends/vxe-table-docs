@@ -1,8 +1,8 @@
 <template>
   <div>
     <vxe-radio-group v-model="cellConfig.verticalAlign">
-      <vxe-radio-button label="top" content="顶部"></vxe-radio-button>
-      <vxe-radio-button label="center" content="居中"></vxe-radio-button>
+      <vxe-radio-button checked-value="top" content="顶部"></vxe-radio-button>
+      <vxe-radio-button checked-value="center" content="居中"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>

@@ -1,9 +1,9 @@
 <template>
   <div>
     <vxe-radio-group v-model="gridOptions.headerAlign">
-      <vxe-radio-button label="left" content="居左"></vxe-radio-button>
-      <vxe-radio-button label="center" content="居中"></vxe-radio-button>
-      <vxe-radio-button label="right" content="居右"></vxe-radio-button>
+      <vxe-radio-button checked-value="left" content="居左"></vxe-radio-button>
+      <vxe-radio-button checked-value="center" content="居中"></vxe-radio-button>
+      <vxe-radio-button checked-value="right" content="居右"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>

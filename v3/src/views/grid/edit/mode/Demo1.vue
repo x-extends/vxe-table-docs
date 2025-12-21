@@ -1,8 +1,8 @@
 <template>
   <div>
     <vxe-radio-group v-model="gridOptions.editConfig.mode">
-      <vxe-radio-button label="cell" content="单元格编辑"></vxe-radio-button>
-      <vxe-radio-button label="row" content="行编辑"></vxe-radio-button>
+      <vxe-radio-button checked-value="cell" content="单元格编辑"></vxe-radio-button>
+      <vxe-radio-button checked-value="row" content="行编辑"></vxe-radio-button>
     </vxe-radio-group>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>

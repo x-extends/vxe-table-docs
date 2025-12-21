@@ -2,13 +2,13 @@
   <div>
     <span>x：</span>
     <vxe-radio-group v-model="scrollbarConfig.x.visible">
-      <vxe-radio-button label="visible" content="显示"></vxe-radio-button>
-      <vxe-radio-button label="hidden" content="隐藏"></vxe-radio-button>
+      <vxe-radio-button checked-value="visible" content="显示"></vxe-radio-button>
+      <vxe-radio-button checked-value="hidden" content="隐藏"></vxe-radio-button>
     </vxe-radio-group>
     <span>y：</span>
     <vxe-radio-group v-model="scrollbarConfig.y.visible">
-      <vxe-radio-button label="visible" content="显示"></vxe-radio-button>
-      <vxe-radio-button label="hidden" content="隐藏"></vxe-radio-button>
+      <vxe-radio-button checked-value="visible" content="显示"></vxe-radio-button>
+      <vxe-radio-button checked-value="hidden" content="隐藏"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>

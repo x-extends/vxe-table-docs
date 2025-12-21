@@ -1,15 +1,15 @@
 <template>
   <div>
     <vxe-radio-group v-model="borderColor">
-      <vxe-radio-button label="4px" content="默认"></vxe-radio-button>
-      <vxe-radio-button label="#ff0000" content="红色"></vxe-radio-button>
-      <vxe-radio-button label="#0000ff" content="蓝色"></vxe-radio-button>
+      <vxe-radio-button checked-value="4px" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="#ff0000" content="红色"></vxe-radio-button>
+      <vxe-radio-button checked-value="#0000ff" content="蓝色"></vxe-radio-button>
     </vxe-radio-group>
     <vxe-radio-group v-model="borderRadius">
-      <vxe-radio-button label="4px" content="4px"></vxe-radio-button>
-      <vxe-radio-button label="8px" content="8px"></vxe-radio-button>
-      <vxe-radio-button label="16px" content="16px"></vxe-radio-button>
-      <vxe-radio-button label="32px" content="32px"></vxe-radio-button>
+      <vxe-radio-button checked-value="4px" content="4px"></vxe-radio-button>
+      <vxe-radio-button checked-value="8px" content="8px"></vxe-radio-button>
+      <vxe-radio-button checked-value="16px" content="16px"></vxe-radio-button>
+      <vxe-radio-button checked-value="32px" content="32px"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid

@@ -1,8 +1,8 @@
 <template>
   <div>
     <vxe-radio-group v-model="gridOptions.keyboardConfig.editMode">
-      <vxe-radio-button label="coverage" content="覆盖式编辑"></vxe-radio-button>
-      <vxe-radio-button label="insert" content="追加式编辑"></vxe-radio-button>
+      <vxe-radio-button checked-value="coverage" content="覆盖式编辑"></vxe-radio-button>
+      <vxe-radio-button checked-value="insert" content="追加式编辑"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>
