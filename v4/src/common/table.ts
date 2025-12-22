@@ -855,6 +855,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           title: '行分组',
           children: [
             { title: '行分组', routerLink: { name: 'ComponentGridRowGroupBasic' } },
+            { title: '合并多个字段进行分组', routerLink: { name: 'ComponentGridRowGroupMultiField' } },
             { title: '按多字段分组', routerLink: { name: 'ComponentGridRowGroupGroupFields' } },
             {
               title: '单选框',

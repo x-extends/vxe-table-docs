@@ -947,6 +947,7 @@ export const gridRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         { path: 'basic', name: 'ComponentGridRowGroupBasic', component: () => import('@/views/grid/rowGroup/basic/CodeExample.vue') },
+        { path: 'multiField', name: 'ComponentGridRowGroupMultiField', component: () => import('@/views/grid/rowGroup/multiField/CodeExample.vue') },
         { path: 'groupFields', name: 'ComponentGridRowGroupGroupFields', component: () => import('@/views/grid/rowGroup/groupFields/CodeExample.vue') },
         {
           path: 'radio',
