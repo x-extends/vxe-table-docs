@@ -21,7 +21,7 @@ interface RowVO {
 const roleCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeLinkProps>>({
   name: 'VxeLink',
   props: {
-    href: 'https://vxeui.com?id={row.id}' // 支持字符串模版拼接
+    href: 'https://vxeui.com?id={row.id}'// href 参数支持字符串模板，可以直接读取 {row,column} 变量
   }
 })
 
