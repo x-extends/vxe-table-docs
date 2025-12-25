@@ -1,6 +1,11 @@
 <template>
   <div class="demo-page-wrapper">
     <vxe-grid ref="gridRef" v-bind="gridOptions">
+      <template #toolbarButtons>
+        <span>数据：</span>
+        <vxe-select v-model="rowSize" :options="dataOptions" @change="changeRowSizeEvent"></vxe-select>
+      </template>
+
       <template #nameDefault="{ row }">
         <vxe-image :src="row.avatarUrl" width="36" height="36" circle style="margin: 0 16px;"></vxe-image>
         <span>{{ row.name }}</span>
@@ -47,6 +52,18 @@ interface RowVO {
 }
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
+const rowSize = ref(500)
+
+const dataOptions = ref([
+  { label: '加载 3 节点', value: 3 },
+  { label: '加载 20 节点', value: 20 },
+  { label: '加载 100 节点', value: 100 },
+  { label: '加载 500 节点', value: 500 },
+  { label: '加载 1000 节点', value: 1000 },
+  { label: '加载 5000 节点', value: 5000 },
+  { label: '加载 10000 节点', value: 10000 },
+  { label: '加载 20000 节点', value: 20000 }
+])
 
 const levelNumCellRender = reactive<VxeColumnPropTypes.CellRender>({
   name: 'VxeRate',
@@ -143,12 +160,16 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   },
   toolbarConfig: {
     custom: true,
-    zoom: true
+    zoom: true,
+    slots: {
+      buttons: 'toolbarButtons'
+    }
   },
   treeConfig: {
     transform: true,
     rowField: 'id',
-    parentField: 'parentId'
+    parentField: 'parentId',
+    seqMode: 'increasing'
   },
   customConfig: {
     immediate: true
@@ -173,6 +194,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
     enabled: true
   },
   columns: [
+    { field: 'seq', type: 'seq', width: 80, fixed: 'left' },
     { field: 'checkbox', type: 'checkbox', fixed: 'left', width: 70 },
     { field: 'name', title: '名字', fixed: 'left', minWidth: 280, treeNode: true, dragSort: true, slots: { default: 'nameDefault' } },
     {
@@ -234,174 +256,129 @@ const asmMpas = {
   m12: XEUtils.shuffle(XEUtils.range(800, 1200))
 }
 const fgList = XEUtils.shuffle(XEUtils.range(1, 60).map(num => (num % 2) === 0))
-const cacheList: RowVO[] = []
 
-const loadMockData = (rSize: number) => {
+const loadMockData = (nodeSize: number) => {
   gridOptions.loading = true
   setTimeout(() => {
-    for (let i = cacheList.length; i < rSize; i++) {
-      let parentId: number | null = null
-      if (i > 30 && i < 36) {
-        parentId = 1000001
-      } else if (i > 36 && i <= 40) {
-        parentId = 1000002
-      } else if (i > 40 && i <= 45) {
-        parentId = 1000003
-      } else if (i > 45 && i <= 50) {
-        parentId = 1000005
-      } else if (i > 50 && i <= 60) {
-        parentId = 1000007
-      } else if (i > 60 && i <= 63) {
-        parentId = 1000008
-      } else if (i > 63 && i <= 66) {
-        parentId = 1000009
-      } else if (i > 66 && i <= 77) {
-        parentId = 1000010
-      } else if (i > 77 && i <= 79) {
-        parentId = 1000012
-      } else if (i > 79 && i <= 81) {
-        parentId = 1000013
-      } else if (i > 81 && i <= 86) {
-        parentId = 1000014
-      } else if (i > 86 && i <= 90) {
-        parentId = 1000015
-      } else if (i > 90 && i <= 92) {
-        parentId = 1000016
-      } else if (i > 92 && i <= 95) {
-        parentId = 1000017
-      } else if (i > 95 && i <= 98) {
-        parentId = 1000019
-      } else if (i > 98 && i <= 101) {
-        parentId = 1000020
-      } else if (i > 101 && i <= 105) {
-        parentId = 1000022
-      }
+    const cacheList: RowVO[] = []
+    let idCounter = 1000000
 
-      // 二级
-      if (i > 105 && i < 108) {
-        parentId = 1000031
-      } else if (i > 108 && i <= 112) {
-        parentId = 1000033
-      } else if (i > 112 && i <= 114) {
-        parentId = 1000034
-      } else if (i > 114 && i <= 118) {
-        parentId = 1000035
-      } else if (i > 118 && i <= 121) {
-        parentId = 1000037
-      } else if (i > 121 && i <= 123) {
-        parentId = 1000038
-      } else if (i > 123 && i <= 129) {
-        parentId = 1000039
-      } else if (i > 129 && i <= 132) {
-        parentId = 1000041
-      } else if (i > 132 && i <= 138) {
-        parentId = 1000043
-      } else if (i > 138 && i <= 145) {
-        parentId = 1000044
-      } else if (i > 145 && i <= 148) {
-        parentId = 1000046
-      } else if (i > 148 && i <= 151) {
-        parentId = 1000048
-      } else if (i > 151 && i <= 153) {
-        parentId = 1000049
-      } else if (i > 153 && i <= 155) {
-        parentId = 1000051
-      } else if (i > 155 && i <= 158) {
-        parentId = 1000052
-      } else if (i > 158 && i <= 161) {
-        parentId = 1000053
-      } else if (i > 161 && i <= 163) {
-        parentId = 1000054
-      } else if (i > 163 && i <= 166) {
-        parentId = 1000056
-      } else if (i > 166 && i <= 169) {
-        parentId = 1000056
-      } else if (i > 169 && i <= 172) {
-        parentId = 1000061
-      } else if (i > 172 && i <= 176) {
-        parentId = 1000062
-      } else if (i > 176 && i <= 178) {
-        parentId = 1000067
-      } else if (i > 178 && i <= 182) {
-        parentId = 1000068
-      } else if (i > 176 && i <= 178) {
-        parentId = 1000069
-      } else if (i > 176 && i <= 180) {
-        parentId = 1000071
-      } else if (i > 180 && i <= 182) {
-        parentId = 1000072
-      } else if (i > 182 && i <= 186) {
-        parentId = 1000075
-      } else if (i > 186 && i <= 189) {
-        parentId = 1000078
-      } else if (i > 189 && i <= 192) {
-        parentId = 1000082
-      } else if (i > 192 && i <= 194) {
-        parentId = 1000083
-      } else if (i > 194 && i <= 199) {
-        parentId = 1000084
-      } else if (i > 199 && i <= 203) {
-        parentId = 1000085
-      } else if (i > 203 && i <= 208) {
-        parentId = 1000087
-      } else if (i > 208 && i <= 211) {
-        parentId = 1000088
-      } else if (i > 211 && i <= 218) {
-        parentId = 1000089
-      } else if (i > 218 && i <= 220) {
-        parentId = 1000091
-      } else if (i > 220 && i <= 224) {
-        parentId = 1000093
-      } else if (i > 224 && i <= 228) {
-        parentId = 1000094
-      } else if (i > 228 && i <= 240) {
-        parentId = 1000096
-      } else if (i > 240 && i <= 249) {
-        parentId = 1000097
-      } else if (i > 249 && i <= 260) {
-        parentId = 1000102
-      } else if (i > 260 && i <= 266) {
-        parentId = 1000103
-      } else if (i > 266 && i <= 270) {
-        parentId = 1000104
-      } else if (i > 270 && i <= 280) {
-        parentId = 1000028
-      } else if (i > 280 && i <= 290) {
-        parentId = 1000029
-      } else if (i > 290 && i <= 300) {
-        parentId = 1000030
-      }
-
-      const item: RowVO = {
-        id: 1000000 + i,
-        parentId,
-        name: neList[i % neList.length],
+    const rootCount = Math.floor(nodeSize / 2)
+    const roots: RowVO[] = []
+    for (let i = 0; i < rootCount; i++) {
+      const rootNode: RowVO = {
+        id: idCounter++,
+        parentId: null,
+        name: neList[idCounter % neList.length],
         nickname: '',
-        sex: sxList[i % sxList.length],
-        age: aeList[i % aeList.length],
-        email: elList[i % elList.length],
-        city: cyList[i % cyList.length],
-        avatarUrl: arList[i % arList.length],
-        levelNum: lnList[i % lnList.length],
+        sex: sxList[idCounter % sxList.length],
+        age: aeList[idCounter % aeList.length],
+        email: elList[idCounter % elList.length],
+        city: cyList[idCounter % cyList.length],
+        avatarUrl: arList[idCounter % arList.length],
+        levelNum: lnList[idCounter % lnList.length],
         annualStatement: {
-          m1: asmMpas.m1[i % asmMpas.m1.length],
-          m2: asmMpas.m2[i % asmMpas.m2.length],
-          m3: asmMpas.m3[i % asmMpas.m3.length],
-          m4: asmMpas.m4[i % asmMpas.m4.length],
-          m5: asmMpas.m5[i % asmMpas.m5.length],
-          m6: asmMpas.m6[i % asmMpas.m6.length],
-          m7: asmMpas.m7[i % asmMpas.m7.length],
-          m8: asmMpas.m8[i % asmMpas.m8.length],
-          m9: asmMpas.m9[i % asmMpas.m9.length],
-          m10: asmMpas.m10[i % asmMpas.m10.length],
-          m11: asmMpas.m11[i % asmMpas.m11.length],
-          m12: asmMpas.m12[i % asmMpas.m12.length]
+          m1: asmMpas.m1[idCounter % asmMpas.m1.length],
+          m2: asmMpas.m2[idCounter % asmMpas.m2.length],
+          m3: asmMpas.m3[idCounter % asmMpas.m3.length],
+          m4: asmMpas.m4[idCounter % asmMpas.m4.length],
+          m5: asmMpas.m5[idCounter % asmMpas.m5.length],
+          m6: asmMpas.m6[idCounter % asmMpas.m6.length],
+          m7: asmMpas.m7[idCounter % asmMpas.m7.length],
+          m8: asmMpas.m8[idCounter % asmMpas.m8.length],
+          m9: asmMpas.m9[idCounter % asmMpas.m9.length],
+          m10: asmMpas.m10[idCounter % asmMpas.m10.length],
+          m11: asmMpas.m11[idCounter % asmMpas.m11.length],
+          m12: asmMpas.m12[idCounter % asmMpas.m12.length]
         },
-        flag: fgList[i % fgList.length]
+        flag: fgList[idCounter % fgList.length]
       }
-      cacheList.push(item)
+      roots.push(rootNode)
+      cacheList.push(rootNode)
     }
-    gridOptions.data = cacheList.slice(0, rSize)
+
+    let generatedCount = rootCount
+    const secondLevelNodes: RowVO[] = []
+    const secondLevelCount = Math.min(
+      Math.floor(Math.random() * (nodeSize - generatedCount)) + 1,
+      nodeSize - generatedCount
+    )
+    for (let i = 0; i < secondLevelCount; i++) {
+      const parent = roots[Math.floor(Math.random() * roots.length)]
+      const node: RowVO = {
+        id: idCounter++,
+        parentId: parent.id,
+        name: neList[idCounter % neList.length],
+        nickname: '',
+        sex: sxList[idCounter % sxList.length],
+        age: aeList[idCounter % aeList.length],
+        email: elList[idCounter % elList.length],
+        city: cyList[idCounter % cyList.length],
+        avatarUrl: arList[idCounter % arList.length],
+        levelNum: lnList[idCounter % lnList.length],
+        annualStatement: {
+          m1: asmMpas.m1[idCounter % asmMpas.m1.length],
+          m2: asmMpas.m2[idCounter % asmMpas.m2.length],
+          m3: asmMpas.m3[idCounter % asmMpas.m3.length],
+          m4: asmMpas.m4[idCounter % asmMpas.m4.length],
+          m5: asmMpas.m5[idCounter % asmMpas.m5.length],
+          m6: asmMpas.m6[idCounter % asmMpas.m6.length],
+          m7: asmMpas.m7[idCounter % asmMpas.m7.length],
+          m8: asmMpas.m8[idCounter % asmMpas.m8.length],
+          m9: asmMpas.m9[idCounter % asmMpas.m9.length],
+          m10: asmMpas.m10[idCounter % asmMpas.m10.length],
+          m11: asmMpas.m11[idCounter % asmMpas.m11.length],
+          m12: asmMpas.m12[idCounter % asmMpas.m12.length]
+        },
+        flag: fgList[idCounter % fgList.length]
+      }
+      secondLevelNodes.push(node)
+      cacheList.push(node)
+      generatedCount++
+    }
+
+    if (generatedCount < nodeSize) {
+      const thirdLevelCount = nodeSize - generatedCount
+      for (let i = 0; i < thirdLevelCount; i++) {
+        let parent
+        if (secondLevelNodes.length > 0) {
+          parent = secondLevelNodes[Math.floor(Math.random() * secondLevelNodes.length)]
+        } else {
+          parent = roots[Math.floor(Math.random() * roots.length)]
+        }
+        const node: RowVO = {
+          id: idCounter++,
+          parentId: parent.id,
+          name: neList[idCounter % neList.length],
+          nickname: '',
+          sex: sxList[idCounter % sxList.length],
+          age: aeList[idCounter % aeList.length],
+          email: elList[idCounter % elList.length],
+          city: cyList[idCounter % cyList.length],
+          avatarUrl: arList[idCounter % arList.length],
+          levelNum: lnList[idCounter % lnList.length],
+          annualStatement: {
+            m1: asmMpas.m1[idCounter % asmMpas.m1.length],
+            m2: asmMpas.m2[idCounter % asmMpas.m2.length],
+            m3: asmMpas.m3[idCounter % asmMpas.m3.length],
+            m4: asmMpas.m4[idCounter % asmMpas.m4.length],
+            m5: asmMpas.m5[idCounter % asmMpas.m5.length],
+            m6: asmMpas.m6[idCounter % asmMpas.m6.length],
+            m7: asmMpas.m7[idCounter % asmMpas.m7.length],
+            m8: asmMpas.m8[idCounter % asmMpas.m8.length],
+            m9: asmMpas.m9[idCounter % asmMpas.m9.length],
+            m10: asmMpas.m10[idCounter % asmMpas.m10.length],
+            m11: asmMpas.m11[idCounter % asmMpas.m11.length],
+            m12: asmMpas.m12[idCounter % asmMpas.m12.length]
+          },
+          flag: fgList[idCounter % fgList.length]
+        }
+        cacheList.push(node)
+        generatedCount++
+      }
+    }
+
+    gridOptions.data = cacheList
     nextTick().then(() => {
       const $grid = gridRef.value
       if ($grid) {
@@ -457,7 +434,14 @@ const updateFooterCount = () => {
   countRow.annualStatement.m12 = countM12
 }
 
+const changeRowSizeEvent = async () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    loadMockData(rowSize.value)
+  }
+}
+
 nextTick(() => {
-  loadMockData(300)
+  loadMockData(rowSize.value)
 })
 </script>

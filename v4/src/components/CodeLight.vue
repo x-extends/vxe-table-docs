@@ -153,6 +153,7 @@ const props = defineProps({
 
 const appStore = useAppStore()
 const isPluginDocs = computed(() => appStore.isPluginDocs)
+const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const showInstall = ref(false)
@@ -195,7 +196,7 @@ const previewUrl = computed(() => {
     if (/^http/.test(previewPath)) {
       return previewPath
     }
-    return `${siteBaseUrl.value}${previewPath}?v=${appStore.systemConfig.previewVersion}`
+    return `${resBaseUrl.value}${previewPath}?v=${appStore.systemConfig.previewVersion}`
   }
   return ''
 })

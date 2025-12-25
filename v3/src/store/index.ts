@@ -73,6 +73,7 @@ export default new Vuex.Store({
     docsVersion: '3',
     serveTY: new Date().getFullYear(),
     language: currLanguage,
+    resBaseUrl: process.env.VUE_APP_RES_URL,
     siteBaseUrl: process.env.VUE_APP_SITE_BASE_URL,
     pluginBuyUrl: process.env.VUE_APP_PLUGIN_BUY_URL,
     pluginDocsUrl: process.env.VUE_APP_PLUGIN_DOCS_URL,

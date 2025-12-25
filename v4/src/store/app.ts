@@ -70,6 +70,7 @@ export const useAppStore = defineStore('app', {
       docsVersion: '4',
       serveTY: new Date().getFullYear(),
       language: currLanguage,
+      resBaseUrl: import.meta.env.VITE_APP_RES_URL,
       siteBaseUrl: import.meta.env.VITE_APP_SITE_BASE_URL,
       pluginBuyUrl: import.meta.env.VITE_APP_PLUGIN_BUY_URL,
       pluginDocsUrl: import.meta.env.VITE_APP_PLUGIN_DOCS_URL,

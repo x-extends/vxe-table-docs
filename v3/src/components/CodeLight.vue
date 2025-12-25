@@ -132,6 +132,9 @@ export default Vue.extend({
     isPluginDocs () {
       return this.$store.state.isPluginDocs as string
     },
+    resBaseUrl () {
+      return this.$store.state.resBaseUrl as string
+    },
     siteBaseUrl () {
       return this.$store.state.siteBaseUrl as string
     },
@@ -151,7 +154,7 @@ export default Vue.extend({
         if (/^http/.test(previewPath)) {
           return previewPath
         }
-        return `${(this as any).siteBaseUrl}${previewPath}?v=${(this as any).systemConfig.previewVersion}`
+        return `${(this as any).resBaseUrl}${previewPath}?v=${(this as any).systemConfig.previewVersion}`
       }
       return ''
     }
