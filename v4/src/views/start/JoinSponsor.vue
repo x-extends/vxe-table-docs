@@ -23,6 +23,7 @@ import { useAppStore } from '@/store/app'
 import axios from 'axios'
 
 const appStore = useAppStore()
+const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const pageTitle = computed(() => appStore.pageTitle)
 
@@ -31,7 +32,7 @@ const supportOptions = ref<{
   price: number
 }[]>([])
 
-axios.get(`${siteBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-sponsor-config.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+axios.get(`${resBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-sponsor-config.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   supportOptions.value = res.data ? res.data.sponsors : []
 })
 </script>
