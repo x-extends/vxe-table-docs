@@ -145,7 +145,7 @@ export default new Vuex.Store({
       } else {
         if (!i18nPromise[language]) {
           state.pageLoading = true
-          i18nPromise[language] = axios.get(`${this.siteBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
+          i18nPromise[language] = axios.get(`${this.resBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
             i18n.setLocaleMessage(language, res.data)
             state.language = language || 'zh-CN'
             VxeUI.setLanguage(language)

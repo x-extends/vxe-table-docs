@@ -143,7 +143,7 @@ export const useAppStore = defineStore('app', {
       } else {
         if (!i18nPromise[language]) {
           this.pageLoading = true
-          i18nPromise[language] = axios.get(`${this.siteBaseUrl}/i18n/${language}.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then((res) => {
+          i18nPromise[language] = axios.get(`${this.resBaseUrl}/i18n/${language}.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then((res) => {
             i18n.global.setLocaleMessage(language, res.data)
             this.language = language || 'zh-CN'
             VxeUI.setLanguage(language)

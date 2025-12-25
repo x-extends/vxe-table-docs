@@ -151,7 +151,7 @@ app.use(i18n)
 
 app.config.globalProperties.$t = i18n.global.t
 
-axios.get(`${import.meta.env.VITE_APP_SITE_BASE_URL}/i18n/${i18n.global.locale}.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+axios.get(`${import.meta.env.VITE_APP_RES_URL}/i18n/${i18n.global.locale}.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   i18n.global.setLocaleMessage(i18n.global.locale, res.data)
 }).catch(e => e).then(() => {
   app.mount('#app')
