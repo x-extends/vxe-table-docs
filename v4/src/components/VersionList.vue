@@ -25,6 +25,7 @@ import axios from 'axios'
 
 const appStore = useAppStore()
 const packName = computed(() => appStore.packName)
+const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const isPluginDocs = computed(() => appStore.isPluginDocs)
 
@@ -112,12 +113,12 @@ const newBetsVersionList = computed(() => {
 
 const getVersion = () => {
   if (isPluginDocs.value) {
-    fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+    fetch(`${resBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
       res.json().then(data => {
         pluginUrlMaps.value = data
       })
     })
-    axios.get(`${siteBaseUrl.value}/component-api/vxe-plugin-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+    axios.get(`${resBaseUrl.value}/component-api/vxe-plugin-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
       const vData = res.data || {}
       const tags = vData[pluginType]
       selectPluginVersion.value = tags[`v${appStore.docsVersion}-latest`]

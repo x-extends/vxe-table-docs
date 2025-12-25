@@ -129,12 +129,12 @@ export default Vue.extend({
   methods: {
     getVersion (this: any) {
       if (this.isPluginDocs) {
-        fetch(`${this.siteBaseUrl}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        fetch(`${this.resBaseUrl}/component-api/vxe-plugin-url.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
           res.json().then(data => {
             this.pluginUrlMaps = data
           })
         })
-        axios.get(`${this.siteBaseUrl}/component-api/vxe-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        axios.get(`${this.resBaseUrl}/component-api/vxe-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
           const vData = res.data || {}
           const tags = vData[this.pluginType]
           this.selectPluginVersion = tags[`v${this.docsVersion}-latest`]

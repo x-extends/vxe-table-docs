@@ -181,7 +181,7 @@ export default new Vuex.Store({
   actions: {
     getComponentApiConf ({ state }, apiName: string) {
       if (!apiMapPromise[apiName]) {
-        apiMapPromise[apiName] = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`)
+        apiMapPromise[apiName] = fetch(`${state.resBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/api/vxe-${apiName}.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`)
           .then(res => res.json()).catch(() => {
             apiMapPromise[apiName] = null
             return []
@@ -191,7 +191,7 @@ export default new Vuex.Store({
     },
     getComponentI18nJSON ({ state }) {
       if (!apiLangPromise[state.language]) {
-        apiLangPromise[state.language] = axios.get(`${state.siteBaseUrl}/component-api/i18n/${state.language}.json?v=${state.systemConfig[state.systemConfig.i18nVersion] || process.env.VUE_APP_DATE_NOW}`).then((res) => {
+        apiLangPromise[state.language] = axios.get(`${state.resBaseUrl}/component-api/i18n/${state.language}.json?v=${state.systemConfig[state.systemConfig.i18nVersion] || process.env.VUE_APP_DATE_NOW}`).then((res) => {
           i18n.mergeLocaleMessage(state.language, res.data)
         }).catch(() => {
           apiLangPromise[state.language] = null
@@ -201,7 +201,7 @@ export default new Vuex.Store({
     },
     updateComponentApiJSON ({ state, commit }) {
       if (!simplifyaApiPromise) {
-        simplifyaApiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+        simplifyaApiPromise = fetch(`${state.resBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiKeys.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
               const compApiMaps: Record<string, any[]> = {}
@@ -219,7 +219,7 @@ export default new Vuex.Store({
     },
     getPluginAppList ({ state }) {
       if (!pluginAppPromise) {
-        pluginAppPromise = fetch(`${state.siteBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+        pluginAppPromise = fetch(`${state.resBaseUrl}/component-api/vxe-plugin-app-list.json?v=?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
           res.json().then(data => {
             state.pluginAppList = data.map(item => {
               item.label = i18n.t(`shopping.apps.${item.code}`)
@@ -235,7 +235,7 @@ export default new Vuex.Store({
     },
     updateAllComponentApiJSON ({ state, commit }) {
       if (!fullsimplifyaApiPromise) {
-        fullsimplifyaApiPromise = fetch(`${state.siteBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiMaps.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
+        fullsimplifyaApiPromise = fetch(`${state.resBaseUrl}/component-api/${process.env.VUE_APP_PACKAGE_NAME}-v${process.env.VUE_APP_VXE_VERSION}/apiMaps.json?v=?v=${state.systemConfig[`v${process.env.VUE_APP_VXE_VERSION}Version`] || process.env.VUE_APP_DATE_NOW}`).then(res => {
           return res.json().then(data => {
             if (data) {
               commit('setCompApiMaps', Object.assign({}, state.compApiMaps, data))

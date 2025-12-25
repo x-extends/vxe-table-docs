@@ -105,6 +105,7 @@ const showTopMenuMsgFlag = computed(() => appStore.showTopMenuMsgFlag)
 const showAuthMsgFlag = computed(() => appStore.showAuthMsgFlag)
 const isExtendDocs = computed(() => appStore.isExtendDocs)
 const isPluginDocs = computed(() => appStore.isPluginDocs)
+const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const pluginType = inject('pluginType', '' as string)
@@ -241,19 +242,19 @@ const openPluginEvent = () => {
   appStore.readAuthMsgFlagVisible()
 }
 
-fetch(`${siteBaseUrl.value}/component-api/language-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+fetch(`${resBaseUrl.value}/component-api/language-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     langOptions.value = data
   })
 })
 
-fetch(`${siteBaseUrl.value}/component-api/system-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+fetch(`${resBaseUrl.value}/component-api/system-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     systemMenuList.value = data
   })
 })
 
-fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+fetch(`${resBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
   res.json().then(data => {
     pluginAppList.value = data.map(item => {
       item.label = i18n.global.t(`shopping.apps.${item.code}`)
@@ -264,24 +265,24 @@ fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-app-list.json?v=?v=${import
 })
 
 if (isPluginDocs.value) {
-  fetch(`${siteBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+  fetch(`${resBaseUrl.value}/component-api/vxe-plugin-url.json?v=?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       pluginUrlMaps.value = data
     })
   })
-  fetch(`${siteBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-plugin-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+  fetch(`${resBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-plugin-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       systemVersionList.value = data
     })
   })
 } else if (isExtendDocs.value) {
-  fetch(`${siteBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-extend-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+  fetch(`${resBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-extend-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       systemVersionList.value = data
     })
   })
 } else {
-  fetch(`${siteBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
+  fetch(`${resBaseUrl.value}/component-api/${import.meta.env.VITE_APP_PACKAGE_NAME}-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
     res.json().then(data => {
       systemVersionList.value = data
     })
