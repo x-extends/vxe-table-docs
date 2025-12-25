@@ -47,6 +47,7 @@ export default Vue.extend({
       'docsVersion',
       'pluginBuyUrl',
       'isPluginDocs',
+      'resBaseUrl',
       'siteBaseUrl'
     ]),
     ...({} as {
@@ -54,6 +55,7 @@ export default Vue.extend({
       pluginType () : string
       pluginBuyUrl () : string
       isPluginDocs(): boolean
+      resBaseUrl(): string
       siteBaseUrl(): string
     }),
     currBuyPluginBUrl () {
