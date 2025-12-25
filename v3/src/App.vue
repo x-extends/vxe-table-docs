@@ -14,6 +14,7 @@ import axios from 'axios'
 export default Vue.extend({
   computed: {
     ...mapState([
+      'resBaseUrl',
       'siteBaseUrl',
       'pageLoading',
       'componentsSize'
@@ -26,10 +27,10 @@ export default Vue.extend({
     ])
   },
   created () {
-    axios.get(`${this.siteBaseUrl}/component-api/system-config.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+    axios.get(`${this.resBaseUrl}/component-api/system-config.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
       this.setSystemConfig(res.data)
     })
-    axios.get(`${this.siteBaseUrl}/component-api/vxe-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
+    axios.get(`${this.resBaseUrl}/component-api/vxe-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
       this.setVersionConfig(res.data)
     })
 
