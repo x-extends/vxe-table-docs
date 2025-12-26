@@ -10,7 +10,7 @@
     </pre>
     <div>之后</div>
     <pre>
-      <pre-code :key="`${uiLatest}${tableLatest}`" class="typescript">npm install vxe-pc-ui@{{ uiLatest }} vxe-table@{{ tableLatest }}</pre-code>
+      <pre-code :key="`${uiLatest}${tableLatest}`" class="typescript">npm install xe-utils@{{ utilsLatest }} vxe-pc-ui@{{ uiLatest }} vxe-table@{{ tableLatest }}</pre-code>
       <pre-code class="typescript">{{ demoCodes[1] }}</pre-code>
     </pre>
     <p class="tip">全局主题 css 变量：</p>
@@ -80,6 +80,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data () {
     return {
+      utilsLatest: '3.8.0',
       uiLatest: '4.9.0',
       tableLatest: '4.16.0',
       demoCodes: [
@@ -110,6 +111,7 @@ export default defineComponent({
     fetch(`https://vxeui.com/component-api/vxe-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
       res.json().then(data => {
         if (data && data['vxe-table']) {
+          this.utilsLatest = data['xe-utils']['v3-latest']
           this.uiLatest = data['vxe-pc-ui']['v4-latest']
           this.tableLatest = data['vxe-table']['v4-latest']
         }
