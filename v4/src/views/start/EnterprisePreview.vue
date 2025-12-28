@@ -18,15 +18,15 @@ import { useAppStore } from '@/store/app'
 const route = useRoute()
 
 const appStore = useAppStore()
-const siteBaseUrl = computed(() => appStore.siteBaseUrl)
+const resBaseUrl = computed(() => appStore.resBaseUrl)
 
-const resBaseUrl = computed(() => {
-  return route.params.resBaseUrl || ''
+const previewCode = computed(() => {
+  return route.params.previewCode || ''
 })
 
 const previewUrl = computed(() => {
-  if (resBaseUrl.value) {
-    return `${siteBaseUrl.value}/resource/docsImg/${resBaseUrl.value}.gif?v=${import.meta.env.VITE_APP_DATE_NOW}`
+  if (previewCode.value) {
+    return `${resBaseUrl.value}/resource/docsImg/${previewCode.value}.gif?v=${import.meta.env.VITE_APP_DATE_NOW}`
   }
   return ''
 })
