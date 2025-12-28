@@ -22,21 +22,21 @@ export default Vue.extend({
   },
   computed: {
     ...mapState([
-      'siteBaseUrl'
+      'resBaseUrl'
     ]),
     previewCode () {
       return this.$route.params.previewCode || ''
     },
     previewUrl () {
       if (this.previewCode) {
-        return `${(this as any).siteBaseUrl}/resource/docsImg/${(this as any).previewCode}.gif?v=${process.env.VUE_APP_DATE_NOW}`
+        return `${(this as any).resBaseUrl}/resource/docsImg/${(this as any).previewCode}.gif?v=${process.env.VUE_APP_DATE_NOW}`
       }
       return ''
     }
   },
   methods: {
     openEvent () {
-      open(`https://vxetable.cn/pluginDocs/table${process.env.VUE_APP_VXE_VERSION}/#${decodeURIComponent(`${this.$route.query.previewPath || ''}`)}`)
+      open(`${process.env.VUE_APP_SITE_PLUGIN_URL}/pluginDocs/table${process.env.VUE_APP_VXE_VERSION}/#${decodeURIComponent(`${this.$route.query.previewPath || ''}`)}`)
     }
   }
 })
