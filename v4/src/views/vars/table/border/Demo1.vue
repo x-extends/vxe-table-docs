@@ -34,7 +34,7 @@ interface RowVO {
   address: string
 }
 
-const borderColor = ref('')
+const borderColor = ref('#ff0000')
 const borderWidth = ref('1px')
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({

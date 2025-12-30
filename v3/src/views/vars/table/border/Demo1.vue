@@ -57,7 +57,7 @@ export default Vue.extend({
     }
 
     return {
-      borderColor: '',
+      borderColor: '#ff0000',
       borderWidth: '1px',
       gridOptions
     }
