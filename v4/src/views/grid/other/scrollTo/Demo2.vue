@@ -1,14 +1,16 @@
 <template>
   <div>
     <div>
-      <vxe-button @click="scrollToCol('attr1')">定位 Attr1 列</vxe-button>
-      <vxe-button @click="scrollToCol('attr6')">定位 Attr6 列</vxe-button>
-      <vxe-button @click="scrollToCol('attr11')">定位 Attr11 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr1')">定位 Attr1 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr6')">定位 Attr6 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr11')">定位 Attr11 列</vxe-button>
     </div>
     <div>
-      <vxe-button @click="scrollToRow(gridOptions.data[3])">定位第4行</vxe-button>
-      <vxe-button @click="scrollToRow(gridOptions.data[49])">定位第50行</vxe-button>
-      <vxe-button @click="scrollToRow(gridOptions.data[105])">定位第106行</vxe-button>
+      <vxe-button @click="scrollStartRowEvent()">定位首行</vxe-button>
+      <vxe-button @click="scrollEndRowEvent()">定位末行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[3])">定位第4行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[49])">定位第50行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[105])">定位第106行</vxe-button>
     </div>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -109,14 +111,28 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   data: []
 })
 
-const scrollToCol = (field: string) => {
+const scrollColEvent = (field: string) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.scrollToColumn(field)
   }
 }
 
-const scrollToRow = (row: RowVO) => {
+const scrollStartRowEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.scrollToStartRow()
+  }
+}
+
+const scrollEndRowEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.scrollToEndRow()
+  }
+}
+
+const scrollRowEvent = (row: RowVO) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.scrollToRow(row)

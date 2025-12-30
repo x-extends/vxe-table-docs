@@ -1,14 +1,16 @@
 <template>
   <div>
     <div>
-      <vxe-button @click="scrollToCol('attr1')">定位 Attr1 列</vxe-button>
-      <vxe-button @click="scrollToCol('attr4')">定位 Attr4 列</vxe-button>
-      <vxe-button @click="scrollToCol('attr8')">定位 Attr8 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr1')">定位 Attr1 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr4')">定位 Attr4 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr8')">定位 Attr8 列</vxe-button>
     </div>
     <div>
-      <vxe-button @click="scrollToRow(gridOptions.data[3])">定位第4行</vxe-button>
-      <vxe-button @click="scrollToRow(gridOptions.data[9])">定位第10行</vxe-button>
-      <vxe-button @click="scrollToRow(gridOptions.data[15])">定位第16行</vxe-button>
+      <vxe-button @click="scrollStartRowEvent()">定位首行</vxe-button>
+      <vxe-button @click="scrollEndRowEvent()">定位末行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[3])">定位第4行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[9])">定位第10行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[15])">定位第16行</vxe-button>
     </div>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -58,8 +60,8 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
     { field: 'attr9', title: 'Attr9', width: 600 },
     { field: 'attr10', title: 'Attr10', width: 500 },
     { field: 'age', title: 'Age', width: 200 },
-    { field: 'sex', title: 'Sex', fixed: 'right', width: 100 },
-    { field: 'address', title: 'Address', fixed: 'right', width: 140 }
+    { field: 'sex', title: 'Sex', width: 100 },
+    { field: 'address', title: 'Address', width: 140 }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc', attr1: '', attr2: '', attr3: '', attr4: '', attr5: '', attr6: '', attr7: '', attr8: '', attr9: '', attr10: '' },
@@ -85,14 +87,28 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   ]
 })
 
-const scrollToCol = (field: string) => {
+const scrollColEvent = (field: string) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.scrollToColumn(field)
   }
 }
 
-const scrollToRow = (row: RowVO) => {
+const scrollStartRowEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.scrollToStartRow()
+  }
+}
+
+const scrollEndRowEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.scrollToEndRow()
+  }
+}
+
+const scrollRowEvent = (row: RowVO) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.scrollToRow(row)

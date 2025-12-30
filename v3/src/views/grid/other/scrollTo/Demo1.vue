@@ -1,14 +1,16 @@
 <template>
   <div>
     <div>
-      <vxe-button @click="scrollToCol('attr1')">定位 Attr1 列</vxe-button>
-      <vxe-button @click="scrollToCol('attr4')">定位 Attr4 列</vxe-button>
-      <vxe-button @click="scrollToCol('attr8')">定位 Attr8 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr1')">定位 Attr1 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr4')">定位 Attr4 列</vxe-button>
+      <vxe-button @click="scrollColEvent('attr8')">定位 Attr8 列</vxe-button>
     </div>
     <div>
-      <vxe-button @click="scrollToRow(gridOptions.data[3])">定位第4行</vxe-button>
-      <vxe-button @click="scrollToRow(gridOptions.data[9])">定位第10行</vxe-button>
-      <vxe-button @click="scrollToRow(gridOptions.data[15])">定位第16行</vxe-button>
+      <vxe-button @click="scrollStartRowEvent()">定位首行</vxe-button>
+      <vxe-button @click="scrollEndRowEvent()">定位末行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[3])">定位第4行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[9])">定位第10行</vxe-button>
+      <vxe-button @click="scrollRowEvent(gridOptions.data[15])">定位第16行</vxe-button>
     </div>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -90,13 +92,25 @@ export default Vue.extend({
     }
   },
   methods: {
-    scrollToCol (field: string) {
+    scrollColEvent (field: string) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         $grid.scrollToColumn(field)
       }
     },
-    scrollToRow (row: RowVO) {
+    scrollStartRowEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.scrollToStartRow()
+      }
+    },
+    scrollEndRowEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.scrollToEndRow()
+      }
+    },
+    scrollRowEvent (row: RowVO) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         $grid.scrollToRow(row)
