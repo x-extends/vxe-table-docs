@@ -5,6 +5,11 @@
       <vxe-radio-button checked-value="#f3cccc" content="红色"></vxe-radio-button>
       <vxe-radio-button checked-value="#cbcbef" content="蓝色"></vxe-radio-button>
     </vxe-radio-group>
+    <vxe-radio-group v-model="bodyBgColor">
+      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="#fbe8d7" content="橙色"></vxe-radio-button>
+      <vxe-radio-button checked-value="#fbd7f8" content="紫色"></vxe-radio-button>
+    </vxe-radio-group>
     <vxe-radio-group v-model="footerBgColor">
       <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
       <vxe-radio-button checked-value="#fbe8d7" content="橙色"></vxe-radio-button>
@@ -15,6 +20,7 @@
       v-bind="gridOptions"
       :style="{
         '--vxe-ui-table-header-background-color': headerBgColor,
+        '--vxe-ui-layout-background-color': bodyBgColor,
         '--vxe-ui-table-footer-background-color': footerBgColor
       }">
     </vxe-grid>
@@ -35,6 +41,7 @@ interface RowVO {
 }
 
 const headerBgColor = ref('')
+const bodyBgColor = ref('')
 const footerBgColor = ref('')
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
