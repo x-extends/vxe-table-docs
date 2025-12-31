@@ -45,7 +45,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
     { field: 'sex', title: 'Sex' },
-    { field: 'age', title: 'Age' },
+    {
+      field: 'age',
+      title: 'Age',
+      headerClassName () {
+        return 'col-orange'
+      }
+    },
     { field: 'attr1', title: 'Attr1' },
     { field: 'address', title: 'Address', showOverflow: true }
   ],
@@ -69,6 +75,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 }
 .mygrid-style1.vxe-grid .vxe-header--column.col-blue {
   background-color: #2db7f5;
+  color: #fff;
+}
+.mygrid-style1.vxe-grid .vxe-header--column.col-orange {
+  background-color: orange;
   color: #fff;
 }
 .mygrid-style1.vxe-grid .vxe-body--column.col-red {

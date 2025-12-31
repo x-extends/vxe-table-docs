@@ -10,7 +10,7 @@
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="age" title="Age" :header-cell-className="ageHeaderCellClassName"></vxe-column>
       <vxe-column field="attr1" title="Attr1"></vxe-column>
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
     </vxe-table>
@@ -68,11 +68,16 @@ export default Vue.extend({
       return null
     }
 
+    const ageHeaderCellClassName: VxeTablePropTypes.HeaderCellClassName<RowVO> = () => {
+      return 'col-orange'
+    }
+
     return {
       tableData,
       headerCellClassName,
       rowClassName,
-      cellClassName
+      cellClassName,
+      ageHeaderCellClassName
     }
   }
 })
@@ -85,6 +90,10 @@ export default Vue.extend({
 }
 ::v-deep(.mytable-style.vxe-table .vxe-header--column.col-blue) {
   background-color: #2db7f5;
+  color: #fff;
+}
+::v-deep(.mytable-style.vxe-table .vxe-header--column.col-orange) {
+  background-color: orange;
   color: #fff;
 }
 ::v-deep(.mytable-style.vxe-table .vxe-body--column.col-red) {
