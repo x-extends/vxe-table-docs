@@ -106,7 +106,7 @@ export default Vue.extend({
         { field: 'name', title: 'Name' },
         { field: 'nickname', title: 'Nickname' },
         { field: 'role', title: 'Role' },
-        { field: 'address', title: 'Address', showOverflow: true }
+        { field: 'address', title: 'Address' }
       ]
     }
 
