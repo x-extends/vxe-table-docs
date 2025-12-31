@@ -16,5 +16,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/validate/theme/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">
+          通过设置 <ApiLink name="grid" prop="valid-config"/>.<ApiLink name="grid" prop="showErrorBackground"/> 显示校验错误单元格背景色
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

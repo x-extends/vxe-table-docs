@@ -1,13 +1,13 @@
 <template>
   <div>
     <div>
-      <vxe-radio-group v-model="gridOptions.validConfig.theme">
+      <vxe-radio-group v-model="validConfig.theme">
         <vxe-radio-button checked-value="normal" content="简化"></vxe-radio-button>
         <vxe-radio-button checked-value="beautify" content="高亮"></vxe-radio-button>
       </vxe-radio-group>
 
-      <vxe-button @click="validEvent">校验变动数据</vxe-button>
-      <vxe-button @click="fullValidEvent">校验全量数据</vxe-button>
+      <vxe-button @click="validEvent">单个校验变动数据</vxe-button>
+      <vxe-button @click="fullValidEvent">单个校验全量数据</vxe-button>
     </div>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -28,7 +28,11 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { validConfig: VxeTablePropTypes.ValidConfig }>({
+const validConfig = reactive<VxeTablePropTypes.ValidConfig>({
+  theme: 'normal'
+})
+
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
   keepSource: true,
@@ -38,9 +42,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { validConfig: VxeTablePropTy
     mode: 'row',
     showStatus: true
   },
-  validConfig: {
-    theme: 'beautify'
-  },
+  validConfig,
   editRules: {
     name: [
       { required: true, message: '必须填写' }

@@ -1,7 +1,8 @@
 <template>
   <div>
     <div>
-      <vxe-radio-group v-model="validConfig.theme">
+      校验背景色:<vxe-switch v-model="validConfig.showErrorBackground"></vxe-switch>
+      校验主题色:<vxe-radio-group v-model="validConfig.theme">
         <vxe-radio-button checked-value="normal" content="简化"></vxe-radio-button>
         <vxe-radio-button checked-value="beautify" content="高亮"></vxe-radio-button>
       </vxe-radio-group>
@@ -30,7 +31,8 @@ export default Vue.extend({
   data () {
     const validConfig: VxeTablePropTypes.ValidConfig = {
       msgMode: 'full',
-      theme: 'beautify'
+      theme: 'beautify',
+      showErrorBackground: true
     }
 
     const gridOptions: VxeGridProps<RowVO> = {
