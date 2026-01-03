@@ -8,7 +8,7 @@
         <PageAside />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
-        <VxeLayoutBody class="layout-body">
+        <VxeLayoutBody class="layout-body" show-backtop :backtop-config="backtopConfig">
           <RouterView />
         </VxeLayoutBody>
         <VxeLayoutFooter class="layout-footer">
@@ -23,7 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref, computed, reactive } from 'vue'
+import { VxeLayoutBodyPropTypes } from 'vxe-pc-ui'
 import { useRoute } from 'vue-router'
 import XEUtils from 'xe-utils'
 import PageHeader from '@/components/PageHeader.vue'
@@ -33,6 +34,10 @@ import PageFooter from '@/components/PageFooter.vue'
 const route = useRoute()
 
 const showLeft = ref(true)
+
+const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
+  circle: true
+})
 
 const pageName = computed(() => {
   return route ? XEUtils.kebabCase(`${String(route.name).replace('VxeIcon', 'VxeIco')}`) : ''

@@ -8,7 +8,7 @@
         <PageAside />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
-        <VxeLayoutBody class="layout-body">
+        <VxeLayoutBody class="layout-body" show-backtop :backtop-config="backtopConfig">
           <RouterView />
         </VxeLayoutBody>
         <VxeLayoutFooter class="layout-footer">
@@ -24,6 +24,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VxeLayoutBodyPropTypes } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 import PageHeader from '@/components/PageHeader.vue'
 import PageAside from '@/components/PageAside.vue'
@@ -36,8 +37,13 @@ export default Vue.extend({
     PageFooter
   },
   data () {
+    const backtopConfig: VxeLayoutBodyPropTypes.BacktopConfig = {
+      circle: true
+    }
+
     return {
-      showLeft: true
+      showLeft: true,
+      backtopConfig
     }
   },
   computed: {
