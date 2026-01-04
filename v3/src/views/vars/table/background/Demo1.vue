@@ -12,8 +12,8 @@
     </vxe-radio-group>
     <vxe-radio-group v-model="footerBgColor">
       <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
-      <vxe-radio-button checked-value="#fbe8d7" content="橙色"></vxe-radio-button>
-      <vxe-radio-button checked-value="#fbd7f8" content="紫色"></vxe-radio-button>
+      <vxe-radio-button checked-value="#5cf18e" content="绿色"></vxe-radio-button>
+      <vxe-radio-button checked-value="#daf15c" content="黄色"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid

@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, reactive } from 'vue'
+import { ref, computed, reactive, provide } from 'vue'
 import { VxeLayoutBodyPropTypes } from 'vxe-pc-ui'
 import { useRoute } from 'vue-router'
 import XEUtils from 'xe-utils'
@@ -46,6 +46,8 @@ const pageName = computed(() => {
 const showOperBtn = computed(() => {
   return route.name === 'DocsApi'
 })
+
+provide('pluginType', route.query.pt || '')
 </script>
 
 <style lang="scss">

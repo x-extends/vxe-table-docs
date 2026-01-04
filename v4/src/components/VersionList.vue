@@ -121,7 +121,7 @@ const getVersion = () => {
     axios.get(`${resBaseUrl.value}/component-api/vxe-plugin-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
       const vData = res.data || {}
       const tags = vData[pluginType]
-      selectPluginVersion.value = tags[`v${appStore.docsVersion}-latest`]
+      selectPluginVersion.value = tags ? tags[`v${appStore.docsVersion}-latest`] : ''
     })
   }
   fetch(`${import.meta.env.VITE_APP_SERVE_API_URL}/api/npm/versions/${import.meta.env.VITE_APP_PACKAGE_NAME}`, { method: 'GET' })

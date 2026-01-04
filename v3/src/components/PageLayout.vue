@@ -36,6 +36,13 @@ export default Vue.extend({
     PageAside,
     PageFooter
   },
+  provide () {
+    const route = this.$route
+    const pluginType = route.query.pt || ''
+    return {
+      pluginType
+    }
+  },
   data () {
     const backtopConfig: VxeLayoutBodyPropTypes.BacktopConfig = {
       circle: true

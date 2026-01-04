@@ -139,7 +139,7 @@ export default Vue.extend({
         axios.get(`${this.resBaseUrl}/component-api/vxe-plugin-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
           const vData = res.data || {}
           const tags = vData[this.pluginType]
-          this.selectPluginVersion = tags[`v${this.docsVersion}-latest`]
+          this.selectPluginVersion = tags ? tags[`v${this.docsVersion}-latest`] : ''
         })
       }
       fetch(`${process.env.VUE_APP_SERVE_API_URL}/api/npm/versions/${process.env.VUE_APP_PACKAGE_NAME}`, { method: 'GET' })
