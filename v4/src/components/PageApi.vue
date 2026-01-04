@@ -52,6 +52,7 @@ interface RowVO {
   name: string
   enum: string
   type: string
+  typeDesc: string
   defVal: string
   version: string
   i18nKey: string
@@ -206,6 +207,7 @@ const columns = computed<VxeGridPropTypes.Columns>(() => {
     },
     { field: 'i18nValue', title: i18n.global.t('api.title.desc'), type: 'html', minWidth: 300 },
     { field: 'type', title: i18n.global.t('api.title.type'), type: 'html', minWidth: 260 },
+    { field: 'typeDesc', title: i18n.global.t('api.title.typeDesc'), type: 'html', minWidth: 260, visible: false },
     { field: 'enum', title: i18n.global.t('api.title.enum'), type: 'html', minWidth: 150 },
     { field: 'defVal', title: i18n.global.t('api.title.defVal'), type: 'html', minWidth: 160, titlePrefix: { content: i18n.global.t('api.title.defValHelp') } },
     { field: 'version', title: i18n.global.t('api.title.version'), type: 'html', width: 180, titlePrefix: { content: i18n.global.t('api.title.versionHelp') }, slots: { default: 'default_version' } }
