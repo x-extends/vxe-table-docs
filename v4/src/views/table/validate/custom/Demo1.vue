@@ -62,7 +62,8 @@ const validRules = ref<VxeTablePropTypes.EditRules<RowVO>>({
   ],
   role: [
     {
-      validator ({ cellValue }) {
+      validator ({ row }) {
+        const cellValue = row.role
         // 模拟服务端校验
         return new Promise((resolve, reject) => {
           setTimeout(() => {

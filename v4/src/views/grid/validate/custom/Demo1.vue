@@ -46,8 +46,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     ],
     role: [
       {
-        validator ({ cellValue }) {
-        // 模拟服务端校验
+        validator ({ row }) {
+          const cellValue = row.role
+          // 模拟服务端校验
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               if (cellValue && !['Develop', 'Test', 'PM'].includes(cellValue)) {
