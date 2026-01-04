@@ -49,7 +49,7 @@
           <div>在组件中使用，如果多个权限码，支持分隔符：|（或）</div>
           <pre-code class="html">
             &lt;vxe-button permission-code="useManagePage|systemManagePage"&gt;按钮&lt;/vxe-button&gt;
-            &lt;vxe-link permission-code="homePage|useManagePage" href="#/home"&gt;链接&lt;/vxe-link&gt;
+            &lt;vxe-link permission-code="homePage|useManagePage" href="#/home" &gt;链接&lt;/vxe-link&gt;
           </pre-code>
           <div>如果在 js 中使用</div>
           <pre-code class="javascript">
