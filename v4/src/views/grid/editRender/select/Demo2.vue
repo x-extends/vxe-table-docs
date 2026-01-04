@@ -18,9 +18,33 @@ interface RowVO {
   typeList: string[]
 }
 
-const sexEditRender = reactive<VxeColumnPropTypes.EditRender>({
+const typeEditRender = reactive<VxeColumnPropTypes.EditRender>({
   name: 'select',
-  options: []
+  optionGroups: [
+    {
+      label: '',
+      value: '0',
+      options: [
+        { label: '', value: '' }
+      ]
+    },
+    {
+      label: '分类1',
+      value: '1',
+      options: [
+        { label: '苹果', value: '1-1' },
+        { label: '雪梨', value: '1-2' }
+      ]
+    },
+    {
+      label: '分类2',
+      value: '2',
+      options: [
+        { label: '草莓', value: '2-1' },
+        { label: '猕猴桃', value: '2-2' }
+      ]
+    }
+  ]
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
@@ -33,8 +57,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'input' } },
-    { field: 'sex', title: '下拉框', width: 200, editRender: sexEditRender },
-    { field: 'type', title: 'Type', width: 200, editRender: { name: 'input' } }
+    { field: 'sex', title: 'Sex', width: 200, editRender: { name: 'input' } },
+    { field: 'type', title: '下拉框分组', width: 200, editRender: typeEditRender }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },
@@ -42,13 +66,4 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', sexList: [], type: '', typeList: [] }
   ]
 })
-
-// 模拟后端接口
-setTimeout(() => {
-  sexEditRender.options = [
-    { label: '', value: '' },
-    { label: '女', value: 'Women' },
-    { label: '男', value: 'Man' }
-  ]
-}, 300)
 </script>

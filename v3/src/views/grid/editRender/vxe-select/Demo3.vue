@@ -21,31 +21,12 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const sexEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps> = {
-      name: 'VxeSelect',
-      options: [
-        { label: '女', value: 'Women' },
-        { label: '男', value: 'Man' }
-      ],
-      events: {
-        change (cellParams, eventParams) {
-          const { row, column } = cellParams
-          console.log('change', row, column.field, eventParams.value)
-        }
-      }
-    }
-
-    const sexListEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps> = {
+    const roleEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps> = {
       name: 'VxeSelect',
       props: {
-        multiple: true,
         filterable: true
       },
-      options: [],
-      optionProps: {
-        label: 'name',
-        value: 'code'
-      }
+      options: []
     }
 
     const gridOptions: VxeGridProps<RowVO> = {
@@ -58,8 +39,9 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'VxeInput' } },
-        { field: 'sex', title: '下拉单选', width: 200, editRender: sexEditRender },
-        { field: 'sexList', title: '下拉多选', width: 200, editRender: sexListEditRender }
+        { field: 'sex', title: 'Sex', width: 200, editRender: { name: 'VxeInput' } },
+        { field: 'type', title: 'Type', width: 200, editRender: { name: 'VxeInput' } },
+        { field: 'role', title: '大数据量选项', width: 200, editRender: roleEditRender }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },
@@ -70,18 +52,21 @@ export default Vue.extend({
 
     return {
       gridOptions,
-      sexEditRender,
-      sexListEditRender
+      roleEditRender
     }
   },
   created () {
     // 模拟后端接口
     setTimeout(() => {
-      this.sexListEditRender.options = [
-        { name: '女', code: 'Women' },
-        { name: '男', code: 'Man' }
-      ]
-    }, 300)
+      const list: any[] = []
+      for (let i = 0; i < 10000; i++) {
+        list.push({
+          value: `role${i}`,
+          label: `角色${i}`
+        })
+      }
+      this.roleEditRender.options = list
+    }, 100)
   }
 })
 </script>
