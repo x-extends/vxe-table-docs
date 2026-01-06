@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-switch v-model="filterConfig.showIcon"></vxe-switch>
     <vxe-button @click="openFilters('name')">弹出 name</vxe-button>
     <vxe-button @click="openFilters('role')">弹出 role</vxe-button>
     <vxe-button @click="closeFilters()">关闭筛选</vxe-button>
@@ -7,6 +8,7 @@
       border
       height="500"
       ref="tableRef"
+      :filter-config="filterConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :filters="nameOptions"></vxe-column>
@@ -19,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import type { VxeTableInstance } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -45,6 +47,10 @@ const tableData = ref<RowVO[]>([
   { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 29, num: '400.9', num2: '400.9', address: 'test abc' },
   { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, num: '5000', num2: '5000', address: 'test abc' }
 ])
+
+const filterConfig = reactive<VxeTablePropTypes.FilterConfig<RowVO>>({
+  showIcon: true
+})
 
 const nameOptions = ref([
   { label: 'Develop', value: 'Test2' },

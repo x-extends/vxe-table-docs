@@ -1,5 +1,6 @@
 <template>
   <div>
+    <vxe-switch v-model="filterConfig.showIcon"></vxe-switch>
     <vxe-button @click="openFilters('name')">弹出 name</vxe-button>
     <vxe-button @click="openFilters('role')">弹出 role</vxe-button>
     <vxe-button @click="closeFilters()">关闭筛选</vxe-button>
@@ -9,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -24,9 +25,14 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const filterConfig: VxeTablePropTypes.FilterConfig<RowVO> = {
+      showIcon: true
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 400,
+      filterConfig,
       columns: [
         { type: 'seq', width: 70 },
         {
@@ -64,7 +70,8 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      filterConfig
     }
   },
   methods: {
