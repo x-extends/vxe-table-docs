@@ -618,6 +618,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '基础', routerLink: { name: 'ComponentGridBaseBasic' } },
             { title: '尺寸大小', routerLink: { name: 'ComponentGridBaseSize' } },
             { title: '数据类型', routerLink: { name: 'ComponentGridBaseData' } },
+            { title: '加载数据', routerLink: { name: 'ComponentGridBaseLoadData' } },
             { title: '表尾数据', routerLink: { name: 'ComponentGridBaseFooter' } },
             { title: '空数据提示', routerLink: { name: 'ComponentGridBaseEmpty' } },
             { title: '边框', routerLink: { name: 'ComponentGridBaseBorder' } },
