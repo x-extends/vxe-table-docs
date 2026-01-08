@@ -1197,6 +1197,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridCustomDrawer',
           component: () => import('@/views/grid/custom/drawer/CodeExample.vue')
         },
+        { path: 'maxHeight', name: 'ComponentGridCustomMaxHeight', component: () => import('@/views/grid/custom/maxHeight/CodeExample.vue') },
         {
           path: 'defHide',
           name: 'ComponentGridCustomDefHide',

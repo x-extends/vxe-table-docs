@@ -1006,6 +1006,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '使用工具栏', routerLink: { name: 'ComponentGridCustomToolbar' } },
             { title: '窗口模式', routerLink: { name: 'ComponentGridCustomModal' } },
             { title: '抽屉模式', routerLink: { name: 'ComponentGridCustomDrawer' } },
+            { title: '自定义最大高度', routerLink: { name: 'ComponentGridCustomMaxHeight' } },
             { title: '默认隐藏列', routerLink: { name: 'ComponentGridCustomDefHide' } },
             { title: '禁用操作操作', routerLink: { name: 'ComponentGridCustomCheckMethod' } },
             { title: '显示/隐藏操作列', routerLink: { name: 'ComponentGridCustomVisibleMethod' } },
