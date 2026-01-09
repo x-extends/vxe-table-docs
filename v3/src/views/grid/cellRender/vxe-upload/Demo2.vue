@@ -21,14 +21,18 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const fileList1CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
+    const imgList1CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
       name: 'VxeUpload',
       props: {
+        mode: 'image',
         readonly: true,
         progressText: '{percent}%',
         moreConfig: {
-          maxCount: 1,
-          layout: 'horizontal'
+          maxCount: 1
+        },
+        imageConfig: {
+          width: 40,
+          height: 40
         },
         uploadMethod ({ file }) {
           const formData = new FormData()
@@ -43,16 +47,20 @@ export default Vue.extend({
       }
     }
 
-    const fileList2CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
+    const imgList2CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
       name: 'VxeUpload',
       props: {
+        mode: 'image',
         multiple: true,
         showButtonText: false,
         dragSort: true,
         progressText: '{percent}%',
         moreConfig: {
-          maxCount: 1,
-          layout: 'horizontal'
+          maxCount: 1
+        },
+        imageConfig: {
+          width: 40,
+          height: 40
         },
         uploadMethod ({ file }) {
           const formData = new FormData()
@@ -73,8 +81,8 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 180 },
-        { field: 'fileList1', title: '附件列表', width: 240, cellRender: fileList1CellRender },
-        { field: 'fileList2', title: '上传附件', width: 300, cellRender: fileList2CellRender }
+        { field: 'imgList1', title: '图片列表', width: 160, cellRender: imgList1CellRender },
+        { field: 'imgList2', title: '上传图片', width: 210, cellRender: imgList2CellRender }
       ],
       data: [
         {
@@ -128,8 +136,8 @@ export default Vue.extend({
 
     return {
       gridOptions,
-      fileList1CellRender,
-      fileList2CellRender
+      imgList1CellRender,
+      imgList2CellRender
     }
   }
 })

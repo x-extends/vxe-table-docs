@@ -6,8 +6,8 @@
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180"></vxe-column>
-      <vxe-column field="fileList1" title="附件列表" width="240" :cell-render="fileList1CellRender"></vxe-column>
-      <vxe-column field="fileList2" title="上传附件" width="300" :cell-render="fileList2CellRender"></vxe-column>
+      <vxe-column field="imgList1" title="图片列表" width="160" :cell-render="imgList1CellRender"></vxe-column>
+      <vxe-column field="imgList2" title="上传图片" width="210" :cell-render="imgList2CellRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -78,28 +78,36 @@ export default Vue.extend({
       }
     ]
 
-    const fileList1CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
+    const imgList1CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
       name: 'VxeUpload',
       props: {
+        mode: 'image',
         readonly: true,
         progressText: '{percent}%',
         moreConfig: {
-          maxCount: 1,
-          layout: 'horizontal'
+          maxCount: 1
+        },
+        imageConfig: {
+          width: 40,
+          height: 40
         }
       }
     }
 
-    const fileList2CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
+    const imgList2CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
       name: 'VxeUpload',
       props: {
+        mode: 'image',
         multiple: true,
         showButtonText: false,
         dragSort: true,
         progressText: '{percent}%',
         moreConfig: {
-          maxCount: 1,
-          layout: 'horizontal'
+          maxCount: 1
+        },
+        imageConfig: {
+          width: 40,
+          height: 40
         },
         uploadMethod ({ file }) {
           const formData = new FormData()
@@ -116,8 +124,8 @@ export default Vue.extend({
 
     return {
       tableData,
-      fileList1CellRender,
-      fileList2CellRender
+      imgList1CellRender,
+      imgList2CellRender
     }
   }
 })
