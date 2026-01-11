@@ -13,7 +13,7 @@
             <RouterView />
           </template>
           <template #backtop-top>
-            <VxeButton status="success" icon="vxe-icon-wechat" title="企业版在线客服" circle shadow></VxeButton>
+            <VxeButton status="success" icon="vxe-icon-wechat" title="企业版在线客服" circle shadow @click="wxKfEvent"></VxeButton>
           </template>
         </VxeLayoutBody>
         <VxeLayoutFooter class="layout-footer">
@@ -30,6 +30,7 @@
 <script lang="ts" setup>
 import { ref, computed, reactive, PropType, provide } from 'vue'
 import { VxeLayoutBodyPropTypes } from 'vxe-pc-ui'
+import { useAppStore } from '@/store/app'
 import { useRoute } from 'vue-router'
 import { NavVO } from '@/common/nav'
 import XEUtils from 'xe-utils'
@@ -43,6 +44,9 @@ const props = defineProps({
 })
 
 const route = useRoute()
+
+const appStore = useAppStore()
+const pluginBuyUrl = computed(() => appStore.pluginBuyUrl)
 
 const showLeft = ref(true)
 
@@ -58,6 +62,10 @@ const pageName = computed(() => {
 const showOperBtn = computed(() => {
   return route.name === 'DocsApi'
 })
+
+const wxKfEvent = () => {
+  open(`${pluginBuyUrl.value}?wx=1`)
+}
 
 provide('pluginType', props.pluginType || '')
 </script>

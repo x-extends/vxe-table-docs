@@ -13,7 +13,7 @@
             <RouterView />
           </template>
           <template #backtop-top>
-            <VxeButton status="success" icon="vxe-icon-wechat" title="企业版在线客服" circle shadow></VxeButton>
+            <VxeButton status="success" icon="vxe-icon-wechat" title="企业版在线客服" circle shadow @click="wxKfEvent"></VxeButton>
           </template>
         </VxeLayoutBody>
         <VxeLayoutFooter class="layout-footer">
@@ -66,7 +66,8 @@ export default Vue.extend({
   },
   computed: {
     ...mapState([
-      'isPluginDocs'
+      'isPluginDocs',
+      'pluginBuyUrl'
     ]),
     pageName () {
       const route = this.$route
@@ -75,6 +76,11 @@ export default Vue.extend({
     showOperBtn () {
       const route = this.$route
       return route.name === 'DocsApi'
+    }
+  },
+  methods: {
+    wxKfEvent () {
+      open(`${(this as any).pluginBuyUrl}?wx=1`)
     }
   }
 })
