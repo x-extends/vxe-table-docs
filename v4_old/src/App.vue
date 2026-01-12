@@ -2008,7 +2008,7 @@ const selectSysVersion = computed(() => {
 })
 
 const getVersion = () => {
-  fetch(`${serveApiUrl.value}/api/npm/versions/vxe-table`, { method: 'GET' })
+  fetch(`${serveApiUrl.value}/baseapi/api/npm/versions/vxe-table`, { method: 'GET' })
     .then(response => response.json())
     .then((data) => {
       const { sp, dp, ss, time, tags } = data

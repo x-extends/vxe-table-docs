@@ -2120,7 +2120,7 @@ export default {
       }
     },
     getVersion () {
-      XEAjax.get(`${this.serveApiUrl}/api/npm/versions/vxe-table`).then((data) => {
+      XEAjax.get(`${this.serveApiUrl}/baseapi/api/npm/versions/vxe-table`).then((data) => {
         const { time, tags } = data
         const stableVersionList = data[`v${this.version}StableList`].map(value => ({ value, label: value }))
         const betaVersionList = data[`v${this.version}BetaList`].map(value => ({ value, label: value }))

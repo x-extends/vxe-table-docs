@@ -25,6 +25,7 @@ import axios from 'axios'
 
 const appStore = useAppStore()
 const packName = computed(() => appStore.packName)
+const apiBaseUrl = computed(() => appStore.apiBaseUrl)
 const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const isPluginDocs = computed(() => appStore.isPluginDocs)
@@ -124,7 +125,7 @@ const getVersion = () => {
       selectPluginVersion.value = tags ? tags[`v${appStore.docsVersion}-latest`] : ''
     })
   }
-  fetch(`${import.meta.env.VITE_APP_SERVE_API_URL}/api/npm/versions/${import.meta.env.VITE_APP_PACKAGE_NAME}`, { method: 'GET' })
+  fetch(`${apiBaseUrl.value}/baseapi/api/npm/versions/${import.meta.env.VITE_APP_PACKAGE_NAME}`, { method: 'GET' })
     .then(response => response.json())
     .then((data) => {
       const { time, tags } = data || {}

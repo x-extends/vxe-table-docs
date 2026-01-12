@@ -142,7 +142,7 @@ export default Vue.extend({
           this.selectPluginVersion = tags ? tags[`v${this.docsVersion}-latest`] : ''
         })
       }
-      fetch(`${process.env.VUE_APP_SERVE_API_URL}/api/npm/versions/${process.env.VUE_APP_PACKAGE_NAME}`, { method: 'GET' })
+      fetch(`${this.apiBaseUrl}/baseapi/api/npm/versions/${process.env.VUE_APP_PACKAGE_NAME}`, { method: 'GET' })
         .then(response => response.json())
         .then((data) => {
           const { time, tags } = data
