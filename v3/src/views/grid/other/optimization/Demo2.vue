@@ -24,26 +24,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
-      columns: [
-        { type: 'seq', width: 70 },
-        { field: 'imgUrl', title: 'imgUrl' },
-        { field: 'name', title: 'Name' },
-        {
-          title: 'Group1',
-          children: [
-            {
-              field: 'sex',
-              title: 'Sex',
-              formatter: ({ row }) => {
-                return this.formatSex(row)
-              }
-            },
-            { field: 'num', title: 'Number' },
-            { field: 'age', title: 'Age' }
-          ]
-        },
-        { field: 'address', title: 'Address', width: 200 }
-      ],
+      columns: [],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, imgUrl: 'https://vxeui.com/resource/img/fj577.jpg', address: 'test abc' },
         { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, imgUrl: 'https://vxeui.com/resource/img/fj581.jpeg', address: 'Guangzhou' },
@@ -54,6 +35,28 @@ export default Vue.extend({
     return {
       gridOptions
     }
+  },
+  created () {
+    this.gridOptions.columns = [
+      { type: 'seq', width: 70 },
+      { field: 'imgUrl', title: 'imgUrl' },
+      { field: 'name', title: 'Name' },
+      {
+        title: 'Group1',
+        children: [
+          {
+            field: 'sex',
+            title: 'Sex',
+            formatter: ({ row }) => {
+              return this.formatSex(row)
+            }
+          },
+          { field: 'num', title: 'Number' },
+          { field: 'age', title: 'Age' }
+        ]
+      },
+      { field: 'address', title: 'Address', width: 200 }
+    ]
   },
   methods: {
     formatSex (row: RowVO) {
