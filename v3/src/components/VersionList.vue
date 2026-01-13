@@ -48,7 +48,8 @@ export default Vue.extend({
       'pluginBuyUrl',
       'isPluginDocs',
       'resBaseUrl',
-      'siteBaseUrl'
+      'siteBaseUrl',
+      'apiBaseUrl'
     ]),
     ...({} as {
       packName () : string
