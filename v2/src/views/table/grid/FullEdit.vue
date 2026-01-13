@@ -114,8 +114,8 @@ export default {
               })
               return XEAjax.get(`https:/apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams)
             },
-            delete: ({ body }) => XEAjax.post(`https:/apipub.vxeui.com/publicapi/api/pub/save`, body),
-            save: ({ body }) => XEAjax.post(`https:/apipub.vxeui.com/publicapi/api/pub/save`, body)
+            delete: ({ body }) => XEAjax.post('https:/apipub.vxeui.com/publicapi/api/pub/save', body),
+            save: ({ body }) => XEAjax.post('https:/apipub.vxeui.com/publicapi/api/pub/save', body)
           }
         },
         columns: [
