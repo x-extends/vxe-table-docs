@@ -37,33 +37,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
-      columns: [
-        { type: 'seq', width: 70 },
-        { field: 'imgUrl', title: 'imgUrl', slots: { default: 'imgUrl_default' } },
-        { field: 'name', title: 'Name', slots: { default: 'name_default' } },
-        {
-          title: 'Group1',
-          children: [
-            { field: 'sex', title: 'Sex', slots: { default: 'sex_default' } },
-            { field: 'num', title: 'Number' },
-            { field: 'age', title: 'Age' }
-          ]
-        },
-        {
-          field: 'address',
-          title: 'Address',
-          width: 200,
-          slots: {
-            default: ({ row }) => {
-              return <div>
-                <vxe-image src="https://vxeui.com/resource/img/546.gif" width="36" height="30"></vxe-image>
-                <span>{ row.address }</span>
-                <vxe-image src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" width="36" height="30"></vxe-image>
-              </div>
-            }
-          }
-        }
-      ],
+      columns: [],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, imgUrl: 'https://vxeui.com/resource/img/fj577.jpg', address: 'test abc' },
         { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, imgUrl: 'https://vxeui.com/resource/img/fj581.jpeg', address: 'Guangzhou' },
@@ -74,17 +48,46 @@ export default Vue.extend({
     return {
       gridOptions
     }
+  },
+  created () {
+    this.gridOptions.columns = [
+      { type: 'seq', width: 70 },
+      { field: 'imgUrl', title: 'imgUrl', slots: { default: 'imgUrl_default' } },
+      { field: 'name', title: 'Name', slots: { default: 'name_default' } },
+      {
+        title: 'Group1',
+        children: [
+          { field: 'sex', title: 'Sex', slots: { default: 'sex_default' } },
+          { field: 'num', title: 'Number' },
+          { field: 'age', title: 'Age' }
+        ]
+      },
+      {
+        field: 'address',
+        title: 'Address',
+        width: 200,
+        slots: {
+          default: ({ row }) => {
+            return <div>
+                <vxe-image src="https://vxeui.com/resource/img/546.gif" width="36" height="30"></vxe-image>
+                <span>{ row.address }</span>
+                <vxe-image src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" width="36" height="30"></vxe-image>
+              </div>
+          }
+        }
+      }
+    ]
+  },
+  methods: {
+    formatSex (row: RowVO) {
+      return row.sex === '1' ? '男' : '女'
+    },
+    openDetail (row: RowVO) {
+      VxeUI.modal.message({
+        status: 'success',
+        content: `点击了${row.name}`
+      })
+    }
   }
 })
-
-const formatSex = (row: RowVO) => {
-  return row.sex === '1' ? '男' : '女'
-}
-
-const openDetail = (row: RowVO) => {
-  VxeUI.modal.message({
-    status: 'success',
-    content: `点击了${row.name}`
-  })
-}
 </script>
