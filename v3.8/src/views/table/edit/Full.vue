@@ -176,7 +176,7 @@ export default {
             async loadList () {
               this.loading = true
               try {
-                const res = await fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/all\`).then(response => response.json())
+                const res = await fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/all\`).then(response => response.json())
                 this.tableData = res
               } catch (e) {
                 this.tableData = []
@@ -212,7 +212,7 @@ export default {
               this.loading = true
               try {
                 const body = { removeRecords: checkboxRecords }
-                await fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+                await fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await this.loadList()
               } catch (e) {}
               this.loading = false
@@ -229,7 +229,7 @@ export default {
               this.loading = true
               try {
                 const body = { removeRecords: [row] }
-                await fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+                await fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await this.loadList()
               } catch (e) {}
             },
@@ -247,7 +247,7 @@ export default {
               this.loading = true
               try {
                 const body = { insertRecords, removeRecords, updateRecords }
-                await fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+                await fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 await this.loadList()
                 VXETable.modal.message({ content: \`操作成功，新增 \${insertRecords.length} 条，更新 \${updateRecords.length} 条，删除 \${removeRecords.length} 条\`, status: 'success' })
               } catch (e) {

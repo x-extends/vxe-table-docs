@@ -102,7 +102,7 @@ export default {
               return XEAjax.get(`https:/apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams)
             },
             // 被某些特殊功能所触发，例如：导出数据 mode=all 时，会触发该方法并对返回的数据进行导出
-            queryAll: () => XEAjax.get(`https:/apipub.vxeui.com/publicapi/api/pub/all`)
+            queryAll: () => XEAjax.get('https:/apipub.vxeui.com/publicapi/api/pub/all')
           }
         },
         toolbar: {
