@@ -65,10 +65,10 @@
               <span class="version-title">稳定版</span>
               <span>{{ packName }}@{{ selectStableVersion }}</span>
             </span>
-            <span v-if="showBetaVersion" style="margin-left: 0.5em;">
+            <!-- <span v-if="showBetaVersion" style="margin-left: 0.5em;">
               <span class="version-title">尝鲜版</span>
               <span>@{{ selectBetaVersion }}</span>
-            </span>
+            </span> -->
             <a style="margin-left: 0.5em;" class="link" :href="`https://github.com/x-extends/${packName}/releases`" target="_blank">更新日志</a>
           </div>
           <vxe-input clearable v-model="filterName" type="search" class="search-input" :placeholder="$t('app.body.search.searchPlaceholder')" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
