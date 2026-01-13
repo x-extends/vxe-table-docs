@@ -15,10 +15,12 @@ export const useAppStore = defineStore('app', {
       theme: currTheme,
       serveTY: new Date().getFullYear(),
       packName: import.meta.env.VITE_APP_PACKAGE_NAME,
-      siteBaseUrl: import.meta.env.VITE_APP_SITE_BASE_URL,
       pluginDocsUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/pluginDocs/table/`,
       pluginApiUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/plugins/`,
-      pubApiBaseUrl: 'https:/apipub.vxeui.com/publicapi',
+      apiBaseUrl: import.meta.env.VITE_APP_SERVEICE_API_URL,
+      pubApiBaseUrl: import.meta.env.VITE_APP_PUBLIC_API_URL,
+      resBaseUrl: import.meta.env.VITE_APP_RES_URL,
+      siteBaseUrl: import.meta.env.VITE_APP_SITE_BASE_URL,
       showSupportQQ: false
     }
   },
