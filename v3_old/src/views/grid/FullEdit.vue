@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import XEUtils from 'xe-utils'
 import VXETable from 'vxe-table'
 
