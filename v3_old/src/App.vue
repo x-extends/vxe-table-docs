@@ -2262,7 +2262,7 @@ export default {
       }
     },
     getVersion () {
-      fetch(`${this.apiBaseUrl}/storeapi/api/npm/versions/vxe-table`)
+      fetch(`${this.apiBaseUrl}/baseapi/api/npm/versions/vxe-table`)
         .then(response => response.json())
         .then((data) => {
           const { sp, dp, ss, time, tags } = data
