@@ -10,7 +10,7 @@
     </vxe-tip>
     <vxe-tip title="发展历史" status="success">
       <div>
-        2017-12 开源了 javascript 工具类 <vxe-link status="primary" href="https://vxeui.com/xe-utils" target="_blank">xe-utils</vxe-link>
+        2017-12 开源了 javascript 工具类 <vxe-link status="primary" href="https://util.vxeui.com" target="_blank">xe-utils</vxe-link>
         <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/xe-utils" target="_blank"></vxe-link>
         <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/xe-utils" target="_blank"></vxe-link>
       </div>
