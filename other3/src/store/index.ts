@@ -7,10 +7,9 @@ export default new Vuex.Store({
   state: {
     docsVersion: '3',
     serveTY: new Date().getFullYear(),
-    baseApiUrl: process.env.VUE_APP_MAIN_URL,
     pluginDocsUrl: `${process.env.VUE_APP_MAIN_URL}pluginDocs/table/`,
     pluginApiUrl: `${process.env.VUE_APP_MAIN_URL}plugins/`,
-    serveApiUrl: 'https://api.vxetable.cn/demo',
+    pubApiBaseUrl: 'https:/apipub.vxeui.com/publicapi',
     showSupportQQ: false
   },
   mutations: {

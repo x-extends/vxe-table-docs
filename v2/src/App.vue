@@ -5,8 +5,8 @@
     </div>
     <header class="page-header">
       <div class="left">
-        <a :href="baseApiUrl">
-          <img :src="`${baseApiUrl}logo.png`" width="18">
+        <a :href="siteBaseUrl">
+          <img :src="`${resBaseUrl}/logo.png`" width="18">
           <span class="title">vxe-table</span>
         </a>
         <a href='https://gitee.com/x-extends/vxe-table/stargazers'>
@@ -1955,9 +1955,10 @@ export default {
   computed: {
     ...mapState([
       'packName',
-      'baseApiUrl',
+      'siteBaseUrl',
+      'resBaseUrl',
       'pluginApiUrl',
-      'serveApiUrl'
+      'apiBaseUrl'
     ]),
     demoLink () {
       const { $route, apiList } = this
@@ -2120,7 +2121,7 @@ export default {
       }
     },
     getVersion () {
-      XEAjax.get(`${this.serveApiUrl}/baseapi/api/npm/versions/vxe-table`).then((data) => {
+      XEAjax.get(`${this.apiBaseUrl}/baseapi/api/npm/versions/vxe-table`).then((data) => {
         const { time, tags } = data
         const stableVersionList = data[`v${this.version}StableList`].map(value => ({ value, label: value }))
         const betaVersionList = data[`v${this.version}BetaList`].map(value => ({ value, label: value }))

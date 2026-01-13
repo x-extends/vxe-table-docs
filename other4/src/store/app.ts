@@ -16,10 +16,9 @@ export const useAppStore = defineStore('app', {
       docsVersion: '4',
       serveTY: new Date().getFullYear(),
       siteBaseUrl: import.meta.env.VITE_APP_SITE_BASE_URL,
-      baseApiUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/`,
       pluginDocsUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/pluginDocs/table/`,
       pluginApiUrl: `${import.meta.env.VITE_APP_SITE_BASE_URL}/plugins/`,
-      serveApiUrl: 'https://api.vxetable.cn/demo',
+      pubApiBaseUrl: 'https:/apipub.vxeui.com/publicapi',
       showSupportQQ: false
     }
   },

@@ -99,7 +99,7 @@
               <a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号</a>
               <span style="margin-left: 20px;">
                 <span>©</span>
-                <span><a class="link" :href="baseApiUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
+                <span><a class="link" :href="siteBaseUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
               </span>
             </div>
           </footer>
@@ -121,9 +121,8 @@ const appStore = useAppStore()
 const serveTY = computed(() => appStore.serveTY)
 const docsVersion = computed(() => appStore.docsVersion)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
-const baseApiUrl = computed(() => appStore.baseApiUrl)
 const pluginApiUrl = computed(() => appStore.pluginApiUrl)
-const serveApiUrl = computed(() => appStore.serveApiUrl)
+const apiBaseUrl = computed(() => appStore.apiBaseUrl)
 
 const appData = reactive({
   showLeft: true,
@@ -343,7 +342,7 @@ const currTheme = computed({
 })
 
 const getVersion = () => {
-  fetch(`${serveApiUrl.value}/baseapi/api/npm/versions/vxe-table`, { method: 'GET' })
+  fetch(`${apiBaseUrl.value}/baseapi/api/npm/versions/vxe-table`, { method: 'GET' })
     .then(response => response.json())
     .then((data) => {
       const { sp, dp, ss, time, tags } = data
@@ -426,16 +425,16 @@ const linkEvent = (item: any) => {
 const vChangeEvent = () => {
   switch (appData.version) {
     case '1':
-      location.href = `${baseApiUrl.value}v1/`
+      location.href = `${siteBaseUrl.value}v1/`
       break
     case '2':
-      location.href = `${baseApiUrl.value}v2/`
+      location.href = `${siteBaseUrl.value}v2/`
       break
     case '3':
-      location.href = `${baseApiUrl.value}v3/`
+      location.href = `${siteBaseUrl.value}v3/`
       break
     case '4':
-      location.href = `${baseApiUrl.value}v4/`
+      location.href = `${siteBaseUrl.value}v4/`
       break
   }
 }

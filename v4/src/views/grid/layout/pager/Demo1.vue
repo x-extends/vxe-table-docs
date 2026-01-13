@@ -61,7 +61,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     ajax: {
       // 接收 Promise 对象
       query: ({ page }) => {
-        return fetch(`https://api.vxetable.cn/demo/api/pub/page/list/${page.pageSize}/${page.currentPage}`).then(response => response.json())
+        return fetch(`https://apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}`).then(response => response.json())
       }
     }
   },

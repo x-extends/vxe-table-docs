@@ -77,8 +77,6 @@ interface RowVO {
   date13: string
 }
 
-const serveApiUrl = 'https://api.vxetable.cn/demo'
-
 const xToolbar = ref<VxeToolbarInstance>()
 const tableRef = ref<VxeTableInstance<RowVO>>()
 
@@ -109,7 +107,7 @@ const formatSex = (value: string) => {
 const loadList = async () => {
   loading.value = true
   try {
-    const res = await fetch(`${serveApiUrl}/api/pub/all`).then(response => response.json())
+    const res = await fetch('https:/apipub.vxeui.com/publicapi/api/pub/all').then(response => response.json())
     tableData.value = res
   } catch (e) {
     tableData.value = []
@@ -143,7 +141,7 @@ const deleteSelectEvent = async () => {
     const checkboxRecords = $table.getCheckboxRecords()
     loading.value = true
     const body = { removeRecords: checkboxRecords }
-    await fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+    await fetch('https:/apipub.vxeui.com/publicapi/api/pub/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
     await loadList()
     loading.value = false
   }
@@ -163,7 +161,7 @@ const deleteRowEvent = async (row: RowVO) => {
   }
   loading.value = true
   const body = { removeRecords: [row] }
-  await fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+  await fetch('https:/apipub.vxeui.com/publicapi/api/pub/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
   await loadList()
   loading.value = false
 }
@@ -183,7 +181,7 @@ const saveEvent = async () => {
     loading.value = true
     try {
       const body = { insertRecords, removeRecords, updateRecords }
-      await fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      await fetch('https:/apipub.vxeui.com/publicapi/api/pub/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
       await loadList()
       VXETable.modal.message({ content: `操作成功，新增 ${insertRecords.length} 条，更新 ${updateRecords.length} 条，删除 ${removeRecords.length} 条`, status: 'success' })
     } catch (e) {

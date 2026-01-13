@@ -71,7 +71,7 @@ export const useAppStore = defineStore('app', {
       serveTY: new Date().getFullYear(),
       language: currLanguage,
       apiBaseUrl: import.meta.env.VITE_APP_SERVEICE_API_URL,
-      testApiBaseUrl: import.meta.env.VITE_APP_TEST_API_URL,
+      pubApiBaseUrl: import.meta.env.VITE_APP_PUBLIC_API_URL,
       resBaseUrl: import.meta.env.VITE_APP_RES_URL,
       siteBaseUrl: import.meta.env.VITE_APP_SITE_BASE_URL,
       pluginBuyUrl: import.meta.env.VITE_APP_PLUGIN_BUY_URL,

@@ -2,8 +2,8 @@
   <div id="app" @click="clickEvent">
     <header class="page-header">
       <div class="left">
-        <a :href="baseApiUrl">
-          <img :src="`${baseApiUrl}logo.png`" width="18">
+        <a :href="siteBaseUrl">
+          <img :src="`${resBaseUrl}/logo.png`" width="18">
           <span class="title">vxe-table</span>
         </a>
         <a href='https://gitee.com/x-extends/vxe-table/stargazers'>
@@ -105,7 +105,7 @@
               <a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号</a>
               <span style="margin-left: 20px;">
                 <span>©</span>
-                <span><a class="link" :href="baseApiUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
+                <span><a class="link" :href="siteBaseUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
               </span>
             </div>
           </footer>
@@ -347,9 +347,12 @@ export default {
     ...mapState([
       'serveTY',
       'docsVersion',
-      'baseApiUrl',
+      'siteBaseUrl',
       'pluginApiUrl',
-      'serveApiUrl'
+      'siteBaseUrl',
+      'apiBaseUrl',
+      'resBaseUrl',
+      'pubApiBaseUrl'
     ]),
     demoLink () {
       const { $route, apiList } = this
@@ -511,7 +514,7 @@ export default {
       }
     },
     getVersion () {
-      fetch(`${this.serveApiUrl}/baseapi/api/npm/versions/vxe-table`)
+      fetch(`${this.apiBaseUrl}/baseapi/api/npm/versions/vxe-table`)
         .then(response => response.json())
         .then((data) => {
           const { sp, dp, ss, time, tags } = data
@@ -596,16 +599,16 @@ export default {
     vChangeEvent () {
       switch (this.version) {
         case '1':
-          location.href = `${this.baseApiUrl}v1/`
+          location.href = `${this.siteBaseUrl}v1/`
           break
         case '2':
-          location.href = `${this.baseApiUrl}v2/`
+          location.href = `${this.siteBaseUrl}v2/`
           break
         case '3':
-          location.href = `${this.baseApiUrl}v3/`
+          location.href = `${this.siteBaseUrl}v3/`
           break
         case '4':
-          location.href = `${this.baseApiUrl}v4/`
+          location.href = `${this.siteBaseUrl}v4/`
           break
       }
     }

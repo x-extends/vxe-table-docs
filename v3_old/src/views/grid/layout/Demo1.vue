@@ -12,8 +12,6 @@
 </template>
 
 <script>
-const serveApiUrl = 'https://api.vxetable.cn/demo'
-
 export default {
   data () {
     return {
@@ -59,7 +57,7 @@ export default {
           ajax: {
             // 接收 Promise 对象
             query: ({ page }) => {
-              return fetch(`${serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}`).then(response => response.json())
+              return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}`).then(response => response.json())
             }
           }
         },

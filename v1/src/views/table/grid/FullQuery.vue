@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import XEAjax from 'xe-ajax'
 import XEUtils from 'xe-utils'
 import hljs from 'highlight.js'
@@ -100,10 +99,10 @@ export default {
               filters.forEach(({ property, values }) => {
                 queryParams[property] = values.join(',')
               })
-              return XEAjax.get(`${this.serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams)
+              return XEAjax.get(`https:/apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}`, queryParams)
             },
             // 被某些特殊功能所触发，例如：导出数据 mode=all 时，会触发该方法并对返回的数据进行导出
-            queryAll: () => XEAjax.get(`${this.serveApiUrl}/api/pub/all`)
+            queryAll: () => XEAjax.get(`https:/apipub.vxeui.com/publicapi/api/pub/all`)
           }
         },
         toolbar: {
@@ -225,10 +224,10 @@ export default {
                       filters.forEach(({ property, values }) => {
                         queryParams[property] = values.join(',')
                       })
-                      return XEAjax.get(\`${this.serveApiUrl}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams)
+                      return XEAjax.get(\`https:/apipub.vxeui.com/publicapi/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams)
                     },
                     // 被某些特殊功能所触发，例如：导出数据 mode=all 时，会触发该方法并对返回的数据进行导出
-                    queryAll: () => XEAjax.get(\`\${this.serveApiUrl}/api/pub/all\`)
+                    queryAll: () => XEAjax.get(\`\https:/apipub.vxeui.com/publicapi/api/pub/all\`)
                   }
                 },
                 toolbar: {
@@ -266,11 +265,6 @@ export default {
               }
             }
           },
-          computed: {
-            ...mapState([
-              'serveApiUrl'
-            ])
-          },
           methods: {
             searchEvent () {
               this.$refs.xGrid.commitProxy('reload')
@@ -286,11 +280,6 @@ export default {
         `
       ]
     }
-  },
-  computed: {
-    ...mapState([
-      'serveApiUrl'
-    ])
   },
   mounted () {
     Array.from(this.$el.querySelectorAll('pre code')).forEach((block) => {

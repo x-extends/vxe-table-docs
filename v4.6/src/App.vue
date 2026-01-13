@@ -122,7 +122,7 @@
               <a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号-1</a>
               <span style="margin-left: 20px;">
                 <span>©</span>
-                <span><a class="link" :href="baseApiUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
+                <span><a class="link" :href="siteBaseUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
               </span>
             </div>
           </footer>
@@ -145,10 +145,9 @@ const appStore = useAppStore()
 const serveTY = computed(() => appStore.serveTY)
 const packName = computed(() => appStore.packName)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
-const baseApiUrl = computed(() => appStore.baseApiUrl)
 const pluginDocsUrl = computed(() => appStore.pluginDocsUrl)
 // const pluginApiUrl = computed(() => appStore.pluginApiUrl)
-const serveApiUrl = computed(() => appStore.serveApiUrl)
+const apiBaseUrl = computed(() => appStore.apiBaseUrl)
 
 const showExtendPlugin = location.href.indexOf('vxetable.cn') > -1
 
@@ -2325,7 +2324,7 @@ const selectSysVersion = computed(() => {
 })
 
 const getVersion = () => {
-  fetch(`${serveApiUrl.value}/baseapi/api/npm/versions/vxe-table`, { method: 'GET' })
+  fetch(`${apiBaseUrl.value}/baseapi/api/npm/versions/vxe-table`, { method: 'GET' })
     .then(response => response.json())
     .then((data) => {
       const { sp, dp, ss, time, tags } = data

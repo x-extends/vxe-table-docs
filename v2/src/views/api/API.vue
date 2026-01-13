@@ -210,7 +210,6 @@ export default {
   },
   computed: {
     ...mapState([
-      'baseApiUrl',
       'pluginApiUrl'
     ]),
     apiName () {

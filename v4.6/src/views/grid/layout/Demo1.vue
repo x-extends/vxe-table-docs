@@ -19,8 +19,6 @@ interface RowVO {
   [key: string]: any
 }
 
-const serveApiUrl = 'https://api.vxetable.cn/demo'
-
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: true,
@@ -63,7 +61,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     ajax: {
       // 接收 Promise 对象
       query: ({ page }) => {
-        return fetch(`${serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}`).then(response => response.json())
+        return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}`).then(response => response.json())
       }
     }
   },

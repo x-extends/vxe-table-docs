@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import XEUtils from 'xe-utils'
 
 export default {
@@ -114,10 +113,10 @@ export default {
               filters.forEach(({ field, values }) => {
                 queryParams[field] = values.join(',')
               })
-              return fetch(`${this.serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
+              return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
             },
             // 被某些特殊功能所触发，例如：导出数据 mode=all 时，会触发该方法并对返回的数据进行导出
-            queryAll: () => fetch(`${this.serveApiUrl}/api/pub/all`).then(response => response.json())
+            queryAll: () => fetch(`https:/apipub.vxeui.com/publicapi/api/pub/all`).then(response => response.json())
           }
         },
         toolbarConfig: {
@@ -258,10 +257,10 @@ export default {
                       filters.forEach(({ field, values }) => {
                         queryParams[field] = values.join(',')
                       })
-                      return fetch(\`\${this.serveApiUrl}/api/pub/page/list/\${page.pageSize}/\${page.currentPage}?\${XEUtils.serialize(queryParams)}\`).then(response => response.json())
+                      return fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/page/list/\${page.pageSize}/\${page.currentPage}?\${XEUtils.serialize(queryParams)}\`).then(response => response.json())
                     },
                     // 被某些特殊功能所触发，例如：导出数据 mode=all 时，会触发该方法并对返回的数据进行导出
-                    queryAll: () => fetch(\`\${this.serveApiUrl}/api/pub/all\`).then(response => response.json())
+                    queryAll: () => fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/all\`).then(response => response.json())
                   }
                 },
                 toolbarConfig: {
@@ -299,11 +298,6 @@ export default {
               }
             }
           },
-          computed: {
-            ...mapState([
-              'serveApiUrl'
-            ])
-          },
           methods: {
             searchEvent () {
               const $grid = this.$refs.xGrid
@@ -324,11 +318,6 @@ export default {
         `
       ]
     }
-  },
-  computed: {
-    ...mapState([
-      'serveApiUrl'
-    ])
   },
   methods: {
     searchEvent () {

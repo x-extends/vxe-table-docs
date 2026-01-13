@@ -45,8 +45,6 @@ interface RowVO {
   [key: string]: any
 }
 
-const serveApiUrl = 'https://api.vxetable.cn/demo'
-
 const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const formData = reactive({
@@ -125,10 +123,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         filters.forEach(({ field, values }) => {
           queryParams[field] = values.join(',')
         })
-        return fetch(`${serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
+        return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
       },
       // 被某些特殊功能所触发，例如：导出数据 mode=all 时，会触发该方法并对返回的数据进行导出
-      queryAll: () => fetch(`${serveApiUrl}/api/pub/all`).then(response => response.json())
+      queryAll: () => fetch('https:/apipub.vxeui.com/publicapi/api/pub/all').then(response => response.json())
     }
   },
   toolbarConfig: {

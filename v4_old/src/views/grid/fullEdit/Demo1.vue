@@ -13,8 +13,6 @@ interface RowVO {
   [key: string]: any
 }
 
-const serveApiUrl = 'https://api.vxetable.cn/demo'
-
 const xGrid = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
@@ -128,15 +126,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         filters.forEach(({ field, values }) => {
           queryParams[field] = values.join(',')
         })
-        return fetch(`${serveApiUrl}/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
+        return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/page/list/${page.pageSize}/${page.currentPage}?${XEUtils.serialize(queryParams)}`).then(response => response.json())
       },
       // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
       delete: ({ body }) => {
-        return fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
+        return fetch('https:/apipub.vxeui.com/publicapi/api/pub/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
       },
       // 当点击工具栏保存按钮或者手动提交指令 save 时会被触发
       save: ({ body }) => {
-        return fetch(`${serveApiUrl}/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
+        return fetch('https:/apipub.vxeui.com/publicapi/api/pub/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
       }
     }
   },
@@ -207,7 +205,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       const $grid = xGrid.value
       const formBody = new FormData()
       formBody.append('file', file)
-      return fetch(`${serveApiUrl}/api/pub/import`, { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
+      return fetch('https:/apipub.vxeui.com/publicapi/api/pub/import', { method: 'POST', body: formBody }).then(response => response.json()).then(data => {
         VXETable.modal.message({ content: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
         // 导入完成，刷新表格
         if ($grid) {
@@ -244,11 +242,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
           })
         }
         // 开始服务端导出
-        return fetch(`${serveApiUrl}/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
+        return fetch('https:/apipub.vxeui.com/publicapi/api/pub/export', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
           if (data.id) {
             VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
             // 读取路径，请求文件
-            fetch(`${serveApiUrl}/api/pub/export/download/${data.id}`).then(response => {
+            fetch(`https:/apipub.vxeui.com/publicapi/api/pub/export/download/${data.id}`).then(response => {
               response.blob().then(blob => {
                 // 开始下载
                 VXETable.saveFile({ filename: '导出数据', type: 'xlsx', content: blob })

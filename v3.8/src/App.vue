@@ -5,8 +5,8 @@
     </div>
     <header class="page-header">
       <div class="left">
-        <a :href="baseApiUrl">
-          <img :src="`${baseApiUrl}logo.png`" width="18">
+        <a :href="siteBaseUrl">
+          <img :src="`${resBaseUrl}/logo.png`" width="18">
           <span class="title">Vxe Table</span>
         </a>
         <a href='https://gitee.com/x-extends/vxe-table/stargazers'>
@@ -119,7 +119,7 @@
               <a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号-1</a>
               <span style="margin-left: 20px;">
                 <span>©</span>
-                <span><a class="link" :href="baseApiUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
+                <span><a class="link" :href="siteBaseUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
               </span>
             </div>
           </footer>
@@ -2185,10 +2185,12 @@ export default {
     ...mapState([
       'serveTY',
       'packName',
-      'baseApiUrl',
+      'siteBaseUrl',
+      'resBaseUrl',
       'pluginDocsUrl',
       'pluginApiUrl',
-      'serveApiUrl'
+      'apiBaseUrl',
+      'pubApiBaseUrl'
     ]),
     demoLink () {
       const { $route, apiList } = this
@@ -2386,7 +2388,7 @@ export default {
       }
     },
     getVersion () {
-      fetch(`${this.serveApiUrl}/baseapi/api/npm/versions/vxe-table`)
+      fetch(`${this.apiBaseUrl}/baseapi/api/npm/versions/vxe-table`)
         .then(response => response.json())
         .then((data) => {
           const { sp, dp, ss, time, tags } = data
