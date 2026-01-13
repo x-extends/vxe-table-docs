@@ -129,11 +129,11 @@ export default {
             },
             // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
             delete: ({ body }) => {
-              return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
+              return fetch('https:/apipub.vxeui.com/publicapi/api/pub/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
             },
             // 当点击工具栏保存按钮或者手动提交指令 save 时会被触发
             save: ({ body }) => {
-              return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
+              return fetch('https:/apipub.vxeui.com/publicapi/api/pub/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
             }
           }
         },
