@@ -1454,6 +1454,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '功能示例',
           children: [
+            { title: '单元格性能优化', routerLink: { name: 'ComponentGridOtherOptimization' } },
             { title: '操作列的显示隐藏', routerLink: { name: 'ComponentGridOtherVisibleColumn' } },
             { title: '在页签中使用', routerLink: { name: 'ComponentGridOtherTabs' } },
             { title: '定位行、定位列的使用', routerLink: { name: 'ComponentGridOtherScrollTo' } },

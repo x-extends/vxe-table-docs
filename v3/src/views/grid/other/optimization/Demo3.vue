@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="tsx">
 import Vue from 'vue'
 import { VxeUI } from 'vxe-pc-ui'
 import type { VxeGridProps } from 'vxe-table'
@@ -54,12 +54,12 @@ export default Vue.extend({
           title: 'Address',
           width: 200,
           slots: {
-            default ({ row }) {
+            default: ({ row }) => {
               return <div>
-            <vxe-image src="https://vxeui.com/resource/img/546.gif" width="36" height="30"></vxe-image>
-            <span>{ row.address }</span>
-            <vxe-image src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" width="36" height="30"></vxe-image>
-          </div>
+                <vxe-image src="https://vxeui.com/resource/img/546.gif" width="36" height="30"></vxe-image>
+                <span>{ row.address }</span>
+                <vxe-image src="https://n.sinaimg.cn/sinacn17/w120h120/20180314/89fc-fyscsmv5911424.gif" width="36" height="30"></vxe-image>
+              </div>
             }
           }
         }

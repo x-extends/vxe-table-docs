@@ -2708,6 +2708,7 @@ export const gridRouteConfig: RouteRecordRaw = {
       path: 'other',
       component: RouteLayout,
       children: [
+        { path: 'optimization', name: 'ComponentGridOtherOptimization', component: () => import('@/views/grid/other/optimization/CodeExample.vue') },
         {
           path: 'visibleColumn',
           name: 'ComponentGridOtherVisibleColumn',

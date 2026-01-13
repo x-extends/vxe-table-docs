@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI } from 'vxe-pc-ui'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
