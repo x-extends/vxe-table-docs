@@ -314,15 +314,15 @@ export default {
                       filters.forEach(({ field, values }) => {
                         queryParams[field] = values.join(',')
                       })
-                      return fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams).then(response => response.json())
+                      return fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/page/list/\${page.pageSize}/\${page.currentPage}\`, queryParams).then(response => response.json())
                     },
                     // 当点击工具栏删除按钮或者手动提交指令 delete 时会被触发
                     delete: ({ body }) => {
-                      return fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
+                      return fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
                     },
                     // 当点击工具栏保存按钮或者手动提交指令 save 时会被触发
                     save: ({ body }) => {
-                      return fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
+                      return fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/save\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json())
                     }
                   }
                 },
@@ -437,7 +437,7 @@ export default {
               const formBody = new FormData()
               formBody.append('file', file)
               // 上传文件
-              return fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/import\`, { method: 'POST', body: formBody }).then(response => response.join()).then(data => {
+              return fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/import\`, { method: 'POST', body: formBody }).then(response => response.join()).then(data => {
                 const $grid = this.$refs.xGrid
                 VXETable.modal.message({ content: \`成功导入 \${data.result.insertRows} 条记录！\`, status: 'success' })
                 // 导入完成，刷新表格
@@ -467,11 +467,11 @@ export default {
                 })
               }
               // 开始服务端导出
-              return fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/export\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
+              return fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/export\`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
                 if (data.id) {
                   VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
                   // 读取路径，请求文件
-                  fetch(\`\https:/apipub.vxeui.com/publicapi/api/pub/export/download/\${data.id}\`)
+                  fetch(\`https:/apipub.vxeui.com/publicapi/api/pub/export/download/\${data.id}\`)
                     .then(response => response.blob())
                     .then(blob => {
                       // 开始下载
@@ -537,7 +537,7 @@ export default {
       const formBody = new FormData()
       formBody.append('file', file)
       // 上传文件
-      return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/import`, { method: 'POST', body: formBody }).then(response => response.join()).then(data => {
+      return fetch('https:/apipub.vxeui.com/publicapi/api/pub/import', { method: 'POST', body: formBody }).then(response => response.join()).then(data => {
         const $grid = this.$refs.xGrid
         VXETable.modal.message({ content: `成功导入 ${data.result.insertRows} 条记录！`, status: 'success' })
         // 导入完成，刷新表格
@@ -567,7 +567,7 @@ export default {
         })
       }
       // 开始服务端导出
-      return fetch(`https:/apipub.vxeui.com/publicapi/api/pub/export`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
+      return fetch('https:/apipub.vxeui.com/publicapi/api/pub/export', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(response => response.json()).then(data => {
         if (data.id) {
           VXETable.modal.message({ content: '导出成功，开始下载', status: 'success' })
           // 读取路径，请求文件
