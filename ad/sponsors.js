@@ -16,7 +16,7 @@ setTimeout(function () {
 
   var joinSponsorUrl = siteURL + '/#/start/joinSponsor'
 
-  fetch('https://api.vxetable.cn/vxe/api/pub/' + siteType + '/sponsors', { method: 'GET' })
+  fetch('https://api.vxeui.com/storeapi/api/pub/' + siteType + '/sponsors', { method: 'GET' })
   .then(response => response.json())
   .then(rest => {
     var data = []
