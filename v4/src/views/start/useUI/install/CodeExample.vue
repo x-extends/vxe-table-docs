@@ -7,6 +7,9 @@
           <div>依赖库： <vxe-link  href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D" target="_blank">vue 3.2+</vxe-link></div>
           <div>组件依赖关系：<vxe-link href="https://github.com/x-extends/vxe-ui-docs/blob/main/framework.md" status="error" target="_blank">点击查看</vxe-link></div>
         </vxe-tip>
+        <vxe-tip status="success">
+          <div class="tip">{{ packName }} 是 <vxe-link :href="`https://github.com/x-extends/${packName}/blob/main/LICENSE`">MIT</vxe-link> 开源的，无论是个人还是企业商用都是使用完全免费的。</div>
+        </vxe-tip>
       </template>
 
       <template #use>
@@ -77,6 +80,7 @@ import { computed } from 'vue'
 import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
+const packName = computed(() => appStore.packName)
 const utilCDNLib = computed(() => appStore.utilCDNLib)
 const uiCDNLib = computed(() => appStore.uiCDNLib)
 const tableCDNLib = computed(() => appStore.tableCDNLib)
