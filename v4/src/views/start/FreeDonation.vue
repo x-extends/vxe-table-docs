@@ -53,7 +53,7 @@
         <div style="text-align: center;">
           <h2 style="padding: 40px 0 20px 0;">如果该项目帮助了您，请作者喝杯咖啡吧</h2>
           <vxe-image :src="`${siteBaseUrl}/resource/donation/pay.jpg`"></vxe-image>
-          <div style="margin-top: 38px;font-size: 18px;">感谢您的支持，送一份 <vxe-link status="success" href="https://vxeui.com/demo/vxe-ui-renderer-vue3-vite" target="_blank">渲染器详细教程文档</vxe-link>（<vxe-link status="primary" href="https://api.vxeui.com/store/storeapi/pub/vxeui/sponsor/demo/download?name=vxe-ui-renderer-vue3-vite" target="_blank">点击下载 vxe-table v4.7+ 版本</vxe-link>） ，所有支持过的用户都可以下载查看。</div>
+          <div style="margin-top: 38px;font-size: 18px;">感谢您的支持，送一份 <vxe-link status="success" href="https://vxeui.com/demo/vxe-ui-renderer-vue3-vite" target="_blank">渲染器详细教程文档</vxe-link>（<vxe-link status="primary" href="https://api.vxeui.com/storeapi/api/pub/vxeui/sponsor/demo/download?name=vxe-ui-renderer-vue3-vite" target="_blank">点击下载 vxe-table v4.7+ 版本</vxe-link>） ，所有支持过的用户都可以下载查看。</div>
         </div>
       </vxe-tab-pane>
     </vxe-tabs>
