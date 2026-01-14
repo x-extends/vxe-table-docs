@@ -29,7 +29,7 @@ const docsVersion = computed(() => appStore.docsVersion)
 const cdnCode = ref('')
 
 const cdnUrl = computed(() => {
-  return `/resource/cdn/vxe-gantt-v${docsVersion.value}.html?v=${import.meta.env.VITE_APP_DATE_NOW}`
+  return `/resource/useCdn/vxe-gantt-v${docsVersion.value}.html?v=${import.meta.env.VITE_APP_DATE_NOW}`
 })
 
 fetch(cdnUrl.value).then(res => res.text()).then(html => {
