@@ -24,17 +24,22 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       height: 500,
+      size: 'mini',
       cellConfig: {
         // padding: false,
         height: 30
       },
+      editConfig: {
+        trigger: 'click',
+        mode: 'cell'
+      },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name' },
-        { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' },
-        { field: 'time', title: 'Time' },
-        { field: 'address', title: 'Address' }
+        { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
+        { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
+        { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
+        { field: 'time', title: 'Time', editRender: { name: 'VxeInput' } },
+        { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
       ],
       data: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },

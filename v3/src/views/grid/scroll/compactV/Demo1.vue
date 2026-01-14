@@ -33,9 +33,14 @@ export default Vue.extend({
       showHeaderOverflow: true,
       showFooterOverflow: true,
       height: 800,
+      size: 'mini',
       cellConfig: {
         // padding: false,
         height: 30
+      },
+      editConfig: {
+        trigger: 'click',
+        mode: 'cell'
       },
       virtualYConfig: {
         enabled: true,
@@ -43,18 +48,18 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', minWidth: 100 },
-        { field: 'nickname', title: 'Nickname', width: 200 },
-        { field: 'sex', title: 'Sex', width: 100 },
-        { field: 'age', title: 'Age', width: 100 },
-        { field: 'num', title: 'Num', width: 100 },
-        { field: 'time', title: 'Time', width: 100 },
-        { field: 'attr1', title: 'Attr1', width: 150 },
-        { field: 'attr2', title: 'Attr2', width: 200 },
-        { field: 'attr3', title: 'Attr3', width: 150 },
-        { field: 'attr4', title: 'Attr4', width: 100 },
-        { field: 'attr5', title: 'Attr5', width: 150 },
-        { field: 'address', title: 'Address', width: 200 }
+        { field: 'name', title: 'Name', minWidth: 100, editRender: { name: 'VxeInput' } },
+        { field: 'nickname', title: 'Nickname', width: 200, editRender: { name: 'VxeInput' } },
+        { field: 'sex', title: 'Sex', width: 100, editRender: { name: 'VxeInput' } },
+        { field: 'age', title: 'Age', width: 100, editRender: { name: 'VxeInput' } },
+        { field: 'num', title: 'Num', width: 100, editRender: { name: 'VxeInput' } },
+        { field: 'time', title: 'Time', width: 100, editRender: { name: 'VxeInput' } },
+        { field: 'attr1', title: 'Attr1', width: 150, editRender: { name: 'VxeInput' } },
+        { field: 'attr2', title: 'Attr2', width: 200, editRender: { name: 'VxeInput' } },
+        { field: 'attr3', title: 'Attr3', width: 150, editRender: { name: 'VxeInput' } },
+        { field: 'attr4', title: 'Attr4', width: 100, editRender: { name: 'VxeInput' } },
+        { field: 'attr5', title: 'Attr5', width: 150, editRender: { name: 'VxeInput' } },
+        { field: 'address', title: 'Address', width: 200, editRender: { name: 'VxeInput' } }
       ],
       data: []
     }
