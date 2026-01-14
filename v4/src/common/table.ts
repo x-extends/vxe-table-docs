@@ -1365,6 +1365,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollVertical' } },
             { title: '横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHorizontal' } },
+            { title: '紧凑模式', routerLink: { name: 'ComponentGridScrollCompactV' } },
             { title: '列头自适应换行', routerLink: { name: 'ComponentGridScrollColBreak' } },
             { title: '纵向和横向', routerLink: { name: 'ComponentGridScrollHV' }, keywords: 'loadData,reloadData,loadColumn,reloadColumn' },
             { title: '排序与筛选', routerLink: { name: 'ComponentGridScrollHFull' } },
@@ -1454,6 +1455,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '功能示例',
           children: [
+            { title: '紧凑模式', routerLink: { name: 'ComponentGridOtherCompactCell' } },
             { title: '单元格性能优化', routerLink: { name: 'ComponentGridOtherOptimization' } },
             { title: '操作列的显示隐藏', routerLink: { name: 'ComponentGridOtherVisibleColumn' } },
             { title: '在页签中使用', routerLink: { name: 'ComponentGridOtherTabs' } },

@@ -2392,6 +2392,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridScrollHorizontal',
           component: () => import('@/views/grid/scroll/horizontal/CodeExample.vue')
         },
+        { path: 'compactV', name: 'ComponentGridScrollCompactV', component: () => import('@/views/grid/scroll/compactV/CodeExample.vue') },
         {
           path: 'colBreak',
           name: 'ComponentGridScrollColBreak',
@@ -2714,6 +2715,7 @@ export const gridRouteConfig: RouteConfig = {
       path: 'other',
       component: RouteLayout,
       children: [
+        { path: 'compactCell', name: 'ComponentGridOtherCompactCell', component: () => import('@/views/grid/other/compactCell/CodeExample.vue') },
         { path: 'optimization', name: 'ComponentGridOtherOptimization', component: () => import('@/views/grid/other/optimization/CodeExample.vue') },
         {
           path: 'visibleColumn',
