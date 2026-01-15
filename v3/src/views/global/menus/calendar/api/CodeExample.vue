@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-tip status="primary" title="表格-右键菜单">将右键菜单的处理逻辑注册成全局可复用</vxe-tip>
+    <vxe-tip status="primary" title="日历-右键菜单">将右键菜单的处理逻辑注册成全局可复用</vxe-tip>
     <vxe-tip status="success">
       <div>调用方式： VxeUI.menus.add(code, options)</div>
     </vxe-tip>
@@ -34,11 +34,12 @@ export default Vue.extend({
         defVal: 'code: string, option: any',
         list: [
           {
-            name: 'tableMenuMethod',
-            desc: '表格 - 自定义菜单方法',
+            name: 'calendarMenuMethod',
+            desc: '日历 - 自定义菜单方法',
+            version: '3.12.1',
             type: '',
             enum: '',
-            defVal: '({ menu, type, row, rowIndex, column, columnIndex, $grid, $table, $event }) => void',
+            defVal: '({ menu, date, $calendar, $event }) => void',
             list: []
           }
         ]
