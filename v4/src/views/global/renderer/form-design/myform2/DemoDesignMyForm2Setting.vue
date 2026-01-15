@@ -8,6 +8,9 @@
     <vxe-form-item title="表单名称">
       <vxe-input v-model="formConfig.title"></vxe-input>
     </vxe-form-item>
+    <vxe-form-item title="启用工作流">
+      <vxe-switch v-model="formConfig.isFlow"></vxe-switch>
+    </vxe-form-item>
     <vxe-form-item title="是否启用桌面端">
       <vxe-switch v-model="formConfig.isPC"></vxe-switch>
     </vxe-form-item>
@@ -16,6 +19,9 @@
     </vxe-form-item>
     <vxe-form-item title="是否启用小程序">
       <vxe-switch v-model="formConfig.isApplet"></vxe-switch>
+    </vxe-form-item>
+    <vxe-form-item title="备注">
+      <vxe-textarea v-model="formConfig.remark"></vxe-textarea>
     </vxe-form-item>
   </vxe-form>
 </template>

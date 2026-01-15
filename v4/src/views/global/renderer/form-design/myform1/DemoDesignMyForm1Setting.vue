@@ -11,6 +11,12 @@
     <vxe-form-item title="是否显示操作日志">
       <vxe-switch v-model="formConfig.isLog"></vxe-switch>
     </vxe-form-item>
+    <vxe-form-item title="更多字段1">
+      <vxe-input v-model="formConfig.attr1"></vxe-input>
+    </vxe-form-item>
+    <vxe-form-item title="更多字段2">
+      <vxe-input v-model="formConfig.attr2"></vxe-input>
+    </vxe-form-item>
   </vxe-form>
 </template>
 
