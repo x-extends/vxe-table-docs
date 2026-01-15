@@ -15,11 +15,11 @@
     "core-js": "^3.8.3",
     "pinia": "^3.0.2",
     "tinycolor2": "^1.6.0",
-    "vue": "^3.5.16",
+    "vue": "^3.5.26",
     "vue-i18n": "^10.0.8",
     "vue-router": "^4.5.1",
     "vxe-design": "^4.0.2",
-    "vxe-pc-ui": "~4.12.1",
+    "vxe-pc-ui": "~4.12.2",
     "vxe-table": "~4.17.42"
   },
   "devDependencies": {
