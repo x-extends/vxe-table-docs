@@ -40,15 +40,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       slots: {
         filter ({ column }) {
           return column.filters.map((option, index) => {
-            return <VxeNumberInput
-              v-model={option.data}
-              key={index}
-              onChange={
-                () => {
-                  changeFilterEvent(option)
-                }
-              }>
-              </VxeNumberInput>
+            return <vxe-number-input v-model={option.data} key={index} onChange={() => { changeAgeFilterEvent(option) }}></vxe-number-input>
           })
         }
       }
@@ -62,7 +54,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const changeFilterEvent = (option: any) => {
+const changeAgeFilterEvent = (option: any) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.updateFilterOptionStatus(option, !!option.data)

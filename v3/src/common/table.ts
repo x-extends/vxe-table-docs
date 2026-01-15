@@ -930,6 +930,12 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
                 { title: '自定义插槽模板', routerLink: { name: 'ComponentGridFilterFloatingTemplate' } }
               ]
             },
+            {
+              title: '自定义插槽模板',
+              children: [
+                { title: '自定义筛选内容模板', routerLink: { name: 'ComponentGridFilterTemplateFilter' } }
+              ]
+            },
             { title: '输入筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_complex_input_table_complex_string_filter' }, query: { previewPath: '%2FfiltersComplexInput%2Fgrid%2Fcomplex%2FstringFilter' } } },
             { title: '组合筛选', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'filters_combination_table_combination_string_filter' }, query: { previewPath: '%2FfiltersCombination%2Fgrid%2Fcombination%2FstringFilter' } } }
           ]

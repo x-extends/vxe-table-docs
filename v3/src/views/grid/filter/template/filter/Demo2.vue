@@ -1,14 +1,10 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #age_filter="{ column }">
-        <vxe-number-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeAgeFilterEvent(option)"></vxe-number-input>
-      </template>
-    </vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="tsx">
 import Vue from 'vue'
 import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
@@ -26,26 +22,7 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      columns: [
-        { type: 'checkbox', width: 60 },
-        { field: 'name', title: 'Name' },
-        { field: 'sex', title: 'Sex' },
-        { field: 'num', title: 'Number' },
-        {
-          field: 'age',
-          title: 'Age',
-          filters: [
-            { data: '' }
-          ],
-          filterMethod ({ option, cellValue }) {
-            return `${option.data}` === `${cellValue}`
-          },
-          slots: {
-            filter: 'age_filter'
-          }
-        },
-        { field: 'address', title: 'Address' }
-      ],
+      columns: [],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
         { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
@@ -57,8 +34,34 @@ export default Vue.extend({
       gridOptions
     }
   },
+  created () {
+    this.gridOptions.columns = [
+      { type: 'checkbox', width: 60 },
+      {
+        field: 'name',
+        title: 'Name',
+        filters: [
+          { data: '' }
+        ],
+        filterMethod ({ option, cellValue }) {
+          return option.data === cellValue
+        },
+        slots: {
+          filter: ({ column }) => {
+            return column.filters.map((option, index) => {
+              return <vxe-input v-model={option.data} key={index} onChange={() => this.changeNameFilterEvent(option)}></vxe-input>
+            })
+          }
+        }
+      },
+      { field: 'sex', title: 'Sex' },
+      { field: 'num', title: 'Number' },
+      { field: 'age', title: 'Age' },
+      { field: 'address', title: 'Address' }
+    ]
+  },
   methods: {
-    changeAgeFilterEvent  (option: any) {
+    changeNameFilterEvent (option: any) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         $grid.updateFilterOptionStatus(option, !!option.data)

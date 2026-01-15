@@ -328,6 +328,12 @@ export const gridRouteConfig: RouteRecordRaw = {
             { path: 'group', name: 'ComponentGridFilterFloatingGroup', component: () => import('@/views/grid/filter/floating/group/CodeExample.vue') },
             { path: 'template', name: 'ComponentGridFilterFloatingTemplate', component: () => import('@/views/grid/filter/floating/template/CodeExample.vue') }
           ]
+        },
+        {
+          path: 'template',
+          children: [
+            { path: 'filter', name: 'ComponentGridFilterTemplateFilter', component: () => import('@/views/grid/filter/template/filter/CodeExample.vue') }
+          ]
         }
       ]
     },

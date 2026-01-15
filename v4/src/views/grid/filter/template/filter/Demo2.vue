@@ -1,14 +1,10 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #age_filter="{ column }">
-        <vxe-number-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeAgeFilterEvent(option)"></vxe-number-input>
-      </template>
-    </vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="tsx" setup>
 import { ref, reactive } from 'vue'
 import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
@@ -22,28 +18,32 @@ interface RowVO {
   address: string,
 }
 
-const gridRef = ref<VxeGridInstance>()
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columns: [
     { type: 'checkbox', width: 60 },
-    { field: 'name', title: 'Name' },
-    { field: 'sex', title: 'Sex' },
-    { field: 'num', title: 'Number' },
     {
-      field: 'age',
-      title: 'Age',
+      field: 'name',
+      title: 'Name',
       filters: [
         { data: '' }
       ],
       filterMethod ({ option, cellValue }) {
-        return `${option.data}` === `${cellValue}`
+        return option.data === cellValue
       },
       slots: {
-        filter: 'age_filter'
+        filter ({ column }) {
+          return column.filters.map((option, index) => {
+            return <vxe-input v-model={option.data} key={index} onChange={() => changeNameFilterEvent(option)}></vxe-input>
+          })
+        }
       }
     },
+    { field: 'sex', title: 'Sex' },
+    { field: 'num', title: 'Number' },
+    { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }
   ],
   data: [
@@ -53,7 +53,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const changeAgeFilterEvent = (option: any) => {
+const changeNameFilterEvent = (option: any) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.updateFilterOptionStatus(option, !!option.data)
