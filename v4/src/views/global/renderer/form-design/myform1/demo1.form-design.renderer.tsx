@@ -1,5 +1,5 @@
 import { VxeUI } from 'vxe-pc-ui'
-import { DemoDesignMyForm1Data } from './data'
+import { DemoDesignMyForm1Data } from './demo1.form-design.data'
 import DemoDesignMyFormSetting from './DemoDesignMyFormSetting.vue'
 
 // 创建表单设计器控件 - 自定义表单
