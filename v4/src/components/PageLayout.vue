@@ -36,6 +36,7 @@ const route = useRoute()
 const showLeft = ref(true)
 
 const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
+  position: 'fixed',
   circle: true
 })
 

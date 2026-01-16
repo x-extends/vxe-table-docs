@@ -45,6 +45,7 @@ export default Vue.extend({
   },
   data () {
     const backtopConfig: VxeLayoutBodyPropTypes.BacktopConfig = {
+      position: 'fixed',
       circle: true
     }
 
