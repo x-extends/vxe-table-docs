@@ -282,7 +282,7 @@ export default Vue.extend({
       })
       this.udTime = setTimeout(() => {
         this.startUpdateData()
-      }, 1500)
+      }, 1000)
     }
   },
   created () {

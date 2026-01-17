@@ -276,7 +276,7 @@ const startUpdateData = () => {
   })
   udTime = setTimeout(() => {
     startUpdateData()
-  }, 1500)
+  }, 1000)
 }
 
 onUnmounted(() => {
