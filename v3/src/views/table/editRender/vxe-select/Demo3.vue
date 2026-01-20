@@ -7,8 +7,7 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200" :edit-render="{ name: 'VxeInput' }"></vxe-column>
-      <vxe-column field="sex" title="下拉框单选" width="200" :edit-render="sexEditRender"></vxe-column>
-      <vxe-column field="sexList" title="下拉多选" width="200" :edit-render="sexListEditRender"></vxe-column>
+      <vxe-column field="role" title="大数据量选项" min-width="200" :edit-render="roleEditRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -36,41 +35,31 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
     ]
 
-    const sexEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps> = {
-      name: 'VxeSelect',
-      options: [
-        { label: '女', value: 'Women' },
-        { label: '男', value: 'Man' }
-      ]
-    }
-
-    const sexListEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps> = {
+    const roleEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps> = {
       name: 'VxeSelect',
       props: {
-        multiple: true,
         filterable: true
       },
-      options: [],
-      optionProps: {
-        label: 'name',
-        value: 'code'
-      }
+      options: []
     }
 
     return {
       tableData,
-      sexEditRender,
-      sexListEditRender
+      roleEditRender
     }
   },
   created () {
     // 模拟后端接口
     setTimeout(() => {
-      this.sexListEditRender.options = [
-        { name: '女', code: 'Women' },
-        { name: '男', code: 'Man' }
-      ]
-    }, 300)
+      const list: any[] = []
+      for (let i = 0; i < 10000; i++) {
+        list.push({
+          value: `role${i}`,
+          label: `角色${i}`
+        })
+      }
+      this.roleEditRender.options = list
+    }, 100)
   }
 })
 </script>

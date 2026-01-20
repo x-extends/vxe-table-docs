@@ -39,7 +39,6 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'VxeInput' } },
-        { field: 'sex', title: 'Sex', width: 200, editRender: { name: 'VxeInput' } },
         { field: 'type', title: 'Type', width: 200, editRender: { name: 'VxeInput' } },
         { field: 'role', title: '大数据量选项', width: 200, editRender: roleEditRender }
       ],
