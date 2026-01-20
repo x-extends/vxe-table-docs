@@ -31,13 +31,15 @@ export default Vue.extend({
   computed: {
     ...mapState([
       'packName',
-      'docsVersion'
+      'docsVersion',
+      'resBaseUrl'
     ]) as {
       packName(): string
       docsVersion(): string
+      resBaseUrl(): string
     },
     cdnUrl (): string {
-      return `/resource/useCdn/${this.packName}-v${this.docsVersion}.html?v=${process.env.VUE_APP_DATE_NOW}`
+      return `${this.resBaseUrl}/resource/useCdn/${this.packName}-v${this.docsVersion}.html?v=${process.env.VUE_APP_DATE_NOW}`
     }
   },
   created () {

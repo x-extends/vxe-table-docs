@@ -25,11 +25,12 @@ import { useAppStore } from '@/store/app'
 const appStore = useAppStore()
 const packName = computed(() => appStore.packName)
 const docsVersion = computed(() => appStore.docsVersion)
+const resBaseUrl = computed(() => appStore.resBaseUrl)
 
 const cdnCode = ref('')
 
 const cdnUrl = computed(() => {
-  return `/resource/useCdn/vxe-table-v${docsVersion.value}.html?v=${import.meta.env.VITE_APP_DATE_NOW}`
+  return `${resBaseUrl.value}/resource/useCdn/vxe-table-v${docsVersion.value}.html?v=${import.meta.env.VITE_APP_DATE_NOW}`
 })
 
 fetch(cdnUrl.value).then(res => res.text()).then(html => {
