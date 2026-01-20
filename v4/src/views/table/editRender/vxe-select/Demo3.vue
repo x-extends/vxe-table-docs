@@ -7,8 +7,7 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200" :edit-render="{ name: 'VxeInput' }"></vxe-column>
-      <vxe-column field="sex" title="下拉框单选" width="200" :edit-render="sexEditRender"></vxe-column>
-      <vxe-column field="sexList" title="下拉多选" width="200" :edit-render="sexListEditRender"></vxe-column>
+      <vxe-column field="role" title="大数据量选项" min-width="200" :edit-render="roleEditRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -28,25 +27,12 @@ interface RowVO {
   typeList: string[]
 }
 
-const sexEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
-  name: 'VxeSelect',
-  options: [
-    { label: '女', value: 'Women' },
-    { label: '男', value: 'Man' }
-  ]
-})
-
-const sexListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
+const roleEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectProps>>({
   name: 'VxeSelect',
   props: {
-    multiple: true,
     filterable: true
   },
-  options: [],
-  optionProps: {
-    label: 'name',
-    value: 'code'
-  }
+  options: []
 })
 
 const tableData = ref<RowVO[]>([
@@ -57,9 +43,13 @@ const tableData = ref<RowVO[]>([
 
 // 模拟后端接口
 setTimeout(() => {
-  sexListEditRender.options = [
-    { name: '女', code: 'Women' },
-    { name: '男', code: 'Man' }
-  ]
-}, 300)
+  const list: any[] = []
+  for (let i = 0; i < 10000; i++) {
+    list.push({
+      value: `role${i}`,
+      label: `角色${i}`
+    })
+  }
+  roleEditRender.options = list
+}, 100)
 </script>

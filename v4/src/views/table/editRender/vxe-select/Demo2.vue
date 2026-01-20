@@ -1,12 +1,21 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-table
+      border
+      show-overflow
+      :edit-config="{mode: 'row', trigger: 'click'}"
+      :data="tableData">
+      <vxe-column type="seq" width="60"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="200" :edit-render="{ name: 'VxeInput' }"></vxe-column>
+      <vxe-column field="type" title="下拉分组单选" width="200" :edit-render="typeEditRender"> </vxe-column>
+      <vxe-column field="typeList" title="下拉分组多选" width="200" :edit-render="typeListEditRender"></vxe-column>
+    </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
-import type { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import { ref, reactive } from 'vue'
+import type { VxeColumnPropTypes } from 'vxe-table'
 import type { VxeSelectProps } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -66,23 +75,9 @@ const typeListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSele
   ]
 })
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
-  border: true,
-  showOverflow: true,
-  editConfig: {
-    trigger: 'click',
-    mode: 'row'
-  },
-  columns: [
-    { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'VxeInput' } },
-    { field: 'type', title: '下拉分组单选', width: 200, editRender: typeEditRender },
-    { field: 'typeList', title: '下拉分组多选', width: 200, editRender: typeListEditRender }
-  ],
-  data: [
-    { id: 10001, name: 'Test1', role: 'role2', sex: '', sexList: [], type: '', typeList: [] },
-    { id: 10002, name: 'Test2', role: 'role10', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
-    { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
-  ]
-})
+const tableData = ref<RowVO[]>([
+  { id: 10001, name: 'Test1', role: 'role2', sex: '', sexList: [], type: '', typeList: [] },
+  { id: 10002, name: 'Test2', role: 'role10', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
+  { id: 10003, name: 'Test3', role: 'role200', sex: 'Man', sexList: [], type: '', typeList: [] }
+])
 </script>
