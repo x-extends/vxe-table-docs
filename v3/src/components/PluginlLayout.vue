@@ -48,7 +48,9 @@ export default Vue.extend({
     navConfigList: Array as PropType<NavVO[]>
   },
   provide () {
-    return (this as any).pluginType || ''
+    return {
+      pluginType: (this as any).pluginType || ''
+    }
   },
   data () {
     const showLeft = true
