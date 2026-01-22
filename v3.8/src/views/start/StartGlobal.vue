@@ -2,6 +2,7 @@
   <div>
     <h2>{{ $t('app.aside.nav.global') }}</h2>
     <p class="tip">旧版本使用 setup({})、config({})，新版本统一setConfig({})</p>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@3.8.4 vxe-table@3.8.28 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <pre-code class="javascript">{{ demoCodes[0] }}</pre-code>
     </pre>

@@ -12,6 +12,7 @@
       推荐使用 npm 的方式安装，它能更好地和 <a class="link" href="https://webpack.js.org/">webpack</a>、<a class="link" href="https://vitejs.dev/">vite</a> 等 打包工具配合使用。<br>
       依赖库： <a class="link" href="https://vxetable.cn/xe-utils" target="_blank">xe-utils</a>&nbsp;&nbsp;<a class="link" href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D">vue 2.6+</a><br>
     </p>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@3.8.4 vxe-table@3.8.28 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <pre-code class="shell">
         npm install vxe-table@3.8.28
@@ -36,7 +37,7 @@
         &lt;!-- 引入vue --&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"&gt;&lt;/script&gt;
         &lt;!-- 引入组件 --&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils@3.8.4"&gt;&lt;/script&gt;
         &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@3.8.28"&gt;&lt;/script&gt;
       </pre-code>
     </pre>

@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.quick') }}</h2>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@3.8.4 vxe-table@4.6.25 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <p class="tip">基本写法（js）：</p>
 
     <p class="demo-code">{{ $t('app.body.button.showCode') }}</p>

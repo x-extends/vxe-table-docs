@@ -2,6 +2,7 @@
   <div>
     <h2>{{ $t('app.aside.nav.theme') }}</h2>
     <p class="tip">支持默认主题和暗黑主题</p>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@3.8.4 vxe-table@4.6.25 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <pre-code class="javascript">
         import { VXETable } from 'vxe-table'

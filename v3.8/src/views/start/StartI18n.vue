@@ -2,6 +2,7 @@
   <div>
     <h2>{{ $t('app.aside.nav.i18n') }}</h2>
     <p class="tip">{{ $t('app.body.demo.start.i18n.i18nTitle') }}</p>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@3.8.4 vxe-table@3.8.28 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <pre-code class="shell">
         npm install vue-i18n

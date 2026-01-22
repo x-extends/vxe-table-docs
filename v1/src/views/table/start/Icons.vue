@@ -2,6 +2,7 @@
   <div>
     <h2>{{ $t('app.aside.nav.icons') }}</h2>
     <p class="tip">如果项目已有适合的图标，例如第三方图标库：font-awesome、inconfont，可通过配置替换并自行调整相关的样式即可</p>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@2.7.14 vxe-table@1.15.31 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <code class="javascript">
         import VXETable from 'vxe-table'

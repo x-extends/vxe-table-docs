@@ -5,6 +5,7 @@
       全局 z-index 默认起始是 999，如果项目的的 z-index 样式值过大时就需要跟随设置更大，避免被遮挡。可以通过以下全局设置，也可以去<router-link class="link" :to="{name: 'StartGlobal'}">全局参数</router-link>设置<br>
       使用 <a class="link" href="https://www.npmjs.com/package/dom-zindex" target="_blank">dom-zindex</a> 来设置，更加方便快捷
     </p>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@3.8.4 vxe-table@4.6.25 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <pre-code class="typescript">{{ demoCodes[0] }}</pre-code>
     </pre>

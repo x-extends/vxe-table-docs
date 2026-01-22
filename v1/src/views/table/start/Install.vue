@@ -3,8 +3,9 @@
     <h2>{{ $t('app.aside.nav.install') }}</h2>
     <p class="tip">
       推荐使用 npm 的方式安装，它能更好地和 <a class="link" href="https://webpack.js.org/">webpack</a> 打包工具配合使用。<br>
-      依赖库： <a class="link" href="https://www.npmjs.com/package/xe-utils">xe-utils@2.7.14</a>&nbsp;&nbsp;<a class="link" href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D" style="font-size: 20px;font-weight: 700;">vue@2.6.14</a><br>
+      依赖库： <a class="link red" href="https://www.npmjs.com/package/xe-utils">xe-utils@2.7.14</a>&nbsp;&nbsp;<a class="link red" href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D" style="font-size: 20px;font-weight: 700;">vue@2.6.14</a><br>
     </p>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@2.7.14 vxe-table@1.15.31 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <code class="shell">
         npm install xe-utils@2.7.14 vxe-table@1.15.31

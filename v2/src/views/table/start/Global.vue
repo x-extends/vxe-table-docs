@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>{{ $t('app.aside.nav.global') }}</h2>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@3.5.31 vxe-table@2.11.0 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <code class="javascript">
         import VXETable from 'vxe-table'

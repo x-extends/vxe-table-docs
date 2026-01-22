@@ -9,6 +9,7 @@
     <p class="tip">
       如果您使用了 webpack，借助插件 <a class="link" href="https://www.npmjs.com/package/babel-plugin-import" target="_blank">babel-plugin-import@1.13.6</a> 可以实现按需加载模块，减少文件体积。
     </p>
+    <div class="red">由于已经停止维护，如果需要继续使用请锁定版本（xe-utils@3.8.4 vxe-table@3.8.28 vue@2.6.14）！避免依赖自动更新带来影响！</div>
     <pre>
       <pre-code class="shell">
         npm install babel-plugin-import@1.13.6 -D
