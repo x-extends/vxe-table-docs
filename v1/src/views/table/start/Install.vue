@@ -3,7 +3,7 @@
     <h2>{{ $t('app.aside.nav.install') }}</h2>
     <p class="tip">
       推荐使用 npm 的方式安装，它能更好地和 <a class="link" href="https://webpack.js.org/">webpack</a> 打包工具配合使用。<br>
-      依赖库： <a class="link" href="https://www.npmjs.com/package/xe-utils">xe-utils2.7+</a>&nbsp;&nbsp;<a class="link" href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D" style="font-size: 20px;font-weight: 700;">vue2.6+</a><br>
+      依赖库： <a class="link" href="https://www.npmjs.com/package/xe-utils">xe-utils@2.7.14</a>&nbsp;&nbsp;<a class="link" href="https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D" style="font-size: 20px;font-weight: 700;">vue@2.6.14</a><br>
     </p>
     <pre>
       <code class="shell">
@@ -16,12 +16,6 @@
         import 'vxe-table/lib/style.css'
 
         Vue.use(VXETable)
-
-        // 给 vue 实例挂载全局窗口对象，例如：
-        // Vue.prototype.$XModal = VXETable.modal
-
-        // 给 vue 实例挂载全局打印对象，例如：
-        // Vue.prototype.$XPrint = VXETable.print
       </code>
     </pre>
     <h2>CDN</h2>
@@ -32,12 +26,12 @@
     <pre>
       <code class="xml">
         &lt;!-- 引入样式 --&gt;
-        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@1/lib/style.css"&gt;
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vxe-table@1.15.31/lib/style.css"&gt;
         &lt;!-- 引入vue --&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/vue@2"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"&gt;&lt;/script&gt;
         &lt;!-- 引入脚本 --&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils"&gt;&lt;/script&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@1"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/xe-utils@2.7.14"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/vxe-table@1.15.31"&gt;&lt;/script&gt;
       </code>
     </pre>
   </div>
