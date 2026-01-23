@@ -33,7 +33,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     isDel: true,
     isBack: true,
     isEsc: true,
-    isLastEnterAppendRow: true
+    isLastTabAppendRow: true
   },
   editConfig: {
     trigger: 'dblclick',

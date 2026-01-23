@@ -35,7 +35,7 @@ export default Vue.extend({
         isDel: true,
         isBack: true,
         isEsc: true,
-        isLastEnterAppendRow: true
+        isLastTabAppendRow: true
       },
       editConfig: {
         trigger: 'dblclick',

@@ -10,5 +10,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/edit/handleTemp/update/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          除了默认字段字段监听之外，还可以通过 <ApiLink name="grid" prop="edit-dirty-config"/>.<ApiLink name="grid" prop="includeFields"/> 或 <ApiLink name="grid" prop="edit-dirty-config"/>.<ApiLink name="grid" prop="excludeFields"/> 指定或排除哪些字段需要监听数据变化的，对于很多场景并不需要监听所有编辑字段的变化时非常用用
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

@@ -1725,11 +1725,8 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/keyboard/currRowCol/CodeExample.vue')
         },
         { path: 'selection', name: 'ComponentGridKeyboardSelection', component: () => import('@/views/grid/keyboard/selection/CodeExample.vue') },
-        {
-          path: 'enterAppend',
-          name: 'ComponentGridKeyboardEnterAppend',
-          component: () => import('@/views/grid/keyboard/enterAppend/CodeExample.vue')
-        },
+        { path: 'tabAppend', name: 'ComponentGridKeyTabAppend', component: () => import('@/views/grid/keyboard/tabAppend/CodeExample.vue') },
+        { path: 'enterAppend', name: 'ComponentGridKeyboardEnterAppend', component: () => import('@/views/grid/keyboard/enterAppend/CodeExample.vue') },
         {
           path: 'edit',
           name: 'ComponentGridKeyboardEdit',
