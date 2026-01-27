@@ -35,9 +35,13 @@ export default Vue.extend({
       ]
     }
 
+    const roleFilterRender: VxeColumnPropTypes.FilterRender = {
+      name: 'VxeInput'
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
-      height: 400,
+      height: 600,
       filterConfig,
       floatingFilterConfig: {
         enabled: true
@@ -51,10 +55,16 @@ export default Vue.extend({
           ]
         },
         {
-          title: '分组2',
+          title: '分组3',
           children: [
-            { field: 'age', title: 'Age', filterRender: { name: 'VxeNumberInput', props: { clearable: true } } },
-            { field: 'date', title: 'Date', filterRender: { name: 'VxeDatePicker', props: { clearable: true } } }
+            { field: 'role', title: 'Role', filterRender: roleFilterRender },
+            {
+              title: '分组2',
+              children: [
+                { field: 'age', title: 'Age', filterRender: { name: 'VxeNumberInput', props: { clearable: true } } },
+                { field: 'date', title: 'Date', filterRender: { name: 'VxeDatePicker', props: { clearable: true } } }
+              ]
+            }
           ]
         }
       ],
@@ -75,7 +85,8 @@ export default Vue.extend({
     return {
       gridOptions,
       filterConfig,
-      sexFilterRender
+      sexFilterRender,
+      roleFilterRender
     }
   }
 })

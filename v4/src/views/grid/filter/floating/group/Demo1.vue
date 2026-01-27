@@ -30,13 +30,17 @@ const sexFilterRender = reactive<VxeColumnPropTypes.FilterRender>({
   ]
 })
 
+const roleFilterRender = reactive({
+  name: 'VxeInput'
+})
+
 const filterConfig = reactive<VxeTablePropTypes.FilterConfig<RowVO>>({
   showIcon: true
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  height: 400,
+  height: 600,
   filterConfig,
   floatingFilterConfig: {
     enabled: true
@@ -50,10 +54,16 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       ]
     },
     {
-      title: '分组2',
+      title: '分组3',
       children: [
-        { field: 'age', title: 'Age', filterRender: { name: 'VxeNumberInput', props: { clearable: true } } },
-        { field: 'date', title: 'Date', filterRender: { name: 'VxeDatePicker', props: { clearable: true } } }
+        { field: 'role', title: 'Role', filterRender: roleFilterRender },
+        {
+          title: '分组2',
+          children: [
+            { field: 'age', title: 'Age', filterRender: { name: 'VxeNumberInput', props: { clearable: true } } },
+            { field: 'date', title: 'Date', filterRender: { name: 'VxeDatePicker', props: { clearable: true } } }
+          ]
+        }
       ]
     }
   ],
