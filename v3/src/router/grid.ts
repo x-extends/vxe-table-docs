@@ -1503,6 +1503,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridValidateArray',
           component: () => import('@/views/grid/validate/array/CodeExample.vue')
         },
+        { path: 'field', name: 'ComponentGridValidateField', component: () => import('@/views/grid/validate/field/CodeExample.vue') },
         {
           path: 'custom',
           name: 'ComponentGridValidateCustom',

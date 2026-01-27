@@ -1233,6 +1233,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '数值校验规则', routerLink: { name: 'ComponentGridValidateNumber' } },
             { title: '正则校验规则', routerLink: { name: 'ComponentGridValidateRegexp' } },
             { title: '数组校验规则', routerLink: { name: 'ComponentGridValidateArray' } },
+            { title: '多关联字段校验规则', routerLink: { name: 'ComponentGridValidateField' } },
             { title: '自定义校验规则', routerLink: { name: 'ComponentGridValidateCustom' } },
             { title: '校验模式', routerLink: { name: 'ComponentGridValidateMode' } },
             { title: '校验指定单元格', routerLink: { name: 'ComponentGridValidateValidateField' } },
