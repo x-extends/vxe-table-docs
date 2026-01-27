@@ -22,7 +22,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showFooter: true,
-      showFooterOverflow: false,
+      showFooterOverflow: true,
       footerCellConfig: {
         height: 80
       },
