@@ -1463,6 +1463,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '功能示例',
           children: [
+            { title: '自定义序号字段', routerLink: { name: 'ComponentGridOtherSeqField' } },
             { title: '紧凑型单元格', routerLink: { name: 'ComponentGridOtherCompactCell' } },
             { title: '单元格性能优化', routerLink: { name: 'ComponentGridOtherOptimization' } },
             { title: '操作列的显示隐藏', routerLink: { name: 'ComponentGridOtherVisibleColumn' } },

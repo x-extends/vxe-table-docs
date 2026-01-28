@@ -2719,6 +2719,7 @@ export const gridRouteConfig: RouteConfig = {
       path: 'other',
       component: RouteLayout,
       children: [
+        { path: 'seqField', name: 'ComponentGridOtherSeqField', component: () => import('@/views/grid/other/seqField/CodeExample.vue') },
         { path: 'compactCell', name: 'ComponentGridOtherCompactCell', component: () => import('@/views/grid/other/compactCell/CodeExample.vue') },
         { path: 'optimization', name: 'ComponentGridOtherOptimization', component: () => import('@/views/grid/other/optimization/CodeExample.vue') },
         {
