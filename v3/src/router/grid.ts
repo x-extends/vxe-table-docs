@@ -267,6 +267,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridSortRemote',
           component: () => import('@/views/grid/sort/remote/CodeExample.vue')
         },
+        { path: 'sortMethod', name: 'ComponentGridSortSortMethod', component: () => import('@/views/grid/sort/sortMethod/CodeExample.vue') },
         {
           path: 'setSort',
           name: 'ComponentGridSortSetSort',

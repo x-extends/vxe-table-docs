@@ -732,6 +732,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '多字段排序', routerLink: { name: 'ComponentGridSortMultiple' } },
             { title: '树结构排序', routerLink: { name: 'ComponentGridSortTree' } },
             { title: '服务端排序', routerLink: { name: 'ComponentGridSortRemote' } },
+            { title: '自定义排序', routerLink: { name: 'ComponentGridSortSortMethod' } },
             { title: '手动排序', routerLink: { name: 'ComponentGridSortSetSort' } },
             { title: '排序图标', routerLink: { name: 'ComponentGridSortIconVisibleMethod' } }
           ]

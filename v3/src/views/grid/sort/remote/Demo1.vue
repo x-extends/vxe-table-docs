@@ -83,5 +83,4 @@ export default Vue.extend({
     this.findList()
   }
 })
-
 </script>

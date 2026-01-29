@@ -7,9 +7,9 @@
       :sort-config="sortConfig">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="role" title="Role"></vxe-column>
-      <vxe-column field="num1" title="字符串" sortable></vxe-column>
-      <vxe-column field="num2" title="转数值排序" sortable></vxe-column>
+      <vxe-column field="role" title="Role" sortable></vxe-column>
+      <vxe-column field="num" title="Num" sortable></vxe-column>
+      <vxe-column field="num2" title="Num2" sortable></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -53,28 +53,22 @@ export default Vue.extend({
     const sortConfig: VxeTablePropTypes.SortConfig<RowVO> = {
       sortMethod ({ data, sortList }) {
         const sortItem = sortList[0]
-        // 取出第一个排序的列
+        // 取出排序的列规则
         const { field, order } = sortItem
-        let list: RowVO[] = []
-        if (order === 'asc' || order === 'desc') {
-          if (field === 'num2') {
-            list = data.sort((a, b) => {
-              const aVal = Number(a[field])
-              const bVal = Number(b[field])
-              return aVal === bVal ? 0 : (aVal > bVal ? 1 : -1)
-            })
-          } else {
-            list = data.sort((a, b) => {
-              const aVal = a[field]
-              const bVal = b[field]
-              return aVal === bVal ? 0 : (aVal > bVal ? 1 : -1)
-            })
-          }
+        if (order === 'asc') {
+          // 升序
+          return data.sort((a, b) => {
+            const aVal = a[field]
+            const bVal = b[field]
+            return aVal === bVal ? 0 : (aVal > bVal ? 1 : -1)
+          })
         }
-        if (order === 'desc') {
-          list.reverse()
-        }
-        return list
+        // 倒序
+        return data.sort((a, b) => {
+          const aVal = a[field]
+          const bVal = b[field]
+          return aVal === bVal ? 0 : (aVal > bVal ? -1 : 0)
+        })
       }
     }
 
