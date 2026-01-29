@@ -25,7 +25,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       // 取出排序的列规则
       const { field, order } = sortItem
       if (order === 'asc') {
-      // 升序
+        // 升序
         return data.sort((a, b) => {
           const aVal = a[field]
           const bVal = b[field]

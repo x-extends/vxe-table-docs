@@ -9,6 +9,7 @@
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-column field="address" title="Address"></vxe-column>
     </vxe-table>
   </div>
 </template>

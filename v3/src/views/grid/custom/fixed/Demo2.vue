@@ -38,7 +38,8 @@ export default Vue.extend({
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
         { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' }
+        { field: 'age', title: 'Age' },
+        { field: 'address', title: 'Address' }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
