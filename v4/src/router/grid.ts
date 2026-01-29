@@ -974,6 +974,7 @@ export const gridRouteConfig: RouteRecordRaw = {
         { path: 'expand', name: 'ComponentGridRowGroupExpand', component: () => import('@/views/grid/rowGroup/expand/CodeExample.vue') },
         { path: 'total', name: 'ComponentGridRowGroupTotal', component: () => import('@/views/grid/rowGroup/total/CodeExample.vue') },
         { path: 'count', name: 'ComponentGridRowGroupCount', component: () => import('@/views/grid/rowGroup/count/CodeExample.vue') },
+        { path: 'footer', name: 'ComponentGridRowGroupFooter', component: () => import('@/views/grid/rowGroup/footer/CodeExample.vue') },
         { path: 'contentMethod', name: 'ComponentGridRowGroupContentMethod', component: () => import('@/views/grid/rowGroup/contentMethod/CodeExample.vue') },
         { path: 'spanMethod', name: 'ComponentGridRowGroupSpanMethod', component: () => import('@/views/grid/rowGroup/spanMethod/CodeExample.vue') },
         { path: 'expandGroupFields', name: 'ComponentGridRowGroupExpandGroupFields', component: () => import('@/views/grid/rowGroup/expandGroupFields/CodeExample.vue') },

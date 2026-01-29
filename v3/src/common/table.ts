@@ -880,6 +880,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '同时使用展开行', routerLink: { name: 'ComponentGridRowGroupExpand' } },
             { title: '显示分组统计', routerLink: { name: 'ComponentGridRowGroupTotal' } },
             { title: '显示多列合计', routerLink: { name: 'ComponentGridRowGroupCount' } },
+            { title: '表尾合计', routerLink: { name: 'ComponentGridRowGroupFooter' } },
             { title: '自定义分组内容', routerLink: { name: 'ComponentGridRowGroupContentMethod' } },
             { title: '自定义合并', routerLink: { name: 'ComponentGridRowGroupSpanMethod' } },
             { title: '默认展开', routerLink: { name: 'ComponentGridRowGroupExpandGroupFields' } },
