@@ -20,7 +20,7 @@
     "vue-router": "^4.5.1",
     "vxe-design": "^4.0.2",
     "vxe-pc-ui": "~4.12.23",
-    "vxe-table": "~4.17.46"
+    "vxe-table": "~4.17.47"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",
