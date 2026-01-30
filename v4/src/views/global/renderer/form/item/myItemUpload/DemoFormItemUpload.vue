@@ -40,7 +40,7 @@ const currField = computed(() => {
 const uploadMethod: VxeUploadPropTypes.UploadMethod = ({ file, updateProgress }) => {
   const formData = new FormData()
   formData.append('file', file)
-  return axios.post('/api/pub/upload/single', formData, {
+  return axios.post('/publicapi/api/pub/upload/single', formData, {
     onUploadProgress (progressEvent) {
       const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
       // 更新进度

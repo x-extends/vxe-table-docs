@@ -105,7 +105,7 @@ const avatarUrlCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUpl
     uploadMethod ({ file, updateProgress }) {
       const formData = new FormData()
       formData.append('file', file)
-      return axios.post('/api/pub/upload/single', formData, {
+      return axios.post('/publicapi/api/pub/upload/single', formData, {
         // 显示进度
         onUploadProgress (progressEvent) {
           const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
@@ -141,7 +141,7 @@ const imgListCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUploa
     uploadMethod ({ file, updateProgress }) {
       const formData = new FormData()
       formData.append('file', file)
-      return axios.post('/api/pub/upload/single', formData, {
+      return axios.post('/publicapi/api/pub/upload/single', formData, {
         // 显示进度
         onUploadProgress (progressEvent) {
           const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
@@ -173,7 +173,7 @@ const fileListCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
     uploadMethod ({ file, updateProgress }) {
       const formData = new FormData()
       formData.append('file', file)
-      return axios.post('/api/pub/upload/single', formData, {
+      return axios.post('/publicapi/api/pub/upload/single', formData, {
         // 显示进度
         onUploadProgress (progressEvent) {
           const percentCompleted = Math.round((progressEvent.loaded * 100) / (progressEvent.total || 0))
