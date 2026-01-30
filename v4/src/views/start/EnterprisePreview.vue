@@ -26,7 +26,7 @@ const previewCode = computed(() => {
 
 const previewUrl = computed(() => {
   if (previewCode.value) {
-    return `${resBaseUrl.value}/resource/docsImg/${previewCode.value}.gif?v=${import.meta.env.VITE_APP_DATE_NOW}`
+    return `${resBaseUrl.value}/resource/pluginImg/${previewCode.value}.gif?v=${import.meta.env.VITE_APP_DATE_NOW}`
   }
   return ''
 })

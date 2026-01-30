@@ -29,7 +29,7 @@ export default Vue.extend({
     },
     previewUrl () {
       if (this.previewCode) {
-        return `${(this as any).resBaseUrl}/resource/docsImg/${(this as any).previewCode}.gif?v=${process.env.VUE_APP_DATE_NOW}`
+        return `${(this as any).resBaseUrl}/resource/pluginImg/${(this as any).previewCode}.gif?v=${process.env.VUE_APP_DATE_NOW}`
       }
       return ''
     }
