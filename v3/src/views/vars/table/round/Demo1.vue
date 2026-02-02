@@ -58,7 +58,7 @@ export default Vue.extend({
       ]
     }
 
-    const borderColor = ''
+    const borderColor = '#0000ff'
     const borderRadius = '8px'
 
     return {

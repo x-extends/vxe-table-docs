@@ -1,27 +1,15 @@
 <template>
   <div>
-    <vxe-radio-group v-model="headerBgColor">
+    <vxe-radio-group v-model="stripedBgColor">
       <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
       <vxe-radio-button checked-value="#f3cccc" content="红色"></vxe-radio-button>
       <vxe-radio-button checked-value="#cbcbef" content="蓝色"></vxe-radio-button>
-    </vxe-radio-group>
-    <vxe-radio-group v-model="bodyBgColor">
-      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
-      <vxe-radio-button checked-value="#fbe8d7" content="橙色"></vxe-radio-button>
-      <vxe-radio-button checked-value="#fbd7f8" content="紫色"></vxe-radio-button>
-    </vxe-radio-group>
-    <vxe-radio-group v-model="footerBgColor">
-      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
-      <vxe-radio-button checked-value="#5cf18e" content="绿色"></vxe-radio-button>
-      <vxe-radio-button checked-value="#daf15c" content="黄色"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid
       v-bind="gridOptions"
       :style="{
-        '--vxe-ui-table-header-background-color': headerBgColor,
-        '--vxe-ui-layout-background-color': bodyBgColor,
-        '--vxe-ui-table-footer-background-color': footerBgColor
+        '--vxe-ui-table-row-striped-background-color': stripedBgColor,
       }">
     </vxe-grid>
   </div>
@@ -40,12 +28,11 @@ interface RowVO {
   address: string
 }
 
-const headerBgColor = ref('#f3cccc')
-const bodyBgColor = ref('#fbe8d7')
-const footerBgColor = ref('#5cf18e')
+const stripedBgColor = ref('#f3cccc')
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
+  stripe: true,
   showFooter: true,
   columns: [
     { field: 'seq', type: 'seq', width: 70 },

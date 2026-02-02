@@ -63,9 +63,9 @@ export default Vue.extend({
     }
 
     return {
-      headerBgColor: '',
-      bodyBgColor: '',
-      footerBgColor: '',
+      headerBgColor: '#f3cccc',
+      bodyBgColor: '#fbe8d7',
+      footerBgColor: '#5cf18e',
       gridOptions
     }
   }
