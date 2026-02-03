@@ -16,6 +16,7 @@
     </p>
     <p>
       <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+      <vxe-button status="success" @click="saveEvent">保存</vxe-button>
     </p>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -42,6 +43,29 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   editConfig: {
     trigger: 'click',
     mode: 'cell'
+  },
+  validConfig: {
+    msgMode: 'full'
+  },
+  editRules: {
+    col1: [
+      { required: true, message: '必须填写' }
+    ],
+    col2: [
+      { required: true, message: '必须填写' }
+    ],
+    col14: [
+      { required: true, message: '必须填写' }
+    ],
+    col15: [
+      { required: true, message: '必须填写' }
+    ],
+    col34: [
+      { required: true, message: '必须填写' }
+    ],
+    col35: [
+      { required: true, message: '必须填写' }
+    ]
   },
   virtualYConfig: {
     enabled: true,
@@ -98,6 +122,18 @@ const addEvent = async () => {
     const record = {}
     const { row: newRow } = await $grid.insert(record)
     $grid.setEditCell(newRow, 'name')
+  }
+}
+
+const saveEvent = async () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const errMap = await $grid.fullValidate(true)
+    if (errMap) {
+      VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
+    } else {
+      VxeUI.modal.message({ status: 'success', content: '校验成功！' })
+    }
   }
 }
 

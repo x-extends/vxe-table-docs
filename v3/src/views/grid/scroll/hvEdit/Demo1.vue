@@ -43,6 +43,29 @@ export default Vue.extend({
         trigger: 'click',
         mode: 'cell'
       },
+      validConfig: {
+        msgMode: 'full'
+      },
+      editRules: {
+        col1: [
+          { required: true, message: '必须填写' }
+        ],
+        col2: [
+          { required: true, message: '必须填写' }
+        ],
+        col14: [
+          { required: true, message: '必须填写' }
+        ],
+        col15: [
+          { required: true, message: '必须填写' }
+        ],
+        col34: [
+          { required: true, message: '必须填写' }
+        ],
+        col35: [
+          { required: true, message: '必须填写' }
+        ]
+      },
       virtualYConfig: {
         enabled: true,
         gt: 0

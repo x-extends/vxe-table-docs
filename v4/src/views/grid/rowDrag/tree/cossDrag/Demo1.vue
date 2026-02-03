@@ -37,7 +37,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
+    { field: 'id', title: 'ID' },
     { field: 'name', title: 'Name', minWidth: 300, treeNode: true, dragSort: true },
+    { field: 'parentId', title: 'ParentId' },
     { field: 'size', title: 'Size' },
     { field: 'type', title: 'Type' },
     { field: 'date', title: 'Date' }
