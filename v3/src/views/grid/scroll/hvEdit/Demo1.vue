@@ -44,7 +44,7 @@ export default Vue.extend({
         mode: 'cell'
       },
       validConfig: {
-        msgMode: 'full'
+        msgMode: 'full' // single | full 支持同时显示单个校验提示和多个教育提示
       },
       editRules: {
         col1: [
