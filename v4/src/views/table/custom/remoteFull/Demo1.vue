@@ -45,11 +45,12 @@ const findCustomSetting = (id: string) => {
     setTimeout(() => {
       try {
         if (sessionStorage.getItem(id)) {
-          resolve(JSON.parse(sessionStorage.getItem(id) || '') as VxeTableDefines.CustomStoreData)
+          const storeData: VxeTableDefines.CustomStoreData = JSON.parse(sessionStorage.getItem(id) || '')
           VxeUI.modal.message({
             status: 'success',
             content: '异步还原用户个性化数据成功'
           })
+          resolve(storeData)
         } else {
           resolve({})
         }
