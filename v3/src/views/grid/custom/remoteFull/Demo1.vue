@@ -67,10 +67,11 @@ export default Vue.extend({
       customConfig: {
         storage: true,
         restoreStore ({ id }) {
+          // 模拟后端接口，实现服务端还原
           return findCustomSetting(id)
         },
         updateStore ({ id, storeData }) {
-          // 模拟异步，实现服务端保存
+          // 模拟后端接口，实现服务端保存
           return saveCustomSetting(id, storeData)
         }
       },
