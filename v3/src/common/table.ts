@@ -5,6 +5,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
   children: [
     {
       i18nKey: 'app.aside.menu.tableTableTitle',
+      keywords: 'vxe-table',
       children: [
         { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'table' } } },
         { title: 'Column API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'column' } } },
@@ -612,6 +613,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
     },
     {
       i18nKey: 'app.aside.menu.tableGridTitle',
+      keywords: 'vxe-grid',
       children: [
         { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'grid' } } },
         {

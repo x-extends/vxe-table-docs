@@ -381,7 +381,7 @@ if (!appStore.isUtilDocs) {
     z-index: 3;
   }
   .search-input {
-    width: 100%;
+    width: 18em;
   }
   .nav-item {
     position: relative;
