@@ -13,6 +13,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '基础', routerLink: { name: 'ComponentTableBaseBasic' } },
             { title: '尺寸大小', routerLink: { name: 'ComponentTableBaseSize' }, keywords: 'size' },
+            { title: '行主键', routerLink: { name: 'ComponentTableBaseRowKey' }, keywords: 'key-field' },
             { title: '数据类型', routerLink: { name: 'ComponentTableBaseData' }, keywords: 'data' },
             { title: '表尾数据', routerLink: { name: 'ComponentTableBaseFooter' }, keywords: 'show-footer,footer-data' },
             { title: '空数据提示', routerLink: { name: 'ComponentTableBaseEmpty' }, keywords: 'empty-text' },
@@ -617,6 +618,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '基础', routerLink: { name: 'ComponentGridBaseBasic' } },
             { title: '尺寸大小', routerLink: { name: 'ComponentGridBaseSize' } },
+            { title: '行主键', routerLink: { name: 'ComponentGridBaseRowKey' }, keywords: 'key-field' },
             { title: '数据类型', routerLink: { name: 'ComponentGridBaseData' } },
             { title: '加载数据', routerLink: { name: 'ComponentGridBaseLoadData' } },
             { title: '表尾数据', routerLink: { name: 'ComponentGridBaseFooter' } },

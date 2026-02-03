@@ -27,6 +27,9 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       height: 300,
+      rowConfig: {
+        keyField: 'id'
+      },
       columns: [],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop' },

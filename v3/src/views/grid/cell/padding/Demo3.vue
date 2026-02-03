@@ -25,6 +25,9 @@ export default Vue.extend({
       footerCellConfig: {
         padding: false
       },
+      rowConfig: {
+        keyField: 'id'
+      },
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },

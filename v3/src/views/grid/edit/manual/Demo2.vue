@@ -36,6 +36,9 @@ export default Vue.extend({
       keepSource: true,
       loading: false,
       height: 400,
+      rowConfig: {
+        keyField: 'id'
+      },
       editConfig: {
         trigger: 'click',
         mode: 'row',

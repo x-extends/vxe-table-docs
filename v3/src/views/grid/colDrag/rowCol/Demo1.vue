@@ -27,6 +27,7 @@ export default Vue.extend({
         drag: true
       },
       rowConfig: {
+        keyField: 'id',
         resizable: true,
         drag: true
       },

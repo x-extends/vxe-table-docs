@@ -20,6 +20,7 @@ export const tableRouteConfig: RouteConfig = {
           name: 'ComponentTableBaseSize',
           component: () => import('@/views/table/base/size/CodeExample.vue')
         },
+        { path: 'rowKey', name: 'ComponentTableBaseRowKey', component: () => import('@/views/table/base/rowKey/CodeExample.vue') },
         {
           path: 'align',
           name: 'ComponentTableBaseAlign',

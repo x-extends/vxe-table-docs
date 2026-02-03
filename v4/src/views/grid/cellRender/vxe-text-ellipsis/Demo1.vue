@@ -28,6 +28,9 @@ const addressCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeTextE
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 500,
+  rowConfig: {
+    keyField: 'id'
+  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },

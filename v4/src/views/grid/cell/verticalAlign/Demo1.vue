@@ -30,6 +30,9 @@ const cellConfig = reactive<VxeTablePropTypes.CellConfig>({
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   cellConfig,
+  rowConfig: {
+    keyField: 'id'
+  },
   columns: [
     { type: 'seq' },
     { field: 'name', title: 'Name' },

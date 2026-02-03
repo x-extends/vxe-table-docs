@@ -24,6 +24,9 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO> & { editConfig: VxeTablePropTypes.EditConfig<RowVO> }>({
   border: true,
   showOverflow: true,
+  rowConfig: {
+    keyField: 'id'
+  },
   editConfig: {
     trigger: 'click',
     mode: 'cell'

@@ -20,6 +20,8 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridBaseSize',
           component: () => import('@/views/grid/base/size/CodeExample.vue')
         },
+        { path: 'rowKey', name: 'ComponentGridBaseRowKey', component: () => import('@/views/grid/base/rowKey/CodeExample.vue') },
+        { path: 'loadData', name: 'ComponentGridBaseLoadData', component: () => import('@/views/grid/base/loadData/CodeExample.vue') },
         {
           path: 'align',
           name: 'ComponentGridBaseAlign',
@@ -598,21 +600,13 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridRowResizableRowResize',
           component: () => import('@/views/grid/rowResizable/rowResize/CodeExample.vue')
         },
-        {
-          path: 'dblclickAutoHeight',
-          name: 'ComponentGridRowResizableDblclickAutoHeight',
-          component: () => import('@/views/grid/rowResizable/dblclickAutoHeight/CodeExample.vue')
-        },
+        { path: 'dblclickAutoHeight', name: 'ComponentGridRowResizableDblclickAutoHeight', component: () => import('@/views/grid/rowResizable/dblclickAutoHeight/CodeExample.vue') },
         {
           path: 'allRowDrag',
           name: 'ComponentGridRowResizableAllRowDrag',
           component: () => import('@/views/grid/rowResizable/allRowDrag/CodeExample.vue')
         },
-        {
-          path: 'manual',
-          name: 'ComponentGridRowResizableManual',
-          component: () => import('@/views/grid/rowResizable/manual/CodeExample.vue')
-        },
+        { path: 'manual', name: 'ComponentGridRowResizableManual', component: () => import('@/views/grid/rowResizable/manual/CodeExample.vue') },
         {
           path: 'recalcManual',
           name: 'ComponentGridRowResizableRecalcManual',
@@ -946,6 +940,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridMergeHorizontal',
           component: () => import('@/views/grid/merge/horizontal/CodeExample.vue')
         },
+        { path: 'sort', name: 'ComponentGridMergeSort', component: () => import('@/views/grid/merge/sort/CodeExample.vue') },
         { path: 'filter', name: 'ComponentGridMergeFilter', component: () => import('@/views/grid/merge/filter/CodeExample.vue') }
       ]
     },

@@ -26,6 +26,9 @@ export default Vue.extend({
       cellConfig: {
         height: 80
       },
+      rowConfig: {
+        keyField: 'id'
+      },
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },

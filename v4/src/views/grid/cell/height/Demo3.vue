@@ -24,6 +24,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   footerCellConfig: {
     height: 80
   },
+  rowConfig: {
+    keyField: 'id'
+  },
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },

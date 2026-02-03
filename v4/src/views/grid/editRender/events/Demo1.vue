@@ -55,6 +55,9 @@ const ageEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeNumberInp
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
+  rowConfig: {
+    keyField: 'id'
+  },
   editConfig: {
     trigger: 'click',
     mode: 'cell'

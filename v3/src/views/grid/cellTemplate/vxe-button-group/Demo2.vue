@@ -20,6 +20,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
+      rowConfig: {
+        keyField: 'id'
+      },
       columns: [],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop' },

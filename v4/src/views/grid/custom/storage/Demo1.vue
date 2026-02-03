@@ -31,6 +31,9 @@ const customConfig = reactive<VxeTablePropTypes.CustomConfig<RowVO>>({
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   id: 'myCustomStorage1',
+  rowConfig: {
+    keyField: 'id'
+  },
   toolbarConfig: {
     custom: true
   },

@@ -24,6 +24,7 @@ export default Vue.extend({
       border: true,
       height: 500,
       rowConfig: {
+        keyField: 'id',
         isHover: true
       },
       checkboxConfig: {

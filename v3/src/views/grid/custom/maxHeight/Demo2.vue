@@ -26,6 +26,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: '',
+      rowConfig: {
+        keyField: 'id'
+      },
       columnConfig: {
         resizable: true
       },

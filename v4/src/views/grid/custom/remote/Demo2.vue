@@ -35,6 +35,9 @@ const saveCustomSetting = (storeData: VxeTableDefines.CustomStoreData) => {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   id: 'myCustomStorage2',
+  rowConfig: {
+    keyField: 'id'
+  },
   toolbarConfig: {
     custom: true
   },

@@ -18,6 +18,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
   height: 300,
+  rowConfig: {
+    keyField: 'id'
+  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200 },

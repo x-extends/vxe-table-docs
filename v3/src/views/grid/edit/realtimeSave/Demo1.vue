@@ -29,6 +29,9 @@ export default Vue.extend({
       showOverflow: true,
       keepSource: true,
       height: 400,
+      rowConfig: {
+        keyField: 'id'
+      },
       editConfig: {
         trigger: 'click',
         mode: 'cell',

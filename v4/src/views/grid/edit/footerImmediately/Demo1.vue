@@ -98,6 +98,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   showFooter: true,
   height: 400,
+  rowConfig: {
+    keyField: 'id'
+  },
   editConfig: {
     trigger: 'click',
     mode: 'row'

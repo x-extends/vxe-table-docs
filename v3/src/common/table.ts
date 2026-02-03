@@ -13,6 +13,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '基础', routerLink: { name: 'ComponentTableBaseBasic' } },
             { title: '尺寸大小', routerLink: { name: 'ComponentTableBaseSize' }, keywords: 'size' },
+            { title: '行主键', routerLink: { name: 'ComponentTableBaseRowKey' }, keywords: 'key-field' },
             { title: '数据类型', routerLink: { name: 'ComponentTableBaseData' }, keywords: 'data' },
             { title: '表尾数据', routerLink: { name: 'ComponentTableBaseFooter' }, keywords: 'show-footer,footer-data' },
             { title: '空数据提示', routerLink: { name: 'ComponentTableBaseEmpty' }, keywords: 'empty-text' },
@@ -618,7 +619,9 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '基础', routerLink: { name: 'ComponentGridBaseBasic' } },
             { title: '尺寸大小', routerLink: { name: 'ComponentGridBaseSize' } },
+            { title: '行主键', routerLink: { name: 'ComponentGridBaseRowKey' }, keywords: 'key-field' },
             { title: '数据类型', routerLink: { name: 'ComponentGridBaseData' } },
+            { title: '加载数据', routerLink: { name: 'ComponentGridBaseLoadData' } },
             { title: '表尾数据', routerLink: { name: 'ComponentGridBaseFooter' } },
             { title: '空数据提示', routerLink: { name: 'ComponentGridBaseEmpty' } },
             { title: '边框', routerLink: { name: 'ComponentGridBaseBorder' } },
@@ -682,6 +685,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '表尾合并', routerLink: { name: 'ComponentGridMergeFooter' } },
             { title: '表头合并', routerLink: { name: 'ComponentGridMergeHeader' } },
             { title: '实现横向合并树', routerLink: { name: 'ComponentGridMergeHorizontal' } },
+            { title: '与排序同时使用', routerLink: { name: 'ComponentGridMergeSort' } },
             { title: '与筛选同时使用', routerLink: { name: 'ComponentGridMergeFilter' } },
             { title: '快捷键合并', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_merge' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaMerge' } } }
           ]
@@ -919,7 +923,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '树结构', routerLink: { name: 'ComponentGridFilterTree' } },
             { title: '手动弹出', routerLink: { name: 'ComponentGridFilterManual' } },
             { title: '手动筛选', routerLink: { name: 'ComponentGridFilterSetFilter' } },
-            { title: '筛选图表', routerLink: { name: 'ComponentGridFilterIconVisibleMethod' } },
+            { title: '显示隐藏图标', routerLink: { name: 'ComponentGridFilterIconVisibleMethod' } },
             {
               title: '浮动筛选',
               children: [
@@ -1181,7 +1185,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现每行独立下拉选项', routerLink: { name: 'ComponentGridEditSelectRowOption' } },
             { title: '实现行保存功能', routerLink: { name: 'ComponentGridEditRowSave' } },
             { title: '实现单元格实时保存', routerLink: { name: 'ComponentGridEditRealtimeSave' } },
-            { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaClip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaClip' } } }
+            { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaClip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaClip' } } },
+            { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaBasicsEcharts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fecharts%2FareaBasicsEcharts' } } }
           ]
         },
         {

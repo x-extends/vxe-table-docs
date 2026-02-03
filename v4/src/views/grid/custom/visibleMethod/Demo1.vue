@@ -18,6 +18,9 @@ interface RowVO {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  rowConfig: {
+    keyField: 'id'
+  },
   customConfig: {
     visibleMethod ({ column }) {
       return column.field !== 'seq'

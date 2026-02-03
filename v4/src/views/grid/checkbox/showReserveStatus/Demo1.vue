@@ -51,13 +51,7 @@ const pagerVO = reactive({
   pageSize: 10
 })
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  pagerConfig: {
-    total: number
-    currentPage: number
-    pageSize: number
-  }
-}>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: true,
   loading: false,

@@ -27,6 +27,9 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      rowConfig: {
+        keyField: 'id'
+      },
       customConfig: {
         mode: 'modal'
       },

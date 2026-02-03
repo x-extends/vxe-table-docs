@@ -22,6 +22,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   cellConfig: {
     height: 60
   },
+  rowConfig: {
+    keyField: 'id'
+  },
   mergeCells: [
     { row: 1, col: 2, rowspan: 3, colspan: 2 }
   ],

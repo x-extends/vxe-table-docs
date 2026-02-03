@@ -31,6 +31,7 @@ export default Vue.extend({
         resizable: true
       },
       rowConfig: {
+        keyField: 'id',
         isHover: true
       },
       checkboxConfig: {

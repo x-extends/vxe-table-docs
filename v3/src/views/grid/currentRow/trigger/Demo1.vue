@@ -24,6 +24,7 @@ export default Vue.extend({
       height: 300,
       loading: false,
       rowConfig: {
+        keyField: 'id',
         isCurrent: true,
         isHover: true
       },

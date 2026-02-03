@@ -20,6 +20,9 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 500,
+  rowConfig: {
+    keyField: 'id'
+  },
   checkboxConfig: {
     labelField: 'name',
     visibleMethod ({ row }) {

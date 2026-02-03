@@ -21,6 +21,9 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      rowConfig: {
+        keyField: 'id'
+      },
       columns: [
         { type: 'seq' },
         { field: 'name', title: 'Name', minWidth: 200 },

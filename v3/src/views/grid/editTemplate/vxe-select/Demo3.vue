@@ -37,6 +37,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
+      rowConfig: {
+        keyField: 'id'
+      },
       editConfig: {
         trigger: 'click',
         mode: 'row'

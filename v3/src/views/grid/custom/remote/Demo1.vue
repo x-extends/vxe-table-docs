@@ -36,6 +36,9 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       id: 'myCustomUpdate1',
+      rowConfig: {
+        keyField: 'id'
+      },
       columnConfig: {
         drag: true,
         resizable: true

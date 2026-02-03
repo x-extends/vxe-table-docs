@@ -28,6 +28,9 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      rowConfig: {
+        keyField: 'id'
+      },
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },

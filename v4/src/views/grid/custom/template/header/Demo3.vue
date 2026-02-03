@@ -25,6 +25,9 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  rowConfig: {
+    keyField: 'id'
+  },
   customConfig: {
     mode: 'drawer',
     slots: {

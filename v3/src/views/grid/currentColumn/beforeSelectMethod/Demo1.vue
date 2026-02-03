@@ -22,6 +22,9 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       height: 300,
+      rowConfig: {
+        keyField: 'id'
+      },
       columnConfig: {
         isCurrent: true,
         isHover: true

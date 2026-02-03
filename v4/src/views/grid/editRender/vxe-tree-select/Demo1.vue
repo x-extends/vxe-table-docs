@@ -67,6 +67,9 @@ const regionListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTr
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
+  rowConfig: {
+    keyField: 'id'
+  },
   editConfig: {
     trigger: 'click',
     mode: 'row'

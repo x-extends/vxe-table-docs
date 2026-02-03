@@ -49,6 +49,9 @@ const sexListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelec
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
+  rowConfig: {
+    keyField: 'id'
+  },
   editConfig: {
     trigger: 'click',
     mode: 'row'

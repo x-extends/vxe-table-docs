@@ -41,6 +41,9 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
       border: true,
+      rowConfig: {
+        keyField: 'id'
+      },
       columns: [
         { type: 'checkbox', width: 60, slots: { header: 'checkbox_header', checkbox: 'checkbox_cell' } },
         { field: 'name', title: 'Name' },

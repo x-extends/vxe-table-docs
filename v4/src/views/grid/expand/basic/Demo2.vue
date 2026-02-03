@@ -23,6 +23,9 @@ interface RowVO {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  rowConfig: {
+    keyField: 'id'
+  },
   border: true,
   columns: [
     { type: 'seq', width: 70 },

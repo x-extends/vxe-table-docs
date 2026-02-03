@@ -20,6 +20,9 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      rowConfig: {
+        keyField: 'id'
+      },
       customConfig: {
         checkMethod ({ column }) {
           return !['seq', 'name'].includes(column.field)

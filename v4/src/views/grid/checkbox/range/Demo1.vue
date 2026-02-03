@@ -26,6 +26,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   rowConfig: {
+    keyField: 'id',
     isHover: true
   },
   checkboxConfig: {

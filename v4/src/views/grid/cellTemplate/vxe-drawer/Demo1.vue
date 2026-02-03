@@ -46,6 +46,9 @@ const selectRow = ref<RowVO | null>(null)
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
+  rowConfig: {
+    keyField: 'id'
+  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: '采购人员', minWidth: 200 },

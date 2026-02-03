@@ -26,6 +26,9 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
+      rowConfig: {
+        keyField: 'id'
+      },
       expandConfig: {
         padding: true
       },

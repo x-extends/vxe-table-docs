@@ -20,6 +20,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridBaseSize',
           component: () => import('@/views/grid/base/size/CodeExample.vue')
         },
+        { path: 'rowKey', name: 'ComponentGridBaseRowKey', component: () => import('@/views/grid/base/rowKey/CodeExample.vue') },
         { path: 'loadData', name: 'ComponentGridBaseLoadData', component: () => import('@/views/grid/base/loadData/CodeExample.vue') },
         {
           path: 'align',

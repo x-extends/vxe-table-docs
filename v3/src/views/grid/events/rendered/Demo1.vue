@@ -36,6 +36,9 @@ export default Vue.extend({
     ]
 
     const gridOptions: VxeGridProps<RowVO> = {
+      rowConfig: {
+        keyField: 'id'
+      },
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },

@@ -35,6 +35,9 @@ export default Vue.extend({
       showOverflow: true,
       keepSource: true,
       height: 500,
+      rowConfig: {
+        keyField: 'id'
+      },
       editConfig: {
         trigger: 'manual',
         mode: 'row',

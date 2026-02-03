@@ -22,6 +22,9 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 500,
+      rowConfig: {
+        keyField: 'id'
+      },
       checkboxConfig: {
         labelField: 'name',
         visibleMethod ({ row }) {

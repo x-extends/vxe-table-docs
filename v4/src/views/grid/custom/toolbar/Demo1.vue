@@ -18,6 +18,9 @@ interface RowVO {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  rowConfig: {
+    keyField: 'id'
+  },
   border: true,
   columnConfig: {
     resizable: true
