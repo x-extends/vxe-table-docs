@@ -44,10 +44,10 @@
 
     <vxe-tabs v-model="supportAuthor" >
       <vxe-tab-pane title="QQ交流群" name="1">
-        <iframe :src="`${resBaseUrl}/resource/useCdn/free-discussion-group.html`" style="width: 0;border: 0;height: 700px;width: 100%;"></iframe>
+        <iframe :src="`${resBaseUrl}/resource/useCdn/free-discussion-group.html?v=${nowTime}`" style="width: 0;border: 0;height: 700px;width: 100%;"></iframe>
       </vxe-tab-pane>
       <vxe-tab-pane title="赞助作者" name="2">
-        <iframe :src="`${resBaseUrl}/resource/useCdn/free-donation.html`" style="width: 0;border: 0;height: 700px;width: 100%;"></iframe>
+        <iframe :src="`${resBaseUrl}/resource/useCdn/free-donation.html?v=${nowTime}`" style="width: 0;border: 0;height: 700px;width: 100%;"></iframe>
       </vxe-tab-pane>
     </vxe-tabs>
   </div>
@@ -58,7 +58,8 @@ import { computed, ref } from 'vue'
 import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
-const siteBaseUrl = computed(() => appStore.siteBaseUrl)
+const nowTime = computed(() => appStore.nowTime)
+const resBaseUrl = computed(() => appStore.resBaseUrl)
 
 const supportAuthor = ref('1')
 </script>

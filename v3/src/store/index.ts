@@ -61,6 +61,7 @@ function handleLibVersion (libName: string, version?: string) {
 
 export default new Vuex.Store({
   state: {
+    nowTime: process.env.VUE_APP_DATE_NOW,
     pageLoading: false,
     pageTitle: process.env.VUE_APP_PAGE_TITLE,
     packName: process.env.VUE_APP_PACKAGE_NAME,

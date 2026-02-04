@@ -58,6 +58,7 @@ function handleLibVersion (libName: string, version?: string) {
 export const useAppStore = defineStore('app', {
   state () {
     return {
+      nowTime: import.meta.env.VITE_APP_DATE_NOW,
       pageLoading: false,
       pageTitle: import.meta.env.VITE_APP_PAGE_TITLE,
       packName: import.meta.env.VITE_APP_PACKAGE_NAME,
