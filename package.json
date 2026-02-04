@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "update": "npm install --legacy-peer-deps",
-    "update:v1": "cd v1 && npm install --legacy-peer-deps",
-    "update:v2": "cd v2 && npm install --legacy-peer-deps",
-    "update:v3": "cd v3 && npm install --legacy-peer-deps",
-    "update:v3_old": "cd v3_old && npm install --legacy-peer-deps",
-    "update:v3d8": "cd v3.8 && npm install --legacy-peer-deps",
-    "update:v4": "cd v4 && npm install --legacy-peer-deps",
-    "update:v4_old": "cd v4_old && npm install --legacy-peer-deps",
-    "update:v4d6": "cd v4.6 && npm install --legacy-peer-deps",
-    "update:other3": "cd other3 && npm install --legacy-peer-deps",
-    "update:other4": "cd other4 && npm install --legacy-peer-deps",
+    "update": "pnpm install",
+    "update:v1": "cd v1 && npm run update",
+    "update:v2": "cd v2 && npm run update",
+    "update:v3": "cd v3 && npm run update",
+    "update:v3_old": "cd v3_old && npm run update",
+    "update:v3d8": "cd v3.8 && npm run update",
+    "update:v4": "cd v4 && npm run update",
+    "update:v4_old": "cd v4_old && npm run update",
+    "update:v4d6": "cd v4.6 && npm run update",
+    "update:other3": "cd other3 && npm run update",
+    "update:other4": "cd other4 && npm run update",
     "update:all": "npm run update:other3 && npm run update:other4 && npm run update:v1 && npm run update:v2 && npm run update:v3 && npm run update:v3_old && npm run update:v3d8 && npm run update:v4 && npm run update:v4_old && npm run update:v4d6",
     "build:v1": "cd v1 && npm run pack",
     "build:v2": "cd v2 && npm run pack",
@@ -48,6 +48,6 @@
     "gulp-replace": "1.1.4",
     "gulp-zip": "5.1.0",
     "uglify-js": "3.17.4",
-    "xe-utils": "^4.0.0"
+    "xe-utils": "^3.9.0"
   }
 }

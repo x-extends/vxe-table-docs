@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "update": "npm install --legacy-peer-deps",
+    "update": "pnpm install",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
     "build:main": "vue-cli-service build --no-module",
@@ -32,7 +32,7 @@
     "vxe-table-plugin-virtual-tree": "0.6.7",
     "xe-ajax": "^4.0.5",
     "xe-clipboard": "^1.10.2",
-    "xe-utils": "^3.9.1",
+    "xe-utils": "~3.5.31",
     "xlsx": "^0.16.5"
   },
   "devDependencies": {

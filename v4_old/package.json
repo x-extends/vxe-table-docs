@@ -3,7 +3,7 @@
   "version": "4.7.0",
   "private": true,
   "scripts": {
-    "update": "npm install --legacy-peer-deps",
+    "update": "pnpm install",
     "serve": "vite",
     "build": "vue-tsc && vite build",
     "pack": "npm run build && gulp build_examples && npm run format:examples",
@@ -16,7 +16,8 @@
     "vue-i18n": "^10.0.8",
     "vue-router": "^4.5.1",
     "vxe-pc-ui": "~4.12.31",
-    "vxe-table": "~4.17.48"
+    "vxe-table": "~4.17.48",
+    "xe-utils": "^3.9.0"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",

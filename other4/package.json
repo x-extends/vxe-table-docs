@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "update": "npm install --legacy-peer-deps",
+    "update": "pnpm install",
     "serve": "vite",
     "build": "vue-tsc && vite build",
     "pack": "npm run build && gulp build_examples && npm run format:examples",
