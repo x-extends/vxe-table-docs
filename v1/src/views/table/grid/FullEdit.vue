@@ -461,11 +461,11 @@ export default {
         })
       }
       // 开始服务端导出
-      return XEAjax.post('https:/apipub.vxeui.com/publicapi/api/pub/export', body).then(data => {
+      return XEAjax.post('/publicapi/api/pub/export', body).then(data => {
         if (data.id) {
           this.$XModal.message({ message: '导出成功，开始下载', status: 'success' })
           // 读取路径，请求文件流 => 开始下载
-          location.href = `https:/apipub.vxeui.com/publicapi/api/pub/export/download/${data.id}`
+          location.href = `/publicapi/api/pub/export/download/${data.id}`
         }
       }).catch(() => {
         this.$XModal.message({ message: '导出失败！', status: 'error' })

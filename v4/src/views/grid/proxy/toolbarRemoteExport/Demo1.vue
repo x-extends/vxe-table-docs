@@ -69,7 +69,7 @@ const findPageList = (pageSize: number, currentPage: number) => {
 // 模拟接口导出
 const exportFileApi = (body: any) => {
   // 模拟后端接口
-  return axios.post('https:/apipub.vxeui.com/publicapi/api/pub/export', body).then(res => {
+  return axios.post('/publicapi/api/pub/export', body).then(res => {
     if (res.data.url) {
       VxeUI.modal.message({
         content: '导出成功，开始下载',
