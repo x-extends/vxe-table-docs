@@ -9,37 +9,7 @@
       <div><vxe-link status="primary" :href="`https://github.com/x-extends/${appStore.packName}`" target="_blank">{{ appStore.pageTitle }}</vxe-link> 是 MIT开源的，无论是个人还是企业商用都是使用完全免费的。为了使项目能够健康持续的发展下去，您可以通过下方扫码来支持作者。</div>
     </vxe-tip>
     <vxe-tip title="发展历史" status="success">
-      <div>
-        2017-12 开源了 javascript 工具类 <vxe-link status="primary" href="https://util.vxeui.com" target="_blank">xe-utils</vxe-link>
-        <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/xe-utils" target="_blank"></vxe-link>
-        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/xe-utils" target="_blank"></vxe-link>
-      </div>
-      <div>
-        2021-12 开源了异步请求库 <vxe-link status="primary" href="https://vxeui.com/xe-ajax" target="_blank">xe-ajax</vxe-link>
-        <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/xe-ajax" target="_blank"></vxe-link>
-        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/xe-ajax" target="_blank"></vxe-link>
-      </div>
-      <div>
-        2019-04 开源了表格库 <vxe-link status="primary" href="https://vxetable.cn" target="_blank">vxe-table</vxe-link>
-        <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/vxe-table" target="_blank"></vxe-link>
-        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/vxe-table" target="_blank"></vxe-link>
-      </div>
-      <div>
-        2024-05 开源了桌面端组件库 <vxe-link status="primary" href="https://vxeui.com" target="_blank">vxe-pc-ui</vxe-link>
-        <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/vxe-pc-ui" target="_blank"></vxe-link>
-        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/vxe-pc-ui" target="_blank"></vxe-link>
-      </div>
-      <div>
-        2025-06 开源了可视化组件库 <vxe-link status="primary" href="https://design.vxeui.com" target="_blank">vxe-design</vxe-link>
-        <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/vxe-design" target="_blank"></vxe-link>
-        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/vxe-design" target="_blank"></vxe-link>
-      </div>
-      <div>
-        2025-08 开源了可视化甘特图 <vxe-link status="primary" href="https://gantt.vxeui.com" target="_blank">vxe-gantt</vxe-link>
-        <vxe-link status="primary" icon="vxe-icon-github-fill" href="https://github.com/x-extends/vxe-gantt" target="_blank"></vxe-link>
-        <vxe-link status="error" icon="vxe-icon-gitee-fill" href="https://gitee.com/x-extends/vxe-gantt" target="_blank"></vxe-link>
-      </div>
-      <div>敬请期待：工作流设计器、打印设计器、低代码系统模板、移动端 H5 、小程序组件库</div>
+      <iframe :src="`${resBaseUrl}/resource/useCdn/development-history.html?v=${nowTime}`" style="width: 0;border: 0;height: 180px;width: 100%;background-color: transparent;"></iframe>
     </vxe-tip>
 
     <vxe-tabs v-model="supportAuthor" >
