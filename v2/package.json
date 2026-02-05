@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "update": "pnpm install",
+    "update": "pnpm install --no-frozen-lockfile",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
     "build:main": "vue-cli-service build --no-module",

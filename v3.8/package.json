@@ -3,7 +3,7 @@
   "version": "3.8.0",
   "private": true,
   "scripts": {
-    "update": "pnpm install",
+    "update": "pnpm install --no-frozen-lockfile",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
     "pack": "npm run build && gulp build_examples",

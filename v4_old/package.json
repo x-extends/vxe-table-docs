@@ -3,7 +3,7 @@
   "version": "4.7.0",
   "private": true,
   "scripts": {
-    "update": "pnpm install",
+    "update": "pnpm install --no-frozen-lockfile",
     "serve": "vite",
     "build": "vue-tsc && vite build",
     "pack": "npm run build && gulp build_examples && npm run format:examples",
