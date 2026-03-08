@@ -950,11 +950,6 @@ export const tableRouteConfig: RouteRecordRaw = {
           path: 'manual',
           name: 'ComponentTableCustomManual',
           component: () => import('@/views/table/custom/manual/CodeExample.vue')
-        },
-        {
-          path: 'collapseColumn',
-          name: 'ComponentTableCustomCollapseColumn',
-          component: () => import('@/views/table/custom/collapseColumn/CodeExample.vue')
         }
       ]
     },
@@ -1998,6 +1993,7 @@ export const tableRouteConfig: RouteRecordRaw = {
         { path: 'tabs', name: 'ComponentTableOtherTabs', component: () => import('@/views/table/other/tabs/CodeExample.vue') },
         { path: 'lineEllipsis', name: 'ComponentTableOtherLineEllipsis', component: () => import('@/views/table/other/lineEllipsis/CodeExample.vue') },
         { path: 'bookkeepingVoucher', name: 'ComponentTableOtherBookkeepingVoucher', component: () => import('@/views/table/other/bookkeepingVoucher/CodeExample.vue') },
+        { path: 'collapseColumn', name: 'ComponentTableOtherCollapseColumn', component: () => import('@/views/table/other/collapseColumn/CodeExample.vue') },
         { path: 'leftRight', name: 'ComponentTableOtherLeftRight', component: () => import('@/views/table/other/leftRight/CodeExample.vue') }
       ]
     }

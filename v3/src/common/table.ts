@@ -298,8 +298,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '本地保存聚合函数列设置', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_storage' }, query: { previewPath: '%2FextendPivotTable%2Ftable%2Fcustom%2Fstorage' } } },
             { title: '自定义服务端保存', routerLink: { name: 'ComponentTableCustomRemote' } },
             { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentTableCustomRemoteFull' } },
-            { title: '实现显示/隐藏列', routerLink: { name: 'ComponentTableCustomManual' } },
-            { title: '实现折叠列', routerLink: { name: 'ComponentTableCustomCollapseColumn' } }
+            { title: '实现显示/隐藏列', routerLink: { name: 'ComponentTableCustomManual' } }
           ]
         },
         {
@@ -606,6 +605,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '在页签中使用', routerLink: { name: 'ComponentTableOtherTabs' } },
             { title: '实现多行文本溢出省略', routerLink: { name: 'ComponentTableOtherLineEllipsis' } },
             { title: '实现记账凭证', routerLink: { name: 'ComponentTableOtherBookkeepingVoucher' } },
+            { title: '实现折叠列', routerLink: { name: 'ComponentTableOtherCollapseColumn' } },
             { title: '实现左边树和右边表格', routerLink: { name: 'ComponentTableOtherLeftRight' } }
           ]
         }
