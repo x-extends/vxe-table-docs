@@ -7,7 +7,7 @@
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-colgroup field="g1" title="分组1">
         <template #header="{ column }">
-          <i :class="foldMaps.g1 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="collapsable('g1')"></i>
+          <vxe-button mode="text" :icon="foldMaps.g1 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="collapsable('g1')"></vxe-button>
           <span>{{ column.title }}</span>
         </template>
 
@@ -17,7 +17,7 @@
       </vxe-colgroup>
       <vxe-colgroup field="g2" title="分组2">
         <template #header="{ column }">
-          <i :class="foldMaps.g2 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="collapsable('g2')"></i>
+          <vxe-button mode="text" :icon="foldMaps.g2 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="collapsable('g2')"></vxe-button>
           <span>{{ column.title }}</span>
         </template>
 

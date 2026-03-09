@@ -7,7 +7,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
       i18nKey: 'app.aside.menu.tableTableTitle',
       children: [
         { title: 'API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'table' } }, keywords: 'vxe-table' },
-        { title: 'Column API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'colgroup' } } },
+        { title: 'Colgroup API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'colgroup' } } },
         { title: 'Column API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'column' } } },
         {
           title: '基础功能',
