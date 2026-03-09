@@ -8,7 +8,7 @@
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="300" row-group-node></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
-      <vxe-column field="sex" title="Sex" :agg-func="true"></vxe-column>
+      <vxe-column field="num" title="Num" :agg-func="true"></vxe-column>
       <vxe-column field="age" title="Age" :agg-func="true"></vxe-column>
       <vxe-column field="address" title="Address"></vxe-column>
     </vxe-table>
