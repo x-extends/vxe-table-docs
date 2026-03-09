@@ -573,7 +573,8 @@ export const gridRouteConfig: RouteConfig = {
           path: 'trigger',
           name: 'ComponentGridCurrentRowTrigger',
           component: () => import('@/views/grid/currentRow/trigger/CodeExample.vue')
-        }
+        },
+        { path: 'strict', name: 'ComponentGridCurrentRowStrict', component: () => import('@/views/grid/currentRow/strict/CodeExample.vue') }
       ]
     },
     {

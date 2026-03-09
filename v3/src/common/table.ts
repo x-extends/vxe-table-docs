@@ -803,7 +803,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '当前行', routerLink: { name: 'ComponentGridCurrentRowBase' } },
             { title: '拦截选中', routerLink: { name: 'ComponentGridCurrentRowBeforeSelectMethod' } },
-            { title: '手动触发', routerLink: { name: 'ComponentGridCurrentRowTrigger' } }
+            { title: '手动触发', routerLink: { name: 'ComponentGridCurrentRowTrigger' } },
+            { title: '可取消', routerLink: { name: 'ComponentGridCurrentRowStrict' } }
           ]
         },
         {
