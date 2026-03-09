@@ -834,11 +834,8 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridRadioHeaderBtn',
           component: () => import('@/views/grid/radio/headerBtn/CodeExample.vue')
         },
-        {
-          path: 'template',
-          name: 'ComponentGridRadioTemplate',
-          component: () => import('@/views/grid/radio/template/CodeExample.vue')
-        }
+        { path: 'strict', name: 'ComponentGridRadioStrict', component: () => import('@/views/grid/radio/strict/CodeExample.vue') },
+        { path: 'template', name: 'ComponentGridRadioTemplate', component: () => import('@/views/grid/radio/template/CodeExample.vue') }
       ]
     },
     {

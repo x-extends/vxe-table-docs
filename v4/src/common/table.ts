@@ -707,6 +707,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '禁用', routerLink: { name: 'ComponentGridRadioCheckMethod' } },
             { title: '显示隐藏', routerLink: { name: 'ComponentGridRadioVisibleMethod' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRadioTrigger' } },
+            { title: '可取消', routerLink: { name: 'ComponentGridRadioStrict' } },
             { title: '个性化列头按钮', routerLink: { name: 'ComponentGridRadioHeaderBtn' } },
             { title: '自定义模板', routerLink: { name: 'ComponentGridRadioTemplate' } }
           ]
