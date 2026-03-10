@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-switch v-model="rowDragConfig.showGuidesStatus"></vxe-switch>
+
     <vxe-table
       border
       :row-config="rowConfig"

@@ -1,12 +1,14 @@
 <template>
   <div>
+    <vxe-switch v-model="rowDragConfig.showGuidesStatus"></vxe-switch>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,14 +19,16 @@ interface RowVO {
   address: string
 }
 
+const rowDragConfig = reactive<VxeTablePropTypes.RowDragConfig<RowVO>>({
+  showGuidesStatus: false
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   rowConfig: {
     drag: true
   },
-  rowDragConfig: {
-    showGuidesStatus: false
-  },
+  rowDragConfig,
   columns: [
     { field: 'name', title: 'Name' },
     { field: 'role', title: 'Role', dragSort: true },
