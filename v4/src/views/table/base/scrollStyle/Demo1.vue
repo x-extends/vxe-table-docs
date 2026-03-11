@@ -44,8 +44,8 @@ const tableData = ref<RowVO[]>([
 
 // 滚动条宽高需与自定义的样式对应
 const scrollbarConfig = reactive<VxeTablePropTypes.ScrollbarConfig>({
-  width: 28,
-  height: 28
+  width: 18,
+  height: 18
 })
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
@@ -56,8 +56,8 @@ const footerData = ref<VxeTablePropTypes.FooterData>([
 <style lang="scss">
 .mytable-scrollbar {
   ::-webkit-scrollbar {
-    width: 28px;
-    height: 28px;
+    width: 18px;
+    height: 18px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
