@@ -50,8 +50,8 @@ export default Vue.extend({
 
     // 滚动条宽高需与自定义的样式对应
     const scrollbarConfig: VxeTablePropTypes.ScrollbarConfig = {
-      width: 16,
-      height: 16
+      width: 28,
+      height: 28
     }
 
     return {
@@ -66,8 +66,8 @@ export default Vue.extend({
 <style lang="scss">
 .mytable-scrollbar {
   ::-webkit-scrollbar {
-    width: 16px;
-    height: 16px;
+    width: 28px;
+    height: 28px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;

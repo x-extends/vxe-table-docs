@@ -25,8 +25,8 @@ export default Vue.extend({
       height: 400,
       // 滚动条宽高需与自定义的样式对应
       scrollbarConfig: {
-        width: 16,
-        height: 16
+        width: 28,
+        height: 28
       },
       columns: [
         { field: 'seq', type: 'seq', width: 70, fixed: 'left' },
@@ -66,8 +66,8 @@ export default Vue.extend({
 <style lang="scss">
 .mytable-scrollbar {
   ::-webkit-scrollbar {
-    width: 16px;
-    height: 16px;
+    width: 28px;
+    height: 28px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
