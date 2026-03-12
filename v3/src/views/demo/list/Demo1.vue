@@ -307,12 +307,10 @@ export default Vue.extend({
         pageSizes: [3, 20, 100, 500, 1000, 5000, 10000, 50000, 100000]
       },
       virtualXConfig: {
-        gt: 0,
-        enabled: true
+        enabled: false
       },
       virtualYConfig: {
-        gt: 0,
-        enabled: true
+        enabled: false
       },
       columns: [
         { field: 'seq', type: 'seq', width: 80 },

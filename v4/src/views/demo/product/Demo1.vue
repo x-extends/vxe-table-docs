@@ -169,11 +169,11 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
     pageSize: 100,
     pageSizes: [3, 20, 100, 500, 1000, 5000, 10000, 50000, 100000]
   },
-  scrollX: {
+  virtualXConfig: {
     gt: 0,
     enabled: true
   },
-  scrollY: {
+  virtualYConfig: {
     gt: 0,
     enabled: true
   },

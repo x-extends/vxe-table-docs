@@ -272,11 +272,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     isDel: true,
     isEsc: true
   },
-  scrollX: {
+  virtualXConfig: {
     gt: 0,
     enabled: true
   },
-  scrollY: {
+  virtualYConfig: {
     gt: 0,
     enabled: true
   },

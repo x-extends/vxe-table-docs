@@ -235,15 +235,13 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
   },
   pagerConfig: {
     pageSize: 100,
-    pageSizes: [3, 20, 100, 500, 1000, 5000, 10000, 50000, 100000]
+    pageSizes: [3, 20, 100, 200]
   },
-  scrollX: {
-    gt: 0,
-    enabled: true
+  virtualXConfig: {
+    enabled: false
   },
-  scrollY: {
-    gt: 0,
-    enabled: true
+  virtualYConfig: {
+    enabled: false
   },
   columns: [
     { field: 'seq', type: 'seq', width: 80 },
