@@ -52,12 +52,8 @@ const dataOptions = ref([
   { label: '加载 3 行', value: 3 },
   { label: '加载 20 行', value: 20 },
   { label: '加载 100 行', value: 100 },
-  { label: '加载 500 行', value: 500 },
-  { label: '加载 1000 行', value: 1000 },
-  { label: '加载 5000 行', value: 5000 },
-  { label: '加载 10000 行', value: 10000 },
-  { label: '加载 50000 行', value: 50000 },
-  { label: '加载 100000 行', value: 100000 }
+  { label: '加载 150 行', value: 150 },
+  { label: '加载 200 行', value: 200 }
 ])
 
 const avatarUrlCellRender = reactive<VxeColumnPropTypes.CellRender>({
