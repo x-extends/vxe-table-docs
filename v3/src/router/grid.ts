@@ -970,6 +970,7 @@ export const gridRouteConfig: RouteConfig = {
         { path: 'accordion', name: 'ComponentGridRowGroupAccordion', component: () => import('@/views/grid/rowGroup/accordion/CodeExample.vue') },
         { path: 'fixed', name: 'ComponentGridRowGroupFixed', component: () => import('@/views/grid/rowGroup/fixed/CodeExample.vue') },
         { path: 'sort', name: 'ComponentGridRowGroupSort', component: () => import('@/views/grid/rowGroup/sort/CodeExample.vue') },
+        { path: 'filter', name: 'ComponentGridRowGroupFilter', component: () => import('@/views/grid/rowGroup/filter/CodeExample.vue') },
         { path: 'expand', name: 'ComponentGridRowGroupExpand', component: () => import('@/views/grid/rowGroup/expand/CodeExample.vue') },
         { path: 'total', name: 'ComponentGridRowGroupTotal', component: () => import('@/views/grid/rowGroup/total/CodeExample.vue') },
         { path: 'count', name: 'ComponentGridRowGroupCount', component: () => import('@/views/grid/rowGroup/count/CodeExample.vue') },

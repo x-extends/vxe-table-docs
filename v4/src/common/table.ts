@@ -884,6 +884,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '手风琴效果', routerLink: { name: 'ComponentGridRowGroupAccordion' } },
             { title: '冻结列', routerLink: { name: 'ComponentGridRowGroupFixed' } },
             { title: '分组排序', routerLink: { name: 'ComponentGridRowGroupSort' } },
+            { title: '分组筛选', routerLink: { name: 'ComponentGridRowGroupFilter' } },
             { title: '同时使用展开行', routerLink: { name: 'ComponentGridRowGroupExpand' } },
             { title: '显示分组统计', routerLink: { name: 'ComponentGridRowGroupTotal' } },
             { title: '显示多列合计', routerLink: { name: 'ComponentGridRowGroupCount' } },
