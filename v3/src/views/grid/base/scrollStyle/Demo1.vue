@@ -56,12 +56,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .mytable-scrollbar {
-  .vxe-table--scroll-x-handle {
-    height: 24px;
-  }
-  .vxe-table--scroll-y-handle {
-    width: 24px;
-  }
   ::-webkit-scrollbar {
     width: 24px;
     height: 24px;

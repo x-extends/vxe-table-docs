@@ -1,8 +1,14 @@
 <template>
   <div>
+    <vxe-radio-group v-model="virtualYConfig.mode">
+      <vxe-radio-button checked-value="wheel" content="wheel模式"></vxe-radio-button>
+      <vxe-radio-button checked-value="scroll" content="scroll模式"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-button @click="loadList(5000)">加载5k条</vxe-button>
     <vxe-button @click="loadList(10000)">加载1w条</vxe-button>
     <vxe-button @click="loadList(50000)">加载5w条</vxe-button>
+
     <vxe-grid v-bind="gridOptions">
       <template #status="{ row }">
         <vxe-tag v-if="row.status === '2'" status="error">驳回</vxe-tag>
@@ -20,7 +26,7 @@
 
 <script lang="ts" setup>
 import { reactive, nextTick } from 'vue'
-import { VxeUI, VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeColumnPropTypes, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -39,19 +45,10 @@ const imgUrlCellRender = reactive<VxeColumnPropTypes.CellRender>({
   }
 })
 
-const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender>({
-  name: 'VxeUpload',
-  props: {
-    mode: 'image',
-    readonly: true,
-    moreConfig: {
-      maxCount: 2
-    },
-    imageConfig: {
-      width: 40,
-      height: 40
-    }
-  }
+const virtualYConfig = reactive<VxeTablePropTypes.VirtualYConfig>({
+  enabled: true,
+  gt: 0,
+  mode: 'scroll'
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
@@ -65,14 +62,14 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     resizable: true
   },
+  expandConfig: {
+    mode: 'inside'
+  },
   virtualXConfig: {
     enabled: true,
     gt: 0
   },
-  virtualYConfig: {
-    enabled: true,
-    gt: 0
-  },
+  virtualYConfig,
   columns: [
     { field: 'checkbox', type: 'checkbox', width: 60, fixed: 'left' },
     { title: '列0', field: 'col0', width: 100, fixed: 'left' },
@@ -173,7 +170,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { title: '列95', field: 'col95', width: 150 },
     { title: '列96', field: 'col96', width: 800 },
     { title: '列97', field: 'col97', width: 400 },
-    { title: '列99', field: 'imgList1', width: 120, fixed: 'right', cellRender: imgList1CellRender },
     { title: '列100', field: 'flag1', width: 100, fixed: 'right', cellRender: flag1CellRender },
     { title: '操作', field: 'action', width: 140, fixed: 'right', slots: { default: 'action' } }
   ],

@@ -1,11 +1,26 @@
 <template>
   <div>
-    <vxe-grid class="mytable-scrollbar" v-bind="gridOptions"></vxe-grid>
+    <vxe-radio-group v-model="scrollbarWidth">
+      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="10px" content="10px"></vxe-radio-button>
+      <vxe-radio-button checked-value="18px" content="18px"></vxe-radio-button>
+      <vxe-radio-button checked-value="28px" content="28px"></vxe-radio-button>
+      <vxe-radio-button checked-value="40px" content="40px"></vxe-radio-button>
+    </vxe-radio-group>
+
+    <vxe-grid
+      class="mytable-scrollbar"
+      v-bind="gridOptions"
+      :style="{
+        '--vxe-ui-table-view-scrollbar-width': scrollbarWidth,
+        '--vxe-ui-table-view-scrollbar-height': scrollbarWidth
+      }">
+    </vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -17,15 +32,12 @@ interface RowVO {
   address: string
 }
 
+const scrollbarWidth = ref('')
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
   height: 400,
-  // 滚动条宽高需与自定义的样式对应
-  scrollbarConfig: {
-    width: 24,
-    height: 24
-  },
   columns: [
     { field: 'seq', type: 'seq', width: 70, fixed: 'left' },
     { field: 'name', title: 'Name', width: 300 },
@@ -58,8 +70,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 <style lang="scss">
 .mytable-scrollbar {
   ::-webkit-scrollbar {
-    width: 24px;
-    height: 24px;
+    width: var(--vxe-ui-table-view-scrollbar-width);
+    height: var(--vxe-ui-table-view-scrollbar-height);
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
