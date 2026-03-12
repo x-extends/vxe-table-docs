@@ -235,7 +235,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { pagerConfig: VxeGridPropTyp
   },
   pagerConfig: {
     pageSize: 100,
-    pageSizes: [3, 20, 100, 200]
+    pageSizes: [3, 20, 50, 100, 150, 200]
   },
   virtualXConfig: {
     enabled: false

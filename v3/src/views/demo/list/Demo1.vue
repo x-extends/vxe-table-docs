@@ -304,7 +304,7 @@ export default Vue.extend({
       },
       pagerConfig: {
         pageSize: 100,
-        pageSizes: [3, 20, 100, 500, 1000, 5000, 10000, 50000, 100000]
+        pageSizes: [3, 20, 50, 100, 150, 200]
       },
       virtualXConfig: {
         enabled: false
