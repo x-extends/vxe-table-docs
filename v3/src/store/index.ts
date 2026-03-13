@@ -36,6 +36,7 @@ if (currPrimaryColor) {
   updatePrimaryColor(currPrimaryColor)
 }
 
+document.documentElement.setAttribute('lang', currLanguage)
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
 let pluginAppPromise: Promise<any> | null = null
@@ -148,12 +149,13 @@ export default new Vuex.Store({
       } else {
         if (!i18nPromise[language]) {
           state.pageLoading = true
-          i18nPromise[language] = axios.get(`${this.resBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
+          i18nPromise[language] = axios.get(`${state.resBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
             i18n.setLocaleMessage(language, res.data)
             state.language = language || 'zh-CN'
             VxeUI.setLanguage(language)
             i18n.locale = language
             localStorage.setItem('VXE_DOCS_LANGUAGE', language)
+            document.documentElement.setAttribute('lang', language)
             i18nStatus[language] = true
             state.pageLoading = false
           }).catch(() => {

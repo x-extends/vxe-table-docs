@@ -35,6 +35,7 @@ if (currPrimaryColor) {
   updatePrimaryColor(currPrimaryColor)
 }
 
+document.documentElement.setAttribute('lang', currLanguage)
 document.documentElement.setAttribute('vxe-docs-theme', currTheme)
 
 let pluginAppPromise: Promise<any> | null = null
@@ -152,6 +153,7 @@ export const useAppStore = defineStore('app', {
             VxeUI.setLanguage(language)
             i18n.global.locale = language
             localStorage.setItem('VXE_DOCS_LANGUAGE', language)
+            document.documentElement.setAttribute('lang', language)
             i18nStatus[language] = true
             this.pageLoading = false
           }).catch(() => {
