@@ -41,8 +41,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  currentRowChange ({ rowIndex }) {
-    console.log(`行选中事件 ${rowIndex}`)
+  currentRowChange ({ row, oldValue, newValue }) {
+    console.log(`行选中事件 ${row.name} 旧：`, oldValue, '新：', newValue)
   }
 }
 </script>

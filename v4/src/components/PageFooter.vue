@@ -7,7 +7,7 @@
     </VxeLink>
     <span style="margin-left: 20px;">
       <span>©</span>
-      <span><VxeLink status="primary" :href="siteBaseUrl" target="_blank">Vxe UI</VxeLink> 2018-{{serveTY}}</span>
+      <span><VxeLink status="primary" :href="siteBaseUrl" target="_blank">VXE</VxeLink> 2018-{{serveTY}}</span>
     </span>
   </div>
 </template>

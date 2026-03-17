@@ -1,6 +1,7 @@
 <template>
   <div>
-    <vxe-switch v-model="rowDragConfig.showGuidesStatus"></vxe-switch>
+    样式：<vxe-switch v-model="rowDragConfig.showGuidesStatus"></vxe-switch>
+    动画：<vxe-switch v-model="rowDragConfig.animation"></vxe-switch>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
@@ -25,7 +26,8 @@ export default Vue.extend({
       isCrossDrag: true,
       isSelfToChildDrag: true,
       isToChildDrag: true,
-      showGuidesStatus: false
+      showGuidesStatus: true,
+      animation: true
     }
 
     const gridOptions: VxeGridProps<RowVO> = {

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <vxe-switch v-model="rowDragConfig.showGuidesStatus"></vxe-switch>
+    样式：<vxe-switch v-model="rowDragConfig.showGuidesStatus"></vxe-switch>
+    动画：<vxe-switch v-model="rowDragConfig.animation"></vxe-switch>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
@@ -20,7 +21,8 @@ interface RowVO {
 }
 
 const rowDragConfig = reactive<VxeTablePropTypes.RowDragConfig<RowVO>>({
-  showGuidesStatus: false
+  showGuidesStatus: true,
+  animation: true
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({

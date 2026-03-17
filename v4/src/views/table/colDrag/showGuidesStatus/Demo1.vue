@@ -1,5 +1,8 @@
 <template>
   <div>
+    样式：<vxe-switch v-model="columnDragConfig.showGuidesStatus"></vxe-switch>
+    动画：<vxe-switch v-model="columnDragConfig.animation"></vxe-switch>
+
     <vxe-table
       border
       :column-config="columnConfig"
@@ -39,6 +42,7 @@ const columnConfig = reactive<VxeTablePropTypes.ColumnConfig<RowVO>>({
 })
 
 const columnDragConfig = reactive<VxeTablePropTypes.ColumnDragConfig<RowVO>>({
-  showGuidesStatus: false
+  showGuidesStatus: true,
+  animation: true
 })
 </script>

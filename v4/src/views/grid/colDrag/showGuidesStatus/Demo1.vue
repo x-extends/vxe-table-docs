@@ -1,12 +1,15 @@
 <template>
   <div>
+    样式：<vxe-switch v-model="columnDragConfig.showGuidesStatus"></vxe-switch>
+    动画：<vxe-switch v-model="columnDragConfig.animation"></vxe-switch>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,6 +20,11 @@ interface RowVO {
   address: string
 }
 
+const columnDragConfig = reactive<VxeTablePropTypes.ColumnDragConfig>({
+  showGuidesStatus: true,
+  animation: true
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   rowConfig: {
@@ -25,9 +33,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     drag: true
   },
-  columnDragConfig: {
-    showGuidesStatus: false
-  },
+  columnDragConfig,
   columns: [
     { field: 'name', title: 'Name' },
     { field: 'role', title: 'Role' },

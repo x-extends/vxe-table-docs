@@ -1,13 +1,6 @@
 <template>
   <div>
-    <p>
-      <vxe-button @click="selectCurrentEvent">设置第二列选中</vxe-button>
-      <vxe-button @click="clearSelectEvent">取消选中</vxe-button>
-      <vxe-button @click="getCurrentEvent">获取高亮列</vxe-button>
-    </p>
-
     <vxe-grid
-      ref="gridRef"
       v-bind="gridOptions"
       @current-column-change="currentColumnChangeEvent">
     </vxe-grid>
@@ -16,8 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI } from 'vxe-pc-ui'
-import { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -38,6 +30,9 @@ export default Vue.extend({
       columnConfig: {
         isCurrent: true,
         isHover: true
+      },
+      currentColumnConfig: {
+        strict: false
       },
       columns: [
         { type: 'seq', width: 70 },
@@ -63,27 +58,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentColumnChangeEvent ({ column }) {
-      console.log(`列选中事件 ${column.field}`)
-    },
-    selectCurrentEvent () {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
-        $grid.setCurrentColumn('name')
-      }
-    },
-    clearSelectEvent () {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
-        $grid.clearCurrentColumn()
-      }
-    },
-    getCurrentEvent () {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
-        const currentColumn = $grid.getCurrentColumn()
-        VxeUI.modal.alert(currentColumn ? currentColumn.field : '')
-      }
+    currentColumnChangeEvent ({ column, oldValue, newValue }) {
+      console.log(`列选中事件 ${column.field} 旧：`, oldValue, '新：', newValue)
     }
   }
 })

@@ -57,8 +57,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentRowChangeEvent ({ rowIndex }) {
-      console.log(`行选中事件 ${rowIndex}`)
+    currentRowChangeEvent ({ row }) {
+      console.log(`行选中事件 ${row ? row.name : null}`)
     },
     selectCurrentEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>

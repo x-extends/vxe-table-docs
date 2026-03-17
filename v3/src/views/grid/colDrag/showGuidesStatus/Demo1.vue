@@ -1,12 +1,15 @@
 <template>
   <div>
+    样式：<vxe-switch v-model="columnDragConfig.showGuidesStatus"></vxe-switch>
+    动画：<vxe-switch v-model="columnDragConfig.animation"></vxe-switch>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -19,6 +22,11 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const columnDragConfig: VxeTablePropTypes.ColumnDragConfig = {
+      showGuidesStatus: true,
+      animation: true
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       rowConfig: {
@@ -27,9 +35,7 @@ export default Vue.extend({
       columnConfig: {
         drag: true
       },
-      columnDragConfig: {
-        showGuidesStatus: false
-      },
+      columnDragConfig,
       columns: [
         { field: 'name', title: 'Name' },
         { field: 'role', title: 'Role' },
@@ -46,7 +52,8 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      columnDragConfig
     }
   }
 })

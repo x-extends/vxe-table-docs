@@ -50,8 +50,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    currentRowChangeEvent ({ rowIndex }) {
-      console.log(`行选中事件 ${rowIndex}`)
+    currentRowChangeEvent ({ row, oldValue, newValue }) {
+      console.log(`行选中事件 ${row.name} 旧：`, oldValue, '新：', newValue)
     }
   }
 })

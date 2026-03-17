@@ -1,19 +1,12 @@
 <template>
   <div>
-    <p>
-      <vxe-button @click="selectCurrentEvent">设置第二行选中</vxe-button>
-      <vxe-button @click="clearSelectEvent">取消选中</vxe-button>
-      <vxe-button @click="getCurrentEvent">获取高亮行</vxe-button>
-    </p>
-
-    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import { VxeUI } from 'vxe-pc-ui'
-import { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { reactive } from 'vue'
+import { VxeGridProps, VxeGridListeners } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -24,14 +17,17 @@ interface RowVO {
   address: string
 }
 
-const gridRef = ref<VxeGridInstance<RowVO>>()
-
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 300,
   rowConfig: {
-    keyField: 'id',
+    keyField: 'id'
+  },
+  columnConfig: {
     isCurrent: true,
     isHover: true
+  },
+  currentColumnConfig: {
+    strict: false
   },
   columns: [
     { type: 'seq', width: 70 },
@@ -53,29 +49,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners<RowVO> = {
-  currentRowChange ({ row }) {
-    console.log(`行选中事件 ${row ? row.name : null}`)
-  }
-}
-
-const selectCurrentEvent = () => {
-  const $grid = gridRef.value
-  if ($grid && gridOptions.data) {
-    $grid.setCurrentRow(gridOptions.data[1])
-  }
-}
-
-const clearSelectEvent = () => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.clearCurrentRow()
-  }
-}
-
-const getCurrentEvent = () => {
-  const $grid = gridRef.value
-  if ($grid) {
-    VxeUI.modal.alert(JSON.stringify($grid.getCurrentRecord()))
+  currentColumnChange ({ column, oldValue, newValue }) {
+    console.log(`列选中事件 ${column.field} 旧：`, oldValue, '新：', newValue)
   }
 }
 </script>

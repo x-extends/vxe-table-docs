@@ -750,7 +750,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           children: [
             { title: '当前列', routerLink: { name: 'ComponentGridCurrentColumnBase' } },
             { title: '拦截选中', routerLink: { name: 'ComponentGridCurrentColumnBeforeSelectMethod' } },
-            { title: '手动触发', routerLink: { name: 'ComponentGridCurrentColumnTrigger' } }
+            { title: '手动触发', routerLink: { name: 'ComponentGridCurrentColumnTrigger' } },
+            { title: '可取消', routerLink: { name: 'ComponentGridCurrentColumnStrict' } }
           ]
         },
         {
