@@ -295,7 +295,7 @@ export default Vue.extend({
   margin: 30px 0;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   border-radius: 4px;
-  ::v-deep(.tip) {
+  .tip {
     margin: 0;
   }
 }
