@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-switch v-model="gridOptions.showOverflow"></vxe-switch>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -18,6 +20,7 @@ interface RowVO {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  showOverflow: false,
   virtualXConfig: {
     enabled: false
   },

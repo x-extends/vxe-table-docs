@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-switch v-model="gridOptions.showOverflow"></vxe-switch>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -20,6 +22,7 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
+      showOverflow: false,
       virtualXConfig: {
         enabled: false
       },
