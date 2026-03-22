@@ -23,6 +23,15 @@ interface RowVO {
   attr3: string
   attr4: string
   attr5: string
+  attr6: string
+  attr7: string
+  attr8: string
+  attr9: string
+  attr10: string
+  attr11: string
+  attr12: string
+  attr13: string
+  attr14: string
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
@@ -30,7 +39,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   showHeaderOverflow: true,
   showFooterOverflow: true,
-  height: 800,
+  height: 1000,
   size: 'mini',
   cellConfig: {
     // padding: false,
@@ -57,6 +66,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'attr3', title: 'Attr3', width: 150, editRender: { name: 'VxeInput' } },
     { field: 'attr4', title: 'Attr4', width: 100, editRender: { name: 'VxeInput' } },
     { field: 'attr5', title: 'Attr5', width: 150, editRender: { name: 'VxeInput' } },
+    { field: 'attr6', title: 'Attr6', width: 200, editRender: { name: 'VxeInput' } },
+    { field: 'attr7', title: 'Attr7', width: 300, editRender: { name: 'VxeInput' } },
+    { field: 'attr8', title: 'Attr8', width: 150, editRender: { name: 'VxeInput' } },
+    { field: 'attr9', title: 'Attr9', width: 250, editRender: { name: 'VxeInput' } },
+    { field: 'attr10', title: 'Attr10', width: 200, editRender: { name: 'VxeInput' } },
+    { field: 'attr11', title: 'Attr11', width: 350, editRender: { name: 'VxeInput' } },
+    { field: 'attr12', title: 'Attr12', width: 150, editRender: { name: 'VxeInput' } },
+    { field: 'attr13', title: 'Attr13', width: 250, editRender: { name: 'VxeInput' } },
+    { field: 'attr14', title: 'Attr14', width: 150, editRender: { name: 'VxeInput' } },
     { field: 'address', title: 'Address', width: 200, editRender: { name: 'VxeInput' } }
   ],
   data: []
@@ -80,7 +98,16 @@ const loadList = (size = 200) => {
       attr2: 'attr2' + i,
       attr3: 'attr3' + i,
       attr4: 'attr4' + i,
-      attr5: 'attr4' + i
+      attr5: 'attr4' + i,
+      attr6: 'attr6' + i,
+      attr7: 'attr7' + i,
+      attr8: 'attr8' + i,
+      attr9: 'attr9' + i,
+      attr10: 'attr10' + i,
+      attr11: 'attr11' + i,
+      attr12: 'attr12' + i,
+      attr13: 'attr13' + i,
+      attr14: 'attr14' + i
     })
   }
   gridOptions.data = dataList
