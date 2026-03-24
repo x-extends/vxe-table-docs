@@ -5,12 +5,13 @@
       show-footer
       :data="tableData"
       :virtual-x-config="virtualXConfig"
+      :column-config="columnConfig"
       :footer-data="footerData">
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
-      <vxe-column field="age" title="Age" min-width="auto"></vxe-column>
-      <vxe-column field="sex" title="头部宽度 头部宽度 头部" min-width="auto"></vxe-column>
-      <vxe-column field="address" title="Address" min-width="auto"></vxe-column>
+      <vxe-column field="age" title="Age" width="auto"></vxe-column>
+      <vxe-column field="sex" title="头部宽度 头部宽度 头部" width="auto"></vxe-column>
+      <vxe-column field="address" title="Address" width="auto"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -40,6 +41,14 @@ export default Vue.extend({
       enabled: false
     }
 
+    const columnConfig: VxeTablePropTypes.ColumnConfig = {
+      autoOptions: {
+        isCalcHeader: false, // 不自适应计算列头宽度
+        isCalcBody: true,
+        isCalcFooter: true
+      }
+    }
+
     const footerData: VxeTablePropTypes.FooterData = [
       { age: '9999999' }
     ]
@@ -47,6 +56,7 @@ export default Vue.extend({
     return {
       tableData,
       virtualXConfig,
+      columnConfig,
       footerData
     }
   }

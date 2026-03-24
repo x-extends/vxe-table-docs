@@ -23,12 +23,19 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   virtualXConfig: {
     enabled: false
   },
+  columnConfig: {
+    autoOptions: {
+      isCalcHeader: false, // 不自适应计算列头宽度
+      isCalcBody: true,
+      isCalcFooter: true
+    }
+  },
   columns: [
     { type: 'seq', width: '80' },
     { field: 'name', title: 'Name', width: 300 },
-    { field: 'age', title: 'Age', minWidth: 'auto' },
-    { field: 'sex', title: '头部宽度 头部宽度 头部', minWidth: 'auto' },
-    { field: 'address', title: 'Address', minWidth: 'auto' }
+    { field: 'age', title: 'Age', width: 'auto' },
+    { field: 'sex', title: '头部宽度 头部宽度 头部', width: 'auto' },
+    { field: 'address', title: 'Address', width: 'auto' }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop Develop Develop ', sex: 'Man', age: 28, address: '内容宽度' },
