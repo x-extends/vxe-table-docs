@@ -5,6 +5,9 @@
         <vxe-tip status="primary" title="树结构筛选">
          通过 <ApiLink name="grid" prop="sort-config"/>.<ApiLink name="grid" prop="isDeep"/>=true 设置深层筛选，树结构会同时对每个层级的子节点进行筛选，如果父节点被匹配则子节点也被匹配
         </vxe-tip>
+        <vxe-tip status="error">
+          需要注意仅支持 <ApiLink name="table" prop="tree-config"/>.<ApiLink name="table" prop="transform"/> 模式
+        </vxe-tip>
       </template>
     </CodeLight>
 
