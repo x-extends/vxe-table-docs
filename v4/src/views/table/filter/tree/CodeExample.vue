@@ -3,7 +3,7 @@
     <CodeLight path="table/filter/tree/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="树结构筛选">
-          树结构会默认情况下是父级被匹配到则所有子级也被匹配
+          通过 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="isDeep"/>=true 设置深层筛选，树结构会同时对每个层级的子节点进行筛选，如果父节点被匹配则子节点也被匹配
         </vxe-tip>
       </template>
     </CodeLight>

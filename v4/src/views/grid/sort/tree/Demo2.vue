@@ -26,7 +26,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   sortConfig: {
     // 是否允许同时排序子孙节点
-    isDeep: true
+    isDeep: false
   },
   columns: [
     { type: 'seq', width: 70 },

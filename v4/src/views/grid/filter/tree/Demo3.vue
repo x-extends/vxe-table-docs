@@ -22,7 +22,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 500,
   filterConfig: {
     // 是否允许同时筛选子孙节点
-    isDeep: true
+    isDeep: true,
+    // 是否精确筛选到每一行，默认情况下是父级被匹配到则所有子级也被匹配；如果传 true 则会对每一行进行筛选
+    isEvery: true
   },
   treeConfig: {
     transform: true,

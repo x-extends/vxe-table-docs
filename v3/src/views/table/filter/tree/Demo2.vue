@@ -37,6 +37,9 @@ export default Vue.extend({
     }
 
     const filterConfig: VxeTablePropTypes.FilterConfig<RowVO> = {
+      // 是否允许同时筛选子孙节点
+      isDeep: true,
+      // 是否精确筛选到每一行，默认情况下是父级被匹配到则所有子级也被匹配；如果传 true 则会对每一行进行筛选
       isEvery: true
     }
 
@@ -54,19 +57,19 @@ export default Vue.extend({
     ]
 
     const tableData: RowVO[] = [
-      { id: 10000, parentId: null, name: 'Test1', type: 'mp3', size: 1024, date: '2020-08-22' },
-      { id: 10050, parentId: null, name: 'Abc2', type: 'mp4', size: 0, date: '2021-06-11' },
+      { id: 10000, parentId: null, name: 'Test1', type: 'js', size: 1024, date: '2020-08-22' },
+      { id: 10050, parentId: null, name: 'Abc2', type: 'css', size: 0, date: '2021-06-11' },
       { id: 24300, parentId: 10050, name: 'Test3', type: 'js', size: 256, date: '2020-08-22' },
       { id: 20045, parentId: 24300, name: 'Abc4', type: 'html', size: 600, date: '2021-06-11' },
       { id: 10053, parentId: 24300, name: 'Test5', type: 'js', size: 0, date: '2021-06-11' },
       { id: 24330, parentId: 10053, name: 'Abc6', type: 'js', size: 25, date: '2020-08-22' },
       { id: 21011, parentId: 10053, name: 'Test7', type: 'css', size: 512, date: '2021-06-11' },
-      { id: 22200, parentId: 10053, name: 'Abc8', type: 'mp4', size: 1024, date: '2020-08-22' },
-      { id: 23666, parentId: null, name: 'Test9', type: 'mp4', size: 4086, date: '2020-08-22' },
+      { id: 22200, parentId: 10053, name: 'Abc8', type: 'js', size: 1024, date: '2020-08-22' },
+      { id: 23666, parentId: null, name: 'Test9', type: 'css', size: 4086, date: '2020-08-22' },
       { id: 23677, parentId: 23666, name: 'Abc10', type: 'js', size: 7226, date: '2021-06-11' },
       { id: 23671, parentId: 23677, name: 'Test11', type: 'html', size: 8340, date: '2020-08-22' },
       { id: 23672, parentId: 23677, name: 'Abc12', type: 'css', size: 512, date: '2021-06-11' },
-      { id: 23688, parentId: 23666, name: 'Test13', type: 'mp4', size: 256, date: '2021-06-11' },
+      { id: 23688, parentId: 23666, name: 'Test13', type: 'html', size: 256, date: '2021-06-11' },
       { id: 23681, parentId: 23688, name: 'Test14', type: 'mp3', size: 10240, date: '2020-08-22' },
       { id: 23682, parentId: 23688, name: 'Abc15', type: 'js', size: 4086, date: '2021-06-11' },
       { id: 24555, parentId: null, name: 'Abc16', type: 'css', size: 224, date: '2020-08-22' },
