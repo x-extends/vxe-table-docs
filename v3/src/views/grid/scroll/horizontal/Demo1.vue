@@ -20,7 +20,7 @@ export default Vue.extend({
       showOverflow: true,
       showHeaderOverflow: true,
       showFooterOverflow: true,
-      height: 600,
+      height: 100,
       columnConfig: {
         resizable: true
       },
@@ -140,9 +140,9 @@ export default Vue.extend({
   },
   methods: {
     // 模拟行与列数据
-    loadDataAndColumns (rowSize: number) {
+    loadDataAndColumns (rowSize: number, colSize: number) {
       const colList: VxeGridPropTypes.Columns = []
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < colSize; i++) {
         colList.push({
           field: `col${i}`,
           title: `标题${i}`,
@@ -164,7 +164,7 @@ export default Vue.extend({
 
   },
   created () {
-    this.loadDataAndColumns(20)
+    this.loadDataAndColumns(20, 120)
   }
 })
 </script>

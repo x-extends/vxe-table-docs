@@ -18,7 +18,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   showHeaderOverflow: true,
   showFooterOverflow: true,
-  height: 600,
+  height: 1000,
   columnConfig: {
     resizable: true
   },
@@ -133,9 +133,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 // 模拟行与列数据
-const loadDataAndColumns = (rowSize: number) => {
+const loadDataAndColumns = (rowSize: number, colSize: number) => {
   const colList: VxeGridPropTypes.Columns = []
-  for (let i = 0; i < 120; i++) {
+  for (let i = 0; i < colSize; i++) {
     colList.push({
       field: `col${i}`,
       title: `标题${i}`,
@@ -155,5 +155,5 @@ const loadDataAndColumns = (rowSize: number) => {
   gridOptions.data = dataList
 }
 
-loadDataAndColumns(20)
+loadDataAndColumns(50, 120)
 </script>

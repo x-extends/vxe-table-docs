@@ -11,8 +11,12 @@ import type { VxeGridProps } from 'vxe-table'
 interface RowVO {
   id: number
   name: string
+  nickname: string
   role: string
   sex: string
+  age: number
+  date: string
+  address: string
 }
 
 export default Vue.extend({
@@ -22,7 +26,7 @@ export default Vue.extend({
       showOverflow: true,
       showHeaderOverflow: true,
       showFooterOverflow: true,
-      height: 600,
+      height: 100,
       virtualYConfig: {
         enabled: true,
         gt: 0
@@ -30,8 +34,12 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
+        { field: 'nickname', title: 'Nickname' },
         { field: 'role', title: 'Role' },
-        { field: 'sex', title: 'Sex' }
+        { field: 'sex', title: 'Sex' },
+        { field: 'age', title: 'Age' },
+        { field: 'date', title: 'date' },
+        { field: 'address', title: 'Address' }
       ],
       data: []
     }
@@ -48,8 +56,12 @@ export default Vue.extend({
         dataList.push({
           id: 10000 + i,
           name: 'Test' + i,
+          nickname: 'Name' + i,
           role: 'Developer',
-          sex: '男'
+          sex: '男',
+          age: 18,
+          date: '2018-01-01',
+          address: 'address'
         })
       }
       this.gridOptions.data = dataList

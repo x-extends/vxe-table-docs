@@ -5,7 +5,7 @@
       show-overflow
       show-header-overflow
       show-footer-overflow
-      height="600"
+      height="1000"
       :column-config="{resizable: true}"
       :virtual-x-config="{enabled: true, gt: 0}"
       :data="tableData">
