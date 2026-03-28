@@ -7,9 +7,15 @@
       <vxe-radio-button checked-value="bottom" content="向下"></vxe-radio-button>
     </vxe-radio-group>
 
+    最大宽：<vxe-radio-group v-model="tooltipConfig.maxWidth">
+      <vxe-radio-button :checked-value="200" content="200"></vxe-radio-button>
+      <vxe-radio-button :checked-value="300" content="300"></vxe-radio-button>
+      <vxe-radio-button :checked-value="500" content="500"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-grid v-bind="gridOptions">
       <template #headerAge>
-        <span>ffffffffffffffffffffffffffffffffffffffffffffffffffff</span>
+        <span>ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</span>
       </template>
     </vxe-grid>
   </div>
@@ -32,7 +38,8 @@ export default Vue.extend({
   data () {
     const tooltipConfig: VxeTablePropTypes.TooltipConfig<RowVO> = {
       enterable: true,
-      defaultPlacement: 'bottom'
+      defaultPlacement: 'bottom',
+      maxWidth: 300
     }
 
     const gridOptions: VxeGridProps<RowVO> = {
