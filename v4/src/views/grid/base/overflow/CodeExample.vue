@@ -14,7 +14,7 @@
     <CodeLight path="grid/base/overflow/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          通过设置 <ApiLink name="table" prop="enterable"/> 开启鼠标是否可进入到 tooltip 中
+          通过设置 <ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="enterable"/> 开启鼠标是否可进入到面板中，设置 <ApiLink name="grid" prop="tooltip-config"/>.<ApiLink name="grid" prop="defaultPlacement"/> 可以设置默认方向
         </vxe-tip>
       </template>
     </CodeLight>

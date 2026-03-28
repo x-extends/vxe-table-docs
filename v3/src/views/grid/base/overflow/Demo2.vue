@@ -1,5 +1,12 @@
 <template>
   <div>
+    鼠标进入：<vxe-switch v-model="tooltipConfig.enterable"></vxe-switch>
+
+    默认方向：<vxe-radio-group v-model="tooltipConfig.defaultPlacement">
+      <vxe-radio-button checked-value="top" content="向上"></vxe-radio-button>
+      <vxe-radio-button checked-value="bottom" content="向下"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-grid v-bind="gridOptions">
       <template #headerAge>
         <span>ffffffffffffffffffffffffffffffffffffffffffffffffffff</span>
@@ -10,7 +17,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -23,6 +30,11 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const tooltipConfig: VxeTablePropTypes.TooltipConfig<RowVO> = {
+      enterable: true,
+      defaultPlacement: 'bottom'
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showFooter: true,
@@ -40,9 +52,7 @@ export default Vue.extend({
       headerTooltipConfig: {
         enterable: false
       },
-      tooltipConfig: {
-        enterable: true
-      },
+      tooltipConfig,
       footerTooltipConfig: {
         enterable: false
       },
@@ -80,7 +90,8 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      tooltipConfig
     }
   }
 })
