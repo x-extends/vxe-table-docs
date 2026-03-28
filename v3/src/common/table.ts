@@ -1089,6 +1089,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '平级结构', routerLink: { name: 'ComponentGridTreeLeveling' } },
             { title: '层级结构', routerLink: { name: 'ComponentGridTreeHierarchy' } },
             { title: '斑马线样式', routerLink: { name: 'ComponentGridTreeStripe' } },
+            { title: '自定义图标', routerLink: { name: 'ComponentGridTreeIcon' } },
             { title: '序号模式', routerLink: { name: 'ComponentGridTreeSeqMode' } },
             { title: '显示连接线', routerLink: { name: 'ComponentGridTreeLine' } },
             { title: '单选框', routerLink: { name: 'ComponentGridTreeRadio' } },

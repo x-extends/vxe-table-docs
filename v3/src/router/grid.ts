@@ -1383,6 +1383,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridTreeStripe',
           component: () => import('@/views/grid/tree/stripe/CodeExample.vue')
         },
+        { path: 'icon', name: 'ComponentGridTreeIcon', component: () => import('@/views/grid/tree/icon/CodeExample.vue') },
         {
           path: 'seqMode',
           name: 'ComponentGridTreeSeqMode',
