@@ -38,7 +38,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', minWidth: 180, editRender: { }, slots: { edit: 'edit_name' } },
+    { field: 'name', title: 'Name', minWidth: 180, editRender: {}, slots: { edit: 'edit_name' } },
     { field: 'action', title: '操作', width: 180, slots: { default: 'action' } }
   ],
   data: [

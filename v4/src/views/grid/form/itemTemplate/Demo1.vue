@@ -52,7 +52,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { formConfig: VxeGridPropType
     data: XEUtils.clone(defaultData, true),
     items: [
       { field: 'name', title: '名称', span: 8, itemRender: {}, slots: { default: 'nameItem' } },
-      { field: 'sex', title: '性别', span: 8, itemRender: { }, slots: { default: 'sexItem' } },
+      { field: 'sex', title: '性别', span: 8, itemRender: {}, slots: { default: 'sexItem' } },
       { field: 'age', title: '年龄', span: 8, itemRender: {}, slots: { default: 'ageItem' } },
       { span: 24, align: 'center', itemRender: {}, slots: { default: 'actionItem' } }
     ]

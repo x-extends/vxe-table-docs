@@ -40,8 +40,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', minWidth: 180, editRender: { }, slots: { edit: 'edit_name' } },
-    { field: 'startAndEnd', title: '日期范围', width: 320, editRender: { }, slots: { default: 'default_start_and_end', edit: 'edit_start_and_end' } }
+    { field: 'name', title: 'Name', minWidth: 180, editRender: {}, slots: { edit: 'edit_name' } },
+    { field: 'startAndEnd', title: '日期范围', width: 320, editRender: {}, slots: { default: 'default_start_and_end', edit: 'edit_start_and_end' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', startDate: '', endDate: '', address: 'test abc' },

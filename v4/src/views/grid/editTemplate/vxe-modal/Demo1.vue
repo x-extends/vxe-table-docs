@@ -70,9 +70,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: '采购人员', minWidth: 200, editRender: { }, slots: { edit: 'edit_name' } },
-    { field: 'productName', title: '商品名称', minWidth: 200, editRender: { }, slots: { edit: 'edit_productName' } },
-    { field: 'productPrice', title: '商品价格', width: 120, editRender: { }, slots: { edit: 'edit_productPrice' } },
+    { field: 'name', title: '采购人员', minWidth: 200, editRender: {}, slots: { edit: 'edit_name' } },
+    { field: 'productName', title: '商品名称', minWidth: 200, editRender: {}, slots: { edit: 'edit_productName' } },
+    { field: 'productPrice', title: '商品价格', width: 120, editRender: {}, slots: { edit: 'edit_productPrice' } },
     { title: '操作', width: 200, slots: { default: 'action' } }
   ],
   data: [
