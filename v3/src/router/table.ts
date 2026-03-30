@@ -1811,6 +1811,7 @@ export const tableRouteConfig: RouteConfig = {
           name: 'ComponentTableExportCsv',
           component: () => import('@/views/table/export/csv/CodeExample.vue')
         },
+        { path: 'data', name: 'ComponentTableExportData', component: () => import('@/views/table/export/data/CodeExample.vue') },
         {
           path: 'exportMethod',
           name: 'ComponentTableExportExportMethod',
