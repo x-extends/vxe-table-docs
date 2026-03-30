@@ -53,11 +53,11 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', minWidth: 180, editRender: { }, slots: { edit: 'edit_name' } },
-        { field: 'num', title: '数字', width: 180, editRender: { }, slots: { edit: 'edit_num' } },
-        { field: 'integer', title: '整数', width: 180, editRender: { }, slots: { edit: 'edit_integer' } },
-        { field: 'float', title: '小数', width: 180, editRender: { }, slots: { edit: 'edit_float' } },
-        { field: 'money', title: '金额', align: 'right', width: 180, editRender: { }, slots: { edit: 'edit_money' } }
+        { field: 'name', title: 'Name', minWidth: 180, editRender: {}, slots: { edit: 'edit_name' } },
+        { field: 'num', title: '数字', width: 180, editRender: {}, slots: { edit: 'edit_num' } },
+        { field: 'integer', title: '整数', width: 180, editRender: {}, slots: { edit: 'edit_integer' } },
+        { field: 'float', title: '小数', width: 180, editRender: {}, slots: { edit: 'edit_float' } },
+        { field: 'money', title: '金额', align: 'right', width: 180, editRender: {}, slots: { edit: 'edit_money' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', num: null, integer: null, float: null, money: 10000 },

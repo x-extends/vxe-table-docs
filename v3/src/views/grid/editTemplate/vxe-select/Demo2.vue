@@ -53,9 +53,9 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', minWidth: 200, editRender: { }, slots: { edit: 'edit_name', default: 'default_name' } },
-        { field: 'type', title: '下拉框分组', width: 200, editRender: { }, slots: { edit: 'edit_type', default: 'default_type' } },
-        { field: 'typeList', title: '下拉框分组多选', width: 200, editRender: { }, slots: { edit: 'edit_typeList', default: 'default_typeList' } }
+        { field: 'name', title: 'Name', minWidth: 200, editRender: {}, slots: { edit: 'edit_name', default: 'default_name' } },
+        { field: 'type', title: '下拉框分组', width: 200, editRender: {}, slots: { edit: 'edit_type', default: 'default_type' } },
+        { field: 'typeList', title: '下拉框分组多选', width: 200, editRender: {}, slots: { edit: 'edit_typeList', default: 'default_typeList' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },

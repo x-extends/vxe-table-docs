@@ -71,11 +71,11 @@ export default Vue.extend({
       columns: [
         { type: 'checkbox', width: 60 },
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', editRender: { }, slots: { edit: 'nameEdit' } },
-        { field: 'role', title: 'Role', editRender: { }, slots: { edit: 'roleRole' } },
-        { field: 'sex', title: 'Sex', editRender: { }, slots: { edit: 'sexEdit', default: 'sexDefault' } },
-        { field: 'age', title: 'Age', editRender: { }, slots: { edit: 'ageEdit' } },
-        { field: 'date', title: 'Date', editRender: { }, slots: { edit: 'dateEdit' } }
+        { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'nameEdit' } },
+        { field: 'role', title: 'Role', editRender: {}, slots: { edit: 'roleRole' } },
+        { field: 'sex', title: 'Sex', editRender: {}, slots: { edit: 'sexEdit', default: 'sexDefault' } },
+        { field: 'age', title: 'Age', editRender: {}, slots: { edit: 'ageEdit' } },
+        { field: 'date', title: 'Date', editRender: {}, slots: { edit: 'dateEdit' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },

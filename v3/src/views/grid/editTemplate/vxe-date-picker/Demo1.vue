@@ -76,14 +76,14 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', minWidth: 180, editRender: { }, slots: { edit: 'edit_name' } },
-        { field: 'date', title: '日期', width: 180, editRender: { }, slots: { edit: 'edit_date' } },
-        { field: 'year', title: '年份', width: 180, editRender: { }, slots: { edit: 'edit_year' } },
-        { field: 'quarter', title: '季度', width: 180, editRender: { }, slots: { edit: 'edit_quarter', default: 'default_quarter' } },
-        { field: 'month', title: '月份', width: 180, editRender: { }, slots: { edit: 'edit_month' } },
-        { field: 'week', title: '周', width: 180, editRender: { }, slots: { edit: 'edit_week', default: 'default_week' } },
-        { field: 'time', title: '时间', width: 180, editRender: { }, slots: { edit: 'edit_time' } },
-        { field: 'datetime', title: '日期带时间', width: 180, editRender: { }, slots: { edit: 'edit_datetime' } }
+        { field: 'name', title: 'Name', minWidth: 180, editRender: {}, slots: { edit: 'edit_name' } },
+        { field: 'date', title: '日期', width: 180, editRender: {}, slots: { edit: 'edit_date' } },
+        { field: 'year', title: '年份', width: 180, editRender: {}, slots: { edit: 'edit_year' } },
+        { field: 'quarter', title: '季度', width: 180, editRender: {}, slots: { edit: 'edit_quarter', default: 'default_quarter' } },
+        { field: 'month', title: '月份', width: 180, editRender: {}, slots: { edit: 'edit_month' } },
+        { field: 'week', title: '周', width: 180, editRender: {}, slots: { edit: 'edit_week', default: 'default_week' } },
+        { field: 'time', title: '时间', width: 180, editRender: {}, slots: { edit: 'edit_time' } },
+        { field: 'datetime', title: '日期带时间', width: 180, editRender: {}, slots: { edit: 'edit_datetime' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', date: '', time: '', year: '', quarter: '', month: '', week: '', datetime: '', address: 'test abc' },

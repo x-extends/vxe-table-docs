@@ -42,9 +42,9 @@ export default Vue.extend({
       },
       columns: [
         { type: 'seq', width: 50 },
-        { field: 'name', title: 'Name', editRender: { }, slots: { edit: 'name_edit' } },
-        { field: 'sex', title: 'Sex', editRender: { }, slots: { edit: 'sex_edit' } },
-        { field: 'age', title: 'Age', editRender: { }, slots: { edit: 'age_edit' } },
+        { field: 'name', title: 'Name', editRender: {}, slots: { edit: 'name_edit' } },
+        { field: 'sex', title: 'Sex', editRender: {}, slots: { edit: 'sex_edit' } },
+        { field: 'age', title: 'Age', editRender: {}, slots: { edit: 'age_edit' } },
         { field: 'address', title: 'Address', editRender: { name: 'VxeInput' } }
       ],
       data: [

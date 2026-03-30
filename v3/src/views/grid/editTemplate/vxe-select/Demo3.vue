@@ -47,7 +47,7 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 200, editRender: { autoFocus: 'input' }, slots: { edit: 'edit_name', default: 'default_name' } },
-        { field: 'role', title: '大数据量选项', width: 200, editRender: { }, slots: { edit: 'edit_role', default: 'default_role' } }
+        { field: 'role', title: '大数据量选项', width: 200, editRender: {}, slots: { edit: 'edit_role', default: 'default_role' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },

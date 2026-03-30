@@ -44,7 +44,7 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 180, editRender: { autoFocus: 'input' }, slots: { edit: 'edit_name', default: 'default_name' } },
-        { field: 'icon', title: '图标', width: 100, editRender: { }, slots: { edit: 'icon_edit', default: 'icon_default' } }
+        { field: 'icon', title: '图标', width: 100, editRender: {}, slots: { edit: 'icon_edit', default: 'icon_default' } }
       ],
       data: [
         { id: 10001, name: 'Test1', icon: '', iconList: [] },
