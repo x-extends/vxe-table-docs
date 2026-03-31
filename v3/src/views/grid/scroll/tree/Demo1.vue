@@ -40,14 +40,14 @@ export default Vue.extend({
       columns: [
         { type: 'checkbox', width: 60 },
         { type: 'seq', width: 300, treeNode: true },
-        { field: 'id', title: 'Id' },
-        { field: 'name', title: 'Name' },
-        { field: 'attr1', title: 'Attr1' },
-        { field: 'attr2', title: 'Attr2' },
-        { field: 'attr3', title: 'Attr3' },
-        { field: 'attr4', title: 'Attr4' },
-        { field: 'attr5', title: 'Attr5' },
-        { field: 'attr6', title: 'Attr6' }
+        { field: 'id', title: 'Id', width: 120 },
+        { field: 'name', title: 'Name', minWidth: 200 },
+        { field: 'attr1', title: 'Attr1', width: 120 },
+        { field: 'attr2', title: 'Attr2', width: 160 },
+        { field: 'attr3', title: 'Attr3', width: 120 },
+        { field: 'attr4', title: 'Attr4', width: 100 },
+        { field: 'attr5', title: 'Attr5', width: 140 },
+        { field: 'attr6', title: 'Attr6', width: 120 }
       ],
       data: []
     }

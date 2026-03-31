@@ -19,14 +19,14 @@
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="300" tree-node></vxe-column>
-      <vxe-column field="id" title="Id"></vxe-column>
-      <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="attr1" title="Attr1"></vxe-column>
-      <vxe-column field="attr2" title="Attr2"></vxe-column>
-      <vxe-column field="attr3" title="Attr3"></vxe-column>
-      <vxe-column field="attr4" title="Attr4"></vxe-column>
-      <vxe-column field="attr5" title="Attr5"></vxe-column>
-      <vxe-column field="attr6" title="Attr6"></vxe-column>
+      <vxe-column field="id" title="Id" width="120"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="200"></vxe-column>
+      <vxe-column field="attr1" title="Attr1" width="120"></vxe-column>
+      <vxe-column field="attr2" title="Attr2" width="160"></vxe-column>
+      <vxe-column field="attr3" title="Attr3" width="120"></vxe-column>
+      <vxe-column field="attr4" title="Attr4" width="100"></vxe-column>
+      <vxe-column field="attr5" title="Attr5" width="140"></vxe-column>
+      <vxe-column field="attr6" title="Attr6" width="120"></vxe-column>
     </vxe-table>
   </div>
 </template>
