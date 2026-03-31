@@ -41,7 +41,13 @@ export default Vue.extend({
         { type: 'checkbox', width: 60 },
         { type: 'seq', width: 300, treeNode: true },
         { field: 'id', title: 'Id' },
-        { field: 'name', title: 'Name' }
+        { field: 'name', title: 'Name' },
+        { field: 'attr1', title: 'Attr1' },
+        { field: 'attr2', title: 'Attr2' },
+        { field: 'attr3', title: 'Attr3' },
+        { field: 'attr4', title: 'Attr4' },
+        { field: 'attr5', title: 'Attr5' },
+        { field: 'attr6', title: 'Attr6' }
       ],
       data: []
     }
