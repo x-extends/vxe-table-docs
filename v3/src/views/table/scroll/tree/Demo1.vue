@@ -21,6 +21,12 @@
       <vxe-column type="seq" width="300" tree-node></vxe-column>
       <vxe-column field="id" title="Id"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-column field="attr1" title="Attr1"></vxe-column>
+      <vxe-column field="attr2" title="Attr2"></vxe-column>
+      <vxe-column field="attr3" title="Attr3"></vxe-column>
+      <vxe-column field="attr4" title="Attr4"></vxe-column>
+      <vxe-column field="attr5" title="Attr5"></vxe-column>
+      <vxe-column field="attr6" title="Attr6"></vxe-column>
     </vxe-table>
   </div>
 </template>
