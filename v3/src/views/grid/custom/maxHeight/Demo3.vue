@@ -34,7 +34,7 @@ export default Vue.extend({
       },
       customConfig: {
         popupOptions: {
-          mode: 'outside'
+          transfer: true
         }
       },
       toolbarConfig: {

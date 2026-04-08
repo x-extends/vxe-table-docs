@@ -4,13 +4,18 @@
       <vxe-radio-button checked-value="200" content="高度200"></vxe-radio-button>
       <vxe-radio-button checked-value="" content="不设置高度"></vxe-radio-button>
     </vxe-radio-group>
+
+    <vxe-radio-group v-model="customConfig.popupOptions.mode">
+      <vxe-radio-button checked-value="inside" content="内部"></vxe-radio-button>
+      <vxe-radio-button checked-value="outside" content="外部"></vxe-radio-button>
+    </vxe-radio-group>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -21,6 +26,12 @@ interface RowVO {
   address: string
 }
 
+const customConfig = reactive<VxeTablePropTypes.CustomConfig<RowVO> & Required<Pick<VxeTablePropTypes.CustomConfig, 'popupOptions'>>>({
+  popupOptions: {
+    mode: 'inside'
+  }
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: '',
@@ -30,11 +41,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     resizable: true
   },
-  customConfig: {
-    popupOptions: {
-      mode: 'inside'
-    }
-  },
+  customConfig,
   toolbarConfig: {
     custom: true
   },

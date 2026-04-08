@@ -32,7 +32,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   customConfig: {
     popupOptions: {
-      mode: 'outside'
+      transfer: true
     }
   },
   toolbarConfig: {
