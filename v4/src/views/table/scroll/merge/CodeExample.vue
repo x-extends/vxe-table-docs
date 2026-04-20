@@ -6,7 +6,7 @@
           虚拟渲染与单元格合并，可以通过设置参数 <ApiLink name="table" prop="merge-cells"/> 或调用函数 <ApiLink name="table" prop="setMergeCells"/>、<ApiLink name="table" prop="setMergeCells"/> 来控制单元格的临时合并状态<br>
         </vxe-tip>
         <vxe-tip status="error" title="如何优化合并">
-          <div>合并的性能是非常低的，当所有行都被合并为一个单元格时就等同于关闭纵向虚拟滚动，当所有列都被合并为一个单元格时就等同于关闭横向虚拟滚动。应该避免合并范围过大的使用场景</div>
+          <div>合并会影响渲染性能，如果是非连续的小范围合并，则不影响性能。当所有行都被合并为一个单元格时就等同于关闭纵向虚拟滚动，当所有列都被合并为一个单元格时就等同于关闭横向虚拟滚动。应该避免合并范围过大的使用场景</div>
         </vxe-tip>
       </template>
     </CodeLight>
