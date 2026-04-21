@@ -1,6 +1,8 @@
 <template>
   <div>
     <div>
+      <vxe-button status="primary" @click="setRule1">修改规则1</vxe-button>
+      <vxe-button status="primary" @click="setRule2">修改规则2</vxe-button>
       <vxe-button @click="validEvent">校验变动数据</vxe-button>
       <vxe-button @click="fullValidEvent">校验全量数据</vxe-button>
     </div>
@@ -72,6 +74,40 @@ const validRules = ref<VxeTablePropTypes.EditRules<RowVO>>({
     { required: true, message: '必须填写' }
   ]
 })
+
+const setRule1 = () => {
+  validRules.value = {
+    name: [
+      { required: true, message: '必须填写' }
+    ],
+    nickname: [
+      { required: true, message: '必须填写' }
+    ],
+    role: [
+      { required: true, message: '必须填写' }
+    ],
+    age: [
+      { required: true, message: '必须填写' }
+    ],
+    date: [
+      { required: true, message: '必须填写' }
+    ]
+  }
+}
+
+const setRule2 = () => {
+  validRules.value = {
+    nickname: [
+      { required: true, message: '必须填写' }
+    ],
+    role: [
+      { required: true, message: '必须填写' }
+    ],
+    age: [
+      { required: true, message: '必须填写' }
+    ]
+  }
+}
 
 const validEvent = async () => {
   const $table = tableRef.value

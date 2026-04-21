@@ -1,6 +1,8 @@
 <template>
   <div>
     <div>
+      <vxe-button status="primary" @click="setRule1">修改规则1</vxe-button>
+      <vxe-button status="primary" @click="setRule2">修改规则2</vxe-button>
       <vxe-button @click="validEvent">校验变动数据</vxe-button>
       <vxe-button @click="fullValidEvent">校验全量数据</vxe-button>
     </div>
@@ -84,6 +86,38 @@ export default Vue.extend({
     }
   },
   methods: {
+    setRule1 () {
+      this.gridOptions.editRules = {
+        name: [
+          { required: true, message: '必须填写' }
+        ],
+        nickname: [
+          { required: true, message: '必须填写' }
+        ],
+        role: [
+          { required: true, message: '必须填写' }
+        ],
+        age: [
+          { required: true, message: '必须填写' }
+        ],
+        date: [
+          { required: true, message: '必须填写' }
+        ]
+      }
+    },
+    setRule2 () {
+      this.gridOptions.editRules = {
+        nickname: [
+          { required: true, message: '必须填写' }
+        ],
+        role: [
+          { required: true, message: '必须填写' }
+        ],
+        age: [
+          { required: true, message: '必须填写' }
+        ]
+      }
+    },
     async validEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {

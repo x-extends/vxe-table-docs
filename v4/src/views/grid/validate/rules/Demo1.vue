@@ -1,6 +1,8 @@
 <template>
   <div>
     <div>
+      <vxe-button status="primary" @click="setRule1">修改规则1</vxe-button>
+      <vxe-button status="primary" @click="setRule2">修改规则2</vxe-button>
       <vxe-button @click="validEvent">校验变动数据</vxe-button>
       <vxe-button @click="fullValidEvent">校验全量数据</vxe-button>
     </div>
@@ -79,6 +81,40 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10006, name: 'Test6', role: 'Designer', sex: '1', age: 21, address: 'test abc' }
   ]
 })
+
+const setRule1 = () => {
+  gridOptions.editRules = {
+    name: [
+      { required: true, message: '必须填写' }
+    ],
+    nickname: [
+      { required: true, message: '必须填写' }
+    ],
+    role: [
+      { required: true, message: '必须填写' }
+    ],
+    age: [
+      { required: true, message: '必须填写' }
+    ],
+    date: [
+      { required: true, message: '必须填写' }
+    ]
+  }
+}
+
+const setRule2 = () => {
+  gridOptions.editRules = {
+    nickname: [
+      { required: true, message: '必须填写' }
+    ],
+    role: [
+      { required: true, message: '必须填写' }
+    ],
+    age: [
+      { required: true, message: '必须填写' }
+    ]
+  }
+}
 
 const validEvent = async () => {
   const $grid = gridRef.value
