@@ -67,9 +67,9 @@
     "sass": "~1.98.0",
     "sass-loader": "~16.0.7",
     "typescript": "~5.9.3",
-    "vite": "~8.0.0",
+    "vite": "~8.0.9",
     "vite-plugin-html": "~3.2.2",
     "vite-plugin-zip-pack": "~1.2.4",
-    "vue-tsc": "~3.2.5"
+    "vue-tsc": "~3.2.7"
   }
 }
