@@ -108,9 +108,11 @@ export default Vue.extend({
       if ($grid) {
         $grid.setCurrentRow(row)
       }
+      console.log('触发 cell-menu')
     },
     menuClickEvent ({ menu }) {
       VxeUI.modal.message({ content: `点击了 ${menu.code}`, status: 'success' })
+      console.log('触发 menu-click')
     }
   }
 })
