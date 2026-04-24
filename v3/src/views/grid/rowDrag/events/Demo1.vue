@@ -29,9 +29,9 @@ export default Vue.extend({
         drag: true
       },
       columns: [
-        { type: 'seq', width: 80 },
+        { type: 'seq', width: 80, dragSort: true },
         { field: 'name', title: 'Name' },
-        { field: 'role', title: 'Role', dragSort: true },
+        { field: 'role', title: 'Role' },
         { field: 'sex', title: 'Sex' },
         { field: 'age', title: 'Age' },
         { field: 'address', title: 'Address' }

@@ -7,7 +7,8 @@
       :data="tableData"
       @row-dragstart="rowDragstartEvent"
       @row-dragend="rowDragendEvent">
-      <vxe-column field="name" title="Name" drag-sort></vxe-column>
+      <vxe-column type="seq" drag-sort></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>
