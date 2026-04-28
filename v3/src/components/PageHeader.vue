@@ -17,7 +17,7 @@
     </div>
     <div class="header-middle"></div>
     <div class="header-right">
-      <vxe-pulldown v-model="showPluginApp" show-popup-shadow>
+      <vxe-pulldown v-model="showPluginApp" class="switch-plugin" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
           <span v-if="pluginType" class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
           <span v-else class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.pluginDocs') }}</span>
@@ -33,7 +33,7 @@
           </ul>
         </template>
       </vxe-pulldown>
-      <vxe-pulldown v-model="showSystemMenu" show-popup-shadow>
+      <vxe-pulldown v-model="showSystemMenu" class="switch-system" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
@@ -340,6 +340,12 @@ export default Vue.extend({
   .header-middle {
     flex-grow: 1;
   }
+  .switch-plugin,
+  .switch-system,
+  .switch-size,
+  .switch-primary-color {
+    display: none;
+  }
   .system-menu-btn,
   .switch-theme,
   .switch-primary-color,
@@ -499,6 +505,16 @@ export default Vue.extend({
   }
 }
 @media screen and (min-width: 1400px) {
+  .page-header {
+    .switch-plugin,
+    .switch-system,
+    .switch-size,
+    .switch-primary-color {
+      display: block;
+    }
+  }
+}
+@media screen and (min-width: 1700px) {
   .header-left {
     .pendant {
       display: block;
