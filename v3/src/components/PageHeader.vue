@@ -5,13 +5,13 @@
         <img :src="`${resBaseUrl}/logo.png`">
         <span class="title">{{ pageTitle }}</span>
       </a>
-      <a :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
+      <a class="pendant" :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
         <img :src='`https://gitee.com/x-extends/${packName}/badge/star.svg?theme=gvp`' alt='star'>
       </a>
-      <a :href="`http://npm-stat.com/charts.html?package=${packName}`">
+      <a class="pendant" :href="`http://npm-stat.com/charts.html?package=${packName}`">
         <img :src="`https://img.shields.io/npm/dm/${packName}.svg`">
       </a>
-      <a :href="`https://github.com/x-extends/${packName}/stargazers`">
+      <a class="pendant" :href="`https://github.com/x-extends/${packName}/stargazers`">
         <img :src="`https://img.shields.io/github/stars/x-extends/${packName}.svg`">
       </a>
     </div>
@@ -402,6 +402,9 @@ export default Vue.extend({
       vertical-align: middle;
     }
   }
+  .pendant {
+    display: none;
+  }
 }
 .switch-lang-item {
   display: flex;
@@ -492,6 +495,13 @@ export default Vue.extend({
       padding: 0 8px;
       color: #606266;
       transform: scale(0.8);
+    }
+  }
+}
+@media screen and (min-width: 1400px) {
+  .header-left {
+    .pendant {
+      display: block;
     }
   }
 }
