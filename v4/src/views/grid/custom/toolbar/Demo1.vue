@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-switch v-model="toolbarConfig.custom"></vxe-switch>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -17,6 +19,10 @@ interface RowVO {
   address: string
 }
 
+const toolbarConfig = reactive({
+  custom: true
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   rowConfig: {
     keyField: 'id'
@@ -25,9 +31,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     resizable: true
   },
-  toolbarConfig: {
-    custom: true
-  },
+  toolbarConfig,
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },

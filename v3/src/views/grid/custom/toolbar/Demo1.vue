@@ -1,5 +1,7 @@
 <template>
   <div>
+    <vxe-switch v-model="toolbarConfig.custom"></vxe-switch>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
@@ -19,6 +21,10 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const toolbarConfig = {
+      custom: true
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       rowConfig: {
@@ -27,9 +33,7 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
-      toolbarConfig: {
-        custom: true
-      },
+      toolbarConfig,
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
@@ -45,7 +49,8 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions
+      gridOptions,
+      toolbarConfig
     }
   }
 })
