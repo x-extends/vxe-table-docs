@@ -29,7 +29,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .page-footer {
-  padding-top: 10em;
+  padding-top: 4em;
   text-align: center;
 }
 </style>

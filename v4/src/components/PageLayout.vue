@@ -78,6 +78,9 @@ provide('pluginType', route.query.pt || '')
       position: relative;
       padding: 16px 300px 16px 16px;
     }
+    .body-view {
+      min-height: 80vh;
+    }
   }
   .layout-aside {
     & > .vxe-layout-aside--inner {
