@@ -24,7 +24,7 @@ const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 <style lang="scss">
 .page-footer {
-  width: calc(100% - 300px);
+  padding-top: 10em;
   text-align: center;
 }
 </style>

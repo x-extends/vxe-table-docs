@@ -8,17 +8,19 @@
         <PageAside :navConfigList="navConfigList" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container" vertical>
-        <VxeLayoutBody class="layout-body" show-backtop :backtop-config="backtopConfig">
+        <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig">
           <template #default>
-            <RouterView />
+            <div class="body-view">
+              <RouterView />
+            </div>
+            <VxeLayoutFooter class="layout-footer">
+              <PageFooter></PageFooter>
+            </VxeLayoutFooter>
           </template>
           <template #backtop-top>
             <VxeButton status="success" icon="vxe-icon-wechat" title="企业版在线客服" circle shadow @click="wxKfEvent"></VxeButton>
           </template>
         </VxeLayoutBody>
-        <VxeLayoutFooter class="layout-footer">
-          <PageFooter></PageFooter>
-        </VxeLayoutFooter>
         <div v-if="showOperBtn" class="oper-wrapper">
           <vxe-button class="oper-btn" status="info" :icon="showLeft ? 'vxe-icon-arrow-left' : 'vxe-icon-arrow-right'" @click="showLeft = !showLeft"></vxe-button>
         </div>
@@ -74,6 +76,10 @@ export default Vue.extend({
     pageName () {
       const route = this.$route
       return route ? XEUtils.kebabCase(`${String(route.name).replace('VxeIcon', 'VxeIco')}`) : ''
+    },
+    isFullView () {
+      const route = this.$route
+      return route.name === 'DocsApi'
     },
     showOperBtn () {
       const route = this.$route
