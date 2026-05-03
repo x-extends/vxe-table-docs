@@ -1745,7 +1745,8 @@ export const gridRouteConfig: RouteConfig = {
           path: 'treeEdit',
           name: 'ComponentGridKeyboardTreeEdit',
           component: () => import('@/views/grid/keyboard/treeEdit/CodeExample.vue')
-        }
+        },
+        { path: 'undoRedo', name: 'ComponentGridKeyboardUndoRedo', component: () => import('@/views/grid/keyboard/undoRedo/CodeExample.vue') }
       ]
     },
     {

@@ -1129,7 +1129,8 @@ export const tableRouteConfig: RouteRecordRaw = {
           path: 'treeEdit',
           name: 'ComponentTableKeyboardTreeEdit',
           component: () => import('@/views/table/keyboard/treeEdit/CodeExample.vue')
-        }
+        },
+        { path: 'undoRedo', name: 'ComponentTableKeyboardUndoRedo', component: () => import('@/views/table/keyboard/undoRedo/CodeExample.vue') }
       ]
     },
     {

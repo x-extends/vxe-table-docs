@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      keep-source
       height="500"
       :edit-config="editConfig"
       :keyboard-config="keyboardConfig"
@@ -53,7 +54,8 @@ const tableData = ref<RowVO[]>([
 
 const editConfig = ref<VxeTablePropTypes.EditConfig>({
   trigger: 'dblclick',
-  mode: 'cell'
+  mode: 'cell',
+  showStatus: true
 })
 
 const mouseConfig = ref<VxeTablePropTypes.MouseConfig>({
@@ -67,6 +69,7 @@ const keyboardConfig = ref<VxeTablePropTypes.KeyboardConfig<RowVO>>({
   isTab: true,
   isDel: true,
   isBack: true,
-  isEsc: true
+  isEsc: true,
+  isUndoRedo: true
 })
 </script>

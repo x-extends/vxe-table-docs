@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      keep-source
       height="500"
       :edit-config="editConfig"
       :keyboard-config="keyboardConfig"
@@ -55,7 +56,8 @@ export default Vue.extend({
 
     const editConfig: VxeTablePropTypes.EditConfig = {
       trigger: 'dblclick',
-      mode: 'cell'
+      mode: 'cell',
+      showStatus: true
     }
 
     const mouseConfig: VxeTablePropTypes.MouseConfig = {
@@ -69,7 +71,8 @@ export default Vue.extend({
       isTab: true,
       isDel: true,
       isBack: true,
-      isEsc: true
+      isEsc: true,
+      isUndoRedo: true
     }
 
     return {
