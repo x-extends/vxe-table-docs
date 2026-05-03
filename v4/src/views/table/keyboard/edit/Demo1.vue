@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      show-overflow
       height="500"
       :edit-config="editConfig"
       :keyboard-config="keyboardConfig"
