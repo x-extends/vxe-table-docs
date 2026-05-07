@@ -1037,6 +1037,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '允许拖拽分组', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_allow_group' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2FallowGroup' } } },
             { title: '允许拖拽聚合函数', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_drag_values' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2FaggDragValues' } } },
             { title: '冻结列最大数量限制', routerLink: { name: 'ComponentGridCustomFixedMax' } },
+            { title: '排序快捷操作按钮', routerLink: { name: 'ComponentGridCustomMoveBtn' } },
             // { title: '自定义触发弹出设置', routerLink: { name: 'ComponentGridCustomTemplate' } },
             { title: '自定义触发按钮', routerLink: { name: 'ComponentGridCustomCustomBtn' } },
             { title: '自定义弹出位置', routerLink: { name: 'ComponentGridCustomPlacement' } },

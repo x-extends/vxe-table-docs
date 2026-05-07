@@ -1253,6 +1253,7 @@ export const gridRouteConfig: RouteRecordRaw = {
         //   name: 'ComponentGridCustomTemplate',
         //   component: () => import('@/views/grid/custom/template/CodeExample.vue')
         // },
+        { path: 'moveBtn', name: 'ComponentGridCustomMoveBtn', component: () => import('@/views/grid/custom/moveBtn/CodeExample.vue') },
         {
           path: 'customBtn',
           name: 'ComponentGridCustomCustomBtn',
