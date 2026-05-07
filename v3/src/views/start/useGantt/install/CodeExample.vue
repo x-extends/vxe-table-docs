@@ -16,11 +16,11 @@
           <pre-code
             language="shell"
             :content="`
-              npm install ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
+              npm install ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
               # 或者
-              yarn add ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
+              yarn add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
               # 或者
-              pnpm add ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
+              pnpm add ${utilCDNLib} ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
             `">
           </pre-code>
           <pre-code
@@ -86,6 +86,7 @@ import { mapGetters } from 'vuex'
 export default Vue.extend({
   computed: {
     ...mapGetters([
+      'utilCDNLib',
       'uiCDNLib',
       'tableCDNLib',
       'ganttCDNLib'
