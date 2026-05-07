@@ -3,7 +3,6 @@
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       ref="tableRef"
-      :custom-config="customConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -16,8 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, reactive } from 'vue'
-import type { VxeTablePropTypes, VxeToolbarInstance, VxeTableInstance } from 'vxe-table'
+import { onMounted, ref } from 'vue'
+import type { VxeToolbarInstance, VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -37,10 +36,6 @@ const tableData = ref<RowVO[]>([
   { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai' },
   { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
-
-const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
-  mode: 'modal'
-})
 
 onMounted(() => {
   const $table = tableRef.value

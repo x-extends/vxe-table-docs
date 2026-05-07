@@ -1237,6 +1237,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridCustomFixed',
           component: () => import('@/views/grid/custom/fixed/CodeExample.vue')
         },
+        { path: 'fixedMax', name: 'ComponentGridCustomFixedMax', component: () => import('@/views/grid/custom/fixedMax/CodeExample.vue') },
         {
           path: 'resizable',
           name: 'ComponentGridCustomResizable',

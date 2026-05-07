@@ -2,9 +2,9 @@
   <div>
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
+      border
       ref="tableRef"
       :column-config="columnConfig"
-      :custom-config="customConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -42,14 +42,9 @@ export default Vue.extend({
       maxFixedSize: 0
     }
 
-    const customConfig: VxeTablePropTypes.CustomConfig = {
-      mode: 'drawer'
-    }
-
     return {
       tableData,
-      columnConfig,
-      customConfig
+      columnConfig
     }
   },
   mounted () {

@@ -2,9 +2,9 @@
   <div>
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
+      border
       ref="tableRef"
       :column-config="columnConfig"
-      :custom-config="customConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -41,10 +41,6 @@ const tableData = ref<RowVO[]>([
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
   maxFixedSize: 0
-})
-
-const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
-  mode: 'drawer'
 })
 
 onMounted(() => {
