@@ -27,7 +27,7 @@
       </h2>
       <div v-show="showPreview" class="example-preview-body">
         <slot name="preview">
-          <vxe-image :key="previewUrl" :src="previewUrl" mask-closable></vxe-image>
+          <vxe-image :key="previewUrl" :src="previewUrl" width="100%" mask-closable></vxe-image>
         </slot>
       </div>
     </div>
