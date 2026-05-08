@@ -126,7 +126,7 @@ const updatePnameList = (row: RowVO) => {
       pList = item.pnameList
     } else {
       // 模拟后台数据
-      Array.from(new Array(XEUtils.random(3, 8))).forEach((item, index) => {
+      Array.from({ length: XEUtils.random(3, 8) }).forEach((item, index) => {
         pList.push({
           label: `${ptype}-名称${index}`,
           value: `${ptype}_${index}`
