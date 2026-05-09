@@ -31,14 +31,8 @@ export default Vue.extend({
         {
           field: 'age',
           title: 'Age',
-          headerExportMethod ({ column }) {
-            return `自定义：${column.title}`
-          },
-          exportMethod ({ row }) {
+          formatter ({ row }) {
             return `自定义：${row.age}`
-          },
-          footerExportMethod ({ row }) {
-            return `平均：${row.age}`
           }
         }
       ],
