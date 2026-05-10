@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { VxeUI, VxeGlobalI18nLocale, VxeComponentSizeType } from 'vxe-pc-ui'
 import tinycolor2 from 'tinycolor2'
-import axios from 'axios'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 
@@ -149,19 +148,21 @@ export default new Vuex.Store({
       } else {
         if (!i18nPromise[language]) {
           state.pageLoading = true
-          i18nPromise[language] = axios.get(`${state.resBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`).then((res) => {
-            i18n.setLocaleMessage(language, res.data)
-            state.language = language || 'zh-CN'
-            VxeUI.setLanguage(language)
-            i18n.locale = language
-            localStorage.setItem('VXE_DOCS_LANGUAGE', language)
-            document.documentElement.setAttribute('lang', language)
-            i18nStatus[language] = true
-            state.pageLoading = false
-          }).catch(() => {
-            i18nPromise[language] = null
-            state.pageLoading = false
-          })
+          i18nPromise[language] = fetch(`${state.resBaseUrl}/i18n/${language}.json?v=${process.env.VUE_APP_DATE_NOW}`)
+            .then(res => res.json())
+            .then(data => {
+              i18n.setLocaleMessage(language, data)
+              state.language = language || 'zh-CN'
+              VxeUI.setLanguage(language)
+              i18n.locale = language
+              localStorage.setItem('VXE_DOCS_LANGUAGE', language)
+              document.documentElement.setAttribute('lang', language)
+              i18nStatus[language] = true
+              state.pageLoading = false
+            }).catch(() => {
+              i18nPromise[language] = null
+              state.pageLoading = false
+            })
         }
       }
     },
@@ -196,11 +197,13 @@ export default new Vuex.Store({
     },
     getComponentI18nJSON ({ state }) {
       if (!apiLangPromise[state.language]) {
-        apiLangPromise[state.language] = axios.get(`${state.resBaseUrl}/component-api/i18n/${state.language}.json?v=${state.systemConfig[state.systemConfig.i18nVersion] || process.env.VUE_APP_DATE_NOW}`).then((res) => {
-          i18n.mergeLocaleMessage(state.language, res.data)
-        }).catch(() => {
-          apiLangPromise[state.language] = null
-        })
+        apiLangPromise[state.language] = fetch(`${state.resBaseUrl}/component-api/i18n/${state.language}.json?v=${state.systemConfig[state.systemConfig.i18nVersion] || process.env.VUE_APP_DATE_NOW}`)
+          .then(res => res.json())
+          .then(data => {
+            i18n.mergeLocaleMessage(state.language, data)
+          }).catch(() => {
+            apiLangPromise[state.language] = null
+          })
       }
       return apiLangPromise[state.language]
     },

@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import { VxeUI, VxeGlobalI18nLocale, VxeComponentSizeType } from 'vxe-pc-ui'
 import tinycolor2 from 'tinycolor2'
-import axios from 'axios'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 
@@ -147,29 +146,33 @@ export const useAppStore = defineStore('app', {
       } else {
         if (!i18nPromise[language]) {
           this.pageLoading = true
-          i18nPromise[language] = axios.get(`${this.resBaseUrl}/i18n/${language}.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then((res) => {
-            i18n.global.setLocaleMessage(language, res.data)
-            this.language = language || 'zh-CN'
-            VxeUI.setLanguage(language)
-            i18n.global.locale = language
-            localStorage.setItem('VXE_DOCS_LANGUAGE', language)
-            document.documentElement.setAttribute('lang', language)
-            i18nStatus[language] = true
-            this.pageLoading = false
-          }).catch(() => {
-            i18nPromise[language] = null
-            this.pageLoading = false
-          })
+          i18nPromise[language] = fetch(`${this.resBaseUrl}/i18n/${language}.json?v=${import.meta.env.VITE_APP_DATE_NOW}`)
+            .then(res => res.json())
+            .then(data => {
+              i18n.global.setLocaleMessage(language, data)
+              this.language = language || 'zh-CN'
+              VxeUI.setLanguage(language)
+              i18n.global.locale = language
+              localStorage.setItem('VXE_DOCS_LANGUAGE', language)
+              document.documentElement.setAttribute('lang', language)
+              i18nStatus[language] = true
+              this.pageLoading = false
+            }).catch(() => {
+              i18nPromise[language] = null
+              this.pageLoading = false
+            })
         }
       }
     },
     getComponentI18nJSON () {
       if (!apiLangPromise[this.language]) {
-        apiLangPromise[this.language] = axios.get(`${this.resBaseUrl}/component-api/i18n/${this.language}.json?v=${this.systemConfig.i18nVersion || import.meta.env.VITE_APP_DATE_NOW}`).then((res) => {
-          i18n.global.mergeLocaleMessage(this.language, res.data)
-        }).catch(() => {
-          apiLangPromise[this.language] = null
-        })
+        apiLangPromise[this.language] = fetch(`${this.resBaseUrl}/component-api/i18n/${this.language}.json?v=${this.systemConfig.i18nVersion || import.meta.env.VITE_APP_DATE_NOW}`)
+          .then(res => res.json())
+          .then(data => {
+            i18n.global.mergeLocaleMessage(this.language, data)
+          }).catch(() => {
+            apiLangPromise[this.language] = null
+          })
       }
       return apiLangPromise[this.language]
     },
