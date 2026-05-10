@@ -231,9 +231,9 @@ const vChangeEvent = () => {
   if (selectSysItem) {
     const oldItem = systemVersionList.value.find(item => item.version === prevSysVersion.value)
     if (oldItem && oldItem.isSync && selectSysItem.isSync) {
-      location.href = selectSysItem.url + location.hash
+      location.href = (selectSysItem.baseUrl || selectSysItem.url) + location.hash
     } else {
-      location.href = selectSysItem.url
+      location.href = (selectSysItem.baseUrl || selectSysItem.url)
     }
   }
 }
