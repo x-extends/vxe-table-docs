@@ -145,13 +145,15 @@ Vue.use(VxeUIDesign)
 
 Vue.config.productionTip = false
 
-axios.get(`${process.env.VUE_APP_RES_URL}/i18n/${i18n.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`).then(appRes => {
-  i18n.setLocaleMessage(i18n.locale, appRes.data)
-}).catch(e => e).then(() => {
-  new Vue({
-    router,
-    i18n,
-    store,
-    render: h => h(App)
-  }).$mount('#app')
-})
+fetch(`${process.env.VUE_APP_RES_URL}/i18n/${i18n.locale}.json?v=${process.env.VUE_APP_DATE_NOW}`)
+  .then(res => res.json())
+  .then(data => {
+    i18n.setLocaleMessage(i18n.locale, data)
+  }).catch(e => e).then(() => {
+    new Vue({
+      router,
+      i18n,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+  })

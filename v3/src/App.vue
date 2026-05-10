@@ -8,7 +8,6 @@
 <script lang="tsx">
 import Vue from 'vue'
 import { mapState, mapMutations } from 'vuex'
-import axios from 'axios'
 
 export default Vue.extend({
   computed: {
@@ -26,12 +25,17 @@ export default Vue.extend({
     ])
   },
   created () {
-    axios.get(`${this.resBaseUrl}/component-api/system-config.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-      this.setSystemConfig(res.data)
-    })
-    axios.get(`${this.resBaseUrl}/component-api/vxe-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
-      this.setVersionConfig(res.data)
-    })
+    fetch(`${this.resBaseUrl}/component-api/system-config.json?v=${process.env.VUE_APP_DATE_NOW}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setSystemConfig(data)
+      })
+
+    fetch(`${this.resBaseUrl}/component-api/vxe-version.json?v=${process.env.VUE_APP_DATE_NOW}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setVersionConfig(data)
+      })
   }
 })
 </script>
