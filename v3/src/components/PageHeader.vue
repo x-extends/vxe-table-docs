@@ -259,9 +259,9 @@ export default Vue.extend({
       if (selectSysItem) {
         const oldItem = this.systemVersionList.find(item => item.version === this.prevSysVersion)
         if (oldItem && oldItem.isSync && selectSysItem.isSync) {
-          location.href = selectSysItem.url + location.hash
+          location.href = (selectSysItem.baseUrl || selectSysItem.url) + location.hash
         } else {
-          location.href = selectSysItem.url
+          location.href = (selectSysItem.baseUrl || selectSysItem.url)
         }
       }
     },
