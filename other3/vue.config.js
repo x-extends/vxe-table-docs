@@ -1,8 +1,8 @@
 const XEUtils = require('xe-utils')
 
-process.env.VUE_APP_PAGE_TITLE = 'Vxe Table'
-process.env.VUE_APP_DATE_NOW = Date.now()
-process.env.VUE_APP_DATE_DATE = XEUtils.toDateString(process.env.VUE_APP_DATE_NOW, 'yyyy-MM-dd HH:mm:ss')
+const now = Date.now()
+process.env.VUE_APP_DATE_NOW = now
+process.env.VUE_APP_DATE_DATE = XEUtils.toDateString(now, 'yyyy-MM-dd HH:mm:ss')
 
 module.exports = {
   publicPath: `/other${process.env.VUE_APP_VXE_VERSION}/`,

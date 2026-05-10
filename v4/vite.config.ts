@@ -36,19 +36,7 @@ export default defineConfig(({ mode, command }) => {
     },
     server: {
       host: '0.0.0.0',
-      port: Number(env.VITE_APP_SERVER_PORT),
-      proxy: {
-        '/example/': {
-          target: 'https://vxetable.cn',
-          changeOrigin: true,
-          secure: false
-        },
-        '/resource/': {
-          target: 'https://vxetable.cn',
-          changeOrigin: true,
-          secure: false
-        }
-      }
+      port: Number(env.VITE_APP_SERVER_PORT)
     },
     build: {
       sourcemap: command === 'build' ? false : 'inline',

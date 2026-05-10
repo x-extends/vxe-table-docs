@@ -1,36 +1,17 @@
 const { defineConfig } = require('@vue/cli-service')
 const XEUtils = require('xe-utils')
 
-process.env.VUE_APP_PAGE_TITLE = 'Vxe Table'
-process.env.VUE_APP_DATE_NOW = Date.now()
-process.env.VUE_APP_DATE_DATE = XEUtils.toDateString(process.env.VUE_APP_DATE_NOW, 'yyyy-MM-dd HH:mm:ss')
+const now = Date.now()
+process.env.VUE_APP_DATE_NOW = now
+process.env.VUE_APP_DATE_DATE = XEUtils.toDateString(now, 'yyyy-MM-dd HH:mm:ss')
 
 module.exports = defineConfig({
-  publicPath: `/v${process.env.VUE_APP_VXE_VERSION}/`,
+  publicPath: process.env.VUE_APP_BASE_PATH,
   assetsDir: 'static',
+  transpileDependencies: true,
   productionSourceMap: false,
   devServer: {
-    port: 8183,
-    proxy: {
-      '/example/': {
-        target: 'https://vxeui.com',
-        pathRewrite: {
-          '^/example/': '/example/'
-        }
-      },
-      '/component-api/': {
-        target: 'https://vxeui.com',
-        pathRewrite: {
-          '^/component-api/': '/component-api/'
-        }
-      },
-      '/resource/': {
-        target: 'https://vxeui.com',
-        pathRewrite: {
-          '^/resource/': '/resource/'
-        }
-      }
-    }
+    port: process.env.VUE_APP_SERVER_PORT
   },
   pages: {
     index: {
