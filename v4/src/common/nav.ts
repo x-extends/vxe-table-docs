@@ -25,5 +25,5 @@ export interface NavVO {
   children?: NavVO[]
 }
 
-export const otherUrl = `${import.meta.env.VITE_APP_SITE_PLUGIN_URL}/other${import.meta.env.VITE_APP_VXE_VERSION}`
-export const tablePluginDocsUrl = `${import.meta.env.VITE_APP_SITE_PLUGIN_URL}/pluginDocs/table${import.meta.env.VITE_APP_VXE_VERSION}`
+export const otherUrl = import.meta.env.VITE_APP_OTHER_DOCS_URL
+export const tablePluginDocsUrl = import.meta.env.VITE_APP_SITE_PLUGIN_URL

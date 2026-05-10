@@ -25,5 +25,5 @@ export interface NavVO {
   children?: NavVO[]
 }
 
-export const otherUrl = `${process.env.VUE_APP_SITE_PLUGIN_URL}/other${process.env.VUE_APP_VXE_VERSION}`
-export const tablePluginDocsUrl = `${process.env.VUE_APP_SITE_PLUGIN_URL}/pluginDocs/table${process.env.VUE_APP_VXE_VERSION}`
+export const otherUrl = process.env.VUE_APP_OTHER_DOCS_URL
+export const tablePluginDocsUrl = process.env.VUE_APP_SITE_PLUGIN_URL
