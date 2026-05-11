@@ -940,7 +940,8 @@ export const gridRouteConfig: RouteRecordRaw = {
           component: () => import('@/views/grid/merge/horizontal/CodeExample.vue')
         },
         { path: 'sort', name: 'ComponentGridMergeSort', component: () => import('@/views/grid/merge/sort/CodeExample.vue') },
-        { path: 'filter', name: 'ComponentGridMergeFilter', component: () => import('@/views/grid/merge/filter/CodeExample.vue') }
+        { path: 'filter', name: 'ComponentGridMergeFilter', component: () => import('@/views/grid/merge/filter/CodeExample.vue') },
+        { path: 'vnGroup', name: 'ComponentGridMergeVnGroup', component: () => import('@/views/grid/merge/vnGroup/CodeExample.vue') }
       ]
     },
     {
