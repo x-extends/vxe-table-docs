@@ -90,7 +90,7 @@ const addEvent = async () => {
       name: `Name_${new Date().getTime()}`
     }
     const { row: newRow } = await $grid.insert(record)
-    $grid.setEditRow(newRow)
+    $grid.setEditRow(newRow, true)
   }
 }
 
