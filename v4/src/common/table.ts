@@ -334,7 +334,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '同时使用展开行', routerLink: { name: 'ComponentTableTreeExpand' } },
             { title: '同时使用展开行 - 懒加载', routerLink: { name: 'ComponentTableTreeExpandLazy' } },
             // { title: '实现数据分组', routerLink: { name: 'ComponentTableTreeGroup' } },
-            { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaTree' } } }
+            { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Ftable%2Ftree%2FareaTree' } } }
           ]
         },
         {
@@ -435,7 +435,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现行字段的合计', routerLink: { name: 'ComponentTableEditRowImmediately' } },
             { title: '实现表尾实时合计', routerLink: { name: 'ComponentTableEditFooterImmediately' } },
             { title: '实现单元格实时保存', routerLink: { name: 'ComponentTableEditRealtimeSave' } },
-            { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaClip' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaClip' } } },
+            { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaClip' }, query: { previewPath: '%2FextendCellArea%2Ftable%2Fclip%2Fbase' } } },
             { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaBasicsEcharts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fecharts%2FareaBasicsEcharts' } } }
           ]
         },
@@ -524,9 +524,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '树结构按键操作', routerLink: { name: 'ComponentTableKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentTableKeyboardTreeEdit' } },
             { title: '撤销与重做', routerLink: { name: 'ComponentTableKeyboardUndoRedo' } },
-            { title: '树结构-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaTree' } } },
             { title: '右键菜单-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_menu' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaMenu' } } },
-            { title: '单元格选择-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_keypad' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaKeypad' } } }
+            { title: '单元格选择-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_keypad' }, query: { previewPath: '%2FextendCellArea%2Ftable%2FareaKeypad%2Fkeypad' } } }
           ]
         },
         {
@@ -1112,7 +1111,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
             { title: '自定义合并', routerLink: { name: 'ComponentGridTreeSpanMethod' } },
             { title: '懒加载', routerLink: { name: 'ComponentGridTreeLazy' } },
-            { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } }
+            { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Ftree%2FareaTree' } } }
           ]
         },
         {
@@ -1196,7 +1195,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现每行独立下拉选项', routerLink: { name: 'ComponentGridEditSelectRowOption' } },
             { title: '实现行保存功能', routerLink: { name: 'ComponentGridEditRowSave' } },
             { title: '实现单元格实时保存', routerLink: { name: 'ComponentGridEditRealtimeSave' } },
-            { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaClip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaClip' } } },
+            { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaClip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fclip%2Fbase' } } },
             { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaBasicsEcharts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fecharts%2FareaBasicsEcharts' } } }
           ]
         },
@@ -1302,9 +1301,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '树结构按键操作', routerLink: { name: 'ComponentGridKeyboardTree' } },
             { title: '树结构可编辑', routerLink: { name: 'ComponentGridKeyboardTreeEdit' } },
             { title: '撤销与重做', routerLink: { name: 'ComponentGridKeyboardUndoRedo' } },
-            { title: '树结构-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaTree' } } },
             { title: '右键菜单-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_menu' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaMenu' } } },
-            { title: '单元格选择-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_keypad' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaKeypad' } } }
+            { title: '单元格选择-全键盘', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_keypad' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaKeypad%2Fkeypad' } } }
           ]
         },
         {

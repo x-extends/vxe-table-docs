@@ -13,9 +13,9 @@ export const navConfigList: NavVO[] = [
       { i18nKey: 'app.aside.menu.demoTree', routerLink: { name: 'DemoTreePreview' } },
       { i18nKey: 'app.aside.menu.demoCrud', routerLink: { name: 'DemoCrudPreview' } },
       { i18nKey: 'plugins.base.nav.demoGroupSummary', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_drag_values' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2FaggDragValues' } } },
-      { i18nKey: 'plugins.base.nav.demoClip', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_cell_area_demo_clip' }, query: { previewPath: '%2Fdemo%2Fclip' } } },
-      { i18nKey: 'plugins.base.nav.demoChart', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_cell_area_demo_chart' }, query: { previewPath: '%2Fdemo%2Fchart' } } },
-      { i18nKey: 'plugins.base.nav.demoExcel', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_cell_area_demo_excel' }, query: { previewPath: '%2Fdemo%2Fexcel' } } }
+      { i18nKey: 'plugins.base.nav.demoClip', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_cell_area_demo_clip' }, query: { previewPath: '%2FextendCellArea%2Fdemo%2Fclip' } } },
+      { i18nKey: 'plugins.base.nav.demoChart', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_cell_area_demo_chart' }, query: { previewPath: '%2FextendCellArea%2Fdemo%2Fchart' } } },
+      { i18nKey: 'plugins.base.nav.demoExcel', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_cell_area_demo_excel' }, query: { previewPath: '%2FextendCellArea%2Fdemo%2Fexcel' } } }
     ]
   },
   {
