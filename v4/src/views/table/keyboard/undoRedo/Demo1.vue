@@ -1,9 +1,16 @@
 <template>
   <div>
+    <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+    <vxe-button status="success" @click="getInsertEvent">获取新增的数据</vxe-button>
+
+    <vxe-button status="error" @click="removeSelectEvent">批量删除</vxe-button>
+    <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
+
     <vxe-table
       border
       show-overflow
       keep-source
+      ref="tableRef"
       height="500"
       :edit-config="editConfig"
       :keyboard-config="keyboardConfig"
@@ -13,13 +20,18 @@
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="age" title="Age" :edit-render="{name: 'VxeInput'}"></vxe-column>
+      <vxe-column field="action" title="操作">
+        <template #default="{ row }">
+          <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
+        </template>
+      </vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { VxeTablePropTypes } from 'vxe-table'
+import { VxeUI, VxeTableInstance, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -29,6 +41,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const tableRef = ref<VxeTableInstance<RowVO>>()
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -73,4 +87,61 @@ const keyboardConfig = ref<VxeTablePropTypes.KeyboardConfig<RowVO>>({
   isEsc: true,
   isUndoRedo: true
 })
+
+const addEvent = async () => {
+  const $table = tableRef.value
+  if ($table) {
+    const record = {
+      name: `Name_${new Date().getTime()}`
+    }
+    const { row: newRow } = await $table.insert(record)
+    $table.setEditRow(newRow)
+  }
+}
+
+const getInsertEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    const insertRecords = $table.getInsertRecords()
+    VxeUI.modal.alert(`新增：${insertRecords.length} 行`)
+  }
+}
+
+const removeRow = async (row: RowVO) => {
+  const $table = tableRef.value
+  if ($table) {
+    $table.remove(row)
+    VxeUI.modal.message({
+      content: '数据已删除',
+      status: 'success'
+    })
+  }
+}
+
+const removeSelectEvent = async () => {
+  const $table = tableRef.value
+  if ($table) {
+    const selectRecords = $table.getCheckboxRecords()
+    if (selectRecords.length > 0) {
+      $table.removeCheckboxRow()
+      VxeUI.modal.message({
+        content: '已删除选中',
+        status: 'success'
+      })
+    } else {
+      VxeUI.modal.message({
+        content: '未选择数据',
+        status: 'info'
+      })
+    }
+  }
+}
+
+const getRemoveEvent = () => {
+  const $table = tableRef.value
+  if ($table) {
+    const removeRecords = $table.getRemoveRecords()
+    VxeUI.modal.alert(`删除：${removeRecords.length} 行`)
+  }
+}
 </script>

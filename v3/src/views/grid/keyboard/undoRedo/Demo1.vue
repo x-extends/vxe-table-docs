@@ -1,12 +1,22 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+    <vxe-button status="success" @click="getInsertEvent">获取新增的数据</vxe-button>
+
+    <vxe-button status="error" @click="removeSelectEvent">批量删除</vxe-button>
+    <vxe-button status="success" @click="getRemoveEvent">获取已删除数据</vxe-button>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions">
+      <template #action="{ row }">
+        <vxe-button mode="text" status="error" @click="removeRow(row)">删除</vxe-button>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -46,7 +56,8 @@ export default Vue.extend({
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
         { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
-        { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } }
+        { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
+        { field: 'action', title: '操作', width: 140, slots: { default: 'action' } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -74,6 +85,60 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  methods: {
+    async addEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const record = {
+          name: `Name_${new Date().getTime()}`
+        }
+        const { row: newRow } = await $grid.insert(record)
+        $grid.setEditRow(newRow)
+      }
+    },
+    getInsertEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const insertRecords = $grid.getInsertRecords()
+        VxeUI.modal.alert(`新增：${insertRecords.length} 行`)
+      }
+    },
+    async removeRow (row: RowVO) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        $grid.remove(row)
+        VxeUI.modal.message({
+          content: '数据已删除',
+          status: 'success'
+        })
+      }
+    },
+    async removeSelectEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const selectRecords = $grid.getCheckboxRecords()
+        if (selectRecords.length > 0) {
+          $grid.removeCheckboxRow()
+          VxeUI.modal.message({
+            content: '已删除选中',
+            status: 'success'
+          })
+        } else {
+          VxeUI.modal.message({
+            content: '未选择数据',
+            status: 'info'
+          })
+        }
+      }
+    },
+    getRemoveEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const removeRecords = $grid.getRemoveRecords()
+        VxeUI.modal.alert(`删除：${removeRecords.length} 行`)
+      }
     }
   }
 })
