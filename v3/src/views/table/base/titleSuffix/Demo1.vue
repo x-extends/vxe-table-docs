@@ -33,7 +33,7 @@ export default Vue.extend({
 
     const sexTitleSuffix: VxeColumnPropTypes.TitleSuffix = {
       icon: 'vxe-icon-user-fill',
-      useHTML: true,
+      useHtml: true,
       content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'
     }
 

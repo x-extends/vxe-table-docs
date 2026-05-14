@@ -51,7 +51,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       ],
       titlePrefix: {
         icon: 'vxe-icon-user-fill',
-        useHTML: true,
+        useHtml: true,
         content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'
       }
     },
@@ -201,7 +201,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       titleSuffix: {
         icon: 'vxe-icon-user-fill',
         iconStatus: 'primary',
-        useHTML: true,
+        useHtml: true,
         content: '点击链接：<a href="https://vxeui.com" target="_blank" style="color:#95c7fb;">vxe-ui 官网</a>'
       }
     }
