@@ -23,7 +23,7 @@
                 showHeader: true,
                 delayHover: 250,
                 autoResize: true,
-                minHeight: 144,
+                // minHeight: null,
                 // keepSource: false,
                 // showOverflow: null,
                 // showHeaderOverflow: null,
@@ -51,6 +51,12 @@
                   isSyncAutoWidth: true,
                   minHeight: 18
                 },
+                currentRowConfig: {
+                  strict: true
+                },
+                currentColumnConfig: {
+                  strict: true
+                },
                 radioConfig: {
                   // trigger: 'default'
                   strict: true
@@ -72,7 +78,8 @@
                   strict: true
                 },
                 tooltipConfig: {
-                  enterable: true
+                  enterable: true,
+                  defaultPlacement: 'top'
                 },
                 headerTooltipConfig: {
                   enterable: true
@@ -81,7 +88,7 @@
                   enterable: true
                 },
                 validConfig: {
-                  showMessage: true,
+                  showErrorMessage: true,
                   autoClear: true,
                   autoPos: true,
                   message: 'inline',
@@ -105,15 +112,18 @@
                 footerCellConfig: {
                   height: 'unset'
                 },
-                // menuConfig: {
-                //   visibleMethod () {}
-                // },
+                menuConfig: {
+                  // visibleMethod () {},
+                  // transfer: false,
+                  destroyOnClose: true
+                },
                 customConfig: {
                   // enabled: false,
                   allowVisible: true,
                   allowResizable: true,
                   allowFixed: true,
                   allowSort: true,
+                  showSortDragButton: true,
                   showFooter: true,
                   placement: 'top-right',
                   //  storage: false,
@@ -154,10 +164,15 @@
                 filterConfig: {
                   // remote: false,
                   // filterMethod: null,
-                  // destroyOnClose: false,
                   // isEvery: false,
+                  // transfer: false,
+                  destroyOnClose: true,
                   multiple: true,
-                  showIcon: true
+                  showIcon: true,
+                  maxHeight: 280
+                },
+                floatingFilterConfig: {
+                  // enabled: false
                 },
                 aggregateConfig: {
                   padding: true,
@@ -178,7 +193,8 @@
                   hasChildField: 'hasChild',
                   mapChildrenField: '_X_ROW_CHILD',
                   indent: 20,
-                  showIcon: true
+                  showIcon: true,
+                  showRootLine: true
                 },
                 expandConfig: {
                   // trigger: 'default',
@@ -192,8 +208,20 @@
                   autoFocus: true
                 },
                 importConfig: {
+                  _typeMaps: {
+                    csv: 1,
+                    html: 1,
+                    xml: 1,
+                    txt: 1
+                  }
                 },
                 exportConfig: {
+                  _typeMaps: {
+                    csv: 1,
+                    html: 1,
+                    xml: 1,
+                    txt: 1
+                  }
                 },
                 printConfig: {
                 },
@@ -239,12 +267,20 @@
                 },
                 scrollbarConfig: {
                   // width: 14,
-                  // height: 14
+                  // height: 14,
+                  x: {
+                    // position: 'bottom',
+                    visible: true
+                  },
+                  y: {
+                    // position: 'right',
+                    visible: true
+                  }
+                },
+                undoRedoHistoryConfig: {
+                  stackSize: 50
                 }
               },
-              // export: {
-              //   types: {}
-              // },
               grid: {
                 // size: null,
                 // zoomConfig: {
@@ -268,9 +304,10 @@
                   showResponseMsg: true,
                   showActionMsg: true,
                   response: {
-                    list: null,
+                    list: 'list',
                     result: 'result',
                     total: 'page.total',
+                    footerData: 'footerData',
                     message: 'message'
                   }
                   // beforeItem: null,
