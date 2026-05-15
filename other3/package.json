@@ -6,9 +6,9 @@
     "update": "pnpm install --no-frozen-lockfile",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
-    "pack": "npm run build && gulp build_examples",
-    "lint": "vue-cli-service lint",
-    "format:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/**"
+    "pack": "npm run build && gulp build_examples && npm run oxfix:examples",
+    "esfix:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**",
+    "oxfix:examples": "oxfmt dist/example/js/ --write"
   },
   "dependencies": {
     "ant-design-vue": "^1.7.8",

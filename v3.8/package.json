@@ -6,9 +6,10 @@
     "update": "pnpm install --no-frozen-lockfile",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
-    "pack": "pnpm run build && gulp build_examples",
+    "pack": "pnpm run build && gulp build_examples && npm run oxfix:examples",
     "lint": "vue-cli-service lint",
-    "format:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/**"
+    "esfix:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**",
+    "oxfix:examples": "oxfmt dist/example/js/ --write"
   },
   "dependencies": {
     "codemirror": "^6.0.1",
@@ -41,6 +42,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-vue": "^8.0.3",
     "gulp": "4.0.2",
+    "oxfmt": "^0.49.0",
     "sass": "~1.80.4",
     "sass-loader": "~14.2.1",
     "typescript": "~4.9.4"
