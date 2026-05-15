@@ -1031,7 +1031,8 @@ export const gridRouteConfig: RouteConfig = {
           path: 'selectModalTable',
           name: 'ComponentGridExpandSelectModalTable',
           component: () => import('@/views/grid/expand/selectModalTable/CodeExample.vue')
-        }
+        },
+        { path: 'vnTree', name: 'ComponentGridExpandVnTree', component: () => import('@/views/grid/expand/vnTree/CodeExample.vue') }
       ]
     },
     {
