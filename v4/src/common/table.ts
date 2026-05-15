@@ -919,7 +919,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现展开子表格', routerLink: { name: 'ComponentGridExpandChildTable' } },
             { title: '展开模式', routerLink: { name: 'ComponentGridExpandMode' } },
             { title: '实现弹窗选择到子表格', routerLink: { name: 'ComponentGridExpandSelectModalTable' } },
-            { title: '实现树结构复选框', routerLink: { name: 'ComponentGridExpandVnTree' } }
+            { title: '实现联动复选框', routerLink: { name: 'ComponentGridExpandVnTree' } }
           ]
         },
         {
