@@ -1012,6 +1012,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridExpandHeight',
           component: () => import('@/views/grid/expand/height/CodeExample.vue')
         },
+        { path: 'customSeq', name: 'ComponentGridExpandCustomSeq', component: () => import('@/views/grid/expand/customSeq/CodeExample.vue') },
         {
           path: 'fixed',
           name: 'ComponentGridExpandFixed',

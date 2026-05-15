@@ -914,6 +914,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '基础使用', routerLink: { name: 'ComponentGridExpandBasic' } },
             { title: '展开容器内间距', routerLink: { name: 'ComponentGridExpandPadding' } },
             { title: '展开容器高度', routerLink: { name: 'ComponentGridExpandHeight' } },
+            { title: '序号列', routerLink: { name: 'ComponentGridExpandCustomSeq' } },
             { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } },
             { title: '实现展开子表格', routerLink: { name: 'ComponentGridExpandChildTable' } },
             { title: '展开模式', routerLink: { name: 'ComponentGridExpandMode' } },
