@@ -65,7 +65,17 @@ const tableData = ref([
   { id: 10007, name: 'Test7', role: 'Test', sex: 'Man', age: 52, address: 'test abc' },
   { id: 10008, name: 'Test8', role: 'PM', sex: 'Woman', age: 34, address: 'Guangzhou' },
   { id: 10009, name: 'Test9', role: 'PM', sex: 'Man', age: 24, address: 'test abc' },
-  { id: 100010, name: 'Test10', role: 'Develop', sex: 'Woman', age: 24, address: 'Shanghai' }
+  { id: 100010, name: 'Test10', role: 'Test', sex: 'Woman', age: 39, address: 'Shanghai' },
+  { id: 100011, name: 'Test12', role: 'PM', sex: 'Woman', age: 37, address: 'test abc' },
+  { id: 100012, name: 'Test12', role: 'Develop', sex: 'Man', age: 44, address: 'test abc' },
+  { id: 100013, name: 'Test13', role: 'Develop', sex: 'Woman', age: 33, address: 'Shanghai' },
+  { id: 100014, name: 'Test14', role: 'PM', sex: 'Man', age: 46, address: 'Shanghai' },
+  { id: 100015, name: 'Test15', role: 'Test', sex: 'Woman', age: 39, address: 'Guangzhou' },
+  { id: 100016, name: 'Test16', role: 'Develop', sex: 'Man', age: 24, address: 'test abc' },
+  { id: 100017, name: 'Test17', role: 'Test', sex: 'Woman', age: 42, address: 'test abc' },
+  { id: 100018, name: 'Test18', role: 'Develop', sex: 'Man', age: 24, address: 'Shanghai' },
+  { id: 100019, name: 'Test19', role: 'PM', sex: 'Woman', age: 51, address: 'Guangzhou' },
+  { id: 100020, name: 'Test20', role: 'Develop', sex: 'Woman', age: 49, address: 'Shanghai' }
 ])
 
 const getDataEvent = () => {
