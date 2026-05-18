@@ -193,7 +193,7 @@ const compDir = computed(() => {
 const previewUrl = computed(() => {
   const { previewPath } = props
   if (previewPath) {
-    if (/^http/.test(previewPath)) {
+    if (previewPath.startsWith('http')) {
       return previewPath
     }
     return `${resBaseUrl.value}${previewPath}?v=${appStore.systemConfig.previewVersion}`

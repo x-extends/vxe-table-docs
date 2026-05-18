@@ -151,7 +151,7 @@ export default Vue.extend({
     previewUrl () {
       const { previewPath } = this
       if (previewPath) {
-        if (/^http/.test(previewPath)) {
+        if (previewPath.startsWith('http')) {
           return previewPath
         }
         return `${(this as any).resBaseUrl}${previewPath}?v=${(this as any).systemConfig.previewVersion}`
