@@ -54,8 +54,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'checkbox', width: 60 },
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', editRender: { name: 'VxeInput', immediate: true } },
-    { field: 'role', title: 'Role', editRender: { name: 'VxeInput', immediate: true } },
+    { field: 'name', title: 'Name', sortable: true, editRender: { name: 'VxeInput', immediate: true } },
+    { field: 'role', title: 'Role', sortable: true, editRender: { name: 'VxeInput', immediate: true } },
     { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput', immediate: true } },
     { field: 'age', title: 'Age', editRender: { name: 'VxeInput', immediate: true } },
     { field: 'date', title: 'Date', editRender: { name: 'VxeInput', immediate: true } },

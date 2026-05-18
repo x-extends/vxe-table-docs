@@ -406,7 +406,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
               ]
             },
             {
-              title: '同步数据源 - 实现增删改',
+              title: '同步数据源 - 自定义实现增删改',
               children: [
                 { title: '新增', routerLink: { name: 'ComponentTableEditHandleOriginalInsert' } },
                 { title: '删除', routerLink: { name: 'ComponentTableEditHandleOriginalRemove' } },
@@ -1176,7 +1176,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
               ]
             },
             {
-              title: '同步数据源 - 实现增删改',
+              title: '同步数据源 - 自定义实现增删改',
               children: [
                 { title: '新增', routerLink: { name: 'ComponentGridEditHandleOriginalInsert' } },
                 { title: '删除', routerLink: { name: 'ComponentGridEditHandleOriginalRemove' } },

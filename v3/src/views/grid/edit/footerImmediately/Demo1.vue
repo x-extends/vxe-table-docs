@@ -47,13 +47,15 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       showFooter: true,
+      keepSource: true,
       height: 400,
       rowConfig: {
         keyField: 'id'
       },
       editConfig: {
         trigger: 'click',
-        mode: 'row'
+        mode: 'row',
+        showStatus: true
       },
       columns: [],
       data: [
@@ -121,7 +123,7 @@ export default Vue.extend({
       {
         title: '统计信息',
         children: [
-          { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
+          { field: 'name', title: 'Name', sortable: true, editRender: { name: 'VxeInput' } },
           { field: 'age', title: 'Age', editRender: ageEditRender },
           { field: 'num', title: 'Num', editRender: numEditRender },
           { field: 'rate', title: 'Rate', editRender: rateEditRender }
