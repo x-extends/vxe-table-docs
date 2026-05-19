@@ -11,7 +11,7 @@
     "oxfix:examples": "oxfmt dist/example/js/ --write"
   },
   "dependencies": {
-    "ant-design-vue": "^4.1.2",
+    "ant-design-vue": "^4.1.3",
     "codemirror": "^6.0.1",
     "dayjs": "^1.11.10",
     "echarts": "^5.5.0",
