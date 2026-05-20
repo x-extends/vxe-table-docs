@@ -26,7 +26,7 @@ export default Vue.extend({
       showOverflow: true,
       showHeaderOverflow: true,
       showFooterOverflow: true,
-      height: 100,
+      height: 1000,
       virtualYConfig: {
         enabled: true,
         gt: 0

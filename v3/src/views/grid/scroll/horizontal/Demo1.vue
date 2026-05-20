@@ -20,7 +20,7 @@ export default Vue.extend({
       showOverflow: true,
       showHeaderOverflow: true,
       showFooterOverflow: true,
-      height: 100,
+      height: 1000,
       columnConfig: {
         resizable: true
       },
