@@ -429,7 +429,7 @@ const toggleSetupTsVisible = () => {
 const runEvent = () => {
   const compPath = props.path
   const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL}`
-  open(`${import.meta.VITE_APP_ONLINE_RUN_URL}?files=${btoa('@' + encodeURIComponent(`${exampleBaeUrl}example/js/${compPath}.vue`))}`)
+  open(`${import.meta.env.VITE_APP_ONLINE_RUN_URL}?files=${btoa('@' + encodeURIComponent(`${exampleBaeUrl}example/js/${compPath}.vue`))}`)
 }
 
 const copyCode = (content: string) => {
