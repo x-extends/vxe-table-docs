@@ -49,6 +49,7 @@
         <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" :icon="showOptionTS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupJS ? 'primary' : ''" :loading="setupJsLoading" :icon="showSetupJS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleSetupJsVisible">{{ $t('app.docs.button.showSetupJS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupTS ? 'primary' : ''" :loading="setupTsLoading" :icon="showSetupTS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleSetupTsVisible">{{ $t('app.docs.button.showSetupTS') }}</vxe-button>
+        <vxe-button v-if="showOnLineRun" mode="text" icon="vxe-icon-link" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
       </div>
       <div class="example-code-wrapper" v-show="showOptionJS">
         <div v-for="(item, index) in importOptionJsCodes" :key="index" class="example-code-item">
@@ -158,6 +159,7 @@ const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const showInstall = ref(false)
 const showPreview = ref(true)
+const showOnLineRun = ref(import.meta.env.VITE_APP_IS_ONLINE_RUN === 'true')
 
 const optionJsCodeText = ref('')
 const optionTsCodeText = ref('')
@@ -424,6 +426,12 @@ const toggleSetupTsVisible = () => {
   }
 }
 
+const runEvent = () => {
+  const compPath = props.path
+  const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL}`
+  open(`https://run.vxeui.com/v4/?files=${encodeURIComponent(`@${exampleBaeUrl}example/js/${compPath}.vue`)}`)
+}
+
 const copyCode = (content: string) => {
   if (content) {
     if (VxeUI.clipboard.copy(content)) {
@@ -469,9 +477,6 @@ const openDocs = () => {
   justify-content: center;
   height: 60px;
   border-top: 1px dashed var(--vxe-ui-docs-layout-border-color);
-  .example-btn {
-    min-width: 100px;
-  }
 }
 .example-code-wrapper {
   padding: 0 30px;

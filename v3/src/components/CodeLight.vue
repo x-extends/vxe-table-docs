@@ -47,6 +47,7 @@
         </vxe-tooltip>
         <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" :icon="showOptionJS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" :icon="showOptionTS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
+        <vxe-button v-if="showOnLineRun" mode="text" icon="vxe-icon-link" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
       </div>
       <div class="example-code-warpper" v-show="showOptionJS">
         <div v-for="(item, index) in importOptionJsCodes" :key="index" class="example-code-item">
@@ -118,6 +119,7 @@ export default Vue.extend({
     return {
       showInstall: false,
       showPreview: true,
+      showOnLineRun: process.env.VUE_APP_IS_ONLINE_RUN === 'true',
       optionJsCodeText: '',
       optionTsCodeText: '',
       showOptionJS: false,
@@ -285,6 +287,9 @@ export default Vue.extend({
     },
     openDocs () {
       open(`${process.env.VUE_APP_DOCS_GITHUB_URL}/src/views/${this.path}.vue`)
+    },
+    runEvent () {
+
     }
   }
 })
@@ -318,9 +323,6 @@ export default Vue.extend({
   justify-content: center;
   height: 60px;
   border-top: 1px dashed var(--vxe-ui-docs-layout-border-color);
-  .example-btn {
-    min-width: 100px;
-  }
 }
 .example-code-warpper {
   padding: 0 30px;
