@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@vxe-ui/plugin-render-chart": "^4.0.1",
-    "axios": "^1.7.2",
+    "axios": "1.7.2",
     "core-js": "^3.8.3",
     "pinia": "^3.0.2",
     "tinycolor2": "^1.6.0",
