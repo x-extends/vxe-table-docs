@@ -429,7 +429,7 @@ const toggleSetupTsVisible = () => {
 const runEvent = () => {
   const compPath = props.path
   const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL}`
-  open(`https://run.vxeui.com/v4/?files=${encodeURIComponent(`@${exampleBaeUrl}example/js/${compPath}.vue`)}`)
+  open(`https://run.vxeui.com/v4/?files=${btoa('@' + encodeURIComponent(`${exampleBaeUrl}example/js/${compPath}.vue`))}`)
 }
 
 const copyCode = (content: string) => {
