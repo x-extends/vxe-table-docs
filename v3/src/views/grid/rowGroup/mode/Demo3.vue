@@ -25,14 +25,14 @@ export default Vue.extend({
       border: true,
       showOverflow: true,
       aggregateConfig: {
-        mode: 'column',
+        mode: 'combined',
         groupFields: ['role', 'date']
       },
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'role', title: 'Role', width: 180 },
-        { field: 'date', title: 'Date', width: 180 },
-        { field: 'name', title: 'Name' },
+        { field: 'name', title: 'Name', minWidth: 300, rowGroupNode: true },
+        { field: 'role', title: 'Role' },
+        { field: 'date', title: 'Date' },
         { field: 'sex', title: 'Sex' },
         { field: 'age', title: 'Age' },
         { field: 'address', title: 'Address' }
