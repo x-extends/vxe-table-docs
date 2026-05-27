@@ -69,7 +69,8 @@ const customConfig = reactive<VxeTablePropTypes.CustomConfig<RowVO>>({
   allowVisible: false,
   allowFixed: false,
   allowResizable: false,
-  allowSort: true
+  allowSort: true,
+  immediate: true
 })
 
 const columnDragConfig = reactive<VxeTablePropTypes.ColumnDragConfig<RowVO>>({

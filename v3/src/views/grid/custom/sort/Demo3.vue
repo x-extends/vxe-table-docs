@@ -30,7 +30,8 @@ export default Vue.extend({
       allowVisible: false,
       allowFixed: false,
       allowResizable: false,
-      allowSort: true
+      allowSort: true,
+      immediate: true
     }
 
     const gridOptions: VxeGridProps<RowVO> = {
