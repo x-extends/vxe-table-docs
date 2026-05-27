@@ -1,16 +1,35 @@
 <template>
   <div>
+    <vxe-radio-group v-model="customConfig.mode">
+      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="modal" content="弹窗"></vxe-radio-button>
+      <vxe-radio-button checked-value="drawer" content="抽屉"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       ref="tableRef"
       :column-config="columnConfig"
       :row-config="rowConfig"
       :custom-config="customConfig"
+      :column-drag-config="columnDragConfig"
       :data="tableData">
-      <vxe-column type="seq" width="90"></vxe-column>
+      <vxe-column field="seq" type="seq" width="90"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age"></vxe-column>
+      <vxe-colgroup field="group1" title="分组1">
+        <vxe-column field="nickname" title="Nickname"></vxe-column>
+        <vxe-column field="role" title="role"></vxe-column>
+      </vxe-colgroup>
+      <vxe-colgroup field="group3" title="分组3">
+        <vxe-column field="sex" title="Sex"></vxe-column>
+        <vxe-column field="attr1" title="Attr1"></vxe-column>
+        <vxe-colgroup field="group4" title="分组4">
+          <vxe-column field="age" title="Age"></vxe-column>
+          <vxe-column field="attr4" title="Attr4"></vxe-column>
+          <vxe-column field="attr8" title="Attr8"></vxe-column>
+        </vxe-colgroup>
+      </vxe-colgroup>
+      <vxe-column field="address" title="address"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -39,19 +58,22 @@ const tableData = ref<RowVO[]>([
 ])
 
 const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
-  resizable: true,
   drag: true
 })
 
 const rowConfig = reactive<VxeTablePropTypes.RowConfig>({
 })
 
-const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
-  mode: 'modal',
+const customConfig = reactive<VxeTablePropTypes.CustomConfig<RowVO>>({
+  mode: '',
   allowVisible: false,
   allowFixed: false,
   allowResizable: false,
   allowSort: true
+})
+
+const columnDragConfig = reactive<VxeTablePropTypes.ColumnDragConfig<RowVO>>({
+  isPeerDrag: true
 })
 
 onMounted(() => {

@@ -1,27 +1,35 @@
 <template>
   <div>
+    <vxe-radio-group v-model="customConfig.mode">
+      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="modal" content="弹窗"></vxe-radio-button>
+      <vxe-radio-button checked-value="drawer" content="抽屉"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       ref="tableRef"
       :column-config="columnConfig"
       :row-config="rowConfig"
       :custom-config="customConfig"
+      :column-drag-config="columnDragConfig"
       :data="tableData">
-      <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" min-width="200"></vxe-column>
-      <vxe-column field="role" title="Role" width="180"></vxe-column>
-      <vxe-column field="sex" title="Sex" width="120"></vxe-column>
-      <vxe-column field="age" title="Age" width="120"></vxe-column>
-      <vxe-column field="attr1" title="Attr1" width="100"></vxe-column>
-      <vxe-column field="attr2" title="Attr2" width="140"></vxe-column>
-      <vxe-column field="attr3" title="Attr3" width="120"></vxe-column>
-      <vxe-column field="attr4" title="Attr4" width="160"></vxe-column>
-      <vxe-column field="attr5" title="Attr5" width="140"></vxe-column>
-      <vxe-column field="attr6" title="Attr6" width="150"></vxe-column>
-      <vxe-column field="attr7" title="Attr7" width="180"></vxe-column>
-      <vxe-column field="attr8" title="Attr8" width="220"></vxe-column>
-      <vxe-column field="attr9" title="Attr9" width="160"></vxe-column>
-      <vxe-column field="address" title="Address" min-width="200"></vxe-column>
+      <vxe-column field="seq" type="seq" width="90"></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
+      <vxe-colgroup field="group1" title="分组1">
+        <vxe-column field="nickname" title="Nickname"></vxe-column>
+        <vxe-column field="role" title="role"></vxe-column>
+      </vxe-colgroup>
+      <vxe-colgroup field="group3" title="分组3">
+        <vxe-column field="sex" title="Sex"></vxe-column>
+        <vxe-column field="attr1" title="Attr1"></vxe-column>
+        <vxe-colgroup field="group4" title="分组4">
+          <vxe-column field="age" title="Age"></vxe-column>
+          <vxe-column field="attr4" title="Attr4"></vxe-column>
+          <vxe-column field="attr8" title="Attr8"></vxe-column>
+        </vxe-colgroup>
+      </vxe-colgroup>
+      <vxe-column field="address" title="address"></vxe-column>
     </vxe-table>
   </div>
 </template>
@@ -49,7 +57,6 @@ export default Vue.extend({
     ]
 
     const columnConfig: VxeTablePropTypes.ColumnConfig = {
-      resizable: true,
       drag: true
     }
 
@@ -57,18 +64,23 @@ export default Vue.extend({
     }
 
     const customConfig: VxeTablePropTypes.CustomConfig = {
-      mode: 'modal',
+      mode: '',
       allowVisible: false,
       allowFixed: false,
       allowResizable: false,
       allowSort: true
     }
 
+    const columnDragConfig: VxeTablePropTypes.ColumnDragConfig<RowVO> = {
+      isPeerDrag: true
+    }
+
     return {
       tableData,
       columnConfig,
       rowConfig,
-      customConfig
+      customConfig,
+      columnDragConfig
     }
   },
   mounted () {

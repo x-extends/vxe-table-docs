@@ -1,5 +1,11 @@
 <template>
   <div>
+    <vxe-radio-group v-model="customConfig.mode">
+      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="modal" content="弹窗"></vxe-radio-button>
+      <vxe-radio-button checked-value="drawer" content="抽屉"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       ref="tableRef"
@@ -45,7 +51,8 @@ const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
 const rowConfig = reactive<VxeTablePropTypes.RowConfig>({
 })
 
-const customConfig = reactive<VxeTablePropTypes.CustomConfig>({
+const customConfig = reactive<VxeTablePropTypes.CustomConfig<RowVO>>({
+  mode: '',
   allowVisible: false,
   allowFixed: false,
   allowResizable: false,

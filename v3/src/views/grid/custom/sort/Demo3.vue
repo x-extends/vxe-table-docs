@@ -45,6 +45,10 @@ export default Vue.extend({
         custom: true
       },
       customConfig,
+      columnDragConfig: {
+        isPeerDrag: true,
+        isCrossDrag: true
+      },
       columns: [
         { field: 'seq', type: 'seq', width: 90 },
         { field: 'name', title: 'Name' },

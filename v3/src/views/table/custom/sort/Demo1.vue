@@ -1,5 +1,11 @@
 <template>
   <div>
+    <vxe-radio-group v-model="customConfig.mode">
+      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
+      <vxe-radio-button checked-value="modal" content="弹窗"></vxe-radio-button>
+      <vxe-radio-button checked-value="drawer" content="抽屉"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
       ref="tableRef"
@@ -56,6 +62,7 @@ export default Vue.extend({
     }
 
     const customConfig: VxeTablePropTypes.CustomConfig = {
+      mode: '',
       allowVisible: false,
       allowFixed: false,
       allowResizable: false,
