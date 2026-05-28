@@ -6,7 +6,7 @@
     "update": "pnpm install --no-frozen-lockfile",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
-    "pack": "pnpm run build && gulp build_examples && npm run oxfix:examples",
+    "pack": "pnpm run build && gulp build_examples && npm run esfix:examples",
     "lint": "vue-cli-service lint",
     "esfix:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**",
     "oxfix:examples": "oxfmt dist/example/js/ --write"
