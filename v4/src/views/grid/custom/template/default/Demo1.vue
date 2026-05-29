@@ -2,7 +2,9 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #customDefault>
-        <vxe-notice-bar loop content="自定义默认区域，可以灵活的定制自定义功能" style="background: palegreen;"></vxe-notice-bar>
+        <div style="width: 100%;">
+          <vxe-notice-bar loop content="自定义默认区域，可以灵活的定制自定义功能" style="background: palegreen;"></vxe-notice-bar>
+        </div>
       </template>
     </vxe-grid>
   </div>
