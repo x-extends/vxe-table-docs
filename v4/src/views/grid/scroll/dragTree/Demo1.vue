@@ -56,7 +56,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 const loadList = () => {
   gridOptions.loading = true
-  fetch('/resource/json/provinces_list.json').then(res => res.json()).then((data: RowVO[]) => {
+  fetch('https://vxeui.com/resource/json/provinces_list.json').then(res => res.json()).then((data: RowVO[]) => {
     gridOptions.data = data
     gridOptions.loading = false
   })

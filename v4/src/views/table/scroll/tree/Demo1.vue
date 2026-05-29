@@ -48,7 +48,7 @@ const tableData = ref<RowVO[]>([])
 
 const loadList = () => {
   loading.value = true
-  fetch('/resource/json/provinces_list.json').then(res => res.json()).then((data: RowVO[]) => {
+  fetch('https://vxeui.com/resource/json/provinces_list.json').then(res => res.json()).then((data: RowVO[]) => {
     tableData.value = data
     loading.value = false
   })
