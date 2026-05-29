@@ -10,6 +10,8 @@
           <div>✔️支持单元格编辑</div>
           <div>✔️支持新增行</div>
           <div>✔️支持删除行</div>
+          <div>✔️支持复制粘贴</div>
+          <div>✔️支持拖拽自动填充</div>
           <div>⚠️其他功能不支持</div>
         </vxe-tip>
       </template>
