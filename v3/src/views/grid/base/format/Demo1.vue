@@ -42,8 +42,11 @@ export default Vue.extend({
           formatter ({ cellValue }) {
             return XEUtils.commafy(Number(cellValue), { digits: 2 })
           },
-          footerFormatter ({ itemValue }) {
-            return XEUtils.commafy(Number(itemValue), { digits: 2 })
+          headerFormatter ({ cellValue }) {
+            return `标题：${cellValue}`
+          },
+          footerFormatter ({ cellValue }) {
+            return XEUtils.commafy(Number(cellValue), { digits: 2 })
           }
         },
         {

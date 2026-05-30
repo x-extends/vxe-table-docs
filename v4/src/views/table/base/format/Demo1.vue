@@ -7,7 +7,7 @@
       :footer-data="footerData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
-      <vxe-column field="num" title="Num" :formatter="formatterNum" :footer-formatter="footerFormatterNum"></vxe-column>
+      <vxe-column field="num" title="Num" :formatter="formatterNum" :header-formatter="headerFormatterNum" :footer-formatter="footerFormatterNum"></vxe-column>
       <vxe-column field="sex" title="Sex" :formatter="formatterSex"></vxe-column>
       <vxe-column field="time" title="Time" :formatter="formatTime"></vxe-column>
     </vxe-table>
@@ -53,8 +53,12 @@ const formatterNum: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
   return XEUtils.commafy(Number(cellValue), { digits: 2 })
 }
 
-const footerFormatterNum: VxeColumnPropTypes.FooterFormatter = ({ itemValue }) => {
-  return XEUtils.commafy(Number(itemValue), { digits: 2 })
+const headerFormatterNum: VxeColumnPropTypes.HeaderFormatter = ({ cellValue }) => {
+  return `标题：${cellValue}`
+}
+
+const footerFormatterNum: VxeColumnPropTypes.FooterFormatter = ({ cellValue }) => {
+  return XEUtils.commafy(Number(cellValue), { digits: 2 })
 }
 
 const formatterSex: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
