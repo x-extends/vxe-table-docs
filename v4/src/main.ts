@@ -72,6 +72,7 @@ import '@/views/global/renderer/table/default/myCellAmount/demo1.table.renderer'
 import '@/views/global/renderer/table/default/myHeaderLink/demo1.table.renderer'
 import '@/views/global/renderer/table/default/myFooterAmount/demo1.table.renderer'
 import '@/views/global/renderer/table/default/myFullAmount/demo1.table.renderer'
+import '@/views/global/renderer/table/default/myCellStyle/demo1.table.renderer'
 
 import '@/views/global/renderer/table/edit/myEditAmount/demo1.table.renderer'
 import '@/views/global/renderer/table/edit/myEditPulldown/demo1.table.renderer'

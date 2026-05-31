@@ -4,7 +4,7 @@
       border
       show-footer
       :data="tableData"
-      :footer-date="footerData">
+      :footer-data="footerData">
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="date" title="转日期" width="180" formatter="formatDate"></vxe-column>
       <vxe-column field="time" title="转日期格式" width="140" :formatter="['formatDate', 'yyyy-MM-dd']"></vxe-column>

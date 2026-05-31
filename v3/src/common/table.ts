@@ -354,6 +354,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'FormatNumberInput 格式化数值', routerLink: { name: 'ComponentTableCellRenderFormatNumberInput' } },
             { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentTableCellRenderFormatOption' } },
             { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentTableCellRenderFormatTree' } },
+            { title: '实现自定义渲染器', routerLink: { name: 'GlobalRendererTableDefaultApi' } },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch` }
           ]
         },
@@ -1134,6 +1135,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: 'FormatNumberInput 格式化数值', routerLink: { name: 'ComponentGridCellRenderFormatNumberInput' } },
             { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentGridCellRenderFormatOption' } },
             { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentGridCellRenderFormatTree' } },
+            { title: '实现自定义渲染器', routerLink: { name: 'GlobalRendererTableDefaultApi' } },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/cell/el-switch` }
           ]
         },
@@ -1566,12 +1568,14 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
         {
           title: '单元格',
           children: [
+            { title: 'API', routerLink: { name: 'GlobalRendererTableDefaultApi' }, keywords: 'cell-render' },
             { title: '实现单元格超链接', routerLink: { name: 'GlobalRendererTableDefaultMyLink' }, keywords: 'cell-render' },
             { title: '实现单元格图片预览', routerLink: { name: 'GlobalRendererTableDefaultMyImg' }, keywords: 'cell-render' },
             { title: '实现单元格金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyAmount' }, keywords: 'cell-render' },
             { title: '实现表头超链接', routerLink: { name: 'GlobalRendererTableDefaultMyHeaderLink' }, keywords: 'cell-render' },
             { title: '实现表尾金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFooterAmount' }, keywords: 'cell-render' },
             { title: '实现完整金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFullAmount' }, keywords: 'cell-render' },
+            { title: '同时使用 formatter', routerLink: { name: 'GlobalRendererTableDefaultMyCellStyle' }, keywords: 'cell-render' },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch` }
           ]
         },

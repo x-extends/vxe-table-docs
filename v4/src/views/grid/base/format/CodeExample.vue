@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="table/base/format/Demo1">
+    <CodeLight path="grid/base/format/Demo1">
       <template #tip>
         <vxe-tip status="primary">
           局部自定义 <ApiLink name="column" prop="formatter"/>、<ApiLink name="column" prop="header-formatter"/>、<ApiLink name="column" prop="footer-formatter"/> 格式化内容<br>
@@ -19,7 +19,7 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="table/base/format/Demo2" :extraImports="['./demo2.format.ts']">
+    <CodeLight path="grid/base/format/Demo2" :extraImports="['./demo2.format.ts']">
       <template #tip>
         <vxe-tip status="primary">
           全局格式化内容，使用 formatter 添加格式函数，会在渲染的时候自动调用<br>
