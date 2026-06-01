@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/rowGroup/footer/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          合并为一组，实现表头合计
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

@@ -71,7 +71,7 @@ export default Vue.extend({
     loadList () {
       this.gridOptions.loading = true
       setTimeout(() => {
-        const tableData = [
+        const tableData: RowVO[] = [
           { id: 10001, name: 'Test1', role: 'Develop', sex: 'Woman', age: 28, num: 63, date: '2025-02-01', address: 'test abc' },
           { id: 10002, name: 'Test2', role: 'Test', sex: 'Man', age: 22, num: 63, date: '2025-01-01', address: 'Guangzhou' },
           { id: 10003, name: 'Test3', role: 'PM', sex: 'Woman', age: 32, num: 10, date: '2025-05-01', address: 'Shanghai' },
