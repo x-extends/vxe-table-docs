@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid class="grid-jsx-header" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid class="grid-jsx-header2" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -68,11 +68,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 </script>
 
-<style lang="scss" scoped>
-::v-deep(.grid-jsx-header) {
+<style lang="scss">
+.grid-jsx-header2 {
   .first-col {
     position: relative;
     height: 20px;
+    color: orange;
     &:before {
       content: "";
       position: absolute;

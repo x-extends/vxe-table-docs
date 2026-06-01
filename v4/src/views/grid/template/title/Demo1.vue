@@ -1,6 +1,9 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
+      <template #group1Title>
+        <span style="color: blue;">分组：Group1</span>
+      </template>
       <template #nameTitle>
         <span style="color: red;">Name</span>
       </template>
@@ -12,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -29,8 +32,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', width: 200, slots: { title: 'nameTitle' } },
-    { field: 'sex', title: 'Sex', slots: { title: 'sexTitle' } },
+    {
+      field: 'group1',
+      title: 'Group1',
+      children: [
+        { field: 'name', title: 'Name', width: 200, slots: { title: 'nameTitle' } },
+        { field: 'sex', title: 'Sex', slots: { title: 'sexTitle' } }
+      ],
+      slots: {
+        title: 'group1Title'
+      }
+    },
     { field: 'num', title: 'Number' },
     { field: 'age', title: 'Age' },
     { field: 'address', title: 'Address' }

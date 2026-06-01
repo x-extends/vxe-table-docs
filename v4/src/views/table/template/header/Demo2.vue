@@ -2,19 +2,27 @@
   <div>
     <vxe-table border :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" width="200">
-        <template #header="{ column }">
-          <div class="first-col">
-            <div class="first-col-top">名称{{ column.field }}</div>
-            <div class="first-col-bottom">序号</div>
-          </div>
-        </template>
-      </vxe-column>
-      <vxe-column field="sex" title="Sex">
+      <vxe-colgroup field="group1" title="Group1">
         <template #header>
-          <vxe-input v-model="headerSex"></vxe-input>
+          <span style="color: blue;">分组：Group1</span>
         </template>
-      </vxe-column>
+
+        <template #default>
+          <vxe-column field="name" title="Name" width="200">
+            <template #header="{ column }">
+              <div class="first-col">
+                <div class="first-col-top">名称{{ column.field }}</div>
+                <div class="first-col-bottom">序号</div>
+              </div>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex">
+            <template #header>
+              <vxe-input v-model="headerSex"></vxe-input>
+            </template>
+          </vxe-column>
+        </template>
+      </vxe-colgroup>
       <vxe-column field="num" title="Number">
         <template #header="{ column }">
           <span style="color: red;">个性化列头{{ column.field }}</span>
@@ -26,8 +34,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
 interface RowVO {
   id: number
@@ -39,20 +47,13 @@ interface RowVO {
   address: string
 }
 
-export default Vue.extend({
-  data () {
-    const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
-      { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
-      { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
-    ]
+const headerSex = ref('')
 
-    return {
-      tableData,
-      headerSex: ''
-    }
-  }
-})
+const tableData = ref<RowVO[]>([
+  { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
+  { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
+  { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
+])
 </script>
 
 <style lang="scss" scoped>

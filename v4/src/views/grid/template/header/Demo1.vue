@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions">
+    <vxe-grid class="grid-jsx-header1" v-bind="gridOptions">
       <template #header_name="{ column }">
         <div class="first-col">
           <div class="first-col-top">名称{{ column.field }}</div>
@@ -58,29 +58,32 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 </script>
 
-<style lang="scss" scoped>
-.first-col {
-  position: relative;
-  height: 20px;
-  &:before {
-    content: "";
-    position: absolute;
-    left: -22px;
-    top: 9px;
-    width: 222px;
-    height: 1px;
-    transform: rotate(25deg);
-    background-color: #e8eaec;
-  }
-  .first-col-top {
-    position: absolute;
-    right: 4px;
-    top: -10px;
-  }
-  .first-col-bottom {
-    position: absolute;
-    left: 4px;
-    bottom: -10px;
+<style lang="scss">
+.grid-jsx-header1 {
+  .first-col {
+    position: relative;
+    height: 20px;
+    color: orange;
+    &:before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 9px;
+      width: 222px;
+      height: 1px;
+      transform: rotate(25deg);
+      background-color: #e8eaec;
+    }
+    .first-col-top {
+      position: absolute;
+      right: 4px;
+      top: -10px;
+    }
+    .first-col-bottom {
+      position: absolute;
+      left: 4px;
+      bottom: -10px;
+    }
   }
 }
 </style>

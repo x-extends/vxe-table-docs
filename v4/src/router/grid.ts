@@ -2082,6 +2082,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridTemplateFooter',
           component: () => import('@/views/grid/template/footer/CodeExample.vue')
         },
+        { path: 'title', name: 'ComponentGridTemplateTitle', component: () => import('@/views/grid/template/title/CodeExample.vue') },
         { path: 'sort', name: 'ComponentGridTemplateSort', component: () => import('@/views/grid/template/sort/CodeExample.vue') },
         {
           path: 'tooltip',

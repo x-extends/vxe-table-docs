@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/template/header/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          分组列
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

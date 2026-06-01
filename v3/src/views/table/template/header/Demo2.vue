@@ -2,19 +2,27 @@
   <div>
     <vxe-table border :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" width="200">
-        <template #header="{ column }">
-          <div class="first-col">
-            <div class="first-col-top">名称{{ column.field }}</div>
-            <div class="first-col-bottom">序号</div>
-          </div>
-        </template>
-      </vxe-column>
-      <vxe-column field="sex" title="Sex">
+      <vxe-colgroup field="group1" title="Group1">
         <template #header>
-          <vxe-input v-model="headerSex"></vxe-input>
+          <span style="color: blue;">分组：Group1</span>
         </template>
-      </vxe-column>
+
+        <template #default>
+          <vxe-column field="name" title="Name" width="200">
+            <template #header="{ column }">
+              <div class="first-col">
+                <div class="first-col-top">名称{{ column.field }}</div>
+                <div class="first-col-bottom">序号</div>
+              </div>
+            </template>
+          </vxe-column>
+          <vxe-column field="sex" title="Sex">
+            <template #header>
+              <vxe-input v-model="headerSex"></vxe-input>
+            </template>
+          </vxe-column>
+        </template>
+      </vxe-colgroup>
       <vxe-column field="num" title="Number">
         <template #header="{ column }">
           <span style="color: red;">个性化列头{{ column.field }}</span>

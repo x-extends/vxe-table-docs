@@ -52,14 +52,15 @@ const tableData = ref<RowVO[]>([
 .first-col {
   position: relative;
   height: 20px;
+  color: orange;
   &:before {
     content: "";
     position: absolute;
-    left: -22px;
+    left: -10px;
     top: 9px;
-    width: 222px;
+    width: 200px;
     height: 1px;
-    transform: rotate(25deg);
+    transform: rotate(14deg);
     background-color: #e8eaec;
   }
   .first-col-top {
