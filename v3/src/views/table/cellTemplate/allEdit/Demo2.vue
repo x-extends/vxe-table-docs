@@ -4,7 +4,9 @@
       border
       show-overflow
       height="500"
-      :data="tableData">
+      :loading="loading"
+      :data="tableData"
+      :virtual-y-config="{enabled: true}">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200">
         <template #default="{ row }">
@@ -21,7 +23,7 @@
           <vxe-input v-model="row.role"></vxe-input>
         </template>
       </vxe-column>
-      <vxe-column field="age" title="年龄" width="140">
+      <vxe-column field="age" title="Age" width="140">
         <template #default="{ row }">
           <vxe-number-input v-model="row.age"></vxe-number-input>
         </template>
@@ -48,20 +50,30 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', nickname: '', role: 'Develop', age: null },
-      { id: 10002, name: 'Test2', nickname: '', role: 'Test', age: 41 },
-      { id: 10003, name: 'Test3', nickname: '', role: 'PM', age: 58 },
-      { id: 10004, name: 'Test4', nickname: '', role: 'Develop', age: 37 },
-      { id: 10005, name: 'Test5', nickname: '', role: 'Test', age: 20 },
-      { id: 10006, name: 'Test6', nickname: '', role: 'Test', age: 39 },
-      { id: 10007, name: 'Test7', nickname: '', role: 'Develop', age: 22 },
-      { id: 10008, name: 'Test8', nickname: '', role: 'Develop', age: 29 },
-      { id: 10009, name: 'Test9', nickname: '', role: 'Test', age: 22 }
-    ]
+    const tableData: RowVO[] = []
+    const loading = false
 
     return {
-      tableData
+      tableData,
+      loading
+    }
+  },
+  created () {
+    this.loadList()
+  },
+  methods: {
+    loadList () {
+      this.loading = true
+      setTimeout(() => {
+        const list: RowVO[] = []
+        for (let i = 0; i < 1000; i++) {
+          list.push(
+            { id: 10000 + i, name: 'Test' + i, nickname: 'Nickname' + i, role: i % 3 ? 'Test' : 'Develop', age: i % 2 ? 18 : null }
+          )
+        }
+        this.tableData = list
+        this.loading = false
+      }, 200)
     }
   }
 })
