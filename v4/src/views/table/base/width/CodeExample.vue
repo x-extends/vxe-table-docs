@@ -17,12 +17,6 @@
 
     <CodeLight path="table/base/width/Demo3">
       <template #tip>
-        <vxe-tip status="primary">设置固定和最小宽，实现等比例放大</vxe-tip>
-      </template>
-    </CodeLight>
-
-    <CodeLight path="table/base/width/Demo4">
-      <template #tip>
         <vxe-tip status="primary">设置百分比</vxe-tip>
       </template>
     </CodeLight>

@@ -32,11 +32,9 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridBaseVisible',
           component: () => import('@/views/grid/base/visible/CodeExample.vue')
         },
-        {
-          path: 'width',
-          name: 'ComponentGridBaseWidth',
-          component: () => import('@/views/grid/base/width/CodeExample.vue')
-        },
+        { path: 'width', name: 'ComponentGridBaseWidth', component: () => import('@/views/grid/base/width/CodeExample.vue') },
+        { path: 'minWidth', name: 'ComponentGridBaseMinWidth', component: () => import('@/views/grid/base/minWidth/CodeExample.vue') },
+        { path: 'maxWidth', name: 'ComponentGridBaseMaxWidth', component: () => import('@/views/grid/base/maxWidth/CodeExample.vue') },
         {
           path: 'autoWidth',
           name: 'ComponentGridBaseAutoWidth',
@@ -432,11 +430,8 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridColResizableAllColumnDrag',
           component: () => import('@/views/grid/colResizable/allColumnDrag/CodeExample.vue')
         },
-        {
-          path: 'minWidth',
-          name: 'ComponentGridColResizableMinWidth',
-          component: () => import('@/views/grid/colResizable/minWidth/CodeExample.vue')
-        },
+        { path: 'minWidth', name: 'ComponentGridColResizableMinWidth', component: () => import('@/views/grid/colResizable/minWidth/CodeExample.vue') },
+        { path: 'maxWidth', name: 'ComponentGridColResizableMaxWidth', component: () => import('@/views/grid/colResizable/maxWidth/CodeExample.vue') },
         {
           path: 'manual',
           name: 'ComponentGridColResizableManual',

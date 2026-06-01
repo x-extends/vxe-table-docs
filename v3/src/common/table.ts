@@ -24,6 +24,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '对齐方式', routerLink: { name: 'ComponentTableBaseAlign' }, keywords: '对齐,align' },
             { title: '隐藏列', routerLink: { name: 'ComponentTableBaseVisible' }, keywords: '显示,隐藏,visible' },
             { title: '设置列宽', routerLink: { name: 'ComponentTableBaseWidth' }, keywords: '宽度,列宽' },
+            { title: '设置最小列宽', routerLink: { name: 'ComponentTableBaseMinWidth' }, keywords: '最小宽度,最小列宽' },
+            { title: '设置最大列宽', routerLink: { name: 'ComponentTableBaseMaxWidth' }, keywords: '最大宽度,最大列宽' },
             { title: '自适应列宽', routerLink: { name: 'ComponentTableBaseAutoWidth' }, keywords: '宽度,自适应列宽,width,auto' },
             { title: '自动换行', routerLink: { name: 'ComponentTableBaseAutoBreak' } },
             { title: '溢出隐藏', routerLink: { name: 'ComponentTableBaseOverflow' }, keywords: 'show-overflow,show-header-overflow,show-footer-overflow' },
@@ -633,6 +635,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '对齐方式', routerLink: { name: 'ComponentGridBaseAlign' } },
             { title: '隐藏列', routerLink: { name: 'ComponentGridBaseVisible' } },
             { title: '设置列宽', routerLink: { name: 'ComponentGridBaseWidth' }, keywords: '宽度,列宽' },
+            { title: '设置小列列宽', routerLink: { name: 'ComponentGridBaseMinWidth' }, keywords: '最小宽度,最小列宽' },
+            { title: '设置最大列宽', routerLink: { name: 'ComponentGridBaseMaxWidth' }, keywords: '最大宽度,最大列宽' },
             { title: '自适应列宽', routerLink: { name: 'ComponentGridBaseAutoWidth' }, keywords: '宽度,根据内容,自适应列宽,width,auto' },
             { title: '自动换行', routerLink: { name: 'ComponentGridBaseAutoBreak' } },
             { title: '溢出隐藏', routerLink: { name: 'ComponentGridBaseOverflow' } },
@@ -763,6 +767,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '双击自适应列宽', routerLink: { name: 'ComponentGridColResizableDblclickAutoWidth' } },
             { title: '所有单元格可拖拽', routerLink: { name: 'ComponentGridColResizableAllColumnDrag' } },
             { title: '限制拖拽最小列宽', routerLink: { name: 'ComponentGridColResizableMinWidth' } },
+            { title: '限制拖拽最大列宽', routerLink: { name: 'ComponentGridColResizableMaxWidth' } },
             { title: '手动操作列宽', routerLink: { name: 'ComponentGridColResizableManual' } }
           ]
         },

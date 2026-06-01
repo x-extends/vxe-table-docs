@@ -22,11 +22,11 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       columns: [
-        { type: 'seq', width: '10%' },
-        { field: 'name', title: 'Name', width: '30%' },
-        { field: 'role', title: 'Role', width: '20%' },
-        { field: 'sex', title: 'Sex', width: '20%' },
-        { field: 'date', title: 'Date', width: '20%' }
+        { type: 'seq', width: 80 },
+        { field: 'name', title: 'Name', minWidth: 200 },
+        { field: 'role', title: 'Role', minWidth: 140, maxWidth: 200 },
+        { field: 'sex', title: 'Sex', minWidth: 120, maxWidth: 200 },
+        { field: 'date', title: 'Date', minWidth: 120, maxWidth: 200 }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },

@@ -31,11 +31,9 @@ export const tableRouteConfig: RouteRecordRaw = {
           name: 'ComponentTableBaseVisible',
           component: () => import('@/views/table/base/visible/CodeExample.vue')
         },
-        {
-          path: 'width',
-          name: 'ComponentTableBaseWidth',
-          component: () => import('@/views/table/base/width/CodeExample.vue')
-        },
+        { path: 'width', name: 'ComponentTableBaseWidth', component: () => import('@/views/table/base/width/CodeExample.vue') },
+        { path: 'minWidth', name: 'ComponentTableBaseMinWidth', component: () => import('@/views/table/base/minWidth/CodeExample.vue') },
+        { path: 'maxWidth', name: 'ComponentTableBaseMaxWidth', component: () => import('@/views/table/base/maxWidth/CodeExample.vue') },
         {
           path: 'autoWidth',
           name: 'ComponentTableBaseAutoWidth',
