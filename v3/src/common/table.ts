@@ -734,7 +734,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '按键批量范围选择', routerLink: { name: 'ComponentGridCheckboxBatch' } },
             { title: '鼠标滑动范围选择', routerLink: { name: 'ComponentGridCheckboxRange' } },
             { title: '单元格选择-复选框', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_checkbox' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2FareaCheckbox' } } },
-            { title: '自定义模板', routerLink: { name: 'ComponentGridCheckboxTemplate' } }
+            { title: '自定义模板', routerLink: { name: 'ComponentGridCheckboxTemplate' } },
+            { title: '自定义实现复选框', routerLink: { name: 'ComponentGridCheckboxCustomChecked' } }
           ]
         },
         {

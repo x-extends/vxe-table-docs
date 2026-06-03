@@ -892,7 +892,8 @@ export const gridRouteConfig: RouteConfig = {
           path: 'template',
           name: 'ComponentGridCheckboxTemplate',
           component: () => import('@/views/grid/checkbox/template/CodeExample.vue')
-        }
+        },
+        { path: 'customChecked', name: 'ComponentGridCheckboxCustomChecked', component: () => import('@/views/grid/checkbox/customChecked/CodeExample.vue') }
       ]
     },
     {
