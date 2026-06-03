@@ -3,7 +3,7 @@
     <vxe-textarea
       v-model="widgetModel"
       :placeholder="currWidget.options.placeholder"
-      :autosize="{minRows: currWidget.options.minRows, maxRows: currWidget.options.maxRows}">
+      :auto-size="{minRows: currWidget.options.minRows, maxRows: currWidget.options.maxRows}">
     </vxe-textarea>
   </vxe-form-item>
 </template>

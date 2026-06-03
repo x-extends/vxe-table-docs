@@ -100,7 +100,7 @@ const formOptions = reactive<VxeFormProps<RowVO>>({
     { field: 'nickname', title: '昵称', span: 12, itemRender: { name: 'VxeInput' } },
     { field: 'sex', title: '性别', span: 12, itemRender: sexItemRender },
     { field: 'age', title: '年龄', span: 12, itemRender: { name: 'VxeNumberInput' } },
-    { field: 'address', title: '地址', span: 24, itemRender: { name: 'VxeTextarea', props: { autosize: { minRows: 2, maxRows: 4 } } } }
+    { field: 'address', title: '地址', span: 24, itemRender: { name: 'VxeTextarea', props: { autoSize: { minRows: 2, maxRows: 4 } } } }
   ]
 })
 
