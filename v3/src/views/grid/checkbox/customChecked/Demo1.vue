@@ -2,17 +2,17 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #checked1_header>
-        <vxe-checkbox v-model="isAllChecked1" @change="changeAll1Event"></vxe-checkbox>
+        <vxe-checkbox v-model="isAllChecked1" :indeterminate="isIndeterminate1" @change="changeAll1Event"></vxe-checkbox>
       </template>
       <template #checked1_default="{ row }">
-        <vxe-checkbox v-model="row.checked1"></vxe-checkbox>
+        <vxe-checkbox v-model="row.checked1" @change="updateChecked1State"></vxe-checkbox>
       </template>
 
       <template #checked2_header>
-        <vxe-checkbox v-model="isAllChecked2" @change="changeAll2Event"></vxe-checkbox>
+        <vxe-checkbox v-model="isAllChecked2" :indeterminate="isIndeterminate2" @change="changeAll2Event"></vxe-checkbox>
       </template>
       <template #checked2_default="{ row }">
-        <vxe-checkbox v-model="row.checked2"></vxe-checkbox>
+        <vxe-checkbox v-model="row.checked2" @change="updateChecked2State"></vxe-checkbox>
       </template>
     </vxe-grid>
   </div>
@@ -43,9 +43,9 @@ export default Vue.extend({
         isHover: true
       },
       columns: [
-        { field: 'checked1', title: '', width: 100, slots: { header: 'checked1_header', default: 'checked1_default' } },
+        { field: 'checked1', title: '', width: 60, slots: { header: 'checked1_header', default: 'checked1_default' } },
         { field: 'name', title: 'Name' },
-        { field: 'checked2', title: '', width: 100, slots: { header: 'checked2_header', default: 'checked2_default' } },
+        { field: 'checked2', title: '', width: 60, slots: { header: 'checked2_header', default: 'checked2_default' } },
         { field: 'role', title: 'Role' },
         { field: 'sex', title: 'Sex' },
         { field: 'address', title: 'Address' }
@@ -67,27 +67,72 @@ export default Vue.extend({
       ]
     }
 
+    // 全选状态（true: 全选, false: 全不选）
     const isAllChecked1 = false
     const isAllChecked2 = false
+
+    // 半选状态（true: 部分选中, false: 非部分选中）
+    const isIndeterminate1 = false
+    const isIndeterminate2 = false
 
     return {
       gridOptions,
       isAllChecked1,
-      isAllChecked2
+      isAllChecked2,
+      isIndeterminate1,
+      isIndeterminate2
     }
   },
+  created () {
+    // 初始化时计算一次各列的全选/半选状态
+    this.updateChecked1State()
+    this.updateChecked2State()
+  },
   methods: {
-    changeAll1Event () {
-      const { data = [] } = this.gridOptions
-      data.forEach(row => {
-        row.checked1 = this.isAllChecked1
-      })
+    // 更新第一列的全选和半选状态
+    updateChecked1State () {
+      const data = this.gridOptions.data || []
+      const total = data.length
+      if (total === 0) {
+        this.isAllChecked1 = false
+        this.isIndeterminate1 = false
+        return
+      }
+      const checkedCount = data.filter(row => row.checked1).length
+      this.isAllChecked1 = checkedCount === total
+      this.isIndeterminate1 = checkedCount > 0 && checkedCount < total
     },
-    changeAll2Event () {
-      const { data = [] } = this.gridOptions
+    // 更新第二列的全选和半选状态
+    updateChecked2State () {
+      const data = this.gridOptions.data || []
+      const total = data.length
+      if (total === 0) {
+        this.isAllChecked2 = false
+        this.isIndeterminate2 = false
+        return
+      }
+      const checkedCount = data.filter(row => row.checked2).length
+      this.isAllChecked2 = checkedCount === total
+      this.isIndeterminate2 = checkedCount > 0 && checkedCount < total
+    },
+    // 第一列全选/取消全选
+    changeAll1Event () {
+      const data = this.gridOptions.data || []
+      const newValue = this.isAllChecked1
       data.forEach(row => {
-        row.checked2 = this.isAllChecked2
+        row.checked1 = newValue
       })
+      // 批量更新后同步状态
+      this.updateChecked1State()
+    },
+    // 第二列全选/取消全选
+    changeAll2Event () {
+      const data = this.gridOptions.data || []
+      const newValue = this.isAllChecked2
+      data.forEach(row => {
+        row.checked2 = newValue
+      })
+      this.updateChecked2State()
     }
   }
 })

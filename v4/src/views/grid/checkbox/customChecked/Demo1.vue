@@ -2,24 +2,24 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #checked1_header>
-        <vxe-checkbox v-model="isAllChecked1" @change="changeAll1Event"></vxe-checkbox>
+        <vxe-checkbox v-model="isAllChecked1" :indeterminate="isIndeterminate1" @change="changeAll1Event"></vxe-checkbox>
       </template>
       <template #checked1_default="{ row }">
-        <vxe-checkbox v-model="row.checked1"></vxe-checkbox>
+        <vxe-checkbox v-model="row.checked1" @change="updateChecked1State"></vxe-checkbox>
       </template>
 
       <template #checked2_header>
-        <vxe-checkbox v-model="isAllChecked2" @change="changeAll2Event"></vxe-checkbox>
+        <vxe-checkbox v-model="isAllChecked2" :indeterminate="isIndeterminate2" @change="changeAll2Event"></vxe-checkbox>
       </template>
       <template #checked2_default="{ row }">
-        <vxe-checkbox v-model="row.checked2"></vxe-checkbox>
+        <vxe-checkbox v-model="row.checked2" @change="updateChecked2State"></vxe-checkbox>
       </template>
     </vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, watch } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -33,8 +33,13 @@ interface RowVO {
   checked2: boolean
 }
 
+// 全选状态（true: 全选, false: 全不选）
 const isAllChecked1 = ref(false)
 const isAllChecked2 = ref(false)
+
+// 半选状态（true: 部分选中, false: 非部分选中）
+const isIndeterminate1 = ref(false)
+const isIndeterminate2 = ref(false)
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -44,9 +49,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     isHover: true
   },
   columns: [
-    { field: 'checked1', title: '', width: 100, slots: { header: 'checked1_header', default: 'checked1_default' } },
+    { field: 'checked1', title: '', width: 60, slots: { header: 'checked1_header', default: 'checked1_default' } },
     { field: 'name', title: 'Name' },
-    { field: 'checked2', title: '', width: 100, slots: { header: 'checked2_header', default: 'checked2_default' } },
+    { field: 'checked2', title: '', width: 60, slots: { header: 'checked2_header', default: 'checked2_default' } },
     { field: 'role', title: 'Role' },
     { field: 'sex', title: 'Sex' },
     { field: 'address', title: 'Address' }
@@ -68,17 +73,67 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const changeAll1Event = () => {
+// 更新第一列复选框的全选和半选状态
+const updateChecked1State = () => {
   const { data = [] } = gridOptions
-  data.forEach(row => {
-    row.checked1 = isAllChecked1.value
-  })
+  const total = data.length
+  if (total === 0) {
+    isAllChecked1.value = false
+    isIndeterminate1.value = false
+    return
+  }
+
+  const checkedCount = data.filter(row => row.checked1).length
+  isAllChecked1.value = checkedCount === total
+  isIndeterminate1.value = checkedCount > 0 && checkedCount < total
 }
 
+// 更新第二列复选框的全选和半选状态
+const updateChecked2State = () => {
+  const { data = [] } = gridOptions
+  const total = data.length
+  if (total === 0) {
+    isAllChecked2.value = false
+    isIndeterminate2.value = false
+    return
+  }
+
+  const checkedCount = data.filter(row => row.checked2).length
+  isAllChecked2.value = checkedCount === total
+  isIndeterminate2.value = checkedCount > 0 && checkedCount < total
+}
+
+// 全选/取消全选第一列
+const changeAll1Event = () => {
+  const { data = [] } = gridOptions
+  const newValue = isAllChecked1.value
+  data.forEach(row => {
+    row.checked1 = newValue
+  })
+  // 批量更新后手动更新一次状态（避免循环中频繁触发，直接最后同步状态）
+  updateChecked1State()
+}
+
+// 全选/取消全选第二列
 const changeAll2Event = () => {
   const { data = [] } = gridOptions
+  const newValue = isAllChecked2.value
   data.forEach(row => {
-    row.checked2 = isAllChecked2.value
+    row.checked2 = newValue
   })
+  updateChecked2State()
 }
+
+// 监听整个数据源的变化（如重新赋值新数组），自动重新计算状态
+watch(
+  () => gridOptions.data,
+  () => {
+    updateChecked1State()
+    updateChecked2State()
+  },
+  { deep: false } // 浅监听数组引用变化，避免对每个属性变化的过度响应
+)
+
+updateChecked1State()
+updateChecked2State()
 </script>
