@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, watch } from 'vue'
+import { ref, reactive } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -123,16 +123,6 @@ const changeAll2Event = () => {
   })
   updateChecked2State()
 }
-
-// 监听整个数据源的变化（如重新赋值新数组），自动重新计算状态
-watch(
-  () => gridOptions.data,
-  () => {
-    updateChecked1State()
-    updateChecked2State()
-  },
-  { deep: false } // 浅监听数组引用变化，避免对每个属性变化的过度响应
-)
 
 updateChecked1State()
 updateChecked2State()
