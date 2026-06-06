@@ -8,8 +8,8 @@
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="num1" title="数值" :cell-render="{name: 'FormatNumberInput'}"></vxe-column>
       <vxe-column field="num2" title="数值（负数标红）" :cell-render="{ name: 'FormatNumberInput', showNegativeStatus: true }"></vxe-column>
-      <vxe-column field="num3" title="货币" align="right" :cell-render="{ name: 'FormatNumberInput', props: { type: 'amount', align: 'right', showCurrency: true } }"></vxe-column>
-      <vxe-column field="num4" title="货币（负数标红）" align="right" :cell-render="{ name: 'FormatNumberInput', showNegativeStatus: true, props: { type: 'amount', align: 'right', showCurrency: true } }"></vxe-column>
+      <vxe-column field="num3" title="货币" align="right" :cell-render="{ name: 'FormatNumberInput', props: { type: 'amount', showCurrency: true } }"></vxe-column>
+      <vxe-column field="num4" title="货币（负数标红）" align="right" :cell-render="{ name: 'FormatNumberInput', showNegativeStatus: true, props: { type: 'amount', showCurrency: true } }"></vxe-column>
     </vxe-table>
   </div>
 </template>

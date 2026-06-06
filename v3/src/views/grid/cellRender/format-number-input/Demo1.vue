@@ -36,8 +36,8 @@ export default Vue.extend({
         { field: 'num1', title: '数值', cellRender: { name: 'FormatNumberInput' } },
         { field: 'num2', title: '数值（负数标红）', cellRender: { name: 'FormatNumberInput', showNegativeStatus: true } },
         { field: 'num5', title: '小数', cellRender: { name: 'FormatNumberInput', props: { type: 'float', digits: 3 } } },
-        { field: 'num3', title: '货币', align: 'right', cellRender: { name: 'FormatNumberInput', props: { type: 'amount', align: 'right', showCurrency: true } } },
-        { field: 'num4', title: '货币（负数标红）', align: 'right', cellRender: { name: 'FormatNumberInput', showNegativeStatus: true, props: { type: 'amount', align: 'right', showCurrency: true } } }
+        { field: 'num3', title: '货币', align: 'right', cellRender: { name: 'FormatNumberInput', props: { type: 'amount', showCurrency: true } } },
+        { field: 'num4', title: '货币（负数标红）', align: 'right', cellRender: { name: 'FormatNumberInput', showNegativeStatus: true, props: { type: 'amount', showCurrency: true } } }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc', num1: 10000000, num2: 10000000, num3: 10000000, num4: 10000000, num5: 1000 },
