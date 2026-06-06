@@ -4,7 +4,7 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" width="360" :collapsed="!showLeft">
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft">
         <PageAside />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
@@ -36,6 +36,13 @@ import PageFooter from '@/components/PageFooter.vue'
 const route = useRoute()
 
 const showLeft = ref(true)
+const asideWidth = ref(360)
+
+if (window.innerWidth > 2200) {
+  asideWidth.value = 460
+} else if (window.innerWidth < 1000) {
+  asideWidth.value = 260
+}
 
 const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
   position: 'fixed',

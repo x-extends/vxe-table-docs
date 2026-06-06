@@ -4,7 +4,7 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" width="360" :collapsed="!showLeft">
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft">
         <PageAside />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
@@ -50,9 +50,17 @@ export default Vue.extend({
       position: 'fixed',
       circle: true
     }
+    let asideWidth = 360
+
+    if (window.innerWidth > 2200) {
+      asideWidth = 460
+    } else if (window.innerWidth < 1000) {
+      asideWidth = 260
+    }
 
     return {
       showLeft: true,
+      asideWidth,
       backtopConfig
     }
   },
