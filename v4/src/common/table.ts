@@ -1056,6 +1056,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '本地保存聚合函数列设置', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_custom_agg_storage' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Fcustom%2Fstorage' } } },
             { title: '自定义服务端保存', routerLink: { name: 'ComponentGridCustomRemote' } },
             { title: '实现服务端保存与恢复', routerLink: { name: 'ComponentGridCustomRemoteFull' } },
+            { title: '自定义实现用户列设置', routerLink: { name: 'ComponentGridCustomToCustomTmpl' } },
             {
               title: '自定义插槽模板',
               children: [

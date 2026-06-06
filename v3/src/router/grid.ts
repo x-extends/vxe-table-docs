@@ -1282,11 +1282,8 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridCustomRemote',
           component: () => import('@/views/grid/custom/remote/CodeExample.vue')
         },
-        {
-          path: 'remoteFull',
-          name: 'ComponentGridCustomRemoteFull',
-          component: () => import('@/views/grid/custom/remoteFull/CodeExample.vue')
-        },
+        { path: 'remoteFull', name: 'ComponentGridCustomRemoteFull', component: () => import('@/views/grid/custom/remoteFull/CodeExample.vue') },
+        { path: 'toCustomTmpl', name: 'ComponentGridCustomToCustomTmpl', component: () => import('@/views/grid/custom/toCustomTmpl/CodeExample.vue') },
         {
           path: 'template',
           component: RouteLayout,
