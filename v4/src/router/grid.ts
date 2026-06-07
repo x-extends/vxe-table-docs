@@ -2415,11 +2415,8 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridScrollLoadData',
           component: () => import('@/views/grid/scroll/loadData/CodeExample.vue')
         },
-        {
-          path: 'fixed',
-          name: 'ComponentGridScrollFixed',
-          component: () => import('@/views/grid/scroll/fixed/CodeExample.vue')
-        },
+        { path: 'fixed', name: 'ComponentGridScrollFixed', component: () => import('@/views/grid/scroll/fixed/CodeExample.vue') },
+        { path: 'select', name: 'ComponentGridScrollSelect', component: () => import('@/views/grid/scroll/select/CodeExample.vue') },
         {
           path: 'mode',
           name: 'ComponentGridScrollMode',

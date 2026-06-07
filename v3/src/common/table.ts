@@ -1405,6 +1405,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '排序与筛选', routerLink: { name: 'ComponentGridScrollHFull' } },
             { title: '函数式加载数据', routerLink: { name: 'ComponentGridScrollLoadData' } },
             { title: '冻结列 + 复杂渲染', routerLink: { name: 'ComponentGridScrollFixed' } },
+            { title: '复杂渲染 + 大量下拉框', routerLink: { name: 'ComponentGridScrollSelect' } },
             // { title: '滚动模式 + 复杂渲染', routerLink: { name: 'ComponentGridScrollMode' } },
             { title: '设置行高', routerLink: { name: 'ComponentGridScrollRowHeight' } },
             { title: '自适应行高', routerLink: { name: 'ComponentGridScrollAutoRowHeight' }, keywords: '自适应行高,自适应高度,auto-height' },
