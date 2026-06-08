@@ -49,13 +49,11 @@ export default Vue.extend({
 
     const gridOptions: VxeGridProps<RowVO> & {
       data: RowVO[]
-      footerData: VxeTablePropTypes.FooterData
     } = {
       border: true,
       loading: false,
       stripe: true,
       showOverflow: true,
-      showFooter: true,
       height: '100%',
       columnConfig: {
         drag: true,
@@ -77,31 +75,6 @@ export default Vue.extend({
         range: true
       },
       cellStyle ({ column, row }) {
-        const cellValue = row[column.field]
-        switch (column.field) {
-          case 'increaseRatio':
-          case 'udRatio':
-          case 'expansionRatio':
-          case 'netInflow':
-          case 'theCommittee':
-            return {
-              color: cellValue < 0 ? 'green' : 'red'
-            }
-          case 'volumeRatio':
-            return {
-              color: cellValue < 1 ? 'green' : 'red'
-            }
-          case 'maxNum':
-            return {
-              color: row.increaseRatio < 0 ? 'green' : 'red'
-            }
-          case 'minNum':
-            return {
-              color: row.expansionRatio < 0 ? 'green' : 'red'
-            }
-        }
-      },
-      footerCellStyle ({ column, row }) {
         const cellValue = row[column.field]
         switch (column.field) {
           case 'increaseRatio':
@@ -162,13 +135,7 @@ export default Vue.extend({
         { field: 'totalMarketValue', title: '总市值', minWidth: 100, formatter: formatWanAmount },
         { field: 'circulatingMarketValue', title: '流通市值', minWidth: 100, formatter: formatWanAmount }
       ],
-      data: [],
-      footerData: [
-        {},
-        {},
-        {},
-        {}
-      ]
+      data: []
     }
 
     return {
@@ -204,30 +171,7 @@ export default Vue.extend({
           }
           cacheList.push(item)
         }
-        const footItems: RowVO[] = []
-        for (let i = 0; i < 4; i++) {
-          const item: RowVO = {
-            id: 1000000 + i,
-            name: neList[i % neList.length],
-            currentPrice: 0,
-            increaseRatio: 0,
-            udRatio: 0,
-            expansionRatio: 0,
-            transactionQuantity: 0,
-            netInflow: 0,
-            maxNum: 0,
-            minNum: 0,
-            theCommittee: 0,
-            volumeRatio: 0,
-            turnoverRate: 0,
-            priceEarningsRatio: 0,
-            totalMarketValue: 0,
-            circulatingMarketValue: 0
-          }
-          footItems.push(item)
-        }
         this.gridOptions.data = cacheList.slice(0, rSize)
-        this.gridOptions.footerData = footItems
         this.gridOptions.loading = false
         this.startUpdateData()
       }, 150)
@@ -245,24 +189,6 @@ export default Vue.extend({
         return
       }
       this.gridOptions.data.forEach(row => {
-        Object.assign(row, {
-          currentPrice: XEUtils.random(99999, 999999),
-          increaseRatio: XEUtils.random(1, 999) / 100 * (XEUtils.random(0, 1) ? 1 : -1),
-          udRatio: XEUtils.random(1, 99) / 100 * (XEUtils.random(0, 1) ? 1 : -1),
-          expansionRatio: XEUtils.random(1, 99) / 100 * (XEUtils.random(0, 1) ? 1 : -1),
-          transactionQuantity: XEUtils.random(899999, 999999),
-          netInflow: XEUtils.random(1, 9999) * (XEUtils.random(0, 1) ? 1 : -1),
-          maxNum: XEUtils.random(899999, 999999),
-          minNum: XEUtils.random(99999, 109999),
-          theCommittee: XEUtils.random(1, 99) * (XEUtils.random(0, 1) ? 1 : -1),
-          volumeRatio: XEUtils.random(1, 20) / 10,
-          turnoverRate: XEUtils.random(1, 50) / 10,
-          priceEarningsRatio: XEUtils.random(99, 99999) * (XEUtils.random(0, 1) ? 1 : -1),
-          totalMarketValue: XEUtils.random(999999, 9999999),
-          circulatingMarketValue: XEUtils.random(999999, 9999999)
-        })
-      })
-      this.gridOptions.footerData.forEach(row => {
         Object.assign(row, {
           currentPrice: XEUtils.random(99999, 999999),
           increaseRatio: XEUtils.random(1, 999) / 100 * (XEUtils.random(0, 1) ? 1 : -1),
