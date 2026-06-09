@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/editRender/vxe-date-picker/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          更多类型
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

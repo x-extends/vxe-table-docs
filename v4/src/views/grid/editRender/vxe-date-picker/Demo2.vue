@@ -35,9 +35,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 180, editRender: { name: 'VxeInput' } },
-    { field: 'date', title: '日期', width: 180, editRender: { name: 'VxeDatePicker', props: { type: 'date' } } },
-    { field: 'datetime', title: '日期带时间', width: 180, editRender: { name: 'VxeDatePicker', props: { type: 'datetime' } } },
-    { field: 'time', title: '时间', width: 180, editRender: { name: 'VxeDatePicker', props: { type: 'time' } } }
+    { field: 'week', title: '周', width: 180, editRender: { name: 'VxeDatePicker', props: { type: 'week' } } },
+    { field: 'year', title: '年份', width: 180, editRender: { name: 'VxeDatePicker', props: { type: 'year' } } },
+    { field: 'quarter', title: '季度', width: 180, editRender: { name: 'VxeDatePicker', props: { type: 'quarter' } } },
+    { field: 'month', title: '月份', width: 180, editRender: { name: 'VxeDatePicker', props: { type: 'month' } } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', date: '', time: '', year: '', quarter: '', month: '', week: '', datetime: '', address: 'test abc' },
