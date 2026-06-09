@@ -2437,6 +2437,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridScrollAutoRowVH',
           component: () => import('@/views/grid/scroll/autoRowVH/CodeExample.vue')
         },
+        { path: 'setRowHeight', name: 'ComponentGridScrollSetRowHeight', component: () => import('@/views/grid/scroll/setRowHeight/CodeExample.vue') },
         {
           path: 'autoRowFixed',
           name: 'ComponentGridScrollAutoRowFixed',
