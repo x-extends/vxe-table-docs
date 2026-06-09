@@ -52,10 +52,14 @@ export default Vue.extend({
     }
     let asideWidth = 360
 
-    if (window.innerWidth > 2200) {
+    if (window.innerWidth > 2000) {
       asideWidth = 460
+    } else if (window.innerWidth > 1600) {
+      asideWidth = 400
     } else if (window.innerWidth < 1000) {
-      asideWidth = 260
+      asideWidth = 220
+    } else if (window.innerWidth < 900) {
+      asideWidth = 200
     }
 
     return {
