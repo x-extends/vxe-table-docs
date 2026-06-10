@@ -1123,6 +1123,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             // { title: '实现多字段分组', routerLink: { name: 'ComponentGridTreeGroupFields' } },
             { title: '自定义合并', routerLink: { name: 'ComponentGridTreeSpanMethod' } },
             { title: '懒加载', routerLink: { name: 'ComponentGridTreeLazy' } },
+            { title: '实现产品列表带明细', routerLink: { name: 'ComponentGridTreeProduct1' } },
             { title: '单元格选取', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'table_extend_cell_area_tree' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Ftree%2FareaTree' } } }
           ]
         },

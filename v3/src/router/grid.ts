@@ -1469,7 +1469,8 @@ export const gridRouteConfig: RouteConfig = {
           path: 'lazy',
           name: 'ComponentGridTreeLazy',
           component: () => import('@/views/grid/tree/lazy/CodeExample.vue')
-        }
+        },
+        { path: 'product1', name: 'ComponentGridTreeProduct1', component: () => import('@/views/grid/tree/product1/CodeExample.vue') }
       ]
     },
     {
