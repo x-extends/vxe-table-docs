@@ -986,7 +986,8 @@ export const gridRouteConfig: RouteRecordRaw = {
             { path: 'groupContent', name: 'ComponentGridRowGroupTemplateGroupContent', component: () => import('@/views/grid/rowGroup/template/groupContent/CodeExample.vue') },
             { path: 'groupValues', name: 'ComponentGridRowGroupTemplateGroupValues', component: () => import('@/views/grid/rowGroup/template/groupValues/CodeExample.vue') }
           ]
-        }
+        },
+        { path: 'product1', name: 'ComponentGridRowGroupProduct1', component: () => import('@/views/grid/rowGroup/product1/CodeExample.vue') }
       ]
     },
     {
@@ -1029,7 +1030,9 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridExpandSelectModalTable',
           component: () => import('@/views/grid/expand/selectModalTable/CodeExample.vue')
         },
-        { path: 'vnTree', name: 'ComponentGridExpandVnTree', component: () => import('@/views/grid/expand/vnTree/CodeExample.vue') }
+        { path: 'vnTree', name: 'ComponentGridExpandVnTree', component: () => import('@/views/grid/expand/vnTree/CodeExample.vue') },
+        { path: 'product1', name: 'ComponentGridExpandProduct1', component: () => import('@/views/grid/expand/product1/CodeExample.vue') },
+        { path: 'product2', name: 'ComponentGridExpandProduct2', component: () => import('@/views/grid/expand/product2/CodeExample.vue') }
       ]
     },
     {

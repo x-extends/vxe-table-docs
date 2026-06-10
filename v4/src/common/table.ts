@@ -904,7 +904,6 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '默认展开', routerLink: { name: 'ComponentGridRowGroupExpandGroupFields' } },
             { title: '展示方式', routerLink: { name: 'ComponentGridRowGroupGroupMode' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRowGroupTrigger' } },
-            { title: '手动操作', routerLink: { name: 'ComponentGridRowGroupHandleSet' } },
             {
               title: '自定义插槽模板',
               children: [
@@ -912,7 +911,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
                 // { title: '自定义分组列聚合数据模板', routerLink: { name: 'ComponentGridRowGroupTemplateGroupValues' } }
               ]
             },
-            { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Faggregation%2FrowGroupSummary' } } }
+            { title: '分组汇总', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'extend_pivot_table_table_aggregation_row_group_summary' }, query: { previewPath: '%2FextendPivotTable%2Fgrid%2Faggregation%2FrowGroupSummary' } } },
+            { title: '实现产品分组列表', routerLink: { name: 'ComponentGridRowGroupProduct1' } }
           ]
         },
         {
@@ -926,7 +926,9 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '实现展开子表格', routerLink: { name: 'ComponentGridExpandChildTable' } },
             { title: '展开模式', routerLink: { name: 'ComponentGridExpandMode' } },
             { title: '实现弹窗选择到子表格', routerLink: { name: 'ComponentGridExpandSelectModalTable' } },
-            { title: '实现联动复选框', routerLink: { name: 'ComponentGridExpandVnTree' } }
+            { title: '实现联动复选框', routerLink: { name: 'ComponentGridExpandVnTree' } },
+            { title: '实现产品列表带明细', routerLink: { name: 'ComponentGridExpandProduct1' } },
+            { title: '实现产品明细列表', routerLink: { name: 'ComponentGridExpandProduct2' } }
           ]
         },
         {

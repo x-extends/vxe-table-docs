@@ -30,8 +30,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   spanMethod ({ row, column }) {
     const $grid = gridRef.value
     if ($grid && $grid.isAggregateRecord(row)) {
+      const { tableColumn } = $grid.getTableColumn()
       if (column.field === 'name') {
-        return { rowspan: 1, colspan: 5 }
+        return { rowspan: 1, colspan: tableColumn.length }
       }
       return { rowspan: 0, colspan: 0 }
     }
