@@ -56,14 +56,14 @@ export default Vue.extend({
         header: {
           options: [
             [
-              { code: 'exportAll', name: '导出所有.csv', className: 'my-red', prefixConfig: { icon: 'vxe-icon-download' } }
+              { code: 'exportAll', name: '导出所有.csv', className: 'my-red', prefixConfig: { icon: 'vxe-icon-download', className: 'my-green' } }
             ]
           ]
         },
         body: {
           options: [
             [
-              { code: 'copy', name: '复制内容（Ctrl+C）', className: 'my-red', prefixConfig: { icon: 'vxe-icon-copy' } },
+              { code: 'copy', name: '复制内容（Ctrl+C）', className: 'my-red', prefixConfig: { icon: 'vxe-icon-copy', className: 'my-green' } },
               { code: 'clear', name: '清除内容' },
               { code: 'reload', name: '刷新表格' }
             ],
@@ -79,7 +79,7 @@ export default Vue.extend({
               }
             ],
             [
-              { code: 'myPrint', name: '打印（Ctrl+P）', className: 'my-blue', prefixConfig: { icon: 'vxe-icon-print' } },
+              { code: 'myPrint', name: '打印（Ctrl+P）', className: 'my-blue', prefixConfig: { icon: 'vxe-icon-print', className: 'my-red' } },
               { code: 'myExport', name: '导出.csv', prefixConfig: { icon: 'vxe-icon-download' } }
             ]
           ]
@@ -87,7 +87,7 @@ export default Vue.extend({
         footer: {
           options: [
             [
-              { code: 'exportAll', name: '导出所有.csv', className: 'my-red', prefixConfig: { icon: 'vxe-icon-download' } }
+              { code: 'exportAll', name: '导出所有.csv', className: 'my-red', prefixConfig: { icon: 'vxe-icon-download', className: 'my-green' } }
             ]
           ]
         }
@@ -112,11 +112,14 @@ export default Vue.extend({
 
 <style lang="scss">
 .my-table-menu-wrapper {
-  .my-red a {
+  .my-red {
     color: red;
   }
-  .my-blue a {
+  .my-blue {
     color: blue;
+  }
+  .my-green {
+    color: green;
   }
 }
 </style>
