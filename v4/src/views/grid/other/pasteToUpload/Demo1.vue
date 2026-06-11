@@ -31,7 +31,7 @@ const fileList2CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUpl
       const formData = new FormData()
       formData.append('file', file)
       return axios.post('/publicapi/api/pub/upload/single', formData).then((res) => {
-        // { url: ''}
+        // return { url: ''}
         return {
           ...res.data
         }
@@ -58,7 +58,7 @@ const imgList2CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
       const formData = new FormData()
       formData.append('file', file)
       return axios.post('/publicapi/api/pub/upload/single', formData).then((res) => {
-        // { url: ''}
+        // return { url: ''}
         return {
           ...res.data
         }

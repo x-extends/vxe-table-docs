@@ -38,7 +38,7 @@ export default Vue.extend({
           const formData = new FormData()
           formData.append('file', file)
           return axios.post('/publicapi/api/pub/upload/single', formData).then((res) => {
-            // { url: ''}
+            // return { url: ''}
             return {
               ...res.data
             }
@@ -62,7 +62,7 @@ export default Vue.extend({
           const formData = new FormData()
           formData.append('file', file)
           return axios.post('/publicapi/api/pub/upload/single', formData).then((res) => {
-            // { url: ''}
+            // return { url: ''}
             return {
               ...res.data
             }
@@ -97,7 +97,7 @@ export default Vue.extend({
           const formData = new FormData()
           formData.append('file', file)
           return axios.post('/publicapi/api/pub/upload/single', formData).then((res) => {
-            // { url: ''}
+            // return { url: ''}
             return {
               ...res.data
             }
