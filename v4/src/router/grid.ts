@@ -1063,7 +1063,8 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'privilege',
           name: 'ComponentGridMenuPrivilege',
           component: () => import('@/views/grid/menu/privilege/CodeExample.vue')
-        }
+        },
+        { path: 'className', name: 'ComponentGridMenuClassName', component: () => import('@/views/grid/menu/className/CodeExample.vue') }
       ]
     },
     {
