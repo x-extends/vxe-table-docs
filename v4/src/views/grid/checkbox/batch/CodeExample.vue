@@ -5,8 +5,13 @@
         <vxe-tip status="primary" title="按键批量范围选择">
           通过 <ApiLink name="grid" prop="checkbox-config"/>.<ApiLink name="grid" prop="isShift"/> 启用批量选中,启用后按住快捷键和鼠标批量选取
         </vxe-tip>
-        <vxe-tip status="error" title="小提示">
-          该功能不支持 <ApiLink name="grid" prop="tree-config"/> 模式
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/checkbox/batch/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          树表格
         </vxe-tip>
       </template>
     </CodeLight>

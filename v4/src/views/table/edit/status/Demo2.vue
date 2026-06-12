@@ -1,12 +1,7 @@
 <template>
   <div>
     <p>
-      <vxe-button @click="insertEvent">新增</vxe-button>
-      <vxe-button @click="removeSelectRowEvent">删除选中</vxe-button>
-      <vxe-button @click="getInsertEvent">获取新增</vxe-button>
-      <vxe-button @click="getRemoveEvent">获取删除</vxe-button>
       <vxe-button status="primary" @click="getUpdateEvent">获取修改</vxe-button>
-      <vxe-button @click="saveEvent">保存</vxe-button>
     </p>
 
     <vxe-table
@@ -16,7 +11,8 @@
       ref="tableRef"
       :loading="loading"
       :data="tableData"
-      :edit-config="editConfig">
+      :edit-config="editConfig"
+      :edit-dirty-config="editDirtyConfig">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autoFocus: true}">
@@ -87,28 +83,16 @@ const editConfig = reactive<VxeTablePropTypes.EditConfig<RowVO>>({
   showStatus: true
 })
 
+const editDirtyConfig = reactive<VxeTablePropTypes.EditDirtyConfig>({
+  extraFields: ['nickname']
+})
+
 const formatDate: VxeColumnPropTypes.Formatter<RowVO> = ({ cellValue }) => {
   return XEUtils.toDateString(cellValue, 'yyyy-MM-dd HH:mm:ss')
 }
 
 const setOtherField = (row: RowVO) => {
   row.nickname = 'xxx' + Date.now()
-}
-
-const insertEvent = async () => {
-  const $table = tableRef.value
-  if ($table) {
-    const record = {}
-    const { row: newRow } = await $table.insert(record)
-    await $table.setEditCell(newRow, 'name')
-  }
-}
-
-const removeSelectRowEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    $table.removeCheckboxRow()
-  }
 }
 
 const hasUpdateStatus = (row: RowVO) => {
@@ -140,37 +124,6 @@ const saveUpdateEvent = (row: RowVO) => {
     } else {
       VxeUI.modal.message({ content: '数据未改动！', status: 'info' })
     }
-  }
-}
-
-const saveEvent = () => {
-  loading.value = true
-  // 默认异步
-  setTimeout(() => {
-    loading.value = false
-    // 保存完成后重新刷新数据
-    tableData.value = [
-      { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '', loading: false },
-      { id: 10002, name: 'Test2', nickname: 'T2', role: 'Designer', sex: '1', sex2: ['0', '1'], num1: 20, age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20', loading: false },
-      { id: 10003, name: 'Test3', nickname: 'T3', role: 'Test', sex: '0', sex2: ['1'], num1: 200, age: 32, address: 'Shanghai', date12: '2020-09-10', date13: '', loading: false },
-      { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04', loading: false }
-    ]
-  }, 300)
-}
-
-const getInsertEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const insertRecords = $table.getInsertRecords()
-    VxeUI.modal.alert(`新增：${insertRecords.length}`)
-  }
-}
-
-const getRemoveEvent = () => {
-  const $table = tableRef.value
-  if ($table) {
-    const removeRecords = $table.getRemoveRecords()
-    VxeUI.modal.alert(`删除：${removeRecords.length}`)
   }
 }
 

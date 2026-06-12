@@ -3,8 +3,7 @@
     <vxe-grid
       ref="gridRef"
       v-bind="gridOptions"
-      @checkbox-range-start="checkboxRangeStartEvent"
-      @checkbox-range-end="checkboxRangeEndEvent">
+      @checkbox-range-select="checkboxRangeSelectEvent">
     </vxe-grid>
   </div>
 </template>
@@ -67,10 +66,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    checkboxRangeStartEvent () {
-      console.log('开始拖拽选择')
-    },
-    checkboxRangeEndEvent ({ rangeRecords }) {
+    checkboxRangeSelectEvent ({ rangeRecords }) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         console.log('按键批量选择', rangeRecords.length)

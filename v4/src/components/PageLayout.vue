@@ -4,7 +4,7 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft">
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapse-width="1" :collapse-config="collapseConfig" :collapsed="!showLeft">
         <PageAside />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
@@ -26,7 +26,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, reactive, provide } from 'vue'
-import { VxeLayoutBodyPropTypes } from 'vxe-pc-ui'
+import { VxeLayoutBodyPropTypes, VxeLayoutAsidePropTypes } from 'vxe-pc-ui'
 import { useRoute } from 'vue-router'
 import XEUtils from 'xe-utils'
 import PageHeader from '@/components/PageHeader.vue'
@@ -47,6 +47,10 @@ if (window.innerWidth > 2000) {
 } else if (window.innerWidth < 900) {
   asideWidth.value = 200
 }
+
+const collapseConfig = reactive<VxeLayoutAsidePropTypes.CollapseConfig>({
+  animation: true
+})
 
 const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
   position: 'fixed',

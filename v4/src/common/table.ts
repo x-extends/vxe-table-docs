@@ -1178,6 +1178,7 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '单击编辑', routerLink: { name: 'ComponentGridEditClick' } },
             { title: '双击编辑', routerLink: { name: 'ComponentGridEditDblclick' } },
             { title: '编辑模式', routerLink: { name: 'ComponentGridEditMode' } },
+            { title: '编辑状态', routerLink: { name: 'ComponentGridEditStatus' } },
             {
               title: '临时数据 - 内置增删改',
               children: [
