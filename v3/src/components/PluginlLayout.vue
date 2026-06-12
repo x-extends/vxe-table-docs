@@ -22,7 +22,9 @@
           </template>
         </VxeLayoutBody>
         <div v-if="showOperBtn" class="oper-wrapper">
-          <vxe-button class="oper-btn" status="info" :icon="showLeft ? 'vxe-icon-arrow-left' : 'vxe-icon-arrow-right'" @click="showLeft = !showLeft"></vxe-button>
+          <div class="oper-btn" @click="showLeft = !showLeft">
+            <i :class="showLeft ? 'vxe-icon-arrow-left' : 'vxe-icon-arrow-right'"></i>
+          </div>
         </div>
       </VxeLayoutContainer>
     </VxeLayoutContainer>

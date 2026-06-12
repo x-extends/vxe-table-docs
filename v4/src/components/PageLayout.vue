@@ -17,7 +17,9 @@
           </VxeLayoutFooter>
         </VxeLayoutBody>
         <div v-if="showOperBtn" class="oper-wrapper">
-          <vxe-button class="oper-btn" status="info" :icon="showLeft ? 'vxe-icon-arrow-left' : 'vxe-icon-arrow-right'" @click="showLeft = !showLeft"></vxe-button>
+          <div class="oper-btn" @click="showLeft = !showLeft">
+            <i :class="showLeft ? 'vxe-icon-arrow-left' : 'vxe-icon-arrow-right'"></i>
+          </div>
         </div>
       </VxeLayoutContainer>
     </VxeLayoutContainer>
@@ -111,21 +113,32 @@ provide('pluginType', route.query.pt || '')
   .oper-wrapper {
     position: absolute;
     top: 46vh;
-    width: 16px;
+    width: 0.68em;
+    font-size: 14px;
     .oper-btn {
-      height: 60px;
-      user-select: none;
-      padding: 0;
-      margin: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 3.2em;
+      width: 100%;
+      color: var(--vxe-ui-layout-background-color);
+      border-radius: 4px;
+      background-color: #8b8b8b;
+      border: 1px solid var(--vxe-ui-input-border-color);
+      pointer-events: all;
       cursor: pointer;
-      border: 1px solid var(--vxe-ui-docs-layout-border-color);
-      background: var(--vxe-ui-docs-layout-background-color);
-      z-index: 19;
-      &:active {
-        outline: 0;
+      user-select: none;
+      transition: all .1s ease-in-out;
+      &:hover {
+        color: #ffffff;
+        background-color: var(--vxe-ui-font-primary-color);
       }
-      &.type--button {
-        padding: 0;
+      &:active {
+        transform: scale(0.9);
+      }
+      i {
+        font-size: 0.5em;
       }
     }
   }
