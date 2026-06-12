@@ -4,7 +4,7 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft">
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapse-width="1" :collapsed="!showLeft">
         <PageAside />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
@@ -79,7 +79,7 @@ export default Vue.extend({
     },
     showOperBtn () {
       const route = this.$route
-      return route.name === 'DocsApi'
+      return true// route.name === 'DocsApi'
     }
   }
 })

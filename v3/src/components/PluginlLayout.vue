@@ -4,7 +4,7 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" width="360" :collapsed="!showLeft">
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapse-width="1" :collapsed="!showLeft">
         <PageAside :navConfigList="navConfigList" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container" vertical>
@@ -55,16 +55,25 @@ export default Vue.extend({
     }
   },
   data () {
-    const showLeft = true
-
     const backtopConfig: VxeLayoutBodyPropTypes.BacktopConfig = {
-      circle: true,
-      showTop: (this as any).isPluginDocs,
-      position: 'fixed'
+      position: 'fixed',
+      circle: true
+    }
+    let asideWidth = 360
+
+    if (window.innerWidth > 2000) {
+      asideWidth = 460
+    } else if (window.innerWidth > 1600) {
+      asideWidth = 400
+    } else if (window.innerWidth < 1000) {
+      asideWidth = 220
+    } else if (window.innerWidth < 900) {
+      asideWidth = 200
     }
 
     return {
-      showLeft,
+      showLeft: true,
+      asideWidth,
       backtopConfig
     }
   },
@@ -79,11 +88,11 @@ export default Vue.extend({
     },
     isFullView () {
       const route = this.$route
-      return route.name === 'DocsApi'
+      return true// route.name === 'DocsApi'
     },
     showOperBtn () {
       const route = this.$route
-      return route.name === 'DocsApi'
+      return true// route.name === 'DocsApi'
     }
   },
   methods: {

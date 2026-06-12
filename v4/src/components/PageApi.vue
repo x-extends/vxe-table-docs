@@ -74,24 +74,32 @@ const appStore = useAppStore()
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const searchName = ref(`${route.query.q || ''}`)
-const tableData = ref<any[]>([])
+const treeData = ref<any[]>([])
 
 const apiName = computed(() => {
   return route.params.name as string
 })
 
+const handleTreeList = (treeList: any[]) => {
+  return XEUtils.toTreeArray(treeList, { children: 'list', parentKey: 'parentId', key: 'id' })
+}
+
 const loadList = () => {
+  const currApiName = apiName.value
   gridOptions.loading = true
 
   return Promise.all([
-    appStore.getComponentApiConf(apiName.value),
+    appStore.getComponentApiConf(currApiName),
     appStore.getComponentI18nJSON()
   ]).then(([data]) => {
-    const list = XEUtils.clone(data || [], true)
+    if (currApiName !== apiName.value) {
+      return
+    }
+    const treeList = XEUtils.clone(data || [], true)
     let firstI18nKey = ''
-    XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
+    XEUtils.eachTree(treeList, (item, i, items, path, parent, nodes) => {
       if (parent) {
-        item.i18nKey = `components.${apiName.value}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
+        item.i18nKey = `components.${currApiName}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
         if (!firstI18nKey) {
           firstI18nKey = item.i18nKey
         }
@@ -112,8 +120,9 @@ const loadList = () => {
         item.pluginVersion = ''
       }
     }, { children: 'list' })
-    tableData.value = list
-    gridOptions.data = list
+
+    treeData.value = treeList
+    gridOptions.data = handleTreeList(treeList)
     gridOptions.loading = false
     handleSearch()
   })
@@ -158,8 +167,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     }
   },
   treeConfig: {
-    childrenField: 'list',
-    expandRowKeys: []
+    transform: true,
+    rowField: 'id',
+    parentField: 'parentId'
   },
   tooltipConfig: {
     showAll: true,
@@ -183,6 +193,13 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     slots: {
       buttons: 'toolbarButtons'
     }
+  },
+  virtualYConfig: {
+    enabled: true,
+    gt: 0
+  },
+  virtualXConfig: {
+    enabled: false
   },
   data: []
 })
@@ -225,21 +242,21 @@ const handleSearch = () => {
     const options = { children: 'list' }
     const spName = pluginAppNames.find(name => name === filterName || XEUtils.kebabCase(name) === filterName)
     if (spName) {
-      const rest = XEUtils.searchTree(tableData.value, item => item.pluginName === spName, options)
-      gridOptions.data = rest
+      const treeList = XEUtils.searchTree(treeData.value, item => item.pluginName === spName, options)
+      gridOptions.data = handleTreeList(treeList)
     } else if (filterName === 'pro') {
-      const rest = XEUtils.searchTree(tableData.value, item => item.pluginName === 'ExtendCellArea', options)
-      gridOptions.data = rest
+      const treeList = XEUtils.searchTree(treeData.value, item => item.pluginName === 'ExtendCellArea', options)
+      gridOptions.data = handleTreeList(treeList)
     } else {
       const filterRE = new RegExp(`${filterName}|${XEUtils.camelCase(filterName)}|${XEUtils.kebabCase(filterName)}`, 'i')
-      const rest = XEUtils.searchTree(tableData.value, item => {
+      const treeList = XEUtils.searchTree(treeData.value, item => {
         return filterRE.test(item.name) || filterRE.test(item.i18nValue)
       }, options)
-      XEUtils.eachTree(rest, item => {
+      XEUtils.eachTree(treeList, item => {
         item.name = handleValueHighlight(item.name, filterRE)
         item.i18nValue = handleValueHighlight(item.i18nValue, filterRE)
       }, options)
-      gridOptions.data = rest
+      gridOptions.data = handleTreeList(treeList)
       setTimeout(() => {
         const $grid = gridRef.value
         if ($grid) {
@@ -248,7 +265,8 @@ const handleSearch = () => {
       }, 100)
     }
   } else {
-    gridOptions.data = tableData.value.slice(0)
+    const treeList = treeData.value.slice(0)
+    gridOptions.data = handleTreeList(treeList)
     setTimeout(() => {
       const $grid = gridRef.value
       if ($grid) {
@@ -283,6 +301,7 @@ const dganttComponents = [
 ]
 
 const getVersion = (row: RowVO) => {
+  const currApiName = apiName.value
   const { isPlugin, version, pluginName, pluginVersion } = row
   if (isPlugin) {
     if (pluginVersion) {
@@ -292,13 +311,13 @@ const getVersion = (row: RowVO) => {
   }
   if (version) {
     if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
-      if (tableComponents.includes(apiName.value)) {
+      if (tableComponents.includes(currApiName)) {
         return `vxe-table@${version}`
       }
-      if (dganttComponents.includes(apiName.value)) {
+      if (dganttComponents.includes(currApiName)) {
         return `vxe-gantt@${version}`
       }
-      if (designComponents.includes(apiName.value)) {
+      if (designComponents.includes(currApiName)) {
         return `vxe-design@${version}`
       }
     }

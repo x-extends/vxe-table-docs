@@ -4,7 +4,7 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" width="360" :collapsed="!showLeft">
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapse-width="1" :collapsed="!showLeft">
         <PageAside :navConfigList="navConfigList" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container" vertical>
@@ -51,6 +51,17 @@ const appStore = useAppStore()
 const pluginBuyUrl = computed(() => appStore.pluginBuyUrl)
 
 const showLeft = ref(true)
+const asideWidth = ref(360)
+
+if (window.innerWidth > 2000) {
+  asideWidth.value = 460
+} else if (window.innerWidth > 1600) {
+  asideWidth.value = 400
+} else if (window.innerWidth < 1000) {
+  asideWidth.value = 220
+} else if (window.innerWidth < 900) {
+  asideWidth.value = 200
+}
 
 const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
   circle: true,
@@ -66,7 +77,7 @@ const isFullView = computed(() => {
 })
 
 const showOperBtn = computed(() => {
-  return route.name === 'DocsApi'
+  return true// route.name === 'DocsApi'
 })
 
 const wxKfEvent = () => {

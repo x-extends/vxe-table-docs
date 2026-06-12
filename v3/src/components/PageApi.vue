@@ -43,6 +43,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapState, mapActions } from 'vuex'
+import { VxeGridProps } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -85,81 +86,97 @@ const dganttComponents = [
 const pluginAppNames = ['ExtendCellArea', 'ExtendPivotTable', 'FiltersCombination', 'FiltersComplexInput', 'ExtendGanttChart']
 const pluginAppRE = new RegExp(`^(${pluginAppNames.join('|')})(@(\\d{1,3}.\\d{1,3}.\\d{1,3}))?$`)
 
+const handleTreeList = (treeList: any[]) => {
+  return XEUtils.toTreeArray(treeList, { children: 'list', parentKey: 'parentId', key: 'id' })
+}
+
 export default Vue.extend({
   data (this: any) {
     const route = this.$route
+
+    const searchName = `${route.query.q || ''}`
+    const treeData: RowVO[] = []
+
+    const gridOptions: VxeGridProps<RowVO> = {
+      id: 'document_api',
+      autoResize: true,
+      height: 'auto',
+      loading: false,
+      loadingConfig: {
+        text: '检测到 API 有更新，正在自动更新中，请稍后...'
+      },
+      rowConfig: {
+        useKey: true,
+        keyField: 'id',
+        isHover: true,
+        isCurrent: true
+      },
+      columnConfig: {
+        useKey: true,
+        resizable: true,
+        isHover: true,
+        isCurrent: true
+      },
+      cellClassName ({ row, column }) {
+        return {
+          'api-enterprise': row.isPlugin,
+          'api-disabled': row.disabled,
+          'api-abandoned': row.abandoned,
+          'disabled-line-through': (row.disabled) && column.field === 'name'
+        }
+      },
+      customConfig: {
+        storage: true,
+        showSortMoveButton: true,
+        checkMethod ({ column }) {
+          if (['name', 'i18nValue'].includes(column.field)) {
+            return false
+          }
+          return true
+        }
+      },
+      treeConfig: {
+        transform: true,
+        rowField: 'id',
+        parentField: 'parentId'
+      },
+      tooltipConfig: {
+        showAll: true,
+        contentMethod ({ type, row }) {
+          if (type === 'body') {
+            if (row.disabled) {
+              return '该参数已经被废弃了，除非不打算更新版本，否则不应该被使用'
+            } else if (row.abandoned) {
+              return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
+            }
+          }
+          return ''
+        }
+      },
+      toolbarConfig: {
+        custom: true,
+        refresh: true,
+        refreshOptions: {
+          query: this.loadList
+        },
+        slots: {
+          buttons: 'toolbarButtons'
+        }
+      },
+      virtualYConfig: {
+        enabled: true,
+        gt: 0
+      },
+      virtualXConfig: {
+        enabled: false
+      },
+      data: []
+    }
+
     return {
-      searchName: `${route.query.q || ''}`,
-      tableData: [] as RowVO[],
-
-      gridOptions: {
-        id: 'document_api',
-        autoResize: true,
-        height: 'auto',
-        loading: false,
-        loadingConfig: {
-          text: '检测到 API 有更新，正在自动更新中，请稍后...'
-        },
-        rowConfig: {
-          useKey: true,
-          keyField: 'id',
-          isHover: true,
-          isCurrent: true
-        },
-        columnConfig: {
-          useKey: true,
-          resizable: true,
-          isHover: true,
-          isCurrent: true
-        },
-        cellClassName ({ row, column }) {
-          return {
-            'api-enterprise': row.isPlugin,
-            'api-disabled': row.disabled,
-            'api-abandoned': row.abandoned,
-            'disabled-line-through': (row.disabled) && column.field === 'name'
-          }
-        },
-        customConfig: {
-          storage: true,
-          showSortMoveButton: true,
-          checkMethod ({ column }) {
-            if (['name', 'i18nValue'].includes(column.field)) {
-              return false
-            }
-            return true
-          }
-        },
-        treeConfig: {
-          childrenField: 'list',
-          expandRowKeys: []
-        },
-
-        tooltipConfig: {
-          showAll: true,
-          contentMethod ({ type, row }) {
-            if (type === 'body') {
-              if (row.disabled) {
-                return '该参数已经被废弃了，除非不打算更新版本，否则不应该被使用'
-              } else if (row.abandoned) {
-                return '该参数属于评估阶段，谨慎使用，后续有可能会被废弃的风险'
-              }
-            }
-            return ''
-          }
-        },
-        toolbarConfig: {
-          custom: true,
-          refresh: true,
-          refreshOptions: {
-            query: this.loadList
-          },
-          slots: {
-            buttons: 'toolbarButtons'
-          }
-        },
-        data: []
-      }
+      searchName,
+      treeData,
+      gridOptions
     }
   },
   computed: {
@@ -227,15 +244,19 @@ export default Vue.extend({
       'getPluginAppList'
     ]),
     loadList (this: any) {
+      const currApiName = this.apiName
       this.gridOptions.loading = true
       Promise.all([
-        this.getComponentApiConf(this.apiName),
+        this.getComponentApiConf(currApiName),
         this.getComponentI18nJSON()
       ]).then(([data]) => {
-        const list = XEUtils.clone(data || [], true)
-        XEUtils.eachTree(list, (item, i, items, path, parent, nodes) => {
+        if (currApiName !== this.apiName) {
+          return
+        }
+        const treeList = XEUtils.clone(data || [], true)
+        XEUtils.eachTree(treeList, (item, i, items, path, parent, nodes) => {
           if (parent) {
-            item.i18nKey = `components.${this.apiName}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
+            item.i18nKey = `components.${currApiName}.${nodes.map(item => `${XEUtils.kebabCase(item.name)}`.replace(/\(.*/, '')).join('_')}`
           } else {
             item.i18nKey = `api.title.${item.name}`
           }
@@ -253,8 +274,9 @@ export default Vue.extend({
             item.pluginVersion = ''
           }
         }, { children: 'list' })
-        this.tableData = list
-        this.gridOptions.data = list
+
+        this.treeData = treeList
+        this.gridOptions.data = handleTreeList(treeList)
         this.gridOptions.loading = false
         this.handleSearch()
       })
@@ -268,21 +290,21 @@ export default Vue.extend({
         const options = { children: 'list' }
         const spName = pluginAppNames.find(name => name === filterName || XEUtils.kebabCase(name) === filterName)
         if (spName) {
-          const rest = XEUtils.searchTree(this.tableData, (item: any) => item.pluginName === spName, options)
-          this.gridOptions.data = rest
+          const treeList = XEUtils.searchTree(this.treeData, (item: any) => item.pluginName === spName, options)
+          this.gridOptions.data = handleTreeList(treeList)
         } else if (filterName === 'pro') {
-          const rest = XEUtils.searchTree(this.tableData, (item: any) => item.pluginName === 'ExtendCellArea', options)
-          this.gridOptions.data = rest
+          const treeList = XEUtils.searchTree(this.treeData, (item: any) => item.pluginName === 'ExtendCellArea', options)
+          this.gridOptions.data = handleTreeList(treeList)
         } else {
           const filterRE = new RegExp(`${filterName}|${XEUtils.camelCase(filterName)}|${XEUtils.kebabCase(filterName)}`, 'i')
-          const rest = XEUtils.searchTree(this.tableData, (item: any) => {
+          const treeList = XEUtils.searchTree(this.treeData, (item: any) => {
             return filterRE.test(item.name) || filterRE.test(item.i18nValue)
           }, options)
-          XEUtils.eachTree(rest, (item: any) => {
+          XEUtils.eachTree(treeList, (item: any) => {
             item.name = this.handleValueHighlight(item.name, filterRE)
             item.i18nValue = this.handleValueHighlight(item.i18nValue, filterRE)
           }, options)
-          this.gridOptions.data = rest
+          this.gridOptions.data = handleTreeList(treeList)
           setTimeout(() => {
             const $grid = this.$refs.gridRef
             if ($grid) {
@@ -291,7 +313,8 @@ export default Vue.extend({
           }, 100)
         }
       } else {
-        this.gridOptions.data = this.tableData.slice(0)
+        const treeList = this.treeData.slice(0)
+        this.gridOptions.data = handleTreeList(treeList)
         setTimeout(() => {
           const $grid = this.$refs.gridRef
           if ($grid) {
@@ -304,6 +327,7 @@ export default Vue.extend({
       this.handleSearch()
     }, 500, { leading: false, trailing: true }),
     getVersion (this: any, row: RowVO) {
+      const currApiName = this.apiName
       const { isPlugin, version, pluginName, pluginVersion } = row
       if (isPlugin) {
         if (pluginVersion) {
@@ -313,13 +337,13 @@ export default Vue.extend({
       }
       if (version) {
         if (/^\d{1,3}[.]\d{1,3}/.test(version)) {
-          if (tableComponents.includes(this.apiName)) {
+          if (tableComponents.includes(currApiName)) {
             return `vxe-table@${version}`
           }
-          if (dganttComponents.includes(this.apiName)) {
+          if (dganttComponents.includes(currApiName)) {
             return `vxe-gantt@${version}`
           }
-          if (designComponents.includes(this.apiName)) {
+          if (designComponents.includes(currApiName)) {
             return `vxe-design@${version}`
           }
         }
