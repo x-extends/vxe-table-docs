@@ -108,24 +108,30 @@ export default Vue.extend({
         }
       }
     },
-    saveAllEvent () {
+    async saveAllEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         const { insertRecords, removeRecords, updateRecords } = $grid.getRecordset()
-        VxeUI.modal.alert(`新增：${insertRecords.length} 更新：${updateRecords.length} 删除：${removeRecords.length}`)
         console.log(JSON.stringify(this.gridOptions.data))
-        this.gridOptions.loading = true
-        // 默认异步
-        setTimeout(() => {
-          this.gridOptions.loading = false
-          // 保存完成后重新刷新数据
-          this.gridOptions.data = [
-            { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '', loading: false },
-            { id: 10002, name: 'Test2', nickname: 'T2', role: 'Designer', sex: '1', sex2: ['0', '1'], num1: 20, age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20', loading: false },
-            { id: 10003, name: 'Test3', nickname: 'T3', role: 'Test', sex: '0', sex2: ['1'], num1: 200, age: 32, address: 'Shanghai', date12: '2020-09-10', date13: '', loading: false },
-            { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04', loading: false }
-          ]
-        }, 300)
+        if (insertRecords.length || insertRecords.length || removeRecords.length) {
+          const type = await VxeUI.modal.confirm(`新增：${insertRecords.length} 更新：${updateRecords.length} 删除：${removeRecords.length}`)
+          if (type === 'confirm') {
+            this.gridOptions.loading = true
+            // 默认异步
+            setTimeout(() => {
+              this.gridOptions.loading = false
+              // 保存完成后重新刷新数据
+              this.gridOptions.data = [
+                { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '', loading: false },
+                { id: 10002, name: 'Test2', nickname: 'T2', role: 'Designer', sex: '1', sex2: ['0', '1'], num1: 20, age: 22, address: 'Guangzhou', date12: '', date13: '2020-08-20', loading: false },
+                { id: 10003, name: 'Test3', nickname: 'T3', role: 'Test', sex: '0', sex2: ['1'], num1: 200, age: 32, address: 'Shanghai', date12: '2020-09-10', date13: '', loading: false },
+                { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04', loading: false }
+              ]
+            }, 300)
+          }
+        } else {
+          VxeUI.modal.alert('数据未改动')
+        }
       }
     }
   }
