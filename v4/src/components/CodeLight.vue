@@ -27,7 +27,7 @@
       </h2>
       <div v-show="showPreview" class="example-preview-body">
         <slot name="preview">
-          <vxe-image :key="previewUrl" :src="previewUrl" width="100%" mask-closable></vxe-image>
+          <vxe-image :key="previewUrl" :src="previewUrl" height="600" mask-closable></vxe-image>
         </slot>
       </div>
     </div>
@@ -570,10 +570,6 @@ const openDocs = () => {
 .example-preview-body {
   padding: 20px 64px 0 64px;
   text-align: center;
-  & > img {
-    max-width: 100%;
-    max-height: 300px;
-  }
 }
 
 .example-install {
