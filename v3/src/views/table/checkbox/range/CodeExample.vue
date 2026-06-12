@@ -5,6 +5,9 @@
         <vxe-tip status="primary" title="鼠标滑动范围选择">
           通过 <ApiLink name="table" prop="range"/> 启用范围选中,启用后鼠标按住复选框的列，向上或向下滑动选取
         </vxe-tip>
+        <vxe-tip status="error" title="小提示">
+          该功能不支持 <ApiLink name="grid" prop="tree-config"/> 模式
+        </vxe-tip>
       </template>
 
       <template #describe>
