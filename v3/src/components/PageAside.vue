@@ -549,11 +549,6 @@ export default Vue.extend({
   }
 }
 
-.vxe-layout-aside.is--collapse {
-  .page-aside {
-    visibility: hidden;
-  }
-}
 .nav-search-wrapper {
   max-height: 70vh;
   width: 600px;
