@@ -41,11 +41,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss" scoped>
-::v-deep(.example-preview-body) {
-  .vxe-image {
-    max-height: 800px;
-  }
-}
-</style>
