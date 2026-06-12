@@ -177,6 +177,9 @@ export default Vue.extend({
 .version-list {
   font-size: 12px;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   .version-title {
     font-weight: 700;
     margin: 0 6px;
