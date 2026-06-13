@@ -5,13 +5,13 @@
         <img :src="`${resBaseUrl}/logo.png`">
         <span class="title">{{ pageTitle }}</span>
       </a>
-      <a class="pendant" :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
+      <a  v-if="!isPluginDocs" class="pendant" :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
         <img :src='`https://gitee.com/x-extends/${packName}/badge/star.svg?theme=gvp`' alt='star'>
       </a>
-      <a class="pendant" :href="`http://npm-stat.com/charts.html?package=${packName}`">
+      <a  v-if="!isPluginDocs" class="pendant" :href="`http://npm-stat.com/charts.html?package=${packName}`">
         <img :src="`https://img.shields.io/npm/dm/${packName}.svg`">
       </a>
-      <a class="pendant" :href="`https://github.com/x-extends/${packName}/stargazers`">
+      <a v-if="!isPluginDocs" class="pendant" :href="`https://github.com/x-extends/${packName}/stargazers`">
         <img :src="`https://img.shields.io/github/stars/x-extends/${packName}.svg`">
       </a>
     </div>
