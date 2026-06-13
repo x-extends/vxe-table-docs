@@ -196,7 +196,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   virtualYConfig: {
     enabled: true,
-    gt: 0
+    gt: 50
   },
   virtualXConfig: {
     enabled: false
