@@ -156,6 +156,7 @@ export default Vue.extend({
       toolbarConfig: {
         custom: true,
         refresh: true,
+        zoom: true,
         refreshOptions: {
           query: this.loadList
         },
