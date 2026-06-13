@@ -5,7 +5,7 @@
     </VxeLayoutHeader>
     <VxeLayoutContainer>
       <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapse-width="1" :collapsed="!showLeft">
-        <PageAside />
+        <PageAside :navConfigList="navConfigList" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
         <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig">
@@ -30,6 +30,7 @@
 import { ref, computed, reactive, provide } from 'vue'
 import { VxeLayoutBodyPropTypes } from 'vxe-pc-ui'
 import { useRoute } from 'vue-router'
+import { navConfigList } from '@/common/nav-config'
 import XEUtils from 'xe-utils'
 import PageHeader from '@/components/PageHeader.vue'
 import PageAside from '@/components/PageAside.vue'

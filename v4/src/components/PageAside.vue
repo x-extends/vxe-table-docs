@@ -140,15 +140,19 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, nextTick } from 'vue'
+import { ref, watch, nextTick, PropType, provide } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAppStore } from '@/store/app'
-import { navConfigList } from '@/common/nav-config'
 import { NavVO } from '@/common/nav'
 import { VxeTreeInstance } from 'vxe-pc-ui'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
+
+const props = defineProps({
+  pluginType: String,
+  navConfigList: Array as PropType<NavVO[]>
+})
 
 const route = useRoute()
 const router = useRouter()
@@ -182,12 +186,12 @@ const updateTitle = () => {
 }
 
 const createNavList = () => {
-  XEUtils.eachTree(navConfigList, item => {
+  XEUtils.eachTree(props.navConfigList, item => {
     item.title = item.i18nKey ? i18n.global.t(item.i18nKey) : item.title
     item.isExpand = item.isExpand || false
     handleNavApiParams(item)
   }, { children: 'children' })
-  const apiItem = navConfigList.find(item => item.title === 'API')
+  const apiItem = props.navConfigList.find(item => item.title === 'API')
   if (apiItem) {
     const apiList: NavVO[] = []
     XEUtils.each(XEUtils.clone(appStore.compApiMaps, true), (list, compName) => {
@@ -210,7 +214,7 @@ const createNavList = () => {
     })
     apiItem.children = apiList
   }
-  const list = XEUtils.clone(navConfigList, true)
+  const list = XEUtils.clone(props.navConfigList, true)
   navList.value = list
   updateExpand()
 }
@@ -366,6 +370,8 @@ updateExpand()
 if (!appStore.isUtilDocs) {
   appStore.updateComponentApiJSON()
 }
+
+provide('pluginType', props.pluginType || '')
 </script>
 
 <style lang="scss">

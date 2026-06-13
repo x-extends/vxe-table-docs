@@ -140,7 +140,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 import { mapActions, mapState } from 'vuex'
 import { navConfigList } from '@/common/nav-config'
 import { NavVO } from '@/common/nav'
@@ -151,6 +151,12 @@ import VersionList from './VersionList.vue'
 export default Vue.extend({
   components: {
     VersionList
+  },
+  props: {
+    navConfigList: {
+      type: Array as PropType<NavVO[]>,
+      default: () => [] as NavVO[]
+    }
   },
   data () {
     return {
