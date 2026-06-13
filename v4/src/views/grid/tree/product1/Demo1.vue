@@ -78,7 +78,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     parentField: 'parentId'
   },
   columns: [
-    { type: 'seq', width: 70 },
+    { type: 'seq', width: 100, treeNode: true },
     {
       field: 'productImg',
       title: '图片',
@@ -91,7 +91,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         }
       }
     },
-    { field: 'productName', title: '产品信息', minWidth: 360, treeNode: true, slots: { default: 'product_default' } },
+    { field: 'productName', title: '产品信息', minWidth: 360, slots: { default: 'product_default' } },
     { field: 'sku', title: 'SKU', minWidth: 180, slots: { default: 'sku_default' } },
     { field: 'quantity', title: '数量', width: 120, slots: { default: 'quantity_default' } },
     { field: 'status', title: '状态', width: 100, slots: { default: 'status_default' } },
