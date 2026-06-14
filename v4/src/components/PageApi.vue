@@ -171,6 +171,20 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     rowField: 'id',
     parentField: 'parentId'
   },
+  exportConfig: {
+    filename () {
+      const currApiName = apiName.value
+      return `${currApiName} API`
+    },
+    isTreeAllExpanded: true
+  },
+  printConfig: {
+    sheetName () {
+      const currApiName = apiName.value
+      return `${currApiName} API`
+    },
+    isTreeAllExpanded: true
+  },
   tooltipConfig: {
     showAll: true,
     contentMethod ({ type, row }) {
@@ -188,6 +202,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     custom: true,
     refresh: true,
     zoom: true,
+    export: true,
+    print: true,
     refreshOptions: {
       query: loadList
     },

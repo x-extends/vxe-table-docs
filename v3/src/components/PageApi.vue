@@ -140,6 +140,20 @@ export default Vue.extend({
         rowField: 'id',
         parentField: 'parentId'
       },
+      exportConfig: {
+        filename: () => {
+          const currApiName = this.apiName as string
+          return `${currApiName} API`
+        },
+        isTreeAllExpanded: true
+      },
+      printConfig: {
+        sheetName: () => {
+          const currApiName = this.apiName as string
+          return `${currApiName} API`
+        },
+        isTreeAllExpanded: true
+      },
       tooltipConfig: {
         showAll: true,
         contentMethod ({ type, row }) {
@@ -157,6 +171,8 @@ export default Vue.extend({
         custom: true,
         refresh: true,
         zoom: true,
+        export: true,
+        print: true,
         refreshOptions: {
           query: this.loadList
         },
