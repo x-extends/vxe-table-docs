@@ -28,7 +28,9 @@
           <ul class="plugin-app-wrapper">
             <li v-for="(item, index) in pluginAppList" :key="index">
               <vxe-link :href="`${tablePluginDocsUrl}/${item.uri}`" :content="$t(`shopping.apps.${item.code}`)"></vxe-link>
-              <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.pluginVersion') }}</span>
+              <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
+              <span v-else-if="item.isFree" class="enterprise">{{ $t('app.header.freeVersion') }}</span>
+              <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
             </li>
           </ul>
         </template>
@@ -44,6 +46,7 @@
             <li v-for="(item, index) in systemMenuList" :key="index">
               <vxe-link target="_blank" :href="item.href" :content="item.content"></vxe-link>
               <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
+              <span v-else-if="item.isFree" class="enterprise">{{ $t('app.header.freeVersion') }}</span>
               <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
             </li>
           </ul>
