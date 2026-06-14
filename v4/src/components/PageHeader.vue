@@ -429,12 +429,18 @@ if (isPluginDocs.value) {
 .system-menu-btn-icon {
   font-size: 12px;
 }
+
+.system-menu-wrapper {
+  width: 360px;
+}
+.plugin-app-wrapper {
+  width: 180px;
+}
 .system-menu-wrapper,
 .plugin-app-wrapper {
   padding: 8px 0;
   margin: 0;
   list-style: none;
-  width: 180px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   & > li {
     position: relative;
