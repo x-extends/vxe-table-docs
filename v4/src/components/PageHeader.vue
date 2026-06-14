@@ -29,7 +29,7 @@
             <li v-for="(item, index) in pluginAppList" :key="index">
               <vxe-link :href="`${tablePluginDocsUrl}/${item.uri}`" :content="$t(`shopping.apps.${item.code}`)"></vxe-link>
               <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
-              <span v-else-if="item.isFree" class="enterprise">{{ $t('app.header.freeVersion') }}</span>
+              <span v-else-if="item.isFree" class="free">{{ $t('app.header.freeVersion') }}</span>
               <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
             </li>
           </ul>
@@ -46,7 +46,7 @@
             <li v-for="(item, index) in systemMenuList" :key="index">
               <vxe-link target="_blank" :href="item.href" :content="item.content"></vxe-link>
               <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
-              <span v-else-if="item.isFree" class="enterprise">{{ $t('app.header.freeVersion') }}</span>
+              <span v-else-if="item.isFree" class="free">{{ $t('app.header.freeVersion') }}</span>
               <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
             </li>
           </ul>
@@ -429,30 +429,7 @@ if (isPluginDocs.value) {
 .system-menu-btn-icon {
   font-size: 12px;
 }
-.system-menu-wrapper {
-  padding: 8px 0;
-  margin: 0;
-  list-style: none;
-  width: 360px;
-  border: 1px solid var(--vxe-ui-docs-layout-border-color);
-  & > li {
-    position: relative;
-    line-height: 28px;
-    padding: 0 16px;
-    font-size: 14px;
-    .enterprise {
-      display: inline-block;
-      height: 22px;
-      line-height: 22px;
-      background-color: #f6ca9d;
-      border-radius: 10px;
-      font-size: 12px;
-      padding: 0 8px;
-      color: #606266;
-      transform: scale(0.8);
-    }
-  }
-}
+.system-menu-wrapper,
 .plugin-app-wrapper {
   padding: 8px 0;
   margin: 0;
@@ -464,16 +441,23 @@ if (isPluginDocs.value) {
     line-height: 28px;
     padding: 0 16px;
     font-size: 14px;
+    .free,
     .enterprise {
       display: inline-block;
       height: 22px;
       line-height: 22px;
-      background-color: #f6ca9d;
       border-radius: 10px;
       font-size: 12px;
       padding: 0 8px;
-      color: #606266;
       transform: scale(0.8);
+    }
+    .free {
+      color: #efebeb;
+    background-color: #3eb910;
+    }
+    .enterprise {
+      color: #606266;
+      background-color: #f6ca9d;
     }
   }
 }
