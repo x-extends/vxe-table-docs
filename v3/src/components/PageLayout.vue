@@ -45,8 +45,7 @@ export default Vue.extend({
     const route = this.$route
     const pluginType = route.query.pt || ''
     return {
-      pluginType,
-      navConfigList
+      pluginType
     }
   },
   data () {
@@ -68,6 +67,7 @@ export default Vue.extend({
 
     return {
       showLeft: true,
+      navConfigList,
       asideWidth,
       backtopConfig
     }
