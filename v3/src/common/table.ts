@@ -1338,7 +1338,8 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
             { title: '排除列', routerLink: { name: 'ComponentGridExportExcludeFields' } },
             { title: '指定列', routerLink: { name: 'ComponentGridExportIncludeFields' } },
             { title: '自定义列', routerLink: { name: 'ComponentGridExportColumns' } },
-            { title: '自定义导出类型', routerLink: { name: 'ComponentGridExportTypes' } },
+            { title: '自定义数据类型', routerLink: { name: 'ComponentGridExportCellType' } },
+            { title: '自定义文件类型', routerLink: { name: 'ComponentGridExportTypes' } },
             { title: '服务端导出', routerLink: { name: 'ComponentGridExportRemote' } },
             { title: '自定义导出模式', routerLink: { name: 'ComponentGridExportModes' } },
             {

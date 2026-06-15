@@ -2250,6 +2250,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridExportColumns',
           component: () => import('@/views/grid/export/columns/CodeExample.vue')
         },
+        { path: 'cellType', name: 'ComponentGridExportCellType', component: () => import('@/views/grid/export/cellType/CodeExample.vue') },
         {
           path: 'types',
           name: 'ComponentGridExportTypes',
