@@ -20,9 +20,9 @@
     "vue-i18n": "^8.15.1",
     "vue-router": "^3.5.1",
     "vxe-design": "^3.0.0",
-    "vxe-pc-ui": "~3.14.38",
+    "vxe-pc-ui": "~3.14.39",
     "vxe-table": "~3.21.14",
-    "xe-utils": "^4.0.8"
+    "xe-utils": "^4.0.9"
   },
   "devDependencies": {
     "@types/node": "~24.12.3",
