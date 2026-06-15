@@ -41,7 +41,7 @@
       </vxe-column>
       <vxe-column title="操作" width="220">
         <template #default="{ row }">
-          <vxe-button mode="text" @click="setOtherField(row)">修改nickname</vxe-button>
+          <vxe-button mode="text" @click="setOtherField(row)">修改nickname（无效）</vxe-button>
           <template v-if="hasUpdateStatus(row)">
             <vxe-button mode="text" @click="saveUpdateEvent(row)" :loading="row.loading">局部保存</vxe-button>
           </template>
