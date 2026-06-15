@@ -140,7 +140,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, nextTick, PropType, provide } from 'vue'
+import { ref, watch, nextTick, PropType } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAppStore } from '@/store/app'
 import { NavVO } from '@/common/nav'
@@ -150,7 +150,6 @@ import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
 
 const props = defineProps({
-  pluginType: String,
   navConfigList: Array as PropType<NavVO[]>
 })
 
@@ -186,12 +185,13 @@ const updateTitle = () => {
 }
 
 const createNavList = () => {
-  XEUtils.eachTree(props.navConfigList, item => {
+  const navLst = XEUtils.clone(props.navConfigList, true) || []
+  XEUtils.eachTree(navLst, item => {
     item.title = item.i18nKey ? i18n.global.t(item.i18nKey) : item.title
     item.isExpand = item.isExpand || false
     handleNavApiParams(item)
   }, { children: 'children' })
-  const apiItem = props.navConfigList.find(item => item.title === 'API')
+  const apiItem = navLst.find(item => item.title === 'API')
   if (apiItem) {
     const apiList: NavVO[] = []
     XEUtils.each(XEUtils.clone(appStore.compApiMaps, true), (list, compName) => {
@@ -214,7 +214,7 @@ const createNavList = () => {
     })
     apiItem.children = apiList
   }
-  const list = XEUtils.clone(props.navConfigList, true)
+  const list = XEUtils.clone(navLst, true)
   navList.value = list
   updateExpand()
 }
@@ -370,8 +370,6 @@ updateExpand()
 if (!appStore.isUtilDocs) {
   appStore.updateComponentApiJSON()
 }
-
-provide('pluginType', props.pluginType || '')
 </script>
 
 <style lang="scss">

@@ -142,7 +142,6 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { mapActions, mapState } from 'vuex'
-import { navConfigList } from '@/common/nav-config'
 import { NavVO } from '@/common/nav'
 import { VxeTreeInstance } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
@@ -194,12 +193,13 @@ export default Vue.extend({
       }, { children: 'children' })
     },
     createNavList () {
-      XEUtils.eachTree(navConfigList, item => {
+      const navLst = XEUtils.clone(this.navConfigList, true) || []
+      XEUtils.eachTree(navLst, item => {
         item.title = item.i18nKey ? this.$t(item.i18nKey) as string : item.title
         item.isExpand = item.isExpand || false
         this.handleNavApiParams(item)
       }, { children: 'children' })
-      const apiItem = navConfigList.find(item => item.title === 'API')
+      const apiItem = navLst.find(item => item.title === 'API')
       if (apiItem) {
         const apiList: NavVO[] = []
         XEUtils.each(XEUtils.clone(this.compApiMaps, true), (list, compName) => {
@@ -222,7 +222,7 @@ export default Vue.extend({
         })
         apiItem.children = apiList
       }
-      const list = XEUtils.clone(navConfigList, true)
+      const list = XEUtils.clone(navLst, true)
       this.navList = list
       this.updateExpand()
     },

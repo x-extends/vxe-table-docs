@@ -5,7 +5,7 @@
     </VxeLayoutHeader>
     <VxeLayoutContainer>
       <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapse-width="1" :collapsed="!showLeft">
-        <PageAside :navConfigList="navConfigList" />
+        <PageAside :nav-config-list="navConfigList" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
         <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig">
