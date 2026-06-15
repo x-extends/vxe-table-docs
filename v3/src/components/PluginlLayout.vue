@@ -90,7 +90,7 @@ export default Vue.extend({
     },
     isFullView () {
       const route = this.$route
-      return true// route.name === 'DocsApi'
+      return route.name === 'DocsApi'
     },
     showOperBtn () {
       const route = this.$route
