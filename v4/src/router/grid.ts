@@ -1955,6 +1955,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridEditRenderVxeTreeSelect',
           component: () => import('@/views/grid/editRender/vxe-tree-select/CodeExample.vue')
         },
+        { path: 'vxe-cascader', name: 'ComponentGridEditRenderVxeCascader', component: () => import('@/views/grid/editRender/vxe-cascader/CodeExample.vue') },
         {
           path: 'vxe-table-select',
           name: 'ComponentGridEditRenderVxeTableSelect',
@@ -2028,6 +2029,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridEditTemplateVxeTreeSelect',
           component: () => import('@/views/grid/editTemplate/vxe-tree-select/CodeExample.vue')
         },
+        { path: 'vxe-cascader', name: 'ComponentGridEditTemplateVxeCascader', component: () => import('@/views/grid/editTemplate/vxe-cascader/CodeExample.vue') },
         {
           path: 'vxe-table-select',
           name: 'ComponentGridEditTemplateVxeTableSelect',

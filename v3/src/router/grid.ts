@@ -1954,6 +1954,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridEditRenderVxeTreeSelect',
           component: () => import('@/views/grid/editRender/vxe-tree-select/CodeExample.vue')
         },
+        { path: 'vxe-cascader', name: 'ComponentGridEditRenderVxeCascader', component: () => import('@/views/grid/editRender/vxe-cascader/CodeExample.vue') },
         {
           path: 'vxe-table-select',
           name: 'ComponentGridEditRenderVxeTableSelect',
@@ -2027,6 +2028,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridEditTemplateVxeTreeSelect',
           component: () => import('@/views/grid/editTemplate/vxe-tree-select/CodeExample.vue')
         },
+        { path: 'vxe-cascader', name: 'ComponentGridEditTemplateVxeCascader', component: () => import('@/views/grid/editTemplate/vxe-cascader/CodeExample.vue') },
         {
           path: 'vxe-table-select',
           name: 'ComponentGridEditTemplateVxeTableSelect',

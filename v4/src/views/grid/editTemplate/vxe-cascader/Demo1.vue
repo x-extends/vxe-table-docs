@@ -9,13 +9,13 @@
       </template>
 
       <template #region_edit="{ row }">
-        <vxe-tree-select v-model="row.region" :options="regionOptions" show-radio></vxe-tree-select>
+        <vxe-cascader v-model="row.region" :options="regionOptions" show-radio></vxe-cascader>
       </template>
       <template #region_default="{ row }">
         <span>{{ formatRegionLabel(row.region) }}</span>
       </template>
       <template #regionList_edit="{ row }">
-        <vxe-tree-select v-model="row.regionList" :options="regionListOptions" multiple show-checkbox></vxe-tree-select>
+        <vxe-cascader v-model="row.regionList" :options="regionListOptions" multiple show-checkbox></vxe-cascader>
       </template>
       <template #regionList_default="{ row }">
         <span>{{ formatRegionListLabel(row.regionList) }}</span>
@@ -27,7 +27,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
-import type { VxeTreeSelectPropTypes } from 'vxe-pc-ui'
+import type { VxeCascaderPropTypes } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -38,7 +38,7 @@ interface RowVO {
   regionList: string[]
 }
 
-const regionOptions = ref<VxeTreeSelectPropTypes.Options>([
+const regionOptions = ref<VxeCascaderPropTypes.Options>([
   {
     label: '广东省',
     value: '1',
@@ -61,7 +61,7 @@ const formatRegionLabel = (val: string) => {
   return rest ? rest.item.label : val
 }
 
-const regionListOptions = ref<VxeTreeSelectPropTypes.Options>([
+const regionListOptions = ref<VxeCascaderPropTypes.Options>([
   {
     label: '广东省',
     value: '1',
@@ -102,8 +102,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200, editRender: { autoFocus: 'input' }, slots: { edit: 'edit_name', default: 'default_name' } },
-    { field: 'region', title: '下拉树单选', width: 200, editRender: {}, slots: { edit: 'region_edit', default: 'region_default' } },
-    { field: 'regionList', title: '下拉树多选', width: 200, editRender: {}, slots: { edit: 'regionList_edit', default: 'regionList_default' } }
+    { field: 'region', title: '级联选择单选', width: 200, editRender: {}, slots: { edit: 'region_edit', default: 'region_default' } },
+    { field: 'regionList', title: '级联选择多选', width: 200, editRender: {}, slots: { edit: 'regionList_edit', default: 'regionList_default' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', region: '', regionList: [] },

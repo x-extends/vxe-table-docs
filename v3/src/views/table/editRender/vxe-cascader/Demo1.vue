@@ -7,15 +7,15 @@
       :data="tableData">
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200" :edit-render="{ name: 'VxeInput' }"></vxe-column>
-      <vxe-column field="region" title="下拉树单选" width="200" :edit-render="regionEditRender"></vxe-column>
-      <vxe-column field="regionList" title="下拉树多选" width="200" :edit-render="regionListEditRender"></vxe-column>
+      <vxe-column field="region" title="级联选择单选" width="200" :edit-render="regionEditRender"></vxe-column>
+      <vxe-column field="regionList" title="级联选择多选" width="200" :edit-render="regionListEditRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTreeSelectProps } from 'vxe-pc-ui'
+import type { VxeCascaderProps } from 'vxe-pc-ui'
 import type { VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
@@ -34,8 +34,8 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'PM', region: '', regionList: [] }
     ]
 
-    const regionEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps> = {
-      name: 'VxeTreeSelect',
+    const regionEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeCascaderProps> = {
+      name: 'VxeCascader',
       props: {
         showRadio: true
       },
@@ -59,8 +59,8 @@ export default Vue.extend({
       ]
     }
 
-    const regionListEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps> = {
-      name: 'VxeTreeSelect',
+    const regionListEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeCascaderProps> = {
+      name: 'VxeCascader',
       props: {
         multiple: true,
         showCheckbox: true

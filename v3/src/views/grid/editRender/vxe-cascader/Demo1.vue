@@ -1,22 +1,13 @@
 <template>
   <div>
-    <vxe-table
-      border
-      show-overflow
-      :edit-config="{mode: 'row', trigger: 'click'}"
-      :data="tableData">
-      <vxe-column type="seq" width="60"></vxe-column>
-      <vxe-column field="name" title="Name" min-width="200" :edit-render="{ name: 'VxeInput' }"></vxe-column>
-      <vxe-column field="region" title="下拉树单选" width="200" :edit-render="regionEditRender"></vxe-column>
-      <vxe-column field="regionList" title="下拉树多选" width="200" :edit-render="regionListEditRender"></vxe-column>
-    </vxe-table>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeTreeSelectProps } from 'vxe-pc-ui'
-import type { VxeColumnPropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
+import type { VxeCascaderProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -28,14 +19,8 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const tableData: RowVO[] = [
-      { id: 10001, name: 'Test1', role: 'Develop', region: '', regionList: [] },
-      { id: 10002, name: 'Test2', role: 'Test', region: '2-1', regionList: ['1-2', '2-1'] },
-      { id: 10003, name: 'Test3', role: 'PM', region: '', regionList: [] }
-    ]
-
-    const regionEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps> = {
-      name: 'VxeTreeSelect',
+    const regionEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeCascaderProps> = {
+      name: 'VxeCascader',
       props: {
         showRadio: true
       },
@@ -59,8 +44,8 @@ export default Vue.extend({
       ]
     }
 
-    const regionListEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps> = {
-      name: 'VxeTreeSelect',
+    const regionListEditRender: VxeColumnPropTypes.EditRender<RowVO, VxeCascaderProps> = {
+      name: 'VxeCascader',
       props: {
         multiple: true,
         showCheckbox: true
@@ -85,8 +70,31 @@ export default Vue.extend({
       ]
     }
 
+    const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      showOverflow: true,
+      rowConfig: {
+        keyField: 'id'
+      },
+      editConfig: {
+        trigger: 'click',
+        mode: 'row'
+      },
+      columns: [
+        { type: 'seq', width: 70 },
+        { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'VxeInput' } },
+        { field: 'region', title: '级联选择单选', width: 200, editRender: regionEditRender },
+        { field: 'regionList', title: '级联选择多选', width: 200, editRender: regionListEditRender }
+      ],
+      data: [
+        { id: 10001, name: 'Test1', role: 'Develop', region: '', regionList: [] },
+        { id: 10002, name: 'Test2', role: 'Test', region: '2-1', regionList: ['1-2', '2-1'] },
+        { id: 10003, name: 'Test3', role: 'PM', region: '', regionList: [] }
+      ]
+    }
+
     return {
-      tableData,
+      gridOptions,
       regionEditRender,
       regionListEditRender
     }

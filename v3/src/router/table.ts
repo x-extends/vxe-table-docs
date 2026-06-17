@@ -1634,6 +1634,7 @@ export const tableRouteConfig: RouteConfig = {
           name: 'ComponentTableEditRenderVxeTreeSelect',
           component: () => import('@/views/table/editRender/vxe-tree-select/CodeExample.vue')
         },
+        { path: 'vxe-cascader', name: 'ComponentTableEditRenderVxeCascader', component: () => import('@/views/table/editRender/vxe-cascader/CodeExample.vue') },
         {
           path: 'vxe-table-select',
           name: 'ComponentTableEditRenderVxeTableSelect',
@@ -1690,6 +1691,7 @@ export const tableRouteConfig: RouteConfig = {
           name: 'ComponentTableEditTemplateVxeTreeSelect',
           component: () => import('@/views/table/editTemplate/vxe-tree-select/CodeExample.vue')
         },
+        { path: 'vxe-cascader', name: 'ComponentTableEditTemplateVxeCascader', component: () => import('@/views/table/editTemplate/vxe-cascader/CodeExample.vue') },
         {
           path: 'vxe-table-select',
           name: 'ComponentTableEditTemplateVxeTableSelect',

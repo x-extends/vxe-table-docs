@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import type { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
-import type { VxeTreeSelectProps } from 'vxe-pc-ui'
+import type { VxeCascaderProps } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -17,8 +17,8 @@ interface RowVO {
   regionList: string[]
 }
 
-const regionEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps>>({
-  name: 'VxeTreeSelect',
+const regionEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeCascaderProps>>({
+  name: 'VxeCascader',
   props: {
     showRadio: true
   },
@@ -42,8 +42,8 @@ const regionEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTreeSe
   ]
 })
 
-const regionListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeTreeSelectProps>>({
-  name: 'VxeTreeSelect',
+const regionListEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeCascaderProps>>({
+  name: 'VxeCascader',
   props: {
     multiple: true,
     showCheckbox: true
@@ -81,8 +81,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 200, editRender: { name: 'VxeInput' } },
-    { field: 'region', title: '下拉树单选', width: 200, editRender: regionEditRender },
-    { field: 'regionList', title: '下拉树多选', width: 200, editRender: regionListEditRender }
+    { field: 'region', title: '级联选择单选', width: 200, editRender: regionEditRender },
+    { field: 'regionList', title: '级联选择多选', width: 200, editRender: regionListEditRender }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', region: '', regionList: [] },
