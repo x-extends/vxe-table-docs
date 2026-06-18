@@ -684,6 +684,12 @@ export const tableNavConfig: NavVO & { children: NavVO[] } = {
           ]
         },
         {
+          title: '单元格提示',
+          children: [
+            { title: '自定义单元格提示', routerLink: { name: 'ComponentGridCellTipShowAll' }, keywords: '工具提示，溢出提示' }
+          ]
+        },
+        {
           title: '单元格合并',
           children: [
             { title: '将多行进行合并', routerLink: { name: 'ComponentGridMergeRow' } },

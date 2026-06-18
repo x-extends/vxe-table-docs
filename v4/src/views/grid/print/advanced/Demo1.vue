@@ -21,7 +21,14 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
   showFooter: true,
+  mergeCells: [
+    { row: 1, col: 1, colspan: 2, rowspan: 1 }
+  ],
+  mergeFooterCells: [
+    { row: 0, col: 1, colspan: 2, rowspan: 1 }
+  ],
   printConfig: {
     sheetName () {
       return `打印标题${Date.now()}`
@@ -50,8 +57,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ],
   footerData: [
-    { seq: '合计', sex: '666', age: '999' },
-    { seq: '平均', sex: '888', age: '333' }
+    { seq: '合计', name: '45', sex: '666', age: '999' },
+    { seq: '平均', name: '98', sex: '888', age: '333' }
   ]
 })
 

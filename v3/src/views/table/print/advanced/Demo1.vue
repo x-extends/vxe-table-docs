@@ -3,6 +3,8 @@
     <vxe-button @click="printEvent">高级打印</vxe-button>
     <vxe-table
       ref="tableRef"
+      :merge-cells="mergeCells"
+      :merge-footer-cells="mergeFooterCells"
       :print-config="printConfig"
       :footer-data="footerData"
       :data="tableData">
@@ -41,8 +43,16 @@ export default Vue.extend({
     ]
 
     const footerData = [
-      { seq: '合计', sex: '666', age: '999' },
-      { seq: '平均', sex: '888', age: '333' }
+      { seq: '合计', name: '45', sex: '666', age: '999' },
+      { seq: '平均', name: '98', sex: '888', age: '333' }
+    ]
+
+    const mergeCells: VxeTablePropTypes.MergeCells = [
+      { row: 1, col: 1, colspan: 2, rowspan: 1 }
+    ]
+
+    const mergeFooterCells: VxeTablePropTypes.MergeFooterCells = [
+      { row: 0, col: 1, colspan: 2, rowspan: 1 }
     ]
 
     const printConfig: VxeTablePropTypes.PrintConfig = {
@@ -54,7 +64,9 @@ export default Vue.extend({
     return {
       tableData,
       footerData,
-      printConfig
+      printConfig,
+      mergeCells,
+      mergeFooterCells
     }
   },
   methods: {

@@ -5,6 +5,8 @@
       border
       show-footer
       ref="tableRef"
+      :merge-cells="mergeCells"
+      :merge-footer-cells="mergeFooterCells"
       :export-config="exportConfig"
       :footer-data="footerData"
       :data="tableData">
@@ -44,8 +46,16 @@ const tableData = ref<RowVO[]>([
 ])
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
-  { seq: '合计', sex: '666', age: '999' },
-  { seq: '平均', sex: '888', age: '333' }
+  { seq: '合计', name: '45', sex: '666', age: '999' },
+  { seq: '平均', name: '98', sex: '888', age: '333' }
+])
+
+const mergeCells = ref<VxeTablePropTypes.MergeCells>([
+  { row: 1, col: 2, colspan: 2, rowspan: 1 }
+])
+
+const mergeFooterCells = ref<VxeTablePropTypes.MergeFooterCells>([
+  { row: 0, col: 2, colspan: 2, rowspan: 1 }
 ])
 
 const exportConfig = reactive<VxeTablePropTypes.ExportConfig>({

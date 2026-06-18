@@ -5,6 +5,8 @@
       border
       show-footer
       ref="tableRef"
+      :merge-cells="mergeCells"
+      :merge-footer-cells="mergeFooterCells"
       :export-config="exportConfig"
       :footer-data="footerData"
       :data="tableData">
@@ -48,6 +50,14 @@ export default Vue.extend({
       { seq: '平均', sex: '888', age: '333' }
     ]
 
+    const mergeCells: VxeTablePropTypes.MergeCells = [
+      { row: 1, col: 2, colspan: 2, rowspan: 1 }
+    ]
+
+    const mergeFooterCells: VxeTablePropTypes.MergeFooterCells = [
+      { row: 0, col: 2, colspan: 2, rowspan: 1 }
+    ]
+
     const exportConfig: VxeTablePropTypes.ExportConfig = {
       filename () {
         return `导出文件名${Date.now()}`
@@ -60,7 +70,9 @@ export default Vue.extend({
     return {
       tableData,
       footerData,
-      exportConfig
+      exportConfig,
+      mergeCells,
+      mergeFooterCells
     }
   },
   methods: {

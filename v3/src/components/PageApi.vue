@@ -127,7 +127,8 @@ export default Vue.extend({
       },
       customConfig: {
         storage: true,
-        showSortMoveButton: true,
+        // showSortMoveButton: true,
+        showSortPutButton: true,
         checkMethod ({ column }) {
           if (['name', 'i18nValue'].includes(column.field)) {
             return false
