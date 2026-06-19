@@ -83,7 +83,7 @@ export const navConfigList: NavVO[] = [
       { i18nKey: 'app.aside.menu.functions', linkUrl: 'https://util.vxeui.com' }
     ]
   },
-  ...tableNavConfig.children,
+  ...(tableNavConfig.children || []),
   {
     title: 'API',
     isExpand: true,
