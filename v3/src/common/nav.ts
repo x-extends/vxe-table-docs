@@ -1,6 +1,7 @@
 export interface NavVO {
   title?: string
   describe?: string
+  componentName?: string
   name?: string
   i18nKey?: string
   isDisabled?: boolean
@@ -8,6 +9,7 @@ export interface NavVO {
   isSelfAPI?: boolean
   isExpand?: boolean
   isNew?: boolean
+  isProcess?: boolean
   isUnpublished?: boolean
   isEnterprise?: boolean
   isPlugin?: boolean
@@ -25,5 +27,6 @@ export interface NavVO {
   children?: NavVO[]
 }
 
+export const oldExtendUrl = `https://vxetable.cn/other${process.env.VUE_APP_VXE_VERSION}`
 export const otherUrl = process.env.VUE_APP_OTHER_DOCS_URL
 export const tablePluginDocsUrl = process.env.VUE_APP_SITE_PLUGIN_URL
