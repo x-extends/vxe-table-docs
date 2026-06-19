@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Console } from 'console'
 import { ref, reactive, onUnmounted } from 'vue'
 import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
 
