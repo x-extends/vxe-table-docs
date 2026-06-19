@@ -1,6 +1,6 @@
 import { NavVO, otherUrl } from './nav'
 
-export const tableNavConfig: NavVO & { children: NavVO[] } = {
+export const tableNavConfig: NavVO = {
   i18nKey: 'app.aside.menu.tableTitle',
   children: [
     {
