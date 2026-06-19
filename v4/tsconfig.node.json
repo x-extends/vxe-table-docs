@@ -31,11 +31,10 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "baseUrl": ".",
 
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     }
   },
