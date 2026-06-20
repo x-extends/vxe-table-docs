@@ -45,45 +45,37 @@
         <vxe-tooltip v-if="!isPluginDocs" :content="$t('app.docs.button.fixDocTip')">
           <vxe-button class="example-btn" mode="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
-        <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" :icon="showOptionJS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" :icon="showOptionTS ? 'vxe-icon-eye-fill' : 'vxe-icon-eye-fill-close'" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
         <vxe-button v-if="showOnLineRun" mode="text" icon="vxe-icon-link" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
+        </div>
+      <div class="example-code-wrapper" v-show="showOptionJS">
+        <vxe-collapse v-model="collapseList" padding border>
+          <vxe-collapse-pane v-for="item in importOptionJsCodes" :key="item.path" :title="item.name" :name="item.path">
+            <template #default>
+              <CodeRender :language="item.lang" :code="item.text" show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+          <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
+            <template #default>
+              <CodeRender language="html" :code="optionJsCodeText" show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+        </vxe-collapse>
       </div>
-      <div class="example-code-warpper" v-show="showOptionJS">
-        <div v-for="(item, index) in importOptionJsCodes" :key="index" class="example-code-item">
-          <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
-            <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
-            <span class="example-code-file-name">{{ item.name }}</span>
-            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(item.text)" :disabled="!item.text">{{ $t('app.docs.button.copyCode') }}</vxe-button>
-          </div>
-          <CodeRender v-if="item.isExpand" :language="item.lang" :code="item.text"></CodeRender>
-        </div>
-        <div class="example-code-item">
-          <div class="example-code-file">
-            <vxe-link icon="vxe-icon-link" :href="`${gitDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank"></vxe-link>
-            <span class="example-code-file-name">{{ getFileName(`${path}.vue`) }}</span>
-            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(optionJsCodeText)" :disabled="!optionJsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
-          </div>
-          <CodeRender language="html" :code="optionJsCodeText"></CodeRender>
-        </div>
-      </div>
-      <div class="example-code-warpper" v-show="showOptionTS">
-        <div v-for="(item, index) in importOptionTsCodes" :key="index" class="example-code-item">
-          <div class="example-code-file" :class="{'is-expand': item.isExpand}" @click="toggleItemExpand(item)">
-            <vxe-icon name="arrow-right" class="example-code-file-icon"></vxe-icon>
-            <span class="example-code-file-name">{{ item.name }}</span>
-            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(item.text)" :disabled="!item.text">{{ $t('app.docs.button.copyCode') }}</vxe-button>
-          </div>
-          <CodeRender v-if="item.isExpand" :language="item.lang" :code="item.text"></CodeRender>
-        </div>
-        <div class="example-code-item">
-          <div class="example-code-file">
-            <vxe-link icon="vxe-icon-link" :href="`${gitDir}/${getFileName(`${path}.vue`)}`" title="点击查看" target="_blank"></vxe-link>
-            <span class="example-code-file-name">{{ getFileName(`${path}.vue`) }}</span>
-            <vxe-button class="example-copy-btn" status="success" mode="text" icon="vxe-icon-copy" @click.stop="copyCode(optionTsCodeText)" :disabled="!optionTsCodeText">{{ $t('app.docs.button.copyCode') }}</vxe-button>
-          </div>
-          <CodeRender language="html" :code="optionTsCodeText"></CodeRender>
-        </div>
+      <div class="example-code-wrapper" v-show="showOptionTS">
+        <vxe-collapse v-model="collapseList" padding border>
+          <vxe-collapse-pane v-for="item in importOptionTsCodes" :key="item.path" :title="item.name" :name="item.path">
+            <template #default>
+              <CodeRender :language="item.lang" :code="item.text" show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+          <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
+            <template #default>
+              <CodeRender language="html" :code="optionTsCodeText" show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+        </vxe-collapse>
       </div>
     </div>
   </div>
@@ -92,7 +84,6 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { codeCacheMaps } from '@/common/cache'
-import { VxeUI } from 'vxe-pc-ui'
 import AsyncDemo from './AsyncDemo.vue'
 
 interface ImportItemVO {
@@ -126,6 +117,7 @@ export default Vue.extend({
       showOptionTS: false,
       optionJsLoading: false,
       optionTsLoading: false,
+      collapseList: ['demo'],
       importOptionTsCodes: [] as ImportItemVO[],
       importOptionJsCodes: [] as ImportItemVO[]
     }
@@ -219,6 +211,7 @@ export default Vue.extend({
             })
           }) || [])
         ]).then(([text1, ...impTexts]) => {
+          debugger
           this.optionJsCodeText = text1 || this.$t('app.docs.button.noExample')
           this.importOptionJsCodes = impTexts || this.$t('app.docs.button.noExample')
           this.optionJsLoading = false
@@ -264,6 +257,7 @@ export default Vue.extend({
     toggleOptionJsVisible  (this: any) {
       this.showOptionTS = false
       this.showOptionJS = !this.showOptionJS
+      this.collapseList = ['demo']
       if (this.showOptionJS) {
         this.loadOptionJsCode()
       }
@@ -271,15 +265,9 @@ export default Vue.extend({
     toggleOptionTsVisible  (this: any) {
       this.showOptionJS = false
       this.showOptionTS = !this.showOptionTS
+      this.collapseList = ['demo']
       if (this.showOptionTS) {
         this.loadOptionTsCode()
-      }
-    },
-    copyCode (content: string) {
-      if (content) {
-        if (VxeUI.clipboard.copy(content)) {
-          VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
-        }
       }
     },
     toggleItemExpand (item: ImportItemVO) {
@@ -289,7 +277,9 @@ export default Vue.extend({
       open(`${process.env.VUE_APP_DOCS_GITHUB_URL}/src/views/${this.path}.vue`)
     },
     runEvent () {
-
+      const compPath = this.path
+      const exampleBaeUrl = `${this.siteBaseUrl}${process.env.BASE_URL}`
+      open(`${process.env.VUE_APP_ONLINE_RUN_URL}?files=${btoa('@' + encodeURIComponent(`${exampleBaeUrl}example/js/${compPath}.vue`))}`)
     }
   }
 })
@@ -324,40 +314,28 @@ export default Vue.extend({
   height: 60px;
   border-top: 1px dashed var(--vxe-ui-docs-layout-border-color);
 }
-.example-code-warpper {
-  padding: 0 30px;
+.example-code-wrapper {
   margin: 0;
+  .example-copy-btn {
+    display: none;
+    position: absolute;
+    top: 0.1em;
+    right: 0.1em;
+    font-size: 20px;
+  }
   pre {
     display: flex;
     margin: 0;
-    padding: 0 0 30px 0;
     code {
       flex-grow: 1;
     }
   }
-}
-.example-code-item {
-  display: block;
-  position: relative;
-}
-.example-code-file {
-  position: relative;
-  line-height: 28px;
-  margin: 6px 0;
-  &.is-expand {
-    .example-code-file-icon {
-      transform: rotate(90deg);
+  .vxe-collapse--item-inner {
+    &:hover {
+      .example-copy-btn {
+          display: block;
+      }
     }
-  }
-  .example-code-file-icon {
-    display: inline-block;
-    transition: transform 0.2s ease-in-out;
-    margin-right: 8px;
-  }
-  .example-copy-btn {
-    position: absolute;
-    right: 0;
-    bottom: 0;
   }
 }
 

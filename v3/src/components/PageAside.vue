@@ -43,9 +43,9 @@
         <vxe-link v-if="item1.routerLink" class="nav-item-link" :status="item1.linkStatus" :router-link="item1.routerLink" :disabled="item1.isDisabled || item1.isProcess" :content="item1.title"></vxe-link>
         <vxe-link v-else-if="item1.linkUrl" class="nav-item-link" :status="item1.linkStatus" :href="item1.linkUrl" :disabled="item1.isDisabled || item1.isProcess" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
         <vxe-link v-else-if="item1.isBack" class="nav-item-link" :status="item1.linkStatus" :content="item1.title" @click="backEvent"></vxe-link>
-        <span v-else>
+        <span v-else class="nav-item-text">
           <span class="vxe-icon-arrow-right nav-link-icon"></span>
-          <span class="nav-item-text">
+          <span class="nav-text">
             <span> {{ item1.title }}</span>
             <vxe-text v-if="['API'].includes(item1.title || '') && item1.children" status="success">（{{ item1.children.length }}）</vxe-text>
           </span>
@@ -414,6 +414,7 @@ export default Vue.extend({
     white-space: nowrap;
     &.router-link-exact-active {
       color: var(--vxe-ui-docs-primary-color);
+      background-color: var(--vxe-ui-base-active-background-color);
       font-weight: 700;
     }
   }
@@ -429,6 +430,7 @@ export default Vue.extend({
     padding: 0 5px 0 5px;
     border-radius: 4px;
     transform: rotate(-7deg) translate(6px, 4px);
+    user-select: none;
     &::after {
       content: "";
       position: absolute;
@@ -482,22 +484,22 @@ export default Vue.extend({
       margin-right: 0.3em;
       transition: transform .2s ease-in-out;
     }
-    .nav-item-text {
+    .nav-name {
       cursor: pointer;
       &:hover {
-        color: var(--vxe-ui-docs-primary-color);
+        background-color: var(--vxe-ui-base-hover-background-color);
       }
     }
   }
   .nav-level1 {
     & > .nav-name {
-      padding: 0 1.2em 0.4em 1.2em;
-      line-height: 40px;
+      line-height: 46px;
+      padding: 0 1.2em;
       cursor: pointer;
       &::after {
         content: "";
         position: absolute;
-        bottom: 0.2em;
+        bottom: 0;
         left: 1.2em;
         width: calc(100% - 2.4em);
         border-bottom: 1px solid var(--vxe-ui-docs-layout-border-color);
@@ -505,51 +507,49 @@ export default Vue.extend({
       .nav-item-text,
       .nav-item-link {
         font-size: 15px;
-        font-weight: 700;
       }
     }
   }
   .nav-level2 {
     & > .nav-name {
-      line-height: 36px;
-      padding-left: 3.4em;
+      line-height: 42px;
       .nav-item-text,
       .nav-item-link {
         font-size: 14px;
+        padding-left: 3.4em;
       }
     }
     .nav-item-text {
       color: var(--vxe-ui-docs-layout-menu-color);
-      font-weight: 700;
     }
   }
   .nav-level3 {
     & > .nav-name {
-      line-height: 32px;
-      padding-left: 5em;
+      line-height: 38px;
       .nav-item-text,
       .nav-item-link {
         font-size: 14px;
+        padding-left: 5em;
       }
     }
   }
   .nav-level4 {
     & > .nav-name {
-      line-height: 28px;
-      padding-left: 7.4em;
+      line-height: 34px;
       .nav-item-text,
       .nav-item-link {
         font-size: 14px;
+        padding-left: 7.4em;
       }
     }
   }
   .nav-level5 {
     & > .nav-name {
-      line-height: 28px;
-      padding-left: 9em;
+      line-height: 30px;
       .nav-item-text,
       .nav-item-link {
         font-size: 14px;
+        padding-left: 9em;
       }
     }
   }

@@ -20,10 +20,21 @@ function updatePrimaryColor (color: string) {
   }
 }
 
+function updateHighlightjsTheme (theme: string) {
+  const hljsLinkEl = document.getElementById('hljsLink')
+  if (hljsLinkEl) {
+    const linkHref = hljsLinkEl.getAttribute('href') || ''
+    const uls = linkHref.split('/')
+    hljsLinkEl.setAttribute('href', uls.slice(0, uls.length - 1).concat([theme === 'dark' ? 'atom-one-dark.min.css' : 'atom-one-light.min.css']).join('/'))
+  }
+}
+
 const currTheme = (localStorage.getItem('VXE_DOCS_THEME') || 'light') as 'dark' | 'light'
 const currPrimaryColor = localStorage.getItem('VXE_DOCS_PRIMARY_COLOR') || ''
 const currComponentsSize = (localStorage.getItem('VXE_DOCS_COMPONENTS_SIZE') || '') as VxeComponentSizeType
 const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as VxeGlobalI18nLocale
+
+updateHighlightjsTheme(currTheme)
 
 VxeUI.setLanguage(currLanguage)
 setTimeout(() => {
@@ -124,6 +135,7 @@ export const useAppStore = defineStore('app', {
     },
     setTheme (name: 'dark' | 'light') {
       this.theme = name || 'light'
+      updateHighlightjsTheme(name)
       VxeUI.setTheme(name)
       document.documentElement.setAttribute('vxe-docs-theme', name)
       localStorage.setItem('VXE_DOCS_THEME', name)
