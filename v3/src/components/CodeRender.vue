@@ -1,7 +1,7 @@
 <template>
   <pre class="code-render">
     <code ref="codeRef" :class="['hljs', language]"></code>
-    <vxe-button v-if="showCopyButton" class="copy-btn" status="primary" icon="vxe-icon-copy" @click.stop="copyCode" :title="$t('app.docs.button.copyCode')" circle></vxe-button>
+    <vxe-button v-if="showCopyButton" class="copy-btn" icon="vxe-icon-copy" @click.stop="copyCode" :title="$t('app.docs.button.copyCode')" circle></vxe-button>
   </pre>
 </template>
 
@@ -49,14 +49,8 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .code-render {
   position: relative;
-  &:hover {
-    .copy-btn {
-      display: inline-block;
-    }
-  }
 }
 .copy-btn {
-  display: none;
   position: absolute;
   top: 0.5em;
   right: 0.5em;
