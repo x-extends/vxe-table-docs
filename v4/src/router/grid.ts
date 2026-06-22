@@ -1857,6 +1857,7 @@ export const gridRouteConfig: RouteRecordRaw = {
             }
           ]
         },
+        { path: 'beforeEdit', name: 'ComponentGridEditBeforeEdit', component: () => import('@/views/grid/edit/beforeEdit/CodeExample.vue') },
         {
           path: 'showNegativeStatus',
           name: 'ComponentGridEditShowNegativeStatus',
