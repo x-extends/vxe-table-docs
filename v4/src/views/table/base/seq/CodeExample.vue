@@ -3,18 +3,28 @@
     <CodeLight path="table/base/seq/Demo1">
       <template #tip>
         <vxe-tip status="primary">设置 <ApiLink name="column" prop="type"/>=<ApiLink name="column" prop="seq"/> 开启序号列</vxe-tip>
+        <vxe-tip status="success">
+          <div>行数据对象索引说明：</div>
+          <div> rowIndex：指向 <ApiLink name="table" prop="data"/> 中的索引，对应方法 <ApiLink name="table" prop="getRowIndex"/></div>
+          <div>$rowIndex：指向 Element dom 渲染中的实际行索引，对应方法 <ApiLink name="table" prop="getVMRowIndex"/></div>
+          <div>_rowIndex：指向当前表格数据的索引，对应方法 <ApiLink name="table" prop="getVTRowIndex"/></div>
+          <div>列配置对象索引说明：</div>
+          <div>columnIndex：指向 <ApiLink name="column"/> 中的索引，对应方法 <ApiLink name="table" prop="getColumnIndex"/></div>
+          <div>$columnIndex：指向 Element dom 渲染中的实际列索引，对应方法 <ApiLink name="table" prop="getVMColumnIndex"/></div>
+          <div>_columnIndex：指向当前表格列的索引，对应方法 <ApiLink name="table" prop="getVTColumnIndex"/></div>
+        </vxe-tip>
       </template>
     </CodeLight>
 
     <CodeLight path="table/base/seq/Demo2">
       <template #tip>
-        <vxe-tip status="primary">使用 <ApiLink name="table" prop="seq-config"/>={<ApiLink name="table" prop="startIndex"/>} 自定义起始序号</vxe-tip>
+        <vxe-tip status="primary">使用 <ApiLink name="table" prop="seq-config"/>.<ApiLink name="table" prop="startIndex"/> 自定义起始序号</vxe-tip>
       </template>
     </CodeLight>
 
     <CodeLight path="table/base/seq/Demo3">
       <template #tip>
-        <vxe-tip status="primary">使用 <ApiLink name="table" prop="seq-config"/>={<ApiLink name="table" prop="seqMethod"/>} 自定义方法</vxe-tip>
+        <vxe-tip status="primary">使用 <ApiLink name="table" prop="seq-config"/>.<ApiLink name="table" prop="seqMethod"/> 自定义方法</vxe-tip>
       </template>
     </CodeLight>
   </div>
