@@ -933,6 +933,7 @@ export const tableNavConfig: NavVO = {
             { title: '使用冻结列', routerLink: { name: 'ComponentGridExpandFixed' } },
             { title: '实现展开子表格', routerLink: { name: 'ComponentGridExpandChildTable' } },
             { title: '展开模式', routerLink: { name: 'ComponentGridExpandMode' } },
+            { title: '展保持全部展开状态开模式', routerLink: { name: 'ComponentGridExpandKeepAll' } },
             { title: '实现弹窗选择到子表格', routerLink: { name: 'ComponentGridExpandSelectModalTable' } },
             { title: '实现联动复选框', routerLink: { name: 'ComponentGridExpandVnTree' } },
             { title: '实现产品列表带明细', routerLink: { name: 'ComponentGridExpandProduct1' } },
