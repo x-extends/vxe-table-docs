@@ -43,7 +43,14 @@ const handleGetColumn = () => {
   const $grid = gridRef.value
   if ($grid) {
     const tableColumn = $grid.getColumns()
-    console.log(tableColumn)
+    console.log(tableColumn.map(conf => {
+      return {
+        title: conf.title,
+        field: conf.field,
+        type: conf.type,
+        width: conf.width
+      }
+    }))
     VxeUI.modal.message({
       content: `共 ${tableColumn.length} 列`,
       status: 'success'
