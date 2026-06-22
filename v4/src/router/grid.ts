@@ -234,7 +234,9 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'full',
           name: 'ComponentGridBaseFull',
           component: () => import('@/views/grid/base/full/CodeExample.vue')
-        }
+        },
+        { path: 'getData', name: 'ComponentGridBaseGetData', component: () => import('@/views/grid/base/getData/CodeExample.vue') },
+        { path: 'getColumn', name: 'ComponentGridBaseGetColumn', component: () => import('@/views/grid/base/getColumn/CodeExample.vue') }
       ]
     },
     {

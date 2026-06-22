@@ -671,7 +671,9 @@ export const tableNavConfig: NavVO = {
             { title: '标题后缀图标', routerLink: { name: 'ComponentGridBaseTitleSuffix' }, keywords: 'title-suffix' },
             { title: 'HTML 类型', routerLink: { name: 'ComponentGridBaseHtml' } },
             { title: '列配置', routerLink: { name: 'ComponentGridBaseColumns' } },
-            { title: '完整案例', routerLink: { name: 'ComponentGridBaseFull' } }
+            { title: '完整案例', routerLink: { name: 'ComponentGridBaseFull' } },
+            { title: '获取表格数据', routerLink: { name: 'ComponentGridBaseGetData' } },
+            { title: '数据表格列', routerLink: { name: 'ComponentGridBaseGetColumn' } }
           ]
         },
         {
