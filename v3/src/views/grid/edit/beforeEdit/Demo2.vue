@@ -51,12 +51,17 @@ export default Vue.extend({
   },
   methods: {
     cellClickEvent ({ row, column }) {
-      // 模拟异步判断
-      this.gridOptions.loading = true
-      setTimeout(() => {
-        this.gridOptions.loading = false
-        const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-        if ($grid) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const editInfo = $grid.getEditCell()
+        // 如果是已经是编辑状态
+        if (editInfo && editInfo.row === row && editInfo.column.field === column.field) {
+          return
+        }
+        // 模拟异步判断
+        this.gridOptions.loading = true
+        setTimeout(() => {
+          this.gridOptions.loading = false
           if (row.name === 'Test2') {
             VxeUI.modal.message({
               content: '不允许编辑',
@@ -65,8 +70,8 @@ export default Vue.extend({
             return
           }
           $grid.setEditCell(row, column)
-        }
-      }, 300)
+        }, 300)
+      }
     }
   }
 })

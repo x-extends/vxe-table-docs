@@ -47,12 +47,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 const gridEvents: VxeGridListeners = {
   cellClick ({ row, column }) {
-    // 模拟异步判断
-    gridOptions.loading = true
-    setTimeout(() => {
-      gridOptions.loading = false
-      const $grid = gridRef.value
-      if ($grid) {
+    const $grid = gridRef.value
+    if ($grid) {
+      const editInfo = $grid.getEditCell()
+      // 如果是已经是编辑状态
+      if (editInfo && editInfo.row === row && editInfo.column.field === column.field) {
+        return
+      }
+      // 模拟异步判断
+      gridOptions.loading = true
+      setTimeout(() => {
+        gridOptions.loading = false
         if (row.name === 'Test2') {
           VxeUI.modal.message({
             content: '不允许编辑',
@@ -61,8 +66,8 @@ const gridEvents: VxeGridListeners = {
           return
         }
         $grid.setEditCell(row, column)
-      }
-    }, 300)
+      }, 300)
+    }
   }
 }
 </script>

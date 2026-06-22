@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import type { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import type { VxeGridProps, VxeGridListeners, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -24,6 +24,8 @@ interface RowVO {
   age: number
   address: string
 }
+
+const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const disabledName = ref(false)
 
@@ -53,9 +55,18 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const gridEvents: VxeGridListeners = {
-  cellClick ({ row }) {
+  cellClick ({ row, column }) {
+    const $grid = gridRef.value
+    if ($grid) {
+      const editInfo = $grid.getEditCell()
+      // 如果是已经是编辑状态
+      if (editInfo && editInfo.row === row && editInfo.column.field === column.field) {
+        return
+      }
+    }
     // 模拟异步判断
     gridOptions.loading = true
+    disabledName.value = true
     setTimeout(() => {
       disabledName.value = row.name === 'Test2'
       gridOptions.loading = false

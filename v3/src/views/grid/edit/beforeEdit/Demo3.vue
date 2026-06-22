@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -60,9 +60,18 @@ export default Vue.extend({
     }
   },
   methods: {
-    cellClickEvent ({ row }) {
+    cellClickEvent ({ row, column }) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if ($grid) {
+        const editInfo = $grid.getEditCell()
+        // 如果是已经是编辑状态
+        if (editInfo && editInfo.row === row && editInfo.column.field === column.field) {
+          return
+        }
+      }
       // 模拟异步判断
       this.gridOptions.loading = true
+      this.disabledName = true
       setTimeout(() => {
         this.disabledName = row.name === 'Test2'
         this.gridOptions.loading = false
