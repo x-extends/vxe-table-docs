@@ -5,7 +5,7 @@ export const navConfigList: NavVO[] = [
   { title: '切换 v3.x 旧版文档', linkUrl: '/v3_old', linkTarget: '_self' },
   {
     i18nKey: 'app.aside.menu.demoTitle',
-    isExpand: true,
+    isExpand: false,
     children: [
       { i18nKey: 'app.aside.menu.demoList', routerLink: { name: 'DemoListPreview' } },
       { i18nKey: 'app.aside.menu.demoProduct', routerLink: { name: 'DemoProductPreview' } },
