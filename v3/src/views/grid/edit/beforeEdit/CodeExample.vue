@@ -6,7 +6,7 @@
           通过 <ApiLink name="grid" prop="edit-config"/>.<ApiLink name="grid" prop="beforeEditMethod"/> 编辑之前的方法，可以用来拦截当前是否允许编辑
         </vxe-tip>
         <vxe-tip status="error" title="小提示">
-          需要注意该方式是同步的
+          需要注意该方式只能是同步的
         </vxe-tip>
       </template>
     </CodeLight>
@@ -15,6 +15,9 @@
       <template #tip>
         <vxe-tip status="primary">
           实现异步编辑拦截
+        </vxe-tip>
+        <vxe-tip status="warning" title="小提示">
+          在打开编辑时使用异步来判断是否编辑的方式是非常差，会给用户造成卡顿感觉，不建议使用；建议提前拿到数据再做判断
         </vxe-tip>
       </template>
     </CodeLight>
