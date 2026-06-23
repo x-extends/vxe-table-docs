@@ -79,8 +79,8 @@
         </template>
       </vxe-pulldown>
 
-      <!-- <a v-if="isPluginDocs" :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
-      <a v-else :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a> -->
+      <a v-if="isPluginDocs" :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
+      <!-- <a v-if="!isPluginDocs" :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a> -->
 
       <vxe-link v-if="!isPluginDocs" class="free-donation" status="primary" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
 
