@@ -25,7 +25,6 @@ export const navConfigList: NavVO[] = [
     children: [
       {
         i18nKey: 'app.aside.menu.fullInsrall',
-        isExpand: true,
         children: [
           { i18nKey: 'app.aside.menu.globalInstall', routerLink: { name: 'StartUIInstall' } },
           { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUIUseGlobal' } },
