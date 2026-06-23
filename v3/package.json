@@ -21,7 +21,7 @@
     "vue-router": "^3.5.1",
     "vxe-design": "^3.0.0",
     "vxe-pc-ui": "~3.15.9",
-    "vxe-table": "~3.21.17",
+    "vxe-table": "~3.21.18",
     "xe-utils": "^4.0.10"
   },
   "devDependencies": {
