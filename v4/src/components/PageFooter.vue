@@ -22,10 +22,16 @@ const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const aqCode = computed(() => {
-  if (location.origin && location.origin.indexOf('vxeui.com')) {
-    return '粤ICP备2022010374号'
+  if (location.origin) {
+    const vxeAq = '粤ICP备2022010374号'
+    if (location.origin.indexOf('vxetable.cn')) {
+      return vxeAq
+    }
+    if (location.origin.indexOf('vxeui.com')) {
+      return vxeAq
+    }
   }
-  return '粤ICP备2022010374号'
+  return ''
 })
 </script>
 
