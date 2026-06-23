@@ -21,7 +21,6 @@
 
             // ...
             plugins: [
-              ['import', { libraryName: 'vxe-pc-ui', style: true }, 'vxe-pc-ui'],
               ['import', { libraryName: 'vxe-table', style: true }, 'vxe-table']
             ]
             // ...
@@ -43,89 +42,6 @@
             import {
               VxeUI,
 
-              VxeAlert,
-              VxeAnchor,
-              VxeAnchorLink,
-              VxeAvatar,
-              VxeBadge,
-              VxeBreadcrumb,
-              VxeBreadcrumbItem,
-              VxeButton,
-              VxeButtonGroup,
-              VxeCalendar,
-              VxeCard,
-              VxeCarousel,
-              VxeCarouselItem,
-              VxeCheckbox,
-              VxeCheckboxButton,
-              VxeCheckboxGroup,
-              VxeCol,
-              VxeCollapse,
-              VxeCollapsePane,
-              VxeColorPicker,
-              VxeCountdown,
-              VxeDatePicker,
-              VxeDrawer,
-              VxeEmpty,
-              VxeForm,
-              VxeFormDesign,
-              VxeFormGather,
-              VxeFormGroup,
-              VxeFormItem,
-              VxeFormView,
-              VxeIcon,
-              VxeIconPicker,
-              VxeImage,
-              VxeImageGroup,
-              VxeImagePreview,
-              VxeInput,
-              VxeLayoutAside,
-              VxeLayoutBody,
-              VxeLayoutContainer,
-              VxeLayoutFooter,
-              VxeLayoutHeader,
-              VxeLink,
-              VxeListDesign,
-              VxeListView,
-              VxeList,
-              VxeLoading,
-              VxeMenu,
-              VxeModal,
-              VxeNoticeBar,
-              VxeNumberInput,
-              VxeOptgroup,
-              VxeOption,
-              VxePager,
-              VxePasswordInput,
-              VxePrintPageBreak,
-              VxePrint,
-              VxePulldown,
-              VxeRadio,
-              VxeRadioButton,
-              VxeRadioGroup,
-              VxeRate,
-              VxeResult,
-              VxeRow,
-              VxeSelect,
-              VxeSlider,
-              VxeSteps,
-              VxeSwitch,
-              VxeTabPane,
-              VxeTableSelect,
-              VxeTabs,
-              VxeTag,
-              VxeTextEllipsis,
-              VxeText,
-              VxeTextarea,
-              VxeTip,
-              VxeTooltip,
-              VxeTree,
-              VxeTreeSelect,
-              VxeUpload,
-              VxeWatermark
-            } from 'vxe-pc-ui'
-
-            import {
               VxeTable,
               VxeColumn,
               VxeColgroup,
@@ -134,11 +50,10 @@
             } from 'vxe-table'
 
             // 导入主题变量，也可以重写主题变量
-            import 'vxe-pc-ui/styles/cssvar.scss'
             import 'vxe-table/styles/cssvar.scss'
 
             // 导入默认的语言
-            import zhCN from 'vxe-pc-ui/lib/language/zh-CN'
+            import zhCN from 'vxe-table/lib/language/zh-CN'
 
             VxeUI.setI18n('zh-CN', zhCN)
             VxeUI.setLanguage('zh-CN')
@@ -146,87 +61,6 @@
             // 注册组件
             // 如果页面中已经被显性导入了，则可以不用调用注册
             // 如果是配置式的，没有在页面中显性导入，则需要逐个注册
-            VxeUI.component(VxeAlert)
-            VxeUI.component(VxeAnchor)
-            VxeUI.component(VxeAnchorLink)
-            VxeUI.component(VxeAvatar)
-            VxeUI.component(VxeBadge)
-            VxeUI.component(VxeBreadcrumb)
-            VxeUI.component(VxeBreadcrumbItem)
-            VxeUI.component(VxeButton)
-            VxeUI.component(VxeButtonGroup)
-            VxeUI.component(VxeCalendar)
-            VxeUI.component(VxeCard)
-            VxeUI.component(VxeCarousel)
-            VxeUI.component(VxeCarouselItem)
-            VxeUI.component(VxeCheckbox)
-            VxeUI.component(VxeCheckboxButton)
-            VxeUI.component(VxeCheckboxGroup)
-            VxeUI.component(VxeCol)
-            VxeUI.component(VxeCollapse)
-            VxeUI.component(VxeCollapsePane)
-            VxeUI.component(VxeColorPicker)
-            VxeUI.component(VxeCountdown)
-            VxeUI.component(VxeDatePanel)
-            VxeUI.component(VxeDatePicker)
-            VxeUI.component(VxeDateRangePicker)
-            VxeUI.component(VxeDrawer)
-            VxeUI.component(VxeEmpty)
-            VxeUI.component(VxeForm)
-            VxeUI.component(VxeFormGather)
-            VxeUI.component(VxeFormGroup)
-            VxeUI.component(VxeFormItem)
-            VxeUI.component(VxeIcon)
-            VxeUI.component(VxeIconPicker)
-            VxeUI.component(VxeImage)
-            VxeUI.component(VxeImageGroup)
-            VxeUI.component(VxeImagePreview)
-            VxeUI.component(VxeInput)
-            VxeUI.component(VxeLayoutAside)
-            VxeUI.component(VxeLayoutBody)
-            VxeUI.component(VxeLayoutContainer)
-            VxeUI.component(VxeLayoutFooter)
-            VxeUI.component(VxeLayoutHeader)
-            VxeUI.component(VxeLink)
-            VxeUI.component(VxeList)
-            VxeUI.component(VxeLoading)
-            VxeUI.component(VxeMenu)
-            VxeUI.component(VxeModal)
-            VxeUI.component(VxeNoticeBar)
-            VxeUI.component(VxeNumberInput)
-            VxeUI.component(VxeOptgroup)
-            VxeUI.component(VxeOption)
-            VxeUI.component(VxePager)
-            VxeUI.component(VxePasswordInput)
-            VxeUI.component(VxePrintPageBreak)
-            VxeUI.component(VxePrint)
-            VxeUI.component(VxePulldown)
-            VxeUI.component(VxeRadio)
-            VxeUI.component(VxeRadioButton)
-            VxeUI.component(VxeRadioGroup)
-            VxeUI.component(VxeRate)
-            VxeUI.component(VxeResult)
-            VxeUI.component(VxeRow)
-            VxeUI.component(VxeSelect)
-            VxeUI.component(VxeSplit)
-            VxeUI.component(VxeSplitPane)
-            VxeUI.component(VxeSlider)
-            VxeUI.component(VxeSteps)
-            VxeUI.component(VxeSwitch)
-            VxeUI.component(VxeTabPane)
-            VxeUI.component(VxeTableSelect)
-            VxeUI.component(VxeTabs)
-            VxeUI.component(VxeTag)
-            VxeUI.component(VxeTextEllipsis)
-            VxeUI.component(VxeText)
-            VxeUI.component(VxeTextarea)
-            VxeUI.component(VxeTip)
-            VxeUI.component(VxeTooltip)
-            VxeUI.component(VxeTree)
-            VxeUI.component(VxeTreeSelect)
-            VxeUI.component(VxeUpload)
-            VxeUI.component(VxeWatermark)
-
             VxeUI.component(VxeTable)
             VxeUI.component(VxeColumn)
             VxeUI.component(VxeColgroup)

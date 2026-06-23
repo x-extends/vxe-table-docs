@@ -20,25 +20,21 @@
           <pre-code
             language="shell"
             :content="`
-              npm install ${ tableCDNLib }
+              npm install ${tableCDNLib}
               # 或者
-              yarn add ${ tableCDNLib }
+              yarn add ${tableCDNLib}
               # 或者
-              pnpm add ${ tableCDNLib }
+              pnpm add ${tableCDNLib}
             `">
           </pre-code>
           <pre-code
             language="javascript"
             :content="`
               // ...
-              import VxeUIBase from 'vxe-pc-ui'
-              import 'vxe-pc-ui/es/style.css'
-
               import VxeUITable from 'vxe-table'
               import 'vxe-table/es/style.css'
               // ...
 
-              Vue.use(VxeUIBase)
               Vue.use(VxeUITable)
               //...
             `">
@@ -53,7 +49,6 @@
             :content='`
             {
               ...
-              "vxe-pc-ui": "^${uiLibVersion}",
               "vxe-table": "^${tableLibVersion}"
               ...
             }
@@ -65,7 +60,6 @@
             :content='`
             {
               ...
-              "vxe-pc-ui": "~${uiLibVersion}",
               "vxe-table": "~${tableLibVersion}"
               ...
             }
