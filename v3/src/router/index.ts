@@ -34,7 +34,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     redirect: {
-      name: 'DemoListPreview'
+      name: 'StartTableInstall'
     }
   },
   {

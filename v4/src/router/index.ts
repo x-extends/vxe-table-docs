@@ -31,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: {
-      name: 'DemoListPreview'
+      name: 'StartTableInstall'
     }
   },
   {
