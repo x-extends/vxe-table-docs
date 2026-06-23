@@ -119,7 +119,6 @@
           </div>
           <footer class="page-footer">
             <div>
-              <a class="link" href="http://beian.miit.gov.cn/" target="_blank">粤ICP备2022010374号-1</a>
               <span style="margin-left: 20px;">
                 <span>©</span>
                 <span><a class="link" :href="siteBaseUrl" target="_blank">vxe-table</a> 2018-{{serveTY}}</span>
