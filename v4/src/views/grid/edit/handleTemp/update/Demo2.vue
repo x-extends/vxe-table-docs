@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-button status="success" @click="getUpdateEvent">获取已修改数据</vxe-button>
+    <vxe-button status="success" @click="getUpdateCellEvent">获取已修改单元格</vxe-button>
     <vxe-button status="success" @click="saveAllRowEvent">全部保存</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
@@ -122,6 +123,16 @@ const getUpdateEvent = () => {
   if ($grid) {
     const updateRecords = $grid.getUpdateRecords()
     VxeUI.modal.alert(`修改：${updateRecords.length} 行`)
+    console.log(updateRecords)
+  }
+}
+
+const getUpdateCellEvent = () => {
+  const $grid = gridRef.value
+  if ($grid) {
+    const updateCells = $grid.getUpdateCells()
+    VxeUI.modal.alert(`修改：${updateCells.length} 单元格`)
+    console.log(updateCells)
   }
 }
 
