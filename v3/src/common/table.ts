@@ -1001,6 +1001,7 @@ export const tableNavConfig: NavVO = {
             { title: '完整右键菜单', routerLink: { name: 'ComponentGridMenuFull' } },
             { title: '同步权限控制', routerLink: { name: 'ComponentGridMenuPrivilege' } },
             { title: '异步权限控制', routerLink: { name: 'ComponentGridMenuLoading' } },
+            { title: '设置 css 变量', routerLink: { name: 'ComponentGridMenuVar' } },
             { title: '自定义样式', routerLink: { name: 'ComponentGridMenuClassName' } },
             { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/grid/full` }
           ]
