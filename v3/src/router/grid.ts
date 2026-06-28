@@ -1073,7 +1073,7 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridMenuPrivilege',
           component: () => import('@/views/grid/menu/privilege/CodeExample.vue')
         },
-        { path: 'var', name: 'ComponentGridMenuVar', component: () => import('@/views/grid/menu/var/CodeExample.vue') },
+        { path: 'width', name: 'ComponentGridMenuWidth', component: () => import('@/views/grid/menu/width/CodeExample.vue') },
         { path: 'className', name: 'ComponentGridMenuClassName', component: () => import('@/views/grid/menu/className/CodeExample.vue') }
       ]
     },
