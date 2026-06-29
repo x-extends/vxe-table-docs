@@ -7,7 +7,6 @@
 <script lang="ts">
 import { defineComponent, PropType, reactive } from 'vue'
 import { VxeGlobalRendererHandles } from 'vxe-table'
-import { VxeInputEvents } from 'vxe-pc-ui'
 
 export default defineComponent({
   name: 'FilterInput',
@@ -38,7 +37,7 @@ export default defineComponent({
       }
     }
 
-    const keyupEvent: VxeInputEvents.Keyup = ({ $event }) => {
+    const keyupEvent = ({ $event }) => {
       const { params } = props
       if (params) {
         const { $panel } = params

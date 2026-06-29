@@ -22,9 +22,6 @@ import 'element-plus/dist/index.css'
 import VxeUITable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 
-import VxeUIBase from 'vxe-pc-ui'
-import 'vxe-pc-ui/lib/style.css'
-
 const app = createApp(App)
 
 app.component('PreCode', PreCode)
@@ -33,7 +30,6 @@ app.component('CodeRender', CodeRender)
 app.component('CodeList', CodeList)
 app.component('DemoBlock', DemoBlock)
 
-app.use(VxeUIBase)
 app.use(VxeUITable)
 app.use(Antd)
 app.use(ElementPlus)

@@ -1,5 +1,8 @@
 <template>
   <div id="app" @click="clickEvent">
+    <div class="page-top">
+      <span>Vxe table 3.0 ~ 3.8 版本在 2024-12-01 起终止支持且不再维护。请升级到 <a class="link" href="https://vxetable.cn/v3.8/#/table/start/upgrade">Vxe UI 3.9+</a> 版本，避免出现严重问题及漏洞！</span>
+    </div>
     <header class="page-header">
       <div class="left">
         <a :href="siteBaseUrl">
@@ -348,7 +351,6 @@ export default {
       'docsVersion',
       'siteBaseUrl',
       'pluginApiUrl',
-      'siteBaseUrl',
       'apiBaseUrl',
       'resBaseUrl',
       'pubApiBaseUrl'
@@ -475,7 +477,7 @@ export default {
     this.init()
 
     if (process.env.NODE_ENV !== 'development') {
-      if (!localStorage.getItem('READ_VERSION_UPGRADE_3d8')) {
+      if (!localStorage.getItem('READ_OLD_VERSION_UPGRADE_3d8')) {
         VXETable.modal.alert({
           title: '重要公告：v3.0.x ~ v3.8.x 停止维护',
           message: 'vxe-table v3.0.x ~ v3.8.x 版本于 2024 年 12 月 1 日起停止维护。建议使用最新版本。',
@@ -483,7 +485,7 @@ export default {
           confirmButtonText: '我已知晓'
         }).then((type) => {
           if (type === 'confirm') {
-            localStorage.setItem('READ_VERSION_UPGRADE_3d8', '1')
+            localStorage.setItem('READ_OLD_VERSION_UPGRADE_3d8', '1')
           }
         })
       }
@@ -598,19 +600,34 @@ export default {
     vChangeEvent () {
       switch (this.version) {
         case '1':
-          location.href = `${this.siteBaseUrl}v1/`
+          location.href = `${this.siteBaseUrl}/other1/`
           break
         case '2':
-          location.href = `${this.siteBaseUrl}v2/`
+          location.href = `${this.siteBaseUrl}/other2/`
           break
         case '3':
-          location.href = `${this.siteBaseUrl}v3/`
+          location.href = `${this.siteBaseUrl}/other3/`
           break
         case '4':
-          location.href = `${this.siteBaseUrl}v4/`
+          location.href = `${this.siteBaseUrl}/other4/`
           break
       }
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page-top {
+  flex-shrink: 0;
+  padding: 10px 60px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb731;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+</style>

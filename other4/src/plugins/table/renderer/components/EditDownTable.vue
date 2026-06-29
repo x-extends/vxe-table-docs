@@ -16,7 +16,6 @@
 <script lang="ts">
 import { defineComponent, PropType, reactive, ref } from 'vue'
 import { VxeTableEvents, VxeGridProps, VxeGlobalRendererHandles } from 'vxe-table'
-import { VxePulldownInstance, VxePagerEvents } from 'vxe-pc-ui'
 
 export default defineComponent({
   name: 'EditDownTable',
@@ -29,7 +28,7 @@ export default defineComponent({
       column: null as any
     })
 
-    const xDown = ref({} as VxePulldownInstance)
+    const xDown = ref<any>({})
 
     const gridOptions = reactive({
       highlightHoverRow: true,
@@ -105,7 +104,7 @@ export default defineComponent({
       $pulldown.togglePanel()
     }
 
-    const pageChangeEvent: VxePagerEvents.PageChange = ({ currentPage, pageSize }) => {
+    const pageChangeEvent = ({ currentPage, pageSize }) => {
       const { pagerConfig } = gridOptions
       if (pagerConfig) {
         pagerConfig.currentPage = currentPage

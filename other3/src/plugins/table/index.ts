@@ -2,8 +2,6 @@ import Vue from 'vue'
 import i18n from '@/i18n'
 
 import XEUtils from 'xe-utils'
-import VxeUI from 'vxe-pc-ui'
-import 'vxe-pc-ui/lib/style.css'
 import VxeUITable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 
@@ -34,7 +32,6 @@ VxeUITable.setup({
   i18n: (key, args) => i18n.t(key, args) as string
 })
 
-Vue.use(VxeUI)
 Vue.use(VxeUITable)
 
 VxeUITable.use(VXETablePluginElement)

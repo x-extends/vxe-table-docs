@@ -1,5 +1,8 @@
 <template>
   <div class="app-container" @click="clickEvent">
+    <div class="page-top">
+      <span>Vxe table 4.0 ~ 4.6 版本在 2024-12-01 起终止支持且不再维护。请升级到 <a class="link" href="https://vxetable.cn/v4.6/#/table/start/upgrade">Vxe UI 4.7+</a> 版本，避免出现严重问题及漏洞！</span>
+    </div>
     <header class="page-header">
       <div class="left">
         <a :href="siteBaseUrl">
@@ -424,16 +427,16 @@ const linkEvent = (item: any) => {
 const vChangeEvent = () => {
   switch (appData.version) {
     case '1':
-      location.href = `${siteBaseUrl.value}v1/`
+      location.href = `${siteBaseUrl.value}/other1/`
       break
     case '2':
-      location.href = `${siteBaseUrl.value}v2/`
+      location.href = `${siteBaseUrl.value}/other2/`
       break
     case '3':
-      location.href = `${siteBaseUrl.value}v3/`
+      location.href = `${siteBaseUrl.value}/other3/`
       break
     case '4':
-      location.href = `${siteBaseUrl.value}v4/`
+      location.href = `${siteBaseUrl.value}/other4/`
       break
   }
 }
@@ -587,7 +590,7 @@ nextTick(() => {
   init()
 
   if (import.meta.env.NODE_ENV !== 'development') {
-    if (!localStorage.getItem('READ_VERSION_UPGRADE_4d6')) {
+    if (!localStorage.getItem('READ_OLD_VERSION_UPGRADE_4d6')) {
       VXETable.modal.alert({
         title: '重要公告：v4.0.x ~ v4.6.x 停止维护',
         message: 'vxe-table v4.0.x ~ v4.6.x 版本于 2024 年 12 月 1 日起停止维护。建议使用最新版本。',
@@ -595,10 +598,25 @@ nextTick(() => {
         confirmButtonText: '我已知晓'
       }).then((type) => {
         if (type === 'confirm') {
-          localStorage.setItem('READ_VERSION_UPGRADE_4d6', '1')
+          localStorage.setItem('READ_OLD_VERSION_UPGRADE_4d6', '1')
         }
       })
     }
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.page-top {
+  flex-shrink: 0;
+  padding: 10px 60px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb731;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+</style>

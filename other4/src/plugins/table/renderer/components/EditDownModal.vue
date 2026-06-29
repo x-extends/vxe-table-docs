@@ -20,7 +20,6 @@
 <script lang="ts">
 import { defineComponent, PropType, reactive, ref } from 'vue'
 import { VxeGridInstance, VxeGridProps, VxeGlobalRendererHandles } from 'vxe-table'
-import { VxePagerEvents } from 'vxe-pc-ui'
 
 export default defineComponent({
   name: 'EditDownModal',
@@ -88,7 +87,7 @@ export default defineComponent({
       demo1.modalVisible = true
     }
 
-    const pageChangeEvent: VxePagerEvents.PageChange = ({ currentPage, pageSize }) => {
+    const pageChangeEvent = ({ currentPage, pageSize }) => {
       const { pagerConfig } = gridOptions
       if (pagerConfig) {
         pagerConfig.currentPage = currentPage

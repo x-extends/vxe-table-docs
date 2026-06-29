@@ -2083,7 +2083,7 @@ export default {
     })
 
     if (process.env.NODE_ENV !== 'development') {
-      if (!sessionStorage.getItem('READ_VERSION_UPGRADE_2')) {
+      if (!sessionStorage.getItem('READ_OLD_VERSION_UPGRADE_2')) {
         VXETable.modal.alert({
           title: '重要公告：v2.x 停止维护',
           message: 'vxe-table v2.x 版本于 2021 年 12 月 1 日起停止维护。建议使用最新版本。',
@@ -2091,7 +2091,7 @@ export default {
           confirmButtonText: '我已知晓'
         }).then((type) => {
           if (type === 'confirm') {
-            sessionStorage.setItem('READ_VERSION_UPGRADE_2', '1')
+            sessionStorage.setItem('READ_OLD_VERSION_UPGRADE_2', '1')
           }
         })
       }
