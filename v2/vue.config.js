@@ -6,7 +6,6 @@ process.env.VUE_APP_DATE_NOW = Date.now()
 let publicPath = '/'
 if (process.env.NODE_ENV === 'production') {
   publicPath = `/v${process.env.VUE_APP_VXE_VERSION}/`
-  process.env.VUE_APP_CDN_URL = '/umd/'
   process.env.VUE_APP_MAIN_URL = '/'
 }
 
