@@ -25,6 +25,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     resizable: true
   },
   customConfig: {
+    mode: 'modal',
     checkMethod ({ column }) {
       return !['seq', 'name'].includes(column.field)
     }

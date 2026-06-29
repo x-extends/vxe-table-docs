@@ -27,6 +27,7 @@ export default Vue.extend({
         resizable: true
       },
       customConfig: {
+        mode: 'modal',
         checkMethod ({ column }) {
           return !['seq', 'name'].includes(column.field)
         }

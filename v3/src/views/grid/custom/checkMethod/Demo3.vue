@@ -27,6 +27,7 @@ export default Vue.extend({
         resizable: true
       },
       customConfig: {
+        mode: 'drawer',
         checkMethod ({ column }) {
           return !['seq', 'name'].includes(column.field)
         }
