@@ -2229,6 +2229,14 @@ export default {
         item.expand = !item.expand
       }
     },
+    claseNewVersionEvent () {
+      this.newVersionVisible = false
+      localStorage.setItem('VXE_TABLE_NEW_VERSION', '3')
+    },
+    viewNewVersionEvent () {
+      this.claseNewVersionEvent()
+      location.href = '/vxe-table/v3/'
+    },
     vChangeEvent () {
       const selectSysItem = this.selectSysVersion
       if (selectSysItem) {

@@ -591,7 +591,7 @@ export default {
     },
     claseNewVersionEvent () {
       this.newVersionVisible = false
-      localStorage.setItem('VXE_TABLE_NEW_VERSION', '4.0')
+      localStorage.setItem('VXE_TABLE_NEW_VERSION', '3.0')
     },
     viewNewVersionEvent () {
       this.claseNewVersionEvent()
