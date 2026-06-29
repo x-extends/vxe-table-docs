@@ -600,10 +600,10 @@ export default {
     vChangeEvent () {
       switch (this.version) {
         case '1':
-          location.href = `${this.siteBaseUrl}/other1/`
+          location.href = `${this.siteBaseUrl}/v1/`
           break
         case '2':
-          location.href = `${this.siteBaseUrl}/other2/`
+          location.href = `${this.siteBaseUrl}/v2/`
           break
         case '3':
           location.href = `${this.siteBaseUrl}/other3/`

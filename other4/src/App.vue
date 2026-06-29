@@ -427,10 +427,10 @@ const linkEvent = (item: any) => {
 const vChangeEvent = () => {
   switch (appData.version) {
     case '1':
-      location.href = `${siteBaseUrl.value}/other1/`
+      location.href = `${siteBaseUrl.value}/v1/`
       break
     case '2':
-      location.href = `${siteBaseUrl.value}/other2/`
+      location.href = `${siteBaseUrl.value}/v2/`
       break
     case '3':
       location.href = `${siteBaseUrl.value}/other3/`
