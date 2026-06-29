@@ -56,7 +56,7 @@
 <script>
 import hljs from 'highlight.js'
 import XLSX from 'xlsx'
-import FileSaver from 'file-saver'
+// import FileSaver from 'file-saver'
 
 export default {
   data () {
@@ -310,7 +310,7 @@ export default {
       const wbout = XLSX.write(book, { bookType: 'xlsx', bookSST: false, type: 'binary' })
       const blob = new Blob([toBuffer(wbout)], { type: 'application/octet-stream' })
       // 保存导出
-      FileSaver.saveAs(blob, '数据导出.xlsx')
+      // FileSaver.saveAs(blob, '数据导出.xlsx')
     }
   }
 }
