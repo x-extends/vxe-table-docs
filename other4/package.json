@@ -20,7 +20,7 @@
     "file-saver": "2.0.5",
     "font-awesome": "4.7.0",
     "highlight.js": "11.9.0",
-    "jsbarcode": "3.11.8",
+    "jsbarcode": "3.12.3",
     "jspdf": "2.5.1",
     "moment": "2.30.1",
     "pinia": "2.1.7",
