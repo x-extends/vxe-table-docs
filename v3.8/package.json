@@ -12,16 +12,16 @@
     "oxfix:examples": "oxfmt dist/example/js/ --write"
   },
   "dependencies": {
-    "codemirror": "^6.0.1",
-    "core-js": "^3.8.3",
-    "highlight.js": "^11.9.0",
+    "codemirror": "6.0.1",
+    "core-js": "3.8.3",
+    "highlight.js": "11.9.0",
     "vue": "2.7.16",
-    "vue-i18n": "^8.26.7",
-    "vue-router": "^3.2.0",
+    "vue-i18n": "8.26.7",
+    "vue-router": "3.2.0",
     "vuex": "^3.4.0",
     "vxe-table": "3.8.28",
-    "xe-clipboard": "^1.10.2",
-    "xe-utils": "~3.9.0"
+    "xe-clipboard": "1.10.2",
+    "xe-utils": "3.9.0"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",

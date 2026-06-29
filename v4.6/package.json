@@ -11,14 +11,14 @@
     "oxfix:examples": "oxfmt dist/example/js/ --write"
   },
   "dependencies": {
-    "highlight.js": "^11.9.0",
-    "pinia": "^2.1.7",
-    "vue": "^3.5.13",
-    "vue-i18n": "^10.0.8",
-    "vue-router": "^4.5.1",
+    "highlight.js": "11.9.0",
+    "pinia": "2.1.7",
+    "vue": "3.5.13",
+    "vue-i18n": "10.0.8",
+    "vue-router": "4.5.1",
     "vxe-table": "4.6.25",
-    "xe-clipboard": "^1.10.2",
-    "xe-utils": "~3.9.0"
+    "xe-clipboard": "1.10.2",
+    "xe-utils": "3.9.0"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",

@@ -1,6 +1,0 @@
-allowBuilds:
-  '@parcel/watcher': true
-  ant-design-vue: true
-  core-js: true
-  es5-ext: true
-  yorkie: true

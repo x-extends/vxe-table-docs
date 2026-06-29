@@ -3,11 +3,11 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "update": "pnpm install --no-frozen-lockfile",
+    "update": "npm install --legacy-peer-deps",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
     "build:main": "vue-cli-service build --no-module",
-    "pack": "pnpm run build",
+    "pack": "npm run build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
