@@ -17,7 +17,7 @@
     </div>
     <div class="header-middle"></div>
     <div class="header-right">
-      <vxe-pulldown v-model="showPluginApp" class="switch-plugin" show-popup-shadow>
+      <vxe-pulldown v-model="showPluginApp" v-model="showPluginApp" class="switch-plugin" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
           <span v-if="pluginType" class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
           <span v-else class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.pluginDocs') }}</span>
@@ -28,7 +28,9 @@
           <ul class="plugin-app-wrapper">
             <li v-for="(item, index) in pluginAppList" :key="index">
               <vxe-link :href="`${tablePluginDocsUrl}/${item.uri}`" :content="$t(`shopping.apps.${item.code}`)"></vxe-link>
-              <span v-if="item.isEnterprise" class="enterprise">{{ $t('app.header.pluginVersion') }}</span>
+              <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
+              <span v-else-if="item.isFree" class="free">{{ $t('app.header.freeVersion') }}</span>
+              <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
             </li>
           </ul>
         </template>
@@ -113,6 +115,8 @@ export default Vue.extend({
         code: string
         uri: string
         isEnterprise: boolean
+        isStore: boolean
+        isFree: boolean
       }[],
 
       showSystemMenu: false,

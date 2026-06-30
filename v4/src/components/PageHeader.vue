@@ -17,7 +17,7 @@
     </div>
     <div class="header-middle"></div>
     <div class="header-right">
-      <!-- <vxe-pulldown v-model="showPluginApp" class="switch-plugin" show-popup-shadow>
+      <vxe-pulldown v-model="showPluginApp" class="switch-plugin" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
           <span v-if="pluginType" class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
           <span v-else class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.pluginDocs') }}</span>
@@ -34,7 +34,7 @@
             </li>
           </ul>
         </template>
-      </vxe-pulldown> -->
+      </vxe-pulldown>
       <vxe-pulldown v-model="showSystemMenu" class="switch-system" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
@@ -120,6 +120,8 @@ const pluginAppList = ref<{
   code: string
   uri: string
   isEnterprise: boolean
+  isStore: boolean
+  isFree: boolean
 }[]>([])
 
 const showSystemMenu = ref(false)
