@@ -53,21 +53,20 @@
         </template>
       </vxe-pulldown>
 
-      <vxe-select v-model="currSysVersion" class="switch-version" size="mini" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
+      <vxe-select v-model="currSysVersion" class="switch-version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
 
       <vxe-switch
         class="link switch-theme"
         v-model="currTheme"
-        size="mini"
         open-value="light"
         :open-label="$t('app.base.light')"
         close-value="dark"
         :close-label="$t('app.base.dark')">
       </vxe-switch>
 
-      <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" size="mini" show-eye-dropper click-to-copy></vxe-color-picker>
+      <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" show-eye-dropper click-to-copy></vxe-color-picker>
 
-      <vxe-radio-group class="switch-size" v-model="currCompSize" :options="sizeOptions" type="button" size="mini"></vxe-radio-group>
+      <vxe-radio-group class="switch-size" v-model="currCompSize" :options="sizeOptions" type="button"></vxe-radio-group>
 
       <vxe-pulldown :options="langOptions" trigger="click" show-popup-shadow @option-click="langClickEvent">
         <vxe-button class="switch-lang-btn" mode="text" icon="vxe-icon-language-switch" :content="currLangLabel"></vxe-button>
