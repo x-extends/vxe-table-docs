@@ -401,7 +401,6 @@ if (!appStore.isUtilDocs) {
     }
   }
   .nav-link-icon {
-    font-size: 13px;
     margin-right: 0.3em;
     transition: transform .2s ease-in-out;
   }
@@ -502,10 +501,6 @@ if (!appStore.isUtilDocs) {
         width: calc(100% - 2.4em);
         border-bottom: 1px solid var(--vxe-ui-docs-layout-border-color);
       }
-      .nav-item-text,
-      .nav-item-link {
-        font-size: 15px;
-      }
     }
   }
   .nav-level2 {
@@ -513,7 +508,6 @@ if (!appStore.isUtilDocs) {
       line-height: 42px;
       .nav-item-text,
       .nav-item-link {
-        font-size: 14px;
         padding-left: 3.4em;
       }
     }
@@ -526,7 +520,6 @@ if (!appStore.isUtilDocs) {
       line-height: 38px;
       .nav-item-text,
       .nav-item-link {
-        font-size: 13px;
         padding-left: 5em;
       }
     }
@@ -536,7 +529,6 @@ if (!appStore.isUtilDocs) {
       line-height: 34px;
       .nav-item-text,
       .nav-item-link {
-        font-size: 13px;
         padding-left: 7.4em;
       }
     }
@@ -546,7 +538,6 @@ if (!appStore.isUtilDocs) {
       line-height: 30px;
       .nav-item-text,
       .nav-item-link {
-        font-size: 13px;
         padding-left: 9em;
       }
     }
@@ -559,7 +550,6 @@ if (!appStore.isUtilDocs) {
   padding: 32px;
   overflow: auto;
   border-radius: 4px;
-  font-size: 18px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   background-color: var(--vxe-ui-docs-layout-background-color);
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
@@ -567,7 +557,6 @@ if (!appStore.isUtilDocs) {
 .nav-search-empty {
   padding: 40px 16px;
   text-align: center;
-  font-size: 18px;
   word-break: break-all;
 }
 </style>

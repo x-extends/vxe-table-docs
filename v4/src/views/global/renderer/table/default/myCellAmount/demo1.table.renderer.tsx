@@ -9,6 +9,6 @@ VxeUI.renderer.add('MyTableCellAmount', {
   tableCellAlign: 'right',
   // 默认显示模板
   renderTableDefault (renderOpts, renderParams) {
-    return <DemoCellAmount render-params={ renderParams } />
+    return <DemoCellAmount render-params={ renderParams } {...renderParams } />
   }
 })

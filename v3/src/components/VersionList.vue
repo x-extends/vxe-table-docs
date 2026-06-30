@@ -1,19 +1,29 @@
 <template>
-  <div v-if="pluginType && selectPluginVersion" class="version-list">
-    <span class="title">{{ $t('app.aside.stableVersion') }}</span>
-    <span>{{ pluginType }}@{{ selectPluginVersion }}</span>
-    <vxe-link :href="currBuyPluginBUrl" status="primary" target="_blank">{{ $t('app.aside.releaseTitle') }}</vxe-link>
-  </div>
-  <div v-else class="version-list">
-    <span>
-      <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
-      <span>{{ packName }}@{{ selectStableVersion }}</span>
-    </span>
-    <span v-if="showBetaVersion" style="margin-left: 0.5em;">
-      <span class="version-title">{{ $t('app.aside.latestVersion') }}</span>
-      <span>@{{ selectBetaVersion }}</span>
-    </span>
-    <vxe-link style="margin-left: 0.5em;" status="primary" :href="`https://github.com/x-extends/${packName}/releases`" target="_blank">更新日志</vxe-link>
+  <div class="version-list">
+    <div v-if="pluginType && selectPluginVersion" class="version-item">
+      <div>
+        <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
+        <span>{{ pluginType }}@{{ selectPluginVersion }}</span>
+        <vxe-link style="margin-left: 0.5em;" status="primary" :href="currBuyPluginBUrl" target="_blank">{{ $t('app.aside.releaseTitle') }}</vxe-link>
+      </div>
+    </div>
+    <div v-else class="version-item">
+      <div>
+        <span>
+          <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
+          <span>{{ packName }}@{{ selectStableVersion }}</span>
+        </span>
+      </div>
+      <div v-if="showBetaVersion">
+        <span>
+        <span class="version-title">{{ $t('app.aside.latestVersion') }}</span>
+          <span>@{{ selectBetaVersion }}</span>
+        </span>
+      </div>
+    </div>
+    <div class="version-btn">
+      <vxe-link style="margin-left: 1em;" status="primary" :href="`https://github.com/x-extends/${packName}/releases`" target="_blank">更新日志</vxe-link>
+    </div>
   </div>
 </template>
 
