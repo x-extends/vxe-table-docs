@@ -1329,7 +1329,8 @@ export const gridRouteConfig: RouteConfig = {
               component: () => import('@/views/grid/custom/template/footer/CodeExample.vue')
             }
           ]
-        }
+        },
+        { path: 'multiTmpl', name: 'ComponentGridCustomToMultiTmpl', component: () => import('@/views/grid/custom/multiTmpl/CodeExample.vue') }
       ]
     },
     {

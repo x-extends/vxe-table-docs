@@ -1081,7 +1081,8 @@ export const tableNavConfig: NavVO = {
                 { title: '自定义尾部模板', routerLink: { name: 'ComponentGridCustomTemplateFooter' } },
                 { title: '自定义默认模板', routerLink: { name: 'ComponentGridCustomTemplateDefault' } }
               ]
-            }
+            },
+            { title: '实现多模板', routerLink: { name: 'ComponentGridCustomToMultiTmpl' } }
           ]
         },
         {
