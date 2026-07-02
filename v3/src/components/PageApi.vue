@@ -218,7 +218,7 @@ export default Vue.extend({
           title: this.$t('api.title.prop'),
           type: 'html',
           treeNode: true,
-          minWidth: 280,
+          minWidth: 380,
           titlePrefix: {
             content: this.$t('api.title.propHelp')
           },
@@ -230,7 +230,7 @@ export default Vue.extend({
           ],
           slots: { default: 'default_name' }
         },
-        { field: 'i18nValue', title: this.$t('api.title.desc'), type: 'html', minWidth: 300 },
+        { field: 'i18nValue', title: this.$t('api.title.desc'), type: 'html', minWidth: 360 },
         { field: 'type', title: this.$t('api.title.type'), type: 'html', minWidth: 260 },
         { field: 'typeDesc', title: this.$t('api.title.typeDesc'), type: 'html', minWidth: 260, visible: false },
         { field: 'enum', title: this.$t('api.title.enum'), type: 'html', minWidth: 150 },
