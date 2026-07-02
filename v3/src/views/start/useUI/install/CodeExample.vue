@@ -8,7 +8,7 @@
           <div>组件依赖关系：<vxe-link href="https://github.com/x-extends/vxe-ui-docs/blob/main/framework.md" status="error" target="_blank">点击查看</vxe-link></div>
         </vxe-tip>
         <vxe-tip status="success">
-          <div class="tip">{{ packName }} 是 <vxe-link :href="`https://github.com/x-extends/${packName}/blob/main/LICENSE`">MIT</vxe-link> 开源的，无论是个人还是企业商用都是使用完全免费的。</div>
+          <div class="tip">{{ packName }} 是 <vxe-link :href="`https://github.com/x-extends/${packName}/blob/main/LICENSE`">MIT</vxe-link> 开源的。</div>
         </vxe-tip>
       </template>
 
