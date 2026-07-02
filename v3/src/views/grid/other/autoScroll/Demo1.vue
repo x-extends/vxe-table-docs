@@ -9,10 +9,10 @@
     </vxe-radio-group>
     <br>
     <vxe-radio-group v-model="speedNum">
-      <vxe-radio-button :label="1" content="慢"></vxe-radio-button>
-      <vxe-radio-button :label="3" content="中"></vxe-radio-button>
-      <vxe-radio-button :label="6" content="快"></vxe-radio-button>
-      <vxe-radio-button :label="12" content="极速"></vxe-radio-button>
+      <vxe-radio-button :checked-value="1" content="慢"></vxe-radio-button>
+      <vxe-radio-button :checked-value="3" content="中"></vxe-radio-button>
+      <vxe-radio-button :checked-value="6" content="快"></vxe-radio-button>
+      <vxe-radio-button :checked-value="12" content="极速"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid

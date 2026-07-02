@@ -28,9 +28,9 @@
     </vxe-form-item>
     <vxe-form-item v-if="currWidget.options.controlConfig.showButton" title="按钮布局">
       <vxe-radio-group v-model="currWidget.options.controlConfig.layout">
-        <vxe-radio label="left" content="左侧"></vxe-radio>
-        <vxe-radio label="default" content="两侧"></vxe-radio>
-        <vxe-radio label="right" content="右侧"></vxe-radio>
+        <vxe-radio checked-value="left" content="左侧"></vxe-radio>
+        <vxe-radio checked-value="default" content="两侧"></vxe-radio>
+        <vxe-radio checked-value="right" content="右侧"></vxe-radio>
       </vxe-radio-group>
     </vxe-form-item>
     <vxe-form-item v-if="currWidget.options.controlConfig.showButton" title="按钮步数">
@@ -47,9 +47,9 @@
     </vxe-form-item>
     <vxe-form-item title="对齐方式">
       <vxe-radio-group v-model="currWidget.options.align">
-        <vxe-radio label="" content="居左"></vxe-radio>
-        <vxe-radio label="center" content="居中"></vxe-radio>
-        <vxe-radio label="right" content="居右"></vxe-radio>
+        <vxe-radio checked-value="" content="居左"></vxe-radio>
+        <vxe-radio checked-value="center" content="居中"></vxe-radio>
+        <vxe-radio checked-value="right" content="居右"></vxe-radio>
       </vxe-radio-group>
     </vxe-form-item>
   </vxe-form>

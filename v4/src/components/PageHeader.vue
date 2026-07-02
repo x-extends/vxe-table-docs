@@ -55,16 +55,12 @@
 
       <vxe-select v-model="currSysVersion" class="switch-version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
 
-      <vxe-switch
-        class="link switch-theme"
-        v-model="currTheme"
-        open-value="light"
-        :open-label="$t('app.base.light')"
-        close-value="dark"
-        :close-label="$t('app.base.dark')">
-      </vxe-switch>
-
       <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" show-eye-dropper click-to-copy></vxe-color-picker>
+
+      <vxe-radio-group v-model="currTheme" class="link switch-theme">
+        <vxe-radio-button checked-value="light" icon="vxe-icon-sunny"></vxe-radio-button>
+        <vxe-radio-button checked-value="dark" icon="vxe-icon-moon"></vxe-radio-button>
+      </vxe-radio-group>
 
       <vxe-radio-group class="switch-size" v-model="currCompSize" :options="sizeOptions" type="button"></vxe-radio-group>
 

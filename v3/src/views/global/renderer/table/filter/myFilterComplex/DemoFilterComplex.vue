@@ -1,8 +1,8 @@
 <template>
   <div v-if="currOption" class="my-filter-complex">
     <div class="my-fc-type">
-      <vxe-radio v-model="currOption.data.type" name="fType" label="has">包含</vxe-radio>
-      <vxe-radio v-model="currOption.data.type" name="fType" label="eq">等于</vxe-radio>
+      <vxe-radio v-model="currOption.data.type" name="fType" checked-value="has">包含</vxe-radio>
+      <vxe-radio v-model="currOption.data.type" name="fType" checked-value="eq">等于</vxe-radio>
     </div>
     <div class="my-fc-name">
       <vxe-input v-model="currOption.data.name" class="my-fc-input" mode="text" placeholder="请输入名称" @change="changeOptionEvent()"></vxe-input>
