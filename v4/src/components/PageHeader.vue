@@ -42,14 +42,26 @@
         </vxe-button>
 
         <template #dropdown>
-          <ul class="system-menu-wrapper">
-            <li v-for="(item, index) in systemMenuList" :key="index">
-              <vxe-link target="_blank" :href="item.href" :content="item.content"></vxe-link>
-              <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
-              <span v-else-if="item.isFree" class="free">{{ $t('app.header.freeVersion') }}</span>
-              <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
-            </li>
-          </ul>
+          <div class="system-menu-wrapper">
+            <div v-for="(conf, i) in systemMenuGroups" :key="i" class="system-menu-group">
+              <div class="system-menu-title">{{ getI18n(`app.header.menuGroup.${conf.group}`) }}</div>
+              <div class="system-menu-list">
+                <div v-for="(item, index) in conf.children" :key="index" class="system-menu-item">
+                  <div>
+                    <div>
+                      <vxe-link target="_blank" :href="item.href" :content="item.content"></vxe-link>
+                      <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
+                      <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
+                      <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
+                    </div>
+                    <div v-if="item.version">
+                      <span>{{ item.version }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </template>
       </vxe-pulldown>
 
@@ -91,10 +103,36 @@
 <script lang="ts" setup>
 import { ref, computed, inject } from 'vue'
 import { useAppStore } from '@/store/app'
-import { VxePulldownEvents } from 'vxe-pc-ui'
+import { getI18n, VxePulldownEvents } from 'vxe-pc-ui'
 import { tablePluginDocsUrl } from '@/common/nav'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
+
+interface SystemMenuVO {
+  group: string
+  content: string
+  href: string
+  libName: string
+  version: string
+  isEnterprise: boolean
+  isStore: boolean
+  isFree: boolean
+}
+
+interface SystemMenuGroupVO {
+  group: string
+  children: SystemMenuVO[]
+}
+
+interface PluginAppVO {
+  value: string
+  label: string
+  code: string
+  uri: string
+  isEnterprise: boolean
+  isStore: boolean
+  isFree: boolean
+}
 
 const appStore = useAppStore()
 const pageTitle = computed(() => appStore.pageTitle)
@@ -109,18 +147,10 @@ const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const pluginType = inject('pluginType', '' as string)
 
 const showPluginApp = ref(false)
-const pluginAppList = ref<{
-  value: string
-  label: string
-  code: string
-  uri: string
-  isEnterprise: boolean
-  isStore: boolean
-  isFree: boolean
-}[]>([])
+const pluginAppList = ref<PluginAppVO[]>([])
 
 const showSystemMenu = ref(false)
-const systemMenuList = ref<any[]>()
+const systemMenuList = ref<SystemMenuVO[]>()
 
 const prevSysVersion = ref(import.meta.env.VITE_APP_VXE_VERSION)
 const currSysVersion = ref(import.meta.env.VITE_APP_VXE_VERSION)
@@ -196,6 +226,22 @@ const githubUrl = computed(() => {
 
 const giteeUrl = computed(() => {
   return `https://gitee.com/x-extends/${appStore.packName}`
+})
+
+const systemMenuGroups = computed(() => {
+  const menuGroups: SystemMenuGroupVO[] = []
+  XEUtils.each(XEUtils.groupBy(systemMenuList.value, 'group'), (children: SystemMenuVO[], group) => {
+    menuGroups.push({
+      group,
+      children: children.map(item => {
+        return {
+          ...item,
+          version: item.libName ? appStore.getVersionByName(item.libName) : ''
+        }
+      })
+    })
+  })
+  return menuGroups
 })
 
 const sysVersionOptions = computed(() => {
@@ -428,13 +474,27 @@ if (isPluginDocs.value) {
 }
 
 .system-menu-wrapper {
-  width: 360px;
+  padding: 0.5em 1.5em;
+  width: 600px;
+}
+.system-menu-group {
+  padding-bottom: 0.5em;
+  .system-menu-title {
+    line-height: 3em;
+    color: var(--vxe-ui-font-secondary-color);
+  }
+  .system-menu-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .system-menu-item {
+    position: relative;
+    width: 33.33%;
+  }
 }
 .plugin-app-wrapper {
   width: 180px;
-}
-.system-menu-wrapper,
-.plugin-app-wrapper {
   padding: 8px 0;
   margin: 0;
   list-style: none;
@@ -444,24 +504,27 @@ if (isPluginDocs.value) {
     line-height: 28px;
     padding: 0 16px;
     font-size: 14px;
-    .free,
-    .enterprise {
-      display: inline-block;
-      height: 22px;
-      line-height: 22px;
-      border-radius: 10px;
-      font-size: 12px;
-      padding: 0 8px;
-      transform: scale(0.8);
-    }
-    .free {
-      color: #efebeb;
+  }
+}
+.system-menu-wrapper,
+.plugin-app-wrapper {
+  .free,
+  .enterprise {
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 0 8px;
+    transform: scale(0.8);
+  }
+  .free {
+    color: #efebeb;
     background-color: #3eb910;
-    }
-    .enterprise {
-      color: #606266;
-      background-color: #f6ca9d;
-    }
+  }
+  .enterprise {
+    color: #606266;
+    background-color: #f6ca9d;
   }
 }
 @media screen and (min-width: 1400px) {

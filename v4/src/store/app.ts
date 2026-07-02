@@ -130,6 +130,10 @@ export const useAppStore = defineStore('app', {
     pluginShortcutKeyCDNLib: handleLibVersion('@vxe-ui/plugin-shortcut-key')
   },
   actions: {
+    getVersionByName (libName: string) {
+      const uiConf = this.versionConfig[libName]
+      return `${libName}@${(uiConf ? uiConf.stable : '') || 'latest'}`
+    },
     setPageLoading (status: boolean) {
       this.pageLoading = status
     },

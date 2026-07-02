@@ -42,13 +42,26 @@
         </vxe-button>
 
         <template #dropdown>
-          <ul class="system-menu-wrapper">
-            <li v-for="(item, index) in systemMenuList" :key="index">
-              <vxe-link target="_blank" :href="item.href" :content="item.content"></vxe-link>
-              <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
-              <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
-            </li>
-          </ul>
+          <div class="system-menu-wrapper">
+            <div v-for="(conf, i) in systemMenuGroups" :key="i" class="system-menu-group">
+              <div class="system-menu-title">{{ getI18n(`app.header.menuGroup.${conf.group}`) }}</div>
+              <div class="system-menu-list">
+                <div v-for="(item, index) in conf.children" :key="index" class="system-menu-item">
+                  <div>
+                    <div>
+                      <vxe-link target="_blank" :href="item.href" :content="item.content"></vxe-link>
+                      <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
+                      <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
+                      <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
+                    </div>
+                    <div v-if="item.version">
+                      <span>{{ item.version }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </template>
       </vxe-pulldown>
 
@@ -93,6 +106,32 @@ import { mapMutations, mapState } from 'vuex'
 import { tablePluginDocsUrl } from '@/common/nav'
 import XEUtils from 'xe-utils'
 
+interface SystemMenuVO {
+  group: string
+  content: string
+  href: string
+  libName: string
+  version: string
+  isEnterprise: boolean
+  isStore: boolean
+  isFree: boolean
+}
+
+interface SystemMenuGroupVO {
+  group: string
+  children: SystemMenuVO[]
+}
+
+interface PluginAppVO {
+  value: string
+  label: string
+  code: string
+  uri: string
+  isEnterprise: boolean
+  isStore: boolean
+  isFree: boolean
+}
+
 export default Vue.extend({
   inject: {
     pluginType: {
@@ -100,22 +139,18 @@ export default Vue.extend({
     }
   },
   data () {
+    const systemMenuList: SystemMenuVO[] = []
+
+    const pluginAppList: PluginAppVO[] = []
+
     return {
       tablePluginDocsUrl,
 
       showPluginApp: false,
-      pluginAppList: [] as {
-        value: string
-        label: string
-        code: string
-        uri: string
-        isEnterprise: boolean
-        isStore: boolean
-        isFree: boolean
-      }[],
+      pluginAppList,
 
       showSystemMenu: false,
-      systemMenuList: [] as any[],
+      systemMenuList,
 
       prevSysVersion: process.env.VUE_APP_VXE_VERSION as string,
       currSysVersion: process.env.VUE_APP_VXE_VERSION as string,
@@ -219,6 +254,21 @@ export default Vue.extend({
     giteeUrl () {
       return `https://gitee.com/x-extends/${this.packName}`
     },
+    systemMenuGroups () {
+      const menuGroups: SystemMenuGroupVO[] = []
+      XEUtils.each(XEUtils.groupBy(this.systemMenuList, 'group'), (children: SystemMenuVO[], group) => {
+        menuGroups.push({
+          group,
+          children: children.map(item => {
+            return {
+              ...item,
+              version: item.libName ? (this as any).getVersionByName(item.libName) : ''
+            }
+          })
+        })
+      })
+      return menuGroups
+    },
     sysVersionOptions () {
       return this.systemVersionList.map(item => {
         return {
@@ -236,6 +286,7 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
+      'getVersionByName',
       'setTheme',
       'setLanguage',
       'setPrimaryColor',
@@ -455,52 +506,59 @@ export default Vue.extend({
 .system-menu-btn-icon {
   font-size: 12px;
 }
+
 .system-menu-wrapper {
-  padding: 8px 0;
-  margin: 0;
-  list-style: none;
-  width: 360px;
-  border: 1px solid var(--vxe-ui-docs-layout-border-color);
-  & > li {
+  padding: 0.5em 1.5em;
+  width: 600px;
+}
+.system-menu-group {
+  padding-bottom: 0.5em;
+  .system-menu-title {
+    line-height: 3em;
+    color: var(--vxe-ui-font-secondary-color);
+  }
+  .system-menu-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .system-menu-item {
     position: relative;
-    line-height: 28px;
-    padding: 0 16px;
-    font-size: 14px;
-    .enterprise {
-      display: inline-block;
-      height: 22px;
-      line-height: 22px;
-      background-color: #f6ca9d;
-      border-radius: 10px;
-      font-size: 12px;
-      padding: 0 8px;
-      color: #606266;
-      transform: scale(0.8);
-    }
+    width: 33.33%;
   }
 }
 .plugin-app-wrapper {
+  width: 180px;
   padding: 8px 0;
   margin: 0;
   list-style: none;
-  width: 180px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   & > li {
     position: relative;
     line-height: 28px;
     padding: 0 16px;
     font-size: 14px;
-    .enterprise {
-      display: inline-block;
-      height: 22px;
-      line-height: 22px;
-      background-color: #f6ca9d;
-      border-radius: 10px;
-      font-size: 12px;
-      padding: 0 8px;
-      color: #606266;
-      transform: scale(0.8);
-    }
+  }
+}
+.system-menu-wrapper,
+.plugin-app-wrapper {
+  .free,
+  .enterprise {
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 0 8px;
+    transform: scale(0.8);
+  }
+  .free {
+    color: #efebeb;
+    background-color: #3eb910;
+  }
+  .enterprise {
+    color: #606266;
+    background-color: #f6ca9d;
   }
 }
 @media screen and (min-width: 1400px) {
