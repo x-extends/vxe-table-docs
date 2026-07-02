@@ -8,7 +8,7 @@ const UglifyJS = require('uglify-js')
 const XEUtils = require('xe-utils')
 
 const enableAd = true
-const enableSponsors = false
+const enableSponsors = true
 
 // 是否启用强制广告
 const isForceAd = false
