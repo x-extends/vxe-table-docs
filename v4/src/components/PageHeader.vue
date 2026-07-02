@@ -241,7 +241,7 @@ const systemMenuGroups = computed(() => {
       children: children.map(item => {
         return {
           ...item,
-          iconUrl: ['js', 'vue'].includes(item.type) ? `${resBaseUrl.value}/other/${item.type}.png` : '',
+          iconUrl: ['js', 'vue'].includes(item.type) ? `${resBaseUrl.value}/resource/other/${item.type}.png` : '',
           version: item.libName ? appStore.getVersionByName(item.libName) : ''
         }
       })

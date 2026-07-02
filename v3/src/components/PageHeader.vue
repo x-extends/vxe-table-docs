@@ -267,7 +267,7 @@ export default Vue.extend({
           children: children.map(item => {
             return {
               ...item,
-              iconUrl: ['js', 'vue'].includes(item.type) ? `${this.resBaseUrl}/other/${item.type}.png` : '',
+              iconUrl: ['js', 'vue'].includes(item.type) ? `${this.resBaseUrl}/resource/other/${item.type}.png` : '',
               version: item.libName ? (this as any).getVersionByName(item.libName) : ''
             }
           })
