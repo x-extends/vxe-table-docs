@@ -50,15 +50,18 @@
                   <div class="system-menu-icon">
                     <img :src="item.iconUrl">
                   </div>
-                  <div class="system-menu-describe">
+                  <div class="system-menu-content">
                     <div class="system-menu-name">
                       <span>{{ item.content }}</span>
-                      <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
-                      <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
-                      <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
+                      <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
+                      <span v-else-if="item.isFree" class="free">{{ $t('app.header.freeVersion') }}</span>
+                      <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
                     </div>
                     <div v-if="item.version" class="system-menu-version">
                       <span>稳定版：{{ item.version }}</span>
+                    </div>
+                    <div v-else-if="item.describe" class="system-menu-describe">
+                      <span>{{ item.describe }}</span>
                     </div>
                   </div>
                 </a>
@@ -116,6 +119,7 @@ interface SystemMenuVO {
   libName: string
   type: string
   version: string
+  describe: string
   iconUrl: string
   isEnterprise: boolean
   isStore: boolean
@@ -520,7 +524,7 @@ export default Vue.extend({
 .system-menu-group {
   padding-bottom: 0.5em;
   .system-menu-title {
-    line-height: 3em;
+    line-height: 2em;
     color: var(--vxe-ui-font-secondary-color);
   }
   .system-menu-list {
@@ -529,10 +533,12 @@ export default Vue.extend({
     flex-wrap: wrap;
   }
   .system-menu-item {
-    display: block;
+    display: flex;
+    flex-direction: row;
     position: relative;
     width: 33.33%;
-    padding: 0.5em;
+    padding: 0.5em 0.8em;
+    margin: 0.2em 0;
     border-radius: 4px;
     text-decoration: none;
     color: var(--vxe-ui-docs-font-color);
@@ -542,7 +548,22 @@ export default Vue.extend({
       background-color: var(--vxe-ui-base-hover-background-color);
     }
   }
-  .system-menu-version {
+  .system-menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-right: 0.8em;
+    img {
+      max-width: 30px;
+      max-height: 30px;
+    }
+  }
+  .system-menu-content {
+    flex-grow: 1;
+  }
+  .system-menu-version,
+  .system-menu-describe {
     font-size: 0.85em;
     padding-top: 0.2em;
     color: var(--vxe-ui-font-secondary-color);

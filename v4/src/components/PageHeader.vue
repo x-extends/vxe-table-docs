@@ -50,15 +50,18 @@
                   <div class="system-menu-icon">
                     <img :src="item.iconUrl">
                   </div>
-                  <div class="system-menu-describe">
+                  <div class="system-menu-content">
                     <div class="system-menu-name">
                       <span>{{ item.content }}</span>
-                      <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
-                      <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
-                      <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
+                      <span v-if="item.isStore" class="enterprise">{{ $t('app.header.pluginStore') }}</span>
+                      <span v-else-if="item.isFree" class="free">{{ $t('app.header.freeVersion') }}</span>
+                      <span v-else-if="item.isEnterprise" class="enterprise">{{ $t('app.header.enterpriseVersion') }}</span>
                     </div>
                     <div v-if="item.version" class="system-menu-version">
                       <span>稳定版：{{ item.version }}</span>
+                    </div>
+                    <div v-else-if="item.describe" class="system-menu-describe">
+                      <span>{{ item.describe }}</span>
                     </div>
                   </div>
                 </a>
@@ -119,6 +122,7 @@ interface SystemMenuVO {
   type: string
   version: string
   iconUrl: string
+  describe: string
   isEnterprise: boolean
   isStore: boolean
   isFree: boolean
@@ -521,10 +525,11 @@ if (isPluginDocs.value) {
       max-height: 30px;
     }
   }
-  .system-menu-describe {
+  .system-menu-content {
     flex-grow: 1;
   }
-  .system-menu-version {
+  .system-menu-version,
+  .system-menu-describe {
     font-size: 0.85em;
     padding-top: 0.2em;
     color: var(--vxe-ui-font-secondary-color);
