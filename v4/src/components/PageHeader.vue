@@ -44,17 +44,22 @@
         <template #dropdown>
           <div class="system-menu-wrapper">
             <div v-for="(conf, i) in systemMenuGroups" :key="i" class="system-menu-group">
-              <div class="system-menu-title">{{ getI18n(`app.header.menuGroup.${conf.group}`) }}</div>
+              <div class="system-menu-title">{{ $t(`app.header.menuGroup.${conf.group}`) }}</div>
               <div class="system-menu-list">
                 <a v-for="(item, index) in conf.children" :key="index" target="_blank" :href="item.href" class="system-menu-item">
-                  <div class="system-menu-name">
-                    <span>{{ item.content }}</span>
-                    <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
-                    <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
-                    <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
+                  <div class="system-menu-icon">
+                    <img :src="item.iconUrl">
                   </div>
-                  <div v-if="item.version" class="system-menu-version">
-                    <span>稳定版：{{ item.version }}</span>
+                  <div class="system-menu-describe">
+                    <div class="system-menu-name">
+                      <span>{{ item.content }}</span>
+                      <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
+                      <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
+                      <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
+                    </div>
+                    <div v-if="item.version" class="system-menu-version">
+                      <span>稳定版：{{ item.version }}</span>
+                    </div>
                   </div>
                 </a>
               </div>
@@ -101,7 +106,7 @@
 <script lang="ts" setup>
 import { ref, computed, inject } from 'vue'
 import { useAppStore } from '@/store/app'
-import { getI18n, VxePulldownEvents } from 'vxe-pc-ui'
+import { VxePulldownEvents } from 'vxe-pc-ui'
 import { tablePluginDocsUrl } from '@/common/nav'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
@@ -111,7 +116,9 @@ interface SystemMenuVO {
   content: string
   href: string
   libName: string
+  type: string
   version: string
+  iconUrl: string
   isEnterprise: boolean
   isStore: boolean
   isFree: boolean
@@ -234,6 +241,7 @@ const systemMenuGroups = computed(() => {
       children: children.map(item => {
         return {
           ...item,
+          iconUrl: ['js', 'vue'].includes(item.type) ? `${resBaseUrl.value}/other/${item.type}.png` : '',
           version: item.libName ? appStore.getVersionByName(item.libName) : ''
         }
       })
@@ -478,7 +486,7 @@ if (isPluginDocs.value) {
 .system-menu-group {
   padding-bottom: 0.5em;
   .system-menu-title {
-    line-height: 3em;
+    line-height: 2em;
     color: var(--vxe-ui-font-secondary-color);
   }
   .system-menu-list {
@@ -487,10 +495,12 @@ if (isPluginDocs.value) {
     flex-wrap: wrap;
   }
   .system-menu-item {
-    display: block;
+    display: flex;
+    flex-direction: row;
     position: relative;
     width: 33.33%;
-    padding: 0.5em;
+    padding: 0.5em 0.8em;
+    margin: 0.2em 0;
     border-radius: 4px;
     text-decoration: none;
     color: var(--vxe-ui-docs-font-color);
@@ -500,8 +510,22 @@ if (isPluginDocs.value) {
       background-color: var(--vxe-ui-base-hover-background-color);
     }
   }
+  .system-menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-right: 0.8em;
+    img {
+      max-width: 30px;
+      max-height: 30px;
+    }
+  }
+  .system-menu-describe {
+    flex-grow: 1;
+  }
   .system-menu-version {
-    font-size: 0.9em;
+    font-size: 0.85em;
     padding-top: 0.2em;
     color: var(--vxe-ui-font-secondary-color);
   }

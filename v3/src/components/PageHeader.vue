@@ -44,17 +44,22 @@
         <template #dropdown>
           <div class="system-menu-wrapper">
             <div v-for="(conf, i) in systemMenuGroups" :key="i" class="system-menu-group">
-              <div class="system-menu-title">{{ getI18n(`app.header.menuGroup.${conf.group}`) }}</div>
+              <div class="system-menu-title">{{ $t(`app.header.menuGroup.${conf.group}`) }}</div>
               <div class="system-menu-list">
                 <a v-for="(item, index) in conf.children" :key="index" target="_blank" :href="item.href" class="system-menu-item">
-                  <div class="system-menu-name">
-                    <span>{{ item.content }}</span>
-                    <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
-                    <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
-                    <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
+                  <div class="system-menu-icon">
+                    <img :src="item.iconUrl">
                   </div>
-                  <div v-if="item.version" class="system-menu-version">
-                    <span>稳定版：{{ item.version }}</span>
+                  <div class="system-menu-describe">
+                    <div class="system-menu-name">
+                      <span>{{ item.content }}</span>
+                      <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
+                      <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
+                      <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
+                    </div>
+                    <div v-if="item.version" class="system-menu-version">
+                      <span>稳定版：{{ item.version }}</span>
+                    </div>
                   </div>
                 </a>
               </div>
@@ -109,7 +114,9 @@ interface SystemMenuVO {
   content: string
   href: string
   libName: string
+  type: string
   version: string
+  iconUrl: string
   isEnterprise: boolean
   isStore: boolean
   isFree: boolean
@@ -260,6 +267,7 @@ export default Vue.extend({
           children: children.map(item => {
             return {
               ...item,
+              iconUrl: ['js', 'vue'].includes(item.type) ? `${this.resBaseUrl}/other/${item.type}.png` : '',
               version: item.libName ? (this as any).getVersionByName(item.libName) : ''
             }
           })
@@ -535,7 +543,7 @@ export default Vue.extend({
     }
   }
   .system-menu-version {
-    font-size: 0.9em;
+    font-size: 0.85em;
     padding-top: 0.2em;
     color: var(--vxe-ui-font-secondary-color);
   }
