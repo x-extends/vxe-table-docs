@@ -46,19 +46,17 @@
             <div v-for="(conf, i) in systemMenuGroups" :key="i" class="system-menu-group">
               <div class="system-menu-title">{{ getI18n(`app.header.menuGroup.${conf.group}`) }}</div>
               <div class="system-menu-list">
-                <div v-for="(item, index) in conf.children" :key="index" class="system-menu-item">
-                  <div>
-                    <div>
-                      <vxe-link target="_blank" :href="item.href" :content="item.content"></vxe-link>
-                      <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
-                      <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
-                      <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
-                    </div>
-                    <div v-if="item.version">
-                      <span>{{ item.version }}</span>
-                    </div>
+                <a v-for="(item, index) in conf.children" :key="index" target="_blank" :href="item.href" class="system-menu-item">
+                  <div class="system-menu-name">
+                    <span>{{ item.content }}</span>
+                    <vxe-tag v-if="item.isStore" class="tag-btn" status="error">{{ $t('app.header.pluginStore') }}</vxe-tag>
+                    <vxe-tag v-else-if="item.isFree" class="tag-btn" status="success">{{ $t('app.header.freeVersion') }}</vxe-tag>
+                    <vxe-tag v-else-if="item.isEnterprise" class="tag-btn" status="warning">{{ $t('app.header.enterpriseVersion') }}</vxe-tag>
                   </div>
-                </div>
+                  <div v-if="item.version" class="system-menu-version">
+                    <span>稳定版：{{ item.version }}</span>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -474,8 +472,8 @@ if (isPluginDocs.value) {
 }
 
 .system-menu-wrapper {
-  padding: 0.5em 1.5em;
-  width: 600px;
+  padding: 0.5em 1em;
+  width: 800px;
 }
 .system-menu-group {
   padding-bottom: 0.5em;
@@ -489,8 +487,23 @@ if (isPluginDocs.value) {
     flex-wrap: wrap;
   }
   .system-menu-item {
+    display: block;
     position: relative;
     width: 33.33%;
+    padding: 0.5em;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--vxe-ui-docs-font-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    &:hover {
+      background-color: var(--vxe-ui-base-hover-background-color);
+    }
+  }
+  .system-menu-version {
+    font-size: 0.9em;
+    padding-top: 0.2em;
+    color: var(--vxe-ui-font-secondary-color);
   }
 }
 .plugin-app-wrapper {
