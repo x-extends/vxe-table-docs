@@ -28,7 +28,8 @@ export default Vue.extend({
     const customConfig: VxeTablePropTypes.CustomConfig<RowVO> = {
       storage: true,
       mode: 'default',
-      immediate: true
+      immediate: true,
+      showSortPutButton: true
     }
 
     const gridOptions: VxeGridProps<RowVO> = {

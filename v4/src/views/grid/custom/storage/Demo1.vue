@@ -25,7 +25,8 @@ interface RowVO {
 
 const customConfig = reactive<VxeTablePropTypes.CustomConfig<RowVO>>({
   storage: true,
-  mode: 'default'
+  mode: 'default',
+  showSortPutButton: true
 })
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
