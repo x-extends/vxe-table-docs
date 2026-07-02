@@ -12,6 +12,7 @@
                 <tr>
                   <th>标题</th>
                   <th>是否显示</th>
+                  <th>宽度</th>
                   <th>冻结列</th>
                 </tr>
               </thead>
@@ -20,6 +21,9 @@
                   <td>{{ column.title }}</td>
                   <td>
                     <vxe-switch v-model="column.visible"></vxe-switch>
+                  </td>
+                  <td>
+                    <vxe-number-input v-model="column.renderWidth"></vxe-number-input>
                   </td>
                   <td>
                     <vxe-radio-group v-model="column.fixed">

@@ -32,7 +32,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     allowVisible: false,
     allowFixed: false,
     allowResizable: true,
-    allowSort: false
+    allowSort: false,
+    allowAlign: false,
+    allowHeaderAlign: false,
+    allowFooterAlign: false
   },
   columns: [
     { type: 'seq', width: 70 },

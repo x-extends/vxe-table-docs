@@ -1245,6 +1245,9 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridCustomVisible',
           component: () => import('@/views/grid/custom/visible/CodeExample.vue')
         },
+        { path: 'align', name: 'ComponentGridCustomAlign', component: () => import('@/views/grid/custom/align/CodeExample.vue') },
+        { path: 'headerAlign', name: 'ComponentGridCustomHeaderAlign', component: () => import('@/views/grid/custom/headerAlign/CodeExample.vue') },
+        { path: 'footerAlign', name: 'ComponentGridCustomFooterAlign', component: () => import('@/views/grid/custom/footerAlign/CodeExample.vue') },
         {
           path: 'fixed',
           name: 'ComponentGridCustomFixed',
@@ -1261,6 +1264,8 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridCustomSort',
           component: () => import('@/views/grid/custom/sort/CodeExample.vue')
         },
+        { path: 'full', name: 'ComponentGridCustomFull', component: () => import('@/views/grid/custom/full/CodeExample.vue') },
+        { path: 'cssVar', name: 'ComponentGridCustomCssVar', component: () => import('@/views/grid/custom/cssVar/CodeExample.vue') },
         // {
         //   path: 'template',
         //   name: 'ComponentGridCustomTemplate',

@@ -34,7 +34,10 @@ export default Vue.extend({
         allowVisible: false,
         allowFixed: false,
         allowResizable: true,
-        allowSort: false
+        allowSort: false,
+        allowAlign: false,
+        allowHeaderAlign: false,
+        allowFooterAlign: false
       },
       columns: [
         { type: 'seq', width: 70 },

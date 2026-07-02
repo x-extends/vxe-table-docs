@@ -20,7 +20,7 @@
                 <tr v-for="(column, i) in tableColumnFullList" :key="i">
                   <td>{{ column.title }}</td>
                   <td>
-                    <vxe-checkbox v-model="column.visible"></vxe-checkbox>
+                    <vxe-switch v-model="column.visible"></vxe-switch>
                   </td>
                   <td>
                     <vxe-number-input v-model="column.renderWidth"></vxe-number-input>
@@ -151,12 +151,12 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   ]
 })
 
-const changeTemplateEvent = async () => {
+const changeTemplateEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
     const selectTmplItem = selectTempalte.value
     if (selectTmplItem) {
-      await $grid.setCustomStoreData(selectTmplItem.customData)
+      $grid.setCustomStoreData(selectTmplItem.customData)
     }
   }
 }

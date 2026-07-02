@@ -9,6 +9,7 @@ export const tableNavConfig: NavVO = {
         { title: 'Table API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'table' } }, keywords: 'vxe-table' },
         { title: 'Colgroup API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'colgroup' } } },
         { title: 'Column API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'column' } } },
+        { title: 'Toolbar API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'toolbar' } } },
         {
           title: '基础功能',
           children: [
@@ -1054,6 +1055,9 @@ export const tableNavConfig: NavVO = {
             { title: '显示/隐藏操作列', routerLink: { name: 'ComponentGridCustomVisibleMethod' } },
             { title: '列宽限制', routerLink: { name: 'ComponentGridCustomResizableWidth' } },
             { title: '允许调整列显示隐藏', routerLink: { name: 'ComponentGridCustomVisible' } },
+            { title: '允许调整对齐方式', routerLink: { name: 'ComponentGridCustomAlign' } },
+            { title: '允许调整表头对齐方式', routerLink: { name: 'ComponentGridCustomHeaderAlign' } },
+            { title: '允许调整表尾对齐方式', routerLink: { name: 'ComponentGridCustomFooterAlign' } },
             { title: '允许调整列冻结', routerLink: { name: 'ComponentGridCustomFixed' } },
             { title: '允许调整列宽', routerLink: { name: 'ComponentGridCustomResizable' } },
             { title: '允许拖拽列顺序', routerLink: { name: 'ComponentGridCustomSort' } },
@@ -1064,6 +1068,8 @@ export const tableNavConfig: NavVO = {
             // { title: '自定义触发弹出设置', routerLink: { name: 'CmponentGridCustomTemplate' } },
             { title: '自定义触发按钮', routerLink: { name: 'ComponentGridCustomCustomBtn' } },
             { title: '自定义弹出位置', routerLink: { name: 'ComponentGridCustomPlacement' } },
+            { title: '完整功能', routerLink: { name: 'ComponentGridCustomFull' } },
+            { title: '通过样式设置列宽', routerLink: { name: 'ComponentGridCustomCssVar' } },
             { title: '事件监听', routerLink: { name: 'ComponentGridCustomEvents' } },
             { title: '实时更新', routerLink: { name: 'ComponentGridCustomImmediate' } },
             { title: '本地保存列设置', routerLink: { name: 'ComponentGridCustomStorage' } },

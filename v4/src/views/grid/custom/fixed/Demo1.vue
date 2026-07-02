@@ -32,14 +32,21 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     allowVisible: false,
     allowFixed: true,
     allowResizable: false,
-    allowSort: false
+    allowSort: false,
+    allowAlign: false,
+    allowHeaderAlign: false,
+    allowFooterAlign: false
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name' },
-    { field: 'sex', title: 'Sex' },
-    { field: 'age', title: 'Age' },
-    { field: 'address', title: 'Address' }
+    { field: 'name', title: 'Name', minWidth: 200 },
+    { field: 'sex', title: 'Sex', minWidth: 160 },
+    { field: 'age', title: 'Age', minWidth: 140 },
+    { field: 'attr1', title: 'Attr1', minWidth: 180 },
+    { field: 'attr2', title: 'Attr2', minWidth: 200 },
+    { field: 'attr3', title: 'Attr3', minWidth: 300 },
+    { field: 'attr4', title: 'Attr4', minWidth: 140 },
+    { field: 'address', title: 'Address', minWidth: 200 }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
