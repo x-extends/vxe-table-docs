@@ -1,13 +1,17 @@
 <template>
-  <div class="version-list">
-    <div v-if="pluginType && selectPluginVersion" class="version-item">
+  <div v-if="pluginType && selectPluginVersion" class="version-list">
+    <div class="version-item">
       <div>
         <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
         <span>{{ pluginType }}@{{ selectPluginVersion }}</span>
-        <vxe-link style="margin-left: 0.5em;" status="primary" :href="currBuyPluginBUrl" target="_blank">{{ $t('app.aside.releaseTitle') }}</vxe-link>
       </div>
     </div>
-    <div v-else class="version-item">
+    <div class="version-btn">
+      <vxe-link style="margin-left: 0.5em;" status="primary" :href="currBuyPluginBUrl" target="_blank">{{ $t('app.aside.releaseTitle') }}</vxe-link>
+    </div>
+  </div>
+  <div v-else class="version-list">
+    <div class="version-item">
       <div>
         <span>
           <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
