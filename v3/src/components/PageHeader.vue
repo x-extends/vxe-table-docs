@@ -541,7 +541,7 @@ export default Vue.extend({
     display: flex;
     flex-direction: row;
     position: relative;
-    width: 33.33%;
+    width: 33%;
     padding: 0.5em 0.8em;
     margin: 0.2em 0;
     border-radius: 4px;
