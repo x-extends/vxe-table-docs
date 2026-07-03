@@ -132,10 +132,6 @@ export default new Vuex.Store({
     pluginShortcutKeyCDNLib: handleLibVersion('@vxe-ui/plugin-shortcut-key')
   },
   mutations: {
-    getVersionByName (state, libName: string) {
-      const uiConf = state.versionConfig[libName]
-      return `${libName}@${(uiConf ? uiConf.stable : '') || 'latest'}`
-    },
     setPageLoading (state, status: boolean) {
       state.pageLoading = status
     },

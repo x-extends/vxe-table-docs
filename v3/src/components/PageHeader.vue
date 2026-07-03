@@ -108,7 +108,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapMutations, mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 import { tablePluginDocsUrl } from '@/common/nav'
 import XEUtils from 'xe-utils'
 
@@ -191,6 +191,7 @@ export default Vue.extend({
       'primaryColor',
       'componentsSize',
       'language',
+      'versionConfig',
       'pageTitle',
       'isExtendDocs',
       'isPluginDocs',
@@ -269,10 +270,15 @@ export default Vue.extend({
         menuGroups.push({
           group,
           children: children.map(item => {
+            let version = ''
+            if (item.libName) {
+              const uiConf = (this as any).versionConfig[item.libName]
+              version = `${item.libName}@${(uiConf ? uiConf.stable : '') || 'latest'}`
+            }
             return {
               ...item,
               iconUrl: ['js', 'vue'].includes(item.type) ? `${this.resBaseUrl}/resource/other/${item.type}.png` : '',
-              version: item.libName ? (this as any).getVersionByName(item.libName) : ''
+              version
             }
           })
         })
@@ -296,7 +302,6 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations([
-      'getVersionByName',
       'setTheme',
       'setLanguage',
       'setPrimaryColor',

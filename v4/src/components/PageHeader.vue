@@ -146,6 +146,7 @@ interface PluginAppVO {
 const appStore = useAppStore()
 const pageTitle = computed(() => appStore.pageTitle)
 const packName = computed(() => appStore.packName)
+const versionConfig = computed(() => appStore.versionConfig)
 const showTopMenuMsgFlag = computed(() => appStore.showTopMenuMsgFlag)
 const showAuthMsgFlag = computed(() => appStore.showAuthMsgFlag)
 const isExtendDocs = computed(() => appStore.isExtendDocs)
@@ -243,10 +244,15 @@ const systemMenuGroups = computed(() => {
     menuGroups.push({
       group,
       children: children.map(item => {
+        let version = ''
+        if (item.libName) {
+          const uiConf = versionConfig.value[item.libName]
+          version = `${item.libName}@${(uiConf ? uiConf.stable : '') || 'latest'}`
+        }
         return {
           ...item,
           iconUrl: ['js', 'vue'].includes(item.type) ? `${resBaseUrl.value}/resource/other/${item.type}.png` : '',
-          version: item.libName ? appStore.getVersionByName(item.libName) : ''
+          version
         }
       })
     })
