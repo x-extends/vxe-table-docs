@@ -28,6 +28,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapState } from 'vuex'
 import { VxeLayoutBodyPropTypes } from 'vxe-pc-ui'
 import { navConfigList } from '@/common/nav-config'
 import XEUtils from 'xe-utils'
@@ -73,13 +74,16 @@ export default Vue.extend({
     }
   },
   computed: {
+    ...mapState([
+      'isUtilDocs'
+    ]),
     pageName () {
       const route = this.$route
       return route ? XEUtils.kebabCase(`${String(route.name).replace('VxeIcon', 'VxeIco')}`) : ''
     },
     isFullView () {
       const route = this.$route
-      return route.name === 'DocsApi'
+      return !this.isUtilDocs.value && route.name === 'DocsApi'
     },
     showOperBtn () {
       const route = this.$route

@@ -31,12 +31,16 @@ import { ref, computed, reactive, provide } from 'vue'
 import { VxeLayoutBodyPropTypes } from 'vxe-pc-ui'
 import { useRoute } from 'vue-router'
 import { navConfigList } from '@/common/nav-config'
+import { useAppStore } from '@/store/app'
 import XEUtils from 'xe-utils'
 import PageHeader from '@/components/PageHeader.vue'
 import PageAside from '@/components/PageAside.vue'
 import PageFooter from '@/components/PageFooter.vue'
 
 const route = useRoute()
+const appStore = useAppStore()
+
+const isUtilDocs = computed(() => appStore.isUtilDocs)
 
 const showLeft = ref(true)
 const asideWidth = ref(360)
@@ -61,7 +65,7 @@ const pageName = computed(() => {
 })
 
 const isFullView = computed(() => {
-  return route.name === 'DocsApi'
+  return !isUtilDocs.value && route.name === 'DocsApi'
 })
 
 const showOperBtn = computed(() => {
