@@ -83,7 +83,7 @@ export default Vue.extend({
     },
     isFullView () {
       const route = this.$route
-      return !this.isUtilDocs.value && route.name === 'DocsApi'
+      return !(this as any).isUtilDocs.value && route.name === 'DocsApi'
     },
     showOperBtn () {
       const route = this.$route
