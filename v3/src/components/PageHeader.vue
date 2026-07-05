@@ -71,7 +71,7 @@
         </template>
       </vxe-pulldown>
 
-      <vxe-select v-model="currSysVersion" class="switch-version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
+      <vxe-select v-if="!isUtilDocs" v-model="currSysVersion" class="switch-version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
 
       <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" type="rgb" show-eye-dropper click-to-copy></vxe-color-picker>
 
@@ -195,6 +195,7 @@ export default Vue.extend({
       'pageTitle',
       'isExtendDocs',
       'isPluginDocs',
+      'isUtilDocs',
       'resBaseUrl',
       'siteBaseUrl',
       'pluginBuyUrl',

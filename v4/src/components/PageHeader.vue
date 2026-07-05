@@ -71,7 +71,7 @@
         </template>
       </vxe-pulldown>
 
-      <vxe-select v-model="currSysVersion" class="switch-version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
+      <vxe-select v-if="!isUtilDocs" v-model="currSysVersion" class="switch-version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
 
       <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" show-eye-dropper click-to-copy></vxe-color-picker>
 
@@ -151,6 +151,7 @@ const showTopMenuMsgFlag = computed(() => appStore.showTopMenuMsgFlag)
 const showAuthMsgFlag = computed(() => appStore.showAuthMsgFlag)
 const isExtendDocs = computed(() => appStore.isExtendDocs)
 const isPluginDocs = computed(() => appStore.isPluginDocs)
+const isUtilDocs = computed(() => appStore.isUtilDocs)
 const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
