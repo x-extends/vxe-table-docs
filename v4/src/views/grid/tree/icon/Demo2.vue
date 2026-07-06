@@ -1,14 +1,12 @@
 <template>
   <div>
-    <vxe-switch v-model="treeConfig.showIcon"></vxe-switch>
-
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -19,22 +17,15 @@ interface RowVO {
   date: string
 }
 
-const treeConfig = reactive<VxeTablePropTypes.TreeConfig<RowVO>>({
-  transform: true,
-  rowField: 'id',
-  parentField: 'parentId',
-  showIcon: true,
-  visibleMethod ({ row }) {
-    if (row.id === 10050 || row.id === 23677) {
-      return false
-    }
-    return true
-  }
-})
-
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
-  treeConfig,
+  treeConfig: {
+    transform: true,
+    rowField: 'id',
+    parentField: 'parentId',
+    iconOpen: 'vxe-icon-square-minus',
+    iconClose: 'vxe-icon-square-plus'
+  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', minWidth: 300, treeNode: true },
