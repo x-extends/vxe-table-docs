@@ -23,42 +23,46 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
-
-const tableData = ref([
-  {
-    name: 'add(code, options)',
-    desc: '添加一个',
-    type: '',
-    enum: '',
-    defVal: 'code: string, options: { menuMethod }',
-    list: [
-      {
-        name: 'menuMethod',
-        desc: '菜单方法',
-        type: '',
-        enum: '',
-        defVal: '({ menu, type, row, rowIndex, column, columnIndex, $event }) => void',
-        list: []
-      }
-    ]
-  },
-  {
-    name: 'mixin(opts)',
-    desc: '添加多个',
-    type: '',
-    enum: '',
-    defVal: 'opts: { [code: string]: { menuMethod } }',
-    list: []
-  },
-  {
-    name: 'delete(code)',
-    desc: '删除',
-    type: '',
-    enum: '',
-    defVal: 'code: string',
-    list: []
+<script>
+export default {
+  data () {
+    return {
+      tableData: [
+        {
+          name: 'add(code, options)',
+          desc: '添加一个',
+          type: '',
+          enum: '',
+          defVal: 'code: string, options: { menuMethod }',
+          list: [
+            {
+              name: 'menuMethod',
+              desc: '菜单方法',
+              type: '',
+              enum: '',
+              defVal: '({ menu, type, row, rowIndex, column, columnIndex, $event }) => void',
+              list: []
+            }
+          ]
+        },
+        {
+          name: 'mixin(opts)',
+          desc: '添加多个',
+          type: '',
+          enum: '',
+          defVal: 'opts: { [code: string]: { menuMethod } }',
+          list: []
+        },
+        {
+          name: 'delete(code)',
+          desc: '删除',
+          type: '',
+          enum: '',
+          defVal: 'code: string',
+          list: []
+        }
+      ]
+    }
   }
-])
+}
 </script>
