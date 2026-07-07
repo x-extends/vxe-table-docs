@@ -19,7 +19,7 @@
     "vue": "3.5.16",
     "vue-i18n": "~11.3.0",
     "vue-router": "^4.5.1",
-    "vxe-design": "~4.1.4",
+    "vxe-design": "~4.1.6",
     "vxe-pc-ui": "~4.16.0",
     "vxe-table": "~4.20.0",
     "xe-utils": "^4.0.11"
