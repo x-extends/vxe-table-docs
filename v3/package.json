@@ -15,7 +15,7 @@
     "axios": "1.7.2",
     "core-js": "^3.8.3",
     "tinycolor2": "^1.6.0",
-    "vue": "2.7.16",
+    "vue": "2.6.14",
     "vuex": "^3.4.0",
     "vue-i18n": "^8.15.1",
     "vue-router": "^3.5.1",
@@ -48,6 +48,7 @@
     "oxfmt": "^0.51.0",
     "sass": "~1.99.0",
     "sass-loader": "~14.2.1",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vue-template-compiler": "2.6.14"
   }
 }
