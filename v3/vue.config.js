@@ -22,12 +22,12 @@ module.exports = defineConfig({
     }
   },
   configureWebpack: {
-    cache: {
-      type: 'filesystem',
-      buildDependencies: {
-        config: [__filename]
-      }
-    },
+    // cache: {
+    //   type: 'filesystem',
+    //   buildDependencies: {
+    //     config: [__filename]
+    //   }
+    // },
     performance: {
       hints: false
     },
