@@ -25,19 +25,18 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "baseUrl": ".",
 
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     }
   },
   "include": [
-    "src/**/*.ts", 
-    "src/**/*.d.ts",
-    "src/**/*.tsx", 
-    "src/**/*.vue"
+    "./src/**/*.ts", 
+    "./src/**/*.d.ts",
+    "./src/**/*.tsx", 
+    "./src/**/*.vue"
   ],
   "exclude": [
     "node_modules"

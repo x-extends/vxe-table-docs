@@ -5,7 +5,7 @@
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,14 +13,13 @@
     "noImplicitAny": false,
     "sourceMap": true,
     "allowJs": true,
-    "baseUrl": ".",
     "types": [
       "@types/node",
       "webpack-env"
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     },
     "lib": [
@@ -31,12 +30,12 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "../v4_old/src/views/start/StartPermission.vue"  ],
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "./tests/**/*.ts",
+    "./tests/**/*.tsx"
+  ],
   "exclude": [
     "node_modules"
   ]
