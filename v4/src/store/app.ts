@@ -110,6 +110,7 @@ export const useAppStore = defineStore('app', {
   getters: {
     utilCDNLib: handleLibVersion('xe-utils', import.meta.env.VITE_APP_UTIL_VERSION),
     vueCDNLib: handleLibVersion('vue'),
+    coreCDNLib: handleLibVersion('@vxe-ui/core'),
     uiCDNLib: handleLibVersion('vxe-pc-ui'),
     tableCDNLib: handleLibVersion('vxe-table'),
     designCDNLib: handleLibVersion('vxe-design'),

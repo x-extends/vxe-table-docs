@@ -9,18 +9,18 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="仅安装表格">
-          仅可使用表格基础功能，不包含任何 UI 基础组件，不能使用任何高级功能，基础组件可以通过插槽模板方式使用第三方 UI 组件库自行实现。
+        <vxe-tip status="success" title="纯表格安装">
+          仅可使用表格基础功能，依赖 <vxe-link href="https://github.com/x-extends/vxe-core" target="_blank">core</vxe-link> 核心库，不包含任何 UI 基础组件，不能使用任何高级功能，基础组件可以通过插槽模板方式使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
           <pre-code
             language="shell"
             :content="`
-            npm install ${uiCDNLib} ${tableCDNLib}
+            npm install ${tableCDNLib} ${coreCDNLib}
             # 或者
-            yarn add ${uiCDNLib} ${tableCDNLib}
+            yarn add ${tableCDNLib} ${coreCDNLib}
             # 或者
-            pnpm add ${uiCDNLib} ${tableCDNLib}
+            pnpm add ${tableCDNLib} ${coreCDNLib}
             `">
           </pre-code>
           <pre-code
@@ -31,8 +31,23 @@
             import 'vxe-table/lib/style.css'
             // ...
 
-            Vue.use(VxeUITable)
+            createApp(App).use(VxeUITable).mount('#app')
             // ...">
+          </pre-code>
+        </pre>
+        <vxe-tip status="success" title="TS 类型提示">
+          当安装纯表格时，如果是 TS 项目，只需要安装 vxe-pc-ui 类型提示，代码中不需要安装基础库，仅作为类型提示
+        </vxe-tip>
+        <pre>
+          <pre-code
+            language="shell"
+            :content="`
+            npm install ${uiCDNLib}
+            # 或者
+            yarn add ${uiCDNLib}
+            # 或者
+            pnpm add ${uiCDNLib}
+            `">
           </pre-code>
         </pre>
         <vxe-tip status="error" title="建议版本号">
@@ -73,6 +88,7 @@ import { mapGetters } from 'vuex'
 export default Vue.extend({
   computed: {
     ...mapGetters([
+      'coreCDNLib',
       'utilCDNLib',
       'uiCDNLib',
       'tableCDNLib'

@@ -112,6 +112,7 @@ export default new Vuex.Store({
   getters: {
     utilCDNLib: handleLibVersion('xe-utils', process.env.VUE_APP_UTIL_VERSION),
     vueCDNLib: handleLibVersion('vue'),
+    coreCDNLib: handleLibVersion('@vxe-ui/core'),
     uiCDNLib: handleLibVersion('vxe-pc-ui'),
     tableCDNLib: handleLibVersion('vxe-table'),
     designCDNLib: handleLibVersion('vxe-design'),
