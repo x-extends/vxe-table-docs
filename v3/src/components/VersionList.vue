@@ -21,7 +21,7 @@
       <div v-if="showBetaVersion">
         <span>
         <span class="version-title">{{ $t('app.aside.latestVersion') }}</span>
-          <span>@{{ selectBetaVersion }}</span>
+          <span>{{ packName }}@{{ selectBetaVersion }}</span>
         </span>
       </div>
     </div>
