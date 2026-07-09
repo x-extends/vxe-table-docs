@@ -495,6 +495,7 @@ const openDocs = () => {
 }
 
 .example-preview-header {
+  padding: 0 24px;
   line-height: 2em;
   font-size: 1.4em;
   cursor: pointer;
