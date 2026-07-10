@@ -51,12 +51,21 @@
         </div>
       <div class="example-code-wrapper" v-show="showOptionJS">
         <vxe-collapse v-model="collapseList" padding border>
-          <vxe-collapse-pane v-for="item in importOptionJsCodes" :key="item.path" :title="item.name" :name="item.path">
+          <vxe-collapse-pane v-for="(item, i) in importOptionJsCodes" :key="item.path" :title="item.name" :name="item.path">
+            <template #title>
+              <vxe-tag status="primary" class="example-code-tag">第 {{ i + 1 }} 步</vxe-tag>
+              <span>{{ item.name }}</span>
+            </template>
             <template #default>
               <CodeRender :language="item.lang" :code="item.text" show-copy-button></CodeRender>
             </template>
           </vxe-collapse-pane>
           <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
+            <template #title>
+              <vxe-tag v-if="importOptionJsCodes.length" status="primary" class="example-code-tag">第 {{ importOptionJsCodes.length + 1 }} 步</vxe-tag>
+              <vxe-tag v-else status="primary" class="example-code-tag">使用</vxe-tag>
+              <span>{{ getFileName(`${path}.vue`) }}</span>
+            </template>
             <template #default>
               <CodeRender language="html" :code="optionJsCodeText" show-copy-button></CodeRender>
             </template>
@@ -65,12 +74,21 @@
       </div>
       <div class="example-code-wrapper" v-show="showOptionTS">
         <vxe-collapse v-model="collapseList" padding border>
-          <vxe-collapse-pane v-for="item in importOptionTsCodes" :key="item.path" :title="item.name" :name="item.path">
+          <vxe-collapse-pane v-for="(item, i) in importOptionTsCodes" :key="item.path" :title="item.name" :name="item.path">
+            <template #title>
+              <vxe-tag status="primary" class="example-code-tag">第 {{ i + 1 }} 步</vxe-tag>
+              <span>{{ item.name }}</span>
+            </template>
             <template #default>
               <CodeRender :language="item.lang" :code="item.text" show-copy-button></CodeRender>
             </template>
           </vxe-collapse-pane>
           <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
+            <template #title>
+              <vxe-tag v-if="importOptionTsCodes.length" status="primary" class="example-code-tag">第 {{ importOptionTsCodes.length + 1 }} 步</vxe-tag>
+              <vxe-tag v-else status="primary" class="example-code-tag">使用</vxe-tag>
+              <span>{{ getFileName(`${path}.vue`) }}</span>
+            </template>
             <template #default>
               <CodeRender language="html" :code="optionTsCodeText" show-copy-button></CodeRender>
             </template>

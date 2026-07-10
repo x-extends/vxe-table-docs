@@ -2821,7 +2821,8 @@ export const gridRouteConfig: RouteConfig = {
           path: 'treeSubCols',
           name: 'ComponentGridOtherTreeSubCols',
           component: () => import('@/views/grid/other/treeSubCols/CodeExample.vue')
-        }
+        },
+        { path: 'rowColMerge', name: 'ComponentGridOtherRowColMerge', component: () => import('@/views/grid/other/rowColMerge/CodeExample.vue') }
       ]
     }
   ]
