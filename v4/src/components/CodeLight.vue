@@ -55,7 +55,7 @@
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importOptionJsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
-              <vxe-tag status="primary" class="example-code-tag">第 {{ i + 1 }} 步</vxe-tag>
+              <vxe-tag status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${i + 1}`) }}</vxe-tag>
               <span>{{ item.name }}</span>
             </template>
             <template #default>
@@ -78,7 +78,7 @@
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importOptionTsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
-              <vxe-tag status="primary" class="example-code-tag">第 {{ i + 1 }} 步</vxe-tag>
+              <vxe-tag status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${i + 1}`) }}</vxe-tag>
               <span>{{ item.name }}</span>
             </template>
             <template #default>
@@ -101,7 +101,7 @@
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importSetupJsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
-              <vxe-tag status="primary" class="example-code-tag">第 {{ i + 1 }} 步</vxe-tag>
+              <vxe-tag status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${i + 1}`) }}</vxe-tag>
               <span>{{ item.name }}</span>
             </template>
             <template #default>
@@ -124,7 +124,7 @@
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importSetupTsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
-              <vxe-tag status="primary" class="example-code-tag">第 {{ i + 1 }} 步</vxe-tag>
+              <vxe-tag status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${i + 1}`) }}</vxe-tag>
               <span>{{ item.name }}</span>
             </template>
             <template #default>
