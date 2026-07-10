@@ -62,8 +62,8 @@
           </vxe-collapse-pane>
           <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
             <template #title>
-              <vxe-tag v-if="importOptionJsCodes.length" status="primary" class="example-code-tag">第 {{ importOptionJsCodes.length + 1 }} 步</vxe-tag>
-              <vxe-tag v-else status="primary" class="example-code-tag">使用</vxe-tag>
+              <vxe-tag v-if="importOptionJsCodes.length" status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${importOptionJsCodes.length + 1}`) }}</vxe-tag>
+              <vxe-tag v-else status="primary" class="example-code-tag">{{ $t('app.docs.button.useTitle') }}</vxe-tag>
               <span>{{ getFileName(`${path}.vue`) }}</span>
             </template>
             <template #default>
@@ -85,8 +85,8 @@
           </vxe-collapse-pane>
           <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
             <template #title>
-              <vxe-tag v-if="importOptionTsCodes.length" status="primary" class="example-code-tag">第 {{ importOptionTsCodes.length + 1 }} 步</vxe-tag>
-              <vxe-tag v-else status="primary" class="example-code-tag">使用</vxe-tag>
+              <vxe-tag v-if="importOptionTsCodes.length" status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${importOptionTsCodes.length + 1}`) }}</vxe-tag>
+              <vxe-tag v-else status="primary" class="example-code-tag">{{ $t('app.docs.button.useTitle') }}</vxe-tag>
               <span>{{ getFileName(`${path}.vue`) }}</span>
             </template>
             <template #default>
