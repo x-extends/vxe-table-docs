@@ -36,7 +36,7 @@
           </pre-code>
         </pre>
         <vxe-tip status="success" title="TS 类型提示">
-          当安装纯表格时，如果是 TS 项目，只需要安装 vxe-pc-ui 类型提示，代码中不需要安装基础库，仅作为类型提示
+          当安装纯表格时，如果是 TS 项目，只需要安装 vxe-pc-ui 类型提示，安装后会自动加载类型提示，本身不会导入任何组件代码。
         </vxe-tip>
         <pre>
           <pre-code
