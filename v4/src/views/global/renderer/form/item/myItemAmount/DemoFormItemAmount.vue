@@ -1,17 +1,17 @@
 <template>
-  <VxeInput
+  <vxe-number-input
     v-if="currData && currField"
     v-model="currData[currField]"
     type="float"
     digits="2"
     prefix-icon="vxe-icon-rmb"
     align="right">
-  </VxeInput>
+  </vxe-number-input>
 </template>
 
 <script lang="ts" setup>
 import { ref, PropType, computed, watch } from 'vue'
-import { VxeInput, VxeGlobalRendererHandles } from 'vxe-pc-ui'
+import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
 
 const props = defineProps({
   renderOpts: {

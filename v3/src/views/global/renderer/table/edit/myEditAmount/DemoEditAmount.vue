@@ -1,12 +1,12 @@
 <template>
-  <vxe-input
+  <vxe-number-input
     v-if="currRow && currColumn"
     v-model="currRow[currColumn.field]"
     type="float"
     digits="2"
     prefix-icon="vxe-icon-rmb"
     align="right">
-  </vxe-input>
+  </vxe-number-input>
 </template>
 
 <script lang="ts">
