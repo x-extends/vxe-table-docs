@@ -9,6 +9,7 @@ export interface NavVO {
   isSelfAPI?: boolean
   isExpand?: boolean
   isNew?: boolean
+  showCount?: boolean
   isProcess?: boolean
   isUnpublished?: boolean
   isEnterprise?: boolean
