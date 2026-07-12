@@ -40,7 +40,7 @@
     </div>
     <div class="nav-body">
       <div class="nav-item nav-level1" v-for="(item1, index1) in navList" :key="index1" :class="[{'is-expand': item1.isExpand}]">
-        <div class="nav-name" :class="{'is-plugin': item1.isPlugin, 'is-enterprise': item1.isEnterprise}" :title="item1.describe || item1.title" @click="toggleExpand(item1)">
+        <div class="nav-name" :data-nid="item1.nId" :class="{'is-plugin': item1.isPlugin, 'is-enterprise': item1.isEnterprise}" :title="item1.describe || item1.title" @click="toggleExpand(item1)">
           <vxe-link v-if="item1.routerLink" class="nav-item-link" :status="item1.linkStatus" :router-link="item1.routerLink" :disabled="item1.isDisabled || item1.isProcess" :content="`${item1.title}${item1.children && item1.children.length ? ` (${item1.children.length})` : ''}`"></vxe-link>
           <vxe-link v-else-if="item1.linkUrl" class="nav-item-link" :status="item1.linkStatus" :href="item1.linkUrl" :disabled="item1.isDisabled || item1.isProcess" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
           <vxe-link v-else-if="item1.isBack" class="nav-item-link" :status="item1.linkStatus" :content="item1.title" @click="backEvent"></vxe-link>
@@ -53,7 +53,7 @@
           </span>
         </div>
         <div v-if="item1.isExpand && item1.children && item1.children.length" class="nav-subs">
-          <div class="nav-item nav-level2" v-for="(item2, index2) in item1.children" :key="`${index1}${index2}`" :class="[{'is-expand': item2.isExpand}]">
+          <div class="nav-item nav-level2" :data-nid="item2.nId" v-for="(item2, index2) in item1.children" :key="`${index1}${index2}`" :class="[{'is-expand': item2.isExpand}]">
             <div class="nav-name" :class="{'is-plugin': item2.isPlugin, 'is-enterprise': item2.isEnterprise}" :title="item2.describe || item2.title" @click="toggleExpand(item2)">
               <vxe-link v-if="item2.routerLink" :class="['nav-item-link']" :data-code="getApiKey(item2)" :router-link="item2.routerLink" :disabled="item2.isDisabled || item2.isProcess">
                 <span>{{ item2.title }}</span>
@@ -72,7 +72,7 @@
               <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item2.title"></vxe-text>
             </div>
             <div v-if="!['API'].includes(item1.title || '') && item2.isExpand && item2.children && item2.children.length" class="nav-subs">
-              <div class="nav-item nav-level3" v-for="(item3, index3) in item2.children" :key="`${index1}${index2}${index3}`" :class="[{'is-expand': item3.isExpand}]">
+              <div class="nav-item nav-level3" :data-nid="item3.nId" v-for="(item3, index3) in item2.children" :key="`${index1}${index2}${index3}`" :class="[{'is-expand': item3.isExpand}]">
                 <div class="nav-name" :class="{'is-plugin': item3.isPlugin, 'is-enterprise': item3.isEnterprise}" :title="item3.describe || item3.title" @click="toggleExpand(item3)">
                   <vxe-link v-if="item3.routerLink" :class="['nav-item-link']" :data-code="getApiKey(item3)" :router-link="item3.routerLink" :disabled="item3.isDisabled || item3.isProcess">
                     <span>{{ item3.title }}</span>
@@ -91,7 +91,7 @@
                   <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item3.title"></vxe-text>
                 </div>
                 <div v-if="item3.isExpand && item3.children && item3.children.length" class="nav-subs">
-                  <div class="nav-item nav-level4" v-for="(item4, index4) in item3.children" :key="`${index1}${index2}${index3}${index4}`" :class="[{'is-expand': item4.isExpand}]">
+                  <div class="nav-item nav-level4" :data-nid="item4.nId" v-for="(item4, index4) in item3.children" :key="`${index1}${index2}${index3}${index4}`" :class="[{'is-expand': item4.isExpand}]">
                     <div class="nav-name" :class="{'is-plugin': item4.isPlugin, 'is-enterprise': item4.isEnterprise}" :title="item4.describe || item4.title" @click="toggleExpand(item4)">
                       <vxe-link v-if="item4.routerLink" :class="['nav-item-link']" :data-code="getApiKey(item4)" :router-link="item4.routerLink" :disabled="item4.isDisabled || item4.isProcess">
                         <span>{{ item4.title }}</span>
@@ -110,7 +110,7 @@
                       <vxe-text v-else class="nav-item-text" icon="vxe-icon-arrow-right" :content="item4.title"></vxe-text>
                     </div>
                     <div v-if="item4.isExpand && item4.children && item4.children.length" class="nav-subs">
-                      <div class="nav-item nav-level5" v-for="(item5, index5) in item4.children" :key="`${index1}${index2}${index3}${index5}`" :class="[{'is-expand': item5.isExpand}]">
+                      <div class="nav-item nav-level5" :data-nid="item5.nId" v-for="(item5, index5) in item4.children" :key="`${index1}${index2}${index3}${index5}`" :class="[{'is-expand': item5.isExpand}]">
                         <div class="nav-name" :class="{'is-plugin': item5.isPlugin, 'is-enterprise': item5.isEnterprise}" :title="item5.describe || item5.title" @click="toggleExpand(item5)">
                           <vxe-link v-if="item5.routerLink" :class="['nav-item-link']" :data-code="getApiKey(item5)" :router-link="item5.routerLink" :disabled="item5.isDisabled || item5.isProcess">
                             <span>{{ item5.title }}</span>
@@ -148,6 +148,27 @@ import { NavVO } from '@/common/nav'
 import { VxeTreeInstance } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
+
+function getExpandedDescendants (node: NavVO) {
+  if (!node.isExpand) {
+    return []
+  }
+
+  const result: NavVO[] = []
+  if (!node.children || node.children.length === 0) {
+    return result
+  }
+
+  for (const child of node.children) {
+    result.push(child)
+    if (child.isExpand) {
+      result.push(...getExpandedDescendants(child))
+    }
+  }
+  return result
+}
+
+let navKey = 1000000
 
 export default Vue.extend({
   components: {
@@ -197,6 +218,9 @@ export default Vue.extend({
     createNavList () {
       const navLst = XEUtils.clone(this.navConfigList, true) || []
       XEUtils.eachTree(navLst, item => {
+        if (!item.nId) {
+          item.nId = ++navKey
+        }
         item.title = item.i18nKey ? this.$t(item.i18nKey) as string : item.title
         item.isExpand = item.isExpand || false
         this.handleNavApiParams(item)
@@ -207,6 +231,7 @@ export default Vue.extend({
         XEUtils.each(XEUtils.clone(this.compApiMaps, true), (list, compName) => {
           const name = compName.split('-').slice(1).join('-')
           apiList.push({
+            nId: ++navKey,
             title: `${compName}`,
             name: name,
             isAllAPI: true,
@@ -286,6 +311,11 @@ export default Vue.extend({
     toggleExpand  (item: NavVO) {
       if (item.children && item.children.length) {
         item.isExpand = !item.isExpand
+      }
+      // 动画
+      if (item.isExpand) {
+        const descendantList = getExpandedDescendants(item)
+        console.log(descendantList.length)
       }
     },
     backEvent () {
