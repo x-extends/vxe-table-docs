@@ -515,6 +515,7 @@ if (!appStore.isUtilDocs) {
       transition: transform .2s ease-in-out;
     }
     .nav-name {
+      line-height: 46px;
       cursor: pointer;
       &:hover {
         background-color: var(--vxe-ui-base-hover-background-color);
@@ -523,7 +524,6 @@ if (!appStore.isUtilDocs) {
   }
   .nav-level1 {
     & > .nav-name {
-      line-height: 46px;
       padding: 0 1.2em;
       cursor: pointer;
       &::after {
@@ -538,19 +538,14 @@ if (!appStore.isUtilDocs) {
   }
   .nav-level2 {
     & > .nav-name {
-      line-height: 42px;
       .nav-item-text,
       .nav-item-link {
         padding-left: 3.4em;
       }
     }
-    .nav-item-text {
-      color: var(--vxe-ui-docs-layout-menu-color);
-    }
   }
   .nav-level3 {
     & > .nav-name {
-      line-height: 38px;
       .nav-item-text,
       .nav-item-link {
         padding-left: 5em;
@@ -559,7 +554,6 @@ if (!appStore.isUtilDocs) {
   }
   .nav-level4 {
     & > .nav-name {
-      line-height: 34px;
       .nav-item-text,
       .nav-item-link {
         padding-left: 7.4em;
@@ -568,7 +562,6 @@ if (!appStore.isUtilDocs) {
   }
   .nav-level5 {
     & > .nav-name {
-      line-height: 30px;
       .nav-item-text,
       .nav-item-link {
         padding-left: 9em;
