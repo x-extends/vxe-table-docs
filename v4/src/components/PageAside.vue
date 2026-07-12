@@ -39,8 +39,8 @@
       </vxe-pulldown>
     </div>
     <div class="nav-body">
-      <div class="nav-item nav-level1" v-for="(item1, index1) in navList" :key="index1" :class="[{'is-expand': item1.isExpand}]">
-        <div class="nav-name" :data-nid="item1.nId" :class="{'is-plugin': item1.isPlugin, 'is-enterprise': item1.isEnterprise}" :title="item1.describe || item1.title" @click="toggleExpand(item1)">
+      <div class="nav-item nav-level1" :data-nid="item1.nId" v-for="(item1, index1) in navList" :key="index1" :class="[{'is-expand': item1.isExpand}]">
+        <div class="nav-name" :class="{'is-plugin': item1.isPlugin, 'is-enterprise': item1.isEnterprise}" :title="item1.describe || item1.title" @click="toggleExpand(item1)">
           <vxe-link v-if="item1.routerLink" class="nav-item-link" :status="item1.linkStatus" :router-link="item1.routerLink" :disabled="item1.isDisabled || item1.isProcess" :content="`${item1.title}${item1.children && item1.children.length ? ` (${item1.children.length})` : ''}`"></vxe-link>
           <vxe-link v-else-if="item1.linkUrl" class="nav-item-link" :status="item1.linkStatus" :href="item1.linkUrl" :disabled="item1.isDisabled || item1.isProcess" :target="item1.linkTarget || '_blank'" :content="item1.title"></vxe-link>
           <vxe-link v-else-if="item1.isBack" class="nav-item-link" :status="item1.linkStatus" :content="item1.title" @click="backEvent"></vxe-link>
