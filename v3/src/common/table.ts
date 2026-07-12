@@ -1537,7 +1537,7 @@ export const tableNavConfig: NavVO = {
             { title: '单元格可拖拽调整宽高', routerLink: { name: 'ComponentGridOtherAllRowColDrag' } },
             { title: '实现粘贴上传', routerLink: { name: 'ComponentGridOtherPasteToUpload' } },
             { title: '实现左边树和右边表格', routerLink: { name: 'ComponentGridOtherLeftRight' } },
-            { title: '实现表格穿梭选择', routerLink: { name: 'ComponentGridOtherTableTransfer' } },
+            { title: '实现表格穿梭框选择', routerLink: { name: 'ComponentGridOtherTableTransfer' } },
             { title: '树形实现子节点自定义表头', routerLink: { name: 'ComponentGridOtherTreeSubCols' } },
             { title: '实现复杂的分组列和数据合并大类', routerLink: { name: 'ComponentGridOtherRowColMerge' } }
           ]

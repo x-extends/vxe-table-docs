@@ -106,6 +106,7 @@ const addEvent = () => {
   if ($grid1 && $grid2) {
     const selectRecords = $grid1.getCheckboxRecords()
     if (selectRecords.length) {
+      $grid1.clearCheckboxRow()
       $grid1.remove(selectRecords)
       $grid2.insertAt(selectRecords, -1)
     } else {
@@ -123,6 +124,7 @@ const delEvent = () => {
   if ($grid1 && $grid2) {
     const selectRecords = $grid2.getCheckboxRecords()
     if (selectRecords.length) {
+      $grid2.clearCheckboxRow()
       $grid2.remove(selectRecords)
       $grid1.insertAt(selectRecords, -1)
     } else {
@@ -135,10 +137,10 @@ const delEvent = () => {
 }
 
 const resultEvent1 = () => {
-  const $grid = gridRef1.value
-  if ($grid) {
-    const { insertRecords, removeRecords } = $grid.getRecordset()
-    const tableData = $grid.getFullData()
+  const $grid1 = gridRef1.value
+  if ($grid1) {
+    const { insertRecords, removeRecords } = $grid1.getRecordset()
+    const tableData = $grid1.getFullData()
     VxeUI.modal.message({
       content: `新增：${insertRecords.length} 删除：${removeRecords.length} 现有：${tableData.length}`,
       status: 'success'
@@ -147,10 +149,10 @@ const resultEvent1 = () => {
 }
 
 const resultEvent2 = () => {
-  const $grid = gridRef2.value
-  if ($grid) {
-    const { insertRecords, removeRecords } = $grid.getRecordset()
-    const tableData = $grid.getFullData()
+  const $grid2 = gridRef2.value
+  if ($grid2) {
+    const { insertRecords, removeRecords } = $grid2.getRecordset()
+    const tableData = $grid2.getFullData()
     VxeUI.modal.message({
       content: `新增：${insertRecords.length} 删除：${removeRecords.length} 现有：${tableData.length}`,
       status: 'success'
