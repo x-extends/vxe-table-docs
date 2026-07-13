@@ -5,7 +5,7 @@
         <img :src="`${resBaseUrl}/logo.png`">
         <span class="title">{{ pageTitle }}</span>
       </a>
-      <a  v-if="!isPluginDocs" class="pendant" :href='`https://gitee.com/x-extends/${packName}/stargazers`'>
+      <a  v-if="!isPluginDocs" class="pendant" :href='`https://gitee.com/x-extends/${packName}`'>
         <img :src='`https://gitee.com/x-extends/${packName}/badge/star.svg?theme=gvp`' alt='star'>
       </a>
       <a  v-if="!isPluginDocs" class="pendant" :href="`http://npm-stat.com/charts.html?package=${packName}`">
