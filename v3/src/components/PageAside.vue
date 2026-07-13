@@ -149,25 +149,6 @@ import { VxeTreeInstance } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
 
-function getExpandedDescendants (node: NavVO) {
-  if (!node.isExpand) {
-    return []
-  }
-
-  const result: NavVO[] = []
-  if (!node.children || node.children.length === 0) {
-    return result
-  }
-
-  for (const child of node.children) {
-    result.push(child)
-    if (child.isExpand) {
-      result.push(...getExpandedDescendants(child))
-    }
-  }
-  return result
-}
-
 let navKey = 1000000
 
 export default Vue.extend({
@@ -311,11 +292,6 @@ export default Vue.extend({
     toggleExpand  (item: NavVO) {
       if (item.children && item.children.length) {
         item.isExpand = !item.isExpand
-      }
-      // 动画
-      if (item.isExpand) {
-        const descendantList = getExpandedDescendants(item)
-        console.log(descendantList.length)
       }
     },
     backEvent () {
