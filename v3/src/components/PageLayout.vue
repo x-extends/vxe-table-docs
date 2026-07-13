@@ -61,9 +61,7 @@ export default Vue.extend({
     } else if (window.innerWidth > 1600) {
       asideWidth = 400
     } else if (window.innerWidth < 1000) {
-      asideWidth = 220
-    } else if (window.innerWidth < 900) {
-      asideWidth = 200
+      asideWidth = 320
     }
 
     return {
@@ -97,7 +95,7 @@ export default Vue.extend({
 .app-container {
   .layout-content-container {
     position: relative;
-    min-width: 800px;
+    min-width: 720px;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.12);
   }
   .layout-body {

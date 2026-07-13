@@ -68,9 +68,7 @@ export default Vue.extend({
     } else if (window.innerWidth > 1600) {
       asideWidth = 400
     } else if (window.innerWidth < 1000) {
-      asideWidth = 220
-    } else if (window.innerWidth < 900) {
-      asideWidth = 200
+      asideWidth = 320
     }
 
     return {

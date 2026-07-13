@@ -50,9 +50,7 @@ if (window.innerWidth > 2000) {
 } else if (window.innerWidth > 1600) {
   asideWidth.value = 400
 } else if (window.innerWidth < 1000) {
-  asideWidth.value = 220
-} else if (window.innerWidth < 900) {
-  asideWidth.value = 200
+  asideWidth.value = 320
 }
 
 const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
@@ -79,7 +77,7 @@ provide('pluginType', route.query.pt || '')
 .app-container {
   .layout-content-container {
     position: relative;
-    min-width: 800px;
+    min-width: 720px;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.12);
   }
   .layout-body {

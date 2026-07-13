@@ -60,9 +60,7 @@ if (window.innerWidth > 2000) {
 } else if (window.innerWidth > 1600) {
   asideWidth.value = 400
 } else if (window.innerWidth < 1000) {
-  asideWidth.value = 220
-} else if (window.innerWidth < 900) {
-  asideWidth.value = 200
+  asideWidth.value = 320
 }
 
 const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
