@@ -64,8 +64,10 @@ export default Vue.extend({
       columns: [
         { field: 'seq', type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
+        { field: 'namrolee', title: 'Role' },
         { field: 'sex', title: 'Sex' },
-        { field: 'age', title: 'Age' }
+        { field: 'age', title: 'Age' },
+        { field: 'address', title: 'Address' }
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
