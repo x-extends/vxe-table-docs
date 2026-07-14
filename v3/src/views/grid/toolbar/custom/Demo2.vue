@@ -40,11 +40,11 @@ export default Vue.extend({
         custom: true,
         buttons: [
           // 方式2
-          { name: '自定义个性化列按钮', code: 'custom', round: true, status: 'primary' }
+          { name: '自定义个性化设置按钮', code: 'custom', round: true, status: 'primary' }
         ],
         tools: [
           // 方式3
-          { name: '自定义个性化列按钮', code: 'custom', status: 'success' }
+          { name: '自定义个性化设置按钮', code: 'custom', status: 'success' }
         ]
       },
       columns: [

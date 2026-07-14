@@ -3,7 +3,7 @@
     <CodeLight path="grid/custom/maxHeight/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="弹出层展示模式">
-          在表格设置高度或最小高度的情况下个性化列弹出层默认内部模式（自适应表格高度），表格多高就最大多高；未设置高度情况下默认外部模式（不跟随表格高度）
+          在表格设置高度或最小高度的情况下个性化设置弹出层默认内部模式（自适应表格高度），表格多高就最大多高；未设置高度情况下默认外部模式（不跟随表格高度）
         </vxe-tip>
       </template>
     </CodeLight>

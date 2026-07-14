@@ -25,7 +25,7 @@
       </vxe-colgroup>
       <vxe-column field="num" title="Number">
         <template #header="{ column }">
-          <span style="color: red;">个性化列头{{ column.field }}</span>
+          <span style="color: red;">自定义列头{{ column.field }}</span>
         </template>
       </vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

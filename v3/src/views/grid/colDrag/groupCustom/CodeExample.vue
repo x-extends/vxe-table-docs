@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="grid/colDrag/groupCustom/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="个性化列">
+        <vxe-tip status="primary" title="自定义列">
           分组列头
         </vxe-tip>
       </template>

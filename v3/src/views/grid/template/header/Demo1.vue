@@ -11,7 +11,7 @@
         <vxe-input v-model="headerSex"></vxe-input>
       </template>
       <template #header_group1="{ column }">
-        <span style="color: red;">个性化列头{{ column.field }}</span>
+        <span style="color: red;">自定义列头{{ column.field }}</span>
       </template>
     </vxe-grid>
   </div>

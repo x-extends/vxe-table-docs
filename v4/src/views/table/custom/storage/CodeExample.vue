@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="table/custom/storage/Demo1">
       <template #tip>
-        <vxe-tip status="primary">通过设置唯一 <ApiLink name="table" prop="id"/> 和 <ApiLink name="table" prop="storage"/> 启用个性化列设置本地储存功能</vxe-tip>
+        <vxe-tip status="primary">通过设置唯一 <ApiLink name="table" prop="id"/> 和 <ApiLink name="table" prop="storage"/> 启用个性化设置本地储存功能</vxe-tip>
         <vxe-tip status="error">
           用户个性化记忆功能是根据表格 id 进行保存的，必须确保表格 <ApiLink name="table" prop="id"/> 是整个全局唯一的，同时每一列必须设置唯一 <ApiLink name="table" prop="field"/> 属性,如果是分组列头也一样，需确保是表格内唯一字段名
         </vxe-tip>

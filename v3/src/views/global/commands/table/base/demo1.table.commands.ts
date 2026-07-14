@@ -16,7 +16,7 @@ VxeUI.commands.add('myToolbarLink', {
   }
 })
 
-// 定义工具栏一个个性化列指令
+// 定义工具栏一个个性化设置指令
 VxeUI.commands.add('myToolbarCustom', {
   tableCommandMethod ({ $table }) {
     $table.openCustom()

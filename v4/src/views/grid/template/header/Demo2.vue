@@ -54,7 +54,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       ],
       slots: {
         header ({ column }) {
-          return <span style="color: red;">个性化列头{column.field}</span>
+          return <span style="color: red;">自定义列头{column.field}</span>
         }
       }
     },

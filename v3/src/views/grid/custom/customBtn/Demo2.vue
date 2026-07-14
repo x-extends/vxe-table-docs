@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-button status="primary" @click="openCustomEvent">打开个性化列设置</vxe-button>
+    <vxe-button status="primary" @click="openCustomEvent">打开个性化设置</vxe-button>
 
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #ageHeader="{ column }">

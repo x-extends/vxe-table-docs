@@ -259,7 +259,7 @@ export const tableNavConfig: NavVO = {
           children: [
             { title: '左侧按钮', routerLink: { name: 'ComponentTableToolbarButtons' } },
             { title: '右侧按钮', routerLink: { name: 'ComponentTableToolbarTools' } },
-            { title: '个性化列功能', routerLink: { name: 'ComponentTableToolbarCustom' } },
+            { title: '个性化设置', routerLink: { name: 'ComponentTableToolbarCustom' } },
             { title: '刷新功能', routerLink: { name: 'ComponentTableToolbarRefresh' } },
             { title: '打印功能', routerLink: { name: 'ComponentTableToolbarPrint' } },
             { title: '导入功能', routerLink: { name: 'ComponentTableToolbarImport' } },
@@ -278,7 +278,7 @@ export const tableNavConfig: NavVO = {
           ]
         },
         {
-          title: '个性化列',
+          title: '个性化设置',
           children: [
             { title: '关联工具栏', routerLink: { name: 'ComponentTableCustomToolbar' } },
             { title: '窗口模式', routerLink: { name: 'ComponentTableCustomModal' } },
@@ -726,7 +726,7 @@ export const tableNavConfig: NavVO = {
             { title: '显示隐藏', routerLink: { name: 'ComponentGridRadioVisibleMethod' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRadioTrigger' } },
             { title: '可取消', routerLink: { name: 'ComponentGridRadioStrict' } },
-            { title: '个性化列头按钮', routerLink: { name: 'ComponentGridRadioHeaderBtn' } },
+            { title: '列头按钮', routerLink: { name: 'ComponentGridRadioHeaderBtn' } },
             { title: '自定义模板', routerLink: { name: 'ComponentGridRadioTemplate' } }
           ]
         },
@@ -786,7 +786,7 @@ export const tableNavConfig: NavVO = {
           title: '列拖拽',
           children: [
             { title: '拖拽调整列顺序', routerLink: { name: 'ComponentGridColDragSort' } },
-            { title: '个性化列', routerLink: { name: 'ComponentGridColDragCustom' } },
+            { title: '个性化设置', routerLink: { name: 'ComponentGridColDragCustom' } },
             { title: '冻结列', routerLink: { name: 'ComponentGridColDragFixed' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridColDragIcon' } },
             { title: '拖拽辅助样式', routerLink: { name: 'ComponentGridColDragShowGuidesStatus' } },
@@ -798,7 +798,7 @@ export const tableNavConfig: NavVO = {
                 { title: '跨层级拖拽', routerLink: { name: 'ComponentGridColDragCrossDrag' } },
                 { title: '自己拖拽给自己子级', routerLink: { name: 'ComponentGridColDragSelfToChildDrag' } },
                 { title: '拖拽成子级', routerLink: { name: 'ComponentGridColDragToChildDrag' } },
-                { title: '分组个性化列', routerLink: { name: 'ComponentGridColDragGroupCustom' } }
+                { title: '分组个性化设置', routerLink: { name: 'ComponentGridColDragGroupCustom' } }
               ]
             },
             { title: '触发方式', routerLink: { name: 'ComponentGridColDragTrigger' } },
@@ -1022,7 +1022,7 @@ export const tableNavConfig: NavVO = {
           children: [
             { title: '左侧按钮', routerLink: { name: 'ComponentGridToolbarButtons' } },
             { title: '右侧按钮', routerLink: { name: 'ComponentGridToolbarTools' } },
-            { title: '个性化列功能', routerLink: { name: 'ComponentGridToolbarCustom' } },
+            { title: '个性化设置', routerLink: { name: 'ComponentGridToolbarCustom' } },
             { title: '打印功能', routerLink: { name: 'ComponentGridToolbarPrint' } },
             { title: '最大化显示', routerLink: { name: 'ComponentGridToolbarZoom' } },
             { title: '导入数据', routerLink: { name: 'ComponentGridToolbarImport' } },
@@ -1045,7 +1045,7 @@ export const tableNavConfig: NavVO = {
           ]
         },
         {
-          title: '个性化列',
+          title: '个性化设置',
           children: [
             { title: '使用工具栏', routerLink: { name: 'ComponentGridCustomToolbar' } },
             { title: '窗口模式', routerLink: { name: 'ComponentGridCustomModal' } },
