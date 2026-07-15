@@ -5,6 +5,7 @@ export const navConfigList: NavVO[] = [
   { title: '切换 v4.x 旧版文档', linkUrl: '/v4_old', linkTarget: '_self' },
   {
     i18nKey: 'app.aside.menu.demoTitle',
+    icon: 'vxe-icon-click-button',
     isExpand: false,
     children: [
       { i18nKey: 'app.aside.menu.demoList', routerLink: { name: 'DemoListPreview' } },
@@ -21,6 +22,7 @@ export const navConfigList: NavVO[] = [
   },
   {
     i18nKey: 'app.aside.menu.guide',
+    icon: 'vxe-icon-rich-text',
     isExpand: true,
     children: [
       {
@@ -30,7 +32,7 @@ export const navConfigList: NavVO[] = [
           { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartUIUseGlobal' } },
           { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartUIUseImport' } },
           { i18nKey: 'app.aside.menu.useGlobalCDN', routerLink: { name: 'StartUICDN' } }
-          // { title: '后台管理系统模板', isTemplate: true, linkUrl: 'https://vxeui.com/admin-template/' }
+          // { title: '后台管理系统模板', isTemplate: true, linkUrl: 'https://vxeui.com/admin-template/', linkTarget: '_blank' }
         ]
       },
       {
@@ -40,7 +42,7 @@ export const navConfigList: NavVO[] = [
           { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartTableUseGlobal' } },
           { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartTableUseImport' } },
           { i18nKey: 'app.aside.menu.useGlobalCDN', routerLink: { name: 'StartTableCDN' } }
-          // { title: '使用第三方 UI 库', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input` }
+          // { title: '使用第三方 UI 库', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/grid/edit/el-input`, linkTarget: '_blank' }
         ]
       },
       {
@@ -59,8 +61,8 @@ export const navConfigList: NavVO[] = [
           // { i18nKey: 'app.aside.menu.lazyUseGlobal', routerLink: { name: 'StartDesignUseGlobal' } },
           // { i18nKey: 'app.aside.menu.lazyUseImport', routerLink: { name: 'StartDesignUseImport' } },
           { i18nKey: 'app.aside.menu.useGlobalCDN', routerLink: { name: 'StartDesignCDN' } }
-          // { title: '使用第三方 UI 库', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/form-design/renderView` },
-          // { title: '可视化设计器模板', isTemplate: true, linkUrl: 'https://vxeui.com/design-template/' }
+          // { title: '使用第三方 UI 库', isPlugin: true, linkUrl: `${otherUrl}/#/plugin-render-element/form-design/renderView`, linkTarget: '_blank' },
+          // { title: '可视化设计器模板', isTemplate: true, linkUrl: 'https://vxeui.com/design-template/', linkTarget: '_blank' }
         ]
       },
       { i18nKey: 'app.aside.menu.globalConfig', routerLink: { name: 'StartConfig' } },
@@ -79,14 +81,16 @@ export const navConfigList: NavVO[] = [
   },
   {
     i18nKey: 'app.aside.menu.tools',
+    icon: 'vxe-icon-tools',
     children: [
       { i18nKey: 'app.aside.menu.clipboard', routerLink: { name: 'ToolClipboard' } },
-      { i18nKey: 'app.aside.menu.functions', linkUrl: 'https://util.vxeui.com' }
+      { i18nKey: 'app.aside.menu.functions', linkUrl: 'https://util.vxeui.com', linkTarget: '_blank' }
     ]
   },
   ...(tableNavConfig.children || []),
   {
     title: 'API',
+    icon: 'vxe-icon-doc-search',
     isExpand: true,
     children: []
   }
