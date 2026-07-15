@@ -244,7 +244,7 @@ export const tableNavConfig: NavVO = {
             { title: '自定义后缀', routerLink: { name: 'ComponentTableMenuSuffixConfig' } },
             { title: '完整右键菜单', routerLink: { name: 'ComponentTableMenuFull' } },
             { title: '同步权限控制', routerLink: { name: 'ComponentTableMenuPrivilege' } },
-            { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full` }
+            { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full`, linkTarget: '_blank' }
           ]
         },
         {
@@ -358,7 +358,7 @@ export const tableNavConfig: NavVO = {
             { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentTableCellRenderFormatOption' } },
             { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentTableCellRenderFormatTree' } },
             { title: '实现自定义渲染器', routerLink: { name: 'GlobalRendererTableDefaultApi' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch`, linkTarget: '_blank' }
           ]
         },
         {
@@ -380,7 +380,7 @@ export const tableNavConfig: NavVO = {
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentTableCellTemplateVxeUpload' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentTableCellTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentTableCellTemplateVxeDrawer' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch` },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch`, linkTarget: '_blank' },
             { title: '实现全部单元格可编辑', routerLink: { name: 'ComponentTableCellTemplateAllEdit' } }
           ]
         },
@@ -458,7 +458,7 @@ export const tableNavConfig: NavVO = {
             { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentTableEditRenderVxeTreeSelect' } },
             { title: 'VxeCascader 级联选择', routerLink: { name: 'ComponentTableEditRenderVxeCascader' } },
             { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentTableEditRenderVxeTableSelect' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/edit/el-input` },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/edit/el-input`, linkTarget: '_blank' },
             { title: '事件监听', routerLink: { name: 'ComponentTableEditRenderEvents' } }
           ]
         },
@@ -478,7 +478,7 @@ export const tableNavConfig: NavVO = {
             { title: 'VxePulldown 下拉容器', routerLink: { name: 'ComponentTableEditTemplateVxePulldown' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentTableEditTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentTableEditTemplateVxeDrawer' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/edit/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/edit/el-input`, linkTarget: '_blank' }
           ]
         },
         {
@@ -541,8 +541,8 @@ export const tableNavConfig: NavVO = {
             { title: '导出 XML 格式', routerLink: { name: 'ComponentTableExportXml' } },
             { title: '导出 HTML 格式', routerLink: { name: 'ComponentTableExportHtml' } },
             { title: '导出 CSV 格式', routerLink: { name: 'ComponentTableExportCsv' } },
-            { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/table/export` },
-            { title: '导出 PDF 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-pdf/table/export` },
+            { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/table/export`, linkTarget: '_blank' },
+            { title: '导出 PDF 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-pdf/table/export`, linkTarget: '_blank' },
             { title: '指定数据', routerLink: { name: 'ComponentTableExportData' } },
             { title: '格式化单元格内容', routerLink: { name: 'ComponentTableExportExportMethod' } },
             { title: '高级导出', routerLink: { name: 'ComponentTableExportAdvanced' } },
@@ -553,7 +553,7 @@ export const tableNavConfig: NavVO = {
           title: '导入数据',
           children: [
             { title: '导入数据', routerLink: { name: 'ComponentTableImportBase' } },
-            { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/table/import` },
+            { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/table/import`, linkTarget: '_blank' },
             { title: '高级导入', routerLink: { name: 'ComponentTableImportAdvanced' } }
           ]
         },
@@ -983,7 +983,7 @@ export const tableNavConfig: NavVO = {
             { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridFilterRenderVxeNumberInput' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterRenderVxeSelect' } },
             { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridFilterRenderVxeDatePicker' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/filter/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/filter/el-input`, linkTarget: '_blank' }
           ]
         },
         {
@@ -991,7 +991,7 @@ export const tableNavConfig: NavVO = {
           children: [
             { title: 'VxeInput', routerLink: { name: 'ComponentGridFilterTemplateVxeInput' } },
             { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterTemplateVxeSelect' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/filter/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/filter/el-input`, linkTarget: '_blank' }
           ]
         },
         {
@@ -1004,7 +1004,7 @@ export const tableNavConfig: NavVO = {
             { title: '异步权限控制', routerLink: { name: 'ComponentGridMenuLoading' } },
             { title: '设置宽度', routerLink: { name: 'ComponentGridMenuWidth' } },
             { title: '自定义样式', routerLink: { name: 'ComponentGridMenuClassName' } },
-            { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/grid/full` }
+            { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/grid/full`, linkTarget: '_blank' }
           ]
         },
         {
@@ -1030,7 +1030,7 @@ export const tableNavConfig: NavVO = {
             { title: '刷新列表', routerLink: { name: 'ComponentGridToolbarRefresh' } },
             { title: '完整功能', routerLink: { name: 'ComponentGridToolbarFull' } },
             { title: '自定义图标', routerLink: { name: 'ComponentGridToolbarIcon' } },
-            { title: '自定义第三方图标', isPlugin: true, linkUrl: `${otherUrl}#/other-iconfont/font-class/toolbar/icons` },
+            { title: '自定义第三方图标', isPlugin: true, linkUrl: `${otherUrl}#/other-iconfont/font-class/toolbar/icons`, linkTarget: '_blank' },
             {
               title: '自定义插槽模板',
               children: [
@@ -1166,7 +1166,7 @@ export const tableNavConfig: NavVO = {
             { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentGridCellRenderFormatOption' } },
             { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentGridCellRenderFormatTree' } },
             { title: '实现自定义渲染器', routerLink: { name: 'GlobalRendererTableDefaultApi' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/cell/el-switch` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/cell/el-switch`, linkTarget: '_blank' }
           ]
         },
         {
@@ -1186,7 +1186,7 @@ export const tableNavConfig: NavVO = {
             { title: 'VxeUpload 上传', routerLink: { name: 'ComponentGridCellTemplateVxeUpload' } },
             { title: 'VxeModal 弹窗', routerLink: { name: 'ComponentGridCellTemplateVxeModal' } },
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentGridCellTemplateVxeDrawer' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/cell/el-switch` },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/cell/el-switch`, linkTarget: '_blank' },
             { title: '实现全部单元格可编辑', routerLink: { name: 'ComponentGridCellTemplateAllEdit' } }
           ]
         },
@@ -1250,7 +1250,7 @@ export const tableNavConfig: NavVO = {
             { title: 'VxeTreeSelect 下拉树选择', routerLink: { name: 'ComponentGridEditRenderVxeTreeSelect' } },
             { title: 'VxeCascader 级联拉选', routerLink: { name: 'ComponentGridEditRenderVxeCascader' } },
             { title: 'VxeTableSelect 下拉表格选择', routerLink: { name: 'ComponentGridEditRenderVxeTableSelect' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/edit/el-input` },
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/edit/el-input`, linkTarget: '_blank' },
             { title: '事件监听', routerLink: { name: 'ComponentGridEditRenderEvents' } },
             { title: '阻止激活编辑', routerLink: { name: 'ComponentGridEditRenderBeforeEdit' } },
             { title: '禁用编辑', routerLink: { name: 'ComponentGridEditRenderDisableEdit' } },
@@ -1351,8 +1351,8 @@ export const tableNavConfig: NavVO = {
             { title: '导出 XML 格式', routerLink: { name: 'ComponentGridExportXml' } },
             { title: '导出 HTML 格式', routerLink: { name: 'ComponentGridExportHtml' } },
             { title: '导出 CSV 格式', routerLink: { name: 'ComponentGridExportCsv' } },
-            { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/grid/export` },
-            { title: '导出 PDF 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-pdf/grid/export` },
+            { title: '导出 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/grid/export`, linkTarget: '_blank' },
+            { title: '导出 PDF 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-pdf/grid/export`, linkTarget: '_blank' },
             { title: '自定义数据', routerLink: { name: 'ComponentGridExportData' } },
             { title: '格式化导出内容', routerLink: { name: 'ComponentGridExportExportMethod' } },
             { title: '高级导出', routerLink: { name: 'ComponentGridExportAdvanced' } },
@@ -1383,7 +1383,7 @@ export const tableNavConfig: NavVO = {
             { title: '导入 XML 格式', routerLink: { name: 'ComponentGridImportXml' } },
             { title: '导入 HTML 格式', routerLink: { name: 'ComponentGridImportHtml' } },
             { title: '导入 CSV 格式', routerLink: { name: 'ComponentGridImportCsv' } },
-            { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/grid/import` },
+            { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/grid/import`, linkTarget: '_blank' },
             { title: '高级导入', routerLink: { name: 'ComponentGridImportAdvanced' } },
             { title: '服务端导入', routerLink: { name: 'ComponentGridImportRemote' } },
             {
@@ -1547,12 +1547,12 @@ export const tableNavConfig: NavVO = {
     {
       i18nKey: 'app.aside.menu.tableOtherPlugin',
       children: [
-        { title: '单元格图表插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-chart/grid/bar` },
-        { title: '右键菜单插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full` },
-        { title: '数据校验插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-validator/table/base` },
-        { title: '导出 XLSX 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/table/export` },
-        { title: '导出 PDF 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-pdf/table/export` },
-        { title: '更多第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}` }
+        { title: '单元格图表插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-chart/grid/bar`, linkTarget: '_blank' },
+        { title: '右键菜单插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full`, linkTarget: '_blank' },
+        { title: '数据校验插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-validator/table/base`, linkTarget: '_blank' },
+        { title: '导出 XLSX 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/table/export`, linkTarget: '_blank' },
+        { title: '导出 PDF 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-pdf/table/export`, linkTarget: '_blank' },
+        { title: '更多第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}`, linkTarget: '_blank' }
       ]
     },
     {
@@ -1581,7 +1581,7 @@ export const tableNavConfig: NavVO = {
       children: [
         { title: 'API', routerLink: { name: 'GlobalMenusTableAPI' } },
         { title: '右键菜单', routerLink: { name: 'GlobalMenusTableBase' } },
-        { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full` }
+        { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full`, linkTarget: '_blank' }
       ]
     },
     {
@@ -1596,7 +1596,7 @@ export const tableNavConfig: NavVO = {
       children: [
         { title: 'API', routerLink: { name: 'GlobalValidatorsTableAPI' } },
         { title: '单元格校验', routerLink: { name: 'GlobalValidatorsTableBase' } },
-        { title: '便捷校验配置插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-validator/table/base` }
+        { title: '便捷校验配置插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-validator/table/base`, linkTarget: '_blank' }
       ]
     },
     {
@@ -1614,7 +1614,7 @@ export const tableNavConfig: NavVO = {
             { title: '实现表尾金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFooterAmount' }, keywords: 'cell-render' },
             { title: '实现完整金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFullAmount' }, keywords: 'cell-render' },
             { title: '同时使用 formatter', routerLink: { name: 'GlobalRendererTableDefaultMyCellStyle' }, keywords: 'cell-render' },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch`, linkTarget: '_blank' }
           ]
         },
         {
@@ -1622,7 +1622,7 @@ export const tableNavConfig: NavVO = {
           children: [
             { title: '实现一个金额输入', routerLink: { name: 'GlobalRendererTableEditMyEditAmount' }, keywords: 'edit-render' },
             { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' }, keywords: 'edit-render' },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/edit/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/edit/el-input`, linkTarget: '_blank' }
           ]
         },
         {
@@ -1645,8 +1645,8 @@ export const tableNavConfig: NavVO = {
             { title: '实现一个输入筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterInput' }, keywords: 'filter-render' },
             { title: '实现一个多条件筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterComplex' }, keywords: 'filter-render' },
             { title: '实现一个显示列表的筛选', routerLink: { name: 'GlobalRendererTableFilterMyFilterContent' }, keywords: 'filter-render' },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/filter/el-input`, keywords: 'filter-render' },
-            { title: '更多筛选插件', isEnterprise: true, linkUrl: 'https://vxetable.cn/plugins/' }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/filter/el-input`, linkTarget: '_blank', keywords: 'filter-render' },
+            { title: '更多筛选插件', isEnterprise: true, linkUrl: 'https://vxetable.cn/plugins/', linkTarget: '_blank' }
           ]
         },
         {

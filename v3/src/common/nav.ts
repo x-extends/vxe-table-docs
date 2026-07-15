@@ -4,6 +4,7 @@ export interface NavVO {
   describe?: string
   componentName?: string
   name?: string
+  icon?: string
   i18nKey?: string
   isDisabled?: boolean
   isAllAPI?: boolean

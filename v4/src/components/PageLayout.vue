@@ -4,8 +4,8 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapse-width="1" :collapsed="!showLeft">
-        <PageAside :nav-config-list="navConfigList" />
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft">
+        <PageAside :nav-config-list="navConfigList" :showLeft="showLeft" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
         <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig">
@@ -96,11 +96,6 @@ provide('pluginType', route.query.pt || '')
     }
     .body-view {
       min-height: 80vh;
-    }
-  }
-  .layout-aside {
-    & > .vxe-layout-aside--inner {
-      overflow-y: scroll;
     }
   }
   .app-container {

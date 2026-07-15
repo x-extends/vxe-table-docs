@@ -2,10 +2,8 @@
   <div v-if="pluginType && selectPluginVersion" class="version-list">
     <div class="version-item">
       <div>
-        <vxe-tag status="primary">
-          <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
-          <span>{{ pluginType }}@{{ selectPluginVersion }}</span>
-        </vxe-tag>
+        <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
+        <span>{{ pluginType }}@{{ selectPluginVersion }}</span>
       </div>
     </div>
     <div class="version-btn">
@@ -15,16 +13,12 @@
   <div v-else class="version-list">
     <div class="version-item">
       <div>
-        <vxe-tag status="success">
-          <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
-          <span>{{ packName }}@{{ selectStableVersion }}</span>
-        </vxe-tag>
+        <span class="version-title">{{ $t('app.aside.stableVersion') }}</span>
+        <span>{{ packName }}@{{ selectStableVersion }}</span>
       </div>
       <div v-if="showBetaVersion">
-        <vxe-tag status="warning">
-          <span class="version-title">{{ $t('app.aside.latestVersion') }}</span>
-          <span>{{ packName }}@{{ selectBetaVersion }}</span>
-        </vxe-tag>
+        <span class="version-title">{{ $t('app.aside.latestVersion') }}</span>
+        <span>{{ packName }}@{{ selectBetaVersion }}</span>
       </div>
     </div>
     <div class="version-btn">

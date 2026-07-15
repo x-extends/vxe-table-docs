@@ -229,7 +229,6 @@ export default Vue.extend({
             })
           }) || [])
         ]).then(([text1, ...impTexts]) => {
-          debugger
           this.optionJsCodeText = text1 || this.$t('app.docs.button.noExample')
           this.importOptionJsCodes = impTexts || this.$t('app.docs.button.noExample')
           this.optionJsLoading = false
