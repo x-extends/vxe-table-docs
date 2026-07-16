@@ -39,7 +39,7 @@
       </vxe-pulldown>
     </div>
     <div class="nav-body">
-      <vxe-menu ref="menuRef" v-model="selectNavId" v-bind="menuOptions" :options="navList" @click="clickMenuEvent">
+      <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="navList" @click="clickMenuEvent">
         <template #option-title="{ option }">
           <span>{{ option.title }}</span>
           <span v-if="option.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterprisePluginVersion') }}</span>
@@ -57,7 +57,7 @@
 import Vue, { PropType } from 'vue'
 import { mapActions, mapState } from 'vuex'
 import { NavVO } from '@/common/nav'
-import { VxeTreeInstance, VxeMenuInstance, VxeMenuProps } from 'vxe-pc-ui'
+import { VxeTreeInstance, VxeMenuProps } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
 
@@ -268,12 +268,6 @@ export default Vue.extend({
       }, { children: 'children' })
       if (rest) {
         this.selectNavId = rest.item.nId
-        this.$nextTick(() => {
-          const $menu = this.$refs.menuRef as VxeMenuInstance
-          if ($menu) {
-            $menu.scrollToActiveMenu()
-          }
-        })
       }
     }
   },

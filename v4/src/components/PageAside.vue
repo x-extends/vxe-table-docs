@@ -39,7 +39,7 @@
       </vxe-pulldown>
     </div>
     <div class="nav-body">
-      <vxe-menu ref="menuRef" v-model="selectNavId" v-bind="menuOptions" :options="navList" @click="clickMenuEvent">
+      <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="navList" @click="clickMenuEvent">
         <template #option-title="{ option }">
           <span>{{ option.title }}</span>
           <span v-if="option.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterprisePluginVersion') }}</span>
@@ -54,11 +54,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, nextTick, PropType, reactive } from 'vue'
+import { ref, watch, PropType, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAppStore } from '@/store/app'
 import { NavVO } from '@/common/nav'
-import { VxeTreeInstance, VxeMenuInstance, VxeMenuProps, VxeMenuEvents } from 'vxe-pc-ui'
+import { VxeTreeInstance, VxeMenuProps, VxeMenuEvents } from 'vxe-pc-ui'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
@@ -73,7 +73,6 @@ const router = useRouter()
 const appStore = useAppStore()
 
 const treeRef = ref<VxeTreeInstance>()
-const menuRef = ref<VxeMenuInstance>()
 
 const navList = ref<NavVO[]>([])
 const selectNavId = ref()
@@ -264,12 +263,6 @@ const updateExpand = () => {
   }, { children: 'children' })
   if (rest) {
     selectNavId.value = rest.item.nId
-    nextTick(() => {
-      const $menu = menuRef.value
-      if ($menu) {
-        $menu.scrollToActiveMenu()
-      }
-    })
   }
 }
 
