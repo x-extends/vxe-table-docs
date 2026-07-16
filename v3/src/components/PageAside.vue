@@ -1,6 +1,6 @@
 <template>
   <div ref="asideElemRef" class="page-aside">
-    <div class="nav-top">
+    <div v-if="showLeft" class="nav-top">
       <VersionList />
       <vxe-pulldown v-model="showSearchList" transfer>
         <vxe-input v-model="searchName" class="search-input" type="search" :placeholder="$t('app.aside.docsSearch')" clearable @click="clickSearchEvent" @change="changeSearchEvent"></vxe-input>

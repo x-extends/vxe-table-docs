@@ -2,9 +2,11 @@ import { NavVO, otherUrl } from './nav'
 
 export const tableNavConfig: NavVO = {
   i18nKey: 'app.aside.menu.tableTitle',
+  icon: 'vxe-icon-table',
   children: [
     {
       i18nKey: 'app.aside.menu.tableTableTitle',
+      icon: 'vxe-icon-table',
       children: [
         { title: 'Table API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'table' } }, keywords: 'vxe-table' },
         { title: 'Colgroup API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'colgroup' } } },
@@ -244,7 +246,7 @@ export const tableNavConfig: NavVO = {
             { title: '自定义后缀', routerLink: { name: 'ComponentTableMenuSuffixConfig' } },
             { title: '完整右键菜单', routerLink: { name: 'ComponentTableMenuFull' } },
             { title: '同步权限控制', routerLink: { name: 'ComponentTableMenuPrivilege' } },
-            { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full`, linkTarget: '_blank' }
+            { title: '便捷配置 Code 插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full` }
           ]
         },
         {
@@ -357,7 +359,7 @@ export const tableNavConfig: NavVO = {
             { title: 'FormatNumberInput 格式化数值', routerLink: { name: 'ComponentTableCellRenderFormatNumberInput' } },
             { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentTableCellRenderFormatOption' } },
             { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentTableCellRenderFormatTree' } },
-            { title: '实现自定义渲染器', routerLink: { name: 'GlobalRendererTableDefaultApi' } },
+            { title: '实现自定义渲染器', routerLink: { name: 'GlobalRendererTableDefaultReApi' } },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch`, linkTarget: '_blank' }
           ]
         },
@@ -619,6 +621,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableGridTitle',
+      icon: 'vxe-icon-subtable',
       children: [
         { title: 'Grid API', isSelfAPI: true, routerLink: { name: 'DocsApi', params: { name: 'grid' } }, keywords: 'vxe-grid' },
         {
@@ -914,7 +917,6 @@ export const tableNavConfig: NavVO = {
             { title: '默认展开', routerLink: { name: 'ComponentGridRowGroupExpandGroupFields' } },
             { title: '展示方式', routerLink: { name: 'ComponentGridRowGroupGroupMode' } },
             { title: '触发方式', routerLink: { name: 'ComponentGridRowGroupTrigger' } },
-            { title: '手动操作', routerLink: { name: 'ComponentGridRowGroupHandleSet' } },
             {
               title: '自定义插槽模板',
               children: [
@@ -1165,7 +1167,7 @@ export const tableNavConfig: NavVO = {
             { title: 'FormatNumberInput 格式化数值', routerLink: { name: 'ComponentGridCellRenderFormatNumberInput' } },
             { title: 'FormatSelect 格式化列表选项', routerLink: { name: 'ComponentGridCellRenderFormatOption' } },
             { title: 'FormatTreeSelect 格式化树选项', routerLink: { name: 'ComponentGridCellRenderFormatTree' } },
-            { title: '实现自定义渲染器', routerLink: { name: 'GlobalRendererTableDefaultApi' } },
+            { title: '实现自定义渲染器', routerLink: { name: 'GlobalRendererTableDefaultReApi' } },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/cell/el-switch`, linkTarget: '_blank' }
           ]
         },
@@ -1277,7 +1279,7 @@ export const tableNavConfig: NavVO = {
             { title: 'VxeDrawer 抽屉', routerLink: { name: 'ComponentGridEditTemplateVxeDrawer' } },
             { title: '阻止激活编辑', routerLink: { name: 'ComponentGridEditTemplateBeforeEdit' } },
             { title: '禁用编辑', routerLink: { name: 'ComponentGridEditTemplateDisableEdit' } },
-            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/edit/el-input` }
+            { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/edit/el-input`, linkTarget: '_blank' }
           ]
         },
         {
@@ -1383,7 +1385,7 @@ export const tableNavConfig: NavVO = {
             { title: '导入 XML 格式', routerLink: { name: 'ComponentGridImportXml' } },
             { title: '导入 HTML 格式', routerLink: { name: 'ComponentGridImportHtml' } },
             { title: '导入 CSV 格式', routerLink: { name: 'ComponentGridImportCsv' } },
-            { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/grid/import`, linkTarget: '_blank' },
+            { title: '导入 XLSX 格式', isPlugin: true, linkUrl: `${otherUrl}#/plugin-export-xlsx/grid/import` },
             { title: '高级导入', routerLink: { name: 'ComponentGridImportAdvanced' } },
             { title: '服务端导入', routerLink: { name: 'ComponentGridImportRemote' } },
             {
@@ -1546,6 +1548,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableOtherPlugin',
+      icon: 'vxe-icon-more',
       children: [
         { title: '单元格图表插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-chart/grid/bar`, linkTarget: '_blank' },
         { title: '右键菜单插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-menu/table/full`, linkTarget: '_blank' },
@@ -1557,6 +1560,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableCssVar',
+      icon: 'vxe-icon-style',
       children: [
         { title: '字体大小', routerLink: { name: 'CssVarTableFontSize' } },
         { title: '字体颜色', routerLink: { name: 'CssVarTableFontColor' } },
@@ -1571,6 +1575,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalFormats',
+      icon: 'vxe-icon-code',
       children: [
         { title: 'API', routerLink: { name: 'GlobalFormatsTableAPI' } },
         { title: '单元格', routerLink: { name: 'GlobalFormatsTableBase' } }
@@ -1578,6 +1583,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalMenus',
+      icon: 'vxe-icon-menu',
       children: [
         { title: 'API', routerLink: { name: 'GlobalMenusTableAPI' } },
         { title: '右键菜单', routerLink: { name: 'GlobalMenusTableBase' } },
@@ -1586,6 +1592,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalCommands',
+      icon: 'vxe-icon-tree-select',
       children: [
         { title: 'API', routerLink: { name: 'GlobalCommandsTableAPI' } },
         { title: '工具栏', routerLink: { name: 'GlobalCommandsTableBase' } }
@@ -1593,6 +1600,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalValidators',
+      icon: 'vxe-icon-warning-circle',
       children: [
         { title: 'API', routerLink: { name: 'GlobalValidatorsTableAPI' } },
         { title: '单元格校验', routerLink: { name: 'GlobalValidatorsTableBase' } },
@@ -1601,6 +1609,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalRenderer',
+      icon: 'vxe-icon-code',
       children: [
         { title: 'API', routerLink: { name: 'GlobalRendererTableAPI' } },
         {
@@ -1660,6 +1669,7 @@ export const tableNavConfig: NavVO = {
     },
     {
       i18nKey: 'app.aside.menu.tableGlobalInterceptor',
+      icon: 'vxe-icon-no-drop',
       children: [
         { title: 'API', routerLink: { name: 'GlobalInterceptorTableAPI' } },
         { title: '可编辑 - 兼容性处理', routerLink: { name: 'GlobalInterceptorTableBase' } }
