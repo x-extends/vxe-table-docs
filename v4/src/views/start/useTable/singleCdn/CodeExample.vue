@@ -30,7 +30,7 @@ const resBaseUrl = computed(() => appStore.resBaseUrl)
 const cdnCode = ref('')
 
 const cdnUrl = computed(() => {
-  return `${resBaseUrl.value}/resource/useCdn/vxe-table-v${docsVersion.value}single.html?v=${import.meta.env.VITE_APP_DATE_NOW}`
+  return `${resBaseUrl.value}/resource/useCdn/vxe-table-v${docsVersion.value}-single.html?v=${import.meta.env.VITE_APP_DATE_NOW}`
 })
 
 fetch(cdnUrl.value).then(res => res.text()).then(html => {
