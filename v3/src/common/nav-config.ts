@@ -2,7 +2,7 @@ import { NavVO, otherUrl } from './nav'
 import { tableNavConfig } from './table'
 
 export const navConfigList: NavVO[] = [
-  { title: '切换 v3.x 旧版文档', linkUrl: '/v3_old', linkTarget: '_self' },
+  { title: '切换 v3.x 旧版文档', icon:'vxe-icon-swap', linkUrl: '/v3_old', linkTarget: '_self' },
   {
     i18nKey: 'app.aside.menu.demoTitle',
     icon: 'vxe-icon-click-button',
