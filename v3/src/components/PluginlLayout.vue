@@ -61,14 +61,14 @@ export default Vue.extend({
       position: 'fixed',
       circle: true
     }
-    let asideWidth = 360
 
+    let asideWidth = 360
     if (window.innerWidth > 2000) {
-      asideWidth = 460
+      asideWidth = 500
     } else if (window.innerWidth > 1600) {
       asideWidth = 400
     } else if (window.innerWidth < 1000) {
-      asideWidth = 320
+      asideWidth = 300
     }
 
     return {

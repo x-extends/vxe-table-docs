@@ -337,7 +337,7 @@ if (!appStore.isUtilDocs) {
   &::after {
     content: "";
     position: absolute;
-    left: -0.8em;
+    left: -0.75em;
     top: 50%;
     transform: translateY(-50%);
     border: 0.4em solid transparent;

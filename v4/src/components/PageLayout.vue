@@ -46,11 +46,11 @@ const showLeft = ref(true)
 const asideWidth = ref(360)
 
 if (window.innerWidth > 2000) {
-  asideWidth.value = 460
+  asideWidth.value = 500
 } else if (window.innerWidth > 1600) {
   asideWidth.value = 400
 } else if (window.innerWidth < 1000) {
-  asideWidth.value = 320
+  asideWidth.value = 300
 }
 
 const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
