@@ -111,7 +111,7 @@ provide('pluginType', route.query.pt || '')
   .oper-wrapper {
     position: absolute;
     top: 46vh;
-    width: 0.68em;
+    width: 1em;
     font-size: 14px;
     .oper-btn {
       display: flex;
@@ -120,9 +120,7 @@ provide('pluginType', route.query.pt || '')
       justify-content: center;
       height: 3.2em;
       width: 100%;
-      color: var(--vxe-ui-layout-background-color);
       border-radius: 4px;
-      background-color: #8b8b8b;
       border: 1px solid var(--vxe-ui-input-border-color);
       pointer-events: all;
       cursor: pointer;
@@ -136,7 +134,7 @@ provide('pluginType', route.query.pt || '')
         transform: scale(0.9);
       }
       i {
-        font-size: 0.5em;
+        font-size: 0.9em;
       }
     }
   }
