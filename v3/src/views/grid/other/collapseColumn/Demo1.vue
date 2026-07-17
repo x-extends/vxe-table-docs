@@ -71,13 +71,10 @@ export default Vue.extend({
       ]
     }
 
-    const showGroup1 = true
-    const showGroup2 = true
-
     return {
       gridOptions,
-      showGroup1,
-      showGroup2
+      showGroup1: true,
+      showGroup2: true
     }
   },
   methods: {
