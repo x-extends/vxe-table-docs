@@ -71,18 +71,21 @@ export default Vue.extend({
       ]
     }
 
+    const showGroup1 = true
+    const showGroup2 = true
+
     return {
       gridOptions,
-      showGroup1: true,
-      showGroup2: true
+      showGroup1,
+      showGroup2
     }
   },
   methods: {
     handleGroup1 () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        this.showGroup1.value = !this.showGroup1.value
-        if (this.showGroup1.value) {
+        this.showGroup1 = !this.showGroup1
+        if (this.showGroup1) {
           $grid.showColumn(['role', 'sex'])
         } else {
           $grid.hideColumn(['role', 'sex'])
@@ -92,8 +95,8 @@ export default Vue.extend({
     handleGroup2 () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        this.showGroup2.value = !this.showGroup2.value
-        if (this.showGroup2.value) {
+        this.showGroup2 = !this.showGroup2
+        if (this.showGroup2) {
           $grid.showColumn(['rate', 'address'])
         } else {
           $grid.hideColumn(['rate', 'address'])
