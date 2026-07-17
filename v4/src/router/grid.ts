@@ -2329,6 +2329,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridPrintBase',
           component: () => import('@/views/grid/print/base/CodeExample.vue')
         },
+        { path: 'width', name: 'ComponentGridPrintWidth', component: () => import('@/views/grid/print/width/CodeExample.vue') },
         {
           path: 'beforeMethod',
           name: 'ComponentGridPrintBeforeMethod',

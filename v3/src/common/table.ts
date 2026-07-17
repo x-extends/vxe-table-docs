@@ -1403,6 +1403,7 @@ export const tableNavConfig: NavVO = {
           title: '打印表格',
           children: [
             { title: '打印表格', routerLink: { name: 'ComponentGridPrintBase' } },
+            { title: '列宽', routerLink: { name: 'ComponentGridPrintWidth' } },
             { title: '自定义顶部和底部', routerLink: { name: 'ComponentGridPrintBeforeMethod' } },
             { title: '高级打印', routerLink: { name: 'ComponentGridPrintAdvanced' } },
             { title: '指定列', routerLink: { name: 'ComponentGridPrintColumns' } },
