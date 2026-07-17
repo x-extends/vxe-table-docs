@@ -69,8 +69,8 @@ export default Vue.extend({
     handleGroup1 () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        this.showGroup1.value = !this.showGroup1.value
-        if (this.showGroup1.value) {
+        this.showGroup1 = !this.showGroup1
+        if (this.showGroup1) {
           $table.showColumn(['role', 'sex'])
         } else {
           $table.hideColumn(['role', 'sex'])
@@ -80,8 +80,8 @@ export default Vue.extend({
     handleGroup2 () {
       const $table = this.$refs.tableRef as VxeTableInstance<RowVO>
       if ($table) {
-        this.showGroup2.value = !this.showGroup2.value
-        if (this.showGroup2.value) {
+        this.showGroup2 = !this.showGroup2
+        if (this.showGroup2) {
           $table.showColumn(['rate', 'address'])
         } else {
           $table.hideColumn(['rate', 'address'])
