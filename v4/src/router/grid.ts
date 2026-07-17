@@ -2751,6 +2751,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridOtherVisibleColumn',
           component: () => import('@/views/grid/other/visibleColumn/CodeExample.vue')
         },
+        { path: 'collapseColumn', name: 'ComponentGridOtherCollapseColumn', component: () => import('@/views/grid/other/collapseColumn/CodeExample.vue') },
         {
           path: 'tabs',
           name: 'ComponentGridOtherTabs',

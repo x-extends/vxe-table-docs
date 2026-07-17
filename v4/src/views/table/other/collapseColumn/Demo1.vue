@@ -3,34 +3,36 @@
     <vxe-table
       border
       height="400"
+      ref="tableRef"
       :data="tableData">
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-colgroup field="g1" title="分组1">
         <template #header="{ column }">
-          <vxe-button mode="text" :icon="foldMaps.g1 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="collapsable('g1')"></vxe-button>
+          <vxe-button mode="text" :icon="showGroup1 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="handleGroup1"></vxe-button>
           <span>{{ column.title }}</span>
         </template>
 
         <vxe-column field="name" title="Name" width="200"></vxe-column>
-        <vxe-column field="role" title="Role" :visible="foldMaps.g1" width="200"></vxe-column>
-        <vxe-column field="sex" title="Sex" :visible="foldMaps.g1" width="200"></vxe-column>
+        <vxe-column field="role" title="Role" width="200"></vxe-column>
+        <vxe-column field="sex" title="Sex" width="200"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup field="g2" title="分组2">
         <template #header="{ column }">
-          <vxe-button mode="text" :icon="foldMaps.g2 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="collapsable('g2')"></vxe-button>
+          <vxe-button mode="text" :icon="showGroup2 ? 'vxe-icon-square-minus' : 'vxe-icon-square-plus'" @click="handleGroup2"></vxe-button>
           <span>{{ column.title }}</span>
         </template>
 
         <vxe-column field="age" title="Age" width="200"></vxe-column>
-        <vxe-column field="rate" title="Rate" :visible="foldMaps.g2" width="200"></vxe-column>
-        <vxe-column field="address" title="Address" :visible="foldMaps.g2" width="200"></vxe-column>
+        <vxe-column field="rate" title="Rate" width="200"></vxe-column>
+        <vxe-column field="address" title="Address" width="200"></vxe-column>
       </vxe-colgroup>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
+import { VxeTableInstance } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -41,10 +43,10 @@ interface RowVO {
   address: string
 }
 
-const foldMaps = reactive({
-  g1: true,
-  g2: true
-})
+const tableRef = ref<VxeTableInstance<RowVO>>()
+
+const showGroup1 = ref(true)
+const showGroup2 = ref(true)
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
@@ -57,7 +59,27 @@ const tableData = ref<RowVO[]>([
   { id: 10008, name: 'Test8', role: 'Develop', sex: 'Man', age: 35, address: 'test abc' }
 ])
 
-const collapsable = (key: string) => {
-  foldMaps[key] = !foldMaps[key]
+const handleGroup1 = () => {
+  const $table = tableRef.value
+  if ($table) {
+    showGroup1.value = !showGroup1.value
+    if (showGroup1.value) {
+      $table.showColumn(['role', 'sex'])
+    } else {
+      $table.hideColumn(['role', 'sex'])
+    }
+  }
+}
+
+const handleGroup2 = () => {
+  const $table = tableRef.value
+  if ($table) {
+    showGroup2.value = !showGroup2.value
+    if (showGroup2.value) {
+      $table.showColumn(['rate', 'address'])
+    } else {
+      $table.hideColumn(['rate', 'address'])
+    }
+  }
 }
 </script>

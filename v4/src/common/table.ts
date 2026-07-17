@@ -1526,6 +1526,7 @@ export const tableNavConfig: NavVO = {
             { title: '紧凑型单元格', routerLink: { name: 'ComponentGridOtherCompactCell' } },
             { title: '单元格性能优化', routerLink: { name: 'ComponentGridOtherOptimization' } },
             { title: '操作列的显示隐藏', routerLink: { name: 'ComponentGridOtherVisibleColumn' } },
+            { title: '实现折叠列', routerLink: { name: 'ComponentGridOtherCollapseColumn' } },
             { title: '在页签中使用', routerLink: { name: 'ComponentGridOtherTabs' } },
             { title: '定位行、定位列的使用', routerLink: { name: 'ComponentGridOtherScrollTo' } },
             { title: '实现数据自动滚动', routerLink: { name: 'ComponentGridOtherAutoScroll' } },
