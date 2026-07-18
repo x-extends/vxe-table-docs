@@ -129,7 +129,7 @@ export default Vue.extend({
   .oper-wrapper {
     position: absolute;
     top: 46vh;
-    width: 1em;
+    width: 0.68em;
     font-size: 14px;
     .oper-btn {
       display: flex;
@@ -138,8 +138,9 @@ export default Vue.extend({
       justify-content: center;
       height: 3.2em;
       width: 100%;
+      color: var(--vxe-ui-layout-background-color);
       border-radius: 4px;
-      border: 1px solid var(--vxe-ui-input-border-color);
+      background-color: var(--vxe-ui-splitter-handle-button-background-color);
       pointer-events: all;
       cursor: pointer;
       user-select: none;
@@ -152,7 +153,7 @@ export default Vue.extend({
         transform: scale(0.9);
       }
       i {
-        font-size: 0.9em;
+        font-size: 0.5em;
       }
     }
   }
