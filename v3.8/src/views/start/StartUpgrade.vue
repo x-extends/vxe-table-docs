@@ -122,7 +122,7 @@ export default {
     fetch(`https://vxeui.com/component-api/vxe-version.json?v=${process.env.VUE_APP_DATE_NOW}`).then(res => {
       res.json().then(data => {
         if (data && data['vxe-table']) {
-          this.utilsLatest = data['xe-utils']['v3-latest']
+          this.utilsLatest = data['xe-utils'].stable
           this.uiLatest = data['vxe-pc-ui']['v3-latest']
           this.tableLatest = data['vxe-table']['v3-latest']
         }

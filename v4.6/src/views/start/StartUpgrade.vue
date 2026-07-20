@@ -111,7 +111,7 @@ export default defineComponent({
     fetch(`https://vxeui.com/component-api/vxe-version.json?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(res => {
       res.json().then(data => {
         if (data && data['vxe-table']) {
-          this.utilsLatest = data['xe-utils']['v3-latest']
+          this.utilsLatest = data['xe-utils'].stable
           this.uiLatest = data['vxe-pc-ui']['v4-latest']
           this.tableLatest = data['vxe-table']['v4-latest']
         }
