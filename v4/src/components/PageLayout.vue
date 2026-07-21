@@ -111,16 +111,16 @@ provide('pluginType', route.query.pt || '')
   .oper-wrapper {
     position: absolute;
     top: 46vh;
-    width: 0.68em;
+    left: 0.2em;
+    width: var(--vxe-ui-splitter-handle-bar-horizontal-action-btn-width);
     font-size: 14px;
     .oper-btn {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      height: 3.2em;
+      height: var(--vxe-ui-splitter-handle-bar-horizontal-action-btn-height);
       width: 100%;
-      color: var(--vxe-ui-layout-background-color);
       border-radius: 4px;
       background-color: var(--vxe-ui-splitter-handle-button-background-color);
       pointer-events: all;
