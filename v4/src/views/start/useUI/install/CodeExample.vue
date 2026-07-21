@@ -37,6 +37,10 @@
             import 'vxe-table/es/style.css'
             // ...
 
+            // 打印版本号
+            console.log(`UI=${VxeUI.uiVersion} Table=${VxeUI.tableVersion} Gantt=${VxeUI.ganttVersion} Design=${VxeUI.designVersion}`)
+            // ...
+
             createApp(App).use(VxeUIBase).use(VxeUITable).mount('#app')
             // ...">
           </pre-code>

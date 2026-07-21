@@ -29,7 +29,7 @@
           </pre-code>
           <pre-code
             language="javascript"
-            :content="`
+            content="
               // ...
               import VxeUIBase from 'vxe-pc-ui'
               import 'vxe-pc-ui/es/style.css'
@@ -37,10 +37,14 @@
               import 'vxe-table/es/style.css'
               // ...
 
+              // 打印版本号
+              console.log(`UI=${VxeUI.uiVersion} Table=${VxeUI.tableVersion} Gantt=${VxeUI.ganttVersion} Design=${VxeUI.designVersion}`)
+              // ...
+
               Vue.use(VxeUIBase)
               Vue.use(VxeUITable)
               //...
-            `">
+            ">
           </pre-code>
         </pre>
         <vxe-tip status="error" title="建议版本号">
