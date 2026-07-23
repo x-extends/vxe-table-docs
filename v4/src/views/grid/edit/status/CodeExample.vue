@@ -19,7 +19,7 @@
     <CodeLight path="grid/edit/status/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          当列 <ApiLink name="column" prop="edit-render"/> | <ApiLink name="column" prop="cell-render"/> 字段之外的列字段被修改时，默认是不会改变单元格或行编辑状态的，需要通过 <ApiLink name="grid" prop="edit-dirty-config"/>.<ApiLink name="grid" prop="extraFields"/> | <ApiLink name="grid" prop="edit-dirty-config"/>.<ApiLink name="grid" prop="includeFields"/> | <ApiLink name="grid" prop="edit-dirty-config"/>.<ApiLink name="grid" prop="excludeFields"/> 来指定或排查字段
+          当列 <ApiLink name="column" prop="edit-render"/> | <ApiLink name="column" prop="cell-render"/> 字段之外的列字段被修改时，默认是不会改变单元格或行编辑状态的，需要通过 <ApiLink name="grid" prop="edit-dirty-config"/>.<ApiLink name="grid" prop="extraFields"/> 或者 <ApiLink name="grid" prop="edit-dirty-config"/>.<ApiLink name="grid" prop="includeFields"/>,<ApiLink name="grid" prop="edit-dirty-config"/>.<ApiLink name="grid" prop="excludeFields"/> 来指定或排查字段
         </vxe-tip>
       </template>
     </CodeLight>
