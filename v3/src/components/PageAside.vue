@@ -7,39 +7,39 @@
 
         <template #dropdown>
           <div class="nav-search-wrapper">
-            <div v-if="searchName && searchList.length">
-              <vxe-tree
-                is-hover
-                ref="treeRef"
-                :data="searchList"
-                title-field="title"
-                children-field="searchResult"
-                trigger="node">
-                <template #title="{ node }">
-                  <vxe-link v-if="node.routerLink" status="primary" :data-code="getApiKey(node)" :router-link="node.routerLink" @click="searchRowClickEvent">
-                    <span v-html="node.title"></span>
-                  </vxe-link>
-                  <vxe-link v-else-if="node.linkUrl" status="primary" :href="node.linkUrl" target="_blank">
-                    <span v-html="node.title"></span>
-                  </vxe-link>
-                  <span v-else v-html="node.title" ></span>
-                </template>
-              </vxe-tree>
+            <div v-if="searchList.length" class="nav-search-header">
+              <vxe-button mode="text" status="primary" @click="allExpandEvent">展开全部</vxe-button>
+              <vxe-button mode="text" status="primary" @click="clearExpandEvent">收起全部</vxe-button>
             </div>
-            <div v-else class="nav-search-empty">
-              <div v-if="!searchName">{{ $t('app.aside.searchPlaceholder') }}</div>
-              <div v-else-if="searchLoading">
-                <vxe-icon name="refresh" roll></vxe-icon>
-                <span>{{ $t('app.aside.searchLoadingText') }}</span>
-              </div>
-              <div v-else v-html="$t('app.aside.searchResultHtml', [searchName])"></div>
-            </div>
+            <vxe-tree ref="treeRef" v-bind="searchTreeOptions" :data="searchList">
+              <template #title="{ node }">
+                <vxe-link v-if="node.routerLink" status="primary" :data-code="getApiKey(node)" :router-link="node.routerLink" @click="searchRowClickEvent">
+                  <span v-html="node.title"></span>
+                </vxe-link>
+                <vxe-link v-else-if="node.linkUrl" status="primary" :href="node.linkUrl" target="_blank">
+                  <span v-html="node.title"></span>
+                </vxe-link>
+                <span v-else v-html="node.title" ></span>
+              </template>
+
+              <template #empty>
+                <div class="nav-search-empty">
+                  <div v-if="!searchName">{{ $t('app.aside.searchPlaceholder') }}</div>
+                  <div v-else-if="searchLoading">
+                    <vxe-icon name="refresh" roll></vxe-icon>
+                    <span>{{ $t('app.aside.searchLoadingText') }}</span>
+                  </div>
+                  <div v-else v-html="$t('app.aside.searchResultHtml', [searchName])"></div>
+                </div>
+              </template>
+            </vxe-tree>
+            <div v-if="searchList.length" class="nav-search-result">共找到 {{ searchList.length }} 条结果</div>
           </div>
         </template>
       </vxe-pulldown>
     </div>
     <div class="nav-body">
-      <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="navList" @click="clickMenuEvent">
+      <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="menuTreeList" @click="clickMenuEvent">
         <template #option-title="{ option }">
           <span>{{ option.title }}</span>
           <span v-if="option.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterprisePluginVersion') }}</span>
@@ -57,7 +57,7 @@
 import Vue, { PropType } from 'vue'
 import { mapActions, mapState } from 'vuex'
 import { NavVO } from '@/common/nav'
-import { VxeTreeInstance, VxeMenuProps } from 'vxe-pc-ui'
+import { VxeTreeInstance, VxeTreeProps, VxeMenuProps } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
 
@@ -76,6 +76,26 @@ export default Vue.extend({
   },
   data () {
     const selectNavId = null as number | null | undefined
+    const menuTreeList: NavVO[] = []
+    const searchTreeList: NavVO[] = []
+
+    const searchTreeOptions: VxeTreeProps<NavVO> = {
+      height: Math.max(400, Math.min(800, document.documentElement.clientHeight * 0.6)),
+      transform: true,
+      keyField: 'nId',
+      parentField: 'pId',
+      titleField: 'title',
+      trigger: 'node',
+      nodeConfig: {
+        isHover: true,
+        isCurrent: true
+      },
+      virtualYConfig: {
+        enabled: true,
+        gt: 0
+      }
+    }
+
     const menuOptions: VxeMenuProps = {
       collapseFixed: true,
       expandKeys: [],
@@ -89,15 +109,23 @@ export default Vue.extend({
       }
     }
 
+    const searchName = ''
+    const showSearchList = false
+    const searchLoading = false
+    const searchList: NavVO[] = []
+    const loadApiStatus = false
+
     return {
       selectNavId,
+      searchTreeOptions,
       menuOptions,
-      navList: [] as NavVO[],
-      searchList: [] as NavVO[],
-      searchName: '',
-      showSearchList: false,
-      searchLoading: false,
-      loadApiStatus: false
+      menuTreeList,
+      searchTreeList,
+      searchName,
+      showSearchList,
+      searchLoading,
+      loadApiStatus,
+      searchList
     }
   },
   computed: {
@@ -120,17 +148,21 @@ export default Vue.extend({
       }
     },
     updateTitle  () {
-      XEUtils.eachTree(this.navList, (item) => {
+      XEUtils.eachTree(this.menuTreeList, (item) => {
+        item.title = item.i18nKey ? this.$t(item.i18nKey) as string : item.title
+      }, { children: 'children' })
+      XEUtils.eachTree(this.searchTreeList, (item) => {
         item.title = item.i18nKey ? this.$t(item.i18nKey) as string : item.title
       }, { children: 'children' })
     },
     createNavList () {
       const expandKeys: number[] = []
-      const navLst = XEUtils.clone(this.navConfigList, true) || []
-      XEUtils.eachTree(navLst, item => {
+      const menuNavLst = XEUtils.clone(this.navConfigList, true) || []
+      XEUtils.eachTree(menuNavLst, (item, index, items, path, parentItem) => {
         if (!item.nId) {
           item.nId = ++navKey
         }
+        item.pId = parentItem ? parentItem.nId : null
         item.title = item.i18nKey ? this.$t(item.i18nKey) as string : item.title
         item.isExpand = item.isExpand || false
         if (item.isExpand) {
@@ -138,18 +170,58 @@ export default Vue.extend({
         }
         this.handleNavApiParams(item)
       }, { children: 'children' })
-      const apiItem = navLst.find(item => item.title === 'API')
-      if (apiItem) {
+      const mApiItem = menuNavLst.find(item => item.title === 'API')
+      if (mApiItem) {
         const apiList: NavVO[] = []
         XEUtils.each(XEUtils.clone(this.compApiMaps, true), (list, compName) => {
           const name = compName.split('-').slice(1).join('-')
           apiList.push({
             nId: ++navKey,
+            pId: mApiItem.nId,
+            title: `${compName}`,
+            name: name,
+            isAllAPI: true,
+            routerLink: { name: 'DocsApi', params: { name } }
+          })
+        })
+        mApiItem.children = apiList
+      }
+      this.menuTreeList = XEUtils.clone(menuNavLst, true)
+      this.menuOptions.expandKeys = expandKeys
+
+      const searchNavLst = XEUtils.clone(this.navConfigList, true) || []
+      XEUtils.eachTree(searchNavLst, (item, index, items, path, parentItem) => {
+        if (!item.nId) {
+          item.nId = ++navKey
+        }
+        item.pId = parentItem ? parentItem.nId : null
+        item.title = item.i18nKey ? this.$t(item.i18nKey) as string : item.title
+        item.isExpand = item.isExpand || false
+        if (item.isExpand) {
+          expandKeys.push(item.nId)
+        }
+        this.handleNavApiParams(item)
+      }, { children: 'children' })
+      const sApiItem = searchNavLst.find(item => item.title === 'API')
+      if (sApiItem) {
+        const apiList: NavVO[] = []
+        XEUtils.each(XEUtils.clone(this.compApiMaps, true), (list, compName) => {
+          const name = compName.split('-').slice(1).join('-')
+          apiList.push({
+            nId: ++navKey,
+            pId: sApiItem.nId,
             title: `${compName}`,
             name: name,
             isAllAPI: true,
             routerLink: { name: 'DocsApi', params: { name } },
-            children: XEUtils.mapTree(list, obj => {
+            children: XEUtils.mapTree(list, (obj, index, Objs, path, parentObj) => {
+              if (!obj) {
+                debugger
+              }
+              if (!obj.nId) {
+                obj.nId = ++navKey
+              }
+              obj.pId = parentObj ? parentObj.nId : null
               obj.title = obj.name
               obj.routerLink = {
                 name: 'DocsApi',
@@ -160,20 +232,20 @@ export default Vue.extend({
             }, { children: 'list', mapChildren: 'children' })
           })
         })
-        apiItem.children = apiList
+        sApiItem.children = apiList
       }
-      const list = XEUtils.clone(navLst, true)
-      this.navList = list
-      this.menuOptions.expandKeys = expandKeys
+
+      this.searchTreeList = XEUtils.clone(searchNavLst, true)
       this.updateExpand()
     },
     handleSearch () {
       const filterName = XEUtils.toValueString(this.searchName).trim()
       if (filterName) {
         const filterRE = new RegExp(`${filterName}|${XEUtils.camelCase(filterName)}|${XEUtils.kebabCase(filterName)}`, 'i')
-        const rest = XEUtils.searchTree(this.navList, (item) => {
+        const rest = XEUtils.searchTree(this.searchTreeList, (item) => {
           return filterRE.test(item.title || '') || (item.describe && filterRE.test(item.describe || '')) || !!(item.keywords && item.keywords.split(',').some(key => filterRE.test(key)))
         }, { children: 'children', mapChildren: 'searchResult' })
+        const allList: NavVO[] = []
         XEUtils.eachTree(rest, (item) => {
           if (filterRE.test(item.title || '')) {
             item.title = `${item.title || ''}`.replace(filterRE, (match) => `<span class="keyword-lighten">${match}</span>`)
@@ -182,21 +254,26 @@ export default Vue.extend({
           } else if (item.keywords && item.keywords.split(',').some(key => filterRE.test(key))) {
             item.title = `<span>${item.title || ''}<span class="keyword-lighten"> ...${filterName}...</span></span>`
           }
+          const obj = Object.assign({}, item, { children: undefined, searchResult: undefined })
+          allList.push(obj)
         }, { children: 'searchResult' })
-        this.searchList = rest
-        this.searchList.forEach(group => {
-          group.isExpand = true
-        })
+        this.searchList = allList
       } else {
         this.searchList = []
       }
       this.searchLoading = false
-      setTimeout(() => this.expandAllApiTree(), 100)
+      setTimeout(() => this.expandAllApiTree(true), 100)
     },
     // 调用频率间隔 500 毫秒
     searchEvent: XEUtils.debounce(function (this: any) {
       this.handleSearch()
-    }, 500, { leading: false, trailing: true }),
+    }, 300, { leading: false, trailing: true }),
+    allExpandEvent () {
+      this.expandAllApiTree(true)
+    },
+    clearExpandEvent () {
+      this.expandAllApiTree(false)
+    },
     clickSearchEvent  () {
       this.searchLoading = true
       if (!this.showSearchList) {
@@ -216,10 +293,10 @@ export default Vue.extend({
     searchRowClickEvent  () {
       this.showSearchList = false
     },
-    expandAllApiTree  () {
+    expandAllApiTree (expanded: boolean) {
       const $tree = this.$refs.treeRef as VxeTreeInstance
       if ($tree) {
-        $tree.setAllExpandNode(true)
+        $tree.setAllExpandNode(expanded)
       }
     },
     clickMenuEvent ({ option }) {
@@ -247,7 +324,7 @@ export default Vue.extend({
       const routeName = route.name
       const apiKey = route.query.apiKey
       const apiName = route.params.name
-      const rest = XEUtils.findTree(this.navList, (item) => {
+      const rest = XEUtils.findTree(this.menuTreeList, (item) => {
         const { routerLink } = item
         if (!routerLink) {
           return false
@@ -367,14 +444,21 @@ export default Vue.extend({
 }
 
 .nav-search-wrapper {
-  max-height: 70vh;
+  --vxe-ui-tree-node-padding: 16px;
   width: 600px;
-  padding: 32px;
   overflow: auto;
   border-radius: 4px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   background-color: var(--vxe-ui-docs-layout-background-color);
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+}
+.nav-search-header {
+  padding: 8px 16px 8px 16px;
+}
+.nav-search-result {
+  text-align: right;
+  color: var(--vxe-ui-input-placeholder-color);
+  padding: 8px 16px 8px 16px;
 }
 .nav-search-empty {
   padding: 40px 16px;

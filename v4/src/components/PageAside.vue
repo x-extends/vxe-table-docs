@@ -7,39 +7,39 @@
 
         <template #dropdown>
           <div class="nav-search-wrapper">
-            <div v-if="searchName && searchList.length">
-              <vxe-tree
-                is-hover
-                ref="treeRef"
-                :data="searchList"
-                title-field="title"
-                children-field="searchResult"
-                trigger="node">
-                <template #title="{ node }">
-                  <vxe-link v-if="node.routerLink" status="primary" :data-code="getApiKey(node)" :router-link="node.routerLink" @click="searchRowClickEvent">
-                    <span v-html="node.title"></span>
-                  </vxe-link>
-                  <vxe-link v-else-if="node.linkUrl" status="primary" :href="node.linkUrl" target="_blank">
-                    <span v-html="node.title"></span>
-                  </vxe-link>
-                  <span v-else v-html="node.title" ></span>
-                </template>
-              </vxe-tree>
+            <div v-if="searchList.length" class="nav-search-header">
+              <vxe-button mode="text" status="primary" @click="allExpandEvent">展开全部</vxe-button>
+              <vxe-button mode="text" status="primary" @click="clearExpandEvent">收起全部</vxe-button>
             </div>
-            <div v-else class="nav-search-empty">
-              <div v-if="!searchName">{{ $t('app.aside.searchPlaceholder') }}</div>
-              <div v-else-if="searchLoading">
-                <vxe-icon name="refresh" roll></vxe-icon>
-                <span>{{ $t('app.aside.searchLoadingText') }}</span>
-              </div>
-              <div v-else v-html="$t('app.aside.searchResultHtml', [searchName])"></div>
-            </div>
+            <vxe-tree ref="treeRef" v-bind="searchTreeOptions" :data="searchList">
+              <template #title="{ node }">
+                <vxe-link v-if="node.routerLink" status="primary" :data-code="getApiKey(node)" :router-link="node.routerLink" @click="searchRowClickEvent">
+                  <span v-html="node.title"></span>
+                </vxe-link>
+                <vxe-link v-else-if="node.linkUrl" status="primary" :href="node.linkUrl" target="_blank">
+                  <span v-html="node.title"></span>
+                </vxe-link>
+                <span v-else v-html="node.title" ></span>
+              </template>
+
+              <template #empty>
+                <div class="nav-search-empty">
+                  <div v-if="!searchName">{{ $t('app.aside.searchPlaceholder') }}</div>
+                  <div v-else-if="searchLoading">
+                    <vxe-icon name="refresh" roll></vxe-icon>
+                    <span>{{ $t('app.aside.searchLoadingText') }}</span>
+                  </div>
+                  <div v-else v-html="$t('app.aside.searchResultHtml', [searchName])"></div>
+                </div>
+              </template>
+            </vxe-tree>
+            <div v-if="searchList.length" class="nav-search-result">共找到 {{ searchList.length }} 条结果</div>
           </div>
         </template>
       </vxe-pulldown>
     </div>
     <div class="nav-body">
-      <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="navList" @click="clickMenuEvent">
+      <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="menuTreeList" @click="clickMenuEvent">
         <template #option-title="{ option }">
           <span>{{ option.title }}</span>
           <span v-if="option.isEnterprise" class="nav-item-enterprise-icon">{{ $t('app.aside.enterprisePluginVersion') }}</span>
@@ -58,7 +58,7 @@ import { ref, watch, PropType, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAppStore } from '@/store/app'
 import { NavVO } from '@/common/nav'
-import { VxeTreeInstance, VxeMenuProps, VxeMenuEvents } from 'vxe-pc-ui'
+import { VxeTreeInstance, VxeTreeProps, VxeMenuProps, VxeMenuEvents } from 'vxe-pc-ui'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
@@ -74,7 +74,8 @@ const appStore = useAppStore()
 
 const treeRef = ref<VxeTreeInstance>()
 
-const navList = ref<NavVO[]>([])
+const menuTreeList = ref<NavVO[]>([])
+const searchTreeList = ref<NavVO[]>([])
 const selectNavId = ref()
 
 const searchName = ref('')
@@ -82,6 +83,23 @@ const showSearchList = ref(false)
 const searchLoading = ref(false)
 const searchList = ref<NavVO[]>([])
 let loadApiStatus = false
+
+const searchTreeOptions = reactive<VxeTreeProps<NavVO>>({
+  height: Math.max(400, Math.min(800, document.documentElement.clientHeight * 0.6)),
+  transform: true,
+  keyField: 'nId',
+  parentField: 'pId',
+  titleField: 'title',
+  trigger: 'node',
+  nodeConfig: {
+    isHover: true,
+    isCurrent: true
+  },
+  virtualYConfig: {
+    enabled: true,
+    gt: 0
+  }
+})
 
 const menuOptions = reactive<VxeMenuProps>({
   collapseFixed: true,
@@ -112,7 +130,10 @@ const handleNavApiParams = (item: NavVO) => {
 }
 
 const updateTitle = () => {
-  XEUtils.eachTree(navList.value, (item) => {
+  XEUtils.eachTree(menuTreeList.value, (item) => {
+    item.title = item.i18nKey ? i18n.global.t(item.i18nKey) : item.title
+  }, { children: 'children' })
+  XEUtils.eachTree(searchTreeList.value, (item) => {
     item.title = item.i18nKey ? i18n.global.t(item.i18nKey) : item.title
   }, { children: 'children' })
 }
@@ -121,11 +142,12 @@ let navKey = 1000000
 
 const createNavList = () => {
   const expandKeys: number[] = []
-  const navLst = XEUtils.clone(props.navConfigList, true) || []
-  XEUtils.eachTree(navLst, item => {
+  const menuNavLst = XEUtils.clone(props.navConfigList, true) || []
+  XEUtils.eachTree(menuNavLst, (item, index, items, path, parentItem) => {
     if (!item.nId) {
       item.nId = ++navKey
     }
+    item.pId = parentItem ? parentItem.nId : null
     item.title = item.i18nKey ? i18n.global.t(item.i18nKey) : item.title
     item.isExpand = item.isExpand || false
     if (item.isExpand) {
@@ -133,18 +155,55 @@ const createNavList = () => {
     }
     handleNavApiParams(item)
   }, { children: 'children' })
-  const apiItem = navLst.find(item => item.title === 'API')
-  if (apiItem) {
+  const mApiItem = menuNavLst.find(item => item.title === 'API')
+  if (mApiItem) {
     const apiList: NavVO[] = []
     XEUtils.each(XEUtils.clone(appStore.compApiMaps, true), (list, compName) => {
       const name = compName.split('-').slice(1).join('-')
       apiList.push({
         nId: ++navKey,
+        pId: mApiItem.nId,
+        title: `${compName}`,
+        name: name,
+        isAllAPI: true,
+        routerLink: { name: 'DocsApi', params: { name } }
+      })
+    })
+    mApiItem.children = apiList
+  }
+  menuTreeList.value = XEUtils.clone(menuNavLst, true)
+  menuOptions.expandKeys = expandKeys
+
+  const searchNavLst = XEUtils.clone(props.navConfigList, true) || []
+  XEUtils.eachTree(searchNavLst, (item, index, items, path, parentItem) => {
+    if (!item.nId) {
+      item.nId = ++navKey
+    }
+    item.pId = parentItem ? parentItem.nId : null
+    item.title = item.i18nKey ? i18n.global.t(item.i18nKey) : item.title
+    item.isExpand = item.isExpand || false
+    if (item.isExpand) {
+      expandKeys.push(item.nId)
+    }
+    handleNavApiParams(item)
+  }, { children: 'children' })
+  const sApiItem = searchNavLst.find(item => item.title === 'API')
+  if (sApiItem) {
+    const apiList: NavVO[] = []
+    XEUtils.each(XEUtils.clone(appStore.compApiMaps, true), (list, compName) => {
+      const name = compName.split('-').slice(1).join('-')
+      apiList.push({
+        nId: ++navKey,
+        pId: sApiItem.nId,
         title: `${compName}`,
         name: name,
         isAllAPI: true,
         routerLink: { name: 'DocsApi', params: { name } },
-        children: XEUtils.mapTree(list, obj => {
+        children: XEUtils.mapTree(list, (obj, index, Objs, path, parentObj) => {
+          if (!obj.nId) {
+            obj.nId = ++navKey
+          }
+          obj.pId = parentObj ? parentObj.nId : null
           obj.title = obj.name
           obj.routerLink = {
             name: 'DocsApi',
@@ -155,11 +214,10 @@ const createNavList = () => {
         }, { children: 'list', mapChildren: 'children' })
       })
     })
-    apiItem.children = apiList
+    sApiItem.children = apiList
   }
-  const list = XEUtils.clone(navLst, true)
-  navList.value = list
-  menuOptions.expandKeys = expandKeys
+
+  searchTreeList.value = XEUtils.clone(searchNavLst, true)
   updateExpand()
 }
 
@@ -167,9 +225,10 @@ const handleSearch = () => {
   const filterName = XEUtils.toValueString(searchName.value).trim()
   if (filterName) {
     const filterRE = new RegExp(`${filterName}|${XEUtils.camelCase(filterName)}|${XEUtils.kebabCase(filterName)}`, 'i')
-    const rest = XEUtils.searchTree(navList.value, (item) => {
+    const rest = XEUtils.searchTree(searchTreeList.value, (item) => {
       return filterRE.test(item.title || '') || (item.describe && filterRE.test(item.describe || '')) || !!(item.keywords && item.keywords.split(',').some(key => filterRE.test(key)))
     }, { children: 'children', mapChildren: 'searchResult' })
+    const allList: NavVO[] = []
     XEUtils.eachTree(rest, (item) => {
       if (filterRE.test(item.title || '')) {
         item.title = `${item.title || ''}`.replace(filterRE, (match) => `<span class="keyword-lighten">${match}</span>`)
@@ -178,20 +237,27 @@ const handleSearch = () => {
       } else if (item.keywords && item.keywords.split(',').some(key => filterRE.test(key))) {
         item.title = `<span>${item.title || ''}<span class="keyword-lighten"> ...${filterName}...</span></span>`
       }
+      const obj = Object.assign({}, item, { children: undefined, searchResult: undefined })
+      allList.push(obj)
     }, { children: 'searchResult' })
-    searchList.value = rest
-    searchList.value.forEach(group => {
-      group.isExpand = true
-    })
+    searchList.value = allList
   } else {
     searchList.value = []
   }
   searchLoading.value = false
-  setTimeout(() => expandAllApiTree(), 100)
+  setTimeout(() => expandAllApiTree(true), 100)
 }
 
 // 调用频率间隔 500 毫秒
-const searchEvent = XEUtils.debounce(handleSearch, 500, { leading: false, trailing: true })
+const searchEvent = XEUtils.debounce(handleSearch, 300, { leading: false, trailing: true })
+
+const allExpandEvent = () => {
+  expandAllApiTree(true)
+}
+
+const clearExpandEvent = () => {
+  expandAllApiTree(false)
+}
 
 const clickSearchEvent = () => {
   searchLoading.value = true
@@ -215,10 +281,10 @@ const searchRowClickEvent = () => {
   showSearchList.value = false
 }
 
-const expandAllApiTree = () => {
+const expandAllApiTree = (expanded: boolean) => {
   const $tree = treeRef.value
   if ($tree) {
-    $tree.setAllExpandNode(true)
+    $tree.setAllExpandNode(expanded)
   }
 }
 
@@ -242,7 +308,7 @@ const updateExpand = () => {
   const routeName = route.name
   const apiKey = route.query.apiKey
   const apiName = route.params.name
-  const rest = XEUtils.findTree(navList.value, (item) => {
+  const rest = XEUtils.findTree(menuTreeList.value, (item) => {
     const { routerLink } = item
     if (!routerLink) {
       return false
@@ -360,14 +426,21 @@ if (!appStore.isUtilDocs) {
 }
 
 .nav-search-wrapper {
-  max-height: 70vh;
+  --vxe-ui-tree-node-padding: 16px;
   width: 600px;
-  padding: 32px;
   overflow: auto;
   border-radius: 4px;
   border: 1px solid var(--vxe-ui-docs-layout-border-color);
   background-color: var(--vxe-ui-docs-layout-background-color);
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+}
+.nav-search-header {
+  padding: 8px 16px 8px 16px;
+}
+.nav-search-result {
+  text-align: right;
+  color: var(--vxe-ui-input-placeholder-color);
+  padding: 8px 16px 8px 16px;
 }
 .nav-search-empty {
   padding: 40px 16px;

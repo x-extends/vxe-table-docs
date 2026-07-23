@@ -1,5 +1,6 @@
 export interface NavVO {
   nId?: number
+  pId?: number | null
   title?: string
   describe?: string
   componentName?: string
