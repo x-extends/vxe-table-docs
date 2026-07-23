@@ -215,9 +215,6 @@ export default Vue.extend({
             isAllAPI: true,
             routerLink: { name: 'DocsApi', params: { name } },
             children: XEUtils.mapTree(list, (obj, index, Objs, path, parentObj) => {
-              if (!obj) {
-                debugger
-              }
               if (!obj.nId) {
                 obj.nId = ++navKey
               }
