@@ -47,12 +47,12 @@
     "gulp-typescript": "~5.0.1",
     "oxfmt": "^0.51.0",
     "rollup-plugin-external-globals": "~0.13.0",
-    "sass": "~1.99.0",
-    "sass-loader": "~16.0.7",
+    "sass": "~1.101.7",
+    "sass-loader": "~17.0.0",
     "typescript": "~6.0.3",
-    "vite": "8.0.13",
+    "vite": "~8.1.5",
     "vite-plugin-html": "~3.2.2",
     "vite-plugin-zip-pack": "~1.2.4",
-    "vue-tsc": "~3.2.8"
+    "vue-tsc": "~3.3.8"
   }
 }

@@ -46,7 +46,7 @@
     "gulp-replace": "~1.1.4",
     "gulp-typescript": "~5.0.1",
     "oxfmt": "^0.51.0",
-    "sass": "~1.99.0",
+    "sass": "~1.101.7",
     "sass-loader": "~14.2.1",
     "typescript": "~5.9.3",
     "vue-template-compiler": "2.6.14"
