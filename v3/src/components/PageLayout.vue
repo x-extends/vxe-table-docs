@@ -132,6 +132,7 @@ export default Vue.extend({
     left: 0.2em;
     width: var(--vxe-ui-splitter-handle-bar-horizontal-action-btn-width);
     font-size: 14px;
+    z-index: 33;
     .oper-btn {
       display: flex;
       flex-direction: row;
