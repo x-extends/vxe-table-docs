@@ -83,9 +83,11 @@
                   defaultPlacement: 'top'
                 },
                 headerTooltipConfig: {
+                  mode: 'tooltip',
                   enterable: true
                 },
                 footerTooltipConfig: {
+                  mode: 'tooltip',
                   enterable: true
                 },
                 validConfig: {
