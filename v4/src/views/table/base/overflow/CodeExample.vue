@@ -8,6 +8,11 @@
           <ApiLink name="column" prop="title"/> 当内容溢出时显示为省略号并用原生 title 显示<br>
           <ApiLink name="column" prop="tooltip"/> 当内容溢出时显示为省略号并用 tooltip 显示<br>
         </vxe-tip>
+        <vxe-tip status="success" title="小提示">
+          <div>当设置 <ApiLink name="column" prop="show-overflow"/>=true 默认值由 <ApiLink name="table" prop="tooltip-config"/>.<ApiLink name="grid" prop="table"/> 设置</div>
+          <div>当设置 <ApiLink name="column" prop="show-header-overflow"/>=true 默认值由 <ApiLink name="table" prop="header-tooltip-config"/>.<ApiLink name="grid" prop="table"/> 设置</div>
+          <div>当设置 <ApiLink name="column" prop="show-footer-overflow"/>=true 默认值由 <ApiLink name="table" prop="footer-tooltip-config"/>.<ApiLink name="table" prop="mode"/> 设置</div>
+        </vxe-tip>
       </template>
     </CodeLight>
 
