@@ -1,11 +1,11 @@
 <template>
   <div>
-    <vxe-radio-group v-model="borderColor">
+    颜色：<vxe-radio-group v-model="borderColor">
       <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
       <vxe-radio-button checked-value="#ff0000" content="红色"></vxe-radio-button>
       <vxe-radio-button checked-value="#0000ff" content="蓝色"></vxe-radio-button>
     </vxe-radio-group>
-    <vxe-radio-group v-model="borderWidth">
+    宽度：<vxe-radio-group v-model="borderWidth">
       <vxe-radio-button checked-value="1px" content="1px"></vxe-radio-button>
       <vxe-radio-button checked-value="2px" content="2px"></vxe-radio-button>
       <vxe-radio-button checked-value="3px" content="3px"></vxe-radio-button>

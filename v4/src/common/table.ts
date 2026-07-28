@@ -1573,7 +1573,8 @@ export const tableNavConfig: NavVO = {
         { title: '圆角', routerLink: { name: 'CssVarTableRound' } },
         { title: '行与列上移背景色', routerLink: { name: 'CssVarTableRowColHover' } },
         { title: '当前行与列背景色', routerLink: { name: 'CssVarTableRowColCurrent' } },
-        { title: '单元格默认高度', routerLink: { name: 'CssVarTableRowHeight' } }
+        { title: '单元格默认高度', routerLink: { name: 'CssVarTableRowHeight' } },
+        { title: '校验提示框', routerLink: { name: 'CssVarTableValid' } }
       ]
     },
     {
