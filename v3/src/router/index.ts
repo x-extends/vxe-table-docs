@@ -510,6 +510,13 @@ const routes: Array<RouteConfig> = [
     component: PageLayout,
     children: [
       {
+        path: 'form',
+        component: RouteLayout,
+        children: [
+          { path: 'valid', name: 'CssVarFormValid', component: () => import('@/views/vars/form/valid/CodeExample.vue') }
+        ]
+      },
+      {
         path: 'table',
         component: RouteLayout,
         children: [
@@ -518,9 +525,11 @@ const routes: Array<RouteConfig> = [
           { path: 'round', name: 'CssVarTableRound', component: () => import('@/views/vars/table/round/CodeExample.vue') },
           { path: 'border', name: 'CssVarTableBorder', component: () => import('@/views/vars/table/border/CodeExample.vue') },
           { path: 'background', name: 'CssVarTableBackground', component: () => import('@/views/vars/table/background/CodeExample.vue') },
+          { path: 'stripe', name: 'CssVarTableStripe', component: () => import('@/views/vars/table/stripe/CodeExample.vue') },
           { path: 'rowColHover', name: 'CssVarTableRowColHover', component: () => import('@/views/vars/table/rowColHover/CodeExample.vue') },
           { path: 'rowColCurrent', name: 'CssVarTableRowColCurrent', component: () => import('@/views/vars/table/rowColCurrent/CodeExample.vue') },
-          { path: 'rowHeight', name: 'CssVarTableRowHeight', component: () => import('@/views/vars/table/rowHeight/CodeExample.vue') }
+          { path: 'rowHeight', name: 'CssVarTableRowHeight', component: () => import('@/views/vars/table/rowHeight/CodeExample.vue') },
+          { path: 'valid', name: 'CssVarTableValid', component: () => import('@/views/vars/table/valid/CodeExample.vue') }
         ]
       }
     ]
