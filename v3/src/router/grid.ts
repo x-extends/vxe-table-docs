@@ -253,6 +253,7 @@ export const gridRouteConfig: RouteConfig = {
       path: 'cellTip',
       component: RouteLayout,
       children: [
+        { path: 'mode', name: 'ComponentGridCellTipMode', component: () => import('@/views/grid/cellTip/mode/CodeExample.vue') },
         { path: 'showAll', name: 'ComponentGridCellTipShowAll', component: () => import('@/views/grid/cellTip/showAll/CodeExample.vue') }
       ]
     },

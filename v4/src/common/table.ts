@@ -692,6 +692,7 @@ export const tableNavConfig: NavVO = {
         {
           title: '单元格提示',
           children: [
+            { title: '默认提示方式', routerLink: { name: 'ComponentGridCellTipMode' }, keywords: 'tooltip' },
             { title: '自定义单元格提示', routerLink: { name: 'ComponentGridCellTipShowAll' }, keywords: '工具提示，溢出提示' }
           ]
         },
