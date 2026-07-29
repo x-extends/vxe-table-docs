@@ -60,13 +60,13 @@ export default Vue.extend({
       },
       rules: {
         name: [
-          { required: true, message: '请输入名称' }
+          { required: true, message: '必须填写必须填写' }
         ],
         sex: [
           { required: true, message: '请选择性别' }
         ],
         age: [
-          { required: true, message: '请输入年龄' }
+          { required: true, message: '请输入年龄请输入年龄请输入年龄请输入年龄请输入年龄请输入年龄请输入年龄请输入年龄' }
         ]
       },
       items: [

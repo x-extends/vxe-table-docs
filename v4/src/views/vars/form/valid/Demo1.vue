@@ -66,7 +66,7 @@ const formOptions = reactive<VxeFormProps<FormDataVO>>({
       { required: true, message: '请选择性别' }
     ],
     age: [
-      { required: true, message: '请输入年龄' }
+      { required: true, message: '请输入年龄请输入年龄请输入年龄请输入年龄请输入年龄请输入年龄请输入年龄请输入年龄' }
     ]
   },
   items: [

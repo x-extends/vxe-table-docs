@@ -59,7 +59,7 @@ export default Vue.extend({
       },
       editRules: {
         name: [
-          { required: true, message: '必须填写' }
+          { required: true, message: '必须填写必须填写必须填写' }
         ],
         role: [
           { required: true, message: '必须填写' }
@@ -76,7 +76,7 @@ export default Vue.extend({
       ],
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, address: 'test abc' },
-        { id: 10002, name: '', role: 'Test', sex: '1', age: 22, address: 'Guangzhou' },
+        { id: 10002, name: '', role: '', sex: '1', age: 22, address: 'Guangzhou' },
         { id: 10003, name: 'Test3', role: 'PM', sex: '', age: 32, address: 'Shanghai' },
         { id: 10004, name: 'Test4', role: 'Designer', sex: '', age: 23, address: 'test abc' },
         { id: 10005, name: '', role: '', sex: '1', age: 30, address: 'Shanghai' },
