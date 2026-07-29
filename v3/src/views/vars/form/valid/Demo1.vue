@@ -13,6 +13,8 @@
       <vxe-radio-button checked-value="6px" content="6px"></vxe-radio-button>
       <vxe-radio-button checked-value="8px" content="8px"></vxe-radio-button>
       <vxe-radio-button checked-value="10px" content="10px"></vxe-radio-button>
+      <vxe-radio-button checked-value="12px" content="12px"></vxe-radio-button>
+      <vxe-radio-button checked-value="14px" content="14px"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-form
