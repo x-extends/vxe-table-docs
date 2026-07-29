@@ -1,6 +1,7 @@
 <template>
   <div>
     字体：<vxe-radio-group v-model="validFontSize">
+      <vxe-radio-button checked-value="" content="默认"></vxe-radio-button>
       <vxe-radio-button checked-value="12px" content="12px"></vxe-radio-button>
       <vxe-radio-button checked-value="13px" content="13px"></vxe-radio-button>
       <vxe-radio-button checked-value="14px" content="14px"></vxe-radio-button>
@@ -39,7 +40,7 @@ interface FormDataVO {
   age: string
 }
 
-const validFontSize = ref('14px')
+const validFontSize = ref('')
 const validPadding = ref('6px')
 
 const sexItemRender = reactive<VxeFormItemPropTypes.ItemRender>({
