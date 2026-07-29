@@ -61,6 +61,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     mode: 'row',
     showStatus: true
   },
+  validConfig: {
+    msgMode: 'full'
+  },
   editRules: {
     name: [
       { required: true, message: '必须填写必须填写必须填写' }
@@ -91,7 +94,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 const fullValidEvent = async () => {
   const $grid = gridRef.value
   if ($grid) {
-    const errMap = await $grid.validate(true)
+    const errMap = await $grid.fullValidate(true)
     if (errMap) {
       VxeUI.modal.message({ status: 'error', content: '校验不通过！' })
     } else {

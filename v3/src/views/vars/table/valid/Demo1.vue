@@ -58,6 +58,9 @@ export default Vue.extend({
         mode: 'row',
         showStatus: true
       },
+      validConfig: {
+        msgMode: 'full'
+      },
       editRules: {
         name: [
           { required: true, message: '必须填写必须填写必须填写' }
