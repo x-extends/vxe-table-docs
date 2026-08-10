@@ -33,7 +33,11 @@ export default Vue.extend({
     }
 
     const sexEditRender: VxeColumnPropTypes.EditRender = {
-      name: 'VxeInput'
+      name: 'VxeSelect',
+      options: [
+        { label: '女', value: 'Women' },
+        { label: '男', value: 'Man' }
+      ]
     }
 
     const ageEditRender: VxeColumnPropTypes.EditRender = {

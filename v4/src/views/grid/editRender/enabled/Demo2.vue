@@ -31,7 +31,11 @@ const nameEditRender = reactive<VxeColumnPropTypes.EditRender>({
 })
 
 const sexEditRender = reactive<VxeColumnPropTypes.EditRender>({
-  name: 'VxeInput'
+  name: 'VxeSelect',
+  options: [
+    { label: '女', value: 'Women' },
+    { label: '男', value: 'Man' }
+  ]
 })
 
 const ageEditRender = reactive<VxeColumnPropTypes.EditRender>({
