@@ -1,15 +1,14 @@
 <template>
   <div>
-    <vxe-grid
-      v-bind="gridOptions"
-      @edit-activated="editActivatedEvent">
-    </vxe-grid>
+    全表编辑：<vxe-switch v-model="editConfig.enabled"></vxe-switch>
+
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps } from 'vxe-table'
+import { VxeGridProps, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -23,25 +22,24 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const nameEditRender = {
-      name: 'VxeInput',
-      props: {
-        disabled: false
-      }
+    const editConfig: VxeTablePropTypes.EditConfig<RowVO> = {
+      trigger: 'click',
+      mode: 'cell',
+      enabled: true
     }
 
-    const sexEditRender = {
-      name: 'VxeInput',
-      props: {
-        disabled: false
-      }
+    const nameEditRender: VxeColumnPropTypes.EditRender = {
+      name: 'VxeInput'
     }
 
-    const ageEditRender = {
+    const sexEditRender: VxeColumnPropTypes.EditRender = {
+      name: 'VxeInput'
+    }
+
+    const ageEditRender: VxeColumnPropTypes.EditRender = {
       name: 'VxeNumberInput',
       props: {
-        type: 'integer',
-        disabled: false
+        type: 'integer'
       }
     }
 
@@ -51,10 +49,7 @@ export default Vue.extend({
       rowConfig: {
         keyField: 'id'
       },
-      editConfig: {
-        trigger: 'click',
-        mode: 'row'
-      },
+      editConfig,
       columns: [
         { type: 'seq', width: 50 },
         { field: 'name', title: 'Name', editRender: nameEditRender },
@@ -73,19 +68,10 @@ export default Vue.extend({
 
     return {
       gridOptions,
+      editConfig,
       nameEditRender,
       sexEditRender,
       ageEditRender
-    }
-  },
-  methods: {
-    editActivatedEvent ({ row }) {
-      // name 为 'x' 开头的列禁止编辑
-      this.nameEditRender.props.disabled = (row.name || '').indexOf('x') === 0
-      // age 小于 27 的列禁止编辑
-      this.ageEditRender.props.disabled = row.age < 27
-      // sex 值编辑为 1 的列禁止编辑
-      this.sexEditRender.props.disabled = row.sex === 'Women'
     }
   }
 })

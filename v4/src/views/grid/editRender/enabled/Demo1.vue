@@ -1,12 +1,15 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+    name编辑：<vxe-switch v-model="nameEditRender.enabled"></vxe-switch>
+    sex编辑：<vxe-switch v-model="sexEditRender.enabled"></vxe-switch>
+
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -18,25 +21,20 @@ interface RowVO {
   address: string
 }
 
-const nameEditRender = reactive({
+const nameEditRender = reactive<VxeColumnPropTypes.EditRender>({
   name: 'VxeInput',
-  props: {
-    disabled: false
-  }
+  enabled: true
 })
 
-const sexEditRender = reactive({
+const sexEditRender = reactive<VxeColumnPropTypes.EditRender>({
   name: 'VxeInput',
-  props: {
-    disabled: false
-  }
+  enabled: true
 })
 
-const ageEditRender = reactive({
+const ageEditRender = reactive<VxeColumnPropTypes.EditRender>({
   name: 'VxeNumberInput',
   props: {
-    type: 'integer',
-    disabled: false
+    type: 'integer'
   }
 })
 
@@ -48,7 +46,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   editConfig: {
     trigger: 'click',
-    mode: 'row'
+    mode: 'cell'
   },
   columns: [
     { type: 'seq', width: 50 },
@@ -65,15 +63,4 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10005, name: 'Test5', nickname: 'T5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' }
   ]
 })
-
-const gridEvents: VxeGridListeners<RowVO> = {
-  editActivated ({ row }) {
-  // name 为 'x' 开头的列禁止编辑
-    nameEditRender.props.disabled = (row.name || '').indexOf('x') === 0
-    // age 小于 27 的列禁止编辑
-    ageEditRender.props.disabled = row.age < 27
-    // sex 值编辑为 1 的列禁止编辑
-    sexEditRender.props.disabled = row.sex === 'Women'
-  }
-}
 </script>

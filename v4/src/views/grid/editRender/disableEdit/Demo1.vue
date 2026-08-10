@@ -33,7 +33,7 @@ const sexEditRender = reactive({
 })
 
 const ageEditRender = reactive({
-  name: 'VxeInput',
+  name: 'VxeNumberInput',
   props: {
     type: 'integer',
     disabled: false

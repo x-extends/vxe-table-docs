@@ -1,12 +1,14 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+    全表编辑：<vxe-switch v-model="editConfig.enabled"></vxe-switch>
+
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeGridProps, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -18,25 +20,24 @@ interface RowVO {
   address: string
 }
 
-const nameEditRender = reactive({
-  name: 'VxeInput',
-  props: {
-    disabled: false
-  }
+const editConfig = reactive<VxeTablePropTypes.EditConfig<RowVO>>({
+  trigger: 'click',
+  mode: 'cell',
+  enabled: true
 })
 
-const sexEditRender = reactive({
-  name: 'VxeInput',
-  props: {
-    disabled: false
-  }
+const nameEditRender = reactive<VxeColumnPropTypes.EditRender>({
+  name: 'VxeInput'
 })
 
-const ageEditRender = reactive({
+const sexEditRender = reactive<VxeColumnPropTypes.EditRender>({
+  name: 'VxeInput'
+})
+
+const ageEditRender = reactive<VxeColumnPropTypes.EditRender>({
   name: 'VxeNumberInput',
   props: {
-    type: 'integer',
-    disabled: false
+    type: 'integer'
   }
 })
 
@@ -46,10 +47,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   rowConfig: {
     keyField: 'id'
   },
-  editConfig: {
-    trigger: 'click',
-    mode: 'row'
-  },
+  editConfig,
   columns: [
     { type: 'seq', width: 50 },
     { field: 'name', title: 'Name', editRender: nameEditRender },
@@ -65,15 +63,4 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10005, name: 'Test5', nickname: 'T5', role: 'Develop', sex: 'Women', age: 30, address: 'Shanghai' }
   ]
 })
-
-const gridEvents: VxeGridListeners<RowVO> = {
-  editActivated ({ row }) {
-  // name 为 'x' 开头的列禁止编辑
-    nameEditRender.props.disabled = (row.name || '').indexOf('x') === 0
-    // age 小于 27 的列禁止编辑
-    ageEditRender.props.disabled = row.age < 27
-    // sex 值编辑为 1 的列禁止编辑
-    sexEditRender.props.disabled = row.sex === 'Women'
-  }
-}
 </script>

@@ -1,15 +1,15 @@
 <template>
   <div>
-    <vxe-grid
-      v-bind="gridOptions"
-      @edit-activated="editActivatedEvent">
-    </vxe-grid>
+    name编辑：<vxe-switch v-model="nameEditRender.enabled"></vxe-switch>
+    sex编辑：<vxe-switch v-model="sexEditRender.enabled"></vxe-switch>
+
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps } from 'vxe-table'
+import { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -23,25 +23,20 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const nameEditRender = {
+    const nameEditRender: VxeColumnPropTypes.EditRender = {
       name: 'VxeInput',
-      props: {
-        disabled: false
-      }
+      enabled: true
     }
 
-    const sexEditRender = {
+    const sexEditRender: VxeColumnPropTypes.EditRender = {
       name: 'VxeInput',
-      props: {
-        disabled: false
-      }
+      enabled: true
     }
 
-    const ageEditRender = {
+    const ageEditRender: VxeColumnPropTypes.EditRender = {
       name: 'VxeNumberInput',
       props: {
-        type: 'integer',
-        disabled: false
+        type: 'integer'
       }
     }
 
@@ -53,7 +48,7 @@ export default Vue.extend({
       },
       editConfig: {
         trigger: 'click',
-        mode: 'row'
+        mode: 'cell'
       },
       columns: [
         { type: 'seq', width: 50 },
@@ -76,16 +71,6 @@ export default Vue.extend({
       nameEditRender,
       sexEditRender,
       ageEditRender
-    }
-  },
-  methods: {
-    editActivatedEvent ({ row }) {
-      // name 为 'x' 开头的列禁止编辑
-      this.nameEditRender.props.disabled = (row.name || '').indexOf('x') === 0
-      // age 小于 27 的列禁止编辑
-      this.ageEditRender.props.disabled = row.age < 27
-      // sex 值编辑为 1 的列禁止编辑
-      this.sexEditRender.props.disabled = row.sex === 'Women'
     }
   }
 })

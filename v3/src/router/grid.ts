@@ -1985,6 +1985,7 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/editRender/events/CodeExample.vue')
         },
         { path: 'beforeEdit', name: 'ComponentGridEditRenderBeforeEdit', component: () => import('@/views/grid/editRender/beforeEdit/CodeExample.vue') },
+        { path: 'enabled', name: 'ComponentGridEditRenderEnabled', component: () => import('@/views/grid/editRender/enabled/CodeExample.vue') },
         { path: 'disableEdit', name: 'ComponentGridEditRenderDisableEdit', component: () => import('@/views/grid/editRender/disableEdit/CodeExample.vue') },
         {
           path: 'readonly',

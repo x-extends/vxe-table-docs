@@ -38,7 +38,7 @@ export default Vue.extend({
     }
 
     const ageEditRender = {
-      name: 'VxeInput',
+      name: 'VxeNumberInput',
       props: {
         type: 'integer',
         disabled: false

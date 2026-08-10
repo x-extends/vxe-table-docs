@@ -1256,6 +1256,7 @@ export const tableNavConfig: NavVO = {
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/grid/edit/el-input`, linkTarget: '_blank' },
             { title: '事件监听', routerLink: { name: 'ComponentGridEditRenderEvents' } },
             { title: '阻止激活编辑', routerLink: { name: 'ComponentGridEditRenderBeforeEdit' } },
+            { title: '启用与关闭', routerLink: { name: 'ComponentGridEditRenderEnabled' } },
             { title: '禁用编辑', routerLink: { name: 'ComponentGridEditRenderDisableEdit' } },
             { title: '切换编辑与只读', routerLink: { name: 'ComponentGridEditRenderReadonly' } }
           ]
