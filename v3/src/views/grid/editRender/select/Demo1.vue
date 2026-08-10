@@ -60,7 +60,7 @@ export default Vue.extend({
     // 模拟后端接口
     loadSexList () {
       setTimeout(() => {
-        this.sexEditRender = [
+        this.sexEditRender.options = [
           { label: '', value: '' },
           { label: '女', value: 'Women' },
           { label: '男', value: 'Man' }
