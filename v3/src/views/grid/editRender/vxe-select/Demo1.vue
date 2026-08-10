@@ -78,13 +78,18 @@ export default Vue.extend({
     }
   },
   created () {
+    this.loadSexList()
+  },
+  methods: {
     // 模拟后端接口
-    setTimeout(() => {
-      this.sexListEditRender.options = [
-        { name: '女', code: 'Women' },
-        { name: '男', code: 'Man' }
-      ]
-    }, 300)
+    loadSexList () {
+      setTimeout(() => {
+        this.sexListEditRender.options = [
+          { name: '女', code: 'Women' },
+          { name: '男', code: 'Man' }
+        ]
+      }, 300)
+    }
   }
 })
 </script>

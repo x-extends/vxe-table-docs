@@ -54,14 +54,19 @@ export default Vue.extend({
     }
   },
   created () {
+    this.loadSexList()
+  },
+  methods: {
     // 模拟后端接口
-    setTimeout(() => {
-      this.sexEditRender.options = [
-        { label: '', value: '' },
-        { label: '女', value: 'Women' },
-        { label: '男', value: 'Man' }
-      ]
-    }, 300)
+    loadSexList () {
+      setTimeout(() => {
+        this.sexEditRender = [
+          { label: '', value: '' },
+          { label: '女', value: 'Women' },
+          { label: '男', value: 'Man' }
+        ]
+      }, 300)
+    }
   }
 })
 </script>

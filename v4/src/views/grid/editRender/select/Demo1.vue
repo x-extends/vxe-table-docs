@@ -47,11 +47,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 // 模拟后端接口
-setTimeout(() => {
-  sexEditRender.options = [
-    { label: '', value: '' },
-    { label: '女', value: 'Women' },
-    { label: '男', value: 'Man' }
-  ]
-}, 300)
+const loadSexList = () => {
+  setTimeout(() => {
+    sexEditRender.options = [
+      { label: '', value: '' },
+      { label: '女', value: 'Women' },
+      { label: '男', value: 'Man' }
+    ]
+  }, 300)
+}
+
+loadSexList()
 </script>
