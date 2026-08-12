@@ -1873,6 +1873,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridEditShowNegativeStatus',
           component: () => import('@/views/grid/edit/showNegativeStatus/CodeExample.vue')
         },
+        { path: 'checkboxCol', name: 'ComponentGridEditCheckboxCol', component: () => import('@/views/grid/edit/checkboxCol/CodeExample.vue') },
         {
           path: 'rowImmediately',
           name: 'ComponentGridEditRowImmediately',
