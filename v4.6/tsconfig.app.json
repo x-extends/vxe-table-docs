@@ -10,7 +10,6 @@
     ],
     "module": "ESNext",
 
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
