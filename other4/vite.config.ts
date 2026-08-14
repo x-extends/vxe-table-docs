@@ -30,7 +30,7 @@ export default defineConfig(({ mode, command }) => {
     ],
     resolve: {
       alias: {
-        '@': path.join(__dirname, './src')
+        '@': path.join(import.meta.dirname, './src')
       },
       extensions: ['.js', '.vue', '.json', '.ts', '.tsx']
     },
