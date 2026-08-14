@@ -9,6 +9,7 @@
     <vxe-table
       border
       show-overflow
+      keep-source
       ref="tableRef"
       height="500"
       :span-method="rowspanMethod"
