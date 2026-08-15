@@ -183,7 +183,7 @@ const apiList = [
     name: 'tableAutoFocus',
     desc: '激活编辑状态时，设置自动聚焦的 class',
     version: '',
-    type: 'string | ((params: { row, rowIndex, $rowIndex, column, columnIndex, $columnIndex, _columnIndex, $table }) => HTMLElement)',
+    type: 'string | ((params: { row, column, $table }) => HTMLElement)',
     enum: '',
     defVal: '',
     list: []
