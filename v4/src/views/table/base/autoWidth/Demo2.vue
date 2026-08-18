@@ -8,7 +8,7 @@
       :footer-data="footerData">
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
-      <vxe-column field="age" title="Age" min-width="auto"></vxe-column>
+      <vxe-column field="age" title="Age" min-width="auto" sortable></vxe-column>
       <vxe-column field="sex" title="头部宽度 头部宽度 头部" min-width="auto"></vxe-column>
       <vxe-column field="address" title="Address" min-width="auto"></vxe-column>
     </vxe-table>
@@ -39,6 +39,6 @@ const virtualXConfig = reactive<VxeTablePropTypes.VirtualXConfig>({
 })
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
-  { age: '9999999' }
+  { age: '999' }
 ])
 </script>

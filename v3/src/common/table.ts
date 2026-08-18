@@ -1441,6 +1441,7 @@ export const tableNavConfig: NavVO = {
             { title: '冻结列 + 复杂渲染', routerLink: { name: 'ComponentGridScrollFixed' } },
             { title: '复杂渲染 + 大量下拉框', routerLink: { name: 'ComponentGridScrollSelect' } },
             // { title: '滚动模式 + 复杂渲染', routerLink: { name: 'ComponentGridScrollMode' } },
+            { title: '自适应列宽', routerLink: { name: 'ComponentGridScrollAutoColumnWidth' } },
             { title: '设置同等行高', routerLink: { name: 'ComponentGridScrollRowHeight' } },
             { title: '自适应行高', routerLink: { name: 'ComponentGridScrollAutoRowHeight' }, keywords: '自适应行高,自适应高度,auto-height' },
             { title: '自适应行高 + 纵向和横向', routerLink: { name: 'ComponentGridScrollAutoRowVH' }, keywords: '自适应行高,自适应高度,auto-height' },

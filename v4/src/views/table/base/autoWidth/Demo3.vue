@@ -48,6 +48,6 @@ const columnConfig = reactive<VxeTablePropTypes.ColumnConfig>({
 })
 
 const footerData = ref<VxeTablePropTypes.FooterData>([
-  { age: '9999999' }
+  { age: '999' }
 ])
 </script>

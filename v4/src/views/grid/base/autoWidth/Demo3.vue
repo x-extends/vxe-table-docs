@@ -43,7 +43,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: '内容宽度 内容宽度 内容宽度 内容' }
   ],
   footerData: [
-    { age: '9999999' }
+    { age: '999' }
   ]
 })
 </script>

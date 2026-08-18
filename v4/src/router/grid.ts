@@ -2453,6 +2453,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridScrollMode',
           component: () => import('@/views/grid/scroll/mode/CodeExample.vue')
         },
+        { path: 'autoColumnWidth', name: 'ComponentGridScrollAutoColumnWidth', component: () => import('@/views/grid/scroll/autoColumnWidth/CodeExample.vue') },
         {
           path: 'rowHeight',
           name: 'ComponentGridScrollRowHeight',

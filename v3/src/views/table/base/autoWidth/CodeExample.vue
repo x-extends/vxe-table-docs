@@ -5,9 +5,6 @@
         <vxe-tip status="primary" title="根据内容自适应宽度">
           当值设置为 <ApiLink name="column" prop="width"/>='auto' | <ApiLink name="column" prop="min-width"/>='auto' 时可以根据内容自适应宽度
         </vxe-tip>
-        <vxe-tip status="error">
-          需要注意，由于虚拟滚动是可视区渲染的，所以自适应列宽功能不支持虚拟滚动，需要关闭虚拟滚动才能使用
-        </vxe-tip>
       </template>
     </CodeLight>
 
