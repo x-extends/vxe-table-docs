@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes, VxeColumnPropTypes, VxeWithRequired } from 'vxe-table'
 import type { VxeSelectProps } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -27,7 +27,7 @@ const sexEditRender = reactive<VxeColumnPropTypes.EditRender<RowVO, VxeSelectPro
   ]
 })
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { editConfig: VxeTablePropTypes.EditConfig<RowVO> }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'editConfig'>>({
   border: true,
   showOverflow: true,
   rowConfig: {

@@ -50,7 +50,7 @@
 <script lang="ts" setup>
 import { reactive, computed, PropType, ref } from 'vue'
 import { VxeUI, VxeGlobalRendererHandles, VxeModalProps } from 'vxe-pc-ui'
-import { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps, VxeWithRequired } from 'vxe-table'
 import { FormDesignWidgetSelectProps } from './demoFormDesignSelectWidget'
 
 const props = defineProps({
@@ -72,7 +72,7 @@ const currWidget = computed(() => {
 const gridRef = ref<VxeGridInstance>()
 
 const showEditOptions = ref(false)
-const gridOptions = reactive<VxeGridProps & { data: any[] }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps, 'data'>>({
   height: '100%',
   border: true,
   showOverflow: true,

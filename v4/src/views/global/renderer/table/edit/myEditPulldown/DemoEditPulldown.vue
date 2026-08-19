@@ -15,8 +15,8 @@
 
 <script lang="ts" setup>
 import { PropType, reactive, ref } from 'vue'
-import { VxeInput, VxePulldown, VxePagerEvents, VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines, VxeTableEvents, VxeGridProps, VxeGrid, VxeGridPropTypes } from 'vxe-table'
+import { VxeInput, VxePulldown, VxePagerEvents, VxeGlobalRendererHandles, VxeWithRequired } from 'vxe-pc-ui'
+import { VxeTableDefines, VxeTableEvents, VxeGridProps, VxeGrid } from 'vxe-table'
 
 const props = defineProps({
   renderParams: {
@@ -55,7 +55,7 @@ const allList = [
 
 const showPopup = ref(false)
 
-const gridOptions = reactive<VxeGridProps & { pagerConfig: VxeGridPropTypes.PagerConfig }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps, 'pagerConfig'>>({
   autoResize: true,
   height: '100%',
   loading: false,

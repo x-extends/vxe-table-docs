@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import { reactive } from 'vue'
+import { VxeGridProps, VxeGridPropTypes, VxeWithRequired } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -44,7 +44,7 @@ const defaultData = {
   address: ''
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { formConfig: VxeGridPropTypes.FormConfig }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'formConfig'>>({
   showOverflow: true,
   border: true,
   height: 500,
