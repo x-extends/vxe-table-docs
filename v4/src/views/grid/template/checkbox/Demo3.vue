@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -31,9 +31,7 @@ interface RowVO {
   checked3: boolean
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  data: RowVO[]
-}>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'data'>>({
   border: true,
   columns: [
     { field: 'checkbox1', width: 60, slots: { default: 'checkbox1' } },

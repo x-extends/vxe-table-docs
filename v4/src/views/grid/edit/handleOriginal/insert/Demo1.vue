@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { ref, nextTick, reactive } from 'vue'
-import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeGridInstance, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -25,7 +25,7 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const insertRecords: RowVO[] = []
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'data'>>({
   border: true,
   showOverflow: true,
   height: 400,

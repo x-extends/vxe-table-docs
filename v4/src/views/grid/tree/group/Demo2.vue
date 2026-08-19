@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeGridPropTypes, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeGridPropTypes, VxeWithRequired } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -50,9 +50,7 @@ const allColumns: VxeGridPropTypes.Columns = [
   { field: 'date', title: 'Date' }
 ]
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  treeConfig: VxeTablePropTypes.TreeConfig<RowVO>
-}>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'treeConfig'>>({
   height: 400,
   border: 'inner',
   loading: false,

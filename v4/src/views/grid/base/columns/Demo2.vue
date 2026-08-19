@@ -12,8 +12,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import type { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import { reactive } from 'vue'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -29,9 +29,7 @@ interface RowVO {
   attr5: string
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  columns: VxeGridPropTypes.Columns
-}>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'columns'>>({
   border: true,
   loading: false,
   columns: [

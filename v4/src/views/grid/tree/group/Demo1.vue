@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -45,9 +45,7 @@ const allList = [
   { id: 24577, parentId: null, name: 'Test1', type: 'js', size: '1024', date: '2021-06-01' }
 ]
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  treeConfig: VxeTablePropTypes.TreeConfig<RowVO>
-}>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'treeConfig'>>({
   height: 400,
   border: 'inner',
   showOverflow: true,

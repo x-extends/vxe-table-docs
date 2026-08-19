@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, onUnmounted } from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -22,7 +22,7 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 
 let mockIndex = 1000000
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'data'>>({
   border: true,
   height: 500,
   virtualYConfig: {

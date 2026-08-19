@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -21,7 +21,7 @@ interface RowVO {
   address: string
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { editConfig: VxeTablePropTypes.EditConfig<RowVO> }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'editConfig'>>({
   border: true,
   showOverflow: true,
   rowConfig: {

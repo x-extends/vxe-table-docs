@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeGridInstance, VxeWithRequired } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -28,7 +28,7 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const removeRecords: RowVO[] = []
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'data'>>({
   border: true,
   showOverflow: true,
   keepSource: true,
