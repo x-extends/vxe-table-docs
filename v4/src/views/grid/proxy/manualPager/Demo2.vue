@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, nextTick } from 'vue'
-import type { VxeGridInstance, VxeGridProps, VxeGridPropTypes, VxeGridListeners } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps, VxeGridListeners, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -70,9 +70,7 @@ const findPageList = (pageSize: number, currentPage: number) => {
   })
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  pagerConfig: VxeGridPropTypes.PagerConfig
-}>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'pagerConfig'>>({
   border: true,
   height: 300,
   pagerConfig: {

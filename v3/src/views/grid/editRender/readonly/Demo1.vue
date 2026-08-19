@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeColumnPropTypes, VxeWithRequired } from 'vxe-table'
 import type { VxeSelectProps } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -29,7 +29,7 @@ export default Vue.extend({
       ]
     }
 
-    const gridOptions: VxeGridProps<RowVO> & { editConfig: VxeTablePropTypes.EditConfig<RowVO> } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'editConfig'> = {
       border: true,
       showOverflow: true,
       rowConfig: {

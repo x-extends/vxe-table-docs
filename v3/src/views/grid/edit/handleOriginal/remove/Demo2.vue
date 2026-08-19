@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridProps, VxeGridInstance } from 'vxe-table'
+import { VxeUI, VxeGridProps, VxeGridInstance, VxeWithRequired } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -28,7 +28,7 @@ export default Vue.extend({
   data () {
     const removeRecords: RowVO[] = []
 
-    const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'data'> = {
       border: true,
       showOverflow: true,
       keepSource: true,

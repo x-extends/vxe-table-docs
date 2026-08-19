@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeGridInstance, VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -40,7 +40,7 @@ const fetchChildListApi = (parentRow: RowVO) => {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'data'> = {
       border: true,
       columnConfig: {
         resizable: true

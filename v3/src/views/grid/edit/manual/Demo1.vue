@@ -22,7 +22,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { VxeUI } from 'vxe-pc-ui'
-import type { VxeGridInstance, VxeGridProps, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -35,7 +35,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & { editConfig: VxeTablePropTypes.EditConfig<RowVO> } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'editConfig'> = {
       border: true,
       showOverflow: true,
       loading: false,

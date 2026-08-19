@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -28,7 +28,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'data'> = {
       border: true,
       rowConfig: {
         drag: true

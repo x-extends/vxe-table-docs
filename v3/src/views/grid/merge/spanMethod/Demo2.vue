@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -21,7 +21,7 @@ export default Vue.extend({
   data () {
     let spanFields: string[] = []
 
-    const gridOptions: VxeGridProps<RowVO> & { columns: VxeGridPropTypes.Columns } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'columns'> = {
       border: true,
       virtualXConfig: {
         enabled: false

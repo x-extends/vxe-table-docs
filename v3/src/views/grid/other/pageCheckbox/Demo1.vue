@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps } from 'vxe-table'
+import { VxeUI, VxeGridInstance, VxeGridProps, VxeGridPropTypes, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -49,13 +49,13 @@ export default Vue.extend({
       { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
     ]
 
-    const gridOptions: VxeGridProps<RowVO> & {
-      pagerConfig: {
-        total: number
-        currentPage: number
-        pageSize: number
-      }
-    } = {
+    const pagerConfig: VxeWithRequired<VxeGridPropTypes.PagerConfig, 'total' | 'currentPage' | 'pageSize'> = {
+      total: 0,
+      currentPage: 1,
+      pageSize: 10
+    }
+
+    const gridOptions: VxeGridProps<RowVO> = {
       showOverflow: true,
       border: true,
       loading: false,
@@ -66,11 +66,7 @@ export default Vue.extend({
       checkboxConfig: {
         reserve: true
       },
-      pagerConfig: {
-        total: 0,
-        currentPage: 1,
-        pageSize: 10
-      },
+      pagerConfig,
       columns: [
         { type: 'checkbox', width: 60 },
         { field: 'name', title: 'Name', minWidth: 160 },
@@ -87,6 +83,7 @@ export default Vue.extend({
 
     return {
       gridOptions,
+      pagerConfig,
       allList
     }
   },
@@ -95,15 +92,15 @@ export default Vue.extend({
     handlePageData  () {
       this.gridOptions.loading = true
       setTimeout(() => {
-        const { pageSize, currentPage } = this.gridOptions.pagerConfig
-        this.gridOptions.pagerConfig.total = this.allList.length
+        const { pageSize, currentPage } = this.pagerConfig
+        this.pagerConfig.total = this.allList.length
         this.gridOptions.data = this.allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
         this.gridOptions.loading = false
       }, 100)
     },
     pageChangeEvent ({ pageSize, currentPage }) {
-      this.gridOptions.pagerConfig.currentPage = currentPage
-      this.gridOptions.pagerConfig.pageSize = pageSize
+      this.pagerConfig.currentPage = currentPage
+      this.pagerConfig.pageSize = pageSize
       this.handlePageData()
     },
     getSelectEvent () {

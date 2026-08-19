@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeGridPropTypes, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -44,52 +44,18 @@ const allList = [
 
 export default Vue.extend({
   data () {
-    const gridOptions = {} as VxeGridProps<RowVO> & {
-      pagerConfig: {
-        total: number
-        currentPage: number
-        pageSize: number
-      }
+    const pagerConfig: VxeWithRequired<VxeGridPropTypes.PagerConfig, 'total' | 'currentPage' | 'pageSize'> = {
+      total: 0,
+      currentPage: 1,
+      pageSize: 10
     }
-
-    return {
-      gridOptions
-    }
-  },
-  methods: {
-    // 前端分页
-    handlePageData () {
-      this.gridOptions.loading = true
-      setTimeout(() => {
-        const { pageSize, currentPage } = this.gridOptions.pagerConfig
-        this.gridOptions.pagerConfig.total = allList.length
-        this.gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
-        this.gridOptions.loading = false
-      }, 100)
-    },
-    pageChangeEvent ({ pageSize, currentPage }) {
-      this.gridOptions.pagerConfig.currentPage = currentPage
-      this.gridOptions.pagerConfig.pageSize = pageSize
-      this.handlePageData()
-    }
-  },
-  created () {
-    this.gridOptions = {
+    const gridOptions: VxeGridProps<RowVO> = {
       showOverflow: true,
       border: true,
       loading: false,
       height: 500,
-      pagerConfig: {
-        total: 0,
-        currentPage: 1,
-        pageSize: 10
-      },
-      seqConfig: {
-        seqMethod: ({ rowIndex }) => {
-          const { pageSize, currentPage } = this.gridOptions.pagerConfig
-          return (currentPage - 1) * pageSize + rowIndex + 1
-        }
-      },
+      pagerConfig,
+      seqConfig: {},
       columns: [
         { type: 'seq', width: 70, fixed: 'left' },
         { field: 'name', title: 'Name', minWidth: 160 },
@@ -102,6 +68,36 @@ export default Vue.extend({
         { field: 'createDate', title: 'Create Date', visible: false }
       ],
       data: []
+    }
+
+    return {
+      gridOptions,
+      pagerConfig
+    }
+  },
+  methods: {
+    // 前端分页
+    handlePageData () {
+      this.gridOptions.loading = true
+      setTimeout(() => {
+        const { pageSize, currentPage } = this.pagerConfig
+        this.pagerConfig.total = allList.length
+        this.gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+        this.gridOptions.loading = false
+      }, 100)
+    },
+    pageChangeEvent ({ pageSize, currentPage }) {
+      this.pagerConfig.currentPage = currentPage
+      this.pagerConfig.pageSize = pageSize
+      this.handlePageData()
+    }
+  },
+  created () {
+    this.gridOptions.seqConfig = {
+      seqMethod: ({ rowIndex }) => {
+        const { pageSize, currentPage } = this.pagerConfig
+        return (currentPage - 1) * pageSize + rowIndex + 1
+      }
     }
 
     this.handlePageData()

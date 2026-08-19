@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -19,7 +19,7 @@ interface RowVO {
 
 let spanFields: string[] = []
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { columns: VxeGridPropTypes.Columns }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'columns'>>({
   border: true,
   virtualXConfig: {
     enabled: false

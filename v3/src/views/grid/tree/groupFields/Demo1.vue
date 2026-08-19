@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes, VxeWithRequired } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -46,9 +46,7 @@ const allList = [
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & {
-      treeConfig: VxeTablePropTypes.TreeConfig<RowVO>
-    } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'treeConfig'> = {
       height: 400,
       border: 'inner',
       showOverflow: true,

@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps, VxeGridPropTypes, VxeGridListeners } from 'vxe-table'
+import type { VxeGridProps, VxeGridPropTypes, VxeGridListeners, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -57,17 +57,14 @@ const handlePageData = () => {
   }, 100)
 }
 
-const pagerConfig = reactive<VxeGridPropTypes.PagerConfig & {
-  currentPage: number
-  pageSize: number
- }>({
-   total: 0,
-   currentPage: 1,
-   pageSize: 10,
-   slots: {
-     right: 'pagerRight'
-   }
- })
+const pagerConfig = reactive<VxeWithRequired<VxeGridPropTypes.PagerConfig, 'currentPage' | 'pageSize'>>({
+  total: 0,
+  currentPage: 1,
+  pageSize: 10,
+  slots: {
+    right: 'pagerRight'
+  }
+})
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,

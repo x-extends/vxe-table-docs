@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -21,9 +21,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & {
-      rowConfig: VxeTablePropTypes.RowConfig<RowVO>
-    } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'rowConfig'> = {
       rowConfig: {
         resizable: true
       },

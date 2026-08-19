@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: string
@@ -17,7 +17,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & { data: RowVO[] } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'data'> = {
       border: true,
       loading: false,
       showOverflow: true,

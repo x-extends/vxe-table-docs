@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import { VxeGridProps, VxeWithRequired } from 'vxe-table'
 import XEUtils from 'xe-utils'
 
 interface RowVO {
@@ -46,7 +46,7 @@ const defaultData = {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> & { formConfig: VxeGridPropTypes.FormConfig } = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'formConfig'> = {
       showOverflow: true,
       border: true,
       height: 500,

@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeGridPropTypes, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -48,10 +48,7 @@ const allList = [
 
 export default Vue.extend({
   data () {
-    const pagerConfig: VxeGridPropTypes.PagerConfig & {
-      currentPage: number
-      pageSize: number
-    } = {
+    const pagerConfig: VxeWithRequired<VxeGridPropTypes.PagerConfig, 'currentPage' | 'pageSize'> = {
       total: 0,
       currentPage: 1,
       pageSize: 10,

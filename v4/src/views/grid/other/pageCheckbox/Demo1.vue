@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { VxeUI, VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import { VxeUI, VxeGridInstance, VxeGridProps, VxeGridListeners, VxeGridPropTypes, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -45,24 +45,24 @@ const allList = [
   { id: 100022, name: 'Test22', nickname: 'T22', role: 'Develop', sex: 'Man', age: 44, address: 'Guangzhou' }
 ]
 
+const pagerConfig = reactive<VxeWithRequired<VxeGridPropTypes.PagerConfig, 'total' | 'currentPage' | 'pageSize'>>({
+  total: 0,
+  currentPage: 1,
+  pageSize: 10
+})
+
 // 模拟前端分页
 const handlePageData = () => {
   gridOptions.loading = true
   setTimeout(() => {
-    const { pageSize, currentPage } = gridOptions.pagerConfig
-    gridOptions.pagerConfig.total = allList.length
+    const { pageSize, currentPage } = pagerConfig
+    pagerConfig.total = allList.length
     gridOptions.data = allList.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     gridOptions.loading = false
   }, 100)
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO> & {
-  pagerConfig: {
-    total: number
-    currentPage: number
-    pageSize: number
-  }
-}>({
+const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   border: true,
   loading: false,
@@ -73,11 +73,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
   checkboxConfig: {
     reserve: true
   },
-  pagerConfig: {
-    total: 0,
-    currentPage: 1,
-    pageSize: 10
-  },
+  pagerConfig,
   columns: [
     { type: 'checkbox', width: 60 },
     { field: 'name', title: 'Name', minWidth: 160 },
@@ -94,8 +90,8 @@ const gridOptions = reactive<VxeGridProps<RowVO> & {
 
 const gridEvents: VxeGridListeners = {
   pageChange ({ pageSize, currentPage }) {
-    gridOptions.pagerConfig.currentPage = currentPage
-    gridOptions.pagerConfig.pageSize = pageSize
+    pagerConfig.currentPage = currentPage
+    pagerConfig.pageSize = pageSize
     handlePageData()
   }
 }

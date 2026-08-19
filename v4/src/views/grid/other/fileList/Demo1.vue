@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { VxeUI } from 'vxe-pc-ui'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -23,7 +23,7 @@ interface RowVO {
 
 let rowKey = new Date().getTime()
 
-const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'data'>>({
   border: true,
   columns: [
     { type: 'seq', width: 70 },
