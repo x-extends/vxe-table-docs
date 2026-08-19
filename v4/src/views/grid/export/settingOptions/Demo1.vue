@@ -1,13 +1,17 @@
 <template>
   <div>
-    <vxe-button @click="openEvent">高级导出</vxe-button>
+    文件名：<vxe-switch v-model="exportConfig.settingOptions.showFileName"></vxe-switch>
+    文件类型：<vxe-switch v-model="exportConfig.settingOptions.showType"></vxe-switch>
+    参数设置：<vxe-switch v-model="exportConfig.settingOptions.showParameter"></vxe-switch>
+
+    <vxe-button status="primary" @click="openEvent">高级导出</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import type { VxeGridInstance, VxeTablePropTypes, VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -20,6 +24,14 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
+const exportConfig = reactive<VxeWithRequired<VxeTablePropTypes.ExportConfig<RowVO>, 'settingOptions'>>({
+  settingOptions: {
+    showFileName: false,
+    showType: false,
+    showParameter: false
+  }
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
@@ -29,14 +41,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   mergeFooterCells: [
     { row: 0, col: 2, colspan: 2, rowspan: 1 }
   ],
-  exportConfig: {
-    filename () {
-      return `导出文件名${Date.now()}`
-    },
-    sheetName () {
-      return `导出标题${Date.now()}`
-    }
-  },
+  exportConfig,
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
     { field: 'checkbox', type: 'checkbox', width: 70 },

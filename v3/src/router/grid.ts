@@ -2258,6 +2258,8 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridExportAdvanced',
           component: () => import('@/views/grid/export/advanced/CodeExample.vue')
         },
+        { path: 'modelOptions', name: 'ComponentGridExportModelOptions', component: () => import('@/views/grid/export/modelOptions/CodeExample.vue') },
+        { path: 'settingOptions', name: 'ComponentGridExportSettingOptions', component: () => import('@/views/grid/export/settingOptions/CodeExample.vue') },
         {
           path: 'includeFields',
           name: 'ComponentGridExportIncludeFields',
@@ -2342,6 +2344,8 @@ export const gridRouteConfig: RouteConfig = {
           name: 'ComponentGridPrintAdvanced',
           component: () => import('@/views/grid/print/advanced/CodeExample.vue')
         },
+        { path: 'modelOptions', name: 'ComponentGridPrintModelOptions', component: () => import('@/views/grid/print/modelOptions/CodeExample.vue') },
+        { path: 'settingOptions', name: 'ComponentGridPrintSettingOptions', component: () => import('@/views/grid/print/settingOptions/CodeExample.vue') },
         {
           path: 'columns',
           name: 'ComponentGridPrintColumns',

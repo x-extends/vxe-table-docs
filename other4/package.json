@@ -71,6 +71,7 @@
     "vite": "~8.2.1",
     "vite-plugin-html": "~3.2.2",
     "vite-plugin-zip-pack": "~1.2.4",
+    "vue-eslint-parser": "^10.4.1",
     "vue-tsc": "~3.3.8"
   }
 }

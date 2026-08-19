@@ -1,13 +1,17 @@
 <template>
   <div>
-    <vxe-button @click="openEvent">高级导出</vxe-button>
+    标题：<vxe-switch v-model="printConfig.settingOptions.showSheet"></vxe-switch>
+    列宽设置：<vxe-switch v-model="printConfig.settingOptions.showWidthMode"></vxe-switch>
+    参数设置：<vxe-switch v-model="printConfig.settingOptions.showParameter"></vxe-switch>
+
+    <vxe-button status="primary" @click="openEvent">高级打印</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import type { VxeGridInstance, VxeTablePropTypes, VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -20,6 +24,14 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
+const printConfig = reactive<VxeWithRequired<VxeTablePropTypes.PrintConfig<RowVO>, 'settingOptions'>>({
+  settingOptions: {
+    showSheet: false,
+    showWidthMode: false,
+    showParameter: false
+  }
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
@@ -29,14 +41,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   mergeFooterCells: [
     { row: 0, col: 2, colspan: 2, rowspan: 1 }
   ],
-  exportConfig: {
-    filename () {
-      return `导出文件名${Date.now()}`
-    },
-    sheetName () {
-      return `导出标题${Date.now()}`
-    }
-  },
+  printConfig,
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
     { field: 'checkbox', type: 'checkbox', width: 70 },
@@ -69,7 +74,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 const openEvent = () => {
   const $grid = gridRef.value
   if ($grid) {
-    $grid.openExport()
+    $grid.openPrint()
   }
 }
 </script>
