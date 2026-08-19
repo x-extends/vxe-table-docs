@@ -16,7 +16,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
-import { VxeTableDefines, VxeGridProps, VxeGridPropTypes } from 'vxe-table'
+import { VxeTableDefines, VxeGridProps, VxeGridPropTypes, VxeWithRequired } from 'vxe-table'
 
 const allList = [
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, address: 'Shenzhen' },
@@ -51,7 +51,7 @@ export default Vue.extend({
     }
   },
   data () {
-    const gridOptions: VxeGridProps & { pagerConfig: VxeGridPropTypes.PagerConfig } = {
+    const gridOptions: VxeWithRequired<VxeGridProps, 'pagerConfig'> = {
       autoResize: true,
       height: '100%',
       loading: false,
