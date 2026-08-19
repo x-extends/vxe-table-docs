@@ -450,7 +450,7 @@ const exportDataAPI = [
     name: 'beforeExportMethod',
     desc: '该方法会在导出之前触发',
     version: '',
-    type: '({ options }) => void',
+    type: '({ options }) => boolean',
     enum: '',
     defVal: '',
     list: []
