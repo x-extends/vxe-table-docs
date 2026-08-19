@@ -2828,6 +2828,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridOtherTreeSubCols',
           component: () => import('@/views/grid/other/treeSubCols/CodeExample.vue')
         },
+        { path: 'compareTable', name: 'ComponentGridOtherCompareTable', component: () => import('@/views/grid/other/compareTable/CodeExample.vue') },
         { path: 'rowColMerge', name: 'ComponentGridOtherRowColMerge', component: () => import('@/views/grid/other/rowColMerge/CodeExample.vue') }
       ]
     }
