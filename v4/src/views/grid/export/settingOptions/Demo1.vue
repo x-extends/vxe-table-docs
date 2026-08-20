@@ -1,11 +1,20 @@
 <template>
   <div>
-    文件名：<vxe-switch v-model="exportConfig.settingOptions.showFileName"></vxe-switch>
-    文件类型：<vxe-switch v-model="exportConfig.settingOptions.showType"></vxe-switch>
-    参数设置：<vxe-switch v-model="exportConfig.settingOptions.showParameter"></vxe-switch>
+    文件名：<vxe-switch v-model="exportConfig.settingOptions.showFileName" />
+    标题：<vxe-switch v-model="exportConfig.settingOptions.showSheet" />
+    文件类型：<vxe-switch v-model="exportConfig.settingOptions.showType" />
+    参数设置：<vxe-switch v-model="exportConfig.settingOptions.showParameter" />
 
-    <vxe-button status="primary" @click="openEvent">高级导出</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-button
+      status="primary"
+      @click="openEvent"
+    >
+      高级导出
+    </vxe-button>
+    <vxe-grid
+      ref="gridRef"
+      v-bind="gridOptions"
+    />
   </div>
 </template>
 
@@ -27,6 +36,7 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 const exportConfig = reactive<VxeWithRequired<VxeTablePropTypes.ExportConfig<RowVO>, 'settingOptions'>>({
   settingOptions: {
     showFileName: false,
+    showSheet: false,
     showType: false,
     showParameter: false
   }

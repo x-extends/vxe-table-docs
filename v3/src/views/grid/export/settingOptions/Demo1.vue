@@ -1,6 +1,7 @@
 <template>
   <div>
     文件名：<vxe-switch v-model="exportConfig.settingOptions.showFileName"></vxe-switch>
+    标题：<vxe-switch v-model="exportConfig.settingOptions.showSheet" />
     文件类型：<vxe-switch v-model="exportConfig.settingOptions.showType"></vxe-switch>
     参数设置：<vxe-switch v-model="exportConfig.settingOptions.showParameter"></vxe-switch>
 
@@ -27,6 +28,7 @@ export default Vue.extend({
     const exportConfig: VxeWithRequired<VxeTablePropTypes.ExportConfig<RowVO>, 'settingOptions'> = {
       settingOptions: {
         showFileName: false,
+        showSheet: false,
         showType: false,
         showParameter: false
       }

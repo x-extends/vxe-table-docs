@@ -3,6 +3,8 @@
     最小化：<vxe-switch v-model="exportConfig.modelOptions.showMinimize"></vxe-switch>
     最大化：<vxe-switch v-model="exportConfig.modelOptions.showMaximize"></vxe-switch>
     拖拽调整：<vxe-switch v-model="exportConfig.modelOptions.resize"></vxe-switch>
+    全屏打开：<vxe-switch v-model="exportConfig.modelOptions.fullscreen"></vxe-switch>
+
     <vxe-button status="primary" @click="openEvent">高级导出</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
@@ -28,6 +30,7 @@ const exportConfig = reactive<VxeWithRequired<VxeTablePropTypes.ExportConfig<Row
     title: '正在导出文件',
     width: 1000,
     height: 600,
+    fullscreen: false,
     showMinimize: true,
     showMaximize: true,
     resize: true
