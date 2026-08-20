@@ -1,10 +1,20 @@
 <template>
   <div>
-    最小化：<vxe-switch v-model="printConfig.modelOptions.showMinimize"></vxe-switch>
-    最大化：<vxe-switch v-model="printConfig.modelOptions.showMaximize"></vxe-switch>
-    拖拽调整：<vxe-switch v-model="printConfig.modelOptions.resize"></vxe-switch>
-    <vxe-button status="primary" @click="openEvent">高级打印</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    最小化：<vxe-switch v-model="printConfig.modelOptions.showMinimize" />
+    最大化：<vxe-switch v-model="printConfig.modelOptions.showMaximize" />
+    拖拽调整：<vxe-switch v-model="printConfig.modelOptions.resize" />
+    全屏打开：<vxe-switch v-model="printConfig.modelOptions.fullscreen" />
+
+    <vxe-button
+      status="primary"
+      @click="openEvent"
+    >
+      高级打印
+    </vxe-button>
+    <vxe-grid
+      ref="gridRef"
+      v-bind="gridOptions"
+    />
   </div>
 </template>
 
@@ -28,6 +38,7 @@ const printConfig = reactive<VxeWithRequired<VxeTablePropTypes.PrintConfig<RowVO
     title: '正在打印',
     width: 1000,
     height: 600,
+    fullscreen: false,
     showMinimize: true,
     showMaximize: true,
     resize: true
