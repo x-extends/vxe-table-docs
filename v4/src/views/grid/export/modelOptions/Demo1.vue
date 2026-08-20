@@ -1,12 +1,20 @@
 <template>
   <div>
-    最小化：<vxe-switch v-model="exportConfig.modelOptions.showMinimize"></vxe-switch>
-    最大化：<vxe-switch v-model="exportConfig.modelOptions.showMaximize"></vxe-switch>
-    拖拽调整：<vxe-switch v-model="exportConfig.modelOptions.resize"></vxe-switch>
-    全屏打开：<vxe-switch v-model="exportConfig.modelOptions.fullscreen"></vxe-switch>
+    最小化：<vxe-switch v-model="exportConfig.modelOptions.showMinimize" />
+    最大化：<vxe-switch v-model="exportConfig.modelOptions.showMaximize" />
+    拖拽调整：<vxe-switch v-model="exportConfig.modelOptions.resize" />
+    全屏打开：<vxe-switch v-model="exportConfig.modelOptions.fullscreen" />
 
-    <vxe-button status="primary" @click="openEvent">高级导出</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-button
+      status="primary"
+      @click="openEvent"
+    >
+      高级导出
+    </vxe-button>
+    <vxe-grid
+      ref="gridRef"
+      v-bind="gridOptions"
+    />
   </div>
 </template>
 
