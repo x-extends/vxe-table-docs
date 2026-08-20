@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-button @click="openEvent">自定义导出</vxe-button>
+    <vxe-button status="primary" @click="openEvent">自定义导出</vxe-button>
     <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
