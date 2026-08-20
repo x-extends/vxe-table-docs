@@ -7,8 +7,10 @@
         <vxe-grid ref="gridRef1" v-bind="gridOptions1"></vxe-grid>
       </div>
       <div class="my-table-transfer-handle">
-        <vxe-button status="primary" icon="vxe-icon-arrow-double-right" style="width: 100%;" @click="addEvent"></vxe-button>
-        <vxe-button status="error" icon="vxe-icon-arrow-double-left" style="width: 100%;" @click="delEvent"></vxe-button>
+        <vxe-button-group vertical>
+          <vxe-button status="primary" icon="vxe-icon-arrow-double-right" style="width: 100%;" @click="addEvent"></vxe-button>
+          <vxe-button status="error" icon="vxe-icon-arrow-double-left" style="width: 100%;" @click="delEvent"></vxe-button>
+        </vxe-button-group>
       </div>
       <div class="my-table-transfer-right">
         <vxe-grid ref="gridRef2" v-bind="gridOptions2"></vxe-grid>
