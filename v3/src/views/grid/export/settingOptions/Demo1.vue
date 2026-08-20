@@ -2,7 +2,8 @@
   <div>
     文件名：<vxe-switch v-model="exportConfig.settingOptions.showFileName"></vxe-switch>
     标题：<vxe-switch v-model="exportConfig.settingOptions.showSheet" />
-    文件类型：<vxe-switch v-model="exportConfig.settingOptions.showType"></vxe-switch>
+    保存类型：<vxe-switch v-model="exportConfig.settingOptions.showType"></vxe-switch>
+    选择数据：<vxe-switch v-model="exportConfig.settingOptions.showMode" />
     参数设置：<vxe-switch v-model="exportConfig.settingOptions.showParameter"></vxe-switch>
 
     <vxe-button status="primary" @click="openEvent">高级导出</vxe-button>
@@ -27,9 +28,10 @@ export default Vue.extend({
   data () {
     const exportConfig: VxeWithRequired<VxeTablePropTypes.ExportConfig<RowVO>, 'settingOptions'> = {
       settingOptions: {
-        showFileName: false,
+        showFileName: true,
         showSheet: false,
         showType: false,
+        showMode: true,
         showParameter: false
       }
     }

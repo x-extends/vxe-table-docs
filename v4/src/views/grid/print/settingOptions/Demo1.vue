@@ -1,11 +1,20 @@
 <template>
   <div>
-    标题：<vxe-switch v-model="printConfig.settingOptions.showSheet"></vxe-switch>
-    列宽设置：<vxe-switch v-model="printConfig.settingOptions.showWidthMode"></vxe-switch>
-    参数设置：<vxe-switch v-model="printConfig.settingOptions.showParameter"></vxe-switch>
+    标题：<vxe-switch v-model="printConfig.settingOptions.showSheet" />
+    选择数据：<vxe-switch v-model="printConfig.settingOptions.showMode" />
+    列宽设置：<vxe-switch v-model="printConfig.settingOptions.showWidthMode" />
+    参数设置：<vxe-switch v-model="printConfig.settingOptions.showParameter" />
 
-    <vxe-button status="primary" @click="openEvent">高级打印</vxe-button>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-button
+      status="primary"
+      @click="openEvent"
+    >
+      高级打印
+    </vxe-button>
+    <vxe-grid
+      ref="gridRef"
+      v-bind="gridOptions"
+    />
   </div>
 </template>
 
@@ -26,9 +35,10 @@ const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const printConfig = reactive<VxeWithRequired<VxeTablePropTypes.PrintConfig<RowVO>, 'settingOptions'>>({
   settingOptions: {
-    showSheet: false,
-    showWidthMode: false,
-    showParameter: false
+    showSheet: true,
+    showMode: true,
+    showWidthMode: true,
+    showParameter: true
   }
 })
 

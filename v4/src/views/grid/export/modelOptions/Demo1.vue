@@ -31,6 +31,7 @@ const exportConfig = reactive<VxeWithRequired<VxeTablePropTypes.ExportConfig<Row
     width: 1000,
     height: 600,
     fullscreen: false,
+    remember: false,
     showMinimize: true,
     showMaximize: true,
     resize: true

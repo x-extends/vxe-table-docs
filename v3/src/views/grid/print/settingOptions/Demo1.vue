@@ -1,6 +1,7 @@
 <template>
   <div>
     标题：<vxe-switch v-model="printConfig.settingOptions.showSheet"></vxe-switch>
+    选择数据：<vxe-switch v-model="printConfig.settingOptions.showType" />
     列宽设置：<vxe-switch v-model="printConfig.settingOptions.showWidthMode"></vxe-switch>
     参数设置：<vxe-switch v-model="printConfig.settingOptions.showParameter"></vxe-switch>
 
@@ -26,9 +27,10 @@ export default Vue.extend({
   data () {
     const printConfig: VxeWithRequired<VxeTablePropTypes.PrintConfig<RowVO>, 'settingOptions'> = {
       settingOptions: {
-        showSheet: false,
-        showWidthMode: false,
-        showParameter: false
+        showSheet: true,
+        showMode: true,
+        showWidthMode: true,
+        showParameter: true
       }
     }
 
