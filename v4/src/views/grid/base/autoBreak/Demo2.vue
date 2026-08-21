@@ -24,12 +24,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   cellConfig: {
     maxHeight: 100
   },
-  virtualXConfig: {
-    enabled: false
-  },
-  virtualYConfig: {
-    enabled: false
-  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },

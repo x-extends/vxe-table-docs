@@ -21,12 +21,6 @@ interface RowVO {
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: false,
-  virtualXConfig: {
-    enabled: false
-  },
-  virtualYConfig: {
-    enabled: false
-  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },

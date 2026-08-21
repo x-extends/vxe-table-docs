@@ -23,6 +23,9 @@ export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
       showOverflow: false,
+      cellConfig: {
+        maxHeight: 100
+      },
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
