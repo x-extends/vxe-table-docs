@@ -67,6 +67,7 @@ export default defineConfig([
       'vue/no-v-model-argument': 'off',
       'vue/multi-word-component-names': 'off',
       'vue/max-attributes-per-line': 'off',
+      'vue/singleline-html-element-content-newline': 'off',
       'vue/html-self-closing': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'warn'

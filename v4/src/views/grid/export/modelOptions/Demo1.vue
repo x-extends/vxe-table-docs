@@ -5,16 +5,8 @@
     拖拽调整：<vxe-switch v-model="exportConfig.modelOptions.resize" />
     全屏打开：<vxe-switch v-model="exportConfig.modelOptions.fullscreen" />
 
-    <vxe-button
-      status="primary"
-      @click="openEvent"
-    >
-      高级导出
-    </vxe-button>
-    <vxe-grid
-      ref="gridRef"
-      v-bind="gridOptions"
-    />
+    <vxe-button status="primary" @click="openEvent">高级导出</vxe-button>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" />
   </div>
 </template>
 
