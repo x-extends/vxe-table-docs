@@ -53,10 +53,13 @@ export default Vue.extend({
           </div>`
             },
             footerHtml: '<div style="font-size: 40px">自定义页尾</div>',
+            // 使用自定义分页模式，放弃内置的自动分页功能，可以灵活自定义实现任意分页
             pageBreaks: [
+              // 第一页
               {
                 bodyHtml: '<img src="https://vxeui.com/resource/img/fj562.png" width="100%">'
               },
+              // 第二页
               {
                 bodyHtml: html
               }

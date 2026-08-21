@@ -85,6 +85,7 @@ export default Vue.extend({
         const bottomHtml = bottomEl ? bottomEl.innerHTML : ''
         VxeUI.print({
           title: '出货单据',
+          // 使用自定义分页模式，放弃内置的自动分页功能，可以灵活自定义实现任意分页
           pageBreaks: [
             // 第一页
             {

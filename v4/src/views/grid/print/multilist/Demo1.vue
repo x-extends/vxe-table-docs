@@ -77,11 +77,14 @@ const printEvent = async () => {
     VxeUI.print({
       title: '打印多张表',
       showPageNumber: true,
+      // 使用自定义分页模式，放弃内置的自动分页功能，可以灵活自定义实现任意分页
       pageBreaks: [
+        // 第一页
         {
           headerHtml: '<div style="text-align: center;font-size: 28px;">第一张表</div>',
           bodyHtml: printRest1.html
         },
+        // 第二页
         {
           headerHtml: '<div style="text-align: center;font-size: 28px;">第二张表</div>',
           bodyHtml: printRest2.html
