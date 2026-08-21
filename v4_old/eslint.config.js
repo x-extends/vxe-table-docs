@@ -21,6 +21,9 @@ export default defineConfig([
       }
     }
   },
+  {
+    ignores: ['**/node_modules/', '.git/']
+  },
   tseslint.configs.recommended,
   pluginVue.configs['flat/recommended'],
   {
@@ -63,6 +66,7 @@ export default defineConfig([
       'no-debugger': 'error',
       'vue/no-v-model-argument': 'off',
       'vue/multi-word-component-names': 'off',
+      'vue/max-attributes-per-line': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'warn'
     }
