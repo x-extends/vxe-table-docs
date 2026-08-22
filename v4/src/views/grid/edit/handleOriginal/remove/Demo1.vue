@@ -54,12 +54,18 @@ const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'data'>>({
 })
 
 const removeRow = async (row: RowVO) => {
-  gridOptions.data = gridOptions.data.filter(item => item.id !== row.id)
-  removeRecords.push(row)
-  VxeUI.modal.message({
-    content: '数据已删除',
-    status: 'success'
+  const type = await VxeUI.modal.confirm({
+    title: '系统提示',
+    content: '请您确认是否删除？'
   })
+  if (type === 'confirm') {
+    gridOptions.data = gridOptions.data.filter(item => item.id !== row.id)
+    removeRecords.push(row)
+    VxeUI.modal.message({
+      content: '数据已删除',
+      status: 'success'
+    })
+  }
 }
 
 const removeSelectEvent = async () => {
@@ -67,12 +73,18 @@ const removeSelectEvent = async () => {
   if ($grid) {
     const selectRecords = $grid.getCheckboxRecords()
     if (selectRecords.length > 0) {
-      gridOptions.data = gridOptions.data.filter(item => !selectRecords.some(row => row.id === item.id))
-      removeRecords.push(...selectRecords)
-      VxeUI.modal.message({
-        content: '已删除选中',
-        status: 'success'
+      const type = await VxeUI.modal.confirm({
+        title: '系统提示',
+        content: '请您确认是否删除？'
       })
+      if (type === 'confirm') {
+        gridOptions.data = gridOptions.data.filter(item => !selectRecords.some(row => row.id === item.id))
+        removeRecords.push(...selectRecords)
+        VxeUI.modal.message({
+          content: '已删除选中',
+          status: 'success'
+        })
+      }
     } else {
       VxeUI.modal.message({
         content: '未选择数据',

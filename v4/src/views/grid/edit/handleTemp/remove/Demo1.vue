@@ -54,13 +54,19 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const removeRow = async (row: RowVO) => {
-  const $grid = gridRef.value
-  if ($grid) {
-    $grid.remove(row)
-    VxeUI.modal.message({
-      content: '数据已删除',
-      status: 'success'
-    })
+  const type = await VxeUI.modal.confirm({
+    title: '系统提示',
+    content: '请您确认是否删除？'
+  })
+  if (type === 'confirm') {
+    const $grid = gridRef.value
+    if ($grid) {
+      $grid.remove(row)
+      VxeUI.modal.message({
+        content: '数据已删除',
+        status: 'success'
+      })
+    }
   }
 }
 
@@ -69,11 +75,17 @@ const removeSelectEvent = async () => {
   if ($grid) {
     const selectRecords = $grid.getCheckboxRecords()
     if (selectRecords.length > 0) {
-      $grid.removeCheckboxRow()
-      VxeUI.modal.message({
-        content: '已删除选中',
-        status: 'success'
+      const type = await VxeUI.modal.confirm({
+        title: '系统提示',
+        content: '请您确认是否删除？'
       })
+      if (type === 'confirm') {
+        $grid.removeCheckboxRow()
+        VxeUI.modal.message({
+          content: '已删除选中',
+          status: 'success'
+        })
+      }
     } else {
       VxeUI.modal.message({
         content: '未选择数据',

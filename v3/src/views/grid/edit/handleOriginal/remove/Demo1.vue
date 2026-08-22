@@ -59,25 +59,37 @@ export default Vue.extend({
     }
   },
   methods: {
-    removeRow (row: RowVO) {
-      this.gridOptions.data = this.gridOptions.data.filter(item => item.id !== row.id)
-      this.removeRecords.push(row)
-      VxeUI.modal.message({
-        content: '数据已删除',
-        status: 'success'
+    async removeRow (row: RowVO) {
+      const type = await VxeUI.modal.confirm({
+        title: '系统提示',
+        content: '请您确认是否删除？'
       })
+      if (type === 'confirm') {
+        this.gridOptions.data = this.gridOptions.data.filter(item => item.id !== row.id)
+        this.removeRecords.push(row)
+        VxeUI.modal.message({
+          content: '数据已删除',
+          status: 'success'
+        })
+      }
     },
     async removeSelectEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         const selectRecords = $grid.getCheckboxRecords()
         if (selectRecords.length > 0) {
-          this.gridOptions.data = this.gridOptions.data.filter(item => !selectRecords.some(row => row.id === item.id))
-          this.removeRecords.push(...selectRecords)
-          VxeUI.modal.message({
-            content: '已删除选中',
-            status: 'success'
+          const type = await VxeUI.modal.confirm({
+            title: '系统提示',
+            content: '请您确认是否删除？'
           })
+          if (type === 'confirm') {
+            this.gridOptions.data = this.gridOptions.data.filter(item => !selectRecords.some(row => row.id === item.id))
+            this.removeRecords.push(...selectRecords)
+            VxeUI.modal.message({
+              content: '已删除选中',
+              status: 'success'
+            })
+          }
         } else {
           VxeUI.modal.message({
             content: '未选择数据',
