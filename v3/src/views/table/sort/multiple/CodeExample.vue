@@ -8,7 +8,7 @@
 
     <CodeLight path="table/sort/multiple/Demo2">
       <template #tip>
-        <vxe-tip status="primary">如果需要获取排序字段的先后顺序，可以通过 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="chronological"/> 设置</vxe-tip>
+        <vxe-tip status="primary">如果启用排序字段的先后顺序功能，可以通过 <ApiLink name="table" prop="sort-config"/>.<ApiLink name="table" prop="chronological"/> 设置</vxe-tip>
       </template>
     </CodeLight>
   </div>
