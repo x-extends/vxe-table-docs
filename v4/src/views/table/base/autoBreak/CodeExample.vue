@@ -2,8 +2,8 @@
   <div>
     <CodeLight path="table/base/autoBreak/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="自适应高度">
-          通过 <ApiLink name="table" prop="show-overflow" />=false 设置单元格自适应高度
+        <vxe-tip status="primary" title="自适应单元格高度">
+          通过 <ApiLink name="table" prop="show-overflow" />=false 设置自适应单元格高度
         </vxe-tip>
       </template>
     </CodeLight>
