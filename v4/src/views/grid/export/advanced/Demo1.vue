@@ -38,8 +38,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     }
   },
   columns: [
-    { field: 'seq', type: 'seq', width: 70 },
-    { field: 'checkbox', type: 'checkbox', width: 70 },
+    { type: 'seq', width: 70 },
+    { type: 'checkbox', width: 70 },
     {
       title: '分组1',
       children: [
