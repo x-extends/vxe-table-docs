@@ -2,7 +2,9 @@
   <div>
     <vxe-table
       :show-overflow="false"
-      :data="tableData">
+      :cell-config="cellConfig"
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="列头自动换行列头自动换行" width="120"></vxe-column>
@@ -12,7 +14,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import type { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -29,4 +32,8 @@ const tableData = ref<RowVO[]>([
   { id: 10003, name: 'Test3', role: 'PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM', sex: 'Man', age: 32, address: 'Shanghai' },
   { id: 10004, name: 'Test4', role: 'Test', sex: 'Women', age: 24, address: 'Shanghai' }
 ])
+
+const cellConfig = reactive<VxeTablePropTypes.CellConfig>({
+  maxHeight: 100
+})
 </script>

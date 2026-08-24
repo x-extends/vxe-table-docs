@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       :show-overflow="false"
+      :cell-config="cellConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
@@ -13,6 +14,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import type { VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -32,8 +34,13 @@ export default Vue.extend({
       { id: 10004, name: 'Test4', role: 'Test', sex: 'Women', age: 24, address: 'Shanghai' }
     ]
 
+    const cellConfig: VxeTablePropTypes.CellConfig = {
+      maxHeight: 100
+    }
+
     return {
-      tableData
+      tableData,
+      cellConfig
     }
   }
 })
