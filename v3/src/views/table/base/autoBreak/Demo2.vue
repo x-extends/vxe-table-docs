@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-table
+      height="400"
       :show-overflow="false"
       :cell-config="cellConfig"
       :data="tableData">
@@ -29,9 +30,11 @@ export default Vue.extend({
   data () {
     const tableData: RowVO[] = [
       { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-      { id: 10002, name: '内容自动换行内容自动换行内容自动换行内容自动换行内容自动换行', role: 'Designer', sex: 'Women', age: 22, address: 'Guangzhou' },
-      { id: 10003, name: 'Test3', role: 'PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM', sex: 'Man', age: 32, address: 'Shanghai' },
-      { id: 10004, name: 'Test4', role: 'Test', sex: 'Women', age: 24, address: 'Shanghai' }
+      { id: 10002, name: '内容自动换行内容自动换行内容自动换行内容自动换行内容自动换行内容自动换行内容自动换行', role: 'Designer', sex: 'Women', age: 22, address: 'Guangzhou' },
+      { id: 10003, name: 'Test3', role: 'PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PM PMPM PM PM', sex: 'Man', age: 32, address: 'Shanghai' },
+      { id: 10004, name: 'Test4', role: 'Test', sex: 'Women', age: 24, address: 'Shanghai' },
+      { id: 10005, name: '内容自动换行内容自动换行内容自动换行内容自动换行内容自动换行 内容自动换行内容自动换行内容自动换行内容自动换行自动换行内容自动换行自动换行内容自动换行', role: 'Designer', sex: 'Women', age: 22, address: 'Guangzhou' },
+      { id: 10006, name: 'Test3', role: 'DevelopDevelopDevel opDevelop DevelopDevelop DevelopDevelopDevelopDevelop DevelopDevelop DevelopDevelop DevelopDevelop DevelopDevelop', sex: 'Man', age: 32, address: 'Shanghai' }
     ]
 
     const cellConfig: VxeTablePropTypes.CellConfig = {
