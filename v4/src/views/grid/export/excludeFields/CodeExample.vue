@@ -6,7 +6,7 @@
           通过 <ApiLink name="grid" prop="export-config" />.<ApiLink name="grid" prop="excludeFields" /> 排除字段
         </vxe-tip>
         <vxe-tip status="success" title="小提示">
-          默认会导出带有 <ApiLink name="column" prop="field" /> 的列
+          默认会导出带有 <ApiLink name="column" prop="field" /> 的列，可以通过 <ApiLink name="grid" prop="export-config" />.<ApiLink name="grid" prop="excludeFields" /> 排除字段
         </vxe-tip>
       </template>
     </CodeLight>
