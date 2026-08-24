@@ -6,7 +6,7 @@
           通过 <ApiLink name="grid" prop="export-config"/>.<ApiLink name="grid" prop="includeFields"/> 可以指定字段
         </vxe-tip>
         <vxe-tip status="success" title="小提示">
-          默认是导出带有 field 的列
+          默认会导出带有 <ApiLink name="column" prop="field" /> 的列
         </vxe-tip>
       </template>
     </CodeLight>
