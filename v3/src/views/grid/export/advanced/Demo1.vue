@@ -38,7 +38,7 @@ export default Vue.extend({
         }
       },
       columns: [
-        { type: 'seq', width: 70 },
+        { field: 'seq', type: 'seq', width: 70 },
         { type: 'checkbox', width: 70 },
         {
           title: '分组1',
