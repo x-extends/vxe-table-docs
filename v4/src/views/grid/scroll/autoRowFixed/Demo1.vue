@@ -73,9 +73,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columnConfig: {
     resizable: true
   },
-  cellConfig: {
-    maxHeight: 100
-  },
   rowConfig: {
     isHover: true
   },

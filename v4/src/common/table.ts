@@ -1223,7 +1223,7 @@ export const tableNavConfig: NavVO = {
             { title: '禁用行编辑', routerLink: { name: 'ComponentGridEditRowDisable' } },
             { title: '禁用单元格编辑', routerLink: { name: 'ComponentGridEditCellDisable' } },
             { title: '单元格校验', routerLink: { name: 'ComponentGridEditCellValid' } },
-            { title: '编辑之前拦截', routerLink: { name: 'ComponentGridEditCheckboxCol' } },
+            { title: '编辑之前拦截', routerLink: { name: 'ComponentGridEditBeforeEdit' } },
             { title: '负数自动标红', routerLink: { name: 'ComponentGridEditShowNegativeStatus' } },
             { title: '实现复选框启用编辑', routerLink: { name: 'ComponentGridEditCheckboxCol' } },
             { title: '实现行字段的合计', routerLink: { name: 'ComponentGridEditRowImmediately' } },
