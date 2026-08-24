@@ -321,7 +321,7 @@ const hasCheckboxCell = (cellValue: string | boolean) => {
 <style lang="scss" scoped>
 ::v-deep(.my-compare-table) {
   .my-compare-table-body-title {
-    background-color: var(--vxe-ui-table-header-background-color);
+    background-color: #f8f8f9;
   }
 }
 </style>
