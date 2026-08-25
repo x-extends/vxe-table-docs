@@ -3,7 +3,7 @@
     <CodeLight path="grid/scroll/compactEdit/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="紧凑模式+可编辑">
-          通过 <ApiLink name="grid" prop="cell-config" />.<ApiLink name="grid" prop="height" /> 和 <ApiLink name="grid" prop="cell-config" />.<ApiLink name="grid" prop="pading" /> 来修改默认单元格高度和边距
+          通过 <ApiLink name="grid" prop="cell-config" />.<ApiLink name="grid" prop="height" /> 和 <ApiLink name="grid" prop="cell-config" />.<ApiLink name="grid" prop="padding" /> 来修改默认单元格高度和边距
         </vxe-tip>
         <vxe-tip status="warning" title="小提示">
           <div>渲染量限制：支持纵向可视区最大60行（总最大30万行），横向可视区最大40列（总最大3万列）</div>
