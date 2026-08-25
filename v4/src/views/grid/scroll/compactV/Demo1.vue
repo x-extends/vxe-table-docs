@@ -7,7 +7,7 @@
       <vxe-radio-button :checked-value="34" content="34px"></vxe-radio-button>
     </vxe-radio-group>
 
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid class="my-compact-table" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
@@ -42,7 +42,10 @@ interface RowVO {
 }
 
 const cellConfig = reactive<VxeTablePropTypes.CellConfig>({
-  padding: false,
+  padding: {
+    top: false,
+    bottom: false
+  },
   height: 30
 })
 
@@ -120,3 +123,10 @@ const loadList = (size = 200) => {
 
 loadList(1000)
 </script>
+
+<style lang="scss" scoped>
+// .my-compact-table {
+//   // 当低于 22px 时，需要同时修改默认行高 css 变量
+//   --vxe-ui-table-row-line-height: 18px;
+// }
+</style>
