@@ -1438,6 +1438,7 @@ export const tableNavConfig: NavVO = {
             { title: '纵向虚拟滚动', routerLink: { name: 'ComponentGridScrollVertical' } },
             { title: '横向虚拟滚动', routerLink: { name: 'ComponentGridScrollHorizontal' } },
             { title: '紧凑型单元格', routerLink: { name: 'ComponentGridScrollCompactV' } },
+            { title: '紧凑型单元格 + 可编辑', routerLink: { name: 'ComponentGridScrollCompactEdit' } },
             { title: '列头自适应换行', routerLink: { name: 'ComponentGridScrollColBreak' } },
             { title: '纵向和横向', routerLink: { name: 'ComponentGridScrollHV' }, keywords: 'loadData,reloadData,loadColumn,reloadColumn' },
             { title: '排序与筛选', routerLink: { name: 'ComponentGridScrollHFull' } },

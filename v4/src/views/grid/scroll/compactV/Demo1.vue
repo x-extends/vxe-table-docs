@@ -1,12 +1,19 @@
 <template>
   <div>
+    <vxe-radio-group v-model="cellConfig.height">
+      <vxe-radio-button :checked-value="22" content="22px"></vxe-radio-button>
+      <vxe-radio-button :checked-value="26" content="26px"></vxe-radio-button>
+      <vxe-radio-button :checked-value="30" content="30px"></vxe-radio-button>
+      <vxe-radio-button :checked-value="34" content="34px"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -34,6 +41,11 @@ interface RowVO {
   attr14: string
 }
 
+const cellConfig = reactive<VxeTablePropTypes.CellConfig>({
+  padding: false,
+  height: 30
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
@@ -41,41 +53,34 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showFooterOverflow: true,
   height: 1000,
   size: 'mini',
-  cellConfig: {
-    padding: false,
-    height: 30
-  },
-  editConfig: {
-    trigger: 'click',
-    mode: 'cell'
-  },
+  cellConfig,
   virtualYConfig: {
     enabled: true,
     gt: 0
   },
   columns: [
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', minWidth: 100, editRender: { name: 'VxeInput' } },
-    { field: 'nickname', title: 'Nickname', width: 200, editRender: { name: 'VxeInput' } },
-    { field: 'sex', title: 'Sex', width: 100, editRender: { name: 'VxeInput' } },
-    { field: 'age', title: 'Age', width: 100, editRender: { name: 'VxeInput' } },
-    { field: 'num', title: 'Num', width: 100, editRender: { name: 'VxeInput' } },
-    { field: 'time', title: 'Time', width: 100, editRender: { name: 'VxeInput' } },
-    { field: 'attr1', title: 'Attr1', width: 150, editRender: { name: 'VxeInput' } },
-    { field: 'attr2', title: 'Attr2', width: 200, editRender: { name: 'VxeInput' } },
-    { field: 'attr3', title: 'Attr3', width: 150, editRender: { name: 'VxeInput' } },
-    { field: 'attr4', title: 'Attr4', width: 100, editRender: { name: 'VxeInput' } },
-    { field: 'attr5', title: 'Attr5', width: 150, editRender: { name: 'VxeInput' } },
-    { field: 'attr6', title: 'Attr6', width: 200, editRender: { name: 'VxeInput' } },
-    { field: 'attr7', title: 'Attr7', width: 300, editRender: { name: 'VxeInput' } },
-    { field: 'attr8', title: 'Attr8', width: 150, editRender: { name: 'VxeInput' } },
-    { field: 'attr9', title: 'Attr9', width: 250, editRender: { name: 'VxeInput' } },
-    { field: 'attr10', title: 'Attr10', width: 200, editRender: { name: 'VxeInput' } },
-    { field: 'attr11', title: 'Attr11', width: 350, editRender: { name: 'VxeInput' } },
-    { field: 'attr12', title: 'Attr12', width: 150, editRender: { name: 'VxeInput' } },
-    { field: 'attr13', title: 'Attr13', width: 250, editRender: { name: 'VxeInput' } },
-    { field: 'attr14', title: 'Attr14', width: 150, editRender: { name: 'VxeInput' } },
-    { field: 'address', title: 'Address', width: 200, editRender: { name: 'VxeInput' } }
+    { field: 'name', title: 'Name', minWidth: 100 },
+    { field: 'nickname', title: 'Nickname', width: 200 },
+    { field: 'sex', title: 'Sex', width: 100 },
+    { field: 'age', title: 'Age', width: 100 },
+    { field: 'num', title: 'Num', width: 100 },
+    { field: 'time', title: 'Time', width: 100 },
+    { field: 'attr1', title: 'Attr1', width: 150 },
+    { field: 'attr2', title: 'Attr2', width: 200 },
+    { field: 'attr3', title: 'Attr3', width: 150 },
+    { field: 'attr4', title: 'Attr4', width: 100 },
+    { field: 'attr5', title: 'Attr5', width: 150 },
+    { field: 'attr6', title: 'Attr6', width: 200 },
+    { field: 'attr7', title: 'Attr7', width: 300 },
+    { field: 'attr8', title: 'Attr8', width: 150 },
+    { field: 'attr9', title: 'Attr9', width: 250 },
+    { field: 'attr10', title: 'Attr10', width: 200 },
+    { field: 'attr11', title: 'Attr11', width: 350 },
+    { field: 'attr12', title: 'Attr12', width: 150 },
+    { field: 'attr13', title: 'Attr13', width: 250 },
+    { field: 'attr14', title: 'Attr14', width: 150 },
+    { field: 'address', title: 'Address', width: 200 }
   ],
   data: []
 })

@@ -1,19 +1,12 @@
 <template>
   <div>
-    <vxe-radio-group v-model="cellConfig.height">
-      <vxe-radio-button :checked-value="22" content="22px"></vxe-radio-button>
-      <vxe-radio-button :checked-value="26" content="26px"></vxe-radio-button>
-      <vxe-radio-button :checked-value="30" content="30px"></vxe-radio-button>
-      <vxe-radio-button :checked-value="34" content="34px"></vxe-radio-button>
-    </vxe-radio-group>
-
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -43,11 +36,6 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const cellConfig: VxeTablePropTypes.CellConfig = {
-      padding: false,
-      height: 30
-    }
-
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
@@ -55,7 +43,14 @@ export default Vue.extend({
       showFooterOverflow: true,
       height: 1000,
       size: 'mini',
-      cellConfig,
+      cellConfig: {
+        padding: false,
+        height: 30
+      },
+      editConfig: {
+        trigger: 'click',
+        mode: 'cell'
+      },
       virtualYConfig: {
         enabled: true,
         gt: 0
@@ -88,8 +83,7 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions,
-      cellConfig
+      gridOptions
     }
   },
   methods: {

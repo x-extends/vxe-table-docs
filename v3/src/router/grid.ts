@@ -2429,6 +2429,7 @@ export const gridRouteConfig: RouteConfig = {
           component: () => import('@/views/grid/scroll/horizontal/CodeExample.vue')
         },
         { path: 'compactV', name: 'ComponentGridScrollCompactV', component: () => import('@/views/grid/scroll/compactV/CodeExample.vue') },
+        { path: 'compactEdit', name: 'ComponentGridScrollCompactEdit', component: () => import('@/views/grid/scroll/compactEdit/CodeExample.vue') },
         {
           path: 'colBreak',
           name: 'ComponentGridScrollColBreak',
