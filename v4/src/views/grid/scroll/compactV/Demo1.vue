@@ -42,7 +42,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 1000,
   size: 'mini',
   cellConfig: {
-    // padding: false,
+    padding: false,
     height: 30
   },
   editConfig: {
