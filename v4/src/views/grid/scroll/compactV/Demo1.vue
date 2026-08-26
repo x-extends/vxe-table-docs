@@ -7,7 +7,7 @@
       <vxe-radio-button :checked-value="34" content="34px"></vxe-radio-button>
     </vxe-radio-group>
 
-    <vxe-grid class="my-compact-table" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" class="my-compact-table" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
