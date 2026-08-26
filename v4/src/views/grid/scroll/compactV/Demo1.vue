@@ -1,10 +1,11 @@
 <template>
   <div>
-    <vxe-radio-group v-model="cellConfig.height">
+    高度：<vxe-radio-group v-model="cellConfig.height">
       <vxe-radio-button :checked-value="22" content="22px"></vxe-radio-button>
       <vxe-radio-button :checked-value="26" content="26px"></vxe-radio-button>
       <vxe-radio-button :checked-value="30" content="30px"></vxe-radio-button>
       <vxe-radio-button :checked-value="34" content="34px"></vxe-radio-button>
+      <vxe-radio-button :checked-value="38" content="38px"></vxe-radio-button>
     </vxe-radio-group>
 
     <vxe-grid ref="gridRef" class="my-compact-table" v-bind="gridOptions"></vxe-grid>
