@@ -137,7 +137,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 // .my-compact-table {
-//   // 当低于 22px 时，需要同时修改默认行高 css 变量
-//   --vxe-ui-table-row-line-height: 18px;
+//   --vxe-ui-table-row-line-height: 18px; // 当单元格高度低于默认 22px 时，需要同时修改默认行高 css 变量，例如：18px
 // }
 </style>
