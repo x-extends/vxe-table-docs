@@ -64,7 +64,7 @@ export default Vue.extend({
         gt: 0
       },
       columns: [
-        { type: 'seq', width: 70 },
+        { type: 'seq', width: 70, fixed: 'left' },
         { field: 'name', title: 'Name', minWidth: 100, editRender: { name: 'VxeInput' } },
         { field: 'nickname', title: 'Nickname', width: 200, editRender: { name: 'VxeInput' } },
         { field: 'sex', title: 'Sex', width: 100, editRender: { name: 'VxeInput' } },

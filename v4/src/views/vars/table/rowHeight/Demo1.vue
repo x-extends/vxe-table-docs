@@ -48,9 +48,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 <style lang="scss" scoped>
 .my-table-row-height {
-  --vxe-ui-table-row-height-default: 80px;
-  --vxe-ui-table-row-height-medium: 60px;
-  --vxe-ui-table-row-height-small: 40px;
-  --vxe-ui-table-row-height-mini: 20px;
+  --vxe-ui-table-row-height-default: 66px;
+  --vxe-ui-table-row-height-medium: 52px;
+  --vxe-ui-table-row-height-small: 38px;
+  --vxe-ui-table-row-height-mini: 24px;
 }
 </style>
