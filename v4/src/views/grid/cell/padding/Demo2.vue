@@ -20,8 +20,13 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
-  headerCellConfig: {
-    padding: false
+  cellConfig: {
+    padding: {
+      top: false,
+      bottom: false,
+      left: true,
+      right: true
+    }
   },
   rowConfig: {
     keyField: 'id'

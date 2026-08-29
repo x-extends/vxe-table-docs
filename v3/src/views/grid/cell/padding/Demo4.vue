@@ -22,13 +22,8 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showFooter: true,
-      cellConfig: {
-        padding: {
-          top: false,
-          bottom: false,
-          left: true,
-          right: true
-        }
+      footerCellConfig: {
+        padding: false
       },
       rowConfig: {
         keyField: 'id'

@@ -20,7 +20,7 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
-  headerCellConfig: {
+  footerCellConfig: {
     padding: false
   },
   rowConfig: {
