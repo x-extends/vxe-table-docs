@@ -39,12 +39,12 @@ export default defineComponent({
       tableData,
       demoCodes: [
         `
-        import { VXETable } from 'vxe-table'
+        import { VxeUI } from "vxe-pc-ui"
 
         // 创建一个空内容渲染
-        VXETable.renderer.add('NotData', {
+        VxeUI.renderer.add('NotData', {
           // 空内容模板
-          renderEmpty (renderOpts, params) {
+          renderTableEmpty (renderOpts, params) {
             return <span>
               <img src="https://vxeui.com/resource/img/546.gif"/>
               <p>亲，没有更多数据了！</p>
