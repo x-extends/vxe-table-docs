@@ -36,9 +36,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
-    { field: 'num1', title: '数值', editRender: { name: 'VxeNumberInput' } },
-    { field: 'num2', title: '数值（负数标红）', editRender: { name: 'VxeNumberInput', showNegativeStatus: true } },
-    { field: 'num3', title: '货币', align: 'right', sortable: true, editRender: { name: 'VxeNumberInput', props: { type: 'amount', align: 'right', showCurrency: true } } },
+    { field: 'num1', title: '数值', editRender: { name: 'VxeNumberInput', props: { floatContent: '千' } } },
+    { field: 'num2', title: '数值（负数标红）', editRender: { name: 'VxeNumberInput', showNegativeStatus: true, props: { floatContent: '万' } } },
+    { field: 'num3', title: '货币', align: 'right', sortable: true, editRender: { name: 'VxeNumberInput', props: { type: 'amount', align: 'right', floatContent: '万', showCurrency: true } } },
     { field: 'num4', title: '货币（负数标红）', align: 'right', sortable: true, editRender: { name: 'VxeNumberInput', showNegativeStatus: true, props: { type: 'amount', align: 'right', showCurrency: true } } }
   ],
   data: [

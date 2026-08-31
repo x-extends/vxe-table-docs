@@ -2276,6 +2276,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridExportColumns',
           component: () => import('@/views/grid/export/columns/CodeExample.vue')
         },
+        { path: 'checkMethod', name: 'ComponentGridExportCheckMethod', component: () => import('@/views/grid/export/checkMethod/CodeExample.vue') },
         { path: 'cellType', name: 'ComponentGridExportCellType', component: () => import('@/views/grid/export/cellType/CodeExample.vue') },
         {
           path: 'types',
@@ -2352,6 +2353,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           name: 'ComponentGridPrintColumns',
           component: () => import('@/views/grid/print/columns/CodeExample.vue')
         },
+        { path: 'checkMethod', name: 'ComponentGridPrintCheckMethod', component: () => import('@/views/grid/print/checkMethod/CodeExample.vue') },
         {
           path: 'page',
           name: 'ComponentGridPrintPage',
