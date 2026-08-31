@@ -19,8 +19,8 @@
       </template>
 
       <template #active="{ row }">
-          <vxe-button mode="text" status="primary" icon="vxe-icon-add" @click="insertRow(row)"></vxe-button>
-          <vxe-button mode="text" status="error" icon="vxe-icon-delete" @click="removeRow(row)"></vxe-button>
+        <vxe-button mode="text" status="primary" icon="vxe-icon-add" @click="insertRow(row)"></vxe-button>
+        <vxe-button mode="text" status="error" icon="vxe-icon-delete" @click="removeRow(row)"></vxe-button>
       </template>
     </vxe-grid>
 
@@ -128,17 +128,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       field: 'debtorAmount',
       title: '借方金额',
       children: [
-        { field: 'debtorObj.p9', title: '亿', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.p8', title: '千', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.p7', title: '百', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.p6', title: '十', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.p5', title: '万', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.p4', title: '千', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.p3', title: '百', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.p2', title: '十', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.p1', title: '元', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.m1', title: '角', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'debtorObj.m2', title: '分', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } }
+        { field: 'debtorObj.p9', title: '亿', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '亿', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.p8', title: '千万', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '千万', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.p7', title: '百万', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '百万', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.p6', title: '十万', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '十万', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.p5', title: '万', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '万', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.p4', title: '千', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '千', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.p3', title: '百', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '百', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.p2', title: '十', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '十', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.p1', title: '元', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '元', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.m1', title: '角', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '角', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'debtorObj.m2', title: '分', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '分', controls: false, maxLength: 1, align: 'center' } } }
       ]
     },
     { field: 'x1', title: '√', width: 40 },
@@ -146,17 +146,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       field: 'creditAmount',
       title: '贷方金额',
       children: [
-        { field: 'creditObj.p9', title: '亿', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.p8', title: '千', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.p7', title: '百', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.p6', title: '十', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.p5', title: '万', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.p4', title: '千', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.p3', title: '百', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.p2', title: '十', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.p1', title: '元', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.m1', title: '角', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } },
-        { field: 'creditObj.m2', title: '分', width: 60, align: 'center', editRender: { name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } } }
+        { field: 'creditObj.p9', title: '亿', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '亿', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.p8', title: '千万', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '千万', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.p7', title: '百万', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '百万', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.p6', title: '十万', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '十万', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.p5', title: '万', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '万', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.p4', title: '千', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '千', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.p3', title: '百', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '百', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.p2', title: '十', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '十', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.p1', title: '元', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '元', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.m1', title: '角', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '角', controls: false, maxLength: 1, align: 'center' } } },
+        { field: 'creditObj.m2', title: '分', width: 80, align: 'center', editRender: { name: 'VxeNumberInput', props: { type: 'integer', max: 9, floatContent: '分', controls: false, maxLength: 1, align: 'center' } } }
       ]
     },
     { field: 'x2', title: '√', width: 40 },
