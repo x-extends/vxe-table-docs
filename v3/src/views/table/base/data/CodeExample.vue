@@ -4,7 +4,7 @@
       <template #tip>
         <vxe-tip status="primary" title="标准结构">使用对象数组形式</vxe-tip>
         <vxe-tip status="error">
-          需要注意字段名不允许出现 "." 关键字，该关键字用于层深层结构的数据
+          需要注意字段名的 "." 关键字，该关键字用于层深层结构的数据，层级越深就越影响渲染性能
         </vxe-tip>
       </template>
     </CodeLight>
