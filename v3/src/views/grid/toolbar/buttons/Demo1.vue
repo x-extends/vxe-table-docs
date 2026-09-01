@@ -28,7 +28,9 @@ export default Vue.extend({
         buttons: [
           { name: '新增', code: 'myAdd', status: 'primary' },
           { name: '删除', code: 'myDel', status: 'error' },
-          { name: '保存', code: 'mySave', status: 'success' }
+          { name: '保存', code: 'mySave', status: 'success' },
+          { name: '按钮禁用', code: 'myBtn1', status: 'primary', disabled: true },
+          { name: '按钮加载中', code: 'myBtn2', status: 'primary', loading: true }
         ]
       },
       columns: [
