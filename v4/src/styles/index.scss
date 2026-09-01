@@ -22,6 +22,10 @@ body {
   background: #f3f5f8;
 }
 
+.link {
+  color: inherit;
+}
+
 .red {
   color: red;
 }
@@ -52,7 +56,7 @@ body {
 }
 
 .demo-page-wrapper {
-  height: calc(100vh - 380px);
+  height: calc(100vh - 400px);
   max-width: 2200px;
   overflow: hidden;
 }
