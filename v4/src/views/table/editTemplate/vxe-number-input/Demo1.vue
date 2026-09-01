@@ -4,7 +4,8 @@
       border
       show-overflow
       :edit-config="{mode: 'row', trigger: 'click'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180" :edit-render="{autoFocus: 'input'}">
         <template #edit="{ row }">
@@ -40,7 +41,7 @@
       </vxe-column>
       <vxe-column field="money" title="金额" align="right" width="180" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-number-input v-model="row.money" type="amount" align="right" show-currency></vxe-number-input>
+          <vxe-number-input v-model="row.money" type="amount" align="right" float-content="万" show-currency></vxe-number-input>
         </template>
         <template #default="{ row }">
           <span>{{ row.money }}</span>

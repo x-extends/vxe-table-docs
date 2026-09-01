@@ -4,13 +4,14 @@
       border
       show-overflow
       :edit-config="{mode: 'row', trigger: 'click'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180" :edit-render="{ name: 'VxeInput' }"></vxe-column>
       <vxe-column field="num" title="数字" width="180" :edit-render="{ name: 'VxeNumberInput' }"></vxe-column>
       <vxe-column field="integer" title="整数" width="180" :edit-render="{ name: 'VxeNumberInput', props: { type: 'integer' } }"></vxe-column>
       <vxe-column field="float" title="小数" width="180" :edit-render="{ name: 'VxeNumberInput', props: { type: 'float' } }"></vxe-column>
-      <vxe-column field="money" title="金额" align="right" width="180" :edit-render="{ name: 'VxeNumberInput', props: { type: 'amount', align: 'right', showCurrency: true } }"></vxe-column>
+      <vxe-column field="money" title="金额" align="right" width="180" :edit-render="{ name: 'VxeNumberInput', props: { type: 'amount', align: 'right', floatContent: '万',showCurrency: true } }"></vxe-column>
     </vxe-table>
   </div>
 </template>
