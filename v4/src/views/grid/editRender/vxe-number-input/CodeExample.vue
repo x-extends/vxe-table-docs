@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/editRender/vxe-number-input/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          显示中文金额
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
