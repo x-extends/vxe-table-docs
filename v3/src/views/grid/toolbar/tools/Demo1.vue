@@ -26,11 +26,29 @@ export default Vue.extend({
       height: 400,
       toolbarConfig: {
         tools: [
-          { name: '新增', code: 'add', status: 'primary' },
+          { name: '新增', code: 'myAdd', icon: 'vxe-icon-add', status: 'primary' },
           { name: '删除', code: 'del', status: 'error' },
           { name: '保存', code: 'save', status: 'success' },
           { name: '按钮禁用', code: 'myBtn1', status: 'primary', disabled: true },
-          { name: '按钮加载中', code: 'myBtn2', status: 'primary', loading: true }
+          { name: '按钮加载中', code: 'myBtn2', status: 'primary', loading: true },
+          {
+            name: '下拉按钮1',
+            code: 'myDropBtn1',
+            status: 'primary',
+            dropdowns: [
+              { name: '通过', code: 'myDropBtn11', status: 'success', mode: 'text' },
+              { name: '驳回', code: 'myDropBtn12', status: 'error', mode: 'text' }
+            ]
+          },
+          {
+            name: '下拉按钮2',
+            code: 'myDropBtn2',
+            status: 'primary',
+            dropdowns: [
+              { name: '通过', code: 'myDropBtn21', status: 'success' },
+              { name: '驳回', code: 'myDropBtn22', status: 'error' }
+            ]
+          }
         ]
       },
       columns: [
