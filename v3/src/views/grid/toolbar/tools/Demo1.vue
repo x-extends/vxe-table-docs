@@ -41,9 +41,10 @@ export default Vue.extend({
             ]
           },
           {
-            name: '下拉按钮2',
+            name: '点击下拉按钮2',
             code: 'myDropBtn2',
             status: 'primary',
+            trigger: 'click',
             dropdowns: [
               { name: '通过', code: 'myDropBtn21', status: 'success' },
               { name: '驳回', code: 'myDropBtn22', status: 'error' }
