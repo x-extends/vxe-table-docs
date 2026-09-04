@@ -52,7 +52,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     isHover: true
   },
   columnConfig: {
-    useKey: true
+    useKey: true,
+    resizable: true
   },
   headerTooltipConfig: {
     enterable: false

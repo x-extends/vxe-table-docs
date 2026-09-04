@@ -54,7 +54,8 @@ export default Vue.extend({
         isHover: true
       },
       columnConfig: {
-        useKey: true
+        useKey: true,
+        resizable: true
       },
       headerTooltipConfig: {
         enterable: false

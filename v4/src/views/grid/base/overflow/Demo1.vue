@@ -21,7 +21,11 @@ interface RowVO {
 }
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
+  border: true,
   showFooter: true,
+  columnConfig: {
+    resizable: true
+  },
   rowConfig: {
     isHover: true
   },
