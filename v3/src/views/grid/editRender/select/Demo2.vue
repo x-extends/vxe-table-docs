@@ -52,6 +52,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
+      height: 300,
       rowConfig: {
         keyField: 'id'
       },
@@ -68,7 +69,12 @@ export default Vue.extend({
       data: [
         { id: 10001, name: 'Test1', role: 'Develop', sex: '', sexList: [], type: '', typeList: [] },
         { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', sexList: ['Man', 'Women'], type: '2-1', typeList: ['1-2', '2-1'] },
-        { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', sexList: [], type: '', typeList: [] }
+        { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', sexList: [], type: '', typeList: [] },
+        { id: 10004, name: 'Test4', role: 'Develop', sex: 'Man', sexList: [], type: '', typeList: [] },
+        { id: 10005, name: 'Test5', role: 'Test', sex: 'Women', sexList: ['Man'], type: '2-1', typeList: ['1-2', '2-1'] },
+        { id: 10006, name: 'Test6', role: 'Develop', sex: 'Man', sexList: ['Man'], type: '2-1', typeList: ['1-2', '2-1'] },
+        { id: 10007, name: 'Test7', role: 'PM', sex: 'Women', sexList: ['Man', 'Women'], type: '', typeList: [] },
+        { id: 10008, name: 'Test8', role: 'Develop', sex: 'Women', sexList: [], type: '', typeList: ['1-2', '2-1'] }
       ]
     }
 
