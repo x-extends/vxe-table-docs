@@ -32,8 +32,8 @@ export default Vue.extend({
           filters: [
             { label: 'Test1', value: 'Test1' },
             { label: 'Test2', value: 'Test2' },
-            { label: 'Test3', value: 'Test3' },
             { label: 'Test4', value: 'Test4' },
+            { label: 'Test3', value: 'Test3' },
             { label: 'Test5', value: 'Test5' },
             { label: 'Test6', value: 'Test6' },
             { label: 'Test7', value: 'Test7' },
