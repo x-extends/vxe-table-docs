@@ -49,9 +49,9 @@
         <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupJS ? 'primary' : ''" :loading="setupJsLoading" icon="vxe-icon-code" @click="toggleSetupJsVisible">{{ $t('app.docs.button.showSetupJS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupTS ? 'primary' : ''" :loading="setupTsLoading" icon="vxe-icon-code" @click="toggleSetupTsVisible">{{ $t('app.docs.button.showSetupTS') }}</vxe-button>
-        <vxe-button v-if="showOnLineRun" mode="text" icon="vxe-icon-link" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
-        </div>
-      <div class="example-code-wrapper" v-show="showOptionJS">
+        <vxe-button v-if="showOnLineRun" mode="text" icon="vxe-icon-play" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
+      </div>
+      <div v-show="showOptionJS" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importOptionJsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -74,7 +74,7 @@
           </vxe-collapse-pane>
         </vxe-collapse>
       </div>
-      <div class="example-code-wrapper" v-show="showOptionTS">
+      <div v-show="showOptionTS" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importOptionTsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -97,7 +97,7 @@
           </vxe-collapse-pane>
         </vxe-collapse>
       </div>
-      <div class="example-code-wrapper" v-show="showSetupJS">
+      <div v-show="showSetupJS" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importSetupJsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -120,7 +120,7 @@
           </vxe-collapse-pane>
         </vxe-collapse>
       </div>
-      <div class="example-code-wrapper" v-show="showSetupTS">
+      <div v-show="showSetupTS" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importSetupTsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
