@@ -39,7 +39,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   showOverflow: true,
   showHeaderOverflow: true,
   showFooterOverflow: true,
-  height: 600,
+  height: 800,
   rowConfig: {
     isHover: true
   },
@@ -71,8 +71,8 @@ const loadDataAndColumns = (rowSize: number, colSize: number) => {
       const item: RowVO = {
         id: 10000 + i
       }
-      for (let j = 0; j < 20; j++) {
-        item[`col${j * 4}`] = `值_${i}_${j * 4}_值__值_值_值_值_值_值_值_值_值`
+      for (let j = 0; j < 60; j++) {
+        item[`col${j}`] = `值_${i}_${j}_值__值_值_值_值_值_值_值_值_值`
       }
       dataList.push(item)
     }
