@@ -102,7 +102,6 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { codeCacheMaps } from '@/common/cache'
-import XEUtils from 'xe-utils'
 import AsyncDemo from './AsyncDemo.vue'
 
 interface ImportItemVO {
@@ -129,7 +128,7 @@ export default Vue.extend({
     return {
       showInstall: false,
       showPreview: true,
-      showOnLineRun: process.env.VUE_APP_IS_ONLINE_RUN === 'true' && XEUtils.browse().isPC,
+      showOnLineRun: process.env.VUE_APP_IS_ONLINE_RUN === 'true' && document.documentElement.clientWidth > 1200,
       optionJsCodeText: '',
       optionTsCodeText: '',
       showOptionJS: false,

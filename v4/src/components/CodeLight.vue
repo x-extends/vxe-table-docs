@@ -152,9 +152,8 @@ import { ref, computed, defineAsyncComponent, PropType } from 'vue'
 import { demoModules } from '@/common/modules'
 import { codeCacheMaps } from '@/common/cache'
 import { useAppStore } from '@/store/app'
-import { VxeUI, VxeButtonEvents, Icon } from 'vxe-pc-ui'
+import { VxeUI, VxeButtonEvents } from 'vxe-pc-ui'
 import i18n from '@/i18n'
-import XEUtils from 'xe-utils'
 
 interface ImportItemVO {
   path: string
@@ -180,7 +179,7 @@ const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const showInstall = ref(false)
 const showPreview = ref(true)
-const showOnLineRun = ref(import.meta.env.VITE_APP_IS_ONLINE_RUN === 'true' && XEUtils.browse().isPC)
+const showOnLineRun = ref(import.meta.env.VITE_APP_IS_ONLINE_RUN === 'true' && document.documentElement.clientWidth > 1200)
 
 const optionJsCodeText = ref('')
 const optionTsCodeText = ref('')
