@@ -489,6 +489,7 @@ const runEvent = () => {
     showMaximize: true,
     showMinimize: true,
     escClosable: true,
+    dblclickZoom: true,
     slots: {
       corner () {
         return <vxe-button mode="text" dropdown-open-icon="vxe-icon-ellipsis-v" dropdown-close-icon="vxe-icon-ellipsis-v" options={downBtns} onDropdownClick={handleClickEvent}></vxe-button>
