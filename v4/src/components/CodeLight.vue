@@ -43,13 +43,13 @@
     <div v-if="path" class="example-code">
       <div class="example-btns">
         <vxe-tooltip v-if="!isPluginDocs" :content="$t('app.docs.button.fixDocTip')">
-          <vxe-button class="example-btn" mode="text" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
+          <vxe-button class="example-btn" mode="text" status="error" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
+        <vxe-button v-if="showOnLineRun" mode="text" status="success" icon="vxe-icon-play" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupJS ? 'primary' : ''" :loading="setupJsLoading" icon="vxe-icon-code" @click="toggleSetupJsVisible">{{ $t('app.docs.button.showSetupJS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupTS ? 'primary' : ''" :loading="setupTsLoading" icon="vxe-icon-code" @click="toggleSetupTsVisible">{{ $t('app.docs.button.showSetupTS') }}</vxe-button>
-        <vxe-button v-if="showOnLineRun" mode="text" icon="vxe-icon-play" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
       </div>
       <div v-show="showOptionJS" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
@@ -147,11 +147,12 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="tsx" setup>
 import { ref, computed, defineAsyncComponent, PropType } from 'vue'
 import { demoModules } from '@/common/modules'
 import { codeCacheMaps } from '@/common/cache'
 import { useAppStore } from '@/store/app'
+import { VxeUI, VxeButtonEvents, Icon } from 'vxe-pc-ui'
 import i18n from '@/i18n'
 
 interface ImportItemVO {
@@ -454,7 +455,49 @@ const toggleSetupTsVisible = () => {
 const runEvent = () => {
   const compPath = props.path
   const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL}`
-  open(`${import.meta.env.VITE_APP_ONLINE_RUN_URL}?files=${btoa('@' + encodeURIComponent(`${exampleBaeUrl}example/js/${compPath}.vue`))}`)
+  const runUrl = `${import.meta.env.VITE_APP_ONLINE_RUN_URL}?files=${btoa('@' + encodeURIComponent(`${exampleBaeUrl}example/js/${compPath}.vue`))}`
+  // open(runUrl)
+
+  const reFlag = ref(1)
+  const downBtns = [
+    { name: 'openWin', content: '在新窗口打开', icon: 'vxe-icon-link' },
+    { name: 'refresh', content: '重新加载', icon: 'vxe-icon-repeat' }
+  ]
+
+  const handleClickEvent: VxeButtonEvents.DropdownClick = (params) => {
+    switch (params.name) {
+      case 'openWin':
+        open(runUrl)
+        break
+      case 'refresh':
+        reFlag.value++
+        break
+    }
+  }
+
+  const activeNavEl = document.querySelector('.page-aside .vxe-menu--item-link.router-link-exact-active')
+  const navTitle = activeNavEl ? activeNavEl.textContent : '在线演示'
+  VxeUI.modal.open({
+    title: navTitle,
+    width: '90vw',
+    height: '90vh',
+    padding: false,
+    resize: true,
+    mask: false,
+    lockView: false,
+    lockScroll: false,
+    showMaximize: true,
+    showMinimize: true,
+    escClosable: true,
+    slots: {
+      corner () {
+        return <vxe-button mode="text" dropdown-open-icon="vxe-icon-ellipsis-v" dropdown-close-icon="vxe-icon-ellipsis-v" options={downBtns} onDropdownClick={handleClickEvent}></vxe-button>
+      },
+      default () {
+        return <iframe src={runUrl} key={reFlag.value} style="display: block;width: 100%;height: 100%;border: 0;"></iframe>
+      }
+    }
+  })
 }
 
 const openDocs = () => {
