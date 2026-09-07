@@ -42,7 +42,7 @@
 
     <div v-if="path" class="example-code">
       <div class="example-btns">
-        <vxe-tooltip v-if="!isPluginDocs" :content="$t('app.docs.button.fixDocTip')">
+        <vxe-tooltip v-if="showFixDoc && !isPluginDocs" :content="$t('app.docs.button.fixDocTip')">
           <vxe-button class="example-btn" mode="text" status="error" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button v-if="showOnLineRun && !extraImports.length" mode="text" status="success" icon="vxe-icon-play" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
@@ -179,6 +179,7 @@ const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const showInstall = ref(false)
 const showPreview = ref(true)
+const showFixDoc = ref(document.documentElement.clientWidth > 1200)
 const showOnLineRun = ref(import.meta.env.VITE_APP_IS_ONLINE_RUN === 'true' && document.documentElement.clientWidth > 1200)
 
 const optionJsCodeText = ref('')

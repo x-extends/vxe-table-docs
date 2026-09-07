@@ -42,7 +42,7 @@
 
     <div v-if="path" class="example-code">
       <div class="example-btns">
-        <vxe-tooltip v-if="!isPluginDocs" :content="$t('app.docs.button.fixDocTip')">
+        <vxe-tooltip v-if="showFixDoc && !isPluginDocs" :content="$t('app.docs.button.fixDocTip')">
           <vxe-button class="example-btn" mode="text" status="error" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button v-if="showOnLineRun && !extraImports.length" mode="text" status="success" icon="vxe-icon-link" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
@@ -128,6 +128,7 @@ export default Vue.extend({
     return {
       showInstall: false,
       showPreview: true,
+      showFixDoc: document.documentElement.clientWidth > 1200,
       showOnLineRun: process.env.VUE_APP_IS_ONLINE_RUN === 'true' && document.documentElement.clientWidth > 1200,
       optionJsCodeText: '',
       optionTsCodeText: '',
