@@ -461,7 +461,7 @@ const runEvent = () => {
 
   const reFlag = ref(1)
   const downBtns = [
-    { name: 'openWin', content: '在新窗口打开', icon: 'vxe-icon-link' },
+    { name: 'openWin', content: '新窗口打开', icon: 'vxe-icon-share' },
     { name: 'refresh', content: '重新加载', icon: 'vxe-icon-repeat' }
   ]
 
