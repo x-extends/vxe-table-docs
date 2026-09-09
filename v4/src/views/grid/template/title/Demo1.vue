@@ -36,8 +36,17 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       field: 'group1',
       title: 'Group1',
       children: [
-        { field: 'name', title: 'Name', width: 200, slots: { title: 'nameTitle' } },
-        { field: 'sex', title: 'Sex', slots: { title: 'sexTitle' } }
+        { field: 'name', title: 'Name', width: 200, sortable: true, slots: { title: 'nameTitle' } },
+        {
+          field: 'sex',
+          title: 'Sex',
+          sortable: true,
+          filters: [
+            { label: '男', value: '1' },
+            { label: '女', value: '0' }
+          ],
+          slots: { title: 'sexTitle' }
+        }
       ],
       slots: {
         title: 'group1Title'

@@ -30,6 +30,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
           field: 'name',
           title: 'Name',
           width: 200,
+          sortable: true,
           slots: {
             title: () => {
               return <span style="color: red;">Name</span>
@@ -39,6 +40,11 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         {
           field: 'sex',
           title: 'Sex',
+          sortable: true,
+          filters: [
+            { label: '男', value: '1' },
+            { label: '女', value: '0' }
+          ],
           slots: {
             title: () => {
               return <span style="color: green;">Sex</span>

@@ -8,7 +8,7 @@
         </div>
       </template>
       <template #header_sex>
-        <vxe-input v-model="headerSex"></vxe-input>
+        <span style="color: blue;">会覆列头功能</span>
       </template>
       <template #header_group1="{ column }">
         <span style="color: red;">自定义列头{{ column.field }}</span>
@@ -41,7 +41,16 @@ export default Vue.extend({
         {
           title: 'Group1',
           children: [
-            { field: 'sex', title: 'Sex', slots: { header: 'header_sex' } },
+            {
+              field: 'sex',
+              title: 'Sex',
+              sortable: true,
+              filters: [
+                { label: '男', value: '1' },
+                { label: '女', value: '0' }
+              ],
+              slots: { header: 'header_sex' }
+            },
             { field: 'num', title: 'Number' },
             { field: 'age', title: 'Age' }
           ],
@@ -57,8 +66,7 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions,
-      headerSex: ''
+      gridOptions
     }
   }
 })

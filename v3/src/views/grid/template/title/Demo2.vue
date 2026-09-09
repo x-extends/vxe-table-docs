@@ -31,6 +31,7 @@ export default Vue.extend({
             {
               field: 'name',
               title: 'Name',
+              sortable: true,
               width: 200,
               slots: {
                 title: () => {
@@ -41,6 +42,11 @@ export default Vue.extend({
             {
               field: 'sex',
               title: 'Sex',
+              sortable: true,
+              filters: [
+                { label: '男', value: '1' },
+                { label: '女', value: '0' }
+              ],
               slots: {
                 title: () => {
                   return <span style="color: green;">Sex</span>

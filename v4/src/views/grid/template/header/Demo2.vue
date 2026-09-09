@@ -18,8 +18,6 @@ interface RowVO {
   address: string
 }
 
-const headerSex = ref('')
-
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   columns: [
@@ -43,9 +41,14 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         {
           field: 'sex',
           title: 'Sex',
+          sortable: true,
+          filters: [
+            { label: '男', value: '1' },
+            { label: '女', value: '0' }
+          ],
           slots: {
             header: () => {
-              return <vxe-input v-model={headerSex.value}></vxe-input>
+              return <span style="color: blue;">会覆列头功能</span>
             }
           }
         },

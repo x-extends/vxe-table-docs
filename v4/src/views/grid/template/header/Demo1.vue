@@ -8,7 +8,7 @@
         </div>
       </template>
       <template #header_sex>
-        <vxe-input v-model="headerSex"></vxe-input>
+        <span style="color: blue;">会覆列头功能</span>
       </template>
       <template #header_group1="{ column }">
         <span style="color: red;">自定义头{{ column.field }}</span>
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
@@ -30,8 +30,6 @@ interface RowVO {
   num: number
   address: string
 }
-
-const headerSex = ref('')
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,

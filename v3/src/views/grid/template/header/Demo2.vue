@@ -31,8 +31,7 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions,
-      headerSex: ''
+      gridOptions
     }
   },
   created () {
@@ -43,11 +42,11 @@ export default Vue.extend({
         title: 'Name',
         width: 200,
         slots: {
-          header: ({ column }) => {
+          header ({ column }) {
             return <div class="first-col">
-                <div class="first-col-top">名称{column.field}</div>
-                <div class="first-col-bottom">序号</div>
-              </div>
+              <div class="first-col-top">名称{column.field}</div>
+              <div class="first-col-bottom">序号</div>
+            </div>
           }
         }
       },
@@ -57,9 +56,14 @@ export default Vue.extend({
           {
             field: 'sex',
             title: 'Sex',
+            sortable: true,
+            filters: [
+              { label: '男', value: '1' },
+              { label: '女', value: '0' }
+            ],
             slots: {
               header: () => {
-                return <vxe-input v-model={this.headerSex}></vxe-input>
+                return <span style="color: blue;">会覆列头功能</span>
               }
             }
           },
