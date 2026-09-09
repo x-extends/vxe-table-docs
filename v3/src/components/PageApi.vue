@@ -6,6 +6,7 @@
       :columns="columns"
       v-bind="gridOptions">
       <template #toolbarButtons>
+        <span class="comp-name">{{ compName }} API：</span>
         <vxe-input clearable class="api-search-input" v-model="searchName" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
       </template>
 
@@ -211,6 +212,10 @@ export default Vue.extend({
       const route = this.$route
       return route.params.name as string
     },
+    compName () {
+      const cName = `${this.apiName}`
+      return cName.substring(0, 1).toUpperCase() + cName.substring(1).toLowerCase()
+    },
     columns () {
       return [
         {
@@ -394,6 +399,9 @@ export default Vue.extend({
   overflow: hidden;
   .api-search-input {
     width: 300px;
+  }
+  .comp-name {
+    font-weight: 700;
   }
   .api-name {
     position: relative;

@@ -4,9 +4,11 @@
       ref="gridRef"
       class="api-table"
       :columns="columns"
-      v-bind="gridOptions">
+      v-bind="gridOptions"
+    >
       <template #toolbarButtons>
-        <vxe-input clearable class="api-search-input" v-model="searchName" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
+        <span class="comp-name">{{ compName }} API：</span>
+        <vxe-input v-model="searchName" clearable class="api-search-input" type="search" :placeholder="$t('app.layout.apiSearch', [apiName])" @keyup="searchEvent" @clear="searchEvent"></vxe-input>
       </template>
 
       <template #default_name="{ row }">
@@ -78,6 +80,11 @@ const treeData = ref<any[]>([])
 
 const apiName = computed(() => {
   return route.params.name as string
+})
+
+const compName = computed(() => {
+  const cName = `${apiName.value}`
+  return cName.substring(0, 1).toUpperCase() + cName.substring(1).toLowerCase()
 })
 
 const handleTreeList = (treeList: any[]) => {
@@ -384,6 +391,9 @@ appStore.getPluginAppList()
   overflow: hidden;
   .api-search-input {
     width: 300px;
+  }
+  .comp-name {
+    font-weight: 700;
   }
   .api-name {
     position: relative;
