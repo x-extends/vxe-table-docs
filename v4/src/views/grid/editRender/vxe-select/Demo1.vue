@@ -79,8 +79,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 const loadSexList = () => {
   setTimeout(() => {
     sexListEditRender.options = [
-      { label: '女', value: 'Women' },
-      { label: '男', value: 'Man' }
+      { name: '女', code: 'Women' },
+      { name: '男', code: 'Man' }
     ]
   }, 300)
 }
