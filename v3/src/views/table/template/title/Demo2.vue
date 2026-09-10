@@ -8,12 +8,12 @@
         </template>
 
         <template #default>
-          <vxe-column field="name" title="Name" width="200">
+          <vxe-column field="name" title="Name" width="200" sortable>
             <template #title>
               <span style="color: red;">Name</span>
             </template>
           </vxe-column>
-          <vxe-column field="sex" title="Sex">
+          <vxe-column field="sex" title="Sex" :filter="sexOptions" sortable>
             <template #title>
               <span style="color: green;">Sex</span>
             </template>
@@ -48,8 +48,14 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
     ]
 
+    const sexOptions = [
+      { label: '男', value: '1' },
+      { label: '女', value: '0' }
+    ]
+
     return {
-      tableData
+      tableData,
+      sexOptions
     }
   }
 })

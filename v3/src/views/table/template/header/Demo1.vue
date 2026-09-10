@@ -2,7 +2,7 @@
   <div>
     <vxe-table border :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" width="200">
+      <vxe-column field="name" title="Name" width="200" sortable>
         <template #header="{ column }">
           <div class="first-col">
             <div class="first-col-top">名称{{ column.field }}</div>
@@ -10,9 +10,9 @@
           </div>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="Sex">
+      <vxe-column field="sex" title="Sex" :filter="sexOptions" sortable>
         <template #header>
-          <vxe-input v-model="headerSex"></vxe-input>
+          <span style="color: blue;">会覆列头功能</span>
         </template>
       </vxe-column>
       <vxe-column field="num" title="Number">
@@ -47,9 +47,14 @@ export default Vue.extend({
       { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
     ]
 
+    const sexOptions = [
+      { label: '男', value: '1' },
+      { label: '女', value: '0' }
+    ]
+
     return {
       tableData,
-      headerSex: ''
+      sexOptions
     }
   }
 })

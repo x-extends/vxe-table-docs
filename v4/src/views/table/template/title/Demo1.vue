@@ -2,12 +2,12 @@
   <div>
     <vxe-table border :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
-      <vxe-column field="name" title="Name" width="200">
+      <vxe-column field="name" title="Name" width="200" sortable>
         <template #title>
           <span style="color: red;">Name</span>
         </template>
       </vxe-column>
-      <vxe-column field="sex" title="Sex">
+      <vxe-column field="sex" title="Sex" :filter="sexOptions" sortable>
         <template #title>
           <span style="color: green;">Sex</span>
         </template>
@@ -36,5 +36,10 @@ const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: '0', age: 28, num: 234, address: 'test abc' },
   { id: 10002, name: 'Test2', role: 'Test', sex: '1', age: 22, num: 34, address: 'Guangzhou' },
   { id: 10003, name: 'Test3', role: 'PM', sex: '0', age: 32, num: 12, address: 'Shanghai' }
+])
+
+const sexOptions = ref([
+  { label: '男', value: '1' },
+  { label: '女', value: '0' }
 ])
 </script>
