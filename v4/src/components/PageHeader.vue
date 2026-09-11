@@ -393,7 +393,6 @@ if (isPluginDocs.value) {
     margin-right: 16px;
   }
   .git-btn {
-    font-size: 1.4em;
     margin-right: 8px;
   }
   .plugin-shopping {
