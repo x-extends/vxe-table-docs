@@ -553,60 +553,6 @@ const routes: Array<RouteConfig> = [
                 path: 'api',
                 name: 'GlobalRendererFormDesignAPI',
                 component: () => import('@/views/global/renderer/form-design/api/CodeExample.vue')
-              },
-              {
-                path: 'myform',
-                component: RouteLayout,
-                children: [
-                  { path: 'myform1', name: 'GlobalRendererFormDesignMyform1', component: () => import('@/views/global/renderer/form-design/myform1/CodeExample.vue') },
-                  { path: 'myform2', name: 'GlobalRendererFormDesignMyform2', component: () => import('@/views/global/renderer/form-design/myform2/CodeExample.vue') }
-                ]
-              },
-              {
-                path: 'widget',
-                component: RouteLayout,
-                children: [
-                  {
-                    path: 'myInputWidget',
-                    name: 'GlobalRendererFormDesignWidgetMyInputWidget',
-                    component: () => import('@/views/global/renderer/form-design/widget/myInputWidget/CodeExample.vue')
-                  },
-                  {
-                    path: 'myTextareaWidget',
-                    name: 'GlobalRendererFormDesignWidgetMyTextareaWidget',
-                    component: () => import('@/views/global/renderer/form-design/widget/myTextareaWidget/CodeExample.vue')
-                  },
-                  {
-                    path: 'mySelectWidget',
-                    name: 'GlobalRendererFormDesignWidgetMySelectWidget',
-                    component: () => import('@/views/global/renderer/form-design/widget/mySelectWidget/CodeExample.vue')
-                  },
-                  {
-                    path: 'myDatePickerWidget',
-                    name: 'GlobalRendererFormDesignWidgetMyDatePickerWidget',
-                    component: () => import('@/views/global/renderer/form-design/widget/myDatePickerWidget/CodeExample.vue')
-                  },
-                  {
-                    path: 'myNumberInputWidget',
-                    name: 'GlobalRendererFormDesignWidgetMyNumberInputWidget',
-                    component: () => import('@/views/global/renderer/form-design/widget/myNumberInputWidget/CodeExample.vue')
-                  },
-                  {
-                    path: 'myAmountInputWidget',
-                    name: 'GlobalRendererFormDesignWidgetMyAmountInputWidget',
-                    component: () => import('@/views/global/renderer/form-design/widget/myAmountInputWidget/CodeExample.vue')
-                  },
-                  {
-                    path: 'myUploadFileWidget',
-                    name: 'GlobalRendererFormDesignWidgetMyUploadFileWidget',
-                    component: () => import('@/views/global/renderer/form-design/widget/myUploadFileWidget/CodeExample.vue')
-                  },
-                  {
-                    path: 'myUploadImageWidget',
-                    name: 'GlobalRendererFormDesignWidgetMyUploadImageWidget',
-                    component: () => import('@/views/global/renderer/form-design/widget/myUploadImageWidget/CodeExample.vue')
-                  }
-                ]
               }
             ]
           }
