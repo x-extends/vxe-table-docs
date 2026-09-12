@@ -1646,6 +1646,7 @@ export const tableNavConfig: NavVO = {
           children: [
             { title: '实现一个金额输入', routerLink: { name: 'GlobalRendererTableEditMyEditAmount' }, keywords: 'edit-render' },
             { title: '实现一个下拉表格', routerLink: { name: 'GlobalRendererTableEditMyEditPulldown' }, keywords: 'edit-render' },
+            { title: '与 cell-render 组合使用', routerLink: { name: 'GlobalRendererTableEditMixRender' }, keywords: 'edit-render' },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/edit/el-input`, linkTarget: '_blank' }
           ]
         },
