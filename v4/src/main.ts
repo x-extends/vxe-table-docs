@@ -76,6 +76,7 @@ import '@/views/global/renderer/table/default/myCellStyle/demo1.table.renderer'
 
 import '@/views/global/renderer/table/edit/myEditAmount/demo1.table.renderer'
 import '@/views/global/renderer/table/edit/myEditPulldown/demo1.table.renderer'
+import '@/views/global/renderer/table/edit/mixRender/demo1.table.renderer'
 
 import '@/views/global/renderer/table/expand/myExpandList/demo1.table.renderer'
 import '@/views/global/renderer/table/expand/myExpandTable/demo1.table.renderer'
