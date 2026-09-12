@@ -188,19 +188,19 @@ const routes: Array<RouteConfig> = [
         component: RouteLayout,
         children: [
           {
+            path: 'form',
+            component: RouteLayout,
+            children: [
+              { path: 'api', name: 'GlobalFormatsFormAPI', component: () => import('@/views/global/formats/form/api/CodeExample.vue') },
+              { path: 'base', name: 'GlobalFormatsFormBase', component: () => import('@/views/global/formats/form/base/CodeExample.vue') }
+            ]
+          },
+          {
             path: 'table',
             component: RouteLayout,
             children: [
-              {
-                path: 'api',
-                name: 'GlobalFormatsTableAPI',
-                component: () => import('@/views/global/formats/table/api/CodeExample.vue')
-              },
-              {
-                path: 'base',
-                name: 'GlobalFormatsTableBase',
-                component: () => import('@/views/global/formats/table/base/CodeExample.vue')
-              }
+              { path: 'api', name: 'GlobalFormatsTableAPI', component: () => import('@/views/global/formats/table/api/CodeExample.vue') },
+              { path: 'base', name: 'GlobalFormatsTableBase', component: () => import('@/views/global/formats/table/base/CodeExample.vue') }
             ]
           }
         ]
@@ -231,6 +231,38 @@ const routes: Array<RouteConfig> = [
         path: 'commands',
         component: RouteLayout,
         children: [
+          {
+            path: 'date-picker',
+            component: RouteLayout,
+            children: [
+              {
+                path: 'api',
+                name: 'GlobalCommandsDatePickerAPI',
+                component: () => import('@/views/global/commands/date-picker/api/CodeExample.vue')
+              },
+              {
+                path: 'base',
+                name: 'GlobalCommandsDatePickerBase',
+                component: () => import('@/views/global/commands/date-picker/base/CodeExample.vue')
+              }
+            ]
+          },
+          {
+            path: 'date-range-picker',
+            component: RouteLayout,
+            children: [
+              {
+                path: 'api',
+                name: 'GlobalCommandsDateRangePickerAPI',
+                component: () => import('@/views/global/commands/date-range-picker/api/CodeExample.vue')
+              },
+              {
+                path: 'base',
+                name: 'GlobalCommandsDateRangePickerBase',
+                component: () => import('@/views/global/commands/date-range-picker/base/CodeExample.vue')
+              }
+            ]
+          },
           {
             path: 'table',
             component: RouteLayout,
@@ -314,6 +346,43 @@ const routes: Array<RouteConfig> = [
         component: RouteLayout,
         children: [
           {
+            path: 'button',
+            component: RouteLayout,
+            children: [
+              {
+                path: 'api',
+                name: 'GlobalRendererButtonAPI',
+                component: () => import('@/views/global/renderer/button/api/CodeExample.vue')
+              },
+              {
+                path: 'prefix',
+                name: 'GlobalRendererButtonPrefix',
+                component: () => import('@/views/global/renderer/button/prefix/CodeExample.vue')
+              },
+              {
+                path: 'suffix',
+                name: 'GlobalRendererButtonSuffix',
+                component: () => import('@/views/global/renderer/button/suffix/CodeExample.vue')
+              }
+            ]
+          },
+          {
+            path: 'icon-picker',
+            component: RouteLayout,
+            children: [
+              {
+                path: 'api',
+                name: 'GlobalRendererIconPickerAPI',
+                component: () => import('@/views/global/renderer/icon-picker/api/CodeExample.vue')
+              },
+              {
+                path: 'icon',
+                name: 'GlobalRendererIconPickerIcon',
+                component: () => import('@/views/global/renderer/icon-picker/icon/CodeExample.vue')
+              }
+            ]
+          },
+          {
             path: 'form',
             component: RouteLayout,
             children: [
@@ -353,6 +422,7 @@ const routes: Array<RouteConfig> = [
                 path: 'default',
                 component: RouteLayout,
                 children: [
+                  { path: 'reApi', name: 'GlobalRendererTableDefaultReApi', redirect: { name: 'GlobalRendererTableDefaultApi' } },
                   { path: 'api', name: 'GlobalRendererTableDefaultApi', component: () => import('@/views/global/renderer/table/default/api/CodeExample.vue') },
                   {
                     path: 'myCellLink',
@@ -400,7 +470,8 @@ const routes: Array<RouteConfig> = [
                     path: 'myEditPulldown',
                     name: 'GlobalRendererTableEditMyEditPulldown',
                     component: () => import('@/views/global/renderer/table/edit/myEditPulldown/CodeExample.vue')
-                  }
+                  },
+                  { path: 'mixRender', name: 'GlobalRendererTableEditMixRender', component: () => import('@/views/global/renderer/table/edit/mixRender/CodeExample.vue') }
                 ]
               },
               {
@@ -484,6 +555,14 @@ const routes: Array<RouteConfig> = [
                 component: () => import('@/views/global/renderer/form-design/api/CodeExample.vue')
               },
               {
+                path: 'myform',
+                component: RouteLayout,
+                children: [
+                  { path: 'myform1', name: 'GlobalRendererFormDesignMyform1', component: () => import('@/views/global/renderer/form-design/myform1/CodeExample.vue') },
+                  { path: 'myform2', name: 'GlobalRendererFormDesignMyform2', component: () => import('@/views/global/renderer/form-design/myform2/CodeExample.vue') }
+                ]
+              },
+              {
                 path: 'widget',
                 component: RouteLayout,
                 children: [
@@ -496,6 +575,36 @@ const routes: Array<RouteConfig> = [
                     path: 'myTextareaWidget',
                     name: 'GlobalRendererFormDesignWidgetMyTextareaWidget',
                     component: () => import('@/views/global/renderer/form-design/widget/myTextareaWidget/CodeExample.vue')
+                  },
+                  {
+                    path: 'mySelectWidget',
+                    name: 'GlobalRendererFormDesignWidgetMySelectWidget',
+                    component: () => import('@/views/global/renderer/form-design/widget/mySelectWidget/CodeExample.vue')
+                  },
+                  {
+                    path: 'myDatePickerWidget',
+                    name: 'GlobalRendererFormDesignWidgetMyDatePickerWidget',
+                    component: () => import('@/views/global/renderer/form-design/widget/myDatePickerWidget/CodeExample.vue')
+                  },
+                  {
+                    path: 'myNumberInputWidget',
+                    name: 'GlobalRendererFormDesignWidgetMyNumberInputWidget',
+                    component: () => import('@/views/global/renderer/form-design/widget/myNumberInputWidget/CodeExample.vue')
+                  },
+                  {
+                    path: 'myAmountInputWidget',
+                    name: 'GlobalRendererFormDesignWidgetMyAmountInputWidget',
+                    component: () => import('@/views/global/renderer/form-design/widget/myAmountInputWidget/CodeExample.vue')
+                  },
+                  {
+                    path: 'myUploadFileWidget',
+                    name: 'GlobalRendererFormDesignWidgetMyUploadFileWidget',
+                    component: () => import('@/views/global/renderer/form-design/widget/myUploadFileWidget/CodeExample.vue')
+                  },
+                  {
+                    path: 'myUploadImageWidget',
+                    name: 'GlobalRendererFormDesignWidgetMyUploadImageWidget',
+                    component: () => import('@/views/global/renderer/form-design/widget/myUploadImageWidget/CodeExample.vue')
                   }
                 ]
               }
