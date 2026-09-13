@@ -1259,7 +1259,14 @@ export const tableNavConfig: NavVO = {
             { title: '阻止激活编辑', routerLink: { name: 'ComponentGridEditRenderBeforeEdit' } },
             { title: '启用与关闭', routerLink: { name: 'ComponentGridEditRenderEnabled' } },
             { title: '禁用编辑', routerLink: { name: 'ComponentGridEditRenderDisableEdit' } },
-            { title: '切换编辑与只读', routerLink: { name: 'ComponentGridEditRenderReadonly' } }
+            { title: '切换编辑与只读', routerLink: { name: 'ComponentGridEditRenderReadonly' } },
+            {
+              title: '自定义渲染器',
+              children: [
+                { title: '实现输入框渲染器', routerLink: { name: 'ComponentGridEditRenderCustomRenserMyInput' } },
+                { title: '渲染器组合使用', routerLink: { name: 'ComponentGridEditRenderCustomRenserMixLabel' } }
+              ]
+            }
           ]
         },
         {

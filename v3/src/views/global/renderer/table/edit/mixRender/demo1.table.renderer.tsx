@@ -21,7 +21,7 @@ VxeUI.renderer.add('MyTableEditMixInput', {
 
 // 创建一个编查看染器1
 VxeUI.renderer.add('MyTableEditMixLabel1', {
-  // 可编辑显示模板
+  // 默认显示模板
   renderTableDefault (h, renderOpts, renderParams) {
     const { row, column } = renderParams
     const cellValue = row[column.field]
@@ -31,7 +31,7 @@ VxeUI.renderer.add('MyTableEditMixLabel1', {
 
 // 创建一个编查看染器2
 VxeUI.renderer.add('MyTableEditMixLabel2', {
-  // 可编辑显示模板
+  // 默认显示模板
   renderTableDefault (h, renderOpts, renderParams) {
     const { row, column } = renderParams
     const cellValue = row[column.field]

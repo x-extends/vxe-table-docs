@@ -1993,6 +1993,14 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'readonly',
           name: 'ComponentGridEditRenderReadonly',
           component: () => import('@/views/grid/editRender/readonly/CodeExample.vue')
+        },
+        {
+          path: 'customRenser',
+          component: RouteLayout,
+          children: [
+            { path: 'myInput', name: 'ComponentGridEditRenderCustomRenserMyInput', component: () => import('@/views/grid/editRender/customRenser/myInput/CodeExample.vue') },
+            { path: 'mixLabel', name: 'ComponentGridEditRenderCustomRenserMixLabel', component: () => import('@/views/grid/editRender/customRenser/mixLabel/CodeExample.vue') }
+          ]
         }
       ]
     },
