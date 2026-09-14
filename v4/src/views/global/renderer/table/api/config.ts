@@ -181,7 +181,7 @@ const apiList = [
   },
   {
     name: 'tableCellFormatter',
-    desc: '自定义表尾单元格导出逻辑',
+    desc: '自定义单元格格式化方法',
     version: '4.19.0',
     type: '(renderOpts, params: { cellValue , row, column }) => string',
     enum: '',
