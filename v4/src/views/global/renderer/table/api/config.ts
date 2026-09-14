@@ -180,6 +180,15 @@ const apiList = [
     list: []
   },
   {
+    name: 'tableCellFormatter',
+    desc: '自定义表尾单元格导出逻辑',
+    version: '4.19.0',
+    type: '(renderOpts, params: { cellValue , row, column }) => string',
+    enum: '',
+    defVal: '',
+    list: []
+  },
+  {
     name: 'tableAutoFocus',
     desc: '激活编辑状态时，设置自动聚焦的 class',
     version: '',
