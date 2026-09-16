@@ -3,8 +3,8 @@
     <CodeLight path="grid/proxy/form/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="配置表单查询">
-         <div>只需要通过 <ApiLink name="grid" prop="form-config"/>.items 配置表单项并通过 <ApiLink name="grid" prop="proxy-config"/>.form 启用表单数据代理，就可以非常简单的渲染一个查询表单。</div>
-         <div>如果需要默认值，还可以通过 <ApiLink name="form-item" prop="itemRender"/>.<ApiLink name="form-item" prop="defaultValue"/> 设置</div>
+          <div>只需要通过 <ApiLink name="grid" prop="form-config" />.items 配置表单项并通过 <ApiLink name="grid" prop="proxy-config" />.form 启用表单数据代理，就可以非常简单的渲染一个查询表单。</div>
+          <div>如果需要默认值，还可以通过 <ApiLink name="form-item" prop="itemRender" />.<ApiLink name="form-item" prop="defaultValue" /> 设置</div>
         </vxe-tip>
       </template>
     </CodeLight>
@@ -12,7 +12,15 @@
     <CodeLight path="grid/proxy/form/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          通过设置 <ApiLink name="form-item" prop="itemRender"/>.<ApiLink name="form-item" prop="changeToSubmit"/> 是否在 change 时自动提交,该参数对于下拉选项类型的控件就非常有用了
+          通过设置 <ApiLink name="form-item" prop="itemRender" />.<ApiLink name="form-item" prop="changeToSubmit" /> 是否在 change 时自动提交,该参数对于下拉选项类型的控件就非常有用了
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/proxy/form/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">
+          默认提交表单是 reload 重新重新行为，如果希望只查询，不清除条件，可以通过 <ApiLink name="form" prop="preventSubmit" /> 阻止默认表单行为，手动调用 <ApiLink name="grid" prop="commitProxy" />('query') 方法
         </vxe-tip>
       </template>
     </CodeLight>

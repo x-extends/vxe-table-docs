@@ -1,12 +1,13 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps, VxeWithRequired } from 'vxe-table'
+import type { VxeFormItemSlotTypes, VxeButtonGroupDefines } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -68,40 +69,13 @@ const findPageList = (pageSize: number, currentPage: number, queryObj: any) => {
 
 export default Vue.extend({
   data () {
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'formConfig'> = {
       border: true,
       height: 500,
       pagerConfig: {},
       formConfig: {
-        items: [
-          { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput' } },
-          {
-            field: 'sex',
-            title: '性别',
-            span: 8,
-            itemRender: {
-              name: 'VxeSelect',
-              options: [
-                { label: '女', value: 'Women' },
-                { label: '男', value: 'Man' }
-              ],
-              changeToSubmit: true
-            }
-          },
-          { field: 'date', title: '日期', span: 8, itemRender: { name: 'VxeDatePicker', changeToSubmit: true } },
-          { field: '_startAndEnd', title: '日期范围', span: 16, itemRender: { name: 'VxeDateRangePicker', changeToSubmit: true, startField: 'startDate', endField: 'endDate' } },
-          {
-            span: 24,
-            align: 'center',
-            itemRender: {
-              name: 'VxeButtonGroup',
-              options: [
-                { type: 'submit', content: '搜索', status: 'primary' },
-                { type: 'reset', content: '重置' }
-              ]
-            }
-          }
-        ]
+        preventSubmit: true,
+        items: []
       },
       proxyConfig: {
         // 启用表单代理
@@ -115,9 +89,9 @@ export default Vue.extend({
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name' },
-        { field: 'nickname', title: 'Nickname', sortable: true },
+        { field: 'nickname', title: 'Nickname' },
         { field: 'role', title: 'Role', sortable: true },
-        { field: 'sex', title: 'Sex' },
+        { field: 'sex', title: 'Sex', sortable: true },
         { field: 'date', title: 'Date' },
         { field: 'address', title: 'Address' }
       ]
@@ -125,6 +99,48 @@ export default Vue.extend({
 
     return {
       gridOptions
+    }
+  },
+  created () {
+    this.gridOptions.formConfig.items = [
+      { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput' } },
+      {
+        field: 'sex',
+        title: '性别',
+        span: 8,
+        itemRender: {
+          name: 'VxeSelect',
+          options: [
+            { label: '女', value: 'Women' },
+            { label: '男', value: 'Man' }
+          ],
+          changeToSubmit: true
+        }
+      },
+      { field: 'date', title: '日期', span: 8, itemRender: { name: 'VxeDatePicker', changeToSubmit: true } },
+      { field: '_startAndEnd', title: '日期范围', span: 16, itemRender: { name: 'VxeDateRangePicker', changeToSubmit: true, startField: 'startDate', endField: 'endDate' } },
+      {
+        span: 24,
+        align: 'center',
+        itemRender: {
+          name: 'VxeButtonGroup',
+          options: [
+            { name: 'submit', content: '搜索', status: 'primary' },
+            { name: 'reset', type: 'reset', content: '重置' }
+          ],
+          events: {
+            click: this.handleProxyFormBtnEvent
+          }
+        }
+      }
+    ]
+  },
+  methods: {
+    handleProxyFormBtnEvent (cellParams: VxeFormItemSlotTypes.DefaultSlotParams, eventParams: VxeButtonGroupDefines.ClickEventParams) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if (eventParams.name === 'submit') {
+        $grid?.commitProxy('query')
+      }
     }
   }
 })
