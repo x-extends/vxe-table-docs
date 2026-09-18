@@ -4,8 +4,9 @@
     v-model="currData[currField]"
     multiple
     show-progress
-    :mode="compProps.mode"
-    :upload-method="uploadMethod">
+    :mode="customProps.mode"
+    :upload-method="uploadMethod"
+  >
   </VxeUpload>
 </template>
 
@@ -27,7 +28,7 @@ const props = defineProps({
 
 const currData = ref<any>()
 
-const compProps = computed(() => {
+const customProps = computed(() => {
   const { renderOpts } = props
   return Object.assign({ mode: 'file' }, renderOpts.props) as VxeUploadProps
 })

@@ -3,15 +3,16 @@
     v-if="currData && currField"
     v-model="currData[currField]"
     type="float"
-    digits="2"
     prefix-icon="vxe-icon-rmb"
-    align="right">
+    :digits="customProps.digits"
+    :align="customProps.align"
+  >
   </vxe-number-input>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { VxeGlobalRendererHandles } from 'vxe-pc-ui'
+import { VxeNumberInputProps, VxeGlobalRendererHandles } from 'vxe-pc-ui'
 
 export default Vue.extend({
   props: {
@@ -33,6 +34,10 @@ export default Vue.extend({
     currField () {
       const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormItemContentParams
       return renderParams.field
+    },
+    customProps () {
+      const renderOpts = this.renderOpts as VxeGlobalRendererHandles.RenderFormItemContentOptions
+      return Object.assign({ digits: 2, align: 'right' }, renderOpts.props) as VxeNumberInputProps
     }
   },
   watch: {

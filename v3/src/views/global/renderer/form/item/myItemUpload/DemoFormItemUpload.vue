@@ -4,7 +4,7 @@
     v-model="currData[currField]"
     multiple
     show-progress
-    :mode="compProps.mode"
+    :mode="customProps.mode"
     :upload-method="uploadMethod">
   </vxe-upload>
 </template>
@@ -52,7 +52,7 @@ export default Vue.extend({
       const renderParams = this.renderParams as VxeGlobalRendererHandles.RenderFormItemContentParams
       return renderParams.field
     },
-    compProps () {
+    customProps () {
       const renderOpts: VxeGlobalRendererHandles.RenderFormItemContentOptions = this.renderOpts
       return Object.assign({ mode: 'file' }, renderOpts.props) as VxeUploadProps
     }
