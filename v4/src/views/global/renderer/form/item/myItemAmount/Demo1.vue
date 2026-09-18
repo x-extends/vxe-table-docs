@@ -4,9 +4,11 @@
       title-colon
       title-width="80"
       title-align="right"
-      :data="formData">
-      <vxe-form-item title="Name" field="name" span="24" :item-render="{ name: 'VxeInput'}"></vxe-form-item>
-      <vxe-form-item title="Amount" field="amount" span="24" :item-render="{ name: 'MyFormItemAmount'}"></vxe-form-item>
+      :data="formData"
+    >
+      <vxe-form-item title="Name" field="name" span="24" :item-render="{ name: 'VxeInput' }"></vxe-form-item>
+      <vxe-form-item title="Amount1" field="amount1" span="24" :item-render="{ name: 'MyFormItemAmount' }"></vxe-form-item>
+      <vxe-form-item title="Amount2" field="amount2" span="24" :item-render="{ name: 'MyFormItemAmount', props: { digits: 4 } }"></vxe-form-item>
       <vxe-form-item align="center" span="24">
         <template #default>
           <vxe-button type="submit" status="primary" content="Submit"></vxe-button>
@@ -23,14 +25,16 @@ import { ref } from 'vue'
 interface FormDataVO {
   name: string
   nickname: string
-  amount: string
+  amount1: number | null
+  amount2: number | null
   address: string
 }
 
 const formData = ref<FormDataVO>({
   name: 'test1',
   nickname: 'Testing',
-  amount: '',
+  amount1: null,
+  amount2: null,
   address: ''
 })
 </script>

@@ -11,7 +11,8 @@ import { VxeFormProps } from 'vxe-pc-ui'
 interface FormDataVO {
   name: string
   nickname: string
-  amount: string
+  amount1: number | null
+  amount2: number | null
   address: string
 }
 
@@ -24,12 +25,14 @@ export default Vue.extend({
       data: {
         name: 'test1',
         nickname: 'Testing',
-        amount: '',
+        amount1: null,
+        amount2: null,
         address: ''
       },
       items: [
         { field: 'name', title: 'Name', span: 24, itemRender: { name: 'VxeInput' } },
-        { field: 'amount', title: 'Amount', span: 24, itemRender: { name: 'MyFormItemAmount' } },
+        { field: 'amount1', title: 'Amount1', span: 24, itemRender: { name: 'MyFormItemAmount' } },
+        { field: 'amount2', title: 'Amount2', span: 24, itemRender: { name: 'MyFormItemAmount', props: { digits: 4 } } },
         {
           align: 'center',
           span: 24,
