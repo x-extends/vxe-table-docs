@@ -34,7 +34,7 @@ const currField = computed(() => {
 
 const customProps = computed(() => {
   const { renderOpts } = props
-  return Object.assign({ digits: 2, align: 'right' }, renderOpts.props) as VxeNumberInputProps
+  return Object.assign({ digits: 2, align: 'center' }, renderOpts.props) as VxeNumberInputProps
 })
 
 const load = () => {

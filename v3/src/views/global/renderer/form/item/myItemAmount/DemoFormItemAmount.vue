@@ -37,7 +37,7 @@ export default Vue.extend({
     },
     customProps () {
       const renderOpts = this.renderOpts as VxeGlobalRendererHandles.RenderFormItemContentOptions
-      return Object.assign({ digits: 2, align: 'right' }, renderOpts.props) as VxeNumberInputProps
+      return Object.assign({ digits: 2, align: 'center' }, renderOpts.props) as VxeNumberInputProps
     }
   },
   watch: {
