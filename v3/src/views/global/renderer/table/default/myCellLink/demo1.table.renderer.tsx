@@ -7,6 +7,6 @@ import DemoCellLink from './DemoCellLink.vue'
 VxeUI.renderer.add('MyTableCellLink', {
   // 默认显示模板
   renderTableDefault (h, renderOpts, renderParams) {
-    return <DemoCellLink render-params={ renderParams } />
+    return <DemoCellLink render-params={renderParams} />
   }
 })

@@ -7,7 +7,7 @@ import DemoEditPulldown from './DemoEditPulldown.vue'
 VxeUI.renderer.add('MyTableEditPulldown', {
   // 可编辑激活模板
   renderTableEdit (renderOpts, renderParams) {
-    return <DemoEditPulldown render-params={ renderParams } />
+    return <DemoEditPulldown render-params={renderParams} />
   },
   // 可编辑显示模板
   renderTableCell (renderOpts, renderParams) {

@@ -7,6 +7,6 @@ import DemoFormItemUpload from './DemoFormItemUpload.vue'
 VxeUI.renderer.add('MyFormItemUpload', {
   // 项显示模板
   renderFormItemContent (h, renderOpts, renderParams) {
-    return <DemoFormItemUpload render-opts={renderOpts} render-params={ renderParams } />
+    return <DemoFormItemUpload render-opts={renderOpts} render-params={renderParams} />
   }
 })

@@ -7,6 +7,6 @@ import DemoCellImg from './DemoCellImg.vue'
 VxeUI.renderer.add('MyTableCellImg', {
   // 默认显示模板
   renderTableDefault (h, renderOpts, renderParams) {
-    return <DemoCellImg render-params={ renderParams } />
+    return <DemoCellImg render-params={renderParams} />
   }
 })

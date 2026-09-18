@@ -7,6 +7,6 @@ import DemoExpandTable from './DemoExpandTable.vue'
 VxeUI.renderer.add('MyExpandTable', {
   // 默认显示模板
   renderTableExpand (h, renderOpts, renderParams) {
-    return <DemoExpandTable render-params={ renderParams } />
+    return <DemoExpandTable render-params={renderParams} />
   }
 })

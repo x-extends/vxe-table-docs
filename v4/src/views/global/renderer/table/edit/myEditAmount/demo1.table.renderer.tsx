@@ -11,7 +11,7 @@ VxeUI.renderer.add('MyTableEditAmount', {
   tableCellAlign: 'right',
   // 可编辑激活模板
   renderTableEdit (renderOpts, renderParams) {
-    return <DemoEditAmount render-params={ renderParams } />
+    return <DemoEditAmount render-params={renderParams} />
   },
   // 可编辑显示模板
   renderTableCell (renderOpts, renderParams) {

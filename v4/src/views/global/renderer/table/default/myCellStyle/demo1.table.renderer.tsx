@@ -7,6 +7,6 @@ import DemoCellStyle from './DemoCellStyle.vue'
 VxeUI.renderer.add('MyTableCellStyle', {
   // 默认显示模板
   renderTableDefault (renderOpts, renderParams) {
-    return <DemoCellStyle render-params={ renderParams } />
+    return <DemoCellStyle render-params={renderParams} />
   }
 })

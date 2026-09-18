@@ -9,7 +9,7 @@ VxeUI.renderer.add('MyTableEditMixInput', {
   tableAutoFocus: 'input',
   // 可编辑激活模板
   renderTableEdit (renderOpts, renderParams) {
-    return <DemoEditMixInput render-params={ renderParams } />
+    return <DemoEditMixInput render-params={renderParams} />
   },
   // 可编辑显示模板
   renderTableCell (renderOpts, renderParams) {

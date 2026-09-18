@@ -7,6 +7,6 @@ import DemoFormItemAmount from './DemoFormItemAmount.vue'
 VxeUI.renderer.add('MyFormItemAmount', {
   // 项显示模板
   renderFormItemContent (renderOpts, renderParams) {
-    return <DemoFormItemAmount render-opts={renderOpts} render-params={ renderParams } />
+    return <DemoFormItemAmount render-opts={renderOpts} render-params={renderParams} />
   }
 })
