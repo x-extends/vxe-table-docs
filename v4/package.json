@@ -19,9 +19,9 @@
     "vue-i18n": "~11.3.0",
     "vue-router": "^4.5.1",
     "vxe-design": "~4.1.6",
-    "vxe-pc-ui": "~4.18.14",
+    "vxe-pc-ui": "~4.18.15",
     "vxe-table": "~4.21.10",
-    "xe-utils": "^4.0.14"
+    "xe-utils": "^4.1.0"
   },
   "devDependencies": {
     "@eslint/css": "^1.4.0",
