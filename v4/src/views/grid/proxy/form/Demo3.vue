@@ -1,13 +1,12 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
-import type { VxeButtonGroupDefines } from 'vxe-pc-ui'
+import { reactive } from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -21,8 +20,6 @@ interface RowVO {
   startDate: string
   endDate: string
 }
-
-const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const list: RowVO[] = [
   { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: 'Man', age: 28, date: '', address: 'Shenzhen', startDate: '2025-01-01', endDate: '2025-02-10' },
@@ -74,7 +71,6 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   height: 500,
   pagerConfig: {},
   formConfig: {
-    preventSubmit: true,
     items: [
       { field: 'name', title: '名称', span: 8, itemRender: { name: 'VxeInput' } },
       {
@@ -98,17 +94,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         itemRender: {
           name: 'VxeButtonGroup',
           options: [
-            { name: 'submit', content: '搜索', status: 'primary' },
-            { name: 'reset', type: 'reset', content: '重置' }
-          ],
-          events: {
-            click (cellParams, eventParams: VxeButtonGroupDefines.ClickEventParams) {
-              const $grid = gridRef.value
-              if (eventParams.name === 'submit') {
-                $grid?.commitProxy('query')
-              }
-            }
-          }
+            { type: 'submit', content: '搜索', status: 'primary' },
+            { type: 'reset', content: '重置' }
+          ]
         }
       }
     ]
@@ -116,6 +104,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   proxyConfig: {
     // 启用表单代理
     form: true,
+    formOptions: {
+      // 代理表单提交模式
+      submitMode: 'query'
+    },
     ajax: {
       query: ({ page, form }) => {
         return findPageList(page.pageSize, page.currentPage, form)
