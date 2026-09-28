@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@vxe-ui/plugin-render-chart": "^3.0.0",
-    "axios": "1.7.2",
+    "axios": "~1.20.0",
     "core-js": "^3.49.0",
     "vue": "2.6.14",
     "vuex": "~3.6.2",
