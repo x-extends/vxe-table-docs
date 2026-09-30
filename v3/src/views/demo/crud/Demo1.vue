@@ -478,7 +478,7 @@ export default Vue.extend({
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
         const record = {
-          name: XEUtils.sample(neList)
+          name: XEUtils.sample(neList).join('')
         }
         const { row: newRow } = await $grid.insertAt(record, null)
         await $grid.setEditRow(newRow)
