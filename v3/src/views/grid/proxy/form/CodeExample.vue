@@ -20,7 +20,15 @@
     <CodeLight path="grid/proxy/form/Demo3">
       <template #tip>
         <vxe-tip status="primary">
-          默认提交表单是 reload 重新重新行为，如果希望只查询，不清除条件，可以通过 <ApiLink name="grid" prop="proxy-config" />.<ApiLink name="grid" prop="formOptions" />.<ApiLink name="grid" prop="submitMode" /> 修改为 query
+          默认提交表单是 reload 重新重新行为，如果希望只查询，不清除表格条件，可以通过 <ApiLink name="grid" prop="proxy-config" />.<ApiLink name="grid" prop="formOptions" />.<ApiLink name="grid" prop="submitMode" /> 修改为 query
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="grid/proxy/form/Demo4">
+      <template #tip>
+        <vxe-tip status="primary">
+          默认重置表单会提示重置表单和表格，如果希望只重置表单，不清除表格条件，可以通过 <ApiLink name="grid" prop="proxy-config" />.<ApiLink name="grid" prop="formOptions" />.<ApiLink name="grid" prop="resetMode" /> 修改为 reset_form
         </vxe-tip>
       </template>
     </CodeLight>
