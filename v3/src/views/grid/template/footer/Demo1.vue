@@ -27,6 +27,16 @@ interface RowVO {
   address: string
 }
 
+function sumNum (list: RowVO[] | undefined, field: string) {
+  let count = 0
+  if (list) {
+    list.forEach(item => {
+      count += Number(item[field])
+    })
+  }
+  return count
+}
+
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
@@ -54,20 +64,12 @@ export default Vue.extend({
   computed: {
     footerData () {
       return [
-        { seq: '合计', num: this.sumNum(this.gridOptions.data, 'num') }
+        { seq: '合计', num: sumNum(this.gridOptions.data, 'num') }
       ]
     }
   },
   methods: {
-    sumNum (list: RowVO[] | undefined, field: string) {
-      let count = 0
-      if (list) {
-        list.forEach(item => {
-          count += Number(item[field])
-        })
-      }
-      return count
-    }
+    sumNum
   }
 })
 </script>

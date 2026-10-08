@@ -3,7 +3,7 @@
     <CodeLight path="vars/table/valid/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="校验提示框">
-          可以通过 css 变量表格校验提示框的样式
+          可以通过 css 变量修改表格校验提示框的样式
         </vxe-tip>
       </template>
     </CodeLight>

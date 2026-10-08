@@ -1580,7 +1580,7 @@ export const tableNavConfig: NavVO = {
       ]
     },
     {
-      i18nKey: 'app.aside.menu.tableCssVar',
+      i18nKey: 'app.aside.menu.cssVar',
       icon: 'vxe-icon-style',
       children: [
         { title: '字体大小', routerLink: { name: 'CssVarTableFontSize' } },
