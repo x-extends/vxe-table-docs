@@ -4,6 +4,10 @@
       <template #num_footer="{ row }">
         <span style="color: red">￥{{ row.num }}元</span>
       </template>
+
+      <template #num_age>
+        <span style="color: blue">{{ sumNum(gridOptions.data, 'age') }}元</span>
+      </template>
     </vxe-grid>
   </div>
 </template>
@@ -23,14 +27,6 @@ interface RowVO {
   address: string
 }
 
-const sumNum = (list: RowVO[], field: string) => {
-  let count = 0
-  list.forEach(item => {
-    count += Number(item[field])
-  })
-  return count
-}
-
 export default Vue.extend({
   data () {
     const gridOptions: VxeGridProps<RowVO> = {
@@ -41,7 +37,7 @@ export default Vue.extend({
         { field: 'name', title: 'Name' },
         { field: 'sex', title: 'Sex' },
         { field: 'num', title: 'Number', slots: { footer: 'num_footer' } },
-        { field: 'age', title: 'Age' },
+        { field: 'age', title: 'Age', slots: { footer: 'num_age' } },
         { field: 'address', title: 'Address' }
       ],
       data: [
@@ -58,8 +54,19 @@ export default Vue.extend({
   computed: {
     footerData () {
       return [
-        { seq: '合计', num: sumNum(this.gridOptions.data || [], 'num') }
+        { seq: '合计', num: this.sumNum(this.gridOptions.data, 'num') }
       ]
+    }
+  },
+  methods: {
+    sumNum (list: RowVO[] | undefined, field: string) {
+      let count = 0
+      if (list) {
+        list.forEach(item => {
+          count += Number(item[field])
+        })
+      }
+      return count
     }
   }
 })

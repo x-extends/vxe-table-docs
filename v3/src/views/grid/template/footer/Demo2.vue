@@ -19,11 +19,13 @@ interface RowVO {
   address: string
 }
 
-const sumNum = (list: RowVO[], field: string) => {
+const sumNum = (list: RowVO[] | undefined, field: string) => {
   let count = 0
-  list.forEach(item => {
-    count += Number(item[field])
-  })
+  if (list) {
+    list.forEach(item => {
+      count += Number(item[field])
+    })
+  }
   return count
 }
 
@@ -45,7 +47,15 @@ export default Vue.extend({
             }
           }
         },
-        { field: 'age', title: 'Age' },
+        {
+          field: 'age',
+          title: 'Age',
+          slots: {
+            footer () {
+              return <span style="color: blue">{sumNum(gridOptions.data, 'age')}元</span>
+            }
+          }
+        },
         { field: 'address', title: 'Address' }
       ],
       data: [
@@ -62,7 +72,7 @@ export default Vue.extend({
   computed: {
     footerData () {
       return [
-        { seq: '合计', num: sumNum(this.gridOptions.data || [], 'num') }
+        { seq: '合计', num: sumNum(this.gridOptions.data, 'num') }
       ]
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" :footerData="footerData"></vxe-grid>
+    <vxe-grid v-bind="gridOptions" :footer-data="footerData"></vxe-grid>
   </div>
 </template>
 
@@ -19,11 +19,13 @@ interface RowVO {
   address: string
 }
 
-const sumNum = (list: RowVO[], field: string) => {
+const sumNum = (list: RowVO[] | undefined, field: string) => {
   let count = 0
-  list.forEach(item => {
-    count += Number(item[field])
-  })
+  if (list) {
+    list.forEach(item => {
+      count += Number(item[field])
+    })
+  }
   return count
 }
 
@@ -43,7 +45,15 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         }
       }
     },
-    { field: 'age', title: 'Age' },
+    {
+      field: 'age',
+      title: 'Age',
+      slots: {
+        footer () {
+          return <span style="color: blue">{sumNum(gridOptions.data, 'age')}元</span>
+        }
+      }
+    },
     { field: 'address', title: 'Address' }
   ],
   data: [
@@ -55,7 +65,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 const footerData = computed(() => {
   return [
-    { seq: '合计', num: sumNum(gridOptions.data || [], 'num') }
+    { seq: '合计', num: sumNum(gridOptions.data, 'num') }
   ]
 })
 </script>
