@@ -1235,6 +1235,7 @@ export const tableNavConfig: NavVO = {
             { title: '实现每行独立下拉选项', routerLink: { name: 'ComponentGridEditSelectRowOption' } },
             { title: '实现行保存功能', routerLink: { name: 'ComponentGridEditRowSave' } },
             { title: '实现单元格实时保存', routerLink: { name: 'ComponentGridEditRealtimeSave' } },
+            { title: '自定义实现编辑', routerLink: { name: 'ComponentGridEditCustomMultiRow' } },
             { title: '复制与粘贴', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaClip' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fclip%2Fbase' } } },
             { title: '渲染图表', isEnterprise: true, routerLink: { name: 'EnterprisePreview', params: { previewCode: 'areaBasicsEcharts' }, query: { previewPath: '%2FextendCellArea%2Fgrid%2Fecharts%2FareaBasicsEcharts' } } }
           ]

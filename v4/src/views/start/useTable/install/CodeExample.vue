@@ -3,13 +3,13 @@
     <CodeLight>
       <template #tip>
         <vxe-tip status="primary" title="NPM 方式">
-          <div>可以配合 <vxe-link  href="https://webpack.js.org/" target="_blank">webpack</vxe-link>、<vxe-link  href="https://vitejs.dev/" target="_blank">vite</vxe-link> 等打包工具配合使用。</div>
-          <div>依赖库： <vxe-link href="https://util.vxeui.com" target="_blank">xe-utils 4.0+</vxe-link>、<vxe-link  href="https://cn.vuejs.org/" target="_blank">vue 3.2+</vxe-link></div>
+          <div>可以配合 <vxe-link href="https://webpack.js.org/" target="_blank">webpack</vxe-link>、<vxe-link href="https://vitejs.dev/" target="_blank">vite</vxe-link> 等打包工具配合使用。</div>
+          <div>依赖库： <vxe-link href="https://util.vxeui.com" target="_blank">xe-utils 4.0+</vxe-link>、<vxe-link href="https://cn.vuejs.org/" target="_blank">vue 3.2+</vxe-link></div>
         </vxe-tip>
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="纯表格安装">
+        <vxe-tip status="success" title="仅表格安装">
           仅可使用表格基础功能，依赖 <vxe-link href="https://github.com/x-extends/vxe-core" target="_blank">core</vxe-link> 核心库，不包含任何 UI 基础组件，不能使用任何高级功能，基础组件可以通过插槽模板方式使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
@@ -21,7 +21,8 @@
             yarn add ${tableCDNLib} ${coreCDNLib}
             # 或者
             pnpm add ${tableCDNLib} ${coreCDNLib}
-            `">
+            `"
+>
           </pre-code>
           <pre-code
             language="javascript"
@@ -36,7 +37,8 @@
             // ...
 
             createApp(App).use(VxeUITable).mount('#app')
-            // ...">
+            // ..."
+>
           </pre-code>
         </pre>
         <vxe-tip status="success" title="TS 类型提示">
@@ -51,7 +53,8 @@
             yarn add ${uiCDNLib}
             # 或者
             pnpm add ${uiCDNLib}
-            `">
+            `"
+>
           </pre-code>
         </pre>
         <vxe-tip status="error" title="建议版本号">
@@ -60,24 +63,26 @@
         <pre>
           <pre-code
             language="json"
-            :content='`
+            :content="`
             {
               ...
-              "vxe-table": "^${tableLibVersion}"
+              &quot;vxe-table&quot;: &quot;^${tableLibVersion}&quot;
               ...
             }
-            `'>
+            `"
+>
           </pre-code>
           改成
           <pre-code
             language="json"
-            :content='`
+            :content="`
             {
               ...
-              "vxe-table": "~${tableLibVersion}"
+              &quot;vxe-table&quot;: &quot;~${tableLibVersion}&quot;
               ...
             }
-            `'>
+            `"
+>
           </pre-code>
         </pre>
       </template>

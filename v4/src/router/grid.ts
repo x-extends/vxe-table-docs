@@ -1918,7 +1918,8 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'rowSave',
           name: 'ComponentGridEditRowSave',
           component: () => import('@/views/grid/edit/rowSave/CodeExample.vue')
-        }
+        },
+        { path: 'customMultiRow', name: 'ComponentGridEditCustomMultiRow', component: () => import('@/views/grid/edit/customMultiRow/CodeExample.vue') }
       ]
     },
     {

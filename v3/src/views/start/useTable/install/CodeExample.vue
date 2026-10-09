@@ -9,7 +9,7 @@
       </template>
 
       <template #use>
-        <vxe-tip status="success" title="纯表格安装">
+        <vxe-tip status="success" title="仅表格安装">
           仅可使用表格基础功能，依赖 <vxe-link href="https://github.com/x-extends/vxe-core" target="_blank">core</vxe-link> 核心库，不包含任何 UI 基础组件，不能使用任何高级功能，基础组件可以通过插槽模板方式使用第三方 UI 组件库自行实现。
         </vxe-tip>
         <pre>
