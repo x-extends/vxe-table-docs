@@ -77,7 +77,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
               { maxCount: 1 }
             }
             image-config={
-              { width: 40, height: 40 }
+              { width: 32, height: 32 }
             }
             upload-method={uploadMethod}>
           </vxe-upload>
@@ -98,7 +98,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
             { maxCount: 1 }
           }
           image-config={
-            { width: 40, height: 40 }
+            { width: 32, height: 32 }
           }
           show-button-text={false}
           upload-method={uploadMethod}>

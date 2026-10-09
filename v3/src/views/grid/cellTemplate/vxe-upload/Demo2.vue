@@ -147,7 +147,7 @@ export default Vue.extend({
                 { maxCount: 1 }
               }
               image-config={
-                { width: 40, height: 40 }
+                { width: 32, height: 32 }
               }
               upload-method={this.uploadMethod}>
             </vxe-upload>
@@ -168,7 +168,7 @@ export default Vue.extend({
                 { maxCount: 1 }
               }
               image-config={
-                { width: 40, height: 40 }
+                { width: 32, height: 32 }
               }
               upload-method={this.uploadMethod}
               show-button-text={false}>

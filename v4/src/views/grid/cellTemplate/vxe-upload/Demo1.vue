@@ -26,7 +26,7 @@
           v-model="row.imgList1"
           mode="image"
           :more-config="{ maxCount: 1 }"
-          :image-config="{ width: 40, height: 40 }"
+          :image-config="{ width: 32, height: 32 }"
           :upload-method="uploadMethod">
         </vxe-upload>
       </template>
@@ -37,7 +37,7 @@
           v-model="row.imgList2"
           mode="image"
           :more-config="{ maxCount: 1 }"
-          :image-config="{ width: 40, height: 40 }"
+          :image-config="{ width: 32, height: 32 }"
           :show-button-text="false"
           :upload-method="uploadMethod">
         </vxe-upload>

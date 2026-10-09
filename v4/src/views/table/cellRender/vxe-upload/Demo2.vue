@@ -37,8 +37,8 @@ const imgList1CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
       maxCount: 1
     },
     imageConfig: {
-      width: 40,
-      height: 40
+      width: 32,
+      height: 32
     }
   }
 })
@@ -55,8 +55,8 @@ const imgList2CellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUplo
       maxCount: 1
     },
     imageConfig: {
-      width: 40,
-      height: 40
+      width: 32,
+      height: 32
     },
     uploadMethod ({ file }) {
       const formData = new FormData()

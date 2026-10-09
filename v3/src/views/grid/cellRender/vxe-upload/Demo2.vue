@@ -35,8 +35,8 @@ export default Vue.extend({
           maxCount: 1
         },
         imageConfig: {
-          width: 40,
-          height: 40
+          width: 32,
+          height: 32
         },
         uploadMethod ({ file }) {
           const formData = new FormData()
@@ -63,8 +63,8 @@ export default Vue.extend({
           maxCount: 1
         },
         imageConfig: {
-          width: 40,
-          height: 40
+          width: 32,
+          height: 32
         },
         uploadMethod ({ file }) {
           const formData = new FormData()
