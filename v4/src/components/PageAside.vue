@@ -383,7 +383,7 @@ if (!appStore.isUtilDocs) {
     overflow-y: auto;
   }
   .nav-menu-inner {
-    height: 100%;
+    min-height: 100%;
   }
   .search-input {
     width: 18em;
