@@ -92,7 +92,7 @@ provide('pluginType', route.query.pt || '')
         overflow: hidden;
       }
       .vxe-layout-body--scrollbar-inner {
-        min-height: 100%;
+        height: 100%;
       }
       .layout-footer {
         display: none;
