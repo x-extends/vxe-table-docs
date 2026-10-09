@@ -60,8 +60,8 @@ const avatarUrlCellRender = reactive<VxeColumnPropTypes.CellRender>({
   name: 'VxeImage',
   props: {
     circle: true,
-    width: 30,
-    height: 30
+    width: 32,
+    height: 32
   }
 })
 

@@ -7,7 +7,7 @@
       </template>
 
       <template #nameDefault="{ row }">
-        <vxe-image :src="row.avatarUrl" width="30" height="30" circle style="margin: 0 16px;"></vxe-image>
+        <vxe-image :src="row.avatarUrl" width="32" height="32" circle style="margin: 0 16px;"></vxe-image>
         <span>{{ row.name }}</span>
       </template>
 

@@ -99,8 +99,8 @@ const avatarUrlCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUpl
     progressText: '{percent}%',
     imageConfig: {
       circle: true,
-      width: 30,
-      height: 30
+      width: 32,
+      height: 32
     },
     uploadMethod ({ file, updateProgress }) {
       const formData = new FormData()
@@ -135,8 +135,8 @@ const imgListCellRender = reactive<VxeColumnPropTypes.CellRender<RowVO, VxeUploa
       maxCount: 1
     },
     imageConfig: {
-      width: 30,
-      height: 30
+      width: 32,
+      height: 32
     },
     uploadMethod ({ file, updateProgress }) {
       const formData = new FormData()
