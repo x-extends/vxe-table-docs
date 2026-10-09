@@ -4,11 +4,11 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft">
-        <PageAside :nav-config-list="navConfigList" :showLeft="showLeft" />
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft" :scrollbar-config="scrollbarConfig">
+        <PageAside :nav-config-list="navConfigList" :show-left="showLeft" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container" vertical>
-        <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig">
+        <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig" use-scrollbar>
           <template #default>
             <div class="body-view">
               <RouterView />
@@ -66,6 +66,10 @@ if (window.innerWidth > 2000) {
 const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
   circle: true,
   position: 'fixed'
+})
+
+const scrollbarConfig = reactive<VxeLayoutBodyPropTypes.ScrollbarConfig>({
+  viewInnerClassName: 'layout-aside-inner'
 })
 
 const pageName = computed(() => {
