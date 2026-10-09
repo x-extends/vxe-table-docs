@@ -38,7 +38,7 @@
         </template>
       </vxe-pulldown>
     </div>
-    <vxe-scrollbar class="nav-body" view-inner-class-name="nav-body-inner" :y-config="yConfig" :x-config="xConfig">
+    <vxe-scrollbar class="nav-menu" view-inner-class-name="nav-menu-inner" :y-config="yConfig" :x-config="xConfig">
       <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="menuTreeList" @click="clickMenuEvent">
         <template #option-title="{ option }">
           <span>{{ option.title }}</span>
@@ -376,13 +376,13 @@ if (!appStore.isUtilDocs) {
     background-color: var(--vxe-ui-docs-layout-background-color);
     box-shadow: inset 0px 12px 8px -8px rgba(0,0,0,.12);
   }
-  .nav-body {
+  .nav-menu {
     flex-grow: 1;
     border-top: 1px solid var(--vxe-ui-docs-layout-border-color);
     overflow-x: hidden;
     overflow-y: auto;
   }
-  .nav-body-inner {
+  .nav-menu-inner {
     height: 100%;
   }
   .search-input {
