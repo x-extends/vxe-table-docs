@@ -8,7 +8,7 @@
         <PageAside :nav-config-list="navConfigList" :show-left="showLeft" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
-        <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig">
+        <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig" use-scrollbar>
           <div class="body-view">
             <RouterView />
           </div>
