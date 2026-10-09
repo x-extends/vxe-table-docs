@@ -1356,7 +1356,8 @@ export const tableRouteConfig: RouteRecordRaw = {
           path: 'realtimeSave',
           name: 'ComponentTableEditRealtimeSave',
           component: () => import('@/views/table/edit/realtimeSave/CodeExample.vue')
-        }
+        },
+        { path: 'customMultiRow', name: 'ComponentTableEditCustomMultiRow', component: () => import('@/views/table/edit/customMultiRow/CodeExample.vue') }
       ]
     },
     {
