@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="table/edit/customMultiRow/Demo1">
+    <CodeLight path="table/edit/customMultiRow/Demo1" preview-path="/resource/docsImg/table_edit_custom_multi_row.gif">
       <template #tip>
         <vxe-tip status="primary" title="自定义多行编辑">
           放弃内置的行编辑功能，通过自定义实现多行编辑功能
