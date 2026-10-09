@@ -110,8 +110,8 @@ export default Vue.extend({
         progressText: '{percent}%',
         imageConfig: {
           circle: true,
-          width: 40,
-          height: 40
+          width: 30,
+          height: 30
         },
         uploadMethod ({ file, updateProgress }) {
           const formData = new FormData()
@@ -146,8 +146,8 @@ export default Vue.extend({
           maxCount: 1
         },
         imageConfig: {
-          width: 40,
-          height: 40
+          width: 30,
+          height: 30
         },
         uploadMethod ({ file, updateProgress }) {
           const formData = new FormData()

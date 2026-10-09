@@ -129,8 +129,8 @@ export default Vue.extend({
       name: 'VxeImage',
       props: {
         circle: true,
-        width: 36,
-        height: 36
+        width: 30,
+        height: 30
       }
     }
 
