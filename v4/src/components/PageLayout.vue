@@ -91,11 +91,15 @@ provide('pluginType', route.query.pt || '')
         height: 100%;
         overflow: hidden;
       }
+      .vxe-layout-body--scrollbar-inner {
+        min-height: 100%;
+      }
       .layout-footer {
         display: none;
       }
     }
-    .vxe-layout-body--inner {
+    .vxe-layout-body--inner,
+    .vxe-layout-body--scrollbar-inner {
       position: relative;
       padding: 16px 300px 16px 16px;
     }
