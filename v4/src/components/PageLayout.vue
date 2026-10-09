@@ -4,8 +4,8 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft">
-        <PageAside :nav-config-list="navConfigList" :showLeft="showLeft" />
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft" :scrollbar-config="scrollbarConfig">
+        <PageAside :nav-config-list="navConfigList" :show-left="showLeft" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
         <VxeLayoutBody class="layout-body" :class="{'is-full': isFullView}" show-backtop :backtop-config="backtopConfig">
@@ -58,6 +58,10 @@ const backtopConfig = reactive<VxeLayoutBodyPropTypes.BacktopConfig>({
   circle: true
 })
 
+const scrollbarConfig = reactive<VxeLayoutBodyPropTypes.ScrollbarConfig>({
+  viewInnerClassName: 'layout-aside-inner'
+})
+
 const pageName = computed(() => {
   return route ? XEUtils.kebabCase(`${String(route.name).replace('VxeIcon', 'VxeIco')}`) : ''
 })
@@ -82,6 +86,7 @@ provide('pluginType', route.query.pt || '')
   }
   .layout-body {
     &.is-full {
+      .vxe-layout-body--inner,
       .body-view {
         height: 100%;
         overflow: hidden;
@@ -90,7 +95,7 @@ provide('pluginType', route.query.pt || '')
         display: none;
       }
     }
-    & > .vxe-layout-body--inner {
+    .vxe-layout-body--inner {
       position: relative;
       padding: 16px 300px 16px 16px;
     }

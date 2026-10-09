@@ -213,8 +213,8 @@ export default Vue.extend({
       return route.params.name as string
     },
     compName () {
-      const cName = `${this.apiName}`
-      return cName.substring(0, 1).toUpperCase() + cName.substring(1).toLowerCase()
+      const cName = XEUtils.camelCase(`${this.apiName}`)
+      return cName.substring(0, 1).toUpperCase() + cName.substring(1)
     },
     columns () {
       return [

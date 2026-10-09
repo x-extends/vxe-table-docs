@@ -19,7 +19,7 @@
                 <vxe-link v-else-if="node.linkUrl" status="primary" :href="node.linkUrl" target="_blank">
                   <span v-html="node.title"></span>
                 </vxe-link>
-                <span v-else v-html="node.title" ></span>
+                <span v-else v-html="node.title"></span>
               </template>
 
               <template #empty>
@@ -38,7 +38,7 @@
         </template>
       </vxe-pulldown>
     </div>
-    <div class="nav-body">
+    <vxe-scrollbar class="nav-body" view-inner-class-name="nav-body-inner" :y-config="yConfig" :x-config="xConfig">
       <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="menuTreeList" @click="clickMenuEvent">
         <template #option-title="{ option }">
           <span>{{ option.title }}</span>
@@ -49,7 +49,7 @@
           <vxe-text v-if="option.showCount && option.children && option.children.length" status="success">（{{ option.children.length }}）</vxe-text>
         </template>
       </vxe-menu>
-    </div>
+    </vxe-scrollbar>
   </div>
 </template>
 
@@ -58,7 +58,7 @@ import { ref, watch, PropType, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAppStore } from '@/store/app'
 import { NavVO } from '@/common/nav'
-import { VxeTreeInstance, VxeTreeProps, VxeMenuProps, VxeMenuEvents } from 'vxe-pc-ui'
+import { VxeTreeInstance, VxeTreeProps, VxeMenuProps, VxeMenuEvents, VxeScrollbarPropTypes } from 'vxe-pc-ui'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
@@ -83,6 +83,13 @@ const showSearchList = ref(false)
 const searchLoading = ref(false)
 const searchList = ref<NavVO[]>([])
 let loadApiStatus = false
+
+const xConfig = reactive<VxeScrollbarPropTypes.XConfig>({
+  visible: 'hidden'
+})
+const yConfig = reactive<VxeScrollbarPropTypes.YConfig>({
+  autoHide: true
+})
 
 const searchTreeOptions = reactive<VxeTreeProps<NavVO>>({
   height: Math.max(400, Math.min(800, document.documentElement.clientHeight * 0.6)),
@@ -353,6 +360,10 @@ if (!appStore.isUtilDocs) {
 </script>
 
 <style lang="scss">
+.layout-aside-inner {
+  height: 100%;
+  overflow: hidden;
+}
 .page-aside {
   display: flex;
   flex-direction: column;
@@ -370,6 +381,9 @@ if (!appStore.isUtilDocs) {
     border-top: 1px solid var(--vxe-ui-docs-layout-border-color);
     overflow-x: hidden;
     overflow-y: auto;
+  }
+  .nav-body-inner {
+    height: 100%;
   }
   .search-input {
     width: 18em;

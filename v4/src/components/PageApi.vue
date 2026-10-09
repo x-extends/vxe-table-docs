@@ -83,8 +83,8 @@ const apiName = computed(() => {
 })
 
 const compName = computed(() => {
-  const cName = `${apiName.value}`
-  return cName.substring(0, 1).toUpperCase() + cName.substring(1).toLowerCase()
+  const cName = XEUtils.camelCase(`${apiName.value}`)
+  return cName.substring(0, 1).toUpperCase() + cName.substring(1)
 })
 
 const handleTreeList = (treeList: any[]) => {

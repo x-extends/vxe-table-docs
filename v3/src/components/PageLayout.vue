@@ -4,7 +4,7 @@
       <PageHeader />
     </VxeLayoutHeader>
     <VxeLayoutContainer>
-      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft">
+      <VxeLayoutAside class="layout-aside" :width="asideWidth" :collapsed="!showLeft" :scrollbar-config="scrollbarConfig">
         <PageAside :nav-config-list="navConfigList" :showLeft="showLeft" />
       </VxeLayoutAside>
       <VxeLayoutContainer class="layout-content-container page-container" vertical>
@@ -55,6 +55,10 @@ export default Vue.extend({
       circle: true
     }
 
+    const scrollbarConfig: VxeLayoutBodyPropTypes.ScrollbarConfig = {
+      viewInnerClassName: 'layout-aside-inner'
+    }
+
     let asideWidth = 360
     if (window.innerWidth > 2000) {
       asideWidth = 500
@@ -68,7 +72,8 @@ export default Vue.extend({
       showLeft: true,
       navConfigList,
       asideWidth,
-      backtopConfig
+      backtopConfig,
+      scrollbarConfig
     }
   },
   computed: {
@@ -100,6 +105,7 @@ export default Vue.extend({
   }
   .layout-body {
     &.is-full {
+      .vxe-layout-body--inner,
       .body-view {
         height: 100%;
         overflow: hidden;
@@ -108,7 +114,7 @@ export default Vue.extend({
         display: none;
       }
     }
-    & > .vxe-layout-body--inner {
+    .vxe-layout-body--inner {
       position: relative;
       padding: 16px 300px 16px 16px;
     }

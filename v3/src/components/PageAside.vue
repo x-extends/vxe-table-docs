@@ -38,7 +38,7 @@
         </template>
       </vxe-pulldown>
     </div>
-    <div class="nav-body">
+    <vxe-scrollbar class="nav-body" view-inner-class-name="nav-body-inner" :y-config="yConfig" :x-config="xConfig">
       <vxe-menu v-model="selectNavId" v-bind="menuOptions" :options="menuTreeList" @click="clickMenuEvent">
         <template #option-title="{ option }">
           <span>{{ option.title }}</span>
@@ -49,7 +49,7 @@
           <vxe-text v-if="option.showCount && option.children && option.children.length" status="success">（{{ option.children.length }}）</vxe-text>
         </template>
       </vxe-menu>
-    </div>
+    </vxe-scrollbar>
   </div>
 </template>
 
@@ -57,7 +57,7 @@
 import Vue, { PropType } from 'vue'
 import { mapActions, mapState } from 'vuex'
 import { NavVO } from '@/common/nav'
-import { VxeTreeInstance, VxeTreeProps, VxeMenuProps } from 'vxe-pc-ui'
+import { VxeTreeInstance, VxeTreeProps, VxeMenuProps, VxeScrollbarPropTypes } from 'vxe-pc-ui'
 import XEUtils from 'xe-utils'
 import VersionList from './VersionList.vue'
 
@@ -78,6 +78,13 @@ export default Vue.extend({
     const selectNavId = null as number | null | undefined
     const menuTreeList: NavVO[] = []
     const searchTreeList: NavVO[] = []
+
+    const xConfig: VxeScrollbarPropTypes.XConfig = {
+      visible: 'hidden'
+    }
+    const yConfig: VxeScrollbarPropTypes.YConfig = {
+      autoHide: true
+    }
 
     const searchTreeOptions: VxeTreeProps<NavVO> = {
       height: Math.max(400, Math.min(800, document.documentElement.clientHeight * 0.6)),
@@ -118,6 +125,8 @@ export default Vue.extend({
     return {
       selectNavId,
       searchTreeOptions,
+      xConfig,
+      yConfig,
       menuOptions,
       menuTreeList,
       searchTreeList,
@@ -368,6 +377,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+.layout-aside-inner {
+  height: 100%;
+  overflow: hidden;
+}
 .page-aside {
   display: flex;
   flex-direction: column;
@@ -385,6 +398,9 @@ export default Vue.extend({
     border-top: 1px solid var(--vxe-ui-docs-layout-border-color);
     overflow-x: hidden;
     overflow-y: auto;
+  }
+  .nav-body-inner {
+    height: 100%;
   }
   .search-input {
     width: 18em;
