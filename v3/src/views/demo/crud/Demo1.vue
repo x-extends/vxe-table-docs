@@ -321,7 +321,7 @@ export default Vue.extend({
       columns: [
         { field: 'seq', type: 'seq', fixed: 'left', width: 60 },
         { field: 'checkbox', type: 'checkbox', fixed: 'left', width: 60 },
-        { field: 'avatarUrl', title: '头像', width: 80,  cellRender: avatarUrlCellRender },
+        { field: 'avatarUrl', title: '头像', width: 80, cellRender: avatarUrlCellRender },
         { field: 'name', title: '名字', minWidth: 200, dragSort: true, editRender: { name: 'VxeInput' } },
         {
           title: '基本信息',
