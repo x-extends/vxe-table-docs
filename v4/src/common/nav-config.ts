@@ -6,7 +6,7 @@ export const navConfigList: NavVO[] = [
   {
     i18nKey: 'app.aside.menu.demoTitle',
     icon: 'vxe-icon-click-button',
-    isExpand: false,
+    isExpand: true,
     children: [
       { i18nKey: 'app.aside.menu.demoList', routerLink: { name: 'DemoListPreview' } },
       { i18nKey: 'app.aside.menu.demoProduct', routerLink: { name: 'DemoProductPreview' } },
