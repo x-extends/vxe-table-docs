@@ -339,7 +339,7 @@ export default Vue.extend({
           title: '存档信息',
           field: 'archive',
           children: [
-            { field: 'imgList', title: '图片列表', width: 210,  cellRender: imgListCellRender },
+            { field: 'imgList', title: '图片列表', width: 210, cellRender: imgListCellRender },
             { field: 'fileList', title: '附件列表', width: 300, cellRender: fileListCellRender }
           ]
         },
