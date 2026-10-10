@@ -129,9 +129,9 @@ export default Vue.extend({
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 180 },
         { field: 'fileList3', title: '精简列表', width: 100, cellRender: imgList3CellRender },
-        { field: 'imgList1', title: '图片列表', width: 160, cellRender: imgList1CellRender },
-        { field: 'fileList4', title: '精简上传', width: 160, cellRender: imgList4CellRender },
-        { field: 'imgList2', title: '上传图片', width: 210, cellRender: imgList2CellRender }
+        { field: 'imgList1', title: '图片列表', width: 160, padding: { top: false, bottom: false }, cellRender: imgList1CellRender },
+        { field: 'fileList4', title: '精简上传', width: 160, padding: { top: false, bottom: false }, cellRender: imgList4CellRender },
+        { field: 'imgList2', title: '上传图片', width: 210, padding: { top: false, bottom: false }, cellRender: imgList2CellRender }
       ],
       data: [
         {

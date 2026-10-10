@@ -67,6 +67,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       field: 'imgList1',
       title: '图片列表',
       width: 160,
+      padding: {
+        top: false,
+        bottom: false
+      },
       slots: {
         default: ({ row }) => {
           return <vxe-upload
@@ -88,6 +92,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
       field: 'imgList2',
       title: '上传图片',
       width: 210,
+      padding: {
+        top: false,
+        bottom: false
+      },
       slots: {
         default: ({ row }) => {
           return <vxe-upload
