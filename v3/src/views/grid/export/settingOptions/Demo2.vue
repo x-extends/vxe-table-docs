@@ -35,6 +35,7 @@ interface RowVO {
 export default Vue.extend({
   data () {
     const exportConfig: VxeWithRequired<VxeTablePropTypes.ExportConfig<RowVO>, 'settingOptions'> = {
+      isTreeAllExpanded: true, // 默认勾选
       settingOptions: {
         showFileName: true,
         showSheet: false,

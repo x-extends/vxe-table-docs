@@ -35,6 +35,7 @@ interface RowVO {
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
 const exportConfig = reactive<VxeWithRequired<VxeTablePropTypes.ExportConfig<RowVO>, 'settingOptions'>>({
+  isTreeAllExpanded: true, // 默认勾选
   settingOptions: {
     showFileName: true,
     showSheet: false,
