@@ -66,6 +66,12 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
+      cellConfig: {
+        padding: {
+          top: false,
+          bottom: false
+        }
+      },
       rowConfig: {
         keyField: 'id'
       },
@@ -74,8 +80,8 @@ export default Vue.extend({
         { field: 'name', title: 'Name', minWidth: 180 },
         { field: 'fileList1', title: '附件列表', width: 240, slots: { default: 'fileList1_default' } },
         { field: 'fileList2', title: '上传附件', width: 300, slots: { default: 'fileList2_default' } },
-        { field: 'imgList1', title: '图片列表', width: 160, padding: { top: false, bottom: false }, slots: { default: 'imgList1_default' } },
-        { field: 'imgList2', title: '上传图片', width: 210, padding: { top: false, bottom: false }, slots: { default: 'imgList2_default' } }
+        { field: 'imgList1', title: '图片列表', width: 160, slots: { default: 'imgList1_default' } },
+        { field: 'imgList2', title: '上传图片', width: 210, slots: { default: 'imgList2_default' } }
       ],
       data: [
         {

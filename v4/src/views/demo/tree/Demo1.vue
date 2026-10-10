@@ -148,6 +148,12 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   resizableConfig: {
     isDblclickAutoWidth: true
   },
+  cellConfig: {
+    padding: {
+      top: false,
+      bottom: false
+    }
+  },
   rowConfig: {
     isHover: true,
     drag: true
@@ -196,7 +202,7 @@ const gridOptions = reactive<VxeGridProps<RowVO> & { data: RowVO[] }>({
   columns: [
     { field: 'seq', type: 'seq', width: 80, fixed: 'left' },
     { field: 'checkbox', type: 'checkbox', fixed: 'left', width: 70 },
-    { field: 'name', title: '名字', fixed: 'left', minWidth: 280, treeNode: true, dragSort: true, padding: { top: false, bottom: false }, slots: { default: 'nameDefault' } },
+    { field: 'name', title: '名字', fixed: 'left', minWidth: 280, treeNode: true, dragSort: true, slots: { default: 'nameDefault' } },
     {
       title: '基本信息',
       field: 'info',

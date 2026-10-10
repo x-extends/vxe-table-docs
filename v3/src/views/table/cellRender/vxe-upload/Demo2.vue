@@ -3,18 +3,19 @@
     <vxe-table
       border
       show-overflow
+      :cell-config="cellConfig"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180"></vxe-column>
-      <vxe-column field="imgList1" title="图片列表" width="160" :padding="{ top: false, bottom: false }" :cell-render="imgList1CellRender"></vxe-column>
-      <vxe-column field="imgList2" title="上传图片" width="210" :padding="{ top: false, bottom: false }" :cell-render="imgList2CellRender"></vxe-column>
+      <vxe-column field="imgList1" title="图片列表" width="160" :cell-render="imgList1CellRender"></vxe-column>
+      <vxe-column field="imgList2" title="上传图片" width="210" :cell-render="imgList2CellRender"></vxe-column>
     </vxe-table>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeColumnPropTypes } from 'vxe-table'
+import type { VxeColumnPropTypes, VxeTablePropTypes } from 'vxe-table'
 import { VxeUploadProps, VxeUploadPropTypes } from 'vxe-pc-ui'
 import axios from 'axios'
 
@@ -78,6 +79,13 @@ export default Vue.extend({
       }
     ]
 
+    const cellConfig: VxeTablePropTypes.CellConfig = {
+      padding: {
+        top: false,
+        bottom: false
+      }
+    }
+
     const imgList1CellRender: VxeColumnPropTypes.CellRender<RowVO, VxeUploadProps> = {
       name: 'VxeUpload',
       props: {
@@ -123,6 +131,7 @@ export default Vue.extend({
     }
 
     return {
+      cellConfig,
       tableData,
       imgList1CellRender,
       imgList2CellRender

@@ -3,7 +3,9 @@
     <vxe-table
       border
       show-overflow
-      :data="tableData">
+      :cell-config="cellConfig"
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180"></vxe-column>
       <vxe-column field="fileList1" title="附件列表" width="240">
@@ -16,12 +18,12 @@
           <vxe-upload v-model="row.fileList2" progress-text="{percent}%" :more-config="{maxCount: 1, layout: 'horizontal'}" :show-button-text="false" :upload-method="uploadMethod" multiple></vxe-upload>
         </template>
       </vxe-column>
-      <vxe-column field="imgList1" title="图片列表" width="160" :padding="{ top: false, bottom: false }">
+      <vxe-column field="imgList1" title="图片列表" width="160">
         <template #default="{ row }">
           <vxe-upload v-model="row.imgList1" mode="image" progress-text="{percent}%" :more-config="{maxCount: 1}" :image-config="{width: 32, height: 32}" :show-button-text="false" readonly></vxe-upload>
         </template>
       </vxe-column>
-      <vxe-column field="imgList2" title="上传图片" width="210" :padding="{ top: false, bottom: false }">
+      <vxe-column field="imgList2" title="上传图片" width="210">
         <template #default="{ row }">
           <vxe-upload v-model="row.imgList2" mode="image" progress-text="{percent}%" :more-config="{maxCount: 1}" :image-config="{width: 32,height: 32}" :show-button-text="false" :upload-method="uploadMethod" multiple></vxe-upload>
         </template>
@@ -31,8 +33,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { VxeUploadPropTypes } from 'vxe-pc-ui'
+import { ref, reactive } from 'vue'
+import type { VxeTablePropTypes } from 'vxe-table'
+import type { VxeUploadPropTypes } from 'vxe-pc-ui'
 import axios from 'axios'
 
 interface RowVO {
@@ -92,6 +95,13 @@ const tableData = ref<RowVO[]>([
     ]
   }
 ])
+
+const cellConfig = reactive<VxeTablePropTypes.CellConfig>({
+  padding: {
+    top: false,
+    bottom: false
+  }
+})
 
 const uploadMethod: VxeUploadPropTypes.UploadMethod = ({ file }) => {
   const formData = new FormData()

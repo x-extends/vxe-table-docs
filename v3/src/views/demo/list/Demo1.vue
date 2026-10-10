@@ -242,6 +242,12 @@ export default Vue.extend({
         showIcon: false,
         showGuidesStatus: true
       },
+      cellConfig: {
+        padding: {
+          top: false,
+          bottom: false
+        }
+      },
       rowConfig: {
         isHover: true
       },
@@ -311,7 +317,7 @@ export default Vue.extend({
       columns: [
         { field: 'seq', type: 'seq', width: 80 },
         { field: 'checkbox', type: 'checkbox', width: 80 },
-        { field: 'avatarUrl', title: '头像', width: 80, padding: { top: false, bottom: false }, cellRender: avatarUrlCellRender },
+        { field: 'avatarUrl', title: '头像', width: 80, cellRender: avatarUrlCellRender },
         { field: 'name', title: '名字', minWidth: 200, dragSort: true },
         {
           title: '基本信息',

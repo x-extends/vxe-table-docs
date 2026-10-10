@@ -3,43 +3,47 @@
     <vxe-grid v-bind="gridOptions">
       <template #fileList1_default="{ row }">
         <vxe-upload
-          readonly
           v-model="row.fileList1"
+          readonly
           :more-config="{maxCount: 1, layout: 'horizontal'}"
-          :upload-method="uploadMethod">
+          :upload-method="uploadMethod"
+        >
         </vxe-upload>
       </template>
 
       <template #fileList2_default="{ row }">
         <vxe-upload
-          multiple
           v-model="row.fileList2"
+          multiple
           :more-config="{maxCount: 1, layout: 'horizontal'}"
           :show-button-text="false"
-          :upload-method="uploadMethod">
+          :upload-method="uploadMethod"
+        >
         </vxe-upload>
       </template>
 
       <template #imgList1_default="{ row }">
         <vxe-upload
-          readonly
           v-model="row.imgList1"
+          readonly
           mode="image"
           :more-config="{ maxCount: 1 }"
           :image-config="{ width: 32, height: 32 }"
-          :upload-method="uploadMethod">
+          :upload-method="uploadMethod"
+        >
         </vxe-upload>
       </template>
 
       <template #imgList2_default="{ row }">
         <vxe-upload
-          multiple
           v-model="row.imgList2"
+          multiple
           mode="image"
           :more-config="{ maxCount: 1 }"
           :image-config="{ width: 32, height: 32 }"
           :show-button-text="false"
-          :upload-method="uploadMethod">
+          :upload-method="uploadMethod"
+        >
         </vxe-upload>
       </template>
     </vxe-grid>
@@ -64,6 +68,12 @@ interface RowVO {
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showOverflow: true,
+  cellConfig: {
+    padding: {
+      top: false,
+      bottom: false
+    }
+  },
   rowConfig: {
     keyField: 'id'
   },
