@@ -315,7 +315,7 @@ export default Vue.extend({
       columns: [
         { field: 'seq', type: 'seq', fixed: 'left', width: 60 },
         { field: 'checkbox', type: 'checkbox', fixed: 'left', width: 60 },
-        { field: 'avatarUrl', title: '头像', width: 80, cellRender: avatarUrlCellRender },
+        { field: 'avatarUrl', title: '头像', width: 80, padding: { top: false, bottom: false }, cellRender: avatarUrlCellRender },
         { field: 'name', title: '名字', minWidth: 200, dragSort: true, editRender: { name: 'VxeInput' } },
         {
           title: '基本信息',
@@ -333,7 +333,7 @@ export default Vue.extend({
           title: '存档信息',
           field: 'archive',
           children: [
-            { field: 'imgList', title: '图片列表', width: 210, cellRender: imgListCellRender },
+            { field: 'imgList', title: '图片列表', width: 210, padding: { top: false, bottom: false }, cellRender: imgListCellRender },
             { field: 'fileList', title: '附件列表', width: 300, cellRender: fileListCellRender }
           ]
         },
