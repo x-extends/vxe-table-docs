@@ -146,10 +146,10 @@ export default {
         full: '完整功能',
 
         virtualTree: '虚拟树表格',
-        big: '虚拟滚动',
+        big: '虚拟滚动 - 海量数据',
 
-        scroll: '虚拟滚动',
-        bigData: '虚拟滚动',
+        scroll: '虚拟滚动 - 海量数据',
+        bigData: '虚拟滚动 - 海量数据',
         scrollMode: '滚动模式',
         scrollRows: '纵向',
         scrollFullRows: '纵向 + 复杂渲染',
@@ -276,7 +276,7 @@ export default {
         areaFNR: '查找与替换',
         areaMenu: '右键菜单',
         areaEdit: '可编辑',
-        areaScroll: '虚拟滚动',
+        areaScroll: '虚拟滚动 - 海量数据',
         areaChart: '简单图表',
         areaEcharts: '集成 echarts 图表',
         areaBasicsEcharts: '基础图表',

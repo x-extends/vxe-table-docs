@@ -146,10 +146,10 @@ export default {
         full: '完整功能',
 
         virtualTree: '虛擬樹表格',
-        big: '虚拟滚动',
+        big: '虚拟滚动 - 海量数据',
 
-        scroll: '虚拟滚动',
-        bigData: '虚拟滚动',
+        scroll: '虚拟滚动 - 海量数据',
+        bigData: '虚拟滚动 - 海量数据',
         scrollMode: '滚动模式',
         scrollRows: '纵向',
         scrollFullRows: '纵向 + 复杂渲染',
