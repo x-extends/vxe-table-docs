@@ -1,11 +1,10 @@
 <template>
   <div>
-    <CodeLight path="table/scrollbar/barStyle/Demo1">
+    <CodeLight path="table/scrollbar/barVisible/Demo1">
       <template #tip>
-        <vxe-tip status="primary"  title="修改滚动条样式">
-          重写默认的滚动条样式，可以自行根据不同浏览器的特性去做修改
+        <vxe-tip status="primary" title="禁用滚动条">
+          通过 <ApiLink name="table" prop="scrollbar-config" />.<ApiLink name="table" prop="visible" /> 来禁用滚动条
         </vxe-tip>
-        <vxe-tip status="error">组件不支持改动原生滚动条，各种兼容性问题可自行实现</vxe-tip>
       </template>
     </CodeLight>
   </div>

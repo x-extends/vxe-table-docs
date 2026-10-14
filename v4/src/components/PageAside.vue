@@ -85,7 +85,7 @@ const searchList = ref<NavVO[]>([])
 let loadApiStatus = false
 
 const xConfig = reactive<VxeScrollbarPropTypes.XConfig>({
-  visible: 'hidden'
+  visible: false
 })
 const yConfig = reactive<VxeScrollbarPropTypes.YConfig>({
   autoHide: true

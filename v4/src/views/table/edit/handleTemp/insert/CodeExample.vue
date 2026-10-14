@@ -16,6 +16,10 @@
         <vxe-tip status="primary">
           树节点插入临时数据
         </vxe-tip>
+        <vxe-tip status="error" title="小提示">
+          <div>平级结构：全功能支持</div>
+          <div>层级结构：仅支持部分功能，仅支持第一级插入</div>
+        </vxe-tip>
       </template>
     </CodeLight>
   </div>

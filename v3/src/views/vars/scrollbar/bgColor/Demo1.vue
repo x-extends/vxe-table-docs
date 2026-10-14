@@ -1,7 +1,7 @@
 <template>
   <div>
-    轨道背景色：<vxe-color-picker v-model="trackBgColor" :colors="colorList" clearable></vxe-color-picker>
-    滑块背景色：<vxe-color-picker v-model="thumbBgColor" :colors="colorList"></vxe-color-picker>
+    轨道背景色：<vxe-color-picker v-model="trackBgColor" :colors="colorList" show-eye-dropper clearable></vxe-color-picker>
+    滑块背景色：<vxe-color-picker v-model="thumbBgColor" :colors="colorList" show-eye-dropper></vxe-color-picker>
 
     <vxe-scrollbar
       height="300"

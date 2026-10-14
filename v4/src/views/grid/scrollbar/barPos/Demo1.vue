@@ -1,12 +1,21 @@
 <template>
   <div>
+    X：<vxe-radio-group v-model="scrollbarConfig.xConfig.position">
+      <vxe-radio-button checked-value="top" content="top"></vxe-radio-button>
+      <vxe-radio-button checked-value="bottom" content="bottom"></vxe-radio-button>
+    </vxe-radio-group>
+    Y：<vxe-radio-group v-model="scrollbarConfig.yConfig.position">
+      <vxe-radio-button checked-value="left" content="left"></vxe-radio-button>
+      <vxe-radio-button checked-value="right" content="right"></vxe-radio-button>
+    </vxe-radio-group>
+
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,18 +26,20 @@ interface RowVO {
   address: string
 }
 
+const scrollbarConfig = reactive<VxeWithRequired<VxeTablePropTypes.ScrollbarConfig, 'xConfig' | 'yConfig'>>({
+  xConfig: {
+    position: 'top'
+  },
+  yConfig: {
+    position: 'left'
+  }
+})
+
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   showFooter: true,
   height: 400,
-  scrollbarConfig: {
-    x: {
-      position: 'top'
-    },
-    y: {
-      position: 'left'
-    }
-  },
+  scrollbarConfig,
   columns: [
     { field: 'seq', type: 'seq', width: 70, fixed: 'left' },
     { field: 'name', title: 'Name', width: 300 },

@@ -1,12 +1,14 @@
 <template>
   <div>
+    滚动条宽度：<vxe-slider v-model="gridOptions.scrollbarConfig.width" immediate show-tooltip></vxe-slider>
+
     <vxe-grid class="mytable-scrollbar" v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,14 +19,12 @@ interface RowVO {
   address: string
 }
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'scrollbarConfig'>>({
   border: true,
   showFooter: true,
   height: 400,
-  // 滚动条宽高需与自定义的样式对应
   scrollbarConfig: {
-    width: 24,
-    height: 24
+    width: 6
   },
   columns: [
     { field: 'seq', type: 'seq', width: 70, fixed: 'left' },

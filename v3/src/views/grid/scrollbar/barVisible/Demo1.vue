@@ -1,15 +1,7 @@
 <template>
   <div>
-    <span>x：</span>
-    <vxe-radio-group v-model="scrollbarConfig.x.visible">
-      <vxe-radio-button checked-value="visible" content="显示"></vxe-radio-button>
-      <vxe-radio-button checked-value="hidden" content="隐藏"></vxe-radio-button>
-    </vxe-radio-group>
-    <span>y：</span>
-    <vxe-radio-group v-model="scrollbarConfig.y.visible">
-      <vxe-radio-button checked-value="visible" content="显示"></vxe-radio-button>
-      <vxe-radio-button checked-value="hidden" content="隐藏"></vxe-radio-button>
-    </vxe-radio-group>
+    X:<vxe-switch v-model="scrollbarConfig.xConfig.visible"></vxe-switch>
+    Y:<vxe-switch v-model="scrollbarConfig.yConfig.visible"></vxe-switch>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
@@ -17,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired, VxeTablePropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -30,12 +22,12 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const scrollbarConfig = {
-      x: {
-        visible: 'hidden' as 'hidden' | 'visible'
+    const scrollbarConfig: VxeWithRequired<VxeTablePropTypes.ScrollbarConfig, 'xConfig' | 'yConfig'> = {
+      xConfig: {
+        visible: false
       },
-      y: {
-        visible: 'hidden' as 'hidden' | 'visible'
+      yConfig: {
+        visible: false
       }
     }
 

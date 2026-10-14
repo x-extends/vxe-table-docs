@@ -1,5 +1,7 @@
 <template>
   <div>
+    滚动条宽度：<vxe-slider v-model="scrollbarConfig.width" immediate show-tooltip></vxe-slider>
+
     <vxe-table
       border
       show-footer
@@ -7,7 +9,8 @@
       height="400"
       :scrollbar-config="scrollbarConfig"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
       <vxe-column field="sex" title="Sex" width="300"></vxe-column>
@@ -47,10 +50,8 @@ const tableData = ref<RowVO[]>([
   { id: 100010, name: 'Test10', role: 'Develop', sex: 'Women', age: 35, address: 'test abc' }
 ])
 
-// 滚动条宽高需与自定义的样式对应
 const scrollbarConfig = reactive<VxeTablePropTypes.ScrollbarConfig>({
-  width: 24,
-  height: 24
+  width: 6
 })
 
 const footerData = ref<VxeTablePropTypes.FooterData>([

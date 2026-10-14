@@ -80,7 +80,7 @@ export default Vue.extend({
     const searchTreeList: NavVO[] = []
 
     const xConfig: VxeScrollbarPropTypes.XConfig = {
-      visible: 'hidden'
+      visible: false
     }
     const yConfig: VxeScrollbarPropTypes.YConfig = {
       autoHide: true

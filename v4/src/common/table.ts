@@ -1514,9 +1514,9 @@ export const tableNavConfig: NavVO = {
         {
           title: '滚动条',
           children: [
-            { title: '滚动条样式', routerLink: { name: 'ComponentGridScrollbarBarStyle' } },
-            { title: '滚动条位置', routerLink: { name: 'ComponentGridScrollbarBarPos' } },
-            { title: '滚动条显示方式', routerLink: { name: 'ComponentGridScrollbarBarVisible' } }
+            { title: '是否显示', routerLink: { name: 'ComponentGridScrollbarBarVisible' } },
+            { title: '滚动条宽度', routerLink: { name: 'ComponentGridScrollbarBarStyle' } },
+            { title: '滚动条位置', routerLink: { name: 'ComponentGridScrollbarBarPos' } }
           ]
         },
         {

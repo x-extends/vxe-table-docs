@@ -4,9 +4,10 @@
       border
       show-footer
       height="400"
-      :scrollbarConfig="scrollbarConfig"
+      :scrollbar-config="scrollbarConfig"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
       <vxe-column field="sex" title="Sex" width="300"></vxe-column>
@@ -34,10 +35,10 @@ interface RowVO {
 }
 
 const scrollbarConfig = ref<VxeTablePropTypes.ScrollbarConfig>({
-  x: {
+  xConfig: {
     position: 'top'
   },
-  y: {
+  yConfig: {
     position: 'left'
   }
 })

@@ -1,5 +1,7 @@
 <template>
   <div>
+    滚动条宽度：<vxe-slider v-model="scrollbarConfig.width" immediate show-tooltip></vxe-slider>
+
     <vxe-table
       border
       show-footer
@@ -53,10 +55,8 @@ export default Vue.extend({
       { seq: '合计', name: '222', age: '555', attr2: '555', role: '111' }
     ]
 
-    // 滚动条宽高需与自定义的样式对应
     const scrollbarConfig: VxeTablePropTypes.ScrollbarConfig = {
-      width: 24,
-      height: 24
+      width: 6
     }
 
     return {

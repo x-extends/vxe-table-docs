@@ -4,7 +4,7 @@
       border
       show-footer
       height="400"
-      :scrollbarConfig="scrollbarConfig"
+      :scrollbar-config="scrollbarConfig"
       :footer-data="footerData"
       :data="tableData">
       <vxe-column field="seq" type="seq" width="70" fixed="left"></vxe-column>
@@ -53,10 +53,10 @@ export default Vue.extend({
     ]
 
     const scrollbarConfig: VxeTablePropTypes.ScrollbarConfig = {
-      x: {
+      xConfig: {
         position: 'top'
       },
-      y: {
+      yConfig: {
         position: 'left'
       }
     }
