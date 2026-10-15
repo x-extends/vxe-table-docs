@@ -600,6 +600,28 @@ export const tableNavConfig: NavVO = {
           ]
         },
         {
+          title: '滚动条',
+          children: [
+            {
+              title: '原生滚动条',
+              children: [
+                { title: '滚动条宽度', routerLink: { name: 'ComponentTableScrollbarNativeBarStyle' } },
+                { title: '滚动条位置', routerLink: { name: 'ComponentTableScrollbarNativeBarPos' } }
+              ]
+            },
+            {
+              title: '虚拟滚动条',
+              children: [
+                { title: '使用滚动条', routerLink: { name: 'ComponentTableScrollbarUseScrollbarScrollbar' } },
+                { title: '滚动条宽度', routerLink: { name: 'ComponentTableScrollbarUseScrollbarBarWidth' } },
+                { title: '滚动条颜色', routerLink: { name: 'ComponentTableScrollbarUseScrollbarBarColor' } },
+                { title: '显示位置', routerLink: { name: 'ComponentTableScrollbarUseScrollbarPosition' } },
+                { title: '自动隐藏', routerLink: { name: 'ComponentTableScrollbarUseScrollbarAutoHide' } }
+              ]
+            }
+          ]
+        },
+        {
           title: '事件监听',
           children: [
             { title: '准备就绪', routerLink: { name: 'ComponentTableEventsReady' } },
@@ -1514,9 +1536,24 @@ export const tableNavConfig: NavVO = {
         {
           title: '滚动条',
           children: [
-            { title: '是否显示', routerLink: { name: 'ComponentGridScrollbarBarVisible' } },
-            { title: '滚动条宽度', routerLink: { name: 'ComponentGridScrollbarBarStyle' } },
-            { title: '滚动条位置', routerLink: { name: 'ComponentGridScrollbarBarPos' } }
+            {
+              title: '原生滚动条',
+              children: [
+                { title: '是否显示', routerLink: { name: 'ComponentGridScrollbarNativeBarVisible' } },
+                { title: '滚动条宽度', routerLink: { name: 'ComponentGridScrollbarNativeBarStyle' } },
+                { title: '滚动条位置', routerLink: { name: 'ComponentGridScrollbarNativeBarPos' } }
+              ]
+            },
+            {
+              title: '虚拟滚动条',
+              children: [
+                { title: '使用滚动条', routerLink: { name: 'ComponentGridScrollbarUseScrollbarScrollbar' } },
+                { title: '滚动条宽度', routerLink: { name: 'ComponentGridScrollbarUseScrollbarBarWidth' } },
+                { title: '滚动条颜色', routerLink: { name: 'ComponentGridScrollbarUseScrollbarBarColor' } },
+                { title: '显示位置', routerLink: { name: 'ComponentGridScrollbarUseScrollbarPosition' } },
+                { title: '自动隐藏', routerLink: { name: 'ComponentGridScrollbarUseScrollbarAutoHide' } }
+              ]
+            }
           ]
         },
         {

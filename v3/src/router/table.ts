@@ -1949,6 +1949,31 @@ export const tableRouteConfig: RouteConfig = {
       ]
     },
     {
+      path: 'scrollbar',
+      component: RouteLayout,
+      children: [
+        {
+          path: 'native',
+          component: RouteLayout,
+          children: [
+            { path: 'barStyle', name: 'ComponentTableScrollbarNativeBarStyle', component: () => import('@/views/table/scrollbar/native/barStyle/CodeExample.vue') },
+            { path: 'barPos', name: 'ComponentTableScrollbarNativeBarPos', component: () => import('@/views/table/scrollbar/native/barPos/CodeExample.vue') }
+          ]
+        },
+        {
+          path: 'useScrollbar',
+          component: RouteLayout,
+          children: [
+            { path: 'scrollbar', name: 'ComponentTableScrollbarUseScrollbarScrollbar', component: () => import('@/views/table/scrollbar/useScrollbar/scrollbar/CodeExample.vue') },
+            { path: 'barWidth', name: 'ComponentTableScrollbarUseScrollbarBarWidth', component: () => import('@/views/table/scrollbar/useScrollbar/barWidth/CodeExample.vue') },
+            { path: 'barColor', name: 'ComponentTableScrollbarUseScrollbarBarColor', component: () => import('@/views/table/scrollbar/useScrollbar/barColor/CodeExample.vue') },
+            { path: 'position', name: 'ComponentTableScrollbarUseScrollbarPosition', component: () => import('@/views/table/scrollbar/useScrollbar/position/CodeExample.vue') },
+            { path: 'autoHide', name: 'ComponentTableScrollbarUseScrollbarAutoHide', component: () => import('@/views/table/scrollbar/useScrollbar/autoHide/CodeExample.vue') }
+          ]
+        }
+      ]
+    },
+    {
       path: 'search',
       component: RouteLayout,
       children: [
