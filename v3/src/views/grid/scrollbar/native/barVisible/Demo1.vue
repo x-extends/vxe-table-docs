@@ -34,6 +34,7 @@ export default Vue.extend({
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       height: 300,
+      useScrollbar: false,
       scrollbarConfig,
       columns: [
         { field: 'seq', type: 'seq', width: 70 },

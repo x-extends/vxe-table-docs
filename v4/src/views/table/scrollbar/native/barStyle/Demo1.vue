@@ -7,6 +7,7 @@
       show-footer
       class="mytable-scrollbar"
       height="400"
+      :use-scrollbar="false"
       :scrollbar-config="scrollbarConfig"
       :footer-data="footerData"
       :data="tableData"

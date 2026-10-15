@@ -41,6 +41,7 @@ export default Vue.extend({
       border: true,
       showFooter: true,
       height: 400,
+      useScrollbar: false,
       scrollbarConfig,
       columns: [
         { field: 'seq', type: 'seq', width: 70, fixed: 'left' },

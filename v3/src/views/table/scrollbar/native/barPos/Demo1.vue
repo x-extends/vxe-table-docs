@@ -4,6 +4,7 @@
       border
       show-footer
       height="400"
+      :use-scrollbar="false"
       :scrollbar-config="scrollbarConfig"
       :footer-data="footerData"
       :data="tableData">

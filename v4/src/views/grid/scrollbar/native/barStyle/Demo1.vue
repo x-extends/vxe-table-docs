@@ -23,6 +23,7 @@ const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'scrollbarConf
   border: true,
   showFooter: true,
   height: 400,
+  useScrollbar: false,
   scrollbarConfig: {
     width: 12
   },

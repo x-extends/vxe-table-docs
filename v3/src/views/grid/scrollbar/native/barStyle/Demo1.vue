@@ -25,6 +25,7 @@ export default Vue.extend({
       border: true,
       showFooter: true,
       height: 400,
+      useScrollbar: false,
       scrollbarConfig: {
         width: 6
       },

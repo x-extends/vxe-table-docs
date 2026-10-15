@@ -32,6 +32,7 @@ const scrollbarConfig = reactive<VxeWithRequired<VxeTablePropTypes.ScrollbarConf
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 300,
+  useScrollbar: false,
   scrollbarConfig,
   columns: [
     { field: 'seq', type: 'seq', width: 70 },
