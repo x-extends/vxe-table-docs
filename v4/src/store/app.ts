@@ -34,11 +34,6 @@ const currComponentsSize = (localStorage.getItem('VXE_DOCS_COMPONENTS_SIZE') || 
 const componentsVScrollbar = (localStorage.getItem('VXE_DOCS_COMPONENTS_VIRTUAL_SCROLLBAR') === 'true') as VxeComponentIsVScrollbar
 const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as VxeGlobalI18nLocale
 
-VxeUI.setConfig({
-  size: currComponentsSize,
-  useScrollbar: componentsVScrollbar
-})
-
 updateHighlightjsTheme(currTheme)
 
 VxeUI.setLanguage(currLanguage)
@@ -154,17 +149,12 @@ export const useAppStore = defineStore('app', {
     },
     setComponentsSize (size: VxeComponentSizeType) {
       this.componentsSize = size
-      VxeUI.setConfig({
-        size: size
-      })
       localStorage.setItem('VXE_DOCS_COMPONENTS_SIZE', size || '')
     },
     setComponentsVScrollbar (isScrollbar: VxeComponentIsVScrollbar) {
       this.componentsVScrollbar = isScrollbar
-      VxeUI.setConfig({
-        useScrollbar: isScrollbar
-      })
       localStorage.setItem('VXE_DOCS_COMPONENTS_VIRTUAL_SCROLLBAR', isScrollbar ? 'true' : 'false')
+      location.reload()
     },
     setLanguage (language: VxeGlobalI18nLocale) {
       if (i18nStatus[language]) {

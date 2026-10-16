@@ -35,11 +35,6 @@ const currComponentsSize = (localStorage.getItem('VXE_DOCS_COMPONENTS_SIZE') || 
 const componentsVScrollbar = (localStorage.getItem('VXE_DOCS_COMPONENTS_VIRTUAL_SCROLLBAR') === 'true') as VxeComponentIsVScrollbar
 const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as VxeGlobalI18nLocale
 
-VxeUI.setConfig({
-  size: currComponentsSize,
-  useScrollbar: componentsVScrollbar
-})
-
 updateHighlightjsTheme(currTheme)
 
 VxeUI.setLanguage(currLanguage)
@@ -156,17 +151,12 @@ export default new Vuex.Store({
     },
     setComponentsSize (state, size: VxeComponentSizeType) {
       state.componentsSize = size
-      VxeUI.setConfig({
-        size: size
-      })
       localStorage.setItem('VXE_DOCS_COMPONENTS_SIZE', size || '')
     },
     setComponentsVScrollbar (state, isScrollbar: VxeComponentIsVScrollbar) {
       state.componentsVScrollbar = isScrollbar
-      VxeUI.setConfig({
-        useScrollbar: isScrollbar
-      })
       localStorage.setItem('VXE_DOCS_COMPONENTS_VIRTUAL_SCROLLBAR', isScrollbar ? 'true' : 'false')
+      location.reload()
     },
     setLanguage (state, language: VxeGlobalI18nLocale) {
       if (i18nStatus[language]) {
