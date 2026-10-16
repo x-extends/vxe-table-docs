@@ -87,7 +87,7 @@ export default new Vuex.Store({
     theme: currTheme,
     primaryColor: currPrimaryColor,
     componentsSize: currComponentsSize,
-    componentsVScrollbar: currComponentsSize,
+    componentsVScrollbar: componentsVScrollbar,
     docsVersion: '3',
     serveTY: new Date().getFullYear(),
     language: currLanguage,
