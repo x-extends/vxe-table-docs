@@ -5,10 +5,10 @@
         <img :src="`${resBaseUrl}/logo.png`">
         <span class="title">{{ pageTitle }}</span>
       </a>
-      <a  v-if="!isPluginDocs" class="pendant" :href='`https://gitee.com/x-extends/${packName}`'>
-        <img :src='`https://gitee.com/x-extends/${packName}/badge/star.svg?theme=gvp`' alt='star'>
+      <a v-if="!isPluginDocs" class="pendant" :href="`https://gitee.com/x-extends/${packName}`">
+        <img :src="`https://gitee.com/x-extends/${packName}/badge/star.svg?theme=gvp`" alt="star">
       </a>
-      <a  v-if="!isPluginDocs" class="pendant" :href="`http://npm-stat.com/charts.html?package=${packName}`">
+      <a v-if="!isPluginDocs" class="pendant" :href="`http://npm-stat.com/charts.html?package=${packName}`">
         <img :src="`https://img.shields.io/npm/dm/${packName}.svg`">
       </a>
       <a v-if="!isPluginDocs" class="pendant" :href="`https://github.com/x-extends/${packName}`">
@@ -73,14 +73,19 @@
 
       <vxe-select v-if="!isUtilDocs" v-model="currSysVersion" class="switch-version" :options="sysVersionOptions" @change="vChangeEvent"></vxe-select>
 
-      <vxe-color-picker class="switch-primary-color" v-model="currPrimaryColor" :colors="colorList" show-eye-dropper click-to-copy></vxe-color-picker>
+      <vxe-color-picker v-model="currPrimaryColor" class="switch-primary-color" :colors="colorList" show-eye-dropper click-to-copy></vxe-color-picker>
 
       <vxe-radio-group v-model="currTheme" class="link switch-theme">
         <vxe-radio-button checked-value="light" icon="vxe-icon-sunny"></vxe-radio-button>
         <vxe-radio-button checked-value="dark" icon="vxe-icon-moon"></vxe-radio-button>
       </vxe-radio-group>
 
-      <vxe-radio-group class="switch-size" v-model="currCompSize" :options="sizeOptions" type="button"></vxe-radio-group>
+      <vxe-radio-group v-model="currCompVScrollbar" class="link switch-vscrollbar">
+        <vxe-radio-button :checked-value="false" content="原生滚动条"></vxe-radio-button>
+        <vxe-radio-button :checked-value="true" content="虚拟滚动条"></vxe-radio-button>
+      </vxe-radio-group>
+
+      <vxe-radio-group v-model="currCompSize" class="switch-size" :options="sizeOptions" type="button"></vxe-radio-group>
 
       <vxe-pulldown :options="langOptions" trigger="click" show-popup-shadow @option-click="langClickEvent">
         <vxe-button class="switch-lang-btn" mode="text" icon="vxe-icon-language-switch" :content="currLangLabel"></vxe-button>
@@ -204,6 +209,15 @@ const currCompSize = computed({
   },
   set (size) {
     appStore.setComponentsSize(size)
+  }
+})
+
+const currCompVScrollbar = computed({
+  get () {
+    return appStore.componentsVScrollbar
+  },
+  set (isScrollbar) {
+    appStore.setComponentsVScrollbar(isScrollbar)
   }
 })
 
@@ -376,6 +390,7 @@ if (isPluginDocs.value) {
   .switch-plugin,
   .switch-system,
   .switch-size,
+  .switch-vscrollbar,
   .switch-primary-color {
     display: none;
   }
@@ -386,6 +401,7 @@ if (isPluginDocs.value) {
   .switch-lang-btn,
   .switch-lang,
   .switch-version,
+  .switch-vscrollbar,
   .free-donation,
   .plugin-shopping,
   .git-btn {
@@ -580,6 +596,7 @@ if (isPluginDocs.value) {
     .switch-plugin,
     .switch-system,
     .switch-size,
+    .switch-vscrollbar,
     .switch-primary-color {
       display: block;
     }

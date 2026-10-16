@@ -39,7 +39,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
         { label: 'Test7', value: 'Test7' },
         { label: 'Test8', value: 'Test8' },
         { label: 'Test9', value: 'Test9' },
-        { label: 'Test10', value: 'Test10' }
+        { label: 'Test10', value: 'Test10' },
+        { label: 'Test11', value: 'Test11' },
+        { label: 'Test12', value: 'Test12' }
       ]
     },
     {

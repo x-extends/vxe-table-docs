@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { VxeUI, VxeGlobalI18nLocale, VxeComponentSizeType } from 'vxe-pc-ui'
+import { VxeUI, VxeGlobalI18nLocale, VxeComponentSizeType, VxeComponentIsVScrollbar } from 'vxe-pc-ui'
 import i18n from '@/i18n'
 import XEUtils from 'xe-utils'
 
@@ -31,7 +31,13 @@ function updateHighlightjsTheme (theme: string) {
 const currTheme = (localStorage.getItem('VXE_DOCS_THEME') || 'light') as 'dark' | 'light'
 const currPrimaryColor = localStorage.getItem('VXE_DOCS_PRIMARY_COLOR') || ''
 const currComponentsSize = (localStorage.getItem('VXE_DOCS_COMPONENTS_SIZE') || '') as VxeComponentSizeType
+const componentsVScrollbar = (localStorage.getItem('VXE_DOCS_COMPONENTS_VIRTUAL_SCROLLBAR') === 'true') as VxeComponentIsVScrollbar
 const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as VxeGlobalI18nLocale
+
+VxeUI.setConfig({
+  size: currComponentsSize,
+  useScrollbar: componentsVScrollbar
+})
 
 updateHighlightjsTheme(currTheme)
 
@@ -78,6 +84,7 @@ export const useAppStore = defineStore('app', {
       theme: currTheme,
       primaryColor: currPrimaryColor,
       componentsSize: currComponentsSize,
+      componentsVScrollbar: componentsVScrollbar,
       docsVersion: '4',
       serveTY: new Date().getFullYear(),
       language: currLanguage,
@@ -147,7 +154,17 @@ export const useAppStore = defineStore('app', {
     },
     setComponentsSize (size: VxeComponentSizeType) {
       this.componentsSize = size
+      VxeUI.setConfig({
+        size: size
+      })
       localStorage.setItem('VXE_DOCS_COMPONENTS_SIZE', size || '')
+    },
+    setComponentsVScrollbar (isScrollbar: VxeComponentIsVScrollbar) {
+      this.componentsVScrollbar = isScrollbar
+      VxeUI.setConfig({
+        useScrollbar: isScrollbar
+      })
+      localStorage.setItem('VXE_DOCS_COMPONENTS_VIRTUAL_SCROLLBAR', isScrollbar ? 'true' : 'false')
     },
     setLanguage (language: VxeGlobalI18nLocale) {
       if (i18nStatus[language]) {

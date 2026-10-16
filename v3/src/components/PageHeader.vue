@@ -80,6 +80,11 @@
         <vxe-radio-button checked-value="dark" icon="vxe-icon-moon"></vxe-radio-button>
       </vxe-radio-group>
 
+      <vxe-radio-group v-model="currCompVScrollbar" class="link switch-vscrollbar">
+        <vxe-radio-button :checked-value="false" content="原生滚动条"></vxe-radio-button>
+        <vxe-radio-button :checked-value="true" content="虚拟滚动条"></vxe-radio-button>
+      </vxe-radio-group>
+
       <vxe-radio-group class="switch-size" v-model="currCompSize" :options="sizeOptions" type="button"></vxe-radio-group>
 
       <vxe-pulldown :options="langOptions" trigger="click" show-popup-shadow @option-click="langClickEvent">
@@ -247,10 +252,18 @@ export default Vue.extend({
     } as any,
     currCompSize: {
       get () {
-        return this.componentsSize
+        return this.componentsVScrollbar
       },
-      set (size) {
-        this.setComponentsSize(size)
+      set (isScrollbar) {
+        this.setComponentsVScrollbar(isScrollbar)
+      }
+    } as any,
+    currCompVScrollbar: {
+      get () {
+        return this.theme
+      },
+      set (name) {
+        this.setTheme(name)
       }
     } as any,
     currLanguage (): any {
@@ -409,6 +422,7 @@ export default Vue.extend({
   .switch-plugin,
   .switch-system,
   .switch-size,
+  .switch-vscrollbar,
   .switch-primary-color {
     display: none;
   }
@@ -419,6 +433,7 @@ export default Vue.extend({
   .switch-lang-btn,
   .switch-lang,
   .switch-version,
+  .switch-vscrollbar,
   .free-donation,
   .plugin-shopping,
   .git-btn {
@@ -613,6 +628,7 @@ export default Vue.extend({
     .switch-plugin,
     .switch-system,
     .switch-size,
+    .switch-vscrollbar,
     .switch-primary-color {
       display: block;
     }
