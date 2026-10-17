@@ -195,6 +195,7 @@ export default Vue.extend({
       'theme',
       'primaryColor',
       'componentsSize',
+      'componentsVScrollbar',
       'language',
       'versionConfig',
       'pageTitle',
@@ -252,18 +253,18 @@ export default Vue.extend({
     } as any,
     currCompSize: {
       get () {
-        return this.componentsVScrollbar
+        return this.componentsSize
       },
-      set (isScrollbar) {
-        this.setComponentsVScrollbar(isScrollbar)
+      set (size) {
+        this.setComponentsSize(size)
       }
     } as any,
     currCompVScrollbar: {
       get () {
-        return this.theme
+        return this.componentsVScrollbar
       },
-      set (name) {
-        this.setTheme(name)
+      set (isScrollbar) {
+        this.setComponentsVScrollbar(isScrollbar)
       }
     } as any,
     currLanguage (): any {
@@ -320,6 +321,7 @@ export default Vue.extend({
       'setLanguage',
       'setPrimaryColor',
       'setComponentsSize',
+      'setComponentsVScrollbar',
       'readTopMenuMsgFlagVisible',
       'readAuthMsgFlagVisible'
     ]),
