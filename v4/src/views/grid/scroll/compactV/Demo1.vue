@@ -62,6 +62,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     enabled: true,
     gt: 0
   },
+  virtualXConfig: {
+    enabled: true,
+    gt: 0
+  },
   columns: [
     { type: 'seq', width: 70, fixed: 'left' },
     { field: 'name', title: 'Name', minWidth: 100 },

@@ -58,6 +58,10 @@ export default Vue.extend({
         enabled: true,
         gt: 0
       },
+      virtualXConfig: {
+        enabled: true,
+        gt: 0
+      },
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', minWidth: 100, editRender: { name: 'VxeInput' } },
