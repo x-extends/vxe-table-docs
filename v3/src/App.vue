@@ -1,5 +1,5 @@
 <template>
-  <VxeLayoutContainer :size="componentsSize">
+  <VxeLayoutContainer :size="componentsSize" :use-scrollbar="componentsVScrollbar">
     <RouterView />
     <vxe-loading :value="pageLoading"></vxe-loading>
   </VxeLayoutContainer>
@@ -15,7 +15,8 @@ export default Vue.extend({
       'resBaseUrl',
       'siteBaseUrl',
       'pageLoading',
-      'componentsSize'
+      'componentsSize',
+      'componentsVScrollbar'
     ])
   },
   methods: {

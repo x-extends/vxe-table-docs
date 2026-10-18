@@ -1,5 +1,5 @@
 <template>
-  <VxeLayoutContainer :size="componentsSize">
+  <VxeLayoutContainer :size="componentsSize" :use-scrollbar="componentsVScrollbar">
     <RouterView />
     <vxe-loading :model-value="pageLoading"></vxe-loading>
   </VxeLayoutContainer>
@@ -14,6 +14,7 @@ const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 const pageLoading = computed(() => appStore.pageLoading)
 const componentsSize = computed(() => appStore.componentsSize)
+const componentsVScrollbar = computed(() => appStore.componentsVScrollbar)
 
 fetch(`${resBaseUrl.value}/component-api/system-config.json?v=${import.meta.env.VITE_APP_DATE_NOW}`)
   .then(res => res.json())
