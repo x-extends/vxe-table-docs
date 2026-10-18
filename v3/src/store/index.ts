@@ -32,7 +32,7 @@ function updateHighlightjsTheme (theme: string) {
 const currTheme = (localStorage.getItem('VXE_DOCS_THEME') || 'light') as 'dark' | 'light'
 const currPrimaryColor = localStorage.getItem('VXE_DOCS_PRIMARY_COLOR') || ''
 const currComponentsSize = (localStorage.getItem('VXE_DOCS_COMPONENTS_SIZE') || '') as VxeComponentSizeType
-const componentsVScrollbar = (localStorage.getItem('VXE_DOCS_COMPONENTS_VIRTUAL_SCROLLBAR') === 'true') as VxeComponentIsVScrollbar
+const componentsVScrollbar = (localStorage.getItem('VXE_DOCS_COMPONENTS_VIRTUAL_SCROLLBAR') !== 'false') as VxeComponentIsVScrollbar
 const currLanguage = (localStorage.getItem('VXE_DOCS_LANGUAGE') || 'zh-CN') as VxeGlobalI18nLocale
 
 updateHighlightjsTheme(currTheme)
