@@ -2681,7 +2681,8 @@ export const gridRouteConfig: RouteConfig = {
             { path: 'barWidth', name: 'ComponentGridScrollbarUseScrollbarBarWidth', component: () => import('@/views/grid/scrollbar/useScrollbar/barWidth/CodeExample.vue') },
             { path: 'barColor', name: 'ComponentGridScrollbarUseScrollbarBarColor', component: () => import('@/views/grid/scrollbar/useScrollbar/barColor/CodeExample.vue') },
             { path: 'position', name: 'ComponentGridScrollbarUseScrollbarPosition', component: () => import('@/views/grid/scrollbar/useScrollbar/position/CodeExample.vue') },
-            { path: 'autoHide', name: 'ComponentGridScrollbarUseScrollbarAutoHide', component: () => import('@/views/grid/scrollbar/useScrollbar/autoHide/CodeExample.vue') }
+            { path: 'autoHide', name: 'ComponentGridScrollbarUseScrollbarAutoHide', component: () => import('@/views/grid/scrollbar/useScrollbar/autoHide/CodeExample.vue') },
+            { path: 'fluentOverlay', name: 'ComponentGridScrollbarUseScrollbarFluentOverlay', component: () => import('@/views/grid/scrollbar/useScrollbar/fluentOverlay/CodeExample.vue') }
           ]
         }
       ]

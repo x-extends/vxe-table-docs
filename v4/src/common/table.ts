@@ -1552,7 +1552,8 @@ export const tableNavConfig: NavVO = {
                 { title: '滚动条宽度', routerLink: { name: 'ComponentGridScrollbarUseScrollbarBarWidth' } },
                 { title: '滚动条颜色', routerLink: { name: 'ComponentGridScrollbarUseScrollbarBarColor' } },
                 { title: '显示位置', routerLink: { name: 'ComponentGridScrollbarUseScrollbarPosition' } },
-                { title: '自动隐藏', routerLink: { name: 'ComponentGridScrollbarUseScrollbarAutoHide' } }
+                { title: '自动隐藏', routerLink: { name: 'ComponentGridScrollbarUseScrollbarAutoHide' } },
+                { title: '悬浮滚动条', routerLink: { name: 'ComponentGridScrollbarUseScrollbarFluentOverlay' } }
               ]
             }
           ]
