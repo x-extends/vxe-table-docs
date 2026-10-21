@@ -185,7 +185,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .version-list {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
   margin: 0 auto 0.8em auto;

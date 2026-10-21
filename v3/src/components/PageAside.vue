@@ -403,7 +403,7 @@ export default Vue.extend({
     min-height: 100%;
   }
   .search-input {
-    width: 18em;
+    width: 20em;
   }
 }
 
