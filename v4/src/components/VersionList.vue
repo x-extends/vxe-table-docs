@@ -164,7 +164,7 @@ getVersion()
 
 <style lang="scss" scoped>
 .version-list {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   margin: 0 auto 0.8em auto;
