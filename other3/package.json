@@ -47,7 +47,7 @@
     "xlsx": "0.18.5"
   },
   "devDependencies": {
-    "@types/node": "~24.12.3",
+    "@types/node": "~26.6.5",
     "@typescript-eslint/eslint-plugin": "~6.21.0",
     "@typescript-eslint/parser": "~6.21.0",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -67,8 +67,8 @@
     "gulp-rename": "~2.0.0",
     "gulp-replace": "~1.1.4",
     "gulp-typescript": "~5.0.1",
-    "oxfmt": "^0.51.0",
-    "sass": "~1.101.7",
+    "oxfmt": "^0.74.0",
+    "sass": "~1.106.0",
     "sass-loader": "~14.2.1",
     "typescript": "~5.9.3",
     "vue-template-compiler": "2.6.14"
