@@ -1354,7 +1354,7 @@ export const tableNavConfig: NavVO = {
               children: [
                 { title: '默认全部编辑', routerLink: { name: 'ComponentGridCustomEditMixingDefaulEdit' } },
                 { title: '数据校验', routerLink: { name: 'ComponentGridCustomEditMixingValid' } },
-                { title: '点击编辑', routerLink: { name: 'ComponentGridCustomEditMixingClick' } }
+                { title: '增删改查', routerLink: { name: 'ComponentGridCustomEditMixingClick' } }
               ]
             }
           ]

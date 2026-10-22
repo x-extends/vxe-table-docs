@@ -1,6 +1,7 @@
 <template>
   <div>
     <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+    <vxe-button status="error" @click="removeEvent">删除</vxe-button>
     <vxe-button status="success" @click="saveEvent">保存</vxe-button>
 
     <vxe-grid ref="gridRef" v-bind="gridOptions">
@@ -23,6 +24,7 @@
         <vxe-button v-if="row.isEdit" mode="text" status="success" :loading="row.isLoading" @click.stop="handleRowSave(row)">保存</vxe-button>
         <vxe-button v-else mode="text" status="primary" @click.stop="handleRowEdit(row)">编辑</vxe-button>
         <vxe-button v-if="row.isEdit" mode="text" @click.stop="cancelRowEdit(row)">取消</vxe-button>
+        <vxe-button mode="text" status="error" @click.stop="handleRowRemove(row)">删除</vxe-button>
       </template>
     </vxe-grid>
   </div>
@@ -80,7 +82,7 @@ export default Vue.extend({
         { field: 'name', title: 'Name', editRender: { name: 'VxeInput' }, slots: { default: 'name_default' } },
         { field: 'sex', title: 'Sex', editRender: { name: 'VxeSelect', options: sexList }, slots: { default: 'sex_default' } },
         { field: 'age', title: 'Age', editRender: { name: 'VxeInput' }, slots: { default: 'age_default' } },
-        { field: 'action', title: '操作', width: 140, slots: { default: 'action' } }
+        { field: 'action', title: '操作', width: 160, slots: { default: 'action' } }
       ],
       data: []
     }
@@ -127,6 +129,13 @@ export default Vue.extend({
       await $grid.clearEdit(row)
       await $grid.clearValidate(row)
     },
+    async handleRowRemove  (row: RowVO) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if (!$grid) {
+        return
+      }
+      $grid.remove(row)
+    },
     async handleRowSave (row: RowVO) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if (!$grid) {
@@ -169,6 +178,31 @@ export default Vue.extend({
       const { row: newRow } = await $grid.insert(record)
       this.handleRowEdit(newRow)
     },
+    async removeEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if (!$grid) {
+        return
+      }
+      const selectRecords = $grid.getCheckboxRecords()
+      if (selectRecords.length > 0) {
+        const type = await VxeUI.modal.confirm({
+          title: '系统提示',
+          content: '请您确认是否删除？'
+        })
+        if (type === 'confirm') {
+          $grid.removeCheckboxRow()
+          VxeUI.modal.message({
+            content: '已删除选中',
+            status: 'success'
+          })
+        }
+      } else {
+        VxeUI.modal.message({
+          content: '未选择数据',
+          status: 'info'
+        })
+      }
+    },
     async saveEvent () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if (!$grid) {
@@ -188,9 +222,9 @@ export default Vue.extend({
         })
         return
       }
-      const { insertRecords, updateRecords } = $grid.getRecordset()
-      if (insertRecords.length > 0 || updateRecords.length > 0) {
-        console.log(`新增：${insertRecords.length} 行，修改：${updateRecords.length} 行`)
+      const { insertRecords, updateRecords, removeRecords } = $grid.getRecordset()
+      if (insertRecords.length > 0 || updateRecords.length > 0 || removeRecords.length > 0) {
+        console.log(`新增：${insertRecords.length} 行，修改：${updateRecords.length} 行，删除：${removeRecords.length} 行`)
         this.loadList()
         VxeUI.modal.message({
           content: '保存成功',
