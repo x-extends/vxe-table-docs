@@ -1,6 +1,8 @@
 <template>
   <div>
-    <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+    <vxe-button status="primary" @click="addEvent">新增</vxe-button>
+    <vxe-button status="success" @click="validEvent">校验变动数据</vxe-button>
+    <vxe-button status="success" @click="fullValidEvent">校验全量数据</vxe-button>
 
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #name_default="{ row }">
@@ -85,7 +87,45 @@ const loadList = () => {
   }, 200)
 }
 
-const saveEvent = async () => {
+const addEvent = async () => {
+  const $grid = gridRef.value
+  if (!$grid) {
+    return
+  }
+  const record = {}
+  await $grid.insert(record)
+}
+
+const validEvent = async () => {
+  const $grid = gridRef.value
+  if (!$grid) {
+    return
+  }
+  const errMap = await $grid.fullValidate()
+  if (errMap) {
+    VxeUI.modal.message({
+      status: 'error',
+      content: '校验不通过！'
+    })
+    return
+  }
+  const updateRecords = $grid.getUpdateRecords()
+  if (updateRecords.length > 0) {
+    console.log('保存数据', updateRecords)
+    loadList()
+    VxeUI.modal.message({
+      content: '保存成功',
+      status: 'success'
+    })
+  } else {
+    VxeUI.modal.message({
+      content: '数据未改动',
+      status: 'warning'
+    })
+  }
+}
+
+const fullValidEvent = async () => {
   const $grid = gridRef.value
   if (!$grid) {
     return

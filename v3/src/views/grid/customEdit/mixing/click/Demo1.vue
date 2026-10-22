@@ -99,8 +99,8 @@ export default Vue.extend({
       this.gridOptions.loading = true
       setTimeout(() => {
         this.gridOptions.data = [
-          { id: 10001, name: '', role: 'Develop', sex: 'Man', age: 28, address: 'test abc', isEdit: false, isLoading: false },
-          { id: 10002, name: 'Test2', role: 'Test', sex: '', age: 22, address: 'Guangzhou', isEdit: false, isLoading: false },
+          { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc', isEdit: false, isLoading: false },
+          { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou', isEdit: false, isLoading: false },
           { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai', isEdit: false, isLoading: false },
           { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai', isEdit: false, isLoading: false }
         ]
@@ -108,15 +108,24 @@ export default Vue.extend({
       }, 200)
     },
     handleRowEdit (row: RowVO) {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if (!$grid) {
+        return
+      }
       row.isEdit = true
+      // 激活不自动聚焦
+      $grid.setEditRow(row)
+      // 激活并自动聚焦第一个可编辑列
+      // $grid.setEditRow(row, true)
     },
-    cancelRowEdit (row: RowVO) {
+    async cancelRowEdit (row: RowVO) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if (!$grid) {
         return
       }
       row.isEdit = false
-      $grid.clearValidate(row)
+      await $grid.clearEdit(row)
+      await $grid.clearValidate(row)
     },
     async handleRowSave (row: RowVO) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
@@ -140,8 +149,12 @@ export default Vue.extend({
       row.isLoading = true
       // 模拟后端接口
       setTimeout(() => {
-        row.isEdit = false
+        VxeUI.modal.message({
+          status: 'success',
+          content: '保存成功'
+        })
         row.isLoading = false
+        this.cancelRowEdit(row)
       }, 300)
     },
     async addEvent () {
@@ -149,7 +162,10 @@ export default Vue.extend({
       if (!$grid) {
         return
       }
-      const record = {}
+      const record = {
+        isEdit: false,
+        isLoading: false
+      }
       const { row: newRow } = await $grid.insert(record)
       this.handleRowEdit(newRow)
     },
@@ -158,7 +174,7 @@ export default Vue.extend({
       if (!$grid) {
         return
       }
-      const errMap = await $grid.fullValidate(true)
+      const errMap = await $grid.fullValidate()
       if (errMap) {
         // 将校验不通过行显示编辑状态
         XEUtils.each(errMap, errRules => {
@@ -172,9 +188,9 @@ export default Vue.extend({
         })
         return
       }
-      const updateRecords = $grid.getUpdateRecords()
-      if (updateRecords.length > 0) {
-        console.log('保存数据', updateRecords)
+      const { insertRecords, updateRecords } = $grid.getRecordset()
+      if (insertRecords.length > 0 || updateRecords.length > 0) {
+        console.log(`新增：${insertRecords.length} 行，修改：${updateRecords.length} 行`)
         this.loadList()
         VxeUI.modal.message({
           content: '保存成功',
