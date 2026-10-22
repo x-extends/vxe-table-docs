@@ -12,11 +12,6 @@
         <vxe-select v-if="row.isEdit" v-model="row.sex" :options="sexList"></vxe-select>
         <span v-else>{{ row.sex }}</span>
       </template>
-
-      <template #age_default="{ row }">
-        <vxe-input v-if="row.isEdit" v-model="row.age"></vxe-input>
-        <span v-else>{{ row.age }}</span>
-      </template>
     </vxe-grid>
   </div>
 </template>
@@ -52,8 +47,7 @@ const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'data'>>({
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', slots: { default: 'name_default' } },
     { field: 'sex', title: 'Sex', slots: { default: 'sex_default' } },
-    { field: 'age', title: 'Age', slots: { default: 'age_default' } },
-    { field: 'action', title: '操作', width: 140, slots: { default: 'action' } }
+    { field: 'age', title: 'Age', slots: { default: 'age_default' } }
   ],
   data: [
     { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc', isEdit: false, isDisabled: false },

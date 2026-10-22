@@ -24,7 +24,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { VxeUI } from 'vxe-pc-ui'
-import type { VxeGridProps, VxeWithRequired, VxeGridListeners } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
