@@ -1,0 +1,126 @@
+<template>
+  <div>
+    <vxe-button status="success" @click="saveEvent">保存</vxe-button>
+
+    <vxe-grid ref="gridRef" v-bind="gridOptions">
+      <template #name_default="{ row }">
+        <span v-if="row.isDisabled">{{ row.name }}</span>
+        <vxe-input v-else v-model="row.name"></vxe-input>
+      </template>
+
+      <template #sex_default="{ row }">
+        <span v-if="row.isDisabled">{{ row.sex }}</span>
+        <vxe-select v-else v-model="row.sex" :options="sexList"></vxe-select>
+      </template>
+
+      <template #age_default="{ row }">
+        <span v-if="row.isDisabled">{{ row.age }}</span>
+        <vxe-input v-else v-model="row.age"></vxe-input>
+      </template>
+    </vxe-grid>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { VxeUI } from 'vxe-pc-ui'
+import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+
+interface RowVO {
+  id: number
+  name: string
+  role: string
+  sex: string
+  age: number
+  address: string
+  isDisabled: boolean
+}
+
+const isRowDisableEdit = (row: RowVO) => {
+  // 禁止编辑
+  if (['PM', 'Designer'].includes(row.role)) {
+    return false
+  }
+  return true
+}
+
+export default Vue.extend({
+  data () {
+    const sexList = [
+      { label: '男', value: 'Man' },
+      { label: '女', value: 'Women' }
+    ]
+
+    const gridOptions: VxeGridProps<RowVO> = {
+      border: true,
+      showOverflow: true,
+      keepSource: true,
+      rowConfig: {
+        keyField: 'id'
+      },
+      editConfig: {
+        trigger: 'manual',
+        mode: 'row',
+        showStatus: true,
+        beforeEditMethod ({ row }) {
+          return isRowDisableEdit(row)
+        }
+      },
+      columns: [
+        { type: 'seq', width: 70 },
+        { field: 'name', title: 'Name', editRender: { name: 'VxeInput' }, slots: { default: 'name_default' } },
+        { field: 'sex', title: 'Sex', editRender: { name: 'VxeSelect', options: sexList }, slots: { default: 'sex_default' } },
+        { field: 'age', title: 'Age', editRender: { name: 'VxeInput' }, slots: { default: 'age_default' } }
+      ],
+      data: []
+    }
+
+    return {
+      gridOptions,
+      sexList
+    }
+  },
+  created () {
+    this.loadList()
+  },
+  methods: {
+    loadList () {
+      // 模拟后端接口
+      this.gridOptions.loading = true
+      setTimeout(() => {
+        const list: RowVO[] = [
+          { id: 10001, name: '', role: 'Develop', sex: 'Man', age: 28, address: 'test abc', isDisabled: false },
+          { id: 10002, name: 'Test2', role: 'Test', sex: '', age: 22, address: 'Guangzhou', isDisabled: false },
+          { id: 10003, name: 'Test3', role: 'PM', sex: 'Man', age: 32, address: 'Shanghai', isDisabled: false },
+          { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai', isDisabled: false }
+        ]
+        list.forEach(row => {
+          row.isDisabled = !isRowDisableEdit(row)
+        })
+        this.gridOptions.data = list
+        this.gridOptions.loading = false
+      }, 200)
+    },
+    async saveEvent () {
+      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
+      if (!$grid) {
+        return
+      }
+      const updateRecords = $grid.getUpdateRecords()
+      if (updateRecords.length > 0) {
+        console.log('保存数据', updateRecords)
+        this.loadList()
+        VxeUI.modal.message({
+          content: '保存成功',
+          status: 'success'
+        })
+      } else {
+        VxeUI.modal.message({
+          content: '数据未改动',
+          status: 'warning'
+        })
+      }
+    }
+  }
+})
+</script>

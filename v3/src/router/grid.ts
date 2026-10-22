@@ -2099,8 +2099,9 @@ export const gridRouteConfig: RouteConfig = {
           path: 'mixing',
           component: RouteLayout,
           children: [
-            { path: 'click', name: 'ComponentGridCustomEditMixingClick', component: () => import('@/views/grid/customEdit/mixing/click/CodeExample.vue') },
-            { path: 'valid', name: 'ComponentGridCustomEditMixingValid', component: () => import('@/views/grid/customEdit/mixing/valid/CodeExample.vue') }
+            { path: 'defaulEdit', name: 'ComponentGridCustomEditMixingDefaulEdit', component: () => import('@/views/grid/customEdit/mixing/defaulEdit/CodeExample.vue') },
+            { path: 'valid', name: 'ComponentGridCustomEditMixingValid', component: () => import('@/views/grid/customEdit/mixing/valid/CodeExample.vue') },
+            { path: 'click', name: 'ComponentGridCustomEditMixingClick', component: () => import('@/views/grid/customEdit/mixing/click/CodeExample.vue') }
           ]
         }
       ]

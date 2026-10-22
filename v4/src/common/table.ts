@@ -1345,7 +1345,7 @@ export const tableNavConfig: NavVO = {
             {
               title: '基于列表插槽模板实现',
               children: [
-                { title: '默认编辑', routerLink: { name: 'ComponentGridCustomEditRewriteDefaulEdit' } },
+                { title: '默认全部编辑', routerLink: { name: 'ComponentGridCustomEditRewriteDefaulEdit' } },
                 { title: '按钮编辑', routerLink: { name: 'ComponentGridCustomEditRewriteMultiRow' } },
                 { title: '点击编辑', routerLink: { name: 'ComponentGridCustomEditRewriteClickEdit' } }
               ]
@@ -1353,8 +1353,9 @@ export const tableNavConfig: NavVO = {
             {
               title: '基于可编辑实现',
               children: [
-                { title: '点击编辑', routerLink: { name: 'ComponentGridCustomEditMixingClick' } },
-                { title: '数据校验', routerLink: { name: 'ComponentGridCustomEditMixingValid' } }
+                { title: '默认全部编辑', routerLink: { name: 'ComponentGridCustomEditMixingDefaulEdit' } },
+                { title: '数据校验', routerLink: { name: 'ComponentGridCustomEditMixingValid' } },
+                { title: '点击编辑', routerLink: { name: 'ComponentGridCustomEditMixingClick' } }
               ]
             }
           ]
