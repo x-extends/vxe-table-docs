@@ -1342,7 +1342,8 @@ export const tableNavConfig: NavVO = {
           title: '实现自定义编辑',
           children: [
             { title: '默认编辑', routerLink: { name: 'ComponentGridCustomEditDefaulEdit' } },
-            { title: '单击编辑', routerLink: { name: 'ComponentGridCustomEditMultiRow' } }
+            { title: '按钮编辑', routerLink: { name: 'ComponentGridCustomEditMultiRow' } },
+            { title: '点击编辑', routerLink: { name: 'ComponentGridCustomEditClickEdit' } }
           ]
         },
         {

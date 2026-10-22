@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="grid/customEdit/multiRow/Demo1" preview-path="/resource/docsImg/table_edit_custom_multi_row.gif">
       <template #tip>
-        <vxe-tip status="primary" title="点击编辑">
+        <vxe-tip status="primary" title="按钮编辑">
           放弃内置的行编辑功能，通过自定义实现多行编辑功能
         </vxe-tip>
         <vxe-tip status="error" title="小提示">

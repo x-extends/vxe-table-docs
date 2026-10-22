@@ -2087,7 +2087,8 @@ export const gridRouteConfig: RouteConfig = {
       component: RouteLayout,
       children: [
         { path: 'defaulEdit', name: 'ComponentGridCustomEditDefaulEdit', component: () => import('@/views/grid/customEdit/defaulEdit/CodeExample.vue') },
-        { path: 'multiRow', name: 'ComponentGridCustomEditMultiRow', component: () => import('@/views/grid/customEdit/multiRow/CodeExample.vue') }
+        { path: 'multiRow', name: 'ComponentGridCustomEditMultiRow', component: () => import('@/views/grid/customEdit/multiRow/CodeExample.vue') },
+        { path: 'clickEdit', name: 'ComponentGridCustomEditClickEdit', component: () => import('@/views/grid/customEdit/clickEdit/CodeExample.vue') }
       ]
     },
     {
