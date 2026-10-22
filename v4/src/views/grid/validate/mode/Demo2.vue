@@ -4,7 +4,11 @@
       <vxe-button @click="validEvent">校验变动数据</vxe-button>
       <vxe-button @click="fullValidEvent">校验全量数据</vxe-button>
     </div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions"></vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions">
+      <template #name_default="{ row }">
+        <vxe-input v-model="row.name"></vxe-input>
+      </template>
+    </vxe-grid>
   </div>
 </template>
 
@@ -50,7 +54,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   columns: [
     { type: 'checkbox', width: 60 },
     { type: 'seq', width: 70 },
-    { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
+    { field: 'name', title: 'Name', editRender: { name: 'VxeInput' }, slots: { default: 'name_default' } },
     { field: 'role', title: 'Role', editRender: { name: 'VxeInput' } },
     { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
     { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },

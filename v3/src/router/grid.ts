@@ -2086,9 +2086,23 @@ export const gridRouteConfig: RouteConfig = {
       path: 'customEdit',
       component: RouteLayout,
       children: [
-        { path: 'defaulEdit', name: 'ComponentGridCustomEditDefaulEdit', component: () => import('@/views/grid/customEdit/defaulEdit/CodeExample.vue') },
-        { path: 'multiRow', name: 'ComponentGridCustomEditMultiRow', component: () => import('@/views/grid/customEdit/multiRow/CodeExample.vue') },
-        { path: 'clickEdit', name: 'ComponentGridCustomEditClickEdit', component: () => import('@/views/grid/customEdit/clickEdit/CodeExample.vue') }
+        {
+          path: 'rewrite',
+          component: RouteLayout,
+          children: [
+            { path: 'defaulEdit', name: 'ComponentGridCustomEditRewriteDefaulEdit', component: () => import('@/views/grid/customEdit/rewrite/defaulEdit/CodeExample.vue') },
+            { path: 'multiRow', name: 'ComponentGridCustomEditRewriteMultiRow', component: () => import('@/views/grid/customEdit/rewrite/multiRow/CodeExample.vue') },
+            { path: 'clickEdit', name: 'ComponentGridCustomEditRewriteClickEdit', component: () => import('@/views/grid/customEdit/rewrite/clickEdit/CodeExample.vue') }
+          ]
+        },
+        {
+          path: 'mixing',
+          component: RouteLayout,
+          children: [
+            { path: 'click', name: 'ComponentGridCustomEditMixingClick', component: () => import('@/views/grid/customEdit/mixing/click/CodeExample.vue') },
+            { path: 'valid', name: 'ComponentGridCustomEditMixingValid', component: () => import('@/views/grid/customEdit/mixing/valid/CodeExample.vue') }
+          ]
+        }
       ]
     },
     {
