@@ -1919,8 +1919,7 @@ export const gridRouteConfig: RouteRecordRaw = {
           path: 'rowSave',
           name: 'ComponentGridEditRowSave',
           component: () => import('@/views/grid/edit/rowSave/CodeExample.vue')
-        },
-        { path: 'customMultiRow', name: 'ComponentGridEditCustomMultiRow', component: () => import('@/views/grid/edit/customMultiRow/CodeExample.vue') }
+        }
       ]
     },
     {
@@ -2083,6 +2082,14 @@ export const gridRouteConfig: RouteRecordRaw = {
         },
         { path: 'beforeEdit', name: 'ComponentGridEditTemplateBeforeEdit', component: () => import('@/views/grid/editTemplate/beforeEdit/CodeExample.vue') },
         { path: 'disableEdit', name: 'ComponentGridEditTemplateDisableEdit', component: () => import('@/views/grid/editTemplate/disableEdit/CodeExample.vue') }
+      ]
+    },
+    {
+      path: 'customEdit',
+      component: RouteLayout,
+      children: [
+        { path: 'defaulEdit', name: 'ComponentGridCustomEditDefaulEdit', component: () => import('@/views/grid/customEdit/defaulEdit/CodeExample.vue') },
+        { path: 'multiRow', name: 'ComponentGridCustomEditMultiRow', component: () => import('@/views/grid/customEdit/multiRow/CodeExample.vue') }
       ]
     },
     {
