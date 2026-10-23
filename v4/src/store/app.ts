@@ -90,8 +90,8 @@ export const useAppStore = defineStore('app', {
       pluginBuyUrl: import.meta.env.VITE_APP_PLUGIN_BUY_URL,
       pluginDocsUrl: import.meta.env.VITE_APP_PLUGIN_DOCS_URL,
       compApiMaps: null as any,
-      showAuthMsgFlag: localStorage.getItem('SHOW_AUTH_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
-      showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM-dd'),
+      showAuthMsgFlag: localStorage.getItem('SHOW_AUTH_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM'),
+      showTopMenuMsgFlag: localStorage.getItem('SHOW_TOP_MENU_MSG_FLAG') !== XEUtils.toDateString(new Date(), 'yyyy-MM'),
       systemConfig: {
         previewVersion: '',
         i18nVersion: '',
@@ -256,11 +256,11 @@ export const useAppStore = defineStore('app', {
     },
     readAuthMsgFlagVisible () {
       this.showAuthMsgFlag = false
-      localStorage.setItem('SHOW_AUTH_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM-dd'))
+      localStorage.setItem('SHOW_AUTH_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM'))
     },
     readTopMenuMsgFlagVisible () {
       this.showTopMenuMsgFlag = false
-      localStorage.setItem('SHOW_TOP_MENU_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM-dd'))
+      localStorage.setItem('SHOW_TOP_MENU_MSG_FLAG', XEUtils.toDateString(new Date(), 'yyyy-MM'))
     },
     setSystemConfig (conf: any) {
       this.systemConfig = conf
