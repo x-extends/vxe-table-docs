@@ -13,6 +13,9 @@
         <vxe-tip status="primary">
           也可以单独设置上下左右的边距
         </vxe-tip>
+        <vxe-tip status="error">
+          当单元格高度被修改低于标准行高时，需要去掉内边距的场景就可以用到
+        </vxe-tip>
       </template>
     </CodeLight>
 

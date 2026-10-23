@@ -5,16 +5,16 @@
     <vxe-button status="success" @click="fullValidEvent">校验全量数据</vxe-button>
 
     <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #name_default="{ row }">
-        <vxe-input v-model="row.name"></vxe-input>
+      <template #name_default="slotParams">
+        <vxe-input v-model="slotParams.row.name" @change="changeEditEvent(slotParams)"></vxe-input>
       </template>
 
-      <template #sex_default="{ row }">
-        <vxe-select v-model="row.sex" :options="sexList"></vxe-select>
+      <template #sex_default="slotParams">
+        <vxe-select v-model="slotParams.row.sex" :options="sexList" @change="changeEditEvent(slotParams)"></vxe-select>
       </template>
 
-      <template #age_default="{ row }">
-        <vxe-input v-model="row.age"></vxe-input>
+      <template #age_default="slotParams">
+        <vxe-input v-model="slotParams.row.age" @change="changeEditEvent(slotParams)"></vxe-input>
       </template>
     </vxe-grid>
   </div>
@@ -151,6 +151,13 @@ const fullValidEvent = async () => {
       content: '数据未改动',
       status: 'warning'
     })
+  }
+}
+
+const changeEditEvent = (slotParams: any) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.updateStatus(slotParams)
   }
 }
 

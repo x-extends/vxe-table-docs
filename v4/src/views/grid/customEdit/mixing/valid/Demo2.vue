@@ -5,19 +5,19 @@
     <vxe-button status="success" @click="fullValidEvent">校验全量数据</vxe-button>
 
     <vxe-grid ref="gridRef" v-bind="gridOptions">
-      <template #name_default="{ row }">
-        <span v-if="row.isDisabled">{{ row.name }}</span>
-        <vxe-input v-else v-model="row.name"></vxe-input>
+      <template #name_default="slotParams">
+        <span v-if="slotParams.row.isDisabled">{{ slotParams.row.name }}</span>
+        <vxe-input v-else v-model="slotParams.row.name" @change="changeEditEvent(slotParams)"></vxe-input>
       </template>
 
-      <template #sex_default="{ row }">
-        <span v-if="row.isDisabled">{{ row.sex }}</span>
-        <vxe-select v-else v-model="row.sex" :options="sexList"></vxe-select>
+      <template #sex_default="slotParams">
+        <span v-if="slotParams.row.isDisabled">{{ slotParams.row.sex }}</span>
+        <vxe-select v-else v-model="slotParams.row.sex" :options="sexList" @change="changeEditEvent(slotParams)"></vxe-select>
       </template>
 
-      <template #age_default="{ row }">
-        <span v-if="row.isDisabled">{{ row.age }}</span>
-        <vxe-input v-else v-model="row.age"></vxe-input>
+      <template #age_default="slotParams">
+        <span v-if="slotParams.row.isDisabled">{{ slotParams.row.age }}</span>
+        <vxe-input v-else v-model="slotParams.row.age" @change="changeEditEvent(slotParams)"></vxe-input>
       </template>
     </vxe-grid>
   </div>
@@ -170,6 +170,13 @@ const fullValidEvent = async () => {
       content: '数据未改动',
       status: 'warning'
     })
+  }
+}
+
+const changeEditEvent = (slotParams: any) => {
+  const $grid = gridRef.value
+  if ($grid) {
+    $grid.updateStatus(slotParams)
   }
 }
 
