@@ -231,6 +231,8 @@ const colorList = ref([
 ])
 
 const sizeOptions = ref([
+  { label: '特大', value: 'xlarge' },
+  { label: '大', value: 'large' },
   { label: '默认', value: '' },
   { label: '中', value: 'medium' },
   { label: '小', value: 'small' },
@@ -500,9 +502,6 @@ if (isPluginDocs.value) {
       background-color: red;
     }
   }
-}
-.system-menu-btn-icon {
-  font-size: 12px;
 }
 
 .system-menu-wrapper {

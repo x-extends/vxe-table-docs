@@ -2,6 +2,7 @@
   <div>
     <vxe-table
       border
+      size="xlarge"
       :data="tableData">
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column type="radio" width="60"></vxe-column>
@@ -29,7 +30,8 @@ interface RowVO {
 
 const tableData = ref<RowVO[]>([
   { id: 10001, name: 'Test1', role: 'Develop', sex: 'Man', age: 28, address: 'test abc' },
-  { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' }
+  { id: 10002, name: 'Test2', role: 'Test', sex: 'Women', age: 22, address: 'Guangzhou' },
+  { id: 10003, name: 'Test3', role: 'Develop', sex: 'Women', age: 23, address: 'Guangzhou' }
 ])
 
 const sexOptions = ref([
