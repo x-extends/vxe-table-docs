@@ -10,7 +10,7 @@
       <template #tip>
         <vxe-tip status="primary">出现滚动条时</vxe-tip>
         <vxe-tip status="error">
-          滚动条是不支持圆角的，可以自行通过样式去修改
+          原生滚动条的样式受限于浏览器支持情况，可以自行通过样式去修改
         </vxe-tip>
       </template>
     </CodeLight>
