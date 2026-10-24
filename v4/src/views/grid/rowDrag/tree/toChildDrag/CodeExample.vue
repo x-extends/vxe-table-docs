@@ -19,5 +19,13 @@
         </pre>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/rowDrag/tree/toChildDrag/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          通过  <ApiLink name="grid" prop="row-drag-config" />.<ApiLink name="grid" prop="isAutoExpandToChild" /> 设置在拖拽到子级时自动展开父级
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
