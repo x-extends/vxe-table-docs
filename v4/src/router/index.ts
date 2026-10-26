@@ -133,6 +133,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/start/translate/CodeExample.vue')
       },
       {
+        path: 'i18nCDN',
+        name: 'StartI18nCDN',
+        component: () => import('@/views/start/i18nCDN/CodeExample.vue')
+      },
+      {
         path: 'z-index',
         name: 'StartUseZIndex',
         component: () => import('@/views/start/z-index/CodeExample.vue')
