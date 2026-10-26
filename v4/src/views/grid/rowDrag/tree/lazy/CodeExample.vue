@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/rowDrag/tree/lazy/Demo1">
+    <CodeLight path="grid/rowDrag/tree/lazy/Demo1" preview-path="/resource/docsImg/table_row_drag_tree_lazy.gif">
       <template #tip>
         <vxe-tip status="primary" title="懒加载">
           配合懒加载实现任意层级拖拽排序
@@ -12,7 +12,7 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="grid/rowDrag/tree/lazy/Demo2">
+    <CodeLight path="grid/rowDrag/tree/lazy/Demo2" preview-path="/resource/docsImg/table_row_drag_tree_lazy_auto_expand_to_child.gif">
       <template #tip>
         <vxe-tip status="primary">
           通过  <ApiLink name="grid" prop="row-drag-config" />.<ApiLink name="grid" prop="isAutoExpandToChild" /> 设置在拖拽到子级时自动展开父级,如果是懒加载行则自动触发加载
