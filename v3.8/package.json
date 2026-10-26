@@ -6,7 +6,7 @@
     "update": "npm install --legacy-peer-deps",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-module",
-    "pack": "pnpm run build && gulp build_examples && npm run esfix:examples",
+    "pack": "pnpm run build && gulp build_examples && npm run oxfix:examples",
     "lint": "vue-cli-service lint",
     "esfix:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**",
     "oxfix:examples": "oxfmt dist/example/js/ --write"
@@ -42,7 +42,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-vue": "^8.0.3",
     "gulp": "4.0.2",
-    "oxfmt": "^0.74.0",
+    "oxfmt": "~0.51.0",
     "sass": "~1.80.4",
     "sass-loader": "~14.2.1",
     "typescript": "~5.9.3",
