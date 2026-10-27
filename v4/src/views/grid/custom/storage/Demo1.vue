@@ -25,6 +25,7 @@ interface RowVO {
 
 const customConfig = reactive<VxeTablePropTypes.CustomConfig<RowVO>>({
   storage: true,
+  storeDriver: 'indexedDB',
   mode: 'default',
   showSortPutButton: true
 })

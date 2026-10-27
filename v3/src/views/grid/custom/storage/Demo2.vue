@@ -27,6 +27,7 @@ export default Vue.extend({
   data () {
     const customConfig: VxeTablePropTypes.CustomConfig<RowVO> = {
       storage: true,
+      storeDriver: 'indexedDB',
       mode: 'default',
       immediate: true,
       showSortPutButton: true

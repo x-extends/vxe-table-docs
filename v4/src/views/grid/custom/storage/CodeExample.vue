@@ -4,11 +4,11 @@
       <template #tip>
         <vxe-tip status="primary" title="本地储存功能">通过设置唯一 <ApiLink name="grid" prop="id"/> 和 <ApiLink name="grid" prop="storage"/> 启用 indexedDB/localStorage 本地储存功能</vxe-tip>
         <vxe-tip status="error">
-          <!-- <div>新版本默认是使用 indexedDB 数据储存，可以通过 <ApiLink name="grid" prop="storeOptions"/>.<ApiLink name="grid" prop="storeDriver"/>='localStorage' 设置</div> -->
           <div>用户个性化记忆功能是根据表格 id 进行保存的，必须确保表格 <ApiLink name="grid" prop="id"/> 是整个全局唯一的，同时每一列必须设置唯一 <ApiLink name="grid" prop="field"/> 属性,如果是分组列头也一样，设置一个唯一字段值就行</div>
         </vxe-tip>
         <vxe-tip status="success">
-          用户个性化记忆功能 <ApiLink name="grid" prop="storeOptions"/> 配置项支持：列宽、列排序、冻结列、显示隐藏、聚合分组、聚合函数
+          <div>可以通过 <ApiLink name="grid" prop="storeOptions"/>.<ApiLink name="grid" prop="storeDriver"/>='indexedDB' 或 <ApiLink name="grid" prop="storeOptions"/>.<ApiLink name="grid" prop="storeDriver"/>='localStorage' 设置数据保存方式</div>
+          <div>用户个性化记忆功能 <ApiLink name="grid" prop="storeOptions"/> 配置项支持：列宽、列排序、冻结列、显示隐藏、聚合分组、聚合函数</div>
         </vxe-tip>
       </template>
     </CodeLight>
