@@ -218,6 +218,7 @@ export default Vue.extend({
     },
     columns () {
       return [
+        { field: 'seq', type: 'seq', width: 100, visible: false },
         {
           field: 'name',
           title: this.$t('api.title.prop'),

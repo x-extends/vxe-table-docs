@@ -231,6 +231,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 
 const columns = computed<VxeGridPropTypes.Columns>(() => {
   return [
+    { field: 'seq', type: 'seq', width: 100, visible: false },
     {
       field: 'name',
       title: i18n.global.t('api.title.prop'),
