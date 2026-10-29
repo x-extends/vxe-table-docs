@@ -386,7 +386,7 @@ if (!appStore.isUtilDocs) {
     min-height: 100%;
   }
   .search-input {
-    width: 20em;
+    width: 21em;
   }
 }
 
