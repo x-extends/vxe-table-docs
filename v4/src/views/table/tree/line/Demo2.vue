@@ -8,7 +8,8 @@
       :column-config="columnConfig"
       :checkbox-config="checkboxConfig"
       :tree-config="treeConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="checkbox" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

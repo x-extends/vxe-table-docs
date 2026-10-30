@@ -4,7 +4,8 @@
       border
       :column-config="{resizable: true}"
       :row-config="{isHover: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" width="400"></vxe-column>
       <vxe-column field="sex" title="最小列宽" min-width="400"></vxe-column>

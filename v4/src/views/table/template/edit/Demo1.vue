@@ -3,7 +3,8 @@
     <vxe-table
       border
       :edit-config="{mode: 'cell', trigger: 'click'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" width="160"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{}">

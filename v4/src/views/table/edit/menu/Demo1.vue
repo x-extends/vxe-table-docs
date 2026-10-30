@@ -7,17 +7,18 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
-      ref="tableRef"
       height="400"
       :column-config="{resizable: true}"
       :loading="loading"
       :data="tableData"
       :menu-config="menuConfig"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
-      @menu-click="contextMenuClickEvent">
+      @menu-click="contextMenuClickEvent"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autoFocus: true}">
         <template #edit="{ row }">

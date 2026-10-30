@@ -5,7 +5,8 @@
       height="300"
       :row-config="{isHover: true}"
       :seq-config="{startIndex: 100}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" title="序号" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

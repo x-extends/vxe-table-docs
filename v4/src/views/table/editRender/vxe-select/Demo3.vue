@@ -4,7 +4,8 @@
       border
       show-overflow
       :edit-config="{mode: 'row', trigger: 'click'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200" :edit-render="{ name: 'VxeInput' }"></vxe-column>
       <vxe-column field="role" title="大数据量选项" min-width="200" :edit-render="roleEditRender"></vxe-column>

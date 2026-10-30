@@ -9,13 +9,14 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       height="500"
-      ref="tableRef"
       :row-config="{isHover: true}"
       :tree-config="{}"
       :data="tableData"
-      :checkbox-config="{checkField: 'isChecked'}">
+      :checkbox-config="{checkField: 'isChecked'}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

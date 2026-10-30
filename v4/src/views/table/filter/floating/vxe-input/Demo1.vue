@@ -4,7 +4,8 @@
       border
       height="400"
       :floating-filter-config="floatingFilterConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" :filter-render="nameFilterRender"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

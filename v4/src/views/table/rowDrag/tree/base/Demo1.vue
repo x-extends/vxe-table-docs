@@ -5,7 +5,8 @@
       :row-config="rowConfig"
       :column-config="columnConfig"
       :tree-config="treeConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="300" tree-node drag-sort></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>

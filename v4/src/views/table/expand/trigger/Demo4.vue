@@ -1,10 +1,11 @@
 <template>
   <div>
     <vxe-table
-      border
       ref="tableRef"
+      border
       :expand-config="expandConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column type="expand" width="60">
         <template #content="{ row }">

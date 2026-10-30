@@ -2,7 +2,8 @@
   <div>
     <vxe-table
       border
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200"></vxe-column>
       <vxe-column field="role" title="Role" min-width="140"></vxe-column>

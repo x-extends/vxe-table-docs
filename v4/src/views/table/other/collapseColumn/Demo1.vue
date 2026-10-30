@@ -1,10 +1,11 @@
 <template>
   <div>
     <vxe-table
+      ref="tableRef"
       border
       height="400"
-      ref="tableRef"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-colgroup field="g1" title="分组1">
         <template #header="{ column }">

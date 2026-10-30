@@ -13,15 +13,16 @@
     </vxe-grid>
 
     <vxe-modal
+      v-model="showPopup"
       resize
       show-footer
       show-confirm-button
       show-cancel-button
-      v-model="showPopup"
       title="请选择"
       height="400"
       width="800"
-      @confirm="confirmSubEvent">
+      @confirm="confirmSubEvent"
+    >
       <vxe-grid ref="subGridRef" v-bind="modalGridOptions"></vxe-grid>
     </vxe-modal>
   </div>

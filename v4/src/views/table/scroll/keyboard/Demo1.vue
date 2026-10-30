@@ -1,19 +1,20 @@
 <template>
   <div>
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       show-header-overflow
       show-footer-overflow
       keep-source
-      ref="tableRef"
       height="500"
       :column-config="{resizable: true}"
       :loading="loading"
       :mouse-config="{selected: true}"
       :edit-config="{trigger: 'dblclick', mode: 'cell', showStatus: true}"
       :keyboard-config="{isArrow: true, isDel: true, isEnter: true, isTab: true, isEdit: true}"
-      :virtual-y-config="{enabled: true}">
+      :virtual-y-config="{enabled: true}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="100"></vxe-column>
       <vxe-column field="name" title="Name" sortable width="200" :edit-render="{name: 'input'}"></vxe-column>

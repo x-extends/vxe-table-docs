@@ -9,7 +9,8 @@
       :cell-config="{height: 120}"
       :virtual-y-config="{enabled: true, gt: 0}"
       :loading="loading"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
       <vxe-column field="img" title="图片" width="140" align="center">
         <template #default="{ row }">

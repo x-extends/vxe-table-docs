@@ -1,11 +1,12 @@
 <template>
   <div>
     <vxe-table
-      show-overflow
       ref="tableRef"
+      show-overflow
       :column-config="{resizable: true}"
       :tree-config="treeConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" tree-node>
         <template #default="{ row }">
           <span>

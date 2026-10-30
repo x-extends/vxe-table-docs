@@ -3,7 +3,8 @@
     <vxe-table
       height="400"
       :data="tableData"
-      :tree-config="{transform: true}">
+      :tree-config="{transform: true}"
+    >
       <vxe-column type="seq" width="140" tree-node></vxe-column>
       <vxe-column field="name" title="名称"></vxe-column>
       <vxe-column field="size" title="大小" width="140"></vxe-column>

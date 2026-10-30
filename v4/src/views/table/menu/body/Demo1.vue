@@ -4,7 +4,8 @@
       border
       :menu-config="menuConfig"
       :data="tableData"
-      @menu-click="menuClickEvent">
+      @menu-click="menuClickEvent"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

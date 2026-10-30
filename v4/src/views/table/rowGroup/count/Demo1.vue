@@ -4,7 +4,8 @@
       show-overflow
       height="500"
       :aggregate-config="aggregateConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="300" row-group-node></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>

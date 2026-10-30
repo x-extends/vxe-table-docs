@@ -5,7 +5,8 @@
       height="500"
       :row-config="{isHover: true}"
       :data="tableData"
-      :checkbox-config="{labelField: 'name', highlight: true}">
+      :checkbox-config="{labelField: 'name', highlight: true}"
+    >
       <vxe-column type="checkbox" title="Name" width="300"></vxe-column>
       <vxe-column field="id" title="ID"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

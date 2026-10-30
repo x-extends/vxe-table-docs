@@ -5,7 +5,8 @@
       :column-config="{resizable: true}"
       :tree-config="{transform: true}"
       :expand-config="expandConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column type="expand" width="80">
         <template #content="{ row }">

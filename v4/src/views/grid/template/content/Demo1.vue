@@ -4,7 +4,8 @@
       <template #expand_content="{ row }">
         <vxe-table
           border
-          :data="row.list">
+          :data="row.list"
+        >
           <vxe-column field="nickname" title="Nickname"></vxe-column>
           <vxe-column field="content" title="Content"></vxe-column>
           <vxe-column field="amount" title="Amount"></vxe-column>

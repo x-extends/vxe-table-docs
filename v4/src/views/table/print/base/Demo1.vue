@@ -2,11 +2,12 @@
   <div>
     <vxe-button @click="printEvent">直接打印</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       show-footer
-      ref="tableRef"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name">
         <template #default="{ row }">

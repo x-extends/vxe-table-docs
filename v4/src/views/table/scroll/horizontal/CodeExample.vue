@@ -3,7 +3,7 @@
     <CodeLight path="table/scroll/horizontal/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="横向虚拟滚动">
-          通过 <ApiLink name="table" prop="virtual-x-config"/>.<ApiLink name="table" prop="enabled"/> 与 <ApiLink name="table" prop="virtual-x-config"/>.<ApiLink name="table" prop="gt"/> 组合开启，其中 <ApiLink name="table" prop="enabled"/> 为总开关，<ApiLink name="table" prop="gt"/> 是指当总列数大于指定列数时自动开启。
+          通过 <ApiLink name="table" prop="virtual-x-config" />.<ApiLink name="table" prop="enabled" /> 与 <ApiLink name="table" prop="virtual-x-config" />.<ApiLink name="table" prop="gt" /> 组合开启，其中 <ApiLink name="table" prop="enabled" /> 为总开关，<ApiLink name="table" prop="gt" /> 是指当总列数大于指定列数时自动开启。
         </vxe-tip>
         <vxe-tip status="warning">
           <div>理论上限：横向平均上限支持 8w 列（最大上限 20w 列）。当 gt 为 0 时为总是启用。</div>
@@ -12,7 +12,7 @@
         </vxe-tip>
         <vxe-tip status="error" title="小提示">
           <div>如果列较多的情况下 table 的性能很差的，应该使用最高性能的 grid</div>
-          <div>启用横向虚拟滚动，建议开启 <ApiLink name="table" prop="show-header-overflow"/> 和 <ApiLink name="table" prop="show-footer-overflow "/>获得最高渲染性能</div>
+          <div>启用横向虚拟滚动，建议开启 <ApiLink name="table" prop="show-header-overflow" /> 和 <ApiLink name="table" prop="show-footer-overflow " />获得最高渲染性能</div>
         </vxe-tip>
       </template>
 

@@ -8,7 +8,8 @@
       height="1000"
       :column-config="{resizable: true}"
       :virtual-x-config="{enabled: true, gt: 0}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="col0" title="列0" width="160"></vxe-column>
       <vxe-column field="col1" title="列1" width="100"></vxe-column>
       <vxe-column field="col2" title="列2" width="160"></vxe-column>

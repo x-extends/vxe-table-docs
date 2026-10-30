@@ -5,7 +5,8 @@
       show-overflow
       :data="tableData"
       :column-config="{resizable: true}"
-      :edit-config="{trigger: 'click', mode: 'cell'}">
+      :edit-config="{trigger: 'click', mode: 'cell'}"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner', placeholder: '请点击输入...'}">
         <template #edit="{ row }">

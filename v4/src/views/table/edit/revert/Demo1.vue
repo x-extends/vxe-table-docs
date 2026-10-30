@@ -13,7 +13,8 @@
       show-overflow
       keep-source
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}">
+      :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">

@@ -7,7 +7,8 @@
       height="300"
       :border="border"
       :data="tableData"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

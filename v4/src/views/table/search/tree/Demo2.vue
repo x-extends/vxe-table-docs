@@ -11,7 +11,8 @@
       :column-config="{useKey: true}"
       :row-config="{useKey: true}"
       :tree-config="treeConfig"
-      :data="list">
+      :data="list"
+    >
       <vxe-column type="seq" width="220" title="序号" tree-node></vxe-column>
       <vxe-column field="name" title="Name" type="html"></vxe-column>
       <vxe-column field="size" title="Size" type="html"></vxe-column>

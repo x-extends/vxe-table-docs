@@ -5,12 +5,13 @@
     <vxe-button status="success" @click="saveAll()">全部保存</vxe-button>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
-      ref="tableRef"
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="120" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>

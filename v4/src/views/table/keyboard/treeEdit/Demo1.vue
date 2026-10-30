@@ -6,7 +6,8 @@
       :edit-config="{trigger: 'dblclick', mode: 'cell'}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :keyboard-config="{isEdit: true, isArrow: true, isTab: true, isDel: true, isBack: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>

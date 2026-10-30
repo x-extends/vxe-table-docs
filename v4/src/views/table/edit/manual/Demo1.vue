@@ -1,13 +1,14 @@
 <template>
   <div>
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       height="400"
-      ref="tableRef"
       :loading="loading"
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'VxeInput'}"></vxe-column>

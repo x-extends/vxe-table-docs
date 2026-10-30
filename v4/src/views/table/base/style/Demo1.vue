@@ -6,11 +6,12 @@
       :header-cell-class-name="headerCellClassName"
       :row-class-name="rowClassName"
       :cell-class-name="cellClassName"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
-      <vxe-column field="age" title="Age" :header-cell-className="ageHeaderCellClassName"></vxe-column>
+      <vxe-column field="age" title="Age" :header-cell-class-name="ageHeaderCellClassName"></vxe-column>
       <vxe-column field="attr1" title="Attr1"></vxe-column>
       <vxe-column field="address" title="Address" show-overflow></vxe-column>
     </vxe-table>

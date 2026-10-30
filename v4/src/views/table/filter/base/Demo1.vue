@@ -3,10 +3,11 @@
     <vxe-button status="success" @click="getDataEvent">获取筛选后数据</vxe-button>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="300"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :filters="nameOptions"></vxe-column>
       <vxe-column field="sex" title="Sex" :filters="sexOptions"></vxe-column>

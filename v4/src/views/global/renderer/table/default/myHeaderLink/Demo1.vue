@@ -3,7 +3,8 @@
     <vxe-table
       border
       height="300"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name" :cell-render="{name: 'MyTableHeaderLink'}"></vxe-column>
       <vxe-column field="sex" title="sex"></vxe-column>

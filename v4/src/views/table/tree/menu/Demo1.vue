@@ -3,15 +3,16 @@
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
 
     <vxe-table
+      ref="tableRef"
       show-overflow
       keep-source
-      ref="tableRef"
       :column-config="{resizable: true}"
       :tree-config="treeConfig"
       :menu-config="menuConfig"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       :data="tableData"
-      @menu-click="contextMenuClickEvent">
+      @menu-click="contextMenuClickEvent"
+    >
       <vxe-column type="checkbox" width="120" tree-node></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">

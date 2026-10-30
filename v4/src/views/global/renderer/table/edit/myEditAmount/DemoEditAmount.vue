@@ -5,7 +5,8 @@
     type="float"
     digits="2"
     prefix-icon="vxe-icon-rmb"
-    align="right">
+    align="right"
+  >
   </vxe-number-input>
 </template>
 

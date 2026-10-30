@@ -4,7 +4,8 @@
       border
       show-footer
       :data="tableData"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="列居中" align="center"></vxe-column>
       <vxe-column field="sex" title="列头居中" header-align="center"></vxe-column>

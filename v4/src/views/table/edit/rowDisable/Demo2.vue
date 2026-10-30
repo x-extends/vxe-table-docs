@@ -2,10 +2,11 @@
   <div>
     <vxe-table
       border
-      showOverflow
+      show-overflow
       :edit-config="editConfig"
       :data="tableData"
-      @edit-activated="editActivatedEvent">
+      @edit-activated="editActivatedEvent"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">
         <template #edit="{ row }">

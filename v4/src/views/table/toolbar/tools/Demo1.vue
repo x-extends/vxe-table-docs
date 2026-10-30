@@ -2,7 +2,8 @@
   <div>
     <vxe-toolbar :tools="toolbarTools" @tool-click="toolClickEvent"></vxe-toolbar>
     <vxe-table
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

@@ -4,13 +4,14 @@
       show-overflow
       show-header-overflow
       show-footer-overflow
-      showFooter
+      show-footer
       height="300"
       :tooltip-config="tooltipConfig"
       :header-tooltip-config="headerTooltipConfig"
       :footer-tooltip-config="footerTooltipConfig"
       :data="tableData"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称"></vxe-column>
       <vxe-column field="role" title="角色"></vxe-column>

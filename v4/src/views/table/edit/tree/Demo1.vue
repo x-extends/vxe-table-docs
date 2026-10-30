@@ -7,14 +7,15 @@
     <vxe-button @click="searchMethod">刷新</vxe-button>
 
     <vxe-table
+      ref="tableRef"
       show-overflow
       keep-source
-      ref="tableRef"
       :row-config="{keyField: 'id'}"
       :loading="loading"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size" width="100" :edit-render="{}">

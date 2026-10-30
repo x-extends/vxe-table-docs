@@ -2,13 +2,14 @@
   <div>
     <vxe-button status="success" @click="resultEvent">获取数据</vxe-button>
     <vxe-table
-      border
       ref="tableRef"
+      border
       :row-config="rowConfig"
       :row-drag-config="rowDragConfig"
       :column-config="columnConfig"
       :tree-config="treeConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="id" title="ID"></vxe-column>
       <vxe-column field="name" title="Name" min-width="300" tree-node drag-sort></vxe-column>

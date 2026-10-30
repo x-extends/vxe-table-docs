@@ -3,7 +3,7 @@
     <vxe-button @click="selectRowEvent(tableData[1], true)">选中第二行</vxe-button>
     <vxe-button @click="selectRowEvent(tableData[1], false)">取消选中第二行</vxe-button>
 
-    <vxe-table border ref="tableRef" :data="tableData">
+    <vxe-table ref="tableRef" border :data="tableData">
       <vxe-column type="checkbox" width="80">
         <template #header="{ checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="toggleAllCheckboxEvent">

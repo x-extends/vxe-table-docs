@@ -4,7 +4,8 @@
       border
       height="600"
       :expand-config="{padding: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column type="expand" width="80" :content-render="expandContentRender"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>

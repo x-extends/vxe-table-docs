@@ -11,17 +11,18 @@
       <vxe-button status="primary" @click="addEvent">新增</vxe-button>
     </p>
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       show-header-overflow
       show-footer-overflow
-      ref="tableRef"
       height="800"
       :loading="loading"
       :column-config="{resizable: true}"
       :edit-config="editConfig"
       :virtual-x-config="{enabled: true, gt: 0}"
-      :virtual-y-config="{enabled: true, gt: 0}">
+      :virtual-y-config="{enabled: true, gt: 0}"
+    >
       <vxe-column field="col0" title="列0" width="160" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="col1" title="列1" width="100" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="col2" title="列2" width="160" :edit-render="{name: 'VxeInput'}"></vxe-column>

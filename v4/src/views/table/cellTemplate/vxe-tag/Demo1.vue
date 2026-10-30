@@ -4,7 +4,8 @@
       border
       show-overflow
       height="300"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200"></vxe-column>
       <vxe-column field="status" title="标签" width="300">

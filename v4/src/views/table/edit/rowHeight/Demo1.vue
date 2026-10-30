@@ -5,7 +5,8 @@
       show-overflow
       :cell-config="{height: 100}"
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="role" title="Role" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{name: 'VxeInput'}"></vxe-column>

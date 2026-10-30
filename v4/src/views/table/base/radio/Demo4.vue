@@ -5,7 +5,8 @@
       height="300"
       :radio-config="{strict: false}"
       :data="tableData"
-      @radio-change="radioChangeEvent">
+      @radio-change="radioChangeEvent"
+    >
       <vxe-column type="radio" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

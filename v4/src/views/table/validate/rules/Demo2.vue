@@ -6,14 +6,15 @@
     </div>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
       height="300"
-      ref="tableRef"
       :data="tableData"
       :edit-rules="validRules"
-      :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
+      :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
+    >
       <vxe-column type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="100" fixed="left" :edit-render="{name: 'VxeInput'}"></vxe-column>

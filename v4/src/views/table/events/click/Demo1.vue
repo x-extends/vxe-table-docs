@@ -3,7 +3,8 @@
     <vxe-table
       :data="tableData"
       @cell-click="cellClickEvent"
-      @cell-dblclick="cellDblclickEvent">
+      @cell-dblclick="cellDblclickEvent"
+    >
       <vxe-column type="seq" title="序号" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

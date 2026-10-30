@@ -19,11 +19,12 @@
       </div>
 
       <vxe-table
-        border
         ref="tableRef"
+        border
         height="300"
         :print-config="{}"
-        :data="tableData">
+        :data="tableData"
+      >
         <vxe-column type="checkbox" width="60"></vxe-column>
         <vxe-column type="seq" width="60"></vxe-column>
         <vxe-column field="name" title="名称"></vxe-column>

@@ -4,7 +4,8 @@
       border
       show-overflow
       :edit-config="{mode: 'row', trigger: 'click'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200" :edit-render="{ name: 'input' }"></vxe-column>
       <vxe-column field="sex" title="下拉框" width="200" :edit-render="sexEditRender"></vxe-column>

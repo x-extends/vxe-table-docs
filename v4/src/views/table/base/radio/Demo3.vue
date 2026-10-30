@@ -5,7 +5,8 @@
       height="300"
       :row-config="{keyField: 'id'}"
       :data="tableData"
-      :radio-config="radioConfig">
+      :radio-config="radioConfig"
+    >
       <vxe-column type="radio" width="60"></vxe-column>
       <vxe-column field="id" title="ID"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>

@@ -2,9 +2,9 @@
   <div>
     <vxe-switch v-model="menuConfig.enabled"></vxe-switch>
     <vxe-table
+      ref="tableRef"
       border
       show-footer
-      ref="tableRef"
       height="400"
       :row-config="{isCurrent: true}"
       :column-config="{isCurrent: true}"
@@ -13,7 +13,8 @@
       :footer-data="footerData"
       @header-cell-menu="headerCellContextMenuEvent"
       @cell-menu="cellContextMenuEvent"
-      @menu-click="contextMenuClickEvent">
+      @menu-click="contextMenuClickEvent"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

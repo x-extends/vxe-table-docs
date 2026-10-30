@@ -5,7 +5,8 @@
       :row-config="{keyField: 'id', isHover: true}"
       :data="tableData"
       :checkbox-config="{checkRowKeys: defaultSelectRowKeys}"
-      :radio-config="{labelField: 'name'}">
+      :radio-config="{labelField: 'name'}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="id" title="ID"></vxe-column>
       <vxe-column type="radio" width="300" title="Name"></vxe-column>

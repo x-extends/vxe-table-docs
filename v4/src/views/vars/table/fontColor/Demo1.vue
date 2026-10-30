@@ -10,7 +10,8 @@
         '--vxe-ui-font-color': bodyColor,
         '--vxe-ui-table-header-font-color': headerColor,
         '--vxe-ui-table-footer-font-color': footerColor
-      }">
+      }"
+    >
     </vxe-grid>
   </div>
 </template>

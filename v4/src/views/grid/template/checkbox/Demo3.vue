@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #checkbox1="{ row }">
         <vxe-checkbox v-model="row.checked1"></vxe-checkbox>

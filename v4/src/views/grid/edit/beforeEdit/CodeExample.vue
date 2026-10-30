@@ -3,7 +3,7 @@
     <CodeLight path="grid/edit/beforeEdit/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="编辑之前拦截">
-          通过 <ApiLink name="grid" prop="edit-config"/>.<ApiLink name="grid" prop="beforeEditMethod"/> 编辑之前的方法，可以用来拦截当前是否允许编辑
+          通过 <ApiLink name="grid" prop="edit-config" />.<ApiLink name="grid" prop="beforeEditMethod" /> 编辑之前的方法，可以用来拦截当前是否允许编辑
         </vxe-tip>
         <vxe-tip status="error" title="小提示">
           需要注意该方式只能是同步的

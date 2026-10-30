@@ -7,7 +7,7 @@
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
         <vxe-button status="primary" mode="text" @click="setOtherField(row)">修改nickname</vxe-button>
-        <vxe-button v-if="hasUpdateStatus(row)" status="success" mode="text" @click="saveRowEvent(row)" :loading="row.loading">局部保存</vxe-button>
+        <vxe-button v-if="hasUpdateStatus(row)" status="success" mode="text" :loading="row.loading" @click="saveRowEvent(row)">局部保存</vxe-button>
       </template>
     </vxe-grid>
   </div>

@@ -2,14 +2,15 @@
   <div>
     <vxe-button status="primary" @click="validEvent">校验</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       keep-source
       show-overflow
-      ref="tableRef"
       height="300"
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
       :data="tableData"
-      :edit-rules="tableRules">
+      :edit-rules="tableRules"
+    >
       <vxe-column field="name" title="Name" :edit-render="{ name: 'VxeInput' }"></vxe-column>
       <vxe-column field="nickname" title="Nickname" :edit-render="{ name: 'VxeInput' }"></vxe-column>
       <vxe-column field="mobile" title="Mobile" :edit-render="{ name: 'VxeInput' }"></vxe-column>

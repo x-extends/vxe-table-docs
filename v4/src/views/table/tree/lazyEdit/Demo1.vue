@@ -6,15 +6,16 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
-      ref="tableRef"
       :row-config="{keyField: 'id'}"
       :column-config="{resizable: true}"
       :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
       :tree-config="treeConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" width="260" tree-node :edit-render="{}">
         <template #edit="{ row }">
           <vxe-input v-model="row.name" mode="text"></vxe-input>

@@ -2,7 +2,8 @@
   <div>
     <vxe-table
       show-overflow
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" min-width="800"></vxe-column>
       <vxe-column field="role" title="Role" width="400"></vxe-column>

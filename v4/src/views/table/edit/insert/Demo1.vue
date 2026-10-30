@@ -14,13 +14,14 @@
     </vxe-toolbar>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
-      ref="tableRef"
       max-height="400"
       :data="tableData"
-      :edit-config="editConfig">
+      :edit-config="editConfig"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable :edit-render="{autofocus: '.vxe-input--inner', defaultValue: '默认的名字'}">

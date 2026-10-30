@@ -7,7 +7,8 @@
       :style="{
         '--vxe-ui-table-row-hover-background-color': hoverBgColor,
         '--vxe-ui-table-column-hover-background-color': hoverBgColor
-      }">
+      }"
+    >
     </vxe-grid>
   </div>
 </template>

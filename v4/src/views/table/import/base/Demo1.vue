@@ -3,11 +3,12 @@
     <vxe-button @click="exportEvent">导出源数据</vxe-button>
     <vxe-button @click="importEvent">直接导入</vxe-button>
     <vxe-table
-      height="500"
       ref="tableRef"
+      height="500"
       :export-config="{}"
       :import-config="{}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

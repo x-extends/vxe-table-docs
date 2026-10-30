@@ -6,7 +6,8 @@
       :data="tableData"
       :sort-config="{remote: true}"
       :tree-config="{childrenField: 'children'}"
-      @sort-change="sortChangeEvent">
+      @sort-change="sortChangeEvent"
+    >
       <vxe-column field="id" title="ID" width="80"></vxe-column>
       <vxe-column field="name" title="名称" tree-node></vxe-column>
       <vxe-column field="size" title="大小" width="140"></vxe-column>

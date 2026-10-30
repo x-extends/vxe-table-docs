@@ -4,7 +4,8 @@
       border
       :row-config="{isHover: true}"
       :data="tableData"
-      :checkbox-config="{labelField: 'name'}">
+      :checkbox-config="{labelField: 'name'}"
+    >
       <vxe-column type="checkbox" width="300" title="Name"></vxe-column>
       <vxe-column type="radio" width="60"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

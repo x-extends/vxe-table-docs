@@ -3,9 +3,10 @@
     <vxe-button @click="changeNameWidth(300)">修改name=300宽度</vxe-button>
     <vxe-button @click="changeNameWidth(400)">修改name=400宽度</vxe-button>
     <vxe-table
-      border
       ref="tableRef"
-      :data="tableData">
+      border
+      :data="tableData"
+    >
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" width="200"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>

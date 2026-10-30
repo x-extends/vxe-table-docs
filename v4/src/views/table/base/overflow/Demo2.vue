@@ -13,7 +13,8 @@
       :header-tooltip-config="headerTooltipConfig"
       :footer-tooltip-config="footerTooltipConfig"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称"></vxe-column>
       <vxe-column field="role" title="长标题长标题长标题长标题长标题长标题长标题长标题长标题长标题长标题长标题长标题长标题长标题长标题"></vxe-column>

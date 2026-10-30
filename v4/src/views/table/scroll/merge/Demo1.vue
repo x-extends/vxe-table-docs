@@ -12,7 +12,8 @@
       :merge-footer-items="mergeFooterItems"
       :virtual-y-config="virtualYConfig"
       :data="tableData"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="300"></vxe-column>
       <vxe-column field="role" title="Role" min-width="300"></vxe-column>

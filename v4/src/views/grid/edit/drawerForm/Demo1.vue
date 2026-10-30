@@ -12,16 +12,17 @@
     </vxe-grid>
 
     <vxe-drawer
+      v-model="showEditPopup"
       destroy-on-close
       show-footer
       show-confirm-button
       show-cancel-button
-      v-model="showEditPopup"
       :title="selectRow ? '编辑' : '新增'"
       width="60vw"
       :loading="loading"
       :confirm-closable="false"
-      @confirm="confirmEvent">
+      @confirm="confirmEvent"
+    >
       <vxe-form ref="formRef" v-bind="formOptions"></vxe-form>
     </vxe-drawer>
   </div>

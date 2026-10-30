@@ -7,14 +7,15 @@
     <vxe-button @click="loadList(100000)">加载10w条</vxe-button>
     <vxe-button @click="loadList(300000)">加载30w条</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       show-header-overflow
       show-footer-overflow
-      ref="tableRef"
       height="800"
       :virtual-y-config="virtualYConfig"
-      :loading="loading">
+      :loading="loading"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180"></vxe-column>

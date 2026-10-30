@@ -10,7 +10,8 @@
       v-bind="gridOptions"
       :style="{
         '--vxe-ui-table-row-striped-background-color': stripedBgColor,
-      }">
+      }"
+    >
     </vxe-grid>
   </div>
 </template>

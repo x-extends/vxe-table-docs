@@ -5,7 +5,8 @@
       show-overflow
       height="300"
       :edit-config="{trigger: 'click',mode: 'cell'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name" :edit-render="nameEditRender"></vxe-column>
       <vxe-column field="sex" title="sex"></vxe-column>

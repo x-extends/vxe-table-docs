@@ -3,15 +3,16 @@
     <vxe-button status="primary" @click="insertEvent">新增</vxe-button>
 
     <vxe-table
+      ref="tableRef"
       border
       show-footer
       show-overflow
       keep-source
-      ref="tableRef"
       height="400"
       :footer-data="footerData"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'row', showStatus: true}">
+      :edit-config="{trigger: 'click', mode: 'row', showStatus: true}"
+    >
       <vxe-column field="seq" type="seq" width="60"></vxe-column>
       <vxe-colgroup title="统计信息">
         <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">

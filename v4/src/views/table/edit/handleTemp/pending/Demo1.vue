@@ -4,13 +4,14 @@
     <vxe-button status="info" @click="pendingSelectEvent(false)">批量取消标记</vxe-button>
     <vxe-button status="success" @click="getPendingEvent">获取已标记数据</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
       height="400"
-      ref="tableRef"
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="checkbox" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>

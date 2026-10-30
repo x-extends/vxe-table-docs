@@ -4,7 +4,8 @@
       border
       height="300"
       :radio-config="radioConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="radio" title="请选择" width="100"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

@@ -5,7 +5,7 @@
       <vxe-column field="name" title="Name" width="160"></vxe-column>
       <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-method="sexFilterMethod">
         <template #filter="{ column }">
-          <input class="my-filter" type="type" v-model="option.data" v-for="(option, index) in column.filters" :key="index" @input="changeFilterEvent(option)">
+          <input v-for="(option, index) in column.filters" :key="index" v-model="option.data" class="my-filter" type="type" @input="changeFilterEvent(option)">
         </template>
       </vxe-column>
       <vxe-column field="num" title="Number"></vxe-column>

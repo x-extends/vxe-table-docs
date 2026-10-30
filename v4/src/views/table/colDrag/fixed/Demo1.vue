@@ -3,7 +3,8 @@
     <vxe-table
       border
       :column-config="columnConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" fixed="left" width="160"></vxe-column>
       <vxe-column field="role" title="Role" width="460"></vxe-column>
       <vxe-column field="sex" title="Sex" width="100"></vxe-column>

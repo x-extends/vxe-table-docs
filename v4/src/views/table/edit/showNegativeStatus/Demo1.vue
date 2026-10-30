@@ -4,7 +4,8 @@
       border
       show-overflow
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="num1" title="数值" :edit-render="{name: 'VxeNumberInput'}"></vxe-column>

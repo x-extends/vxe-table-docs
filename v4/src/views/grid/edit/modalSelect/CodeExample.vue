@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="grid/edit/modalSelect/Demo1" previewPath="/resource/docsImg/table_edit_modal_select.gif">
+    <CodeLight path="grid/edit/modalSelect/Demo1" preview-path="/resource/docsImg/table_edit_modal_select.gif">
       <template #tip>
         <vxe-tip status="primary" title="实现弹窗选择数据">
         </vxe-tip>

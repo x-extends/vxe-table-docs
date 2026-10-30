@@ -5,7 +5,8 @@
       :column-config="columnConfig"
       :data="tableData"
       @column-dragstart="columnDragstartEvent"
-      @column-dragend="columnDragendEvent">
+      @column-dragend="columnDragendEvent"
+    >
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

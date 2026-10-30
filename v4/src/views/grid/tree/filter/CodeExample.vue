@@ -8,13 +8,13 @@
       </template>
     </CodeLight>
 
-    <CodeLight path="grid/tree/filter/Demo2" previewPath="/resource/docsImg/table_filter_tree.gif">
+    <CodeLight path="grid/tree/filter/Demo2" preview-path="/resource/docsImg/table_filter_tree.gif">
       <template #tip>
         <vxe-tip status="primary">
-          如果需要对每个层级的子节点进行筛选，通过设置 <ApiLink name="grid" prop="filter-config"/>.<ApiLink name="grid" prop="filterConfig"/> 则会对每一行进行筛选，该模式下如果不存在子级，则父级就转为普通节点，不可展开。
+          如果需要对每个层级的子节点进行筛选，通过设置 <ApiLink name="grid" prop="filter-config" />.<ApiLink name="grid" prop="filterConfig" /> 则会对每一行进行筛选，该模式下如果不存在子级，则父级就转为普通节点，不可展开。
         </vxe-tip>
         <vxe-tip status="error">
-          需要注意仅支持 <ApiLink name="grid" prop="tree-config"/>.<ApiLink name="grid" prop="transform"/> 模式
+          需要注意仅支持 <ApiLink name="grid" prop="tree-config" />.<ApiLink name="grid" prop="transform" /> 模式
         </vxe-tip>
       </template>
     </CodeLight>

@@ -6,7 +6,8 @@
       height="500"
       :keyboard-config="{isArrow: true, isEnter: true, isTab: true, isDel: true}"
       :mouse-config="{selected: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

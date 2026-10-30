@@ -5,7 +5,8 @@
       height="300"
       :row-config="{isCurrent: true}"
       :radio-config="{labelField: 'name'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="radio" title="还可以这样" width="120"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

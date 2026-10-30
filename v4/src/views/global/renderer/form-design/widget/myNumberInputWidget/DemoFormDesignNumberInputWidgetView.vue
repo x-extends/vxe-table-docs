@@ -8,7 +8,8 @@
       :max="currWidget.options.max"
       :step="currWidget.options.step"
       :control-config="currWidget.options.controlConfig"
-      :align="currWidget.options.align">
+      :align="currWidget.options.align"
+    >
     </vxe-number-input>
   </vxe-form-item>
 </template>

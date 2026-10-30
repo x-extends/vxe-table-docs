@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions" v-on=gridEvents>
+    <vxe-grid v-bind="gridOptions" v-on="gridEvents">
       <template #name_edit="{ row }">
         <vxe-input v-model="row.name" :disabled="disabledName"></vxe-input>
       </template>

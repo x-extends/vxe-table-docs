@@ -7,7 +7,8 @@
       show-footer-overflow
       height="600"
       :virtual-y-config="{enabled: true, gt: 0}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-colgroup title="分组1">
         <vxe-column field="name" title="Name"></vxe-column>

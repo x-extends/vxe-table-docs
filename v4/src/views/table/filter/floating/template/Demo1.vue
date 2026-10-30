@@ -1,11 +1,12 @@
 <template>
   <div>
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="400"
       :floating-filter-config="floatingFilterConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" :filters="nameOptions" :filter-method="filterNameMethod">
         <template #filter="{ option }">
           <vxe-input v-model="option.data" clearable @change="updateNameFilterStatus(option)"></vxe-input>

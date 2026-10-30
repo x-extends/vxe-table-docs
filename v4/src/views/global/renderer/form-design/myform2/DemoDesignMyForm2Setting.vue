@@ -4,7 +4,8 @@
     title-bold
     title-overflow
     span="24"
-    :data="formConfig">
+    :data="formConfig"
+  >
     <vxe-form-item title="表单名称">
       <vxe-input v-model="formConfig.title"></vxe-input>
     </vxe-form-item>

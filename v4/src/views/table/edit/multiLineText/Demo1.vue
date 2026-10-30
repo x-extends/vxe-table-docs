@@ -8,7 +8,8 @@
       :row-config="rowConfig"
       :resizable-config="resizableConfig"
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :padding="false" vertical-align="top" :edit-render="{name: 'textarea'}" row-resize></vxe-column>
       <vxe-column field="address" title="Address" :padding="false" vertical-align="top" :edit-render="{name: 'textarea'}"></vxe-column>

@@ -20,11 +20,12 @@
 
     <vxe-form
       v-bind="formOptions"
-      v-on="formEvents"
       :style="{
         '--vxe-ui-form-validate-error-font-size': validFontSize,
         '--vxe-ui-form-validate-error-padding': validPadding
-      }">
+      }"
+      v-on="formEvents"
+    >
     </vxe-form>
   </div>
 </template>

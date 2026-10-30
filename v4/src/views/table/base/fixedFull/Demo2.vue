@@ -8,17 +8,18 @@
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="300"
       show-overflow
       :row-config="{isHover: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
-      <vxe-column field="role" title="Role" minWidth="300"></vxe-column>
-      <vxe-column field="sex" title="Sex" minWidth="500"></vxe-column>
-      <vxe-column field="date" title="Date" minWidth="600"></vxe-column>
+      <vxe-column field="role" title="Role" min-width="300"></vxe-column>
+      <vxe-column field="sex" title="Sex" min-width="500"></vxe-column>
+      <vxe-column field="date" title="Date" min-width="600"></vxe-column>
       <vxe-column field="action" title="操作" width="200">
         <template #default>
           <vxe-button status="primary">按钮1</vxe-button>

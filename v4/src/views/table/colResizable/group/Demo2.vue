@@ -3,7 +3,8 @@
     <vxe-table
       border
       :column-config="{resizable: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-colgroup title="基本信息" fixed="left">
         <vxe-column type="seq" width="70" fixed="left"></vxe-column>
         <vxe-column field="name" title="Name" fixed="left" width="100"></vxe-column>

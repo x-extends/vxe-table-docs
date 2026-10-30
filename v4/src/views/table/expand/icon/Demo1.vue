@@ -3,7 +3,8 @@
     <vxe-button @click="iconEvent">显示/隐藏</vxe-button>
     <vxe-table
       :expand-config="expandConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column type="expand" width="60">
         <template #content="{ row }">
@@ -14,11 +15,11 @@
           <div>Address：{{ row.address }}</div>
         </template>
       </vxe-column>
-      <vxe-column field="name" title="Name" minWidth="400"></vxe-column>
-      <vxe-column field="role" title="Role" minWidth="300"></vxe-column>
-      <vxe-column field="sex" title="Sex" minWidth="200"></vxe-column>
-      <vxe-column field="age" title="Age" minWidth="200"></vxe-column>
-      <vxe-column field="address" title="Address" minWidth="200"></vxe-column>
+      <vxe-column field="name" title="Name" min-width="400"></vxe-column>
+      <vxe-column field="role" title="Role" min-width="300"></vxe-column>
+      <vxe-column field="sex" title="Sex" min-width="200"></vxe-column>
+      <vxe-column field="age" title="Age" min-width="200"></vxe-column>
+      <vxe-column field="address" title="Address" min-width="200"></vxe-column>
     </vxe-table>
   </div>
 </template>

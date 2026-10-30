@@ -7,7 +7,8 @@
             border
             height="100%"
             :columns="row.subColumns"
-            :data="row.subData">
+            :data="row.subData"
+          >
           </vxe-grid>
         </div>
       </template>

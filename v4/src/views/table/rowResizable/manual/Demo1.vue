@@ -7,10 +7,11 @@
     <vxe-button status="success" @click="getHeight(10003)">获取 10003</vxe-button>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       :row-config="rowConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70" row-resize></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

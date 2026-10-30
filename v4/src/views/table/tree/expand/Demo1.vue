@@ -8,11 +8,12 @@
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       :column-config="{resizable: true}"
       :tree-config="{transform: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column type="expand" title="Details" width="80">
         <template #content="{ row }">

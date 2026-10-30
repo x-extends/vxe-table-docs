@@ -2,7 +2,7 @@
   <div>
     <vxe-grid v-bind="gridOptions">
       <template #form>
-        <vxe-form v-bind="formOptions" v-on="formEvents" ></vxe-form>
+        <vxe-form v-bind="formOptions" v-on="formEvents"></vxe-form>
       </template>
     </vxe-grid>
   </div>

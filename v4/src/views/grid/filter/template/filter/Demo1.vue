@@ -2,7 +2,7 @@
   <div>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #name_filter="{ column }">
-        <vxe-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeNameFilterEvent(option)"></vxe-input>
+        <vxe-input v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="changeNameFilterEvent(option)"></vxe-input>
       </template>
     </vxe-grid>
   </div>

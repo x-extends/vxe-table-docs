@@ -4,7 +4,8 @@
       border
       show-overflow
       :edit-config="{mode: 'row', trigger: 'click'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" min-width="180" :edit-render="{}">
         <template #edit="{ row }">
@@ -24,7 +25,7 @@
       </vxe-column>
       <vxe-column field="startTime" title="Start time" width="220" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-date-picker v-model="row.startTime" :disabledMethod="(params) =>disabledStartTimeMethod(params, row)"></vxe-date-picker>
+          <vxe-date-picker v-model="row.startTime" :disabled-method="(params) =>disabledStartTimeMethod(params, row)"></vxe-date-picker>
         </template>
         <template #default="{ row }">
           <span>{{ row.startTime }}</span>
@@ -32,7 +33,7 @@
       </vxe-column>
       <vxe-column field="endTime" title="'End time" width="220" :edit-render="{}">
         <template #edit="{ row }">
-          <vxe-date-picker v-model="row.endTime" :disabledMethod="(params) => disabledEndTimeMethod(params, row)"></vxe-date-picker>
+          <vxe-date-picker v-model="row.endTime" :disabled-method="(params) => disabledEndTimeMethod(params, row)"></vxe-date-picker>
         </template>
         <template #default="{ row }">
           <span>{{ row.endTime }}</span>

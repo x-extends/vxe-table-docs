@@ -5,7 +5,8 @@
       show-overflow
       height="500"
       :aggregate-config="aggregateConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" min-width="300" row-group-node>
         <template #group-content="{ groupContent }">
           <span style="color: blue">⭐{{ groupContent }}</span>

@@ -12,7 +12,7 @@
             </li>
           </ul>
           <ul class="my-fc-search-list my-fc-search-list-body">
-            <li class="my-fc-search-item" v-for="(item, sIndex) in columnValList" :key="sIndex">
+            <li v-for="(item, sIndex) in columnValList" :key="sIndex" class="my-fc-search-item">
               <vxe-checkbox v-model="item.checked">{{ item.value }}</vxe-checkbox>
             </li>
           </ul>

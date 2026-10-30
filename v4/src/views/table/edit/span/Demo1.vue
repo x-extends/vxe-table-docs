@@ -7,15 +7,16 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
-      ref="tableRef"
       height="500"
       :span-method="rowspanMethod"
       :data="tableData"
       :edit-rules="editRules"
-      :edit-config="{trigger: 'click', mode: 'cell'}">
+      :edit-config="{trigger: 'click', mode: 'cell'}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="role" title="Role" :edit-render="{}">
         <template #edit="{ row }">

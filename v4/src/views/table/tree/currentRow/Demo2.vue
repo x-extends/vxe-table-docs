@@ -5,7 +5,8 @@
       :row-config="rowConfig"
       :current-row-config="currentRowConfig"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="280" tree-node></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>

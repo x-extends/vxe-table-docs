@@ -5,7 +5,8 @@
       show-overflow
       :row-config="{keyField: 'id'}"
       :data="tableData"
-      :tree-config="{transform: true, expandAll: true}">
+      :tree-config="{transform: true, expandAll: true}"
+    >
       <vxe-column type="seq" width="180" title="序号" tree-node></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-colgroup title="基本信息">

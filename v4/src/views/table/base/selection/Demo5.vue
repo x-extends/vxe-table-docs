@@ -4,7 +4,8 @@
       border
       :row-config="{isHover: true}"
       :data="tableData"
-      :checkbox-config="{trigger: 'row'}">
+      :checkbox-config="{trigger: 'row'}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

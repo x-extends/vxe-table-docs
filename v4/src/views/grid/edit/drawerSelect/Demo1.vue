@@ -7,14 +7,15 @@
     </vxe-grid>
 
     <vxe-drawer
+      v-model="showPopup"
       show-footer
       show-confirm-button
       show-cancel-button
-      v-model="showPopup"
       title="关联订单"
       width="800"
       @show="showSubEvent"
-      @confirm="confirmSubEvent">
+      @confirm="confirmSubEvent"
+    >
       <vxe-grid ref="productGridRef" v-bind="productGridOptions"></vxe-grid>
     </vxe-drawer>
   </div>

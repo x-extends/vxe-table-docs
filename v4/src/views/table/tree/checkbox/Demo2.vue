@@ -7,7 +7,8 @@
       :data="tableData"
       :tree-config="{transform: true}"
       :checkbox-config="{labelField: 'name', checkRowKeys: [10053, 23666]}"
-      @checkbox-change="selectChangeEvent">
+      @checkbox-change="selectChangeEvent"
+    >
       <vxe-column type="checkbox" title="Sex" width="400" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

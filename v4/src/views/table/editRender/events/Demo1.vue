@@ -6,7 +6,8 @@
       :edit-config="editConfig"
       :data="tableData"
       @edit-activated="editActivatedEvent"
-      @edit-closed="editClosedEvent">
+      @edit-closed="editClosedEvent"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="nameEditRender"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="sexEditRender"></vxe-column>

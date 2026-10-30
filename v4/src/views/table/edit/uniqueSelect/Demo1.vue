@@ -7,14 +7,15 @@
     </vxe-toolbar>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
-      ref="tableRef"
       max-height="400"
       :column-config="{resizable: true}"
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'row'}"
-      @edit-activated="editActivatedEvent">
+      @edit-activated="editActivatedEvent"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">

@@ -2,7 +2,7 @@
   <div v-if="currRow && currColumn" class="edit-down-table">
     <VxePulldown v-model="showPopup" class="edit-down-pulldown">
       <template #default>
-        <VxeInput class="edit-down-input" v-model="currRow[currColumn.field]" @keyup="keyupEvent" @click="clickEvent" @suffix-click="suffixClick"></VxeInput>
+        <VxeInput v-model="currRow[currColumn.field]" class="edit-down-input" @keyup="keyupEvent" @click="clickEvent" @suffix-click="suffixClick"></VxeInput>
       </template>
       <template #dropdown>
         <div class="edit-down-wrapper">

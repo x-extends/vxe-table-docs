@@ -9,11 +9,12 @@
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       :data="tableData"
       @checkbox-all="selectAllChangeEvent"
-      @checkbox-change="selectChangeEvent">
+      @checkbox-change="selectChangeEvent"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

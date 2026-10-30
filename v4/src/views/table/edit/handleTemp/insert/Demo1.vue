@@ -5,13 +5,14 @@
     <vxe-button status="primary" @click="insertEvent">新增（第三行插入）</vxe-button>
     <vxe-button status="success" @click="getInsertEvent">获取新增的数据</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
       height="400"
-      ref="tableRef"
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{name: 'input'}"></vxe-column>

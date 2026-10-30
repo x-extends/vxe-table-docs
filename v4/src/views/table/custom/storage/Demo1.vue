@@ -8,12 +8,13 @@
 
     <vxe-toolbar ref="toolbarRef" custom></vxe-toolbar>
     <vxe-table
-      border
       id="myCustomStorage1"
       ref="tableRef"
+      border
       :custom-config="customConfig"
       :column-config="columnConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="90"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="role"></vxe-column>

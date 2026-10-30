@@ -4,7 +4,8 @@
       border
       :column-config="columnConfig"
       :column-drag-config="columnDragConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

@@ -5,7 +5,8 @@
       :column-config="columnConfig"
       :current-column-config="currentColumnConfig"
       :data="tableData"
-      @current-column-disabled="currentColumnDisabledEvent">
+      @current-column-disabled="currentColumnDisabledEvent"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

@@ -14,7 +14,8 @@
       :style="{
         '--vxe-ui-table-view-scrollbar-width': scrollbarWidth,
         '--vxe-ui-table-view-scrollbar-height': scrollbarWidth
-      }">
+      }"
+    >
     </vxe-grid>
   </div>
 </template>

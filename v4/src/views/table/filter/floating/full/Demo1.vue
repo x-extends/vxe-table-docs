@@ -7,7 +7,8 @@
       height="400"
       :filter-config="filterConfig"
       :floating-filter-config="floatingFilterConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" :filter-render="nameFilterRender"></vxe-column>
       <vxe-column field="sex" title="Sex" :filter-render="sexFilterRender"></vxe-column>
       <vxe-column field="age" title="Age" :filter-render="ageFilterRender"></vxe-column>

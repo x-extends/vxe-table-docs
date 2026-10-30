@@ -5,7 +5,8 @@
       :type="dateType"
       :placeholder="currWidget.options.placeholder"
       :label-format="currWidget.options.labelFormat"
-      :clearable="currWidget.options.clearable">
+      :clearable="currWidget.options.clearable"
+    >
     </vxe-date-picker>
   </vxe-form-item>
 </template>

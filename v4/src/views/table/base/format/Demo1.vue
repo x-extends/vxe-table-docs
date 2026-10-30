@@ -4,7 +4,8 @@
       border
       show-footer
       :data="tableData"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="num" title="Num" :formatter="formatterNum" :header-formatter="headerFormatterNum" :footer-formatter="footerFormatterNum"></vxe-column>

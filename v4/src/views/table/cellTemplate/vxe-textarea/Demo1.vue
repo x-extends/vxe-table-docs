@@ -4,7 +4,8 @@
       border
       show-overflow
       :cell-config="cellConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="remark" title="备注" width="300">

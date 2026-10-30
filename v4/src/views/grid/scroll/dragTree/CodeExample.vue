@@ -6,7 +6,7 @@
           拖拽调树顺序与虚拟滚动的使用
         </vxe-tip>
         <vxe-tip status="error">
-          虚拟滚动仅支持 <ApiLink name="grid" prop="transform"/> 模式
+          虚拟滚动仅支持 <ApiLink name="grid" prop="transform" /> 模式
         </vxe-tip>
       </template>
     </CodeLight>

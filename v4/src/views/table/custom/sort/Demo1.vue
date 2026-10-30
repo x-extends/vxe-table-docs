@@ -12,7 +12,8 @@
       :column-config="columnConfig"
       :row-config="rowConfig"
       :custom-config="customConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="90"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

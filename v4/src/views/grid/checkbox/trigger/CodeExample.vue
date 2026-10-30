@@ -3,7 +3,7 @@
     <CodeLight path="grid/checkbox/trigger/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="触发方式">
-          <vxe-tip status="primary">单元格触发，通过 <ApiLink name="grid" prop="checkbox-config"/>.<ApiLink name="grid" prop="trigger"/> 指定触发方式</vxe-tip>
+          <vxe-tip status="primary">单元格触发，通过 <ApiLink name="grid" prop="checkbox-config" />.<ApiLink name="grid" prop="trigger" /> 指定触发方式</vxe-tip>
         </vxe-tip>
       </template>
     </CodeLight>

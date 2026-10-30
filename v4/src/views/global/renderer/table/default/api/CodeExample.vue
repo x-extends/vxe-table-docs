@@ -8,7 +8,8 @@
       :tree-config="{childrenField: 'list', expandAll: true}"
       :row-config="{isCurrent: true, isHover: true}"
       :column-config="{resizable: true, isCurrent: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" :title="$t('api.title.prop')" min-width="280" tree-node></vxe-column>
       <vxe-column field="desc" :title="$t('api.title.desc')" min-width="200"></vxe-column>
       <vxe-column field="type" :title="$t('api.title.type')" min-width="140"></vxe-column>

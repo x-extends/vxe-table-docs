@@ -1,11 +1,11 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-      <template #hl1Default="{ row  }">
+      <template #hl1Default="{ row }">
         <vxe-checkbox-group v-model="row.hobbyList1" :options="hobbyOptions"></vxe-checkbox-group>
       </template>
 
-      <template #hl2Default="{ row  }">
+      <template #hl2Default="{ row }">
         <vxe-checkbox-group v-model="row.hobbyList2" :options="hobbyOptions"></vxe-checkbox-group>
       </template>
     </vxe-grid>

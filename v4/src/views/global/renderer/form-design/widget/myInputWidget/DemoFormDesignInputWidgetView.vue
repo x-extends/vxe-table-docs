@@ -3,9 +3,10 @@
     <vxe-input
       v-model="widgetModel"
       :placeholder="currWidget.options.placeholder"
-      :maxLength="currWidget.options.maxLength"
+      :max-length="currWidget.options.maxLength"
       :show-word-count="currWidget.options.showWordCount"
-      :align="currWidget.options.align">
+      :align="currWidget.options.align"
+    >
     </vxe-input>
   </vxe-form-item>
 </template>

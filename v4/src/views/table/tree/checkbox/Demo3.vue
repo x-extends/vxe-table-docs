@@ -4,7 +4,8 @@
       :column-config="{resizable: true}"
       :data="tableData"
       :tree-config="{transform: true}"
-      :checkbox-config="{labelField: 'name', checkStrictly: true}">
+      :checkbox-config="{labelField: 'name', checkStrictly: true}"
+    >
       <vxe-column type="checkbox" title="Name" width="280" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

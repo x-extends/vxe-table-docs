@@ -3,12 +3,13 @@
     <vxe-button @click="exportEvent">导出</vxe-button>
 
     <vxe-table
+      ref="tableRef"
       border
       show-footer
-      ref="tableRef"
       :export-config="{}"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -17,7 +18,8 @@
         title="Age"
         :header-export-method="headerAgeExportMethod"
         :export-method="exportAgeMethod"
-        :footer-export-method="footerAgeExportMethod">
+        :footer-export-method="footerAgeExportMethod"
+      >
       </vxe-column>
     </vxe-table>
   </div>

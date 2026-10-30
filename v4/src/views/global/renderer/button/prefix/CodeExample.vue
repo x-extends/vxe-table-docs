@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CodeLight path="global/renderer/button/prefix/Demo1" :extraImports="['./demo1.button.renderer.tsx']">
+    <CodeLight path="global/renderer/button/prefix/Demo1" :extra-imports="['./demo1.button.renderer.tsx']">
       <template #tip>
         <vxe-tip status="primary" title="前缀图标"></vxe-tip>
       </template>

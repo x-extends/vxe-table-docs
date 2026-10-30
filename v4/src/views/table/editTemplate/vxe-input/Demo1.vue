@@ -4,7 +4,8 @@
       border
       show-overflow
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">

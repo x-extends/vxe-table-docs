@@ -2,11 +2,12 @@
   <div>
     <vxe-button @click="exportEvent">直接导出 HTML 文件</vxe-button>
     <vxe-table
-      show-footer
       ref="tableRef"
+      show-footer
       :export-config="{}"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-colgroup title="分组1">
         <vxe-column field="name" title="Name"></vxe-column>

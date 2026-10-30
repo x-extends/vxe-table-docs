@@ -16,7 +16,8 @@
       :style="{
         '--vxe-ui-table-border-color': borderColor,
         '--vxe-ui-table-border-width': borderWidth
-      }">
+      }"
+    >
     </vxe-grid>
   </div>
 </template>

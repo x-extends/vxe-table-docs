@@ -4,7 +4,8 @@
     <vxe-table
       ref="tableRef"
       :custom-config="{placement: 'bottom-right'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

@@ -5,11 +5,12 @@
     <vxe-button @click="openFilters('role')">弹出 role</vxe-button>
     <vxe-button @click="closeFilters()">关闭筛选</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       height="500"
-      ref="tableRef"
       :filter-config="filterConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :filters="nameOptions"></vxe-column>
       <vxe-column field="role" title="Role" :filters="roleOptions"></vxe-column>

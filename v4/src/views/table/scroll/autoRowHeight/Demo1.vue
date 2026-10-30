@@ -8,7 +8,8 @@
       :loading="loading"
       :column-config="{resizable: true}"
       :virtual-y-config="{enabled: true, gt: 0}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="col0" title="列0" width="100"></vxe-column>
       <vxe-column field="imgUrl" title="列1" width="80" :cell-render="imgUrlCellRender"></vxe-column>

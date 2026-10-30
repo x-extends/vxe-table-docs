@@ -8,17 +8,18 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
-      ref="tableRef"
       height="400"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'cell'}">
+      :edit-config="{trigger: 'click', mode: 'cell'}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">
-          <input type="text" v-model="row.name">
+          <input v-model="row.name" type="text">
         </template>
       </vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

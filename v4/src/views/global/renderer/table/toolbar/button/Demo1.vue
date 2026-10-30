@@ -2,10 +2,11 @@
   <div>
     <vxe-toolbar ref="toolbarRef" :buttons="toolbarButtons"></vxe-toolbar>
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="300"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
       <vxe-column field="sex" title="sex"></vxe-column>

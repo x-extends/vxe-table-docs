@@ -1,17 +1,18 @@
 <template>
   <div>
     <p>
-      <vxe-checkbox v-model="column.visible" v-for="(column,index) in columns" :key="index">{{ column.title }}</vxe-checkbox>
+      <vxe-checkbox v-for="(column,index) in columns" :key="index" v-model="column.visible">{{ column.title }}</vxe-checkbox>
       <vxe-button @click="refreshColEvent">刷新列信息</vxe-button>
       <vxe-button @click="resetColEvent">重置个性化设置</vxe-button>
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="500"
       :loading="loading"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :visible="false"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>

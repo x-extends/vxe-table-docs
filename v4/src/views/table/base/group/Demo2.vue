@@ -10,10 +10,11 @@
     </vxe-toolbar>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="400"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-colgroup field="group0" title="基本信息">
         <vxe-column type="seq" width="70"></vxe-column>
         <vxe-column field="name" title="Name" width="180"></vxe-column>

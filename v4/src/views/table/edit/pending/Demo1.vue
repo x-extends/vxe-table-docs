@@ -8,12 +8,13 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
-      ref="tableRef"
       :data="tableData"
       :column-config="{resizable: true}"
-      :edit-config="{trigger: 'click', mode: 'cell'}">
+      :edit-config="{trigger: 'click', mode: 'cell'}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autofocus: '.vxe-input--inner'}">
         <template #edit="{ row }">

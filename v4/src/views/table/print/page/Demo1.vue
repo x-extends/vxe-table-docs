@@ -3,10 +3,11 @@
     <vxe-button @click="printEvent">打印每页26条</vxe-button>
 
     <vxe-table
+      ref="tableRef"
       border
       height="500"
-      ref="tableRef"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="id" title="ID" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

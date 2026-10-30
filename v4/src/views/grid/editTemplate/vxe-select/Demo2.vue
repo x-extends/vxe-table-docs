@@ -9,14 +9,14 @@
       </template>
 
       <template #edit_type="{ row }">
-        <vxe-select v-model="row.type" :optionGroups="typeOptions"></vxe-select>
+        <vxe-select v-model="row.type" :option-groups="typeOptions"></vxe-select>
       </template>
       <template #default_type="{ row }">
         <span>{{ formatTypeLabel([row.type]) }}</span>
       </template>
 
       <template #edit_typeList="{ row }">
-        <vxe-select v-model="row.typeList" :optionGroups="typeOptions" multiple></vxe-select>
+        <vxe-select v-model="row.typeList" :option-groups="typeOptions" multiple></vxe-select>
       </template>
       <template #default_typeList="{ row }">
         <span>{{ formatTypeLabel(row.typeList) }}</span>

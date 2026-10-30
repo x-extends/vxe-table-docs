@@ -22,7 +22,8 @@
         '--vxe-ui-table-header-background-color': headerBgColor,
         '--vxe-ui-layout-background-color': bodyBgColor,
         '--vxe-ui-table-footer-background-color': footerBgColor
-      }">
+      }"
+    >
     </vxe-grid>
   </div>
 </template>

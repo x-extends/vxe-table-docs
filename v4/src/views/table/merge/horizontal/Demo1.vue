@@ -5,7 +5,8 @@
       height="600"
       :virtual-y-config="{enabled: false}"
       :span-method="rowspanMethod"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name1" title="功能模块">
         <template #default="{ row }">
           <vxe-checkbox v-model="row.check1" @change="check1ChangeEvent(row, row.check1)">{{ row.name1 }}</vxe-checkbox>

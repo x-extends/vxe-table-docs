@@ -10,7 +10,8 @@
       height="400"
       :column-config="{useKey: true}"
       :row-config="{useKey: true}"
-      :data="list">
+      :data="list"
+    >
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" type="html"></vxe-column>
       <vxe-column field="role" title="Role" type="html"></vxe-column>

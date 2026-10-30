@@ -6,7 +6,8 @@
       height="500"
       :column-config="{resizable: true}"
       :cell-config="{height: 120}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" title="序号" width="100"></vxe-column>
       <vxe-column title="图片" width="140" align="center">
         <template #default>

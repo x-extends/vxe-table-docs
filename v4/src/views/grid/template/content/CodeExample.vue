@@ -3,7 +3,7 @@
     <CodeLight path="grid/template/content/Demo1">
       <template #tip>
         <vxe-tip status="primary">
-          展开行模板，使用插槽 <ApiLink name="column" prop="content"/> 来自定义模板
+          展开行模板，使用插槽 <ApiLink name="column" prop="content" /> 来自定义模板
         </vxe-tip>
       </template>
     </CodeLight>
@@ -11,7 +11,7 @@
     <CodeLight path="grid/template/content/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          使用 JSX <ApiLink name="column" prop="content"/> 来自定义模板
+          使用 JSX <ApiLink name="column" prop="content" /> 来自定义模板
         </vxe-tip>
       </template>
     </CodeLight>

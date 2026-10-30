@@ -9,7 +9,8 @@
       border
       show-overflow
       height="400"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -22,16 +23,17 @@
     </vxe-table>
 
     <vxe-drawer
+      v-model="showEditPopup"
       destroy-on-close
       show-footer
       show-confirm-button
       show-cancel-button
-      v-model="showEditPopup"
       :title="selectRow ? '编辑' : '新增'"
       width="60vw"
       :loading="loading"
       :confirm-closable="false"
-      @confirm="confirmEvent">
+      @confirm="confirmEvent"
+    >
       <vxe-form ref="formRef" v-bind="formOptions"></vxe-form>
     </vxe-drawer>
   </div>

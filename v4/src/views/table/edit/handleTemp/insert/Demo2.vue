@@ -5,15 +5,16 @@
     <vxe-button status="primary" @click="insertEvent">新增（ID:23666位置插入）</vxe-button>
     <vxe-button status="success" @click="getInsertEvent">获取新增的数据</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
       height="400"
-      ref="tableRef"
       :row-config="rowConfig"
       :tree-config="treeConfig"
       :edit-config="editConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" min-midth="300" tree-node :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="size" title="Size" :edit-render="{name: 'input'}"></vxe-column>
       <vxe-column field="type" title="Type" :edit-render="{name: 'input'}"></vxe-column>

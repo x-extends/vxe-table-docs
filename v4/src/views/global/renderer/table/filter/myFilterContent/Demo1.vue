@@ -3,7 +3,8 @@
     <vxe-table
       border
       height="300"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" :filters="nameOptions" :filter-render="nameFilterRender"></vxe-column>
       <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-render="sexFilterRender"></vxe-column>
       <vxe-column field="age" title="Age" :filters="ageOptions" :filter-render="ageFilterRender"></vxe-column>

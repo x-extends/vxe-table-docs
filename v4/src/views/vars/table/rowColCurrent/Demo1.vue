@@ -11,7 +11,8 @@
         '--vxe-ui-table-column-hover-background-color': currentHoverBgColor,
         '--vxe-ui-table-column-current-background-color': currentBgColor,
         '--vxe-ui-table-column-hover-current-background-color': currentHoverBgColor
-      }">
+      }"
+    >
     </vxe-grid>
   </div>
 </template>

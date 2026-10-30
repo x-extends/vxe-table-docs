@@ -5,7 +5,8 @@
       height="300"
       :loading="loading"
       :empty-render="emptyRender"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
       <vxe-column field="sex" title="sex"></vxe-column>

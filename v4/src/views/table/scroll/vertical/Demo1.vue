@@ -8,7 +8,8 @@
       height="1000"
       :column-config="{resizable: true}"
       :virtual-y-config="{enabled: true, gt: 0}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="nickname" title="Nickname"></vxe-column>

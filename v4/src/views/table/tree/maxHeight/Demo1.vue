@@ -6,12 +6,13 @@
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       :max-height="400"
       :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

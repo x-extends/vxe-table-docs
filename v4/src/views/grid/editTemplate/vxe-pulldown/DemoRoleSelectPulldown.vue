@@ -1,5 +1,5 @@
 <template>
-  <vxe-pulldown class="role-select-pulldown" v-model="showPopup" trigger="manual" show-popup-shadow>
+  <vxe-pulldown v-model="showPopup" class="role-select-pulldown" trigger="manual" show-popup-shadow>
     <template #default>
       <vxe-input :model-value="modelValue" prefix-icon="vxe-icon-company" @focus="focusEvent"></vxe-input>
     </template>

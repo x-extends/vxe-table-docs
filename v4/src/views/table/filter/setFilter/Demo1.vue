@@ -4,10 +4,11 @@
     <vxe-button @click="handleFilters">修改并触发 role 筛选</vxe-button>
     <vxe-button @click="clearFilterEvent">清除筛选</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       height="300"
-      ref="tableRef"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role" :filters="roleOptions"></vxe-column>

@@ -3,7 +3,7 @@
     <CodeLight path="grid/keyboard/undoRedo/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="撤销与重做">
-          通过设置 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="isUndoRedo"/> 启用撤销与重做功能
+          通过设置 <ApiLink name="grid" prop="keyboard-config" />.<ApiLink name="grid" prop="isUndoRedo" /> 启用撤销与重做功能
         </vxe-tip>
         <vxe-tip status="error" title="支持场景">
           <div>✔️支持设置最大栈的历史步数</div>

@@ -3,10 +3,11 @@
     <vxe-grid v-bind="gridOptions">
       <template #pager>
         <vxe-pager
-          v-model:currentPage="pageVO.currentPage"
-          v-model:pageSize="pageVO.pageSize"
+          v-model:current-page="pageVO.currentPage"
+          v-model:page-size="pageVO.pageSize"
           :total="pageVO.total"
-          @page-change="pageChange">
+          @page-change="pageChange"
+        >
         </vxe-pager>
       </template>
     </vxe-grid>

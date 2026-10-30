@@ -6,14 +6,15 @@
     <vxe-button @click="handleUpdateSort($event, 'role', 'asc')">修改并触发 role 升序</vxe-button>
     <vxe-button @click="handleClearEvent">清除排序</vxe-button>
     <vxe-table
+      ref="tableRef"
       border
       height="300"
-      ref="tableRef"
       :loading="loading"
       :data="tableData"
       :sort-config="sortConfig"
       @sort-change="sortChangeEvent"
-      @clear-all-sort="clearSortSortEvent">
+      @clear-all-sort="clearSortSortEvent"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>

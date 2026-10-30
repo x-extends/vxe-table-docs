@@ -4,7 +4,8 @@
       border
       :row-config="rowConfig"
       :column-config="columnConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" fixed="left" width="160"></vxe-column>
       <vxe-column field="role" title="Role" width="460"></vxe-column>
       <vxe-colgroup title="分组1">

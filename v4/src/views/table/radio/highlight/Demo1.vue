@@ -5,7 +5,8 @@
       height="500"
       :row-config="{isHover: true}"
       :data="tableData"
-      :radio-config="{labelField: 'name', highlight: true}">
+      :radio-config="{labelField: 'name', highlight: true}"
+    >
       <vxe-column type="radio" title="Name" width="300"></vxe-column>
       <vxe-column field="id" title="ID"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

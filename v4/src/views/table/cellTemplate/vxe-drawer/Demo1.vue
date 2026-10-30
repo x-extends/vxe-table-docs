@@ -3,7 +3,8 @@
     <vxe-table
       border
       show-overflow
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="采购人员" min-width="200"></vxe-column>
       <vxe-column field="productName" title="商品名称" min-width="200"></vxe-column>
@@ -16,20 +17,22 @@
     </vxe-table>
 
     <vxe-drawer
+      v-model="showPopup"
       show-footer
       show-confirm-button
       show-cancel-button
-      v-model="showPopup"
       title="关联订单"
       width="800"
       @show="showSubEvent"
-      @confirm="confirmSubEvent">
+      @confirm="confirmSubEvent"
+    >
       <vxe-table
-        border
         ref="productTableRef"
+        border
         height="100%"
         :row-config="{keyField: 'id'}"
-        :data="productData">
+        :data="productData"
+      >
         <vxe-column type="radio" width="60"></vxe-column>
         <vxe-column field="name" title="名称"></vxe-column>
         <vxe-column field="price" title="价格"></vxe-column>

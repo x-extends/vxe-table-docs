@@ -3,7 +3,8 @@
     <vxe-table
       :tree-config="{transform: true}"
       :radio-config="{labelField: 'name', highlight: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="radio" title="Name" width="400" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

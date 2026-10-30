@@ -12,7 +12,8 @@
       ref="gridRef"
       v-bind="gridOptions"
       @checkbox-all="selectAllChangeEvent"
-      @checkbox-change="selectChangeEvent">
+      @checkbox-change="selectChangeEvent"
+    >
     </vxe-grid>
   </div>
 </template>

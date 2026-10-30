@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="table/tree/radio/Demo1">
       <template #tip>
-        <vxe-tip status="primary">单选树表格,使用 <ApiLink name="table" prop="row-config"/>.<ApiLink name="table" prop="isCurrent"/> 方式</vxe-tip>
+        <vxe-tip status="primary">单选树表格,使用 <ApiLink name="table" prop="row-config" />.<ApiLink name="table" prop="isCurrent" /> 方式</vxe-tip>
       </template>
     </CodeLight>
 

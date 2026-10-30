@@ -9,7 +9,8 @@
       :step="currWidget.options.step"
       :show-currency="currWidget.options.showCurrency"
       :control-config="currWidget.options.controlConfig"
-      :align="currWidget.options.align">
+      :align="currWidget.options.align"
+    >
     </vxe-number-input>
   </vxe-form-item>
 </template>

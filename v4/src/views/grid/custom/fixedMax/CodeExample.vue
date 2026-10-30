@@ -8,7 +8,7 @@
 
     <CodeLight path="grid/custom/fixedMax/Demo2">
       <template #tip>
-        <vxe-tip status="primary">通过设置 <ApiLink name="grid" prop="column-config"/>.<ApiLink name="grid" prop="maxFixedSize"/>=0 来取消最大冻结列数量限制 </vxe-tip>
+        <vxe-tip status="primary">通过设置 <ApiLink name="grid" prop="column-config" />.<ApiLink name="grid" prop="maxFixedSize" />=0 来取消最大冻结列数量限制 </vxe-tip>
       </template>
     </CodeLight>
   </div>

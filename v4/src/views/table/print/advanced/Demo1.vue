@@ -2,13 +2,14 @@
   <div>
     <vxe-button @click="printEvent">高级打印</vxe-button>
     <vxe-table
-      show-footer
       ref="tableRef"
+      show-footer
       :merge-cells="mergeCells"
       :merge-footer-cells="mergeFooterCells"
       :print-config="printConfig"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-colgroup title="分组1">
         <vxe-column field="name" title="Name"></vxe-column>

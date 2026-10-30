@@ -1,6 +1,6 @@
 <template>
   <div v-if="currOption" class="my-filter-input">
-    <vxe-input mode="text" v-model="currOption.data" placeholder="支持回车筛选" @keyup="keyupEvent" @input="changeOptionEvent"></vxe-input>
+    <vxe-input v-model="currOption.data" mode="text" placeholder="支持回车筛选" @keyup="keyupEvent" @input="changeOptionEvent"></vxe-input>
   </div>
 </template>
 

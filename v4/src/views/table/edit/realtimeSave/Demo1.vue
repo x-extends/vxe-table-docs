@@ -1,14 +1,15 @@
 <template>
   <div>
     <vxe-table
+      ref="tableRef"
       border
       keep-source
       show-overflow
-      ref="tableRef"
       :column-config="{resizable: true}"
       :data="tableData"
       :edit-config="{trigger: 'click', mode: 'cell', showStatus: true}"
-      @edit-closed="editClosedEvent">
+      @edit-closed="editClosedEvent"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{}">
         <template #edit="{ row }">

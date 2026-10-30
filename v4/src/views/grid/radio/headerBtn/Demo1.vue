@@ -2,7 +2,7 @@
   <div>
     <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents">
       <template #radioHeader>
-        <vxe-button mode="text" @click="clearRadioRowEvent" :disabled="!selectRow">取消</vxe-button>
+        <vxe-button mode="text" :disabled="!selectRow" @click="clearRadioRowEvent">取消</vxe-button>
       </template>
     </vxe-grid>
   </div>

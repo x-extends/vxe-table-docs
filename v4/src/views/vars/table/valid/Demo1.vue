@@ -28,7 +28,8 @@
       :style="{
         '--vxe-ui-table-validate-error-font-size': validFontSize,
         '--vxe-ui-table-validate-error-padding': validPadding
-      }">
+      }"
+    >
     </vxe-grid>
   </div>
 </template>

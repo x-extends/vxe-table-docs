@@ -5,7 +5,8 @@
       :row-config="rowConfig"
       :column-config="columnConfig"
       :row-drag-config="rowDragConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role" drag-sort></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

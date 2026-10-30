@@ -1,7 +1,7 @@
 <template>
   <div>
     <vxe-button status="primary" @click="clickEvent">获取json</vxe-button>
-    <vxe-form-design  ref="formDesignRef" :widgets="formDesignWidgets" :form-render="{name: 'DemoDesignMyForm1'}" :height="800" />
+    <vxe-form-design ref="formDesignRef" :widgets="formDesignWidgets" :form-render="{name: 'DemoDesignMyForm1'}" :height="800" />
   </div>
 </template>
 

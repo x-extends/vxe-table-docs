@@ -1,11 +1,11 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-      <template #checked1Default="{ row  }">
+      <template #checked1Default="{ row }">
         <vxe-checkbox v-model="row.checked1"></vxe-checkbox>
       </template>
 
-      <template #checked2Default="{ row  }">
+      <template #checked2Default="{ row }">
         <vxe-checkbox v-model="row.checked2"></vxe-checkbox>
       </template>
     </vxe-grid>

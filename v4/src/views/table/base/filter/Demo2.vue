@@ -3,9 +3,10 @@
     <vxe-table
       border
       height="400"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="id" title="ID" width="100"></vxe-column>
-      <vxe-column field="name" title="Name" min-width="400" ></vxe-column>
+      <vxe-column field="name" title="Name" min-width="400"></vxe-column>
       <vxe-colgroup title="分组1">
         <vxe-column field="sex" title="Sex" min-width="200" :filters="sexOptions" :filter-multiple="false"></vxe-column>
         <vxe-column field="age" title="Age" min-width="250" :filters="ageOptions"></vxe-column>

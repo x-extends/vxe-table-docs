@@ -3,14 +3,14 @@
     <CodeLight>
       <template #tip>
         <vxe-tip status="primary" title="NPM 方式">
-          <div>可以配合 <vxe-link  href="https://webpack.js.org/" target="_blank">webpack</vxe-link>、<vxe-link  href="https://vitejs.dev/" target="_blank">vite</vxe-link> 等打包工具配合使用。</div>
-          <div>依赖库： <vxe-link href="https://util.vxeui.com" target="_blank">xe-utils 4.0+</vxe-link>、<vxe-link  href="https://cn.vuejs.org/" target="_blank">vue 3.2+</vxe-link></div>
+          <div>可以配合 <vxe-link href="https://webpack.js.org/" target="_blank">webpack</vxe-link>、<vxe-link href="https://vitejs.dev/" target="_blank">vite</vxe-link> 等打包工具配合使用。</div>
+          <div>依赖库： <vxe-link href="https://util.vxeui.com" target="_blank">xe-utils 4.0+</vxe-link>、<vxe-link href="https://cn.vuejs.org/" target="_blank">vue 3.2+</vxe-link></div>
         </vxe-tip>
       </template>
 
       <template #use>
         <vxe-tip status="success" title="安装甘特图">
-          甘特图依赖 <vxe-link  href="https://vxetable.cn" target="_blank">vxe-table v4.22+</vxe-link> 版本。
+          甘特图依赖 <vxe-link href="https://vxetable.cn" target="_blank">vxe-table v4.22+</vxe-link> 版本。
         </vxe-tip>
         <pre>
           <pre-code
@@ -21,7 +21,8 @@
             yarn add ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
             # 或者
             pnpm add ${uiCDNLib} ${tableCDNLib} ${ganttCDNLib}
-            `">
+            `"
+>
           </pre-code>
           <pre-code
             language="javascript"
@@ -42,7 +43,8 @@
             // ...
 
             createApp(App).use(VxeUIBase).use(VxeUITable).use(VxeUIGantt).mount('#app')
-            // ...">
+            // ..."
+>
           </pre-code>
         </pre>
         <vxe-tip status="error" title="建议版本号">
@@ -51,28 +53,30 @@
         <pre>
           <pre-code
             language="json"
-            :content='`
+            :content="`
             {
               ...
-              "vxe-pc-ui": "^${uiLibVersion}",
-              "vxe-table": "^${tableLibVersion}",
-              "vxe-gantt": "^${ganttLibVersion}"
+              &quot;vxe-pc-ui&quot;: &quot;^${uiLibVersion}&quot;,
+              &quot;vxe-table&quot;: &quot;^${tableLibVersion}&quot;,
+              &quot;vxe-gantt&quot;: &quot;^${ganttLibVersion}&quot;
               ...
             }
-            `'>
+            `"
+>
           </pre-code>
           改成
           <pre-code
             language="json"
-            :content='`
+            :content="`
             {
               ...
-              "vxe-pc-ui": "~${uiLibVersion}",
-              "vxe-table": "~${tableLibVersion}",
-              "vxe-gantt": "~${ganttLibVersion}"
+              &quot;vxe-pc-ui&quot;: &quot;~${uiLibVersion}&quot;,
+              &quot;vxe-table&quot;: &quot;~${tableLibVersion}&quot;,
+              &quot;vxe-gantt&quot;: &quot;~${ganttLibVersion}&quot;
               ...
             }
-            `'>
+            `"
+>
           </pre-code>
         </pre>
       </template>

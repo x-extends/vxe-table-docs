@@ -6,7 +6,8 @@
       height="500"
       :loading="loading"
       :data="tableData"
-      :virtual-y-config="{enabled: true}">
+      :virtual-y-config="{enabled: true}"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200">
         <template #default="{ row }">

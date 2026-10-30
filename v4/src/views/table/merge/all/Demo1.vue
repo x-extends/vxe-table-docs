@@ -8,7 +8,8 @@
       border
       :column-config="columnConfig"
       :data="tableData"
-      :merge-cells="mergeCells">
+      :merge-cells="mergeCells"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-colgroup title="Group1" field="group1" header-align="center">

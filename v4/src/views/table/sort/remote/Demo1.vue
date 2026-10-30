@@ -6,7 +6,8 @@
       :loading="loading"
       :data="tableData"
       :sort-config="sortConfig"
-      @sort-change="sortChangeEvent">
+      @sort-change="sortChangeEvent"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>

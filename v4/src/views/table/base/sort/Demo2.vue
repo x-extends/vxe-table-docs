@@ -4,7 +4,8 @@
       border
       height="300"
       :row-config="{isHover: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :sort-by="sortNameMethod" sortable></vxe-column>
       <vxe-column field="num" title="Num" sortable></vxe-column>

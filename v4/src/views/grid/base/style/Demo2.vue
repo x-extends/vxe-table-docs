@@ -3,7 +3,8 @@
     <vxe-grid
       class="mygrid-style2"
       v-bind="gridOptions"
-      @cell-click="cellClickEvent">
+      @cell-click="cellClickEvent"
+    >
     </vxe-grid>
   </div>
 </template>

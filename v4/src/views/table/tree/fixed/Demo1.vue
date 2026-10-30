@@ -8,14 +8,15 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       show-header-overflow
-      ref="tableRef"
       :column-config="{resizable: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :checkbox-config="{labelField: 'id'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="checkbox" title="ID" fixed="left" width="280" tree-node></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
       <vxe-column field="size" title="Size" width="300"></vxe-column>

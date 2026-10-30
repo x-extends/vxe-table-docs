@@ -3,7 +3,7 @@
     <CodeLight path="grid/keyboard/tree/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="树结构按键操作">
-          通过 <ApiLink name="grid" prop="row-config"/>.<ApiLink name="grid" prop="isCurrent"/> 和 <ApiLink name="grid" prop="keyboard-config"/> 来启用按键功能
+          通过 <ApiLink name="grid" prop="row-config" />.<ApiLink name="grid" prop="isCurrent" /> 和 <ApiLink name="grid" prop="keyboard-config" /> 来启用按键功能
         </vxe-tip>
       </template>
 

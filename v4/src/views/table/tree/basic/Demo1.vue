@@ -7,12 +7,13 @@
     </p>
 
     <vxe-table
-      border="inner"
       ref="tableRef"
+      border="inner"
       :column-config="columnConfig"
       :tree-config="treeConfig"
       :data="tableData"
-      @toggle-tree-expand="toggleExpandChangeEvent">
+      @toggle-tree-expand="toggleExpandChangeEvent"
+    >
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>

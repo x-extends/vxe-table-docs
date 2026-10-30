@@ -5,7 +5,8 @@
       :button-text="currWidget.options.buttonText"
       :limit-count="currWidget.options.limitCount"
       :limit-size="currWidget.options.limitSize"
-      :multiple="currWidget.options.multiple">
+      :multiple="currWidget.options.multiple"
+    >
     </vxe-upload>
   </vxe-form-item>
 </template>

@@ -3,7 +3,8 @@
     <vxe-table
       border
       show-overflow
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="200"></vxe-column>
       <vxe-column field="num" title="只读" width="300" :cell-render="numCellRender"></vxe-column>

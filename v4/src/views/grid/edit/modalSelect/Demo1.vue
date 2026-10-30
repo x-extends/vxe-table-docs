@@ -7,17 +7,18 @@
     </vxe-grid>
 
     <vxe-modal
+      v-model="showPopup"
       resize
       show-footer
       show-confirm-button
       show-cancel-button
       show-maximize
-      v-model="showPopup"
       title="关联订单"
       height="400"
       width="800"
       @show="showSubEvent"
-      @confirm="confirmSubEvent">
+      @confirm="confirmSubEvent"
+    >
       <vxe-grid ref="productGridRef" v-bind="productGridOptions"></vxe-grid>
     </vxe-modal>
   </div>

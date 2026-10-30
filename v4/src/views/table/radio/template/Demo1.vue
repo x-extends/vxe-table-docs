@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-table border ref="tableRef" :data="tableData">
+    <vxe-table ref="tableRef" border :data="tableData">
       <vxe-column type="radio" width="80">
         <template #radio="{ row, checked }">
           <span class="custom-radio" @click.stop="setSelectRow(row)">

@@ -5,7 +5,8 @@
       show-footer
       height="400"
       :data="tableData"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-colgroup title="基本信息" fixed="left">
         <vxe-column type="seq" width="70" fixed="left"></vxe-column>
         <vxe-column field="name" title="Name" fixed="left" width="180"></vxe-column>

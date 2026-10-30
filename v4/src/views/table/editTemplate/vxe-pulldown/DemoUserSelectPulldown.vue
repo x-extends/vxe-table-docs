@@ -1,11 +1,11 @@
 <template>
-  <vxe-pulldown class="user-select-pulldown" v-model="showPopup" trigger="manual" show-popup-shadow>
+  <vxe-pulldown v-model="showPopup" class="user-select-pulldown" trigger="manual" show-popup-shadow>
     <template #default>
       <vxe-input :model-value="modelValue" prefix-icon="vxe-icon-user" @focus="focusEvent"></vxe-input>
     </template>
     <template #dropdown>
       <ul class="user-list">
-        <li class="user-item" v-for="(item, index) in userList" :key="index" @click="selectUser(item)">
+        <li v-for="(item, index) in userList" :key="index" class="user-item" @click="selectUser(item)">
           <vxe-icon name="user"></vxe-icon>
           <span>{{ item.label }}</span>
         </li>

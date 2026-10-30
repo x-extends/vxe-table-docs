@@ -2,7 +2,8 @@
   <div v-if="currRow && currColumn" class="demo-expand-table">
     <vxe-table
       height="100%"
-      :data="currRow.subList">
+      :data="currRow.subList"
+    >
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
       <vxe-column field="sex" title="sex"></vxe-column>

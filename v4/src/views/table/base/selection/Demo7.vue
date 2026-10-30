@@ -6,11 +6,12 @@
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       :row-config="{isHover: true}"
       :data="tableData"
-      :checkbox-config="{checkStrictly: true}">
+      :checkbox-config="{checkStrictly: true}"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

@@ -6,7 +6,7 @@
           树结构的拖动，默认情况下可以拖拽第一级的数据
         </vxe-tip>
         <vxe-tip status="error">
-          树拖拽功能仅支持 <ApiLink name="table" prop="tree-config"/>.<ApiLink name="table" prop="transform"/> 模式
+          树拖拽功能仅支持 <ApiLink name="table" prop="tree-config" />.<ApiLink name="table" prop="transform" /> 模式
         </vxe-tip>
       </template>
 

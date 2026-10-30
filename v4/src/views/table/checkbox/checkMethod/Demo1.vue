@@ -9,11 +9,12 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       height="500"
-      ref="tableRef"
       :data="tableData"
-      :checkbox-config="checkboxConfig">
+      :checkbox-config="checkboxConfig"
+    >
       <vxe-column type="checkbox" title="All"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

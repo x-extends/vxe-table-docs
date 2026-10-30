@@ -10,9 +10,10 @@
       ref="gridRef"
       v-bind="gridOptions"
       @cell-click="cellClickEvent"
-      @radio-change="radioChangeEvent">
+      @radio-change="radioChangeEvent"
+    >
       <template #radioHeader>
-        <vxe-button mode="text" @click="clearRadioRowEvent" :disabled="!selectRow">取消</vxe-button>
+        <vxe-button mode="text" :disabled="!selectRow" @click="clearRadioRowEvent">取消</vxe-button>
       </template>
     </vxe-grid>
   </div>

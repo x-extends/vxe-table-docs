@@ -19,7 +19,7 @@
     <CodeLight path="grid/custom/maxHeight/Demo3">
       <template #tip>
         <vxe-tip status="primary">
-          强制渲染弹出层为外部模式，可以通过 <ApiLink name="grid" prop="custom-config"/>.<ApiLink name="grid" prop="poupuOptions"/>.<ApiLink name="grid" prop="transfer"/> 来设
+          强制渲染弹出层为外部模式，可以通过 <ApiLink name="grid" prop="custom-config" />.<ApiLink name="grid" prop="poupuOptions" />.<ApiLink name="grid" prop="transfer" /> 来设
         </vxe-tip>
       </template>
     </CodeLight>

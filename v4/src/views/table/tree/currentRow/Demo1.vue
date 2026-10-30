@@ -7,13 +7,14 @@
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="300"
       :row-config="{isCurrent: true, isHover: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :data="tableData"
-      @current-row-change="currentRowChangeEvent">
+      @current-row-change="currentRowChangeEvent"
+    >
       <vxe-column type="seq" width="280" tree-node></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>

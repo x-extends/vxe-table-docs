@@ -7,7 +7,8 @@
       :data="tableData"
       @data-change="dataChangeEvent"
       @init-rendered="initRenderedEvent"
-      @data-rendered="dataRenderedEvent">
+      @data-rendered="dataRenderedEvent"
+    >
       <vxe-column type="seq" title="序号" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

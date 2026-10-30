@@ -1,14 +1,15 @@
 <template>
   <div>
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="500"
       :column-config="columnConfig"
       :row-config="rowConfig"
       :data="tableData"
       :checkbox-config="checkboxConfig"
-      @checkbox-range-select="checkboxRangeSelectEvent">
+      @checkbox-range-select="checkboxRangeSelectEvent"
+    >
       <vxe-column type="checkbox" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

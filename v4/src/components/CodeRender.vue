@@ -1,7 +1,7 @@
 <template>
   <pre class="code-render">
     <code ref="codeRef" :class="['hljs', language]"></code>
-    <vxe-button v-if="showCopyButton" class="copy-btn" icon="vxe-icon-copy" @click.stop="copyCode" :title="$t('app.docs.button.copyCode')" circle></vxe-button>
+    <vxe-button v-if="showCopyButton" class="copy-btn" icon="vxe-icon-copy" :title="$t('app.docs.button.copyCode')" circle @click.stop="copyCode"></vxe-button>
   </pre>
 </template>
 

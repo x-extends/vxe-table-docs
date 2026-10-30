@@ -3,7 +3,8 @@
     <vxe-table
       height="400"
       :data="tableData"
-      @scroll=scrollEvent>
+      @scroll="scrollEvent"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" min-width="400"></vxe-column>
       <vxe-column field="role" title="Role" min-width="300"></vxe-column>

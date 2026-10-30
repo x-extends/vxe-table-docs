@@ -5,7 +5,8 @@
       height="400"
       :column-config="{useKey: true}"
       :row-config="{useKey: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="describeHtml" title="<span class=red>HTML 标签与筛选</span>" type="html" sort-by="describe" sortable :filters="htmlOptions" :filter-method="filterDescribeMethod"></vxe-column>

@@ -2,7 +2,8 @@
   <div>
     <vxe-grid
       v-bind="gridOptions"
-      @radio-change="radioChangeEvent">
+      @radio-change="radioChangeEvent"
+    >
     </vxe-grid>
   </div>
 </template>

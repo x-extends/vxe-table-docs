@@ -1,9 +1,9 @@
 <template>
   <div>
-    <CodeLight path="grid/keyboard/editMethod/Demo1" previewPath="/resource/docsImg/table_keyboard_edit_method.gif">
+    <CodeLight path="grid/keyboard/editMethod/Demo1" preview-path="/resource/docsImg/table_keyboard_edit_method.gif">
       <template #tip>
         <vxe-tip status="primary" title="实现追加方式编辑">
-          通过 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="editMode"/>='insert' 设置按键编辑方式
+          通过 <ApiLink name="grid" prop="keyboard-config" />.<ApiLink name="grid" prop="editMode" />='insert' 设置按键编辑方式
         </vxe-tip>
       </template>
 
@@ -34,7 +34,7 @@
     <CodeLight path="grid/keyboard/editMethod/Demo2">
       <template #tip>
         <vxe-tip status="primary">
-          通过 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="editMethod"/> 自定义实现追加式编辑
+          通过 <ApiLink name="grid" prop="keyboard-config" />.<ApiLink name="grid" prop="editMethod" /> 自定义实现追加式编辑
         </vxe-tip>
       </template>
     </CodeLight>

@@ -6,7 +6,8 @@
       :placeholder="currWidget.options.placeholder"
       :filterable="currWidget.options.filterable"
       :multiple="currWidget.options.multiple"
-      :clearable="currWidget.options.clearable">
+      :clearable="currWidget.options.clearable"
+    >
     </vxe-select>
   </vxe-form-item>
 </template>

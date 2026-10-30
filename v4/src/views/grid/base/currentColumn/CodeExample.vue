@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="grid/base/currentColumn/Demo1">
       <template #tip>
-        <vxe-tip status="primary" title="高亮当前列">通过设置 <ApiLink name="grid" prop="column-config"/>.<ApiLink name="grid" prop="isCurrent"/> 参数</vxe-tip>
+        <vxe-tip status="primary" title="高亮当前列">通过设置 <ApiLink name="grid" prop="column-config" />.<ApiLink name="grid" prop="isCurrent" /> 参数</vxe-tip>
       </template>
     </CodeLight>
   </div>

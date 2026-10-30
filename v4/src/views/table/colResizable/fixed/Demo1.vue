@@ -3,7 +3,8 @@
     <vxe-table
       border
       :column-config="{resizable: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70" fixed="left"></vxe-column>
       <vxe-column field="name" title="Name" width="100" fixed="left"></vxe-column>
       <vxe-column field="sex" title="Sex" width="100" fixed="left"></vxe-column>

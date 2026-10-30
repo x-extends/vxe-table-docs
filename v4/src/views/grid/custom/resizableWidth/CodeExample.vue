@@ -3,7 +3,8 @@
     <CodeLight path="grid/custom/resizableWidth/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="列宽拖拽限制">
-          通过设置 <ApiLink name="grid" prop="resizable-config"/>.<ApiLink name="grid" prop="minWidth"/> 或 <ApiLink name="grid" prop="resizable-config"/>.<ApiLink name="grid" prop="maxWidth"/> 来限制到每一列的最小宽和最大宽</vxe-tip>
+          通过设置 <ApiLink name="grid" prop="resizable-config" />.<ApiLink name="grid" prop="minWidth" /> 或 <ApiLink name="grid" prop="resizable-config" />.<ApiLink name="grid" prop="maxWidth" /> 来限制到每一列的最小宽和最大宽
+        </vxe-tip>
       </template>
     </CodeLight>
 

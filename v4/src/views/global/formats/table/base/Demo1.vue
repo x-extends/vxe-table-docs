@@ -5,7 +5,8 @@
       show-footer
       height="300"
       :data="tableData"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-column field="seq" type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
       <vxe-column field="amount2" title="Amount2" align="right" formatter="myAmount" footer-formatter="myAmount"></vxe-column>

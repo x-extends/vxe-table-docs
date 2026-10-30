@@ -5,7 +5,8 @@
       show-overflow
       height="300"
       :cell-config="cellConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="50"></vxe-column>
       <vxe-column field="name" title="name"></vxe-column>
       <vxe-column field="sex" title="sex"></vxe-column>

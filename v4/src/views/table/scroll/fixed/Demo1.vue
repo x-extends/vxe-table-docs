@@ -16,7 +16,8 @@
       :virtual-x-config="{enabled: true, gt: 0}"
       :virtual-y-config="{enabled: true, gt: 0}"
       :data="tableData"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-column field="checkbox" type="checkbox" width="60" fixed="left"></vxe-column>
       <vxe-column field="col0" title="列0" width="100" fixed="left"></vxe-column>
       <vxe-column field="imgUrl" title="列1" width="80" fixed="left" :cell-render="imgUrlCellRender"></vxe-column>

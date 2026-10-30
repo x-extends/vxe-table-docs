@@ -6,8 +6,8 @@
       </template>
 
       <template #footer_num="{ row }">
-          <span style="color: red;">￥{{ row.num }}元</span>
-        </template>
+        <span style="color: red;">￥{{ row.num }}元</span>
+      </template>
     </vxe-grid>
   </div>
 </template>

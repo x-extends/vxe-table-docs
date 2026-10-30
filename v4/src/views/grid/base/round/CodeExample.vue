@@ -2,7 +2,7 @@
   <div>
     <CodeLight path="grid/base/round/Demo1">
       <template #tip>
-        <vxe-tip status="primary">圆角边框，通过设置 <ApiLink name="grid" prop="round"/> 参数</vxe-tip>
+        <vxe-tip status="primary">圆角边框，通过设置 <ApiLink name="grid" prop="round" /> 参数</vxe-tip>
       </template>
     </CodeLight>
 

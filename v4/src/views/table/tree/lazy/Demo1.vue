@@ -8,12 +8,13 @@
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       :row-config="{keyField: 'id'}"
       :column-config="{resizable: true}"
       :tree-config="treeConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" width="400" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>

@@ -2,10 +2,11 @@
   <div>
     <vxe-button status="success" @click="resultEvent">获取列</vxe-button>
     <vxe-table
-      border
       ref="tableRef"
+      border
       :column-config="columnConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

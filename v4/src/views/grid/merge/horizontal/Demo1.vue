@@ -1,21 +1,21 @@
 <template>
   <div>
     <vxe-grid v-bind="gridOptions">
-        <template #defaultName1="{ row }">
-          <vxe-checkbox v-model="row.check1" @change="check1ChangeEvent(row, row.check1)">{{ row.name1 }}</vxe-checkbox>
-        </template>
+      <template #defaultName1="{ row }">
+        <vxe-checkbox v-model="row.check1" @change="check1ChangeEvent(row, row.check1)">{{ row.name1 }}</vxe-checkbox>
+      </template>
 
-        <template #defaultName2="{ row }">
-          <vxe-checkbox v-model="row.check2" @change="check2ChangeEvent(row, row.check2)">{{ row.name2 }}</vxe-checkbox>
-        </template>
+      <template #defaultName2="{ row }">
+        <vxe-checkbox v-model="row.check2" @change="check2ChangeEvent(row, row.check2)">{{ row.name2 }}</vxe-checkbox>
+      </template>
 
-        <template #defaultName3="{ row }">
-          <vxe-checkbox v-model="row.check3" @change="check3ChangeEvent(row, row.check3)">{{ row.name3 }}</vxe-checkbox>
-        </template>
+      <template #defaultName3="{ row }">
+        <vxe-checkbox v-model="row.check3" @change="check3ChangeEvent(row, row.check3)">{{ row.name3 }}</vxe-checkbox>
+      </template>
 
-        <template #defaultName4="{ row }">
-          <vxe-checkbox v-model="row.check4" @change="check4ChangeEvent(row, row.check4)">{{ row.name4 }}</vxe-checkbox>
-        </template>
+      <template #defaultName4="{ row }">
+        <vxe-checkbox v-model="row.check4" @change="check4ChangeEvent(row, row.check4)">{{ row.name4 }}</vxe-checkbox>
+      </template>
     </vxe-grid>
   </div>
 </template>

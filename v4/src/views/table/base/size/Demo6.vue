@@ -3,7 +3,8 @@
     <vxe-table
       border
       size="mini"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column type="radio" width="60"></vxe-column>
       <vxe-column type="checkbox" width="60"></vxe-column>

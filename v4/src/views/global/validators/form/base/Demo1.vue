@@ -5,7 +5,8 @@
       title-width="100"
       title-align="right"
       :data="formData"
-      :rules="formRules">
+      :rules="formRules"
+    >
       <vxe-form-item title="Name" field="name" span="24" :item-render="{ name: 'VxeInput'}"></vxe-form-item>
       <vxe-form-item title="Mobile" field="mobile" span="24" :item-render="{ name: 'VxeInput'}"></vxe-form-item>
       <vxe-form-item title="Email" field="email" span="24" :item-render="{ name: 'VxeInput'}"></vxe-form-item>

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <CodeLight path="grid/keyboard/selection/Demo1" previewPath="/resource/docsImg/table_keyboard_selection.gif">
+    <CodeLight path="grid/keyboard/selection/Demo1" preview-path="/resource/docsImg/table_keyboard_selection.gif">
       <template #tip>
         <vxe-tip status="primary" title="切换选中状态">
-          通过设置 <ApiLink name="grid" prop="keyboard-config"/>.<ApiLink name="grid" prop="isChecked"/> 启用复选框/单选框切换选中状态
+          通过设置 <ApiLink name="grid" prop="keyboard-config" />.<ApiLink name="grid" prop="isChecked" /> 启用复选框/单选框切换选中状态
         </vxe-tip>
       </template>
 

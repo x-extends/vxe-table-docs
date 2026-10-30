@@ -5,7 +5,8 @@
       show-overflow
       height="400"
       :data="tableData"
-      :edit-config="{trigger: 'click', mode: 'row'}">
+      :edit-config="{trigger: 'click', mode: 'row'}"
+    >
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-colgroup title="统计信息">
         <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}">

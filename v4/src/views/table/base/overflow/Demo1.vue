@@ -4,7 +4,8 @@
       show-footer
       :row-config="{isHover: true}"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="名称" show-overflow="ellipsis"></vxe-column>
       <vxe-column field="role" title="角色" show-overflow></vxe-column>

@@ -8,15 +8,16 @@
     </vxe-toolbar>
 
     <vxe-table
+      ref="tableRef"
       show-overflow
       show-header-overflow
       show-footer-overflow
       height="800"
-      ref="tableRef"
       :loading="loading"
       :tree-config="{transform: true}"
       :virtual-y-config="{enabled: true, gt: 0}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="300" tree-node></vxe-column>
       <vxe-column field="id" title="Id" width="120"></vxe-column>

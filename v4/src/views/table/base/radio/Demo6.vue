@@ -5,7 +5,8 @@
       height="300"
       :row-config="{isCurrent: true, isHover: true}"
       :radio-config="{labelField: 'name', trigger: 'row'}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="radio" width="120"> </vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

@@ -5,7 +5,8 @@
       show-footer
       :data="tableData"
       :virtual-x-config="virtualXConfig"
-      :footer-data="footerData">
+      :footer-data="footerData"
+    >
       <vxe-column type="seq" width="80"></vxe-column>
       <vxe-column field="name" title="Name" width="300"></vxe-column>
       <vxe-column field="age" title="Age" width="auto" sortable></vxe-column>

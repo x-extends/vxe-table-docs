@@ -2,7 +2,8 @@
   <div>
     <vxe-table
       :aggregate-config="aggregateConfig"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" min-width="300" row-group-node></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

@@ -20,47 +20,48 @@
     </vxe-toolbar>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       show-footer
       keep-source
       height="600"
-      ref="tableRef"
       :print-config="printConfig"
       :export-config="exportConfig"
       :column-config="columnConfig"
       :edit-config="editConfig"
       :data="tableData"
       :footer-data="footerData"
-      @edit-closed="editClosedEvent">
+      @edit-closed="editClosedEvent"
+    >
       <vxe-column field="seq" type="seq" width="60"></vxe-column>
       <vxe-column field="summary" title="摘要" min-width="120" :edit-render="{ name: 'VxeInput' }"></vxe-column>
       <vxe-column field="subject" title="会计科目" min-width="180" :edit-render="{ name: 'VxeInput' }"></vxe-column>
       <vxe-colgroup field="debtorAmount" title="借方金额">
-        <vxe-column field="debtorObj.p9" title="亿" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.p8" title="千" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.p7" title="百" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.p6" title="十" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.p5" title="万" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.p4" title="千" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.p3" title="百" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.p2" title="十" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.p1" title="元" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.m1" title="角" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="debtorObj.m2" title="分" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p9" title="亿" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p8" title="千" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p7" title="百" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p6" title="十" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p5" title="万" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p4" title="千" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p3" title="百" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p2" title="十" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.p1" title="元" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.m1" title="角" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="debtorObj.m2" title="分" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
       </vxe-colgroup>
       <vxe-column field="x1" title="√" width="40"></vxe-column>
       <vxe-colgroup field="creditAmount" title="贷方金额">
-        <vxe-column field="creditObj.p9" title="亿" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.p8" title="千" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.p7" title="百" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.p6" title="十" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.p5" title="万" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.p4" title="千" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.p3" title="百" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.p2" title="十" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.p1" title="元" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
-        <vxe-column field="creditObj.m1" title="角" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props:  { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p9" title="亿" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p8" title="千" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p7" title="百" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p6" title="十" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p5" title="万" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p4" title="千" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p3" title="百" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p2" title="十" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.p1" title="元" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
+        <vxe-column field="creditObj.m1" title="角" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
         <vxe-column field="creditObj.m2" title="分" width="60" align="center" :edit-render="{ name: 'VxeNumberInput', autoSelect: true, props: { type: 'integer', max: 9, controls: false, maxLength: 1, align: 'center' } }"></vxe-column>
       </vxe-colgroup>
       <vxe-column field="x2" title="√" width="40"></vxe-column>

@@ -4,7 +4,8 @@
       <vxe-tab-pane title="页签1" name="1">
         <vxe-table
           border
-          :data="tableData1">
+          :data="tableData1"
+        >
           <vxe-column type="seq" width="70"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>
           <vxe-column field="sex" title="Sex"></vxe-column>
@@ -13,8 +14,9 @@
       </vxe-tab-pane>
       <vxe-tab-pane title="页签2" name="2">
         <vxe-table
-         border
-          :data="tableData2">
+          border
+          :data="tableData2"
+        >
           <vxe-column type="checkbox" width="70"></vxe-column>
           <vxe-column field="role" title="Role"></vxe-column>
           <vxe-column field="address" title="Address"></vxe-column>
@@ -23,7 +25,8 @@
       <vxe-tab-pane title="页签3" name="3">
         <vxe-table
           border
-          :data="tableData3">
+          :data="tableData3"
+        >
           <vxe-column type="radio" width="70"></vxe-column>
           <vxe-column field="name" title="Name"></vxe-column>
           <vxe-column field="age" title="Age"></vxe-column>

@@ -10,40 +10,41 @@
     </p>
 
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       keep-source
-      ref="tableRef"
       :loading="loading"
       :data="tableData"
-      :edit-config="editConfig">
+      :edit-config="editConfig"
+    >
       <vxe-column type="checkbox" width="60"></vxe-column>
       <vxe-column type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{autoFocus: true}">
         <template #edit="scope">
-          <vxe-input type="text" v-model="scope.row.name" @input="updateRowStatus(scope)"></vxe-input>
+          <vxe-input v-model="scope.row.name" type="text" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex" :edit-render="{autoFocus: true}">
         <template #edit="scope">
-          <vxe-input type="text" v-model="scope.row.sex" @input="updateRowStatus(scope)"></vxe-input>
+          <vxe-input v-model="scope.row.sex" type="text" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="address" title="Address" :edit-render="{}">
         <template #edit="scope">
-          <vxe-input type="text" v-model="scope.row.address" @input="updateRowStatus(scope)"></vxe-input>
+          <vxe-input v-model="scope.row.address" type="text" @input="updateRowStatus(scope)"></vxe-input>
         </template>
       </vxe-column>
       <vxe-column field="date12" title="Date" :formatter="formatDate" :edit-render="{}">
         <template #edit="scope">
-          <vxe-date-picker type="date" v-model="scope.row.date12" @input="updateRowStatus(scope)"></vxe-date-picker>
+          <vxe-date-picker v-model="scope.row.date12" type="date" @input="updateRowStatus(scope)"></vxe-date-picker>
         </template>
       </vxe-column>
       <vxe-column title="操作" width="220">
         <template #default="{ row }">
           <vxe-button mode="text" @click="setOtherField(row)">修改nickname（无效）</vxe-button>
           <template v-if="hasUpdateStatus(row)">
-            <vxe-button mode="text" @click="saveUpdateEvent(row)" :loading="row.loading">局部保存</vxe-button>
+            <vxe-button mode="text" :loading="row.loading" @click="saveUpdateEvent(row)">局部保存</vxe-button>
           </template>
         </template>
       </vxe-column>

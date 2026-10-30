@@ -6,7 +6,8 @@
       :footer-data="footerData"
       :data="tableData"
       :menu-config="menuConfig"
-      @menu-click="contextMenuClickEvent">
+      @menu-click="contextMenuClickEvent"
+    >
       <vxe-column field="checkbox" type="checkbox" width="50"></vxe-column>
       <vxe-column field="seq" type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" width="340"></vxe-column>

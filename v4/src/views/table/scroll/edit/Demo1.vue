@@ -12,15 +12,16 @@
       <vxe-button status="primary" @click="addEvent">新增</vxe-button>
     </p>
     <vxe-table
+      ref="tableRef"
       border
       show-overflow
       show-header-overflow
       show-footer-overflow
-      ref="tableRef"
       height="800"
       :virtual-y-config="{enabled: true, gt: 0}"
       :edit-config="editConfig"
-      :loading="loading">
+      :loading="loading"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name" :edit-render="{name: 'VxeInput'}"></vxe-column>
       <vxe-column field="nickname" title="Nickname" :edit-render="{name: 'VxeInput'}"></vxe-column>

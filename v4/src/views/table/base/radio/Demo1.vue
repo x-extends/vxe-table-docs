@@ -7,16 +7,17 @@
     </p>
 
     <vxe-table
-      border
       ref="tableRef"
+      border
       height="300"
       :data="tableData"
       :radio-config="{highlight: true}"
       @cell-click="cellClickEvent"
-      @radio-change="radioChangeEvent">
+      @radio-change="radioChangeEvent"
+    >
       <vxe-column type="radio" width="60">
         <template #header>
-          <vxe-button mode="text" @click="clearRadioRowEvent" :disabled="!selectRow">取消</vxe-button>
+          <vxe-button mode="text" :disabled="!selectRow" @click="clearRadioRowEvent">取消</vxe-button>
         </template>
       </vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>

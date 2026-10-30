@@ -3,9 +3,10 @@
     <vxe-table
       border
       height="400"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="id" title="ID"></vxe-column>
-      <vxe-column field="name" title="Name" ></vxe-column>
+      <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex" :filters="sexOptions" :filter-multiple="false"></vxe-column>
       <vxe-column field="age" title="Age" :filters="ageOptions"></vxe-column>
       <vxe-column field="time" title="Time"></vxe-column>

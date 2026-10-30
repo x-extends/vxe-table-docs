@@ -5,7 +5,7 @@
         <div class="expand-wrapper">
           <vxe-grid v-bind="childGridOptions" :data="row.childList">
             <template #cell_two_checkbox="{ row: childRow }">
-              <vxe-checkbox v-model="childRow.isChecked" :indeterminate="childRow.isHalf"  @change="changeTwoSelect(childRow, row)"></vxe-checkbox>
+              <vxe-checkbox v-model="childRow.isChecked" :indeterminate="childRow.isHalf" @change="changeTwoSelect(childRow, row)"></vxe-checkbox>
             </template>
           </vxe-grid>
         </div>

@@ -2,7 +2,7 @@
   <div>
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #age_filter="{ column }">
-        <vxe-number-input v-model="option.data" v-for="(option, index) in column.filters" :key="index" @change="changeAgeFilterEvent(option)"></vxe-number-input>
+        <vxe-number-input v-for="(option, index) in column.filters" :key="index" v-model="option.data" @change="changeAgeFilterEvent(option)"></vxe-number-input>
       </template>
     </vxe-grid>
   </div>

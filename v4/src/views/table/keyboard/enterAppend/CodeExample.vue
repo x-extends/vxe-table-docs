@@ -3,7 +3,7 @@
     <CodeLight path="table/keyboard/enterAppend/Demo1">
       <template #tip>
         <vxe-tip status="primary" title="在最后一行回车键自动新增一行">
-          通过 <ApiLink name="table" prop="keyboard-config"/>.<ApiLink name="table" prop="isLastEnterAppendRow"/> 设置当活动单元格处于最后一行时，按回车键自动在表尾新增一行
+          通过 <ApiLink name="table" prop="keyboard-config" />.<ApiLink name="table" prop="isLastEnterAppendRow" /> 设置当活动单元格处于最后一行时，按回车键自动在表尾新增一行
         </vxe-tip>
       </template>
 

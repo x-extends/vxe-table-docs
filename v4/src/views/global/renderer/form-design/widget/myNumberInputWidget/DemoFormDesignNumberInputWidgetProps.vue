@@ -4,7 +4,8 @@
     title-bold
     title-overflow
     span="24"
-    :data="currWidget.options">
+    :data="currWidget.options"
+  >
     <vxe-form-item title="控件字段名" :title-prefix="{icon: 'vxe-icon-question-circle-fill', content: '唯一字段名，默认自动生成'}">
       <vxe-input v-model="currWidget.field" placeholder="唯一，默认自动生成"></vxe-input>
     </vxe-form-item>

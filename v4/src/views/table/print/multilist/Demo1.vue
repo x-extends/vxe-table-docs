@@ -3,12 +3,13 @@
     <vxe-button @click="printEvent">同时打印2张表</vxe-button>
 
     <vxe-table
+      ref="table1Ref"
       border
       show-footer
       height="300"
-      ref="table1Ref"
       :footer-data="footerData1"
-      :data="tableData1">
+      :data="tableData1"
+    >
       <vxe-column field="id" title="ID" width="60"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -16,12 +17,13 @@
     </vxe-table>
 
     <vxe-table
+      ref="table2Ref"
       border
       show-footer
       height="300"
-      ref="table2Ref"
       :footer-data="footerData2"
-      :data="tableData2">
+      :data="tableData2"
+    >
       <vxe-column field="id" title="ID" width="60"></vxe-column>
       <vxe-column field="role" title="Role"></vxe-column>
       <vxe-column field="age" title="Age"></vxe-column>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vxe-table border ref="tableRef" :data="tableData">
+    <vxe-table ref="tableRef" border :data="tableData">
       <vxe-column type="checkbox" width="80">
         <template #header="{ checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="toggleAllCheckboxEvent">

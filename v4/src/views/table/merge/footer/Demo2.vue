@@ -6,7 +6,8 @@
       height="400"
       :merge-footer-items="mergeFooterItems"
       :footer-data="footerData"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="seq" type="seq" width="60"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>
       <vxe-column field="role" title="Role" sortable></vxe-column>

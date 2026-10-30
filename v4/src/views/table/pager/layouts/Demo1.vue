@@ -4,7 +4,8 @@
       border
       height="500"
       :loading="loading"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column field="name" title="Name"></vxe-column>
       <vxe-column field="sex" title="Sex"></vxe-column>
@@ -12,11 +13,12 @@
     </vxe-table>
 
     <vxe-pager
-      v-model:currentPage="pageVO.currentPage"
-      v-model:pageSize="pageVO.pageSize"
+      v-model:current-page="pageVO.currentPage"
+      v-model:page-size="pageVO.pageSize"
       :total="pageVO.total"
       :layouts="['Home', 'PrevJump', 'PrevPage', 'Number', 'NextPage', 'NextJump', 'End', 'Sizes', 'FullJump', 'Total']"
-      @page-change="pageChange">
+      @page-change="pageChange"
+    >
     </vxe-pager>
   </div>
 </template>

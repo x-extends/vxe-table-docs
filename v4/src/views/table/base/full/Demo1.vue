@@ -8,7 +8,8 @@
       :column-config="{resizable: true}"
       :row-config="{isHover: true}"
       :checkbox-config="{labelField: 'id', highlight: true, range: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column type="checkbox" title="ID" width="140"></vxe-column>
       <vxe-column field="name" title="Name" sortable></vxe-column>

@@ -4,7 +4,8 @@
       title-colon
       title-width="80"
       title-align="right"
-      :data="formData">
+      :data="formData"
+    >
       <vxe-form-item title="Name" field="name" span="24" :item-render="{ name: 'VxeInput'}"></vxe-form-item>
       <vxe-form-item title="上传附件" field="fileList" span="24" :item-render="{ name: 'MyFormItemUpload' }"></vxe-form-item>
       <vxe-form-item title="上传图片" field="imgList" span="24" :item-render="{ name: 'MyFormItemUpload', props: { mode: 'image' } }"></vxe-form-item>

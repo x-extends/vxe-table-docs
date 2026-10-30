@@ -6,7 +6,8 @@
       :row-config="{isCurrent: true, isHover: true}"
       :tree-config="{transform: true, rowField: 'id', parentField: 'parentId'}"
       :keyboard-config="{isArrow: true, isEnter: true, isBack: true}"
-      :data="tableData">
+      :data="tableData"
+    >
       <vxe-column field="name" title="Name" tree-node></vxe-column>
       <vxe-column field="size" title="Size"></vxe-column>
       <vxe-column field="type" title="Type"></vxe-column>
