@@ -1,8 +1,8 @@
-import { RouteConfig } from 'vue-router'
+import { RouteRecordConfig } from './conf'
 
 import RouteLayout from '@/components/RouteLayout.vue'
 
-export const gridRouteConfig: RouteConfig = {
+export const gridRouteConfig: RouteRecordConfig = {
   path: 'grid',
   component: RouteLayout,
   children: [

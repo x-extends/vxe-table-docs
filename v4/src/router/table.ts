@@ -1,8 +1,8 @@
-import { RouteRecordRaw } from 'vue-router'
+import { RouteRecordConfig } from './conf'
 
 import RouteLayout from '@/components/RouteLayout.vue'
 
-export const tableRouteConfig: RouteRecordRaw = {
+export const tableRouteConfig: RouteRecordConfig = {
   path: 'table',
   component: RouteLayout,
   children: [
