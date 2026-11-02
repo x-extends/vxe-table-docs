@@ -150,8 +150,10 @@ async function appendDistFiles(archive, rootPrefix, files) {
     }
   }
 
+  // 大文件：必须用 archive.file()，不能用 append(path)
+  // —— append 传字符串会被当作「文件内容」，会导致 zip 内容变成路径字符串
   for (const f of bigFiles) {
-    archive.append(f.fullPath, {
+    archive.file(f.fullPath, {
       name: `${rootPrefix}/${f.relative}`,
       stats: f.stats,
       store: f.store,
@@ -162,7 +164,6 @@ async function appendDistFiles(archive, rootPrefix, files) {
 
 /**
  * 打单个 target 的独立 zip
- * @returns {Promise<{target, files, extraFiles, rootFiles}>} metadata 供 all.zip 使用
  */
 async function packZip(distDir, rootPrefix, outFile, extraFiles, rootFiles, files) {
   if (!files) files = await collectFiles(distDir)
@@ -231,20 +232,17 @@ async function packAllZip(items) {
 
     ;(async () => {
       for (const item of items) {
-        // 根级文件（仅 defaultTarget 有），写一次到 zip 根
         if (item.rootFiles) {
           for (const [name, content] of Object.entries(item.rootFiles)) {
             archive.append(content, { name, zlib: { level: 6 } })
           }
         }
-        // 各 target 的注入 html，带 <target>/ 前缀
         for (const [name, content] of Object.entries(item.extraFiles)) {
           archive.append(content, {
             name: `${item.target}/${name}`,
             zlib: { level: 6 }
           })
         }
-        // 各 target 的源文件
         await appendDistFiles(archive, item.target, item.files)
       }
       archive.finalize()
@@ -307,7 +305,6 @@ async function main() {
   }
 
   const list = targets.length ? targets : defaultTargets
-  // 是否打了全部目标（决定是否额外生成 docs_all.zip）
   const isAll = defaultTargets.every((t) => list.includes(t))
 
   const start = Date.now()
@@ -325,9 +322,7 @@ async function main() {
     }
   })
 
-  // 仅当全部成功时打大包，避免生成残缺 docs_all.zip
   if (isAll && failed === 0) {
-    // 按 defaultTargets 顺序整理，让 zip 内 target 顺序稳定
     succeeded.sort(
       (a, b) => defaultTargets.indexOf(a.target) - defaultTargets.indexOf(b.target)
     )
