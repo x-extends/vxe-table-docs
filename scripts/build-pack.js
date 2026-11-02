@@ -2,18 +2,7 @@
  * 用法：
  *   node scripts/build-pack.js v3
  *   node scripts/build-pack.js v3 v4 other4
- *   node scripts/build-pack.js                 // 默认全部 + docs_all.zip
- *
- * 稳定性优先：
- *   - 所有文件读成 Buffer 后 append，杜绝流/stat 不一致导致的 zip 损坏
- *   - 不传 stats，archiver 用 buffer.length 作为真实 size
- *   - 低并发（读 32/批，遍历 16/层），避免 fd 峰值
- *   - target 串行，零 IO 争抢
- *
- * 当 target === defaultTarget 时，额外把 dist 根级以下文件写一份到 zip 根目录：
- *   - index.html / 404.html → 注入版
- *   - *.html / *.ico / *.png / *.txt → 原文件
- *
+ *   node scripts/build-pack.js 
  * 当传全部目标（无参数 / pack:all）时，额外生成 docs_all.zip。
  */
 import fs from 'node:fs'
