@@ -4,12 +4,17 @@
  *   node scripts/build-pack.js v3 v4 other4
  *   node scripts/build-pack.js                 // 默认全部 + docs_all.zip
  *
+ * 稳定性优先：
+ *   - 所有文件读成 Buffer 后 append，杜绝流/stat 不一致导致的 zip 损坏
+ *   - 不传 stats，archiver 用 buffer.length 作为真实 size
+ *   - 低并发（读 32/批，遍历 16/层），避免 fd 峰值
+ *   - target 串行，零 IO 争抢
+ *
  * 当 target === defaultTarget 时，额外把 dist 根级以下文件写一份到 zip 根目录：
  *   - index.html / 404.html → 注入版
  *   - *.html / *.ico / *.png / *.txt → 原文件
  *
- * 当传全部目标（无参数 / pack:all）时，额外生成 docs_all.zip：
- *   - 内容 = 各 target 独立 zip 的合集 + defaultTarget 的根级文件
+ * 当传全部目标（无参数 / pack:all）时，额外生成 docs_all.zip。
  */
 import fs from 'node:fs'
 import fsp from 'node:fs/promises'
@@ -36,7 +41,10 @@ const adDir = path.join(root, 'ad')
 /** 已压缩格式：跳过 zlib。其余（含未知/无扩展名）默认 deflate */
 const storeRegex = /\.(?:png|jpe?g|gif|webp|avif|bmp|ico|woff2?|ttf|otf|eot|wasm|gz|br|zip|7z|rar|mp4|webm|mp3|ogg|wav|flac|pdf|swf|jar|bin)$/i
 const smallFileThreshold = 32 * 1024
-const readBatchSize = 256
+/** 降低并发：每批读 32 个文件，避免 fd 峰值 */
+const readBatchSize = 32
+/** 目录遍历：每层同时处理 16 个子项 */
+const walkConcurrency = 16
 
 /** defaultTarget 额外拷贝到 zip 根的文件类型 */
 const rootLevelRegex = /\.(?:html|ico|png|txt)$/i
@@ -46,6 +54,21 @@ function pickLevel(size) {
   if (size <= 4 * 1024) return 1
   if (size <= 32 * 1024) return 4
   return 6
+}
+
+/** 通用并发池：同时最多 limit 个任务 */
+async function asyncPool(limit, items, fn) {
+  if (items.length === 0) return []
+  const results = new Array(items.length)
+  let idx = 0
+  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (idx < items.length) {
+      const i = idx++
+      results[i] = await fn(items[i], i)
+    }
+  })
+  await Promise.all(workers)
+  return results
 }
 
 /* ==================== 脚本顶部：粘贴的变量 ==================== */
@@ -83,23 +106,34 @@ function transformHtml(html) {
     .replace('</body>', `${enableSponsors ? ssTmplScript : ''}${enableSponsors ? sponsorsTmplScript : ''}${enableAd ? adTmplScript : ''}</body>`)
 }
 
+/**
+ * 递归收集文件，每层限 walkConcurrency 个并发
+ * 用 asyncPool 控制 fd 峰值，避免大目录瞬间开几千 fd
+ */
 async function collectFiles(dir, base = dir, out = []) {
   const entries = await fsp.readdir(dir, { withFileTypes: true })
-  await Promise.all(
-    entries.map(async (e) => {
-      const full = path.join(dir, e.name)
-      if (e.isDirectory()) {
-        await collectFiles(full, base, out)
-      } else if (e.isFile()) {
-        const stats = await fsp.stat(full)
-        out.push({
-          fullPath: full,
-          relative: path.relative(base, full).split(path.sep).join('/'),
-          stats
-        })
-      }
+
+  const dirs = []
+  const files = []
+  for (const e of entries) {
+    const full = path.join(dir, e.name)
+    if (e.isDirectory()) dirs.push(full)
+    else if (e.isFile()) files.push(full)
+  }
+
+  // 当前层文件：并发 stat
+  await asyncPool(walkConcurrency, files, async (full) => {
+    const stats = await fsp.stat(full)
+    out.push({
+      fullPath: full,
+      relative: path.relative(base, full).split(path.sep).join('/'),
+      stats
     })
-  )
+  })
+
+  // 子目录：并发递归
+  await asyncPool(walkConcurrency, dirs, (full) => collectFiles(full, base, out))
+
   return out
 }
 
@@ -112,20 +146,24 @@ async function collectRootLevelFiles(distDir, injectedHtml) {
   const skip = new Set(['index.html', '404.html'])
   const entries = await fsp.readdir(distDir, { withFileTypes: true })
 
+  const targets = entries
+    .filter((e) => e.isFile())
+    .filter((e) => !skip.has(e.name))
+    .filter((e) => rootLevelRegex.test(e.name))
+
   await Promise.all(
-    entries
-      .filter((e) => e.isFile())
-      .filter((e) => !skip.has(e.name))
-      .filter((e) => rootLevelRegex.test(e.name))
-      .map(async (e) => {
-        result[e.name] = await fsp.readFile(path.join(distDir, e.name))
-      })
+    targets.map(async (e) => {
+      result[e.name] = await fsp.readFile(path.join(distDir, e.name))
+    })
   )
 
   return result
 }
 
-/** 把一组文件追加到 archive，带 rootPrefix 前缀 */
+/**
+ * 把所有文件读成 Buffer 后 append —— 稳定性最高
+ * 不传 stats：archiver 用 buffer.length 作为真实 size，杜绝 CRC 风险
+ */
 async function appendDistFiles(archive, rootPrefix, files) {
   const smallFiles = []
   const bigFiles = []
@@ -136,6 +174,7 @@ async function appendDistFiles(archive, rootPrefix, files) {
     else bigFiles.push(entry)
   }
 
+  // 小文件：批量读
   for (let i = 0; i < smallFiles.length; i += readBatchSize) {
     const batch = smallFiles.slice(i, i + readBatchSize)
     const buffers = await Promise.all(batch.map((f) => fsp.readFile(f.fullPath)))
@@ -143,22 +182,29 @@ async function appendDistFiles(archive, rootPrefix, files) {
       const f = batch[j]
       archive.append(buffers[j], {
         name: `${rootPrefix}/${f.relative}`,
-        stats: f.stats,
         store: f.store,
-        zlib: { level: pickLevel(f.stats.size) }
+        zlib: { level: pickLevel(buffers[j].length) }
       })
     }
   }
 
-  // 大文件：必须用 archive.file()，不能用 append(path)
-  // —— append 传字符串会被当作「文件内容」，会导致 zip 内容变成路径字符串
+  // 大文件：也读成 Buffer（单个最大几 MB，内存完全可承受）
   for (const f of bigFiles) {
-    archive.file(f.fullPath, {
+    const buf = await fsp.readFile(f.fullPath)
+    archive.append(buf, {
       name: `${rootPrefix}/${f.relative}`,
-      stats: f.stats,
       store: f.store,
-      zlib: { level: pickLevel(f.stats.size) }
+      zlib: { level: pickLevel(buf.length) }
     })
+  }
+}
+
+/** 安全删除已存在文件（Windows 上防止文件被占用时的 WriteStream 失败） */
+async function removeIfExists(file) {
+  try {
+    await fsp.unlink(file)
+  } catch (err) {
+    if (err.code !== 'ENOENT') throw err
   }
 }
 
@@ -167,11 +213,12 @@ async function appendDistFiles(archive, rootPrefix, files) {
  */
 async function packZip(distDir, rootPrefix, outFile, extraFiles, rootFiles, files) {
   if (!files) files = await collectFiles(distDir)
+  await removeIfExists(outFile)
 
   return new Promise((resolve, reject) => {
     const output = fs.createWriteStream(outFile)
     const archive = new ZipArchive({
-      statConcurrency: 64,
+      statConcurrency: 16,
       highWaterMark: 256 * 1024
     })
 
@@ -179,7 +226,11 @@ async function packZip(distDir, rootPrefix, outFile, extraFiles, rootFiles, file
     const done = (err) => {
       if (settled) return
       settled = true
-      err ? reject(err) : resolve()
+      if (err) {
+        try { output.destroy() } catch {}
+        return reject(err)
+      }
+      resolve()
     }
     output.on('close', () => done())
     output.on('error', done)
@@ -211,11 +262,12 @@ async function packZip(distDir, rootPrefix, outFile, extraFiles, rootFiles, file
 /** 打全部目标的大包 docs_all.zip */
 async function packAllZip(items) {
   const outFile = path.join(root, 'docs_all.zip')
+  await removeIfExists(outFile)
 
   return new Promise((resolve, reject) => {
     const output = fs.createWriteStream(outFile)
     const archive = new ZipArchive({
-      statConcurrency: 64,
+      statConcurrency: 16,
       highWaterMark: 256 * 1024
     })
 
@@ -223,7 +275,11 @@ async function packAllZip(items) {
     const done = (err) => {
       if (settled) return
       settled = true
-      err ? reject(err) : resolve()
+      if (err) {
+        try { output.destroy() } catch {}
+        return reject(err)
+      }
+      resolve()
     }
     output.on('close', () => done())
     output.on('error', done)
@@ -260,6 +316,10 @@ async function packOne(target) {
     throw new Error(`[${target}] 未找到 ${indexPath}`)
   }
 
+  const t0 = Date.now()
+  const files = await collectFiles(distDir)
+  console.log(`  [${target}] 扫描 ${files.length} 个文件（${Date.now() - t0}ms）`)
+
   const html = transformHtml(await fsp.readFile(indexPath, 'utf-8'))
   const outFile = path.join(root, `docs_${target}.zip`)
 
@@ -270,13 +330,12 @@ async function packOne(target) {
   const rootFiles = target === defaultTarget
     ? await collectRootLevelFiles(distDir, html)
     : null
-  const files = await collectFiles(distDir)
 
   await packZip(distDir, target, outFile, extraFiles, rootFiles, files)
 
   const stat = await fsp.stat(outFile)
   const mb = (stat.size / 1024 / 1024).toFixed(2)
-  console.log(`✔ ${target} -> docs_${target}.zip (${mb} MB)`)
+  console.log(`✔ ${target} -> docs_${target}.zip (${mb} MB, ${files.length} files)`)
 
   return { target, files, extraFiles, rootFiles }
 }
@@ -310,24 +369,27 @@ async function main() {
   const start = Date.now()
   console.log(`开始打包：${list.join(', ')}${isAll ? '（含 docs_all.zip）' : ''}`)
 
-  const results = await Promise.allSettled(list.map(packOne))
+  // ⚠️ 串行处理 target，杜绝 IO 争抢
   const succeeded = []
   let failed = 0
-  results.forEach((r, i) => {
-    if (r.status === 'fulfilled') {
-      succeeded.push(r.value)
-    } else {
+  for (const target of list) {
+    try {
+      const r = await packOne(target)
+      succeeded.push(r)
+    } catch (err) {
       failed++
-      console.error(`✘ ${list[i]}: ${r.reason?.message ?? r.reason}`)
+      console.error(`✘ ${target}: ${err?.message ?? err}`)
     }
-  })
+  }
 
+  // 仅当全部成功时打大包
   if (isAll && failed === 0) {
     succeeded.sort(
       (a, b) => defaultTargets.indexOf(a.target) - defaultTargets.indexOf(b.target)
     )
     try {
       const t = Date.now()
+      console.log(`开始打包 docs_all.zip ...`)
       await packAllZip(succeeded)
       const stat = await fsp.stat(path.join(root, 'docs_all.zip'))
       const mb = (stat.size / 1024 / 1024).toFixed(2)
