@@ -14,7 +14,8 @@
     "pack:old": "npm run build && gulp build_examples && npm run oxfix:examples",
     "pack": "node scripts/build-clean.js && concurrently --timings \"npm run build\" \"node scripts/build-example.js\" && npm run oxfix:examples",
     "esfix:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**",
-    "oxfix:examples": "oxfmt dist/example/js/ --write"
+    "oxfix:examples": "oxfmt dist/example/js/ --write",
+    "clean:all": "node scripts/clean-all"
   },
   "dependencies": {
     "ant-design-vue": "1.7.8",

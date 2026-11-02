@@ -40,7 +40,9 @@
     "pack:v4.6": "npm run build:v4.6 && node scripts/build-pack.js v4.6",
     "pack:v4_old": "npm run build:v4_old && node scripts/build-pack.js v4_old",
     "pack:all": "npm run build:all && node scripts/build-pack.js",
-    "clean:pack": "node scripts/clean-pack.js"
+
+    "clean:pack": "node scripts/clean-pack.js",
+    "clean:all": "node scripts/clean-all"
   },
   "devDependencies": {
     "archiver": "~8.0.0",
