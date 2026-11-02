@@ -54,6 +54,7 @@ export default defineConfig(({ mode, command }) => {
       sourcemap: command === 'build' ? false : 'inline',
       outDir: 'dist',
       assetsDir: 'static',
+      emptyOutDir: false,
       build: {
         sourcemap: command === 'build' ? false : 'inline',
         outDir: 'dist',
