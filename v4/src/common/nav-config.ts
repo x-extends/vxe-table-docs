@@ -79,7 +79,8 @@ export const navConfigList: NavVO[] = [
           { i18nKey: 'app.aside.menu.configI18nCDN', routerLink: { name: 'StartI18nCDN' } }
         ]
       },
-      { i18nKey: 'app.aside.menu.globalPermission', routerLink: { name: 'StartPermission' } }
+      { i18nKey: 'app.aside.menu.globalPermission', routerLink: { name: 'StartPermission' } },
+      { i18nKey: 'app.aside.menu.globalScrollbar', routerLink: { name: 'StartScrollbar' } }
     ]
   },
   {

@@ -147,6 +147,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'StartPermission',
         component: () => import('@/views/start/permission/CodeExample.vue')
       },
+      { path: 'scrollbar', name: 'StartScrollbar', component: () => import('@/views/start/scrollbar/CodeExample.vue') },
       {
         path: 'freeDonation',
         name: 'FreeDonation',
