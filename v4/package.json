@@ -11,7 +11,7 @@
     "esfix": "eslint --fix src",
     "oxfix": "oxfmt src/** --write",
     "pack:old": "npm run build && gulp build_examples && npm run oxfix:examples",
-    "pack": "node scripts/build-clean.mjs && concurrently --timings \"npm run build\" \"node scripts/build-example.mjs\" && npm run oxfix:examples",
+    "pack": "node scripts/build-clean.js && concurrently --timings \"npm run build\" \"node scripts/build-example.js\" && npm run oxfix:examples",
     "esfix:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**",
     "oxfix:examples": "oxfmt dist/example/js/ --write"
   },
@@ -62,6 +62,7 @@
     "vue-tsc": "~3.3.13"
   },
   "allowScripts": {
-    "@parcel/watcher@2.6.0": true
+    "@parcel/watcher": true,
+    "esbuild": true
   }
 }

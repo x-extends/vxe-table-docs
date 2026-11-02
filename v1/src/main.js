@@ -4,11 +4,9 @@ import router from './router'
 import store from './store'
 import i18n from './i18n'
 
-import 'font-awesome/scss/font-awesome.scss'
 import './assets/style/index.scss'
 import './plugins'
 import XEUtils from 'xe-utils'
-import moment from 'moment'
 
 // **************** （注意：该全局变量仅用于开发环境调试） ****************
 if (process.env.NODE_ENV === 'development') {
@@ -27,7 +25,7 @@ function mockData () {
   for (let index = 0; index < 400; index++) {
     currTime += 7200000
     const date = new Date(currTime)
-    const mDate = moment(currTime)
+    const mDate = null
     list.push({
       id: 1000000 + index,
       name: nameList[index % 10] + nameList[index % 5] + index,

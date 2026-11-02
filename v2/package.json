@@ -54,5 +54,9 @@
     "sass": "~1.32.7",
     "sass-loader": "~12.0.0",
     "vue-template-compiler": "2.6.14"
+  },
+  "allowScripts": {
+    "core-js": true,
+    "yorkie": true
   }
 }
