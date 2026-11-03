@@ -49,7 +49,7 @@
     "concurrently": "^10.0.6",
     "del": "~6.0.0",
     "uglify-js": "3.19.3",
-    "xe-utils": "^4.1.4"
+    "xe-utils": "^4.1.5"
   },
   "allowScripts": {
     "es5-ext": true
