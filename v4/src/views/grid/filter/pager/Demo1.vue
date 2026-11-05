@@ -112,8 +112,8 @@ const loadList = () => {
     const result = searchConfs.length
       ? mockList.filter(item => {
         return searchConfs.every(fItem => {
-          const callValue = item[fItem.field]
-          return fItem.vals.some(val => `${callValue}`.indexOf(val) > -1)
+          const cellValue = item[fItem.field]
+          return fItem.vals.some(val => `${cellValue}`.indexOf(val) > -1)
         })
       })
       : mockList
