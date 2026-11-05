@@ -1706,6 +1706,7 @@ export const tableNavConfig: NavVO = {
             { title: '实现表头超链接', routerLink: { name: 'GlobalRendererTableDefaultMyHeaderLink' }, keywords: 'cell-render' },
             { title: '实现表尾金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFooterAmount' }, keywords: 'cell-render' },
             { title: '实现完整金额格式化', routerLink: { name: 'GlobalRendererTableDefaultMyFullAmount' }, keywords: 'cell-render' },
+            { title: '实现通用操作按钮', routerLink: { name: 'GlobalRendererTableDefaultMyCellBtn' }, keywords: 'cell-render' },
             { title: '同时使用 formatter', routerLink: { name: 'GlobalRendererTableDefaultMyCellStyle' }, keywords: 'cell-render' },
             { title: '集成第三方扩展插件', isPlugin: true, linkUrl: `${otherUrl}#/plugin-render-element/table/cell/el-switch`, linkTarget: '_blank' }
           ]
