@@ -988,6 +988,8 @@ export const tableNavConfig: NavVO = {
                 { title: 'VxeNumberInput', routerLink: { name: 'ComponentGridFilterFloatingVxeNumberInput' } },
                 { title: 'VxeSelect', routerLink: { name: 'ComponentGridFilterFloatingVxeSelect' } },
                 { title: 'VxeDatePicker', routerLink: { name: 'ComponentGridFilterFloatingVxeDatePicker' } },
+                { title: '显示图标', routerLink: { name: 'ComponentGridFilterFloatingShowIcon' } },
+                { title: '显示位置', routerLink: { name: 'ComponentGridFilterFloatingPosition' } },
                 { title: '完整筛选', routerLink: { name: 'ComponentGridFilterFloatingFull' } },
                 { title: '分组表头', routerLink: { name: 'ComponentGridFilterFloatingGroup' } },
                 { title: '自定义插槽模板', routerLink: { name: 'ComponentGridFilterFloatingTemplate' } }

@@ -1,13 +1,12 @@
 <template>
   <div>
-    显示图标按钮：<vxe-switch v-model="filterConfig.showIcon"></vxe-switch>
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { VxeGridProps, VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table'
+import { VxeGridProps, VxeColumnPropTypes } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -17,10 +16,6 @@ interface RowVO {
   age: number
   date: string
 }
-
-const filterConfig = reactive<VxeTablePropTypes.FilterConfig<RowVO>>({
-  showIcon: true
-})
 
 const sexFilterRender = reactive<VxeColumnPropTypes.FilterRender>({
   name: 'VxeSelect',
@@ -36,7 +31,9 @@ const sexFilterRender = reactive<VxeColumnPropTypes.FilterRender>({
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
   height: 400,
-  filterConfig,
+  filterConfig: {
+    showIcon: true
+  },
   floatingFilterConfig: {
     enabled: true
   },
