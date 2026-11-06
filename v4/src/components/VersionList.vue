@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="version-btn">
-      <vxe-link style="margin-left: 1em;" status="primary" :href="`https://github.com/x-extends/${packName}/releases`" target="_blank">更新日志</vxe-link>
+      <vxe-link style="margin-left: 1em;" status="primary" :href="`https://github.com/x-extends/${packName}/releases`" target="_blank">{{ $t('app.aside.updateLog') }}</vxe-link>
     </div>
   </div>
 </template>
