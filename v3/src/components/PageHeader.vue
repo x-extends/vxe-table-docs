@@ -81,8 +81,8 @@
       </vxe-radio-group>
 
       <vxe-radio-group v-model="currCompVScrollbar" class="link switch-vscrollbar">
-        <vxe-radio-button :checked-value="false" content="原生滚动条"></vxe-radio-button>
-        <vxe-radio-button :checked-value="true" content="虚拟滚动条"></vxe-radio-button>
+        <vxe-radio-button :checked-value="false" :content="$t('app.header.nativeScrollbar')"></vxe-radio-button>
+        <vxe-radio-button :checked-value="true" :content="$t('app.header.vmScrollbar')"></vxe-radio-button>
       </vxe-radio-group>
 
       <vxe-radio-group class="switch-size" v-model="currCompSize" :options="sizeOptions" type="button"></vxe-radio-group>
@@ -179,15 +179,6 @@ export default Vue.extend({
         '#409eff', '#29D2F8', '#31FC49', '#3FF2B3', '#B52DFE', '#FC3243', '#FA3077', '#D1FC44', '#FEE529', '#FA9A2C'
       ],
 
-      sizeOptions: [
-        { label: '特大', value: 'xlarge' },
-        { label: '大', value: 'large' },
-        { label: '默认', value: '' },
-        { label: '中', value: 'medium' },
-        { label: '小', value: 'small' },
-        { label: '迷你', value: 'mini' }
-      ],
-
       pluginUrlMaps: {} as Record<string, string>
     }
   },
@@ -280,6 +271,16 @@ export default Vue.extend({
     },
     giteeUrl () {
       return `https://gitee.com/x-extends/${this.packName}`
+    },
+    sizeOptions () {
+      return [
+        { label: this.$t('app.sizeGroup.xlarge'), value: 'xlarge' },
+        { label: this.$t('app.sizeGroup.large'), value: 'large' },
+        { label: this.$t('app.sizeGroup.default'), value: '' },
+        { label: this.$t('app.sizeGroup.medium'), value: 'medium' },
+        { label: this.$t('app.sizeGroup.small'), value: 'small' },
+        { label: this.$t('app.sizeGroup.mini'), value: 'mini' }
+      ]
     },
     systemMenuGroups () {
       const menuGroups: SystemMenuGroupVO[] = []

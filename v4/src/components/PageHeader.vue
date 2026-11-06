@@ -81,8 +81,8 @@
       </vxe-radio-group>
 
       <vxe-radio-group v-model="currCompVScrollbar" class="link switch-vscrollbar">
-        <vxe-radio-button :checked-value="false" content="原生滚动条"></vxe-radio-button>
-        <vxe-radio-button :checked-value="true" content="虚拟滚动条"></vxe-radio-button>
+        <vxe-radio-button :checked-value="false" :content="$t('app.header.nativeScrollbar')"></vxe-radio-button>
+        <vxe-radio-button :checked-value="true" :content="$t('app.header.vmScrollbar')"></vxe-radio-button>
       </vxe-radio-group>
 
       <vxe-radio-group v-model="currCompSize" class="switch-size" :options="sizeOptions" type="button"></vxe-radio-group>
@@ -230,14 +230,16 @@ const colorList = ref([
   '#409eff', '#29D2F8', '#31FC49', '#3FF2B3', '#B52DFE', '#FC3243', '#FA3077', '#D1FC44', '#FEE529', '#FA9A2C'
 ])
 
-const sizeOptions = ref([
-  { label: '特大', value: 'xlarge' },
-  { label: '大', value: 'large' },
-  { label: '默认', value: '' },
-  { label: '中', value: 'medium' },
-  { label: '小', value: 'small' },
-  { label: '迷你', value: 'mini' }
-])
+const sizeOptions = computed(() => {
+  return [
+    { label: i18n.global.t('app.sizeGroup.xlarge'), value: 'xlarge' },
+    { label: i18n.global.t('app.sizeGroup.large'), value: 'large' },
+    { label: i18n.global.t('app.sizeGroup.default'), value: '' },
+    { label: i18n.global.t('app.sizeGroup.medium'), value: 'medium' },
+    { label: i18n.global.t('app.sizeGroup.small'), value: 'small' },
+    { label: i18n.global.t('app.sizeGroup.mini'), value: 'mini' }
+  ]
+})
 
 const currLanguage = computed(() => {
   return langOptions.value.find(item => item.value === appStore.language)
