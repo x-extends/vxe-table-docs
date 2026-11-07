@@ -80,12 +80,9 @@
         <vxe-radio-button checked-value="dark" icon="vxe-icon-moon"></vxe-radio-button>
       </vxe-radio-group>
 
-      <vxe-radio-group v-model="currCompVScrollbar" class="link switch-vscrollbar">
-        <vxe-radio-button :checked-value="false" :content="$t('app.header.nativeScrollbar')"></vxe-radio-button>
-        <vxe-radio-button :checked-value="true" :content="$t('app.header.vmScrollbar')"></vxe-radio-button>
-      </vxe-radio-group>
+      <vxe-select v-model="currCompVScrollbar" class="link switch-vscrollbar" :options="vmScrollbarOptions"></vxe-select>
 
-      <vxe-radio-group v-model="currCompSize" class="switch-size" :options="sizeOptions" type="button"></vxe-radio-group>
+      <vxe-select v-model="currCompSize" class="switch-size" :options="sizeOptions"></vxe-select>
 
       <vxe-pulldown :options="langOptions" trigger="click" show-popup-shadow @option-click="langClickEvent">
         <vxe-button class="switch-lang-btn" mode="text" icon="vxe-icon-language-switch" :content="currLangLabel"></vxe-button>
@@ -229,6 +226,13 @@ const langOptions = ref<{
 const colorList = ref([
   '#409eff', '#29D2F8', '#31FC49', '#3FF2B3', '#B52DFE', '#FC3243', '#FA3077', '#D1FC44', '#FEE529', '#FA9A2C'
 ])
+
+const vmScrollbarOptions = computed(() => {
+  return [
+    { label: i18n.global.t('app.header.nativeScrollbar'), value: false },
+    { label: i18n.global.t('app.header.vmScrollbar'), value: true }
+  ]
+})
 
 const sizeOptions = computed(() => {
   return [
@@ -390,6 +394,12 @@ if (isPluginDocs.value) {
   }
   .header-middle {
     flex-grow: 1;
+  }
+  .switch-vscrollbar {
+    width: 140px;
+  }
+  .switch-size {
+    width: 120px;
   }
   .switch-plugin,
   .switch-system,
