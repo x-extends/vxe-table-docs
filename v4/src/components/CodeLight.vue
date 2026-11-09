@@ -225,6 +225,7 @@ const appStore = useAppStore()
 const isPluginDocs = computed(() => appStore.isPluginDocs)
 const resBaseUrl = computed(() => appStore.resBaseUrl)
 const siteBaseUrl = computed(() => appStore.siteBaseUrl)
+const docsVersion = computed(() => appStore.docsVersion)
 
 const showInstall = ref(false)
 const showPreview = ref(true)
@@ -333,7 +334,7 @@ const loadOptionCdnCode = () => {
     optionCdnLoading.value = true
     const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL.replace('4', '3')}`
     Promise.all([
-      getExampleText(`${resBaseUrl.value}/resource/useCdn/vxe-examples-v3.txt`),
+      getExampleText(`${resBaseUrl.value}/resource/useCdn/vxe-examples-v${docsVersion.value}.txt`),
       getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
       ...(props.extraImports?.map(impPath => {
         const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
