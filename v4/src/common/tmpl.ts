@@ -171,7 +171,7 @@ export function getCdn3HtmlTemplate (tmpl: string, code: string) {
   const { template, script, styles } = fileRest
   return XEUtils.toFormatString(tmpl, {
     templateCode: getTemplate(template.code),
-    scrollCode: getScript(script.code),
+    scriptCode: getScript(script.code),
     styleCode: getCss(styles)
   })
 }
