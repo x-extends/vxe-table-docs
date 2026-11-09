@@ -151,7 +151,7 @@ function getTemplate (scrTemplate: string) {
 function getScript (srcCode: string) {
   const code = srcCode.replace('export default {', 'var App = {')
 
-  return (code || 'var App = {}').replace(/^/gm, '    ')
+  return (code || 'var App = {}').replace(/^/gm, '      ')
 }
 
 function getCss (styles: ParseStyleObj[]) {
