@@ -64,7 +64,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
     { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
     { field: 'date', title: 'Date', editRender: { name: 'VxeDatePicker' } },
-    { field: 'action', title: '操作', width: 240, slots: { default: 'action' } }
+    { field: 'action', title: '操作', width: 280, slots: { default: 'action' } }
   ],
   data: [
     { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '', loading: false },
