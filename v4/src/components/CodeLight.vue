@@ -46,6 +46,7 @@
           <vxe-button class="example-btn" mode="text" status="error" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button v-if="showOnLineRun && !extraImports.length" mode="text" status="success" icon="vxe-icon-play" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionCdnVisible">{{ $t('app.docs.button.showOptionCDN') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupJS ? 'primary' : ''" :loading="setupJsLoading" icon="vxe-icon-code" @click="toggleSetupJsVisible">{{ $t('app.docs.button.showSetupJS') }}</vxe-button>
