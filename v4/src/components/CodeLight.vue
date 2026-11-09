@@ -46,13 +46,37 @@
           <vxe-button class="example-btn" mode="text" status="error" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button v-if="showOnLineRun && !extraImports.length" mode="text" status="success" icon="vxe-icon-play" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionCdnVisible">{{ $t('app.docs.button.showOptionCDN') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showSetupJS ? 'primary' : ''" :loading="setupJsLoading" icon="vxe-icon-code" @click="toggleSetupJsVisible">{{ $t('app.docs.button.showSetupJS') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showSetupTS ? 'primary' : ''" :loading="setupTsLoading" icon="vxe-icon-code" @click="toggleSetupTsVisible">{{ $t('app.docs.button.showSetupTS') }}</vxe-button>
+        <vxe-button v-if="showCdnExamples && !extraImports.length" class="example-btn" mode="text" :status="showOptionCdn ? 'primary' : ''" :loading="optionCdnLoading" icon="vxe-icon-code" @click="toggleOptionCdnVisible">{{ $t('app.docs.button.showOptionCdn') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionJs ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJs') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionTs ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTs') }}</vxe-button>
+        <vxe-button v-if="showCdnExamples && !extraImports.length" class="example-btn" mode="text" :status="showSetupCdn ? 'primary' : ''" :loading="setupCdnLoading" icon="vxe-icon-code" @click="toggleSetupCdnVisible">{{ $t('app.docs.button.showSetupCdn') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showSetupJs ? 'primary' : ''" :loading="setupJsLoading" icon="vxe-icon-code" @click="toggleSetupJsVisible">{{ $t('app.docs.button.showSetupJs') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showSetupTs ? 'primary' : ''" :loading="setupTsLoading" icon="vxe-icon-code" @click="toggleSetupTsVisible">{{ $t('app.docs.button.showSetupTs') }}</vxe-button>
       </div>
-      <div v-show="showOptionJS" class="example-code-wrapper">
+      <div v-show="showOptionCdn" class="example-code-wrapper">
+        <vxe-collapse v-model="collapseList" padding border>
+          <vxe-collapse-pane v-for="(item, i) in importOptionCdnCodes" :key="item.path" :title="item.name" :name="item.path">
+            <template #title>
+              <vxe-tag status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${i + 1}`) }}</vxe-tag>
+              <span>{{ item.name }}</span>
+            </template>
+            <template #default>
+              <CodeRender :language="item.lang" :code="item.text" show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+          <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
+            <template #title>
+              <vxe-tag v-if="importOptionCdnCodes.length" status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${importOptionCdnCodes.length + 1}`) }}</vxe-tag>
+              <vxe-tag v-else status="primary" class="example-code-tag">{{ $t('app.docs.button.useTitle') }}</vxe-tag>
+              <span>{{ getFileName(`${path}.vue`) }}</span>
+            </template>
+            <template #default>
+              <CodeRender language="html" :code="optionCdnCodeText" show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+        </vxe-collapse>
+      </div>
+      <div v-show="showOptionJs" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importOptionJsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -75,7 +99,7 @@
           </vxe-collapse-pane>
         </vxe-collapse>
       </div>
-      <div v-show="showOptionTS" class="example-code-wrapper">
+      <div v-show="showOptionTs" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importOptionTsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -98,7 +122,30 @@
           </vxe-collapse-pane>
         </vxe-collapse>
       </div>
-      <div v-show="showSetupJS" class="example-code-wrapper">
+      <div v-show="showSetupCdn" class="example-code-wrapper">
+        <vxe-collapse v-model="collapseList" padding border>
+          <vxe-collapse-pane v-for="(item, i) in importSetupCdnCodes" :key="item.path" :title="item.name" :name="item.path">
+            <template #title>
+              <vxe-tag status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${i + 1}`) }}</vxe-tag>
+              <span>{{ item.name }}</span>
+            </template>
+            <template #default>
+              <CodeRender :language="item.lang" :code="item.text" show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+          <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
+            <template #title>
+              <vxe-tag v-if="importSetupCdnCodes.length" status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${importSetupCdnCodes.length + 1}`) }}</vxe-tag>
+              <vxe-tag v-else status="primary" class="example-code-tag">{{ $t('app.docs.button.useTitle') }}</vxe-tag>
+              <span>{{ getFileName(`${path}.vue`) }}</span>
+            </template>
+            <template #default>
+              <CodeRender language="html" :code="setupCdnCodeText" show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+        </vxe-collapse>
+      </div>
+      <div v-show="showSetupJs" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importSetupJsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -121,7 +168,7 @@
           </vxe-collapse-pane>
         </vxe-collapse>
       </div>
-      <div v-show="showSetupTS" class="example-code-wrapper">
+      <div v-show="showSetupTs" class="example-code-wrapper">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importSetupTsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -180,28 +227,37 @@ const siteBaseUrl = computed(() => appStore.siteBaseUrl)
 
 const showInstall = ref(false)
 const showPreview = ref(true)
+const showCdnExamples = ref(import.meta.env.VITE_APP_SHOW_CDN_EXAMPLES === 'true')
 const showFixDoc = ref(document.documentElement.clientWidth > 1200)
 const showOnLineRun = ref(import.meta.env.VITE_APP_IS_ONLINE_RUN === 'true' && document.documentElement.clientWidth > 1200)
 
+const optionCdnCodeText = ref('')
 const optionJsCodeText = ref('')
 const optionTsCodeText = ref('')
+const setupCdnCodeText = ref('')
 const setupJsCodeText = ref('')
 const setupTsCodeText = ref('')
 
-const showOptionJS = ref(false)
-const showOptionTS = ref(false)
-const showSetupJS = ref(false)
-const showSetupTS = ref(false)
+const showOptionCdn = ref(false)
+const showOptionJs = ref(false)
+const showOptionTs = ref(false)
+const showSetupCdn = ref(false)
+const showSetupJs = ref(false)
+const showSetupTs = ref(false)
 
+const optionCdnLoading = ref(false)
 const optionJsLoading = ref(false)
 const optionTsLoading = ref(false)
+const setupCdnLoading = ref(false)
 const setupJsLoading = ref(false)
 const setupTsLoading = ref(false)
 
 const collapseList = ref(['demo'])
 
+const importOptionCdnCodes = ref<ImportItemVO[]>([])
 const importOptionJsCodes = ref<ImportItemVO[]>([])
 const importOptionTsCodes = ref<ImportItemVO[]>([])
+const importSetupCdnCodes = ref<ImportItemVO[]>([])
 const importSetupJsCodes = ref<ImportItemVO[]>([])
 const importSetupTsCodes = ref<ImportItemVO[]>([])
 
@@ -268,6 +324,44 @@ const getExampleText = (url: string) => {
     })
   }
   return codeCacheMaps[url]
+}
+
+const loadOptionCdnCode = () => {
+  const compPath = props.path
+  if (compPath) {
+    optionCdnLoading.value = true
+    const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL.replace('4', '3')}`
+    Promise.all([
+      getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
+      ...(props.extraImports?.map(impPath => {
+        const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
+        return getExampleText(`${exampleBaeUrl}example/js/${filePath}.${fileType}`).then(text => {
+          return {
+            path: `${filePath}.${fileType}`,
+            name: getFileName(`${filePath}.${fileType}`),
+            lang: codeLang,
+            text,
+            isExpand: false
+          }
+        })
+      }) || [])
+    ]).then(([text1, ...impTexts]) => {
+      // 替换渲染器兼容方法
+      impTexts.forEach(impItem => {
+        if (impItem.name.indexOf('.renderer.') > -1) {
+          impItem.text = impItem.text.replace('(h, renderOpts, renderParams)', '(renderOpts, renderParams)')
+        }
+      })
+      optionCdnCodeText.value = text1 || i18n.global.t('app.docs.button.noExample')
+      importOptionCdnCodes.value = impTexts || i18n.global.t('app.docs.button.noExample')
+      optionCdnLoading.value = false
+    }).catch(() => {
+      optionCdnLoading.value = false
+    })
+  } else {
+    optionCdnLoading.value = false
+  }
+  return Promise.resolve()
 }
 
 const loadOptionJsCode = () => {
@@ -346,6 +440,38 @@ const loadOptionTsCode = () => {
   return Promise.resolve()
 }
 
+const loadSetupCdnCode = () => {
+  const compPath = props.path
+  if (compPath) {
+    setupCdnLoading.value = true
+    const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL}`
+    Promise.all([
+      getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
+      ...(props.extraImports?.map(impPath => {
+        const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
+        return getExampleText(`${exampleBaeUrl}example/js/${filePath}.${fileType}?v=${import.meta.env.VITE_APP_DATE_NOW}`).then(text => {
+          return {
+            path: `${filePath}.${fileType}`,
+            name: getFileName(`${filePath}.${fileType}`),
+            lang: codeLang,
+            text,
+            isExpand: false
+          }
+        })
+      }) || [])
+    ]).then(([text1, ...impTexts]) => {
+      setupCdnCodeText.value = text1 || i18n.global.t('app.docs.button.noExample')
+      importSetupCdnCodes.value = impTexts || i18n.global.t('app.docs.button.noExample')
+      setupCdnLoading.value = false
+    }).catch(() => {
+      setupCdnLoading.value = false
+    })
+  } else {
+    setupCdnLoading.value = false
+  }
+  return Promise.resolve()
+}
+
 const loadSetupJsCode = () => {
   const compPath = props.path
   if (compPath) {
@@ -410,46 +536,80 @@ const loadSetupTsCode = () => {
   return Promise.resolve()
 }
 
-const toggleOptionJsVisible = () => {
-  showOptionJS.value = !showOptionJS.value
-  showOptionTS.value = false
-  showSetupJS.value = false
-  showSetupTS.value = false
+const toggleOptionCdnVisible = () => {
+  showOptionCdn.value = !showOptionCdn.value
+  showOptionJs.value = false
+  showOptionTs.value = false
+  showSetupCdn.value = false
+  showSetupJs.value = false
+  showSetupTs.value = false
   collapseList.value = ['demo']
-  if (showOptionJS.value) {
+  if (showOptionCdn.value) {
+    loadOptionCdnCode()
+  }
+}
+
+const toggleOptionJsVisible = () => {
+  showOptionCdn.value = false
+  showOptionJs.value = !showOptionJs.value
+  showOptionTs.value = false
+  showSetupCdn.value = false
+  showSetupJs.value = false
+  showSetupTs.value = false
+  collapseList.value = ['demo']
+  if (showOptionJs.value) {
     loadOptionJsCode()
   }
 }
 
 const toggleOptionTsVisible = () => {
-  showOptionJS.value = false
-  showOptionTS.value = !showOptionTS.value
-  showSetupJS.value = false
-  showSetupTS.value = false
+  showOptionCdn.value = false
+  showOptionJs.value = false
+  showOptionTs.value = !showOptionTs.value
+  showSetupCdn.value = false
+  showSetupJs.value = false
+  showSetupTs.value = false
   collapseList.value = ['demo']
-  if (showOptionTS.value) {
+  if (showOptionTs.value) {
     loadOptionTsCode()
   }
 }
 
-const toggleSetupJsVisible = () => {
-  showOptionJS.value = false
-  showOptionTS.value = false
-  showSetupJS.value = !showSetupJS.value
-  showSetupTS.value = false
+const toggleSetupCdnVisible = () => {
+  showOptionCdn.value = false
+  showOptionJs.value = false
+  showOptionTs.value = false
+  showSetupCdn.value = !showSetupCdn.value
+  showSetupJs.value = false
+  showSetupTs.value = false
   collapseList.value = ['demo']
-  if (showSetupJS.value) {
+  if (showSetupCdn.value) {
+    loadSetupCdnCode()
+  }
+}
+
+const toggleSetupJsVisible = () => {
+  showOptionCdn.value = false
+  showOptionJs.value = false
+  showOptionTs.value = false
+  showSetupCdn.value = false
+  showSetupJs.value = !showSetupJs.value
+  showSetupTs.value = false
+  collapseList.value = ['demo']
+  if (showSetupJs.value) {
     loadSetupJsCode()
   }
 }
 
 const toggleSetupTsVisible = () => {
-  showOptionJS.value = false
-  showOptionTS.value = false
-  showSetupJS.value = false
-  showSetupTS.value = !showSetupTS.value
+  showOptionCdn.value = false
+  showOptionJs.value = false
+  showOptionTs.value = false
+  showSetupCdn.value = false
+  showSetupJs.value = false
+  showSetupTs.value = !showSetupTs.value
   collapseList.value = ['demo']
-  if (showSetupTS.value) {
+  if (showSetupTs.value) {
     loadSetupTsCode()
   }
 }
