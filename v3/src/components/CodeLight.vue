@@ -46,10 +46,34 @@
           <vxe-button class="example-btn" mode="text" status="error" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button v-if="showOnLineRun && !extraImports.length" mode="text" status="success" icon="vxe-icon-link" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showOptionJS ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJS') }}</vxe-button>
-        <vxe-button class="example-btn" mode="text" :status="showOptionTS ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTS') }}</vxe-button>
+        <vxe-button v-if="showCdnExamples && !extraImports.length" class="example-btn" mode="text" :status="showOptionCdn ? 'primary' : ''" :loading="optionCdnLoading" icon="vxe-icon-code" @click="toggleOptionCdnVisible">{{ $t('app.docs.button.showOptionCdn') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionJs ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJs') }}</vxe-button>
+        <vxe-button class="example-btn" mode="text" :status="showOptionTs ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTs') }}</vxe-button>
       </div>
-      <div class="example-code-wrapper" v-show="showOptionJS">
+      <div class="example-code-wrapper" v-show="showOptionCdn">
+        <vxe-collapse v-model="collapseList" padding border>
+          <vxe-collapse-pane v-for="(item, i) in importOptionCdnCodes" :key="item.path" :title="item.name" :name="item.path">
+            <template #title>
+              <vxe-tag status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${i + 1}`) }}</vxe-tag>
+              <span>{{ item.name }}</span>
+            </template>
+            <template #default>
+              <CodeRender :language="item.lang" :code="item.text" show-open-button show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+          <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
+            <template #title>
+              <vxe-tag v-if="importOptionCdnCodes.length" status="primary" class="example-code-tag">{{ $t(`app.docs.button.step${importOptionCdnCodes.length + 1}`) }}</vxe-tag>
+              <vxe-tag v-else status="primary" class="example-code-tag">{{ $t('app.docs.button.useTitle') }}</vxe-tag>
+              <span>{{ getFileName(`${path}.vue`) }}</span>
+            </template>
+            <template #default>
+              <CodeRender language="html" :code="optionCdnCodeText" show-open-button show-copy-button></CodeRender>
+            </template>
+          </vxe-collapse-pane>
+        </vxe-collapse>
+      </div>
+      <div class="example-code-wrapper" v-show="showOptionJs">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importOptionJsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -72,7 +96,7 @@
           </vxe-collapse-pane>
         </vxe-collapse>
       </div>
-      <div class="example-code-wrapper" v-show="showOptionTS">
+      <div class="example-code-wrapper" v-show="showOptionTs">
         <vxe-collapse v-model="collapseList" padding border>
           <vxe-collapse-pane v-for="(item, i) in importOptionTsCodes" :key="item.path" :title="item.name" :name="item.path">
             <template #title>
@@ -101,7 +125,9 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+import { mapState } from 'vuex'
 import { codeCacheMaps } from '@/common/cache'
+import { getCdn3HtmlTemplate } from '@/common/tmpl'
 import AsyncDemo from './AsyncDemo.vue'
 
 interface ImportItemVO {
@@ -128,20 +154,28 @@ export default Vue.extend({
     return {
       showInstall: false,
       showPreview: true,
+      showCdnExamples: process.env.VUE_APP_SHOW_CDN_EXAMPLES === 'true',
       showFixDoc: document.documentElement.clientWidth > 1200,
       showOnLineRun: process.env.VUE_APP_IS_ONLINE_RUN === 'true' && document.documentElement.clientWidth > 1200,
+      optionCdnCodeText: '',
       optionJsCodeText: '',
       optionTsCodeText: '',
-      showOptionJS: false,
-      showOptionTS: false,
+      showOptionCdn: false,
+      showOptionJs: false,
+      showOptionTs: false,
+      optionCdnLoading: false,
       optionJsLoading: false,
       optionTsLoading: false,
       collapseList: ['demo'],
+      importOptionCdnCodes: [] as ImportItemVO[],
       importOptionTsCodes: [] as ImportItemVO[],
       importOptionJsCodes: [] as ImportItemVO[]
     }
   },
   computed: {
+    ...mapState([
+      'docsVersion'
+    ]),
     isPluginDocs () {
       return this.$store.state.isPluginDocs as string
     },
@@ -210,6 +244,38 @@ export default Vue.extend({
       }
       return codeCacheMaps[url]
     },
+    loadOptionCdnCode (this: any) {
+      const compPath = this.path
+      if (compPath) {
+        this.optionCdnLoading = true
+        const exampleBaeUrl = `${this.siteBaseUrl}${process.env.BASE_URL}`
+        Promise.all([
+          this.getExampleText(`${this.resBaseUrl}/resource/useCdn/vxe-examples-v${this.docsVersion}.txt`),
+          this.getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
+          ...(this.extraImports?.map(impPath => {
+            const { filePath, fileType, codeLang } = this.parseJsFilePath(impPath)
+            return this.getExampleText(`${exampleBaeUrl}example/js/${filePath}.${fileType}`).then(text => {
+              return {
+                path: `${filePath}.${fileType}`,
+                name: this.getFileName(`${filePath}.${fileType}`),
+                lang: codeLang,
+                text,
+                isExpand: false
+              }
+            })
+          }) || [])
+        ]).then(([tmpl, text1, ...impTexts]) => {
+          this.optionCdnCodeText = getCdn3HtmlTemplate(tmpl, text1) || this.$t('app.docs.button.noExample')
+          this.importOptionCdnCodes = []// impTexts || this.$t('app.docs.button.noExample')
+          this.optionCdnLoading = false
+        }).catch(() => {
+          this.optionCdnLoading = false
+        })
+      } else {
+        this.optionCdnLoading = false
+      }
+      return Promise.resolve()
+    },
     loadOptionJsCode (this: any) {
       const compPath = this.path
       if (compPath) {
@@ -272,19 +338,30 @@ export default Vue.extend({
       }
       return Promise.resolve()
     },
-    toggleOptionJsVisible  (this: any) {
-      this.showOptionTS = false
-      this.showOptionJS = !this.showOptionJS
+    toggleOptionCdnVisible (this: any) {
+      this.showOptionCdn = !this.showOptionCdn
+      this.showOptionTs = false
+      this.showOptionJs = false
       this.collapseList = ['demo']
-      if (this.showOptionJS) {
+      if (this.showOptionCdn) {
+        this.loadOptionCdnCode()
+      }
+    },
+    toggleOptionJsVisible  (this: any) {
+      this.showOptionCdn = false
+      this.showOptionTs = false
+      this.showOptionJs = !this.showOptionJs
+      this.collapseList = ['demo']
+      if (this.showOptionJs) {
         this.loadOptionJsCode()
       }
     },
     toggleOptionTsVisible  (this: any) {
-      this.showOptionJS = false
-      this.showOptionTS = !this.showOptionTS
+      this.showOptionCdn = false
+      this.showOptionJs = false
+      this.showOptionTs = !this.showOptionTs
       this.collapseList = ['demo']
-      if (this.showOptionTS) {
+      if (this.showOptionTs) {
         this.loadOptionTsCode()
       }
     },

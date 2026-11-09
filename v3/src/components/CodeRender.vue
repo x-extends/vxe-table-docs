@@ -1,7 +1,10 @@
 <template>
   <pre class="code-render">
     <code ref="codeRef" :class="['hljs', language]"></code>
-    <vxe-button v-if="showCopyButton" class="copy-btn" icon="vxe-icon-copy" @click.stop="copyCode" :title="$t('app.docs.button.copyCode')" circle></vxe-button>
+    <div class="oper-btns">
+      <vxe-button v-if="showOpenButton" class="open-btn" icon="vxe-icon-send-fill" :title="$t('app.docs.button.openCode')" @click.stop="openCode">{{ $t('app.docs.button.openCode') }}</vxe-button>
+      <vxe-button v-if="showCopyButton" class="copy-btn" icon="vxe-icon-copy" :title="$t('app.docs.button.copyCode')" circle @click.stop="copyCode"></vxe-button>
+    </div>
   </pre>
 </template>
 
@@ -15,8 +18,12 @@ export default Vue.extend({
       type: String as PropType<'' | 'html' | 'javascript'>,
       default: ''
     },
-    code: String,
-    showCopyButton: Boolean
+    code: {
+      type: String,
+      default: ''
+    },
+    showCopyButton: Boolean,
+    showOpenButton: Boolean
   },
   methods: {
     handleHigh  () {
@@ -32,6 +39,13 @@ export default Vue.extend({
         if (VxeUI.clipboard.copy(this.code)) {
           VxeUI.modal.message({ content: '已复制到剪贴板！', status: 'success' })
         }
+      }
+    },
+    openCode () {
+      if (this.code) {
+        const blob = new Blob([this.code], { type: 'text/html' })
+        const url = URL.createObjectURL(blob)
+        window.open(url, '_blank')
       }
     }
   },
@@ -50,7 +64,8 @@ export default Vue.extend({
 .code-render {
   position: relative;
 }
-.copy-btn {
+.oper-btns {
+  display: inline-flex;
   position: absolute;
   top: 0.5em;
   right: 0.5em;
