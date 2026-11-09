@@ -6,6 +6,7 @@
 
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
+        <vxe-button status="primary" mode="text" @click="setNameField(row)">修改name</vxe-button>
         <vxe-button status="primary" mode="text" @click="setOtherField(row)">修改nickname</vxe-button>
         <vxe-button v-if="hasUpdateStatus(row)" status="success" mode="text" :loading="row.loading" @click="saveRowEvent(row)">局部保存</vxe-button>
       </template>
@@ -67,7 +68,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
     { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
     { field: 'date', title: 'Date', editRender: { name: 'VxeDatePicker' } },
-    { field: 'action', title: '操作', width: 220, slots: { default: 'action' } }
+    { field: 'action', title: '操作', width: 300, slots: { default: 'action' } }
   ],
   data: [
     { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '', loading: false },
@@ -76,6 +77,10 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', nickname: 'T4', role: 'Designer', sex: '1', sex2: ['1'], num1: 30, age: 23, address: 'Shenzhen', date12: '', date13: '2020-12-04', loading: false }
   ]
 })
+
+const setNameField = (row: RowVO) => {
+  row.name = 'xxx' + Date.now()
+}
 
 const setOtherField = (row: RowVO) => {
   row.nickname = 'xxx' + Date.now()

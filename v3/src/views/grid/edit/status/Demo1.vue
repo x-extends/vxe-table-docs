@@ -6,6 +6,7 @@
 
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #action="{ row }">
+        <vxe-button status="primary" mode="text" @click="setNameField(row)">修改name</vxe-button>
         <vxe-button status="primary" mode="text" @click="setOtherField(row)">修改nickname（无效）</vxe-button>
         <vxe-button v-if="hasUpdateStatus(row)" status="success" mode="text" @click="saveRowEvent(row)" :loading="row.loading">局部保存</vxe-button>
       </template>
@@ -64,7 +65,7 @@ export default Vue.extend({
         { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
         { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } },
         { field: 'date', title: 'Date', editRender: { name: 'VxeDatePicker' } },
-        { field: 'action', title: '操作', width: 280, slots: { default: 'action' } }
+        { field: 'action', title: '操作', width: 340, slots: { default: 'action' } }
       ],
       data: [
         { id: 10001, name: 'Test1', nickname: 'T1', role: 'Develop', sex: '0', sex2: ['0'], num1: 40, age: 28, address: 'Shenzhen', date12: '', date13: '', loading: false },
@@ -80,6 +81,9 @@ export default Vue.extend({
     }
   },
   methods: {
+    setNameField (row: RowVO) {
+      row.name = 'xxx' + Date.now()
+    },
     setOtherField (row: RowVO) {
       row.nickname = 'xxx' + Date.now()
     },
