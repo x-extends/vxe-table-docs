@@ -1,7 +1,10 @@
 <template>
   <pre class="code-render">
     <code ref="codeRef" :class="['hljs', language]"></code>
-    <vxe-button v-if="showCopyButton" class="copy-btn" icon="vxe-icon-copy" :title="$t('app.docs.button.copyCode')" circle @click.stop="copyCode"></vxe-button>
+    <div class="oper-btns">
+      <vxe-button v-if="showOpenButton" class="open-btn" icon="vxe-icon-send-fill" :title="$t('app.docs.button.openCode')" @click.stop="openCode">{{ $t('app.docs.button.openCode') }}</vxe-button>
+      <vxe-button v-if="showCopyButton" class="copy-btn" icon="vxe-icon-copy" :title="$t('app.docs.button.copyCode')" circle @click.stop="copyCode"></vxe-button>
+    </div>
   </pre>
 </template>
 
@@ -14,8 +17,12 @@ const props = defineProps({
     type: String as PropType<'' | 'html' | 'javascript'>,
     default: ''
   },
-  code: String,
-  showCopyButton: Boolean
+  code: {
+    type: String,
+    default: ''
+  },
+  showCopyButton: Boolean,
+  showOpenButton: Boolean
 })
 
 const codeRef = ref<HTMLElement>()
@@ -37,6 +44,14 @@ const copyCode = () => {
   }
 }
 
+const openCode = () => {
+  if (props.code) {
+    const blob = new Blob([props.code], { type: 'text/html' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank')
+  }
+}
+
 watch(() => props.code, () => {
   handleHigh()
 })
@@ -48,7 +63,8 @@ handleHigh()
 .code-render {
   position: relative;
 }
-.copy-btn {
+.oper-btns {
+  display: inline-flex;
   position: absolute;
   top: 0.5em;
   right: 0.5em;
