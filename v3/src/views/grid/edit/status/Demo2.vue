@@ -84,7 +84,7 @@ export default Vue.extend({
   },
   methods: {
     setNameField (row: RowVO) {
-      row.name = 'xxx' + Date.now()
+      row.name = 'Name' + Date.now()
     },
     setOtherField (row: RowVO) {
       row.nickname = 'xxx' + Date.now()

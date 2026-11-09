@@ -79,7 +79,7 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
 })
 
 const setNameField = (row: RowVO) => {
-  row.name = 'xxx' + Date.now()
+  row.name = 'Name' + Date.now()
 }
 
 const setOtherField = (row: RowVO) => {
