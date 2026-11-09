@@ -49,7 +49,7 @@
         <vxe-button v-if="showCdnExamples && !extraImports.length" class="example-btn" mode="text" :status="showOptionCdn ? 'primary' : ''" :loading="optionCdnLoading" icon="vxe-icon-code" @click="toggleOptionCdnVisible">{{ $t('app.docs.button.showOptionCdn') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionJs ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJs') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionTs ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTs') }}</vxe-button>
-        <vxe-button v-if="showCdnExamples && !extraImports.length" class="example-btn" mode="text" :status="showSetupCdn ? 'primary' : ''" :loading="setupCdnLoading" icon="vxe-icon-code" @click="toggleSetupCdnVisible">{{ $t('app.docs.button.showSetupCdn') }}</vxe-button>
+        <!-- <vxe-button v-if="showCdnExamples && !extraImports.length" class="example-btn" mode="text" :status="showSetupCdn ? 'primary' : ''" :loading="setupCdnLoading" icon="vxe-icon-code" @click="toggleSetupCdnVisible">{{ $t('app.docs.button.showSetupCdn') }}</vxe-button> -->
         <vxe-button class="example-btn" mode="text" :status="showSetupJs ? 'primary' : ''" :loading="setupJsLoading" icon="vxe-icon-code" @click="toggleSetupJsVisible">{{ $t('app.docs.button.showSetupJs') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showSetupTs ? 'primary' : ''" :loading="setupTsLoading" icon="vxe-icon-code" @click="toggleSetupTsVisible">{{ $t('app.docs.button.showSetupTs') }}</vxe-button>
       </div>
@@ -197,6 +197,7 @@
 
 <script lang="tsx" setup>
 import { ref, computed, defineAsyncComponent, PropType } from 'vue'
+import { getCdn3HtmlTemplate, getCdn4HtmlTemplate } from '@/common/tmpl'
 import { demoModules } from '@/common/modules'
 import { codeCacheMaps } from '@/common/cache'
 import { useAppStore } from '@/store/app'
@@ -332,6 +333,7 @@ const loadOptionCdnCode = () => {
     optionCdnLoading.value = true
     const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL.replace('4', '3')}`
     Promise.all([
+      getExampleText(`${resBaseUrl.value}/resource/useCdn/vxe-examples-v3.txt`),
       getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
       ...(props.extraImports?.map(impPath => {
         const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
@@ -345,15 +347,15 @@ const loadOptionCdnCode = () => {
           }
         })
       }) || [])
-    ]).then(([text1, ...impTexts]) => {
+    ]).then(([tmpl, text1, ...impTexts]) => {
       // 替换渲染器兼容方法
       impTexts.forEach(impItem => {
         if (impItem.name.indexOf('.renderer.') > -1) {
           impItem.text = impItem.text.replace('(h, renderOpts, renderParams)', '(renderOpts, renderParams)')
         }
       })
-      optionCdnCodeText.value = text1 || i18n.global.t('app.docs.button.noExample')
-      importOptionCdnCodes.value = impTexts || i18n.global.t('app.docs.button.noExample')
+      optionCdnCodeText.value = getCdn3HtmlTemplate(tmpl, text1) || i18n.global.t('app.docs.button.noExample')
+      importOptionCdnCodes.value = [] // impTexts || i18n.global.t('app.docs.button.noExample')
       optionCdnLoading.value = false
     }).catch(() => {
       optionCdnLoading.value = false
@@ -460,8 +462,8 @@ const loadSetupCdnCode = () => {
         })
       }) || [])
     ]).then(([text1, ...impTexts]) => {
-      setupCdnCodeText.value = text1 || i18n.global.t('app.docs.button.noExample')
-      importSetupCdnCodes.value = impTexts || i18n.global.t('app.docs.button.noExample')
+      setupCdnCodeText.value = getCdn4HtmlTemplate(text1) || i18n.global.t('app.docs.button.noExample')
+      importSetupCdnCodes.value = []// impTexts || i18n.global.t('app.docs.button.noExample')
       setupCdnLoading.value = false
     }).catch(() => {
       setupCdnLoading.value = false

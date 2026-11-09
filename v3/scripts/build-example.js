@@ -30,6 +30,7 @@ function transformVue (source) {
   if (lang === 'ts' || lang === 'tsx') {
     script = compileTs(script, lang)
     script = script
+      .replace("import Vue from 'vue';\n", '')
       .replace(/export\s+default\s+Vue\.extend\s*\(\s*/, 'export default ')
       .replace(/\)\s*;?\s*$/, '')
   }
