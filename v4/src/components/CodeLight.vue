@@ -197,7 +197,7 @@
 
 <script lang="tsx" setup>
 import { ref, computed, defineAsyncComponent, PropType } from 'vue'
-import { getCdn3HtmlTemplate, getCdn4HtmlTemplate } from '@/common/tmpl'
+import { getCdnHtmlTemplate } from '@/common/tmpl'
 import { demoModules } from '@/common/modules'
 import { codeCacheMaps } from '@/common/cache'
 import { useAppStore } from '@/store/app'
@@ -355,7 +355,7 @@ const loadOptionCdnCode = () => {
           impItem.text = impItem.text.replace('(h, renderOpts, renderParams)', '(renderOpts, renderParams)')
         }
       })
-      optionCdnCodeText.value = getCdn3HtmlTemplate(tmpl, text1) || i18n.global.t('app.docs.button.noExample')
+      optionCdnCodeText.value = getCdnHtmlTemplate(tmpl, text1) || i18n.global.t('app.docs.button.noExample')
       importOptionCdnCodes.value = [] // impTexts || i18n.global.t('app.docs.button.noExample')
       optionCdnLoading.value = false
     }).catch(() => {
@@ -449,6 +449,7 @@ const loadSetupCdnCode = () => {
     setupCdnLoading.value = true
     const exampleBaeUrl = `${siteBaseUrl.value}${import.meta.env.BASE_URL}`
     Promise.all([
+      getExampleText(`${resBaseUrl.value}/resource/useCdn/vxe-examples-v${docsVersion.value}.txt`),
       getExampleText(`${exampleBaeUrl}example/js/${compPath}.vue`),
       ...(props.extraImports?.map(impPath => {
         const { filePath, fileType, codeLang } = parseJsFilePath(impPath)
@@ -462,8 +463,8 @@ const loadSetupCdnCode = () => {
           }
         })
       }) || [])
-    ]).then(([text1, ...impTexts]) => {
-      setupCdnCodeText.value = getCdn4HtmlTemplate(text1) || i18n.global.t('app.docs.button.noExample')
+    ]).then(([tmpl, text1, ...impTexts]) => {
+      setupCdnCodeText.value = getCdnHtmlTemplate(tmpl, text1) || i18n.global.t('app.docs.button.noExample')
       importSetupCdnCodes.value = []// impTexts || i18n.global.t('app.docs.button.noExample')
       setupCdnLoading.value = false
     }).catch(() => {

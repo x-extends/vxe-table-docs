@@ -127,7 +127,7 @@
 import Vue, { PropType } from 'vue'
 import { mapState } from 'vuex'
 import { codeCacheMaps } from '@/common/cache'
-import { getCdn3HtmlTemplate } from '@/common/tmpl'
+import { getCdnHtmlTemplate } from '@/common/tmpl'
 import AsyncDemo from './AsyncDemo.vue'
 
 interface ImportItemVO {
@@ -265,7 +265,7 @@ export default Vue.extend({
             })
           }) || [])
         ]).then(([tmpl, text1, ...impTexts]) => {
-          this.optionCdnCodeText = getCdn3HtmlTemplate(tmpl, text1) || this.$t('app.docs.button.noExample')
+          this.optionCdnCodeText = getCdnHtmlTemplate(tmpl, text1) || this.$t('app.docs.button.noExample')
           this.importOptionCdnCodes = []// impTexts || this.$t('app.docs.button.noExample')
           this.optionCdnLoading = false
         }).catch(() => {
