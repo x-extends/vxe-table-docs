@@ -135,14 +135,13 @@ export function parseVueWithDOMParser (source: string) {
 
   return {
     template: extractRawTemplate(raw),
-    script: toScriptObj(normalScriptEl),
+    script: toScriptObj(setupScriptEl || normalScriptEl),
     style: {
       code: firstStyleEl ? firstStyleEl.textContent || '' : '',
       content: firstStyleEl ? firstStyleEl.outerHTML : ''
     },
     styles: styleEls.map(toStyleObj),
 
-    scriptSetup: setupScriptEl ? toScriptObj(setupScriptEl) : null,
     customBlocks,
     raw
   }
