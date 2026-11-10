@@ -42,3 +42,12 @@ app.config.globalProperties.$t = i18n.global.t
 app.config.globalProperties.$i18n = i18n.global
 
 app.mount('#app')
+
+function loadScssLoader () {
+  const script = document.createElement('script')
+  script.type = 'module'
+  script.src = `${import.meta.env.VITE_APP_CDN_URL}module/scss.js`
+  document.head.appendChild(script)
+}
+
+loadScssLoader()

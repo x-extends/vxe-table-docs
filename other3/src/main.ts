@@ -31,3 +31,12 @@ new Vue({
   i18n,
   render: h => h(App)
 }).$mount('#app')
+
+function loadScssLoader () {
+  const script = document.createElement('script')
+  script.type = 'module'
+  script.src = `${process.env.VUE_APP_CDN_URL}module/scss.js`
+  document.head.appendChild(script)
+}
+
+loadScssLoader()

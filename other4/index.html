@@ -21,10 +21,5 @@
     <script type="text/javascript" src="<%= VITE_APP_CDN_URL %>moment@2.27.0/moment.js"></script>
     <script type="text/javascript" src="<%= VITE_APP_CDN_URL %>sortablejs@1.10.2/Sortable.min.js"></script>
     <script type="text/javascript" src="<%= VITE_APP_CDN_URL %>highlightjs@11.11.1/highlight.min.js"></script>
-    
-    <script type="module">
-      const sass = await import('https://jspm.dev/sass')
-      window.compileScss = (code) => sass.compileString(code).css;
-    </script>
   </body>
 </html>

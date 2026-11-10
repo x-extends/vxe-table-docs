@@ -159,3 +159,12 @@ fetch(`${process.env.VUE_APP_RES_URL}/i18n/${i18n.locale}.json?v=${process.env.V
       render: h => h(App)
     }).$mount('#app')
   })
+
+function loadScssLoader () {
+  const script = document.createElement('script')
+  script.type = 'module'
+  script.src = `${process.env.VUE_APP_CDN_URL}module/scss.js`
+  document.head.appendChild(script)
+}
+
+loadScssLoader()

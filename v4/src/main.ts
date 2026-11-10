@@ -160,3 +160,12 @@ fetch(`${import.meta.env.VITE_APP_RES_URL}/i18n/${i18n.global.locale}.json?v=${i
   }).catch(e => e).then(() => {
     app.mount('#app')
   })
+
+function loadScssLoader () {
+  const script = document.createElement('script')
+  script.type = 'module'
+  script.src = `${import.meta.env.VITE_APP_CDN_URL}module/scss.js`
+  document.head.appendChild(script)
+}
+
+loadScssLoader()
