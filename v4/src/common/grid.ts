@@ -1482,6 +1482,8 @@ export const gridNavConfig: NavVO = {
         { i18nKey: 'app.aside.menu.tableMergeRowsAndColumns', routerLink: { name: 'ComponentGridScrollMerge' } },
         // 合并与复杂功能
         { i18nKey: 'app.aside.menu.tableMergeAndComplexFeatures', routerLink: { name: 'ComponentGridScrollMergeFixed' } },
+        // 大量单元格合并
+        { i18nKey: 'app.aside.menu.tableMergeBig', routerLink: { name: 'ComponentGridScrollMergeBig' } },
         // 树形 + 纵向
         { i18nKey: 'app.aside.menu.tableTreeVertical', routerLink: { name: 'ComponentGridScrollTree' } },
         // 树形 + 纵向和横向

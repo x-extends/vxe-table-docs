@@ -2547,6 +2547,7 @@ export const gridRouteConfig: RouteRecordConfig = {
           name: 'ComponentGridScrollMergeFixed',
           component: () => import('@/views/grid/scroll/mergeFixed/CodeExample.vue')
         },
+        { path: 'mergeBig', name: 'ComponentGridScrollMergeBig', component: () => import('@/views/grid/scroll/mergeBig/CodeExample.vue') },
         {
           path: 'tree',
           name: 'ComponentGridScrollTree',

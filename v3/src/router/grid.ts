@@ -254,7 +254,8 @@ export const gridRouteConfig: RouteRecordConfig = {
       component: RouteLayout,
       children: [
         { path: 'mode', name: 'ComponentGridCellTipMode', component: () => import('@/views/grid/cellTip/mode/CodeExample.vue') },
-        { path: 'showAll', name: 'ComponentGridCellTipShowAll', component: () => import('@/views/grid/cellTip/showAll/CodeExample.vue') }
+        { path: 'showAll', name: 'ComponentGridCellTipShowAll', component: () => import('@/views/grid/cellTip/showAll/CodeExample.vue') },
+        { path: 'wh', name: 'ComponentGridCellTipWh', component: () => import('@/views/grid/cellTip/wh/CodeExample.vue') }
       ]
     },
     {
@@ -948,7 +949,8 @@ export const gridRouteConfig: RouteRecordConfig = {
           component: () => import('@/views/grid/merge/horizontal/CodeExample.vue')
         },
         { path: 'sort', name: 'ComponentGridMergeSort', component: () => import('@/views/grid/merge/sort/CodeExample.vue') },
-        { path: 'filter', name: 'ComponentGridMergeFilter', component: () => import('@/views/grid/merge/filter/CodeExample.vue') }
+        { path: 'filter', name: 'ComponentGridMergeFilter', component: () => import('@/views/grid/merge/filter/CodeExample.vue') },
+        { path: 'vnGroup', name: 'ComponentGridMergeVnGroup', component: () => import('@/views/grid/merge/vnGroup/CodeExample.vue') }
       ]
     },
     {
@@ -2488,7 +2490,6 @@ export const gridRouteConfig: RouteRecordConfig = {
         },
         { path: 'fixed', name: 'ComponentGridScrollFixed', component: () => import('@/views/grid/scroll/fixed/CodeExample.vue') },
         { path: 'select', name: 'ComponentGridScrollSelect', component: () => import('@/views/grid/scroll/select/CodeExample.vue') },
-
         {
           path: 'mode',
           name: 'ComponentGridScrollMode',
@@ -2546,6 +2547,7 @@ export const gridRouteConfig: RouteRecordConfig = {
           name: 'ComponentGridScrollMergeFixed',
           component: () => import('@/views/grid/scroll/mergeFixed/CodeExample.vue')
         },
+        { path: 'mergeBig', name: 'ComponentGridScrollMergeBig', component: () => import('@/views/grid/scroll/mergeBig/CodeExample.vue') },
         {
           path: 'tree',
           name: 'ComponentGridScrollTree',
