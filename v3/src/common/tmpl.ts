@@ -185,10 +185,6 @@ function getScriptUrl (srcCode: string): ScriptUrlResult {
     (stmt, pkg) => resolve(pkg) ? '' : stmt
   )
 
-  if (unresolved.length) {
-    console.warn('[getScriptUrl] 未映射的 import：', unresolved)
-  }
-
   return { scriptCode, scriptUrls, unresolved }
 }
 

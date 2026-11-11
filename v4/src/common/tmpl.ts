@@ -185,10 +185,6 @@ function getScriptUrl (srcCode: string): ScriptUrlResult {
     (stmt, pkg) => resolve(pkg) ? '' : stmt
   )
 
-  if (unresolved.length) {
-    console.warn('[getScriptUrl] 未映射的 import：', unresolved)
-  }
-
   return { scriptCode, scriptUrls, unresolved }
 }
 
@@ -248,6 +244,7 @@ export function getCdnHtmlTemplate (tmpl: string, code: string) {
   const fileRest = parseVueWithDOMParser(code)
   const { template, script, styles } = fileRest
   const { scriptCode, scriptUrls } = getScriptUrl(script.code)
+  debugger
   return XEUtils.toFormatString(tmpl, {
     scriptUrl: scriptUrls.join('\n'),
     styleLink: '',

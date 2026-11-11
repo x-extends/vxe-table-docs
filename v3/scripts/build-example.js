@@ -27,17 +27,26 @@ function transformVue (source) {
   let script = scriptBlock ? scriptBlock.content : ''
   const lang = scriptBlock ? scriptBlock.lang : null
 
+  // 输出 script 标签的 lang：ts -> 普通 js（无 lang），tsx -> jsx
+  let outLang = null
+
   if (lang === 'ts' || lang === 'tsx') {
     script = compileTs(script, lang)
     script = script
       .replace("import Vue from 'vue';\n", '')
       .replace(/export\s+default\s+Vue\.extend\s*\(\s*/, 'export default ')
       .replace(/\)\s*;?\s*$/, '')
+
+    if (lang === 'tsx') {
+      outLang = 'jsx'
+    }
   }
+
+  const langAttr = outLang ? ` lang="${outLang}"` : ''
 
   return source.replace(
     /<script[^>]*>[\s\S]*?<\/script>/,
-    '<script>\n' + script + '\n</script>'
+    `<script${langAttr}>\n` + script + '\n</script>'
   )
 }
 
