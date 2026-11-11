@@ -243,13 +243,15 @@ function transformImport (code: string) {
 export function getCdnHtmlTemplate (tmpl: string, code: string) {
   const fileRest = parseVueWithDOMParser(code)
   const { template, script, styles } = fileRest
-  const { scriptCode, scriptUrls } = getScriptUrl(script.code)
-  debugger
-  return XEUtils.toFormatString(tmpl, {
-    scriptUrl: scriptUrls.join('\n'),
-    styleLink: '',
-    templateCode: getTemplate(template.code),
-    scriptCode: getScript(transformImport(scriptCode)),
-    styleCode: getStyle(styles)
-  })
+  if (script.lang === 'js') {
+    const { scriptCode, scriptUrls } = getScriptUrl(script.code)
+    return XEUtils.toFormatString(tmpl, {
+      scriptUrl: scriptUrls.join('\n'),
+      styleLink: '',
+      templateCode: getTemplate(template.code),
+      scriptCode: getScript(transformImport(scriptCode)),
+      styleCode: getStyle(styles)
+    })
+  }
+  return ''
 }
