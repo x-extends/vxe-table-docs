@@ -1,17 +1,12 @@
 <template>
   <div>
-    编辑模式：<vxe-radio-group v-model="editConfig.mode">
-      <vxe-radio-button checked-value="cell" content="cell"></vxe-radio-button>
-      <vxe-radio-button checked-value="row" content="row"></vxe-radio-button>
-    </vxe-radio-group>
-
-    <vxe-grid ref="gridRef" v-bind="gridOptions" v-on="gridEvents"></vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-import type { VxeGridProps, VxeGridListeners, VxeGridInstance, VxeTablePropTypes } from 'vxe-table'
+import { reactive } from 'vue'
+import type { VxeGridProps } from 'vxe-table'
 import { VxeUI } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -23,12 +18,15 @@ interface RowVO {
   address: string
 }
 
-const gridRef = ref<VxeGridInstance<RowVO>>()
-
-const editConfig = reactive<VxeTablePropTypes.EditConfig<RowVO>>({
-  trigger: 'manual',
-  mode: 'cell'
-})
+// 模拟后端异步
+function validRow (row: RowVO) {
+  return new Promise<boolean>(resolve => {
+    setTimeout(() => {
+      const status = row.name !== 'Test2'
+      resolve(status)
+    }, 300)
+  })
+}
 
 const gridOptions = reactive<VxeGridProps<RowVO>>({
   border: true,
@@ -37,7 +35,23 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   rowConfig: {
     keyField: 'id'
   },
-  editConfig,
+  editConfig: {
+    trigger: 'click',
+    mode: 'cell',
+    async beforeEditAsyncMethod (params) {
+      const { row } = params
+      gridOptions.loading = true
+      const status = await validRow(row)
+      gridOptions.loading = false
+      if (!status) {
+        VxeUI.modal.message({
+          content: '不允许编辑',
+          status: 'error'
+        })
+      }
+      return status
+    }
+  },
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
@@ -51,36 +65,4 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     { id: 10004, name: 'Test4', role: 'Designer', sex: 'Women', age: 24, address: 'Shanghai' }
   ]
 })
-
-const gridEvents: VxeGridListeners = {
-  cellClick ({ row, column }) {
-    const $grid = gridRef.value
-    if ($grid) {
-      const editInfo = $grid.getEditCell()
-      // 如果是已经是编辑状态
-      if (editConfig.mode === 'cell') {
-        if (editInfo && editInfo.row === row && editInfo.column.field === column.field) {
-          return
-        }
-      } else {
-        if (editInfo && editInfo.row === row) {
-          return
-        }
-      }
-      // 模拟异步判断
-      gridOptions.loading = true
-      setTimeout(() => {
-        gridOptions.loading = false
-        if (row.name === 'Test2' && column.field === 'sex') {
-          VxeUI.modal.message({
-            content: '不允许编辑',
-            status: 'error'
-          })
-          return
-        }
-        $grid.setEditCell(row, column)
-      }, 300)
-    }
-  }
-}
 </script>

@@ -1,17 +1,12 @@
 <template>
   <div>
-    编辑模式：<vxe-radio-group v-model="editConfig.mode">
-      <vxe-radio-button checked-value="cell" content="cell"></vxe-radio-button>
-      <vxe-radio-button checked-value="row" content="row"></vxe-radio-button>
-    </vxe-radio-group>
-
-    <vxe-grid ref="gridRef" v-bind="gridOptions" @cell-click="cellClickEvent"></vxe-grid>
+    <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridInstance, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps } from 'vxe-table'
 import { VxeUI } from 'vxe-pc-ui'
 
 interface RowVO {
@@ -23,13 +18,18 @@ interface RowVO {
   address: string
 }
 
+// 模拟后端异步
+function validRow (row: RowVO) {
+  return new Promise<boolean>(resolve => {
+    setTimeout(() => {
+      const status = row.name !== 'Test2'
+      resolve(status)
+    }, 300)
+  })
+}
+
 export default Vue.extend({
   data () {
-    const editConfig: VxeTablePropTypes.EditConfig<RowVO> = {
-      trigger: 'manual',
-      mode: 'cell'
-    }
-
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
@@ -37,7 +37,23 @@ export default Vue.extend({
       rowConfig: {
         keyField: 'id'
       },
-      editConfig,
+      editConfig: {
+        trigger: 'click',
+        mode: 'cell',
+        async beforeEditAsyncMethod (params) {
+          const { row } = params
+          gridOptions.loading = true
+          const status = await validRow(row)
+          gridOptions.loading = false
+          if (!status) {
+            VxeUI.modal.message({
+              content: '不允许编辑',
+              status: 'error'
+            })
+          }
+          return status
+        }
+      },
       columns: [
         { type: 'seq', width: 70 },
         { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
@@ -53,39 +69,7 @@ export default Vue.extend({
     }
 
     return {
-      gridOptions,
-      editConfig
-    }
-  },
-  methods: {
-    cellClickEvent ({ row, column }) {
-      const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
-      if ($grid) {
-        const editInfo = $grid.getEditCell()
-        // 如果是已经是编辑状态
-        if (this.editConfig.mode === 'cell') {
-          if (editInfo && editInfo.row === row && editInfo.column.field === column.field) {
-            return
-          }
-        } else {
-          if (editInfo && editInfo.row === row) {
-            return
-          }
-        }
-        // 模拟异步判断
-        this.gridOptions.loading = true
-        setTimeout(() => {
-          this.gridOptions.loading = false
-          if (row.name === 'Test2') {
-            VxeUI.modal.message({
-              content: '不允许编辑',
-              status: 'error'
-            })
-            return
-          }
-          $grid.setEditCell(row, column)
-        }, 300)
-      }
+      gridOptions
     }
   }
 })

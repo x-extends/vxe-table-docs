@@ -1,20 +1,18 @@
 <template>
   <div>
-    <vxe-grid ref="gridRef" v-bind="gridOptions" @cell-click="cellClickEvent">
-      <template #name_edit="{ row, column }">
-        <vxe-input v-model="row[column.field]" :disabled="disabledName"></vxe-input>
-      </template>
+    编辑模式：<vxe-radio-group v-model="editConfig.mode">
+      <vxe-radio-button checked-value="cell" content="cell"></vxe-radio-button>
+      <vxe-radio-button checked-value="row" content="row"></vxe-radio-button>
+    </vxe-radio-group>
 
-      <template #sex_edit="{ row, column }">
-        <vxe-input v-model="row[column.field]" :disabled="disabledName"></vxe-input>
-      </template>
-    </vxe-grid>
+    <vxe-grid ref="gridRef" v-bind="gridOptions" @cell-click="cellClickEvent"></vxe-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeGridInstance } from 'vxe-table'
+import type { VxeGridProps, VxeGridInstance, VxeTablePropTypes } from 'vxe-table'
+import { VxeUI } from 'vxe-pc-ui'
 
 interface RowVO {
   id: number
@@ -27,6 +25,11 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
+    const editConfig: VxeTablePropTypes.EditConfig<RowVO> = {
+      trigger: 'manual',
+      mode: 'cell'
+    }
+
     const gridOptions: VxeGridProps<RowVO> = {
       border: true,
       showOverflow: true,
@@ -34,14 +37,11 @@ export default Vue.extend({
       rowConfig: {
         keyField: 'id'
       },
-      editConfig: {
-        trigger: 'click',
-        mode: 'cell'
-      },
+      editConfig,
       columns: [
         { type: 'seq', width: 70 },
-        { field: 'name', title: 'Name', editRender: { name: 'VxeInput' }, slots: { edit: 'name_edit' } },
-        { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' }, slots: { edit: 'sex_edit' } },
+        { field: 'name', title: 'Name', editRender: { name: 'VxeInput' } },
+        { field: 'sex', title: 'Sex', editRender: { name: 'VxeInput' } },
         { field: 'age', title: 'Age', editRender: { name: 'VxeInput' } }
       ],
       data: [
@@ -52,11 +52,9 @@ export default Vue.extend({
       ]
     }
 
-    const disabledName = false
-
     return {
       gridOptions,
-      disabledName
+      editConfig
     }
   },
   methods: {
@@ -65,17 +63,29 @@ export default Vue.extend({
       if ($grid) {
         const editInfo = $grid.getEditCell()
         // 如果是已经是编辑状态
-        if (editInfo && editInfo.row === row && editInfo.column.field === column.field) {
-          return
+        if (this.editConfig.mode === 'cell') {
+          if (editInfo && editInfo.row === row && editInfo.column.field === column.field) {
+            return
+          }
+        } else {
+          if (editInfo && editInfo.row === row) {
+            return
+          }
         }
+        // 模拟异步判断
+        this.gridOptions.loading = true
+        setTimeout(() => {
+          this.gridOptions.loading = false
+          if (row.name === 'Test2') {
+            VxeUI.modal.message({
+              content: '不允许编辑',
+              status: 'error'
+            })
+            return
+          }
+          $grid.setEditCell(row, column)
+        }, 300)
       }
-      // 模拟异步判断
-      this.gridOptions.loading = true
-      this.disabledName = true
-      setTimeout(() => {
-        this.disabledName = row.name === 'Test2'
-        this.gridOptions.loading = false
-      }, 300)
     }
   }
 })
