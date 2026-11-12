@@ -29,6 +29,18 @@
     "build:v4_old": "cd v4_old && npm run pack",
     "build:all": "concurrently --timings \"npm run build:other3\" \"npm run build:other4\" \"npm run build:v1\" \"npm run build:v2\" \"npm run build:v3\" \"npm run build:v3.8\" \"npm run build:v3_old\" \"npm run build:v4\" \"npm run build:v4.6\" \"npm run build:v4_old\"",
 
+    "build:other3:offline": "cd other3 && npm run pack:offline",
+    "build:other4:offline": "cd other4 && npm run pack:offline",
+    "build:v1:offline": "cd v1 && npm run pack:offline",
+    "build:v2:offline": "cd v2 && npm run pack:offline",
+    "build:v3:offline": "cd v3 && npm run pack:offline",
+    "build:v3.8:offline": "cd v3.8 && npm run pack:offline",
+    "build:v3_old:offline": "cd v3_old && npm run pack:offline",
+    "build:v4:offline": "cd v4 && npm run pack:offline",
+    "build:v4.6:offline": "cd v4.6 && npm run pack:offline",
+    "build:v4_old:offline": "cd v4_old && npm run pack:offline",
+    "build:all:offline": "concurrently --timings \"npm run build:other3:offline\" \"npm run build:other4:offline\" \"npm run build:v1:offline\" \"npm run build:v2:offline\" \"npm run build:v3:offline\" \"npm run build:v3.8:offline\" \"npm run build:v3_old:offline\" \"npm run build:v4:offline\" \"npm run build:v4.6:offline\" \"npm run build:v4_old:offline\"",
+
     "pack:other3": "npm run build:other3 && node scripts/build-pack.js other3",
     "pack:other4": "npm run build:other4 && node scripts/build-pack.js other4",
     "pack:v1": "npm run build:v1 && node scripts/build-pack.js v1",
@@ -40,6 +52,18 @@
     "pack:v4.6": "npm run build:v4.6 && node scripts/build-pack.js v4.6",
     "pack:v4_old": "npm run build:v4_old && node scripts/build-pack.js v4_old",
     "pack:all": "npm run build:all && node scripts/build-pack.js",
+
+    "pack:other3:offline": "npm run build:other3:offline && node scripts/build-pack.js other3 --offline",
+    "pack:other4:offline": "npm run build:other4:offline && node scripts/build-pack.js other4 --offline",
+    "pack:v1:offline": "npm run build:v1:offline && node scripts/build-pack.js v1 --offline",
+    "pack:v2:offline": "npm run build:v2:offline && node scripts/build-pack.js v2 --offline",
+    "pack:v3:offline": "npm run build:v3:offline && node scripts/build-pack.js v3 --offline",
+    "pack:v3.8:offline": "npm run build:v3.8:offline && node scripts/build-pack.js v3.8 --offline",
+    "pack:v3_old:offline": "npm run build:v3_old:offline && node scripts/build-pack.js v3_old --offline",
+    "pack:v4:offline": "npm run build:v4:offline && node scripts/build-pack.js v4 --offline",
+    "pack:v4.6:offline": "npm run build:v4.6:offline && node scripts/build-pack.js v4.6 --offline",
+    "pack:v4_old:offline": "npm run build:v4_old:offline && node scripts/build-pack.js v4_old --offline",
+    "pack:all:offline": "npm run build:all:offline && node scripts/build-pack.js --offline",
 
     "clean:pack": "node scripts/clean-pack.js",
     "clean:all": "node scripts/clean-all"

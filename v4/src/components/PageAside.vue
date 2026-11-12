@@ -1,7 +1,7 @@
 <template>
   <div ref="asideElemRef" class="page-aside">
     <div v-if="showLeft" class="nav-top">
-      <VersionList />
+      <VersionList v-if="!isOfflineDocs" />
       <vxe-pulldown v-model="showSearchList" transfer>
         <vxe-input v-model="searchName" class="search-input" type="search" :placeholder="$t('app.aside.docsSearch')" clearable @click="clickSearchEvent" @change="changeSearchEvent"></vxe-input>
 
@@ -73,6 +73,8 @@ const router = useRouter()
 const appStore = useAppStore()
 
 const treeRef = ref<VxeTreeInstance>()
+
+const isOfflineDocs = ref(import.meta.env.VITE_APP_MODE === 'offline')
 
 const menuTreeList = ref<NavVO[]>([])
 const searchTreeList = ref<NavVO[]>([])

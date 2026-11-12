@@ -12,7 +12,7 @@
           <div class="body-view">
             <RouterView />
           </div>
-          <VxeLayoutFooter class="layout-footer">
+          <VxeLayoutFooter v-if="!isOfflineDocs" class="layout-footer">
             <PageFooter></PageFooter>
           </VxeLayoutFooter>
         </VxeLayoutBody>
@@ -40,6 +40,7 @@ import PageFooter from '@/components/PageFooter.vue'
 const route = useRoute()
 const appStore = useAppStore()
 
+const isOfflineDocs = ref(import.meta.env.VITE_APP_MODE === 'offline')
 const isUtilDocs = computed(() => appStore.isUtilDocs)
 
 const showLeft = ref(true)

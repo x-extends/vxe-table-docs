@@ -2,7 +2,8 @@
  * 用法：
  *   node scripts/build-pack.js v3
  *   node scripts/build-pack.js v3 v4 other4
- *   node scripts/build-pack.js 
+ *   node scripts/build-pack.js v3 --offline
+ *   node scripts/build-pack.js --offline          // 全部 target + docs_all.zip，且跳过脚本注入
  * 当传全部目标（无参数 / pack:all）时，额外生成 docs_all.zip。
  */
 import fs from 'node:fs'
@@ -89,7 +90,13 @@ const tjTmpJS = minify('tjTmpl.js')
 const hmScript = `<script>${tjTmpJS}</script>`
 /* ==================== 粘贴变量结束 ==================== */
 
-function transformHtml(html) {
+/**
+ * 注入广告/赞助/统计脚本。
+ * offline = true 时原样返回，不做任何 replace。
+ */
+function transformHtml(html, offline = false) {
+  if (offline) return html
+
   return html
     .replace('</head>', enableAd ? `${adScript}${isForceAd ? adCheckScript : ''}${hmScript}</head>` : '</head>')
     .replace('</body>', `${enableSponsors ? ssTmplScript : ''}${enableSponsors ? sponsorsTmplScript : ''}${enableAd ? adTmplScript : ''}</body>`)
@@ -295,7 +302,7 @@ async function packAllZip(items) {
   })
 }
 
-async function packOne(target) {
+async function packOne(target, { offline = false } = {}) {
   const distDir = path.join(root, target, 'dist')
   const indexPath = path.join(distDir, 'index.html')
 
@@ -309,7 +316,7 @@ async function packOne(target) {
   const files = await collectFiles(distDir)
   console.log(`  [${target}] 扫描 ${files.length} 个文件（${Date.now() - t0}ms）`)
 
-  const html = transformHtml(await fsp.readFile(indexPath, 'utf-8'))
+  const html = transformHtml(await fsp.readFile(indexPath, 'utf-8'), offline)
   const outFile = path.join(root, `docs_${target}.zip`)
 
   const extraFiles = {
@@ -330,7 +337,9 @@ async function packOne(target) {
 }
 
 async function main() {
-  const raw = process.argv.slice(2).filter((a) => !a.startsWith('-'))
+  const argv = process.argv.slice(2)
+  const offline = argv.includes('--offline')
+  const raw = argv.filter((a) => !a.startsWith('-'))
   const targets = [...new Set(raw)]
 
   if (targets.length) {
@@ -356,14 +365,18 @@ async function main() {
   const isAll = defaultTargets.every((t) => list.includes(t))
 
   const start = Date.now()
-  console.log(`开始打包：${list.join(', ')}${isAll ? '（含 docs_all.zip）' : ''}`)
+  console.log(
+    `开始打包：${list.join(', ')}` +
+    `${offline ? '（离线包）' : ''}` +
+    `${isAll ? '（含 docs_all.zip）' : ''}`
+  )
 
   // ⚠️ 串行处理 target，杜绝 IO 争抢
   const succeeded = []
   let failed = 0
   for (const target of list) {
     try {
-      const r = await packOne(target)
+      const r = await packOne(target, { offline })
       succeeded.push(r)
     } catch (err) {
       failed++

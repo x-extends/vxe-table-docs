@@ -13,7 +13,7 @@
             <div class="body-view">
               <RouterView />
             </div>
-            <VxeLayoutFooter class="layout-footer">
+            <VxeLayoutFooter v-if="!isOfflineDocs" class="layout-footer">
               <PageFooter></PageFooter>
             </VxeLayoutFooter>
           </template>
@@ -72,6 +72,7 @@ export default Vue.extend({
     }
 
     return {
+      isOfflineDocs: process.env.VUE_APP_MODE === 'offline',
       showLeft: true,
       asideWidth,
       backtopConfig

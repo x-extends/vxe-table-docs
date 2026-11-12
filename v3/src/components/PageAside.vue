@@ -1,7 +1,7 @@
 <template>
   <div ref="asideElemRef" class="page-aside">
     <div v-if="showLeft" class="nav-top">
-      <VersionList />
+      <VersionList v-if="!isOfflineDocs" />
       <vxe-pulldown v-model="showSearchList" transfer>
         <vxe-input v-model="searchName" class="search-input" type="search" :placeholder="$t('app.aside.docsSearch')" clearable @click="clickSearchEvent" @change="changeSearchEvent"></vxe-input>
 
@@ -123,6 +123,7 @@ export default Vue.extend({
     const loadApiStatus = false
 
     return {
+      isOfflineDocs: process.env.VUE_APP_MODE === 'offline',
       selectNavId,
       searchTreeOptions,
       xConfig,

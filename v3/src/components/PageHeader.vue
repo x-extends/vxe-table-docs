@@ -17,7 +17,7 @@
     </div>
     <div class="header-middle"></div>
     <div class="header-right">
-      <vxe-pulldown v-if="isPluginDocs" v-model="showPluginApp" class="switch-plugin" show-popup-shadow>
+      <vxe-pulldown v-if="isPluginDocs && !isOfflineDocs" v-model="showPluginApp" class="switch-plugin" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="togglePluginAppEvent">
           <span v-if="pluginType" class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.morePlugin') }} - {{ currBuyPluginName }}</span>
           <span v-else class="system-menu-btn-text" style="color: var(--vxe-ui-font-primary-color);">{{ $t('app.header.pluginDocs') }}</span>
@@ -35,7 +35,7 @@
           </ul>
         </template>
       </vxe-pulldown>
-      <vxe-pulldown v-if="!isUtilDocs" v-model="showSystemMenu" class="switch-system" show-popup-shadow>
+      <vxe-pulldown v-if="!isUtilDocs && !isOfflineDocs" v-model="showSystemMenu" class="switch-system" show-popup-shadow>
         <vxe-button class="system-menu-btn" mode="text" @click="toggleSystemMenuEvent">
           <span :class="['system-menu-btn-text', {'unread': showTopMenuMsgFlag}]">{{ $t('app.header.moreProducts') }}</span>
           <vxe-icon class="system-menu-btn-icon" name="arrow-down"></vxe-icon>
@@ -100,10 +100,10 @@
       <a v-if="isPluginDocs" :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.buyPlugin') }}</a>
       <!-- <a v-if="!isPluginDocs" :class="['plugin-shopping', {'unread': showAuthMsgFlag}]" :href="currBuyPluginBUrl" target="_blank" @click="openPluginEvent">{{ $t('app.header.pluginStore') }}</a> -->
 
-      <vxe-link v-if="!isPluginDocs" class="free-donation" status="primary" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
+      <vxe-link v-if="!isPluginDocs && !isOfflineDocs" class="free-donation" status="primary" :router-link="{name: 'FreeDonation'}" :content="$t('app.header.supportUs')"></vxe-link>
 
-      <vxe-link v-if="!isPluginDocs" class="git-btn" status="error" :href="giteeUrl" icon="vxe-icon-gitee-fill" target="_blank"></vxe-link>
-      <vxe-link v-if="!isPluginDocs" class="git-btn" :href="githubUrl" icon="vxe-icon-github-fill" target="_blank"></vxe-link>
+      <vxe-link v-if="!isPluginDocs && !isOfflineDocs" class="git-btn" status="error" :href="giteeUrl" icon="vxe-icon-gitee-fill" target="_blank"></vxe-link>
+      <vxe-link v-if="!isPluginDocs && !isOfflineDocs" class="git-btn" :href="githubUrl" icon="vxe-icon-github-fill" target="_blank"></vxe-link>
     </div>
   </div>
 </template>
@@ -163,6 +163,7 @@ export default Vue.extend({
       showSystemMenu: false,
       systemMenuList,
 
+      isOfflineDocs: process.env.VUE_APP_MODE === 'offline',
       prevSysVersion: process.env.VUE_APP_VXE_VERSION as string,
       currSysVersion: process.env.VUE_APP_VXE_VERSION as string,
       systemVersionList: [] as any[],

@@ -13,7 +13,7 @@
             <div class="body-view">
               <RouterView />
             </div>
-            <VxeLayoutFooter class="layout-footer">
+            <VxeLayoutFooter v-if="!isOfflineDocs" class="layout-footer">
               <PageFooter></PageFooter>
             </VxeLayoutFooter>
           </template>
@@ -51,6 +51,8 @@ const route = useRoute()
 
 const appStore = useAppStore()
 const pluginBuyUrl = computed(() => appStore.pluginBuyUrl)
+
+const isOfflineDocs = ref(import.meta.env.VITE_APP_MODE === 'offline')
 
 const showLeft = ref(true)
 const asideWidth = ref(360)

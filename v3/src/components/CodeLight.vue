@@ -46,7 +46,7 @@
           <vxe-button class="example-btn" mode="text" status="error" icon="vxe-icon-warning-triangle-fill" @click="openDocs">{{ $t('app.docs.button.fixDocs') }}</vxe-button>
         </vxe-tooltip>
         <vxe-button v-if="showOnLineRun && !extraImports.length" mode="text" status="success" icon="vxe-icon-link" @click="runEvent">{{ $t('app.docs.button.runDemo') }}</vxe-button>
-        <vxe-button v-if="showCdnExamples && !extraImports.length" class="example-btn" mode="text" :status="showOptionCdn ? 'primary' : ''" :loading="optionCdnLoading" icon="vxe-icon-code" @click="toggleOptionCdnVisible">{{ $t('app.docs.button.showOptionCdn') }}</vxe-button>
+        <vxe-button v-if="showCdnExamples && !isOfflineDocs && !extraImports.length" class="example-btn" mode="text" :status="showOptionCdn ? 'primary' : ''" :loading="optionCdnLoading" icon="vxe-icon-code" @click="toggleOptionCdnVisible">{{ $t('app.docs.button.showOptionCdn') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionJs ? 'primary' : ''" :loading="optionJsLoading" icon="vxe-icon-code" @click="toggleOptionJsVisible">{{ $t('app.docs.button.showOptionJs') }}</vxe-button>
         <vxe-button class="example-btn" mode="text" :status="showOptionTs ? 'primary' : ''" :loading="optionTsLoading" icon="vxe-icon-code" @click="toggleOptionTsVisible">{{ $t('app.docs.button.showOptionTs') }}</vxe-button>
       </div>
@@ -154,6 +154,7 @@ export default Vue.extend({
     return {
       showInstall: false,
       showPreview: true,
+      isOfflineDocs: process.env.VUE_APP_MODE === 'offline',
       showCdnExamples: process.env.VUE_APP_SHOW_CDN_EXAMPLES === 'true',
       showFixDoc: document.documentElement.clientWidth > 1200,
       showOnLineRun: process.env.VUE_APP_IS_ONLINE_RUN === 'true' && document.documentElement.clientWidth > 1200,
