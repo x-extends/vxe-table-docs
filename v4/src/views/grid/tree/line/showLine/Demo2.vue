@@ -32,7 +32,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   },
   treeConfig: {
     transform: true,
-    showLine: true
+    showLine: true,
+    iconOpen: 'vxe-icon-square-minus',
+    iconClose: 'vxe-icon-square-plus'
   },
   columns: [
     { type: 'checkbox', treeNode: true },

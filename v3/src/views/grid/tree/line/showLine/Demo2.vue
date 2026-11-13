@@ -34,7 +34,9 @@ export default Vue.extend({
       },
       treeConfig: {
         transform: true,
-        showLine: true
+        showLine: true,
+        iconOpen: 'vxe-icon-square-minus',
+        iconClose: 'vxe-icon-square-plus'
       },
       columns: [
         { type: 'checkbox', treeNode: true },

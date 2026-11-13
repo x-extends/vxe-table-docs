@@ -47,7 +47,9 @@ const treeConfig = reactive<VxeTablePropTypes.TreeConfig>({
   transform: true,
   rowField: 'id',
   parentField: 'parentId',
-  showLine: true
+  showLine: true,
+  iconOpen: 'vxe-icon-square-minus',
+  iconClose: 'vxe-icon-square-plus'
 })
 
 const tableData = ref<RowVO[]>([
