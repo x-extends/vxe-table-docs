@@ -59,7 +59,7 @@ export default Vue.extend({
   methods: {
     loadList () {
       this.gridOptions.loading = true
-      fetch('/resource/json/provinces_list.json').then(res => res.json()).then((data: RowVO[]) => {
+      fetch('https://vxeui.com/resource/json/provinces_list.json').then(res => res.json()).then((data: RowVO[]) => {
         this.gridOptions.data = data
         this.gridOptions.loading = false
       })

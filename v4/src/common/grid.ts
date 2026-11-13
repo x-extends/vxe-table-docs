@@ -855,7 +855,17 @@ export const gridNavConfig: NavVO = {
         // 序号模式
         { i18nKey: 'app.aside.menu.tableSeqMode', routerLink: { name: 'ComponentGridTreeSeqMode' } },
         // 显示连接线
-        { i18nKey: 'app.aside.menu.tableShowConnectionLine', routerLink: { name: 'ComponentGridTreeLine' } },
+        {
+          i18nKey: 'app.aside.menu.tableShowConnectionLine',
+          children: [
+            // 连接线
+            { i18nKey: 'app.aside.menu.tableShowConnectionShowLine', routerLink: { name: 'ComponentGridTreeLineShowLine' } },
+            // 线类型
+            { i18nKey: 'app.aside.menu.tableShowConnectionLineType', routerLink: { name: 'ComponentGridTreeLineType' } },
+            // 线颜色
+            { i18nKey: 'app.aside.menu.tableShowConnectionLineColor', routerLink: { name: 'ComponentGridTreeLineColor' } }
+          ]
+        },
         // 单选框
         { i18nKey: 'app.aside.menu.tableRadio', routerLink: { name: 'ComponentGridTreeRadio' } },
         {

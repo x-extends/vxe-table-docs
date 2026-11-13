@@ -541,7 +541,13 @@ export const tableNavConfig: NavVO = {
             // 自定义图标
             { i18nKey: 'app.aside.menu.tableCustomIcon', routerLink: { name: 'ComponentTableTreeIcon' } },
             // 显示连接线
-            { i18nKey: 'app.aside.menu.tableShowConnectionLine', routerLink: { name: 'ComponentTableTreeLine' } },
+            {
+              i18nKey: 'app.aside.menu.tableShowConnectionLine',
+              children: [
+                // 连接线
+                { i18nKey: 'app.aside.menu.tableShowConnectionShowLine', routerLink: { name: 'ComponentTableTreeLineShowLine' } }
+              ]
+            },
             // 表格最大高度
             { i18nKey: 'app.aside.menu.tableMaxHeight', routerLink: { name: 'ComponentTableTreeMaxHeight' } },
             // 手风琴效果

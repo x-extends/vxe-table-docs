@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      连接线：<vxe-switch v-model="gridOptions.treeConfig.showLine"></vxe-switch>
       <vxe-button @click="expandAllEvent">展开所有</vxe-button>
       <vxe-button @click="clearExpandEvent">收起所有</vxe-button>
     </div>
@@ -11,7 +12,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -25,7 +26,7 @@ interface RowVO {
 
 const gridRef = ref<VxeGridInstance<RowVO>>()
 
-const gridOptions = reactive<VxeGridProps<RowVO>>({
+const gridOptions = reactive<VxeWithRequired<VxeGridProps<RowVO>, 'treeConfig'>>({
   border: true,
   showOverflow: true,
   showHeaderOverflow: true,
@@ -39,7 +40,8 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
     useKey: true
   },
   treeConfig: {
-    transform: true
+    transform: true,
+    showLine: true
   },
   virtualXConfig: {
     enabled: true,

@@ -1034,8 +1034,10 @@ export const tableRouteConfig: RouteRecordConfig = {
         },
         {
           path: 'line',
-          name: 'ComponentTableTreeLine',
-          component: () => import('@/views/table/tree/line/CodeExample.vue')
+          component: RouteLayout,
+          children: [
+            { path: 'showLine', name: 'ComponentTableTreeLineShowLine', component: () => import('@/views/table/tree/line/showLine/CodeExample.vue') }
+          ]
         },
         {
           path: 'maxHeight',

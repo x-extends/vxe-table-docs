@@ -405,7 +405,7 @@ export const tableRouteConfig: RouteRecordConfig = {
             { path: 'vxe-date-picker', name: 'ComponentTableFilterFloatingVxeDatePicker', component: () => import('@/views/table/filter/floating/vxe-date-picker/CodeExample.vue') },
             { path: 'vxe-select', name: 'ComponentTableFilterFloatingVxeSelect', component: () => import('@/views/table/filter/floating/vxe-select/CodeExample.vue') },
             { path: 'full', name: 'ComponentTableFilterFloatingFull', component: () => import('@/views/table/filter/floating/full/CodeExample.vue') },
-            { path: 'template', name: 'ComponentTableFilterFloatingTemplate', component: () => import('@/views/grid/filter/floating/template/CodeExample.vue') }
+            { path: 'template', name: 'ComponentTableFilterFloatingTemplate', component: () => import('@/views/table/filter/floating/template/CodeExample.vue') }
           ]
         }
       ]
@@ -1034,8 +1034,10 @@ export const tableRouteConfig: RouteRecordConfig = {
         },
         {
           path: 'line',
-          name: 'ComponentTableTreeLine',
-          component: () => import('@/views/table/tree/line/CodeExample.vue')
+          component: RouteLayout,
+          children: [
+            { path: 'showLine', name: 'ComponentTableTreeLineShowLine', component: () => import('@/views/table/tree/line/showLine/CodeExample.vue') }
+          ]
         },
         {
           path: 'maxHeight',
