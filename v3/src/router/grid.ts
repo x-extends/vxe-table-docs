@@ -1417,6 +1417,7 @@ export const gridRouteConfig: RouteRecordConfig = {
           component: RouteLayout,
           children: [
             { path: 'showLine', name: 'ComponentGridTreeLineShowLine', component: () => import('@/views/grid/tree/line/showLine/CodeExample.vue') },
+            { path: 'indent', name: 'ComponentGridTreeLineIndent', component: () => import('@/views/grid/tree/line/indent/CodeExample.vue') },
             { path: 'type', name: 'ComponentGridTreeLineType', component: () => import('@/views/grid/tree/line/type/CodeExample.vue') },
             { path: 'color', name: 'ComponentGridTreeLineColor', component: () => import('@/views/grid/tree/line/color/CodeExample.vue') }
           ]
