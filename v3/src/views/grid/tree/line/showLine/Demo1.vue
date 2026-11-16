@@ -1,7 +1,7 @@
 <template>
   <div>
-    显示连接线：<vxe-switch v-model="treeConfig.showLine"></vxe-switch>
-    显示根节点线：<vxe-switch v-model="treeConfig.showRootLine"></vxe-switch>
+    显示连接线：<vxe-switch v-model="gridOptions.treeConfig.showLine"></vxe-switch>
+    显示根节点线：<vxe-switch v-model="gridOptions.treeConfig.showRootLine"></vxe-switch>
 
     <vxe-grid v-bind="gridOptions"></vxe-grid>
   </div>
@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridProps, VxeTablePropTypes } from 'vxe-table'
+import type { VxeGridProps, VxeWithRequired } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -22,13 +22,7 @@ interface RowVO {
 
 export default Vue.extend({
   data () {
-    const treeConfig: VxeTablePropTypes.TreeConfig = {
-      transform: true,
-      showLine: true,
-      showRootLine: true
-    }
-
-    const gridOptions: VxeGridProps<RowVO> = {
+    const gridOptions: VxeWithRequired<VxeGridProps<RowVO>, 'treeConfig'> = {
       showOverflow: true,
       border: 'outer',
       rowConfig: {
@@ -37,9 +31,13 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
-      treeConfig,
+      treeConfig: {
+        transform: true,
+        showLine: true,
+        showRootLine: true
+      },
       columns: [
-        { field: 'name', title: 'Name', treeNode: true },
+        { field: 'name', title: 'Name', minWidth: 200, treeNode: true },
         { field: 'size', title: 'Size' },
         { field: 'type', title: 'Type' },
         { field: 'date', title: 'Date' }
@@ -67,7 +65,6 @@ export default Vue.extend({
     }
 
     return {
-      treeConfig,
       gridOptions
     }
   }

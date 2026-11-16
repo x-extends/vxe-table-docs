@@ -39,13 +39,16 @@ export default Vue.extend({
       columnConfig: {
         resizable: true
       },
+      checkboxConfig: {
+        labelField: 'name'
+      },
       treeConfig: {
         transform: true,
         showLine: true,
         lineColor: '#FF0000'
       },
       columns: [
-        { field: 'name', title: 'Name', treeNode: true },
+        { type: 'checkbox', minWidth: 200, treeNode: true },
         { field: 'size', title: 'Size' },
         { field: 'type', title: 'Type' },
         { field: 'date', title: 'Date' }
