@@ -11,6 +11,14 @@
     <CodeLight path="table/tree/line/showLine/Demo2">
       <template #tip>
         <vxe-tip status="primary">
+          单选框与连接线
+        </vxe-tip>
+      </template>
+    </CodeLight>
+
+    <CodeLight path="table/tree/line/showLine/Demo3">
+      <template #tip>
+        <vxe-tip status="primary">
           复选框与连接线
         </vxe-tip>
       </template>

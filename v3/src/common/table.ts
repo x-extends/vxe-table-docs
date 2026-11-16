@@ -545,7 +545,13 @@ export const tableNavConfig: NavVO = {
               i18nKey: 'app.aside.menu.tableShowConnectionLine',
               children: [
                 // 连接线
-                { i18nKey: 'app.aside.menu.tableShowConnectionShowLine', routerLink: { name: 'ComponentTableTreeLineShowLine' } }
+                { i18nKey: 'app.aside.menu.tableShowConnectionShowLine', routerLink: { name: 'ComponentTableTreeLineShowLine' } },
+                // 节点缩进
+                { i18nKey: 'app.aside.menu.tableShowConnectionIndent', routerLink: { name: 'ComponentTableTreeLineIndent' } },
+                // 线类型
+                { i18nKey: 'app.aside.menu.tableShowConnectionLineType', routerLink: { name: 'ComponentTableTreeLineType' } },
+                // 线颜色
+                { i18nKey: 'app.aside.menu.tableShowConnectionLineColor', routerLink: { name: 'ComponentTableTreeLineColor' } }
               ]
             },
             // 表格最大高度
@@ -1007,6 +1013,8 @@ export const tableNavConfig: NavVO = {
             { i18nKey: 'app.aside.menu.tableCellMerge', routerLink: { name: 'ComponentTableScrollMerge' } },
             // 树形 + 纵向
             { i18nKey: 'app.aside.menu.tableTreeVertical', routerLink: { name: 'ComponentTableScrollTree' } },
+            // 树形 + 纵向和横向
+            { i18nKey: 'app.aside.menu.tableTreeVH', routerLink: { name: 'ComponentTableScrollHVTree' } },
             // 可编辑 + 横向
             { i18nKey: 'app.aside.menu.tableEditableHorizontal', routerLink: { name: 'ComponentTableScrollEdit' } },
             // 可编辑 + 纵向和横向

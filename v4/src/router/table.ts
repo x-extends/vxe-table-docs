@@ -1036,7 +1036,10 @@ export const tableRouteConfig: RouteRecordConfig = {
           path: 'line',
           component: RouteLayout,
           children: [
-            { path: 'showLine', name: 'ComponentTableTreeLineShowLine', component: () => import('@/views/table/tree/line/showLine/CodeExample.vue') }
+            { path: 'showLine', name: 'ComponentTableTreeLineShowLine', component: () => import('@/views/table/tree/line/showLine/CodeExample.vue') },
+            { path: 'indent', name: 'ComponentTableTreeLineIndent', component: () => import('@/views/table/tree/line/indent/CodeExample.vue') },
+            { path: 'type', name: 'ComponentTableTreeLineType', component: () => import('@/views/table/tree/line/type/CodeExample.vue') },
+            { path: 'color', name: 'ComponentTableTreeLineColor', component: () => import('@/views/table/tree/line/color/CodeExample.vue') }
           ]
         },
         {
@@ -1933,11 +1936,8 @@ export const tableRouteConfig: RouteRecordConfig = {
           name: 'ComponentTableScrollMerge',
           component: () => import('@/views/table/scroll/merge/CodeExample.vue')
         },
-        {
-          path: 'tree',
-          name: 'ComponentTableScrollTree',
-          component: () => import('@/views/table/scroll/tree/CodeExample.vue')
-        },
+        { path: 'tree', name: 'ComponentTableScrollTree', component: () => import('@/views/table/scroll/tree/CodeExample.vue') },
+        { path: 'hvTree', name: 'ComponentTableScrollHVTree', component: () => import('@/views/table/scroll/hvTree/CodeExample.vue') },
         {
           path: 'edit',
           name: 'ComponentTableScrollEdit',

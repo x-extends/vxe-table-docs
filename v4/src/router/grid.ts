@@ -2553,16 +2553,8 @@ export const gridRouteConfig: RouteRecordConfig = {
           component: () => import('@/views/grid/scroll/mergeFixed/CodeExample.vue')
         },
         { path: 'mergeBig', name: 'ComponentGridScrollMergeBig', component: () => import('@/views/grid/scroll/mergeBig/CodeExample.vue') },
-        {
-          path: 'tree',
-          name: 'ComponentGridScrollTree',
-          component: () => import('@/views/grid/scroll/tree/CodeExample.vue')
-        },
-        {
-          path: 'hvTree',
-          name: 'ComponentGridScrollHVTree',
-          component: () => import('@/views/grid/scroll/hvTree/CodeExample.vue')
-        },
+        { path: 'tree', name: 'ComponentGridScrollTree', component: () => import('@/views/grid/scroll/tree/CodeExample.vue') },
+        { path: 'hvTree', name: 'ComponentGridScrollHVTree', component: () => import('@/views/grid/scroll/hvTree/CodeExample.vue') },
         {
           path: 'dragTree',
           name: 'ComponentGridScrollDragTree',
