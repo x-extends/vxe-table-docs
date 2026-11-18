@@ -7,5 +7,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="table/checkbox/template/Demo2">
+      <template #tip>
+        <vxe-tip status="primary">
+          实现自定义模板的同时，又能同时保持默认勾选逻辑，例如保持禁用状态等
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>

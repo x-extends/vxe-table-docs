@@ -6,16 +6,16 @@
     <vxe-grid ref="gridRef" v-bind="gridOptions">
       <template #checkbox_header="{ checked, indeterminate }">
         <span class="custom-checkbox" @click.stop="toggleAllCheckboxEvent">
-          <i v-if="indeterminate" class="vxe-icon-square-minus-fill"></i>
-          <i v-else-if="checked" class="vxe-icon-square-checked-fill"></i>
+          <i v-if="indeterminate" class="vxe-icon-square-minus"></i>
+          <i v-else-if="checked" class="vxe-icon-square-checked"></i>
           <i v-else class="vxe-icon-checkbox-unchecked"></i>
         </span>
       </template>
 
       <template #checkbox_cell="{ row, checked, indeterminate }">
         <span class="custom-checkbox" @click.stop="toggleCheckboxEvent(row)">
-          <i v-if="indeterminate" class="vxe-icon-square-minus-fill"></i>
-          <i v-else-if="checked" class="vxe-icon-square-checked-fill"></i>
+          <i v-if="indeterminate" class="vxe-icon-square-minus"></i>
+          <i v-else-if="checked" class="vxe-icon-square-checked"></i>
           <i v-else class="vxe-icon-checkbox-unchecked"></i>
         </span>
       </template>
@@ -66,7 +66,7 @@ const toggleAllCheckboxEvent = () => {
   }
 }
 
-const toggleCheckboxEvent = (row) => {
+const toggleCheckboxEvent = (row: RowVO) => {
   const $grid = gridRef.value
   if ($grid) {
     $grid.toggleCheckboxRow(row)

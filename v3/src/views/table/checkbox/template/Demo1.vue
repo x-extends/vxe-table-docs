@@ -3,19 +3,19 @@
     <vxe-button @click="selectRowEvent(tableData[1], true)">选中第二行</vxe-button>
     <vxe-button @click="selectRowEvent(tableData[1], false)">取消选中第二行</vxe-button>
 
-    <vxe-table border ref="tableRef" :data="tableData">
+    <vxe-table ref="tableRef" border :data="tableData">
       <vxe-column type="checkbox" width="80">
-        <template #header="{ checked, indeterminate }">
+        <template #title="{ checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="toggleAllCheckboxEvent">
-            <i v-if="indeterminate" class="vxe-icon-square-minus-fill"></i>
-            <i v-else-if="checked" class="vxe-icon-square-checked-fill"></i>
+            <i v-if="indeterminate" class="vxe-icon-square-minus"></i>
+            <i v-else-if="checked" class="vxe-icon-square-checked"></i>
             <i v-else class="vxe-icon-checkbox-unchecked"></i>
           </span>
         </template>
         <template #checkbox="{ row, checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="toggleCheckboxEvent(row)">
-            <i v-if="indeterminate" class="vxe-icon-square-minus-fill"></i>
-            <i v-else-if="checked" class="vxe-icon-square-checked-fill"></i>
+            <i v-if="indeterminate" class="vxe-icon-square-minus"></i>
+            <i v-else-if="checked" class="vxe-icon-square-checked"></i>
             <i v-else class="vxe-icon-checkbox-unchecked"></i>
           </span>
         </template>
@@ -62,7 +62,7 @@ export default Vue.extend({
         $table.toggleAllCheckboxRow()
       }
     },
-    toggleCheckboxEvent (row) {
+    toggleCheckboxEvent (row: RowVO) {
       const $table = this.$refs.tableRef as VxeTableInstance
       if ($table) {
         $table.toggleCheckboxRow(row)

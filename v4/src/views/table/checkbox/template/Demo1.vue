@@ -5,17 +5,17 @@
 
     <vxe-table ref="tableRef" border :data="tableData">
       <vxe-column type="checkbox" width="80">
-        <template #header="{ checked, indeterminate }">
+        <template #title="{ checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="toggleAllCheckboxEvent">
-            <i v-if="indeterminate" class="vxe-icon-square-minus-fill"></i>
-            <i v-else-if="checked" class="vxe-icon-square-checked-fill"></i>
+            <i v-if="indeterminate" class="vxe-icon-square-minus"></i>
+            <i v-else-if="checked" class="vxe-icon-square-checked"></i>
             <i v-else class="vxe-icon-checkbox-unchecked"></i>
           </span>
         </template>
         <template #checkbox="{ row, checked, indeterminate }">
           <span class="custom-checkbox" @click.stop="toggleCheckboxEvent(row)">
-            <i v-if="indeterminate" class="vxe-icon-square-minus-fill"></i>
-            <i v-else-if="checked" class="vxe-icon-square-checked-fill"></i>
+            <i v-if="indeterminate" class="vxe-icon-square-minus"></i>
+            <i v-else-if="checked" class="vxe-icon-square-checked"></i>
             <i v-else class="vxe-icon-checkbox-unchecked"></i>
           </span>
         </template>
@@ -58,7 +58,7 @@ const toggleAllCheckboxEvent = () => {
   }
 }
 
-const toggleCheckboxEvent = (row) => {
+const toggleCheckboxEvent = (row: RowVO) => {
   const $table = tableRef.value
   if ($table) {
     $table.toggleCheckboxRow(row)
