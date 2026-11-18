@@ -58,7 +58,7 @@
               <span>{{ item.name }}</span>
             </template>
             <template #default>
-              <CodeRender :language="item.lang" :code="item.text" show-open-button show-copy-button></CodeRender>
+              <CodeRender :language="item.lang" :code="item.text" show-open-button show-download-button show-copy-button></CodeRender>
             </template>
           </vxe-collapse-pane>
           <vxe-collapse-pane :title="getFileName(`${path}.vue`)" name="demo">
@@ -68,7 +68,7 @@
               <span>{{ getFileName(`${path}.vue`) }}</span>
             </template>
             <template #default>
-              <CodeRender language="html" :code="optionCdnCodeText" show-open-button show-copy-button></CodeRender>
+              <CodeRender language="html" :code="optionCdnCodeText" show-open-button show-download-button show-copy-button></CodeRender>
             </template>
           </vxe-collapse-pane>
         </vxe-collapse>

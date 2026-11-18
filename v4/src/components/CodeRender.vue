@@ -3,6 +3,7 @@
     <code ref="codeRef" :class="['hljs', language]"></code>
     <div class="oper-btns">
       <vxe-button v-if="showOpenButton && code && code.length > 5" class="open-btn" icon="vxe-icon-send-fill" :title="$t('app.docs.button.openCode')" @click.stop="openCode">{{ $t('app.docs.button.openCode') }}</vxe-button>
+      <vxe-button v-if="showDownloadButton && code && code.length > 5" class="download-btn" icon="vxe-icon-download" :title="$t('app.docs.button.downloadCode')" @click.stop="downloadCode"></vxe-button>
       <vxe-button v-if="showCopyButton && code && code.length > 5" class="copy-btn" icon="vxe-icon-copy" :title="$t('app.docs.button.copyCode')" circle @click.stop="copyCode"></vxe-button>
     </div>
   </pre>
@@ -22,6 +23,7 @@ const props = defineProps({
     default: ''
   },
   showCopyButton: Boolean,
+  showDownloadButton: Boolean,
   showOpenButton: Boolean
 })
 
@@ -49,6 +51,17 @@ const openCode = () => {
     const blob = new Blob([props.code], { type: 'text/html' })
     const url = URL.createObjectURL(blob)
     window.open(url, '_blank')
+  }
+}
+
+const downloadCode = () => {
+  if (props.code) {
+    VxeUI.saveFile({
+      filename: `Demo_${Date.now()}`,
+      type: 'html',
+      content: props.code
+    })
+    VxeUI.modal.message({ content: '下载成功！', status: 'success' })
   }
 }
 
