@@ -987,12 +987,14 @@ export const gridNavConfig: NavVO = {
       // 可编辑
       i18nKey: 'app.aside.menu.tableEditable',
       children: [
-        // 手动编辑
-        { i18nKey: 'app.aside.menu.tableManualEdit', routerLink: { name: 'ComponentGridEditManual' } },
         // 单击编辑
         { i18nKey: 'app.aside.menu.tableClickEdit', routerLink: { name: 'ComponentGridEditClick' } },
         // 双击编辑
         { i18nKey: 'app.aside.menu.tableDblclickEdit', routerLink: { name: 'ComponentGridEditDblclick' } },
+        // 自动清除编辑
+        { i18nKey: 'app.aside.menu.tableAutoClear', routerLink: { name: 'ComponentGridEditAutoClear' } },
+        // 手动编辑
+        { i18nKey: 'app.aside.menu.tableManualEdit', routerLink: { name: 'ComponentGridEditManual' } },
         // 编辑模式
         { i18nKey: 'app.aside.menu.tableEditMode', routerLink: { name: 'ComponentGridEditMode' } },
         // 编辑状态

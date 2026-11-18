@@ -1783,11 +1783,6 @@ export const gridRouteConfig: RouteRecordConfig = {
       component: RouteLayout,
       children: [
         {
-          path: 'manual',
-          name: 'ComponentGridEditManual',
-          component: () => import('@/views/grid/edit/manual/CodeExample.vue')
-        },
-        {
           path: 'click',
           name: 'ComponentGridEditClick',
           component: () => import('@/views/grid/edit/click/CodeExample.vue')
@@ -1797,6 +1792,8 @@ export const gridRouteConfig: RouteRecordConfig = {
           name: 'ComponentGridEditDblclick',
           component: () => import('@/views/grid/edit/dblclick/CodeExample.vue')
         },
+        { path: 'autoClear', name: 'ComponentGridEditAutoClear', component: () => import('@/views/grid/edit/autoClear/CodeExample.vue') },
+        { path: 'manual', name: 'ComponentGridEditManual', component: () => import('@/views/grid/edit/manual/CodeExample.vue') },
         {
           path: 'cellDisable',
           name: 'ComponentGridEditCellDisable',
