@@ -8,7 +8,8 @@
     "build": "vue-cli-service build --no-module",
     "build:main": "vue-cli-service build --no-module",
     "pack": "npm run build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "clean:all": "node scripts/clean-all"
   },
   "dependencies": {
     "codemirror": "5.53.2",

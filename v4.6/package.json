@@ -8,7 +8,8 @@
     "build": "vue-tsc && vite build",
     "pack": "npm run build && gulp build_examples && npm run oxfix:examples",
     "esfix:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**",
-    "oxfix:examples": "oxfmt dist/example/js/ --write"
+    "oxfix:examples": "oxfmt dist/example/js/ --write",
+    "clean:all": "node scripts/clean-all"
   },
   "dependencies": {
     "highlight.js": "11.9.0",

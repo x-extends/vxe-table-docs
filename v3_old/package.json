@@ -9,7 +9,8 @@
     "pack": "npm run build && gulp build_examples && npm run oxfix:examples",
     "lint": "vue-cli-service lint",
     "esfix:examples": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx,.vue dist/example/js/**",
-    "oxfix:examples": "oxfmt dist/example/js/ --write"
+    "oxfix:examples": "oxfmt dist/example/js/ --write",
+    "clean:all": "node scripts/clean-all"
   },
   "dependencies": {
     "codemirror": "^6.0.1",
