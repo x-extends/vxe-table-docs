@@ -121,13 +121,13 @@ const selectRowEvent = (row: RowVO, checked: boolean) => {
   const $grid = gridRef.value
   if ($grid) {
     // 默认强制勾选（包括子级）
-    // $grid.setCheckboxRow(row, checked)
+    $grid.setCheckboxRow(row, checked)
 
     // 高级用法：如果设置 force=false，则不强制设置子级，会自动根据设置的规则来决定是否勾选
-    $grid.setCheckboxRow(row, {
-      checked: checked,
-      force: false
-    })
+    // $grid.setCheckboxRow(row, {
+    //   checked: checked,
+    //   force: false
+    // })
   }
 }
 </script>

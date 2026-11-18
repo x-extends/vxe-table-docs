@@ -118,13 +118,13 @@ export default Vue.extend({
       const $table = this.$refs.tableRef as VxeTableInstance
       if ($table) {
         // 默认强制勾选（包括子级）
-        // $table.setCheckboxRow(row, checked)
+        $table.setCheckboxRow(row, checked)
 
         // 高级用法：如果设置 force=false，则不强制设置子级，会自动根据设置的规则来决定是否勾选
-        $table.setCheckboxRow(row, {
-          checked: checked,
-          force: false
-        })
+        // $table.setCheckboxRow(row, {
+        //   checked: checked,
+        //   force: false
+        // })
       }
     }
   }
