@@ -97,7 +97,7 @@ export default Vue.extend({
     toggleAllCheckboxEvent  () {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 默认强制切换状态（包括子级）
+        // 默认强制勾选子级
         // $grid.toggleAllCheckboxRow()
 
         // 高级用法：如果设置 force=false，则不强制设置子级，会自动根据设置的规则来决定是否勾选
@@ -112,7 +112,7 @@ export default Vue.extend({
       }
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 默认强制切换状态（包括子级）
+        // 默认强制勾选子级
         // $grid.toggleCheckboxRow(row)
 
         // 高级用法：如果设置 force=false，则不强制设置子级，会自动根据设置的规则来决定是否勾选
@@ -124,7 +124,7 @@ export default Vue.extend({
     selectRowEvent  (row: RowVO, checked: boolean) {
       const $grid = this.$refs.gridRef as VxeGridInstance<RowVO>
       if ($grid) {
-        // 默认强制勾选（包括子级）
+        // 默认强制勾选子级
         $grid.setCheckboxRow(row, checked)
 
         // 高级用法：如果设置 force=false，则不强制设置子级，会自动根据设置的规则来决定是否勾选

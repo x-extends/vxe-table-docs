@@ -96,7 +96,7 @@ const tableData = ref<RowVO[]>([
 const toggleAllCheckboxEvent = () => {
   const $table = tableRef.value
   if ($table) {
-    // 默认强制切换状态（包括子级）
+    // 默认强制勾选子级
     // $table.toggleAllCheckboxRow()
 
     // 高级用法：如果设置 force=false，则不强制设置子级，会自动根据设置的规则来决定是否勾选
@@ -112,7 +112,7 @@ const toggleCheckboxEvent = (row: RowVO, disabled: boolean) => {
   }
   const $table = tableRef.value
   if ($table) {
-    // 默认强制切换状态（包括子级）
+    // 默认强制勾选子级
     // $table.toggleCheckboxRow(row)
 
     // 高级用法：如果设置 force=false，则不强制设置子级，会自动根据设置的规则来决定是否勾选
