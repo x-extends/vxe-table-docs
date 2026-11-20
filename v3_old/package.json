@@ -23,7 +23,7 @@
     "vxe-pc-ui": "~3.21.6",
     "vxe-table": "~3.26.3",
     "xe-clipboard": "^1.10.2",
-    "xe-utils": "^4.2.3"
+    "xe-utils": "^4.3.0"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",
