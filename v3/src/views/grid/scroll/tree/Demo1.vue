@@ -33,15 +33,17 @@ export default Vue.extend({
       treeConfig: {
         transform: true
       },
+      checkboxConfig: {
+        labelField: 'name'
+      },
       virtualYConfig: {
         enabled: true,
         gt: 0
       },
       columns: [
-        { type: 'checkbox', width: 60 },
-        { type: 'seq', width: 300, treeNode: true },
+        { type: 'seq', width: 60 },
+        { type: 'checkbox', title: 'Name', minWidth: 300, treeNode: true },
         { field: 'id', title: 'Id', width: 120 },
-        { field: 'name', title: 'Name', minWidth: 200 },
         { field: 'attr1', title: 'Attr1', width: 120 },
         { field: 'attr2', title: 'Attr2', width: 160 },
         { field: 'attr3', title: 'Attr3', width: 120 },

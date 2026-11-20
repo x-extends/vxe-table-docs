@@ -43,6 +43,9 @@ export default Vue.extend({
         transform: true,
         showLine: true
       },
+      checkboxConfig: {
+        labelField: 'name'
+      },
       virtualXConfig: {
         enabled: true,
         gt: 0
@@ -52,9 +55,8 @@ export default Vue.extend({
         gt: 0
       },
       columns: [
-        { type: 'checkbox', width: 60 },
         { type: 'seq', width: 60 },
-        { field: 'name', title: 'Name', minWidth: 300, treeNode: true },
+        { type: 'checkbox', title: 'Name', minWidth: 300, treeNode: true },
         { field: 'id', title: 'Id', width: 100 },
         { field: 'parentId', title: 'Parent Id', width: 100 },
         { field: 'describe', title: 'Describe', width: 400 },
