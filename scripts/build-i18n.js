@@ -76,7 +76,7 @@ async function main() {
 
   const stat = await fsp.stat(outFile)
   const mb = (stat.size / 1024 / 1024).toFixed(2)
-  console.log(`✔ ${path.basename(outFile)} (${mb} MB)`)
+  console.log(`✅ ${path.basename(outFile)} (${mb} MB)`)
   console.log(`耗时 ${Date.now() - start}ms`)
 }
 

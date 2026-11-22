@@ -331,7 +331,7 @@ async function packOne(target, { offline = false } = {}) {
 
   const stat = await fsp.stat(outFile)
   const mb = (stat.size / 1024 / 1024).toFixed(2)
-  console.log(`✔ ${target} -> docs_${target}.zip (${mb} MB, ${files.length} files)`)
+  console.log(`✅ ${target} -> docs_${target}.zip (${mb} MB, ${files.length} files)`)
 
   return { target, files, extraFiles, rootFiles }
 }
@@ -355,7 +355,7 @@ async function main() {
     )
     const unknown = checks.filter(Boolean)
     if (unknown.length) {
-      console.error(`✘ 未找到目标：${unknown.join(', ')}`)
+      console.error(`❌ 未找到目标：${unknown.join(', ')}`)
       console.error(`  可用目标：${defaultTargets.join(', ')}`)
       process.exit(1)
     }
@@ -380,7 +380,7 @@ async function main() {
       succeeded.push(r)
     } catch (err) {
       failed++
-      console.error(`✘ ${target}: ${err?.message ?? err}`)
+      console.error(`❌ ${target}: ${err?.message ?? err}`)
     }
   }
 
@@ -395,10 +395,10 @@ async function main() {
       await packAllZip(succeeded)
       const stat = await fsp.stat(path.join(root, 'docs_all.zip'))
       const mb = (stat.size / 1024 / 1024).toFixed(2)
-      console.log(`✔ all -> docs_all.zip (${mb} MB) [${Date.now() - t}ms]`)
+      console.log(`✅ all -> docs_all.zip (${mb} MB) [${Date.now() - t}ms]`)
     } catch (err) {
       failed++
-      console.error(`✘ docs_all.zip: ${err?.message ?? err}`)
+      console.error(`❌ docs_all.zip: ${err?.message ?? err}`)
     }
   }
 

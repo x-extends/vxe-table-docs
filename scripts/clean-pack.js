@@ -41,9 +41,9 @@ async function main() {
       await fsp.unlink(full)
       freed += stat.size
       removed++
-      console.log(`  ✔ ${e.name} (${(stat.size / 1024 / 1024).toFixed(2)} MB)`)
+      console.log(`  ✅ ${e.name} (${(stat.size / 1024 / 1024).toFixed(2)} MB)`)
     } catch (err) {
-      console.error(`  ✘ ${e.name}: ${err?.message ?? err}`)
+      console.error(`  ❌ ${e.name}: ${err?.message ?? err}`)
     }
   }
 

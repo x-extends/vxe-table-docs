@@ -1,6 +1,7 @@
 {
   "name": "vxe-table-other-v4",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "update": "pnpm install --no-frozen-lockfile",

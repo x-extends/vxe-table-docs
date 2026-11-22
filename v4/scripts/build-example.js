@@ -173,14 +173,14 @@ async function main () {
 
   if (errors.length) {
     for (const { item, err } of errors) {
-      console.error(`[build-example] ✗ ${path.relative(ROOT, item)}`)
+      console.error(`[build-example] ❌ ${path.relative(ROOT, item)}`)
       console.error(`  ${err.stack || err.message}`)
     }
     console.error(`[build-example] 失败 ${errors.length} 个`)
     process.exit(1)
   }
 
-  console.log(`[build-example] ✓ 完成 ${Date.now() - t0}ms`)
+  console.log(`[build-example] ✅ 完成 ${Date.now() - t0}ms`)
   console.log(`  源码: ${path.relative(ROOT, TS_DIR)}`)
   console.log(`  产物: ${path.relative(ROOT, JS_DIR)}`)
 }
