@@ -3,7 +3,7 @@
     <vxe-grid
       ref="gridRef"
       v-bind="gridOptions"
-      v-on="gridEvents"
+      @filter-change="filterChangeEvent"
     >
     </vxe-grid>
   </div>
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import type { VxeGridInstance, VxeGridProps, VxeGridListeners } from 'vxe-table'
+import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
 
 interface RowVO {
   id: number
@@ -111,24 +111,19 @@ export default Vue.extend({
       ]
     }
 
-    const gridEvents: VxeGridListeners = {}
-
     return {
       sumRow,
       meanRow,
-      gridOptions,
-      gridEvents
-    }
-  },
-  created () {
-    this.gridEvents = {
-      filterChange: this.handleFilterChange
+      gridOptions
     }
   },
   mounted () {
     this.updateFooter()
   },
   methods: {
+    filterChangeEvent () {
+      this.updateFooter()
+    },
     handleFilterChange () {
       this.updateFooter()
     },
