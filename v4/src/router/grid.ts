@@ -297,6 +297,7 @@ export const gridRouteConfig: RouteRecordConfig = {
       children: [
         { path: 'base', name: 'ComponentGridFilterBase', component: () => import('@/views/grid/filter/base/CodeExample.vue') },
         { path: 'icon', name: 'ComponentGridFilterIcon', component: () => import('@/views/grid/filter/icon/CodeExample.vue') },
+        { path: 'footer', name: 'ComponentGridFilterFooter', component: () => import('@/views/grid/filter/footer/CodeExample.vue') },
         {
           path: 'remote',
           name: 'ComponentGridFilterRemote',

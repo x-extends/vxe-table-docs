@@ -563,6 +563,8 @@ export const gridNavConfig: NavVO = {
       children: [
         // 数据筛选
         { i18nKey: 'app.aside.menu.tableDataFilter', routerLink: { name: 'ComponentGridFilterBase' } },
+        // 实现表尾合计
+        { i18nKey: 'app.aside.menu.tableilterFooter', routerLink: { name: 'ComponentGridFilterFooter' } },
         // 自定义图标
         { i18nKey: 'app.aside.menu.tableCustomIcon', routerLink: { name: 'ComponentGridFilterIcon' } },
         // 服务端筛选
