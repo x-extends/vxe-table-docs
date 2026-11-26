@@ -864,6 +864,8 @@ export const gridNavConfig: NavVO = {
             { i18nKey: 'app.aside.menu.tableShowConnectionShowLine', routerLink: { name: 'ComponentGridTreeLineShowLine' } },
             // 节点缩进
             { i18nKey: 'app.aside.menu.tableShowConnectionIndent', routerLink: { name: 'ComponentGridTreeLineIndent' } },
+            // 线宽度
+            { i18nKey: 'app.aside.menu.tableTreeLineWidth', routerLink: { name: 'ComponentGridTreeLineWidth' } },
             // 线类型
             { i18nKey: 'app.aside.menu.tableShowConnectionLineType', routerLink: { name: 'ComponentGridTreeLineType' } },
             // 线颜色

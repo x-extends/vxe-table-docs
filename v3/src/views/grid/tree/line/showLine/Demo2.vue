@@ -39,7 +39,7 @@ export default Vue.extend({
         iconClose: 'vxe-icon-arrow-right'
       },
       columns: [
-        { type: 'radio', minWidth: 200, treeNode: true },
+        { type: 'radio', title: 'Name', minWidth: 200, treeNode: true },
         { field: 'size', title: 'Size' },
         { field: 'type', title: 'Type' },
         { field: 'date', title: 'Date' }

@@ -23,5 +23,13 @@
         </vxe-tip>
       </template>
     </CodeLight>
+
+    <CodeLight path="grid/tree/line/showLine/Demo4">
+      <template #tip>
+        <vxe-tip status="primary">
+          筛选与排序
+        </vxe-tip>
+      </template>
+    </CodeLight>
   </div>
 </template>
