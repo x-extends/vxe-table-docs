@@ -25,7 +25,9 @@ export default Vue.extend({
       stripe: true,
       height: 400,
       rowConfig: {
-        useKey: true
+        useKey: true,
+        isHover: true,
+        isCurrent: true
       },
       columnConfig: {
         resizable: true

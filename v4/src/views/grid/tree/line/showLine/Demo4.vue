@@ -23,7 +23,9 @@ const gridOptions = reactive<VxeGridProps<RowVO>>({
   stripe: true,
   height: 400,
   rowConfig: {
-    useKey: true
+    useKey: true,
+    isHover: true,
+    isCurrent: true
   },
   columnConfig: {
     resizable: true
