@@ -13,7 +13,7 @@
             <div class="body-view">
               <RouterView />
             </div>
-            <VxeLayoutFooter v-if="!isOfflineDocs" class="layout-footer">
+            <VxeLayoutFooter v-if="showFooter && !isOfflineDocs" class="layout-footer">
               <PageFooter></PageFooter>
             </VxeLayoutFooter>
           </template>
@@ -84,6 +84,10 @@ const isFullView = computed(() => {
 
 const showOperBtn = computed(() => {
   return true// route.name === 'DocsApi'
+})
+
+const showFooter = computed(() => {
+  return route && route.path.indexOf('/start/') > -1
 })
 
 const wxKfEvent = () => {

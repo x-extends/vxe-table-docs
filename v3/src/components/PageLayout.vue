@@ -12,7 +12,7 @@
           <div class="body-view">
             <RouterView />
           </div>
-          <VxeLayoutFooter v-if="!isOfflineDocs" class="layout-footer">
+          <VxeLayoutFooter v-if="showFooter && !isOfflineDocs" class="layout-footer">
             <PageFooter></PageFooter>
           </VxeLayoutFooter>
         </VxeLayoutBody>
@@ -92,6 +92,10 @@ export default Vue.extend({
     showOperBtn () {
       const route = this.$route
       return true// route.name === 'DocsApi'
+    },
+    showFooter () {
+      const route = this.$route
+      return route && route.path.indexOf('/start/') > -1
     }
   }
 })
