@@ -97,7 +97,7 @@ export default Vue.extend({
     },
     showFooter () {
       const route = this.$route
-      return route && route.path.indexOf('/start/') > -1
+      return route && /\/(start|demo)\//.test(route.path)
     }
   },
   methods: {

@@ -76,7 +76,7 @@ const showOperBtn = computed(() => {
 })
 
 const showFooter = computed(() => {
-  return route && route.path.indexOf('/start/') > -1
+  return route && /\/(start|demo)\//.test(route.path)
 })
 
 provide('pluginType', route.query.pt || '')
